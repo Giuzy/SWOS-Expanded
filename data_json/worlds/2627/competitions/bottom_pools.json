@@ -692,6 +692,82 @@
       "storage": "SHARED_WORLD_POOL",
       "native_mapping_status": "UNRESOLVED",
       "native_name": "ST GEORGE WILLAW."
+    },
+    {
+      "key": "44:90",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 89,
+      "name": "Broadmeadow Magic",
+      "home_pyramid_division": 15,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      },
+      "pool_id": 11,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "BROADMEADOW MAGIC",
+      "role": "AUSTRALIAN_CHAMPIONSHIP_FIXED_QUALIFIER"
+    },
+    {
+      "key": "44:91",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 90,
+      "name": "Adelaide City",
+      "home_pyramid_division": 15,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      },
+      "pool_id": 12,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "ADELAIDE CITY",
+      "role": "AUSTRALIAN_CHAMPIONSHIP_FIXED_QUALIFIER"
+    },
+    {
+      "key": "44:92",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 91,
+      "name": "Canberra Croatia",
+      "home_pyramid_division": 15,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      },
+      "pool_id": 13,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "CANBERRA CROATIA",
+      "role": "AUSTRALIAN_CHAMPIONSHIP_FIXED_QUALIFIER"
+    },
+    {
+      "key": "44:93",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 92,
+      "name": "South Hobart",
+      "home_pyramid_division": 15,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      },
+      "pool_id": 14,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "SOUTH HOBART",
+      "role": "AUSTRALIAN_CHAMPIONSHIP_FIXED_QUALIFIER"
     }
   ],
   "roster_template": {
@@ -733,7 +809,7 @@
     "record_id": "pool_id",
     "allocation": "PERSISTENT_UNIQUE_APPEND_ONLY_NO_REUSE",
     "native_mapping": "TAIL_SLOT_FROM_POOL_ID_PREPARED",
-    "next_pool_id": 11,
+    "next_pool_id": 15,
     "legacy_reservations": "Raw country/ordinal is stable club lookup key, not a country-global array offset. Shared JSON is sole source.",
     "native_mapping_rule": "GLOBAL_TEAM_NUMBERS minus immutable pool_id; require slot >= native country end + 256 and no raw/global collision. No country interval changed."
   },

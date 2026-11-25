@@ -5,6 +5,8 @@
 #include <string.h>
 
 typedef struct AdminState {
+    uint32_t *real;           /* sorted stable keys: REAL clubs with TEST players (v311) */
+    uint32_t nreal;
     uint32_t *clubs;          /* sorted stable_club keys */
     uint32_t count;
     uint16_t world;
@@ -16,7 +18,7 @@ static AdminState s_admin;
 
 void ExpCeAdmin_Reset(void)
 {
-    free(s_admin.clubs);
+    free(s_admin.clubs);free(s_admin.real);
     memset(&s_admin,0,sizeof s_admin);
 }
 static int cmp_u32(const void *a,const void *b)
@@ -67,17 +69,51 @@ int ExpCeAdmin_LoadJson(const char *json,int len,uint16_t world)
         n.clubs[n.count++]=((uint32_t)c<<16)|o;
     }
     if(off<0)goto bad;
+    {   /* v311: REAL clubs that only carry TEST players: catalog identity, genuine OG matches */
+        const char *ra=NULL;int rl=0,roff=0,rko,rkl,rvo,rvl,rvt;
+        if(mjson_find(json,len,"$.real_clubs_with_test_players",&ra,&rl)==MJSON_TOK_ARRAY) {
+            uint32_t rc=0u;
+            while((roff=mjson_next(ra,rl,roff,&rko,&rkl,&rvo,&rvl,&rvt))>0) {
+                unsigned c=0,o=0;char t[24];
+                if(rvt!=MJSON_TOK_STRING || rvl<5 || rvl>=(int)sizeof t+2)goto bad;
+                memcpy(t,ra+rvo+1,(size_t)rvl-2u);t[rvl-2]=0;
+                if(sscanf(t,"%u:%u",&c,&o)!=2 || c>255u || !o || o>65535u)goto bad;
+                {   uint32_t *g=(uint32_t *)realloc(n.real,(size_t)(rc+1u)*sizeof *g);
+                    if(!g)goto bad;
+                    n.real=g;n.real[rc++]=((uint32_t)c<<16)|o;}
+            }
+            if(roff<0)goto bad;
+            n.nreal=rc;
+            qsort(n.real,n.nreal,sizeof *n.real,cmp_u32);
+            for(i=1u;i<n.nreal;++i)if(n.real[i]==n.real[i-1u])goto bad;
+        }
+    }
     qsort(n.clubs,n.count,sizeof *n.clubs,cmp_u32);
     for(i=1u;i<n.count;++i)if(n.clubs[i]==n.clubs[i-1u])goto bad; /* duplicate */
+    for(i=0u;i<n.nreal;++i) {   /* a club is either administrative or real, never both */
+        uint32_t q;
+        for(q=0u;q<n.count;++q)if(n.clubs[q]==n.real[i])goto bad;
+    }
     n.loaded=1u;
     ExpCeAdmin_Reset();
     s_admin=n;
     return (int)n.count;
 bad:
-    free(n.clubs);
+    free(n.clubs);free(n.real);
     return -1;
 }
 uint32_t ExpCeAdmin_Count(void){return s_admin.loaded?s_admin.count:0u;}
+int ExpCeAdmin_IsRealWithTestPlayers(ExpandedClubKey club)
+{
+    uint32_t lo=0u,hi=s_admin.nreal;
+    if(!s_admin.loaded || club.world!=s_admin.world)return 0;
+    while(lo<hi) {
+        const uint32_t mid=lo+(hi-lo)/2u;
+        if(s_admin.real[mid]<club.stable_club)lo=mid+1u;
+        else hi=mid;
+    }
+    return lo<s_admin.nreal && s_admin.real[lo]==club.stable_club;
+}
 int ExpCeAdmin_IsTest(ExpandedClubKey club)
 {
     uint32_t lo=0u,hi=s_admin.count;

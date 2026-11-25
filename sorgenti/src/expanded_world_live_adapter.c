@@ -145,7 +145,8 @@ static unsigned import_file(uint8_t file, uint8_t country,
                 ((uint32_t)World_FileCountry(file)<<16)|
                 ((uint32_t)World_Slot(file,t->team.teamOrdinal)+1u),
                 EXP_PARTICIPANT_CLUB};
-            if(World_Current()==WORLD_2627 && ExpCeAdmin_IsTest(tk)) {
+            if(World_Current()==WORLD_2627 &&
+               (ExpCeAdmin_IsTest(tk) || ExpCeAdmin_IsRealWithTestPlayers(tk))) {
                 if(!ExpandedUniversalCatalog_AddClub(t))
                     fprintf(stderr,"[universal-catalog] TEST_CLUB_ROSTER_REJECTED "
                         "file=%u ordinal=%u\n",(unsigned)file,

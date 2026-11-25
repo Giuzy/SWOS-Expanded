@@ -89,6 +89,12 @@ int ExpCeRules_ValidateTable(const ExpCeTableRules *t,ExpCeRuleError *err)
     if(!t->win || t->win>9u)return rule_fail(err,"table.points[0]","win 1..9");
     if(t->draw>=t->win)return rule_fail(err,"table.points[1]","draw < win");
     if(t->loss>t->draw)return rule_fail(err,"table.points[2]","loss <= draw");
+    if(t->draw_penalties &&
+       !(t->draw_pen_win<t->win && t->draw_pen_win>=t->draw_pen_loss &&
+         t->draw_pen_loss>=t->loss && t->draw_pen_win>t->draw_pen_loss))
+        return rule_fail(err,"table.draw_penalties","win > pen-win > pen-loss >= loss");
+    if(!t->draw_penalties && (t->draw_pen_win || t->draw_pen_loss))
+        return rule_fail(err,"table.draw_penalties","points set without the flag");
     if(!t->ntb || t->ntb>EXP_CE_MAX_TIEBREAK)
         return rule_fail(err,"table.tiebreak","1..10 criteria required");
     memset(seen,0,sizeof seen);
@@ -133,9 +139,12 @@ int ExpCeRules_ValidateMatch(const ExpCeMatchRules *m,ExpCeRuleError *err)
         return rule_fail(err,"match.away_goals","only with 2 legs");
     /* A knockout tie must ALWAYS end with a winner: penalties are the only
      * OG terminal decider (replays are not supported). */
-    if(m->needs_winner && !m->penalties)
+    if(m->needs_winner && !m->penalties && !m->rank_tiebreak)
         return rule_fail(err,"match.penalties",
                          "knockout without penalties can end level (no replay)");
+    if(m->rank_tiebreak && (!m->needs_winner || m->penalties))
+        return rule_fail(err,"match.rank_tiebreak",
+                         "only for a knockout tie decided without penalties");
     return 1;
 }
 
@@ -176,6 +185,14 @@ int ExpCeRules_ParseTable(const char *json,int len,const ExpCeTableRules *base,
            v[0]<0 || v[0]>9 || v[1]<0 || v[1]>9 || v[2]<0 || v[2]>9)
             return rule_fail(err,"table.points","[win,draw,loss] 0..9");
         t.win=(uint8_t)v[0];t.draw=(uint8_t)v[1];t.loss=(uint8_t)v[2];
+    }
+    /* v309: "draw_penalties": [penalty-winner points, penalty-loser points] */
+    if(mjson_find(json,len,"$.draw_penalties",&arr,&alen)==MJSON_TOK_ARRAY) {
+        double w,l;
+        if(mjson_get_number(arr,alen,"$[0]",&w)<=0 || mjson_get_number(arr,alen,"$[1]",&l)<=0 ||
+           w<0 || w>9 || l<0 || l>9)
+            return rule_fail(err,"table.draw_penalties","[winner points,loser points] 0..9");
+        t.draw_penalties=1u;t.draw_pen_win=(uint8_t)w;t.draw_pen_loss=(uint8_t)l;
     }
     if(mjson_find(json,len,"$.tiebreak",&arr,&alen)==MJSON_TOK_ARRAY) {
         int off=0,ko,kl,vo,vl,vt;
@@ -219,6 +236,7 @@ int ExpCeRules_ParseMatch(const char *json,int len,const ExpCeMatchRules *base,
     U8("$.extra_time",0,1,extra_time,"match.extra_time");
     U8("$.penalties",0,1,penalties,"match.penalties");
     U8("$.away_goals",0,1,away_goals,"match.away_goals");
+    U8("$.rank_tiebreak",0,2,rank_tiebreak,"match.rank_tiebreak");
     U8("$.bench",0,255,bench,"match.bench");
     U8("$.subs",0,255,subs,"match.subs");
     U8("$.windows",0,255,windows,"match.windows");
@@ -246,6 +264,8 @@ uint64_t ExpCeRules_Hash(const ExpCeTableRules *t,const ExpCeMatchRules *m)
     memset(buf,0,sizeof buf);
     if(t) {
         buf[n++]=t->win;buf[n++]=t->draw;buf[n++]=t->loss;buf[n++]=t->ntb;
+        /* only when used: existing rule sets keep their historical hash */
+        if(t->draw_penalties){buf[n++]=0xD7u;buf[n++]=t->draw_pen_win;buf[n++]=t->draw_pen_loss;}
         for(i=0;i<EXP_CE_MAX_TIEBREAK;++i)buf[n++]=i<t->ntb?t->tiebreak[i]:0u;
     }
     if(m) {
@@ -254,6 +274,7 @@ uint64_t ExpCeRules_Hash(const ExpCeTableRules *t,const ExpCeMatchRules *m)
         buf[n++]=m->subs;buf[n++]=m->windows;buf[n++]=m->halftime_free;
         buf[n++]=m->et_extra_subs;buf[n++]=m->et_extra_windows;
         buf[n++]=m->discipline;
+        if(m->rank_tiebreak)buf[n++]=(uint8_t)(0xB6u+m->rank_tiebreak); /* only when used: historical hashes unchanged */
     }
     for(i=0;i<n;++i){h^=buf[i];h*=UINT64_C(1099511628211);}
     return h;

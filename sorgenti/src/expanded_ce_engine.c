@@ -3,6 +3,7 @@
  * only because of its file guard; no SDL symbol is used here).
  */
 #include "expanded_ce_engine.h"
+#include "expanded_ce_pool_transition.h"
 #include "expanded_universal_date_planner.h"
 #include "expanded_universal_pairings.h"
 #include "expanded_world_time.h"
@@ -102,9 +103,20 @@ static uint64_t def_hash(const ExpCeDef *d)
         unsigned i;
         b[0]=ph->kind;b[1]=ph->groups;b[2]=ph->meetings;b[3]=ph->qualify;
         b[4]=ph->pairing;b[5]=ph->byes;b[6]=ph->higher_home;b[7]=(uint8_t)p;
+        if(ph->qualify_from>1u){h^=0xC3u;h*=UINT64_C(1099511628211);h^=ph->qualify_from;h*=UINT64_C(1099511628211);}
         for(i=0;i<8u;++i){h^=b[i];h*=UINT64_C(1099511628211);}
         for(i=0;i<8u;++i){h^=(uint8_t)(r>>(8u*i));h*=UINT64_C(1099511628211);}
         for(i=0;i<4u;++i){h^=(uint8_t)(ph->host_nonmember_comp>>(8u*i));h*=UINT64_C(1099511628211);}
+        if(ph->nties){unsigned z;h^=0xE7u;h*=UINT64_C(1099511628211);
+            for(z=0u;z<ph->nties*6u;++z){h^=ph->tsrc[z/6u][(z/3u)%2u][z%3u];h*=UINT64_C(1099511628211);}}
+        if(ph->ngp){unsigned z;h^=0xE1u;h*=UINT64_C(1099511628211);
+            for(z=0u;z<ph->ngp*4u;++z){h^=ph->gp[z/4u][z%4u];h*=UINT64_C(1099511628211);}}
+        if(ph->nrel) { /* only when used: existing definitions keep their hash */
+            h^=0xA5u;h*=UINT64_C(1099511628211);
+            h^=ph->rel_anchor;h*=UINT64_C(1099511628211);
+            for(i=0;i<ph->nrel;++i){h^=(uint8_t)ph->rel[i];h*=UINT64_C(1099511628211);
+                h^=(uint8_t)(ph->rel[i]>>8);h*=UINT64_C(1099511628211);}
+        }
         if(ph->extras.rounds || ph->extras.nrivalries) {
             uint32_t k,j,z;
             h^=ph->extras.rounds;h*=UINT64_C(1099511628211);
@@ -115,6 +127,35 @@ static uint64_t def_hash(const ExpCeDef *d)
                     h*=UINT64_C(1099511628211);
                 }
         }
+    }
+    if(d->promotion_playoff){h^=0x77u;h*=UINT64_C(1099511628211);}
+    if(d->fin_gap_min||d->playout_gap_min){h^=0x91u;h*=UINT64_C(1099511628211);
+        h^=d->fin_gap_hi;h*=UINT64_C(1099511628211);h^=d->fin_gap_lo;h*=UINT64_C(1099511628211);
+        h^=d->fin_gap_min;h*=UINT64_C(1099511628211);h^=d->playout_gap_min;h*=UINT64_C(1099511628211);}
+    if(d->first_from_sources){h^=0x2Fu;h*=UINT64_C(1099511628211);}
+    if(d->pool_direct||d->pool_playoff){unsigned i;h^=0x6Du;h*=UINT64_C(1099511628211);
+        h^=d->pool_direct;h*=UINT64_C(1099511628211);h^=d->pool_playoff;h*=UINT64_C(1099511628211);
+        for(i=0u;i<d->pool_n && i<8u;++i){h^=(uint8_t)d->pool_clubs[i];h*=UINT64_C(1099511628211);
+            h^=(uint8_t)(d->pool_clubs[i]>>8);h*=UINT64_C(1099511628211);h^=(uint8_t)(d->pool_clubs[i]>>16);h*=UINT64_C(1099511628211);}}
+    if(d->par_n) {
+        unsigned i;
+        h^=0x5Bu;h*=UINT64_C(1099511628211);
+        h^=d->par_n;h*=UINT64_C(1099511628211);
+        h^=d->par_per_group;h*=UINT64_C(1099511628211);
+        h^=d->par_extra;h*=UINT64_C(1099511628211);
+        for(i=0u;i<d->par_n && i<8u;++i){h^=d->par_groups[i];h*=UINT64_C(1099511628211);}
+    }
+    if(d->has_playout) { /* only when used: existing definitions keep their hash */
+        const ExpCePhaseDef *po=&d->playout;
+        const uint64_t r=ExpCeRules_Hash(NULL,&po->match);
+        unsigned i;
+        h^=0x3Du;h*=UINT64_C(1099511628211);
+        h^=d->playout_hi;h*=UINT64_C(1099511628211);
+        h^=d->playout_lo;h*=UINT64_C(1099511628211);
+        h^=d->playout_relegated_total;h*=UINT64_C(1099511628211);
+        h^=po->higher_home;h*=UINT64_C(1099511628211);
+        for(i=0u;i<8u;++i){h^=(uint8_t)(r>>(8u*i));h*=UINT64_C(1099511628211);}
+        for(i=0u;i<po->nrel;++i){h^=(uint8_t)po->rel[i];h*=UINT64_C(1099511628211);}
     }
     return h;
 }
@@ -130,6 +171,11 @@ static int def_check(ExpCeDef *d)
     }
     for(p=0;p<d->nphases;++p) {
         ExpCePhaseDef *ph=&d->phases[p];
+        if(ph->kind==EXP_CE_PHASE_TABLE && ph->table.draw_penalties &&
+           (!ph->match.penalties || ph->match.extra_time || ph->match.legs!=1u) &&
+           !ph->missing[0])
+            snprintf(ph->missing,sizeof ph->missing,
+                     "table.draw_penalties needs single-leg match penalties and no extra time");
         if(ph->missing[0]) {
             snprintf(buf,sizeof buf,"phase %u: %.79s",(unsigned)p,ph->missing);
             snprintf(d->missing,sizeof d->missing,"%s",buf);
@@ -150,7 +196,8 @@ static int def_check(ExpCeDef *d)
                 return 0;
             }
             if(!ph->groups || ph->groups>EXP_CE_MAX_GROUPS || !ph->meetings ||
-               ph->meetings>4u || ph->match.needs_winner) {
+               ph->meetings>4u ||
+               (ph->match.needs_winner && !ph->table.draw_penalties)) {
                 snprintf(d->missing,sizeof d->missing,
                          "phase %u: groups/meetings invalid",(unsigned)p);
                 return 0;
@@ -174,11 +221,15 @@ static int def_check(ExpCeDef *d)
             snprintf(d->missing,sizeof d->missing,"phase %u: kind",(unsigned)p);
             return 0;
         }
-        if(!ExpCeRules_ValidateMatch(&ph->match,&err)) {
-            snprintf(d->missing,sizeof d->missing,"phase %u %.24s: %.48s",
+        {   /* v311: a group phase whose draws are decided on penalties validates its match
+             * rules as a tie that needs a winner (penalties allowed, no extra time) */
+            ExpCeMatchRules mchk=ph->match;
+            if(ph->kind==EXP_CE_PHASE_TABLE && ph->table.draw_penalties)mchk.needs_winner=1u;
+            if(!ExpCeRules_ValidateMatch(&mchk,&err)) {                snprintf(d->missing,sizeof d->missing,"phase %u %.24s: %.48s",
                      (unsigned)p,err.field,err.reason);return 0;
+            }
         }
-        if(!ph->has_window && !ph->ndays) {
+        if(!ph->has_window && !ph->ndays && !ph->nrel) {
             snprintf(d->missing,sizeof d->missing,
                      "phase %u: no date window/days",(unsigned)p);return 0;
         }
@@ -506,7 +557,7 @@ static int phase_qualifiers(const ExpandedUniversalRegistry *r,
         ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
         uint32_t used=0u,rank;
         /* rank-major order: all group winners first, then runners-up */
-        for(rank=1u;rank<=ph->qualify;++rank)
+        for(rank=ph->qualify_from?ph->qualify_from:1u;rank<=ph->qualify;++rank)
             for(g=1u;g<=ph->groups;++g) {
                 if(!ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(phase,g),&ph->table,
                        host?host->name_cmp:NULL,host?host->user:NULL,
@@ -564,7 +615,8 @@ static int reseed_table(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
     for(i=0;i<n;++i) {
         for(j=0;j<nr;++j)
             if(ExpandedClubKey_Equal(out[i].club,rows[j].club))break;
-        if(j==nr || j>=d->phases[0].qualify)return 0;
+        if(j==nr || j>=d->phases[0].qualify ||
+           j+1u<(d->phases[0].qualify_from?d->phases[0].qualify_from:1u))return 0;
         out[i].seed=(uint8_t)(j+1u);
         for(j=0;j<i;++j)if(out[j].seed==out[i].seed)return 0;
     }
@@ -641,6 +693,7 @@ static int ko_pairs_raw(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
     *np=m/2u;
     switch(ph->pairing) {
     case EXP_CE_PAIR_LISTED:
+    case EXP_CE_PAIR_SOURCES:
     case EXP_CE_PAIR_BRACKET:
         for(i=0;i<*np;++i){pairs[i].hi=pool[2u*i];pairs[i].lo=pool[2u*i+1u];}
         return 1;
@@ -652,6 +705,27 @@ static int ko_pairs_raw(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
         uint64_t seed=draw_seed(e,phase);
         draw_shuffle(pool,m,&seed);
         for(i=0;i<*np;++i){pairs[i].hi=pool[2u*i];pairs[i].lo=pool[2u*i+1u];}
+        return 1;
+    }
+    case EXP_CE_PAIR_GROUP_TABLE: {
+        uint32_t p;
+        if(ph->ngp==0u || *np!=ph->ngp || ph->byes) {
+            snprintf(why,whylen,"GROUP_TABLE: %lu entrants need %u explicit pairs",
+                     (unsigned long)n,(unsigned)ph->ngp);
+            return 0;
+        }
+        for(p=0u;p<ph->ngp;++p) {
+            const ExpCeEntrant *hi=NULL,*lo=NULL;
+            for(i=0u;i<n;++i) {
+                if(pool[i].group==ph->gp[p][0] && pool[i].rank==ph->gp[p][1])hi=&pool[i];
+                if(pool[i].group==ph->gp[p][2] && pool[i].rank==ph->gp[p][3])lo=&pool[i];
+            }
+            if(!hi || !lo || hi==lo) {
+                snprintf(why,whylen,"GROUP_TABLE pair %u: qualifier not found",(unsigned)p+1u);
+                return 0;
+            }
+            pairs[p].hi=*hi;pairs[p].lo=*lo;
+        }
         return 1;
     }
     case EXP_CE_PAIR_CROSS_GROUPS: {
@@ -731,6 +805,50 @@ static int form_groups(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
     }
     return 1;
 }
+/* v311: sides of a SOURCES phase (rank of the opening table, winner/loser of an earlier
+ * tie), in tie order: out[2t]=home, out[2t+1]=away. 1 ok, 0 not resolvable (yet). */
+static int src_phase_entrants(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
+                              const ExpCeEdition *e,const ExpCeHost *host,uint32_t phase,
+                              ExpCeEntrant *out,uint32_t *n)
+{
+    const ExpCePhaseDef *ph=&d->phases[phase];
+    ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+    uint32_t nr=0u,t,s,k=0u;
+    int have_table=0;
+    *n=0u;
+    if(!ph->nties || ph->nties>8u)return 0;
+    for(t=0u;t<ph->nties;++t)
+        for(s=0u;s<2u;++s) {
+            const uint8_t *x=ph->tsrc[t][s];
+            ExpandedClubKey c={0};
+            uint32_t seed=0u;
+            if(x[0]==1u) {
+                if(!have_table) {
+                    if(d->phases[0].kind!=EXP_CE_PHASE_TABLE || d->phases[0].groups!=1u ||
+                       phase_complete(r,d,e,0u)!=1 ||
+                       !ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(0u,1u),&d->phases[0].table,
+                           host?host->name_cmp:NULL,host?host->user:NULL,rows,EXP_CE_MAX_ENTRANTS,&nr))
+                        return 0;
+                    have_table=1;
+                }
+                if(x[1]>nr)return 0;
+                c=rows[x[1]-1u].club;seed=x[1];
+            } else {
+                ExpandedClubKey w,l;
+                const uint32_t pp=x[1];
+                if(pp>=phase || pp<1u || d->phases[pp].kind!=EXP_CE_PHASE_KNOCKOUT ||
+                   ExpCeTie_Resolve(r,e->key,EXP_CE_STAGE(pp,EXP_CE_KO_GROUP),x[2],
+                                    &d->phases[pp].match,&w,&l)!=EXP_CE_TIE_DECIDED)return 0;
+                c=x[0]==2u?w:l;
+            }
+            if(k>=EXP_CE_MAX_ENTRANTS)return 0;
+            out[k]=(ExpCeEntrant){c,x[0]==1u?EXP_CE_SRC_PHASE_RANK:EXP_CE_SRC_PHASE_WINNER,
+                (uint8_t)seed,0u,(uint8_t)(k+1u),0u,e->key.competition.stable_competition,e->key.start_day};
+            ++k;
+        }
+    *n=k;
+    return 1;
+}
 /* Generate the fixtures of `phase` of edition e. 1 ok, 0 = blocked (why). */
 static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
                           const ExpCeDef *d,ExpCeEdition *e,uint32_t phase,
@@ -748,7 +866,9 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
         if(prev!=INT32_MIN && prev+1+(int32_t)ph->window.rest>earliest)
             earliest=prev+1+(int32_t)ph->window.rest;
     }
-    if(!phase_entrants(r,d,e,host,phase,ent,&n) || n<2u) {
+    if(!((ph->kind==EXP_CE_PHASE_KNOCKOUT && ph->pairing==EXP_CE_PAIR_SOURCES)?
+         src_phase_entrants(r,d,e,host,phase,ent,&n):
+         phase_entrants(r,d,e,host,phase,ent,&n)) || n<2u) {
         snprintf(why,whylen,"phase %u: entrants unavailable (%lu)",
                  (unsigned)phase,(unsigned long)n);
         *block=EXP_CE_BLOCK_ENTRANTS;
@@ -810,7 +930,23 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
         uint32_t np=0u,t;
         int32_t days[2];
         if(!ko_pairs(d,e,phase,ent,n,pairs,&np,why,whylen))return 0;
-        if(!plan_phase_days_ex(d,e,ph,earliest,ph->match.legs,days)) {
+        if(ph->nrel) {
+            /* v309: days relative to the ACTUAL end of an earlier phase */
+            const int32_t anchor=stage_last_day(r,e->key,ph->rel_anchor);
+            uint32_t k;
+            int okRel=anchor!=INT32_MIN && ph->rel_anchor<phase &&
+                      ph->nrel==ph->match.legs;
+            for(k=0u;okRel && k<ph->nrel;++k) {
+                days[k]=anchor+(int32_t)ph->rel[k];
+                if(days[k]<earliest)okRel=0;
+            }
+            if(!okRel) {
+                snprintf(why,whylen,"phase %u: relative days do not fit after phase %u",
+                         (unsigned)phase,(unsigned)ph->rel_anchor);
+                *block=EXP_CE_BLOCK_DATE_PLAN;
+                return 0;
+            }
+        } else if(!plan_phase_days_ex(d,e,ph,earliest,ph->match.legs,days)) {
             snprintf(why,whylen,"phase %u: knockout legs do not fit the window",
                      (unsigned)phase);
             *block=EXP_CE_BLOCK_DATE_PLAN;
@@ -864,6 +1000,176 @@ done:
     return ok;
 }
 
+/* ------------------------------------------------------------------ */
+/* league PLAY-OUT (v310): a relegation tie between two table ranks     */
+/* ------------------------------------------------------------------ */
+/* points of regular ranks hi and lo (1-based) of the completed regular table */
+static int regular_gap(const ExpandedUniversalRegistry *r,const ExpCeDef *d,const ExpCeEdition *e,
+                       uint32_t hi,uint32_t lo,uint32_t *gap)
+{
+    ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+    uint32_t nr=0u;
+    if(!r || !d || !e || hi<1u || lo<=hi || d->phases[0].kind!=EXP_CE_PHASE_TABLE ||
+       d->phases[0].groups!=1u || e->partial || phase_complete(r,d,e,0u)!=1 ||
+       !ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(0u,1u),&d->phases[0].table,NULL,NULL,
+                           rows,EXP_CE_MAX_ENTRANTS,&nr) || nr<lo)return 0;
+    *gap=rows[hi-1u].points>=rows[lo-1u].points?rows[hi-1u].points-rows[lo-1u].points:0u;
+    return 1;
+}
+int ExpCe_FinalsSkipped(const ExpandedUniversalRegistry *r,const ExpCeDef *d,const ExpCeEdition *e)
+{
+    uint32_t gap=0u;
+    return d && d->fin_gap_min && d->nphases>1u && regular_gap(r,d,e,d->fin_gap_hi,d->fin_gap_lo,&gap) &&
+           gap>d->fin_gap_min;
+}
+int ExpCe_PlayoutSkipped(const ExpandedUniversalRegistry *r,const ExpCeDef *d,const ExpCeEdition *e)
+{
+    uint32_t gap=0u;
+    return d && d->playout_gap_min && ExpCe_PlayoutActive(d) &&
+           regular_gap(r,d,e,d->playout_hi,d->playout_lo,&gap) && gap>d->playout_gap_min;
+}
+int ExpCe_PlayoutActive(const ExpCeDef *d)
+{
+    if(d && d->origin==EXP_CE_ORIGIN_LEAGUE && d->has_playout && d->pool_playoff)  /* pool challenger */
+        return !d->missing[0] && d->pool_direct && d->pool_n>d->pool_direct;
+    return d && d->origin==EXP_CE_ORIGIN_LEAGUE && d->has_playout &&
+           !d->missing[0] && d->playout_hi>=1u && d->playout_hi<d->playout_lo &&
+           d->playout_lo+(uint32_t)(d->relegated-1u)<=d->clubs &&
+           d->relegated==d->playout_relegated_total && d->relegated>=1u;
+}
+/* ---- v311 bottom pool: universe, current pool, deterministic role order ---- */
+static int up_has(const uint32_t *a,uint32_t n,uint32_t v);
+static int cmp_u32_local(const void *a,const void *b)
+{const uint32_t x=*(const uint32_t *)a,y=*(const uint32_t *)b;return x<y?-1:x>y?1:0;}
+/* all clubs this competition ever had (any edition) + the configured pool clubs */
+static uint32_t pool_universe(const ExpCeDef *d,uint32_t *out,uint32_t cap)
+{
+    uint32_t n=0u,i,j;
+    for(i=0u;i<d->pool_n && n<cap;++i)
+        if(!up_has(out,n,d->pool_clubs[i]))out[n++]=d->pool_clubs[i];
+    for(i=0u;i<s_ce.neds;++i) {
+        const ExpCeEdition *x=&s_ce.eds[i];
+        if(x->def_id!=d->id)continue;
+        for(j=0u;j<x->nentrants && n<cap;++j)
+            if(!up_has(out,n,x->entrants[j].club.stable_club))out[n++]=x->entrants[j].club.stable_club;
+    }
+    return n;
+}
+/* pool = universe minus members, then the role order of THIS edition: a deterministic CE
+ * draw seeded by (competition, year), never catalogue order. pool[0..direct) are the direct
+ * entrants, pool[direct] the play-out challenger. Returns the pool size, UINT32_MAX on error. */
+static uint32_t pool_roles(const ExpCeDef *d,const ExpCeEdition *e,uint32_t *pool,uint32_t cap)
+{
+    uint32_t uni[64],nu=pool_universe(d,uni,64u),np=0u,i;
+    uint64_t seed;
+    if(nu>=64u)return UINT32_MAX;
+    for(i=0u;i<nu;++i) {
+        uint32_t j;int in=0;
+        for(j=0u;j<e->nentrants;++j)if(e->entrants[j].club.stable_club==uni[i])in=1;
+        if(!in){if(np>=cap)return UINT32_MAX;pool[np++]=uni[i];}
+    }
+    qsort(pool,np,sizeof *pool,cmp_u32_local);
+    seed=UINT64_C(0x9E3779B97F4A7C15)^((uint64_t)d->id<<20)^e->year;
+    for(i=np;i>1u;--i) {                       /* Fisher-Yates with a fixed LCG */
+        uint32_t j,t;
+        seed=seed*UINT64_C(6364136223846793005)+UINT64_C(1442695040888963407);
+        j=(uint32_t)((seed>>33)%i);
+        t=pool[i-1u];pool[i-1u]=pool[j];pool[j]=t;
+    }
+    return np;
+}
+/* 1 generated and fully played with a decided tie (loser set), 0 otherwise */
+int ExpCe_PlayoutLoser(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
+                       const ExpCeEdition *e,uint32_t *loser)
+{
+    ExpandedClubKey w,l;
+    if(!r || !d || !e || !loser || !ExpCe_PlayoutActive(d))return 0;
+    if(ExpCe_PlayoutSkipped(r,d,e)) {   /* the gap rule: the lower rank goes down directly */
+        ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+        uint32_t nr=0u;
+        if(!ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(0u,1u),&d->phases[0].table,NULL,NULL,
+                               rows,EXP_CE_MAX_ENTRANTS,&nr) || nr<d->playout_lo)return 0;
+        *loser=rows[d->playout_lo-1u].club.stable_club;
+        return 1;
+    }
+    if(ExpCeTie_Resolve(r,e->key,EXP_CE_STAGE(EXP_CE_PLAYOUT_PHASE,EXP_CE_KO_GROUP),1u,
+                        &d->playout.match,&w,&l)!=EXP_CE_TIE_DECIDED)return 0;
+    *loser=l.stable_club;
+    return 1;
+}
+/* 1 generated, 0 not yet / not applicable, -1 blocked (why). */
+static int generate_playout(ExpandedUniversalRegistry *r,const ExpCeHost *host,
+                            const ExpCeDef *d,ExpCeEdition *e,int32_t today,
+                            uint8_t *block,char *why,size_t wl)
+{
+    ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+    uint32_t nr=0u,leg;
+    const ExpCePhaseDef *ph=&d->playout;
+    ExpandedUniversalFixture fx[2];
+    ExpandedClubKey hi,lo,first,second;
+    int32_t days[2],anchor;
+    *block=EXP_CE_BLOCK_DATA_MISSING;
+    if(!ExpCe_PlayoutActive(d) || e->partial)return 0;
+    if(phase_complete(r,d,e,0u)!=1)return 0;
+    if(ExpCe_PlayoutSkipped(r,d,e))return 0; /* gap rule: no play-out is played */
+    if(!ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(0u,1u),&d->phases[0].table,
+           host?host->name_cmp:NULL,host?host->user:NULL,rows,EXP_CE_MAX_ENTRANTS,&nr) ||
+       nr!=e->nentrants || (!d->pool_playoff && nr<d->playout_lo)) {
+        snprintf(why,wl,"play-out: regular table unavailable");return -1;
+    }
+    if(d->pool_playoff) {   /* v311: upper = just above the direct drop, lower = pool challenger */
+        uint32_t pool[16],np=pool_roles(d,e,pool,16u);
+        if(np==UINT32_MAX || np<=d->pool_direct || nr<=d->pool_direct+1u) {
+            snprintf(why,wl,"play-out: bottom pool has no challenger");return -1;
+        }
+        hi=rows[nr-d->pool_direct-1u].club;
+        lo=(ExpandedClubKey){e->key.competition.world,pool[d->pool_direct],EXP_PARTICIPANT_CLUB};
+    } else {
+        hi=rows[d->playout_hi-1u].club;lo=rows[d->playout_lo-1u].club;
+    }
+    for(leg=0u;leg<ph->match.legs;++leg)days[leg]=0;
+    anchor=stage_last_day(r,e->key,0u);
+    if(anchor==INT32_MIN || ph->nrel!=ph->match.legs) {
+        snprintf(why,wl,"play-out: no anchor / relative days mismatch");
+        *block=EXP_CE_BLOCK_DATE_PLAN;return -1;
+    }
+    for(leg=0u;leg<ph->nrel;++leg) {
+        days[leg]=anchor+(int32_t)ph->rel[leg];
+        if(days[leg]<=today){
+            snprintf(why,wl,"play-out: relative day already passed");
+            *block=EXP_CE_BLOCK_DATE_PLAN;return -1;
+        }
+    }
+    if(host && host->club_ok &&
+       (!host->club_ok(host->user,hi) || !host->club_ok(host->user,lo))) {
+        snprintf(why,wl,"play-out: club has no roster");*block=EXP_CE_BLOCK_ROSTER;return -1;
+    }
+    /* higher_home 1: the better rank hosts leg 0; 2: it hosts the deciding leg */
+    first=ph->higher_home==1u?hi:lo;second=first.stable_club==hi.stable_club?lo:hi;
+    for(leg=0u;leg<ph->match.legs;++leg) {
+        fixture_base(d,e,&fx[leg]);
+        fx[leg].home=leg?second:first;
+        fx[leg].away=leg?first:second;
+        fx[leg].day_index=days[leg];
+        fx[leg].key.stage=EXP_CE_STAGE(EXP_CE_PLAYOUT_PHASE,EXP_CE_KO_GROUP);
+        fx[leg].key.tie=1u;fx[leg].key.leg=(uint16_t)leg;
+        fx[leg].event_id=fixture_event_id(&fx[leg].key);
+        if(!ExpandedUniversal_FixtureValid(&fx[leg])) {
+            snprintf(why,wl,"play-out: generated fixture invalid");
+            *block=EXP_CE_BLOCK_CAPACITY;return -1;
+        }
+    }
+    if(!host || !host->insert || !host->insert(host->user,fx,ph->match.legs)) {
+        snprintf(why,wl,"play-out: fixtures rejected by the registry");
+        *block=EXP_CE_BLOCK_COLLISION;return -1;
+    }
+    fprintf(stderr,"[ce-engine] PLAYOUT_GENERATED world=%u competition=%lu year=%u "
+        "ranks=%u/%u legs=%u source=CE_TABLE no-invented-club=1\n",
+        (unsigned)e->key.competition.world,
+        (unsigned long)e->key.competition.stable_competition,(unsigned)e->year,
+        (unsigned)d->playout_hi,(unsigned)d->playout_lo,(unsigned)ph->match.legs);
+    return 1;
+}
 /* ------------------------------------------------------------------ */
 /* lifecycle                                                            */
 /* ------------------------------------------------------------------ */
@@ -936,18 +1242,39 @@ int ExpCe_EditionBlocked(ExpandedEditionKey edition)
 /* final order: champion first. TABLE last phase: table ranks.
  * KO last phase: winner, runner-up, then losers of earlier KO phases by
  * elimination (latest first), then group non-qualifiers by group rank. */
+static void fo_push(ExpCeEdition *e,uint32_t *k,uint32_t club)
+{
+    uint32_t i;
+    for(i=0u;i<*k;++i)if(e->final_order[i]==club)return; /* already placed (bracket graphs) */
+    e->final_order[(*k)++]=club;
+}
 static int final_order(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
                        ExpCeEdition *e,const ExpCeHost *host)
 {
     int32_t p;
     uint32_t k=0u;
     e->nfinal=0u;
-    for(p=(int32_t)d->nphases-1;p>=0;--p) {
+    const int skipped=d->origin==EXP_CE_ORIGIN_LEAGUE && ExpCe_FinalsSkipped(r,d,e);
+    for(p=skipped?0:(int32_t)d->nphases-1;p>=0;--p) {
         const ExpCePhaseDef *ph=&d->phases[p];
         if(ph->kind==EXP_CE_PHASE_TABLE) {
             ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
             uint32_t used=0u,rank,g;
-            const uint32_t from=(uint32_t)p+1u==d->nphases?1u:(uint32_t)ph->qualify+1u;
+            const uint32_t from=((uint32_t)p+1u==d->nphases || skipped)?1u:(uint32_t)ph->qualify+1u;
+            /* v309: ranks ABOVE the first qualifying rank (e.g. the two directly
+             * promoted Serie B clubs) did not play the finals; they follow the
+             * finals result in the title order (rollover uses regular_order) */
+            if(!skipped && (uint32_t)p+1u!=d->nphases && ph->qualify_from>1u)
+                for(rank=1u;rank<ph->qualify_from;++rank)
+                    for(g=1u;g<=ph->groups;++g) {
+                        if(!ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(p,g),&ph->table,
+                               host?host->name_cmp:NULL,host?host->user:NULL,
+                               rows,EXP_CE_MAX_ENTRANTS,&used))return 0;
+                        if(used>=rank) {
+                            if(k>=EXP_CE_MAX_ENTRANTS)return 0;
+                            e->final_order[k++]=rows[rank-1u].club.stable_club;
+                        }
+                    }
             for(rank=from;rank<=EXP_CE_MAX_ENTRANTS;++rank) {
                 int any=0;
                 for(g=1u;g<=ph->groups;++g) {
@@ -969,15 +1296,15 @@ static int final_order(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
                 if(ties!=1u || ExpCeTie_Resolve(r,e->key,
                        EXP_CE_STAGE(p,EXP_CE_KO_GROUP),1u,&ph->match,&w,&l)!=
                    EXP_CE_TIE_DECIDED)return 0;
-                e->final_order[k++]=w.stable_club;
-                e->final_order[k++]=l.stable_club;
+                fo_push(e,&k,w.stable_club);
+                fo_push(e,&k,l.stable_club);
             } else
                 for(t=1u;t<=ties;++t) {
                     ExpandedClubKey w,l;
                     if(ExpCeTie_Resolve(r,e->key,EXP_CE_STAGE(p,EXP_CE_KO_GROUP),
                            t,&ph->match,&w,&l)!=EXP_CE_TIE_DECIDED ||
                        k>=EXP_CE_MAX_ENTRANTS)return 0;
-                    e->final_order[k++]=l.stable_club;
+                    fo_push(e,&k,l.stable_club);
                 }
         }
     }
@@ -1212,6 +1539,37 @@ static int league_independent_rollover(ExpandedUniversalRegistry *r,
             EXP_CE_SRC_KEPT_NO_MOVEMENT,0u,0u,(uint8_t)(i+1u),0u,
             d->id,e->key.start_day};
     n->state=EXP_CE_ED_PARTICIPANTS;
+    if(d->pool_direct && !e->partial && league_rank_count(e)==e->nentrants && e->nentrants<=64u) {
+        /* v311 bottom pool exchange: complete regular order, deterministic roles, the OG
+         * play-out winner when a challenger plays; one atomic successor */
+        uint32_t members[64],ranked[64],pool[16],np,nxm[64],nxp[16],win=0u,k;
+        ExpCePoolSwap work[8];
+        int rc;
+        for(k=0u;k<e->nentrants;++k){members[k]=e->entrants[k].club.stable_club;ranked[k]=league_rank_at(e,k);}
+        np=pool_roles(d,e,pool,16u);
+        if(np==UINT32_MAX || np<d->pool_direct+d->pool_playoff)goto pool_fail;
+        if(d->pool_playoff) {
+            ExpandedClubKey w,l;
+            if(ExpCeTie_Resolve(r,e->key,EXP_CE_STAGE(EXP_CE_PLAYOUT_PHASE,EXP_CE_KO_GROUP),1u,
+                                &d->playout.match,&w,&l)!=EXP_CE_TIE_DECIDED)goto pool_fail;
+            win=w.stable_club;
+        }
+        rc=ExpCePool_Transition(1,1,members,ranked,e->nentrants,pool,np,d->pool_direct,d->pool_playoff,
+                                win,work,8u,nxm,nxp);
+        if(rc!=EXP_CE_POOL_READY)goto pool_fail;
+        for(k=0u;k<e->nentrants;++k) {
+            uint32_t q,from=0u;
+            for(q=0u;q<e->nentrants;++q)if(e->entrants[q].club.stable_club==nxm[k])from=1u;
+            n->entrants[k]=(ExpCeEntrant){(ExpandedClubKey){d->world,nxm[k],EXP_PARTICIPANT_CLUB},
+                from?EXP_CE_SRC_KEPT_NO_MOVEMENT:EXP_CE_SRC_PROMOTED,0u,0u,(uint8_t)(k+1u),0u,d->id,e->key.start_day};
+            if(!from)n->entrants[k].source=EXP_CE_SRC_PROMOTED; /* entered from the pool */
+        }
+        ed_log("EDITION_PARTICIPANTS",n,"bottom pool exchange (direct drops, play-out, roles by CE draw)");
+        (void)r;(void)host;
+        return 1;
+pool_fail:
+        ed_log("EDITION_PARTICIPANTS",n,"bottom pool exchange not possible yet: same clubs");
+    } else
     ed_log("EDITION_PARTICIPANTS",n,"independent calendar: same clubs, no movement");
     (void)r;(void)host;
     return 1;
@@ -1221,6 +1579,101 @@ static int league_independent_rollover(ExpandedUniversalRegistry *r,
 /* Prepare every successor in private memory before publishing any of them.
  * One malformed ranking or allocation failure must not split a family.
  * The existing prefix/partial policies are preserved, not expanded here. */
+/* v309: the clubs a division promotes at rollover (stable ids, best first).
+ * Normal: the first `promoted` regular ranks. promotion_playoff: the first
+ * promoted-1 regular ranks plus the WINNER of the finals (a club outside them
+ * by construction). UINT32_MAX = the finals result is missing/inconsistent. */
+static uint32_t league_up_set(const ExpandedUniversalRegistry *r,const ExpCeDef *dd,
+                             const ExpCeEdition *o,uint32_t *out)
+{
+    uint32_t n=0u,j;
+    if(!dd->promoted)return 0u;
+    if(dd->promoted>15u)return UINT32_MAX;
+    if(!dd->promotion_playoff || ExpCe_FinalsSkipped(r,dd,o)) {
+        if(league_rank_count(o)<dd->promoted)return UINT32_MAX;
+        for(j=0;j<dd->promoted;++j)out[n++]=league_rank_at(o,j);
+        return n;
+    }
+    if(o->nfinal<1u || league_rank_count(o)<dd->promoted)return UINT32_MAX;
+    for(j=0;j+1u<dd->promoted;++j)out[n++]=league_rank_at(o,j);
+    for(j=0;j<n;++j)if(out[j]==o->final_order[0])return UINT32_MAX;
+    out[n++]=o->final_order[0];
+    return n;
+}
+static int up_has(const uint32_t *a,uint32_t n,uint32_t v)
+{uint32_t i;for(i=0;i<n;++i)if(a[i]==v)return 1;return 0;}
+/* v310: the clubs a division relegates (`want` movements). Normal: the bottom
+ * `want` regular ranks. With an active play-out: the bottom want-1 ranks plus the
+ * LOSER of the play-out tie (UINT32_MAX when it is not decided/inconsistent). */
+static uint32_t league_down_set(const ExpandedUniversalRegistry *r,const ExpCeDef *dd,
+                                const ExpCeEdition *o,uint32_t want,uint32_t *out)
+{
+    const uint32_t cnt=league_rank_count(o);
+    uint32_t n=0u,j,lo=0u;
+    if(!want)return 0u;
+    if(want>15u || cnt<want)return UINT32_MAX;
+    if(ExpCe_PlayoutActive(dd) && want==dd->relegated) {
+        if(!ExpCe_PlayoutLoser(r,dd,o,&lo))return UINT32_MAX;
+        for(j=cnt-(want-1u);j<cnt;++j)out[n++]=league_rank_at(o,j);
+        if(up_has(out,n,lo))return UINT32_MAX;
+        out[n++]=lo;
+        return n;
+    }
+    for(j=cnt-want;j<cnt;++j)out[n++]=league_rank_at(o,j);
+    return n;
+}
+/* v311: promoted clubs of a parallel level and where the relegated ones go.
+ * Fills P (promoted, best first) with their group index, and R (relegated, in order
+ * of the upper division regular table). 1 ok, 0 not ready/inconsistent. */
+static int parallel_level_plan(const ExpandedUniversalRegistry *r,const ExpCeDef *up,
+                               const ExpCeEdition *upc,const ExpCeDef *const *div,
+                               const ExpCeEdition *const *cur,
+                               uint32_t *P,uint32_t *Pg,uint32_t *nP,uint32_t *R,uint32_t *nR)
+{
+    uint32_t gi,e,used[8]={0},n=0u,j;
+    *nP=0u;*nR=0u;
+    for(gi=0u;gi<up->par_n;++gi) {
+        uint32_t ups[16],nup=league_up_set(r,div[up->par_groups[gi]],cur[up->par_groups[gi]],ups);
+        if(nup==UINT32_MAX || nup!=up->par_per_group)return 0;
+        for(j=0u;j<nup;++j){P[n]=ups[j];Pg[n]=gi;++n;}
+        used[gi]=nup;
+    }
+    for(e=0u;e<up->par_extra;++e) {
+        int best=-1;uint32_t bp=0,bf=0,bpl=1u,bclub=0u;
+        int32_t bg=0;
+        for(gi=0u;gi<up->par_n;++gi) {
+            const uint32_t g=up->par_groups[gi];
+            ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+            uint32_t nr=0u,x,club;
+            if(used[gi]>=league_rank_count(cur[g]))continue;
+            club=league_rank_at(cur[g],used[gi]);
+            if(!ExpCeTable_Compute(r,cur[g]->key,EXP_CE_STAGE(0u,1u),&div[g]->phases[0].table,
+                                   NULL,NULL,rows,EXP_CE_MAX_ENTRANTS,&nr))return 0;
+            for(x=0u;x<nr && rows[x].club.stable_club!=club;++x){}
+            if(x==nr || !rows[x].played)return 0;
+            {   /* points per game: pts/played compared by cross multiplication */
+                const uint64_t a=(uint64_t)rows[x].points*bpl,b=(uint64_t)bp*rows[x].played;
+                const int32_t gd=(int32_t)rows[x].goals_for-(int32_t)rows[x].goals_against;
+                int better=best<0;
+                if(!better) {
+                    if(a!=b)better=a>b;
+                    else if(gd!=bg)better=gd>bg;
+                    else if(rows[x].goals_for!=bf)better=rows[x].goals_for>bf;
+                }
+                if(better){best=(int)gi;bp=rows[x].points;bpl=rows[x].played;
+                           bg=gd;bf=rows[x].goals_for;bclub=club;}
+            }
+        }
+        if(best<0)return 0;
+        P[n]=bclub;Pg[n]=(uint32_t)best;++n;++used[best];
+    }
+    *nP=n;
+    {   uint32_t nrel=league_down_set(r,up,upc,up->relegated,R);
+        if(nrel==UINT32_MAX || nrel!=n)return 0;
+        *nR=nrel;
+    }
+    return n>0u && n<=15u;
+}
 static int league_family_rollover(ExpandedUniversalRegistry *r,
                                   const ExpCeHost *host,const ExpCeDef *d0)
 {
@@ -1228,7 +1681,8 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
     const ExpCeEdition *cur[16];
     uint32_t old[16],nd=d0->divisions,i,j,k,seg=0u;
     ExpCeEdition *next;
-    int chain=1,invalid=0;
+    int chain=1,invalid=0,plActive=0;
+    uint32_t plP[16],plPg[16],nplP=0u,plR[16],nplR=0u;
     if(!nd || nd>16u)return -1;
     for(i=0;i<nd;++i) {
         uint32_t best=UINT32_MAX;
@@ -1250,6 +1704,17 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
     if(chain==0) {
         seg=league_chain_prefix(d0);
         if(seg>=2u && seg<nd)chain=2;
+    }
+    {
+        const ExpCeDef *upd=(chain==2 && seg>=1u)?div[seg-1u]:NULL;
+        if(upd && upd->par_n) {
+            uint32_t gi;
+            plActive=1;
+            for(gi=0u;gi<upd->par_n;++gi)
+                if(upd->par_groups[gi]<seg || upd->par_groups[gi]>=nd)plActive=0;
+            if(plActive && !parallel_level_plan(r,upd,cur[seg-1u],div,cur,plP,plPg,&nplP,plR,&nplR))
+                return -1;
+        }
     }
     next=calloc(nd,sizeof *next);
     if(!next)return -1;
@@ -1275,7 +1740,7 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
         }
         if(chain<0 || (chain==2 && i>=seg))continue;
         up=div[i]->promoted;
-        down=(chain==2 && i+1u==seg)?0u:div[i]->relegated;
+        down=(chain==2 && i+1u==seg && !plActive)?0u:div[i]->relegated;
         if(league_rank_count(o)!=o->nentrants || up+down>league_rank_count(o))goto fail;
         for(j=0;j<league_rank_count(o);++j) {
             const ExpandedClubKey c={d0->world,league_rank_at(o,j),EXP_PARTICIPANT_CLUB};
@@ -1288,15 +1753,44 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
             ExpCeEdition *n=&next[i];
             k=0u;
             if(chain<0 || (chain==2 && i>=seg)) {
+                /* v311: a parallel group exchanges clubs with the division above */
+                uint32_t gi=UINT32_MAX;
+                if(plActive) {
+                    const ExpCeDef *upd=div[seg-1u];
+                    uint32_t q;
+                    for(q=0u;q<upd->par_n;++q)if(upd->par_groups[q]==i)gi=q;
+                }
                 for(j=0;j<cur[i]->nentrants;++j) {
+                    uint32_t q,gone=0u;
+                    if(gi!=UINT32_MAX)
+                        for(q=0u;q<nplP;++q)
+                            if(plPg[q]==gi && plP[q]==cur[i]->entrants[j].club.stable_club)gone=1u;
+                    if(gone)continue;
                     n->entrants[k]=(ExpCeEntrant){cur[i]->entrants[j].club,
                         EXP_CE_SRC_KEPT_NO_MOVEMENT,0u,0u,(uint8_t)(k+1u),0u,
                         div[i]->id,cur[i]->key.start_day};
                     ++k;
                 }
+                if(gi!=UINT32_MAX) {
+                    uint32_t q;
+                    for(q=0u;q<nplR;++q) {
+                        if(plPg[q]!=gi)continue;
+                        if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
+                        n->entrants[k]=(ExpCeEntrant){
+                            (ExpandedClubKey){d0->world,plR[q],EXP_PARTICIPANT_CLUB},
+                            EXP_CE_SRC_RELEGATED,(uint8_t)(q+1u),0u,(uint8_t)(k+1u),0u,
+                            div[seg-1u]->id,cur[seg-1u]->key.start_day};
+                        ++k;
+                    }
+                }
             } else {
-                const uint32_t down=(chain==2 && i+1u==seg)?0u:div[i]->relegated;
-                for(j=div[i]->promoted;j+down<league_rank_count(cur[i]);++j) {
+                const uint32_t down=(chain==2 && i+1u==seg && !plActive)?0u:div[i]->relegated;
+                uint32_t ups[16],nup=league_up_set(r,div[i],cur[i],ups);
+                uint32_t dn[16],ndn=league_down_set(r,div[i],cur[i],down,dn);
+                if(nup==UINT32_MAX || ndn==UINT32_MAX)goto fail;
+                for(j=0u;j<league_rank_count(cur[i]);++j) {
+                    if(up_has(ups,nup,league_rank_at(cur[i],j)) ||
+                       up_has(dn,ndn,league_rank_at(cur[i],j)))continue;
                     if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
                     n->entrants[k]=(ExpCeEntrant){
                         (ExpandedClubKey){d0->world,league_rank_at(cur[i],j),EXP_PARTICIPANT_CLUB},
@@ -1304,24 +1798,42 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
                         div[i]->id,cur[i]->key.start_day};
                     ++k;
                 }
-                if(i>0u)
-                    for(j=league_rank_count(cur[i-1u])-div[i-1u]->relegated;j<league_rank_count(cur[i-1u]);++j) {
+                if(i>0u) {
+                    uint32_t dn2[16],ndn2=league_down_set(r,div[i-1u],cur[i-1u],
+                                                          div[i-1u]->relegated,dn2);
+                    if(ndn2==UINT32_MAX)goto fail;
+                    for(j=0u;j<ndn2;++j) {
                         if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
                         n->entrants[k]=(ExpCeEntrant){
-                            (ExpandedClubKey){d0->world,league_rank_at(cur[i-1u],j),EXP_PARTICIPANT_CLUB},
+                            (ExpandedClubKey){d0->world,dn2[j],EXP_PARTICIPANT_CLUB},
                             EXP_CE_SRC_RELEGATED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
                             div[i-1u]->id,cur[i-1u]->key.start_day};
                         ++k;
                     }
-                if(i+1u<(chain==2?seg:nd))
-                    for(j=0;j<div[i+1u]->promoted;++j) {
+                }
+                if(plActive && i+1u==seg) {
+                    uint32_t q;
+                    for(q=0u;q<nplP;++q) {
+                        const uint32_t gdiv=div[seg-1u]->par_groups[plPg[q]];
                         if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
                         n->entrants[k]=(ExpCeEntrant){
-                            (ExpandedClubKey){d0->world,league_rank_at(cur[i+1u],j),EXP_PARTICIPANT_CLUB},
+                            (ExpandedClubKey){d0->world,plP[q],EXP_PARTICIPANT_CLUB},
+                            EXP_CE_SRC_PROMOTED,(uint8_t)(q+1u),0u,(uint8_t)(k+1u),0u,
+                            div[gdiv]->id,cur[gdiv]->key.start_day};
+                        ++k;
+                    }
+                } else if(i+1u<(chain==2?seg:nd)) {
+                    uint32_t ups2[16],nup2=league_up_set(r,div[i+1u],cur[i+1u],ups2);
+                    if(nup2==UINT32_MAX)goto fail;
+                    for(j=0;j<nup2;++j) {
+                        if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
+                        n->entrants[k]=(ExpCeEntrant){
+                            (ExpandedClubKey){d0->world,ups2[j],EXP_PARTICIPANT_CLUB},
                             EXP_CE_SRC_PROMOTED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
                             div[i+1u]->id,cur[i+1u]->key.start_day};
                         ++k;
                     }
+                }
             }
             n->nentrants=k;
             if(k!=div[i]->clubs)goto fail;
@@ -1465,6 +1977,17 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                             ed_log("EDITION_ACTIVE",e,NULL);break;
                         }
                 }
+                /* v310: league play-out, generated beside the linear phases once the
+                 * regular season is complete; the edition cannot close before it */
+                if(d->origin==EXP_CE_ORIGIN_LEAGUE && ExpCe_PlayoutActive(d) &&
+                   !e->partial && !phase_generated(r,e->key,EXP_CE_PLAYOUT_PHASE) &&
+                   phase_complete(r,d,e,0u)==1 && !ExpCe_PlayoutSkipped(r,d,e)) {
+                    uint8_t pblock=0u;
+                    const int gi=generate_playout(r,host,d,e,today,&pblock,why,sizeof why);
+                    if(gi<0){ed_block(r,host,&s_ce.eds[ed_index(e)],pblock,why);++moved;break;}
+                    if(gi>0)++moved;
+                    e=&s_ce.eds[ed_index(e)];
+                }
                 if(pc<0) {
                     snprintf(why,sizeof why,"phase %u: tie level although a "
                              "winner is required",(unsigned)e->phase);
@@ -1472,7 +1995,8 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                     break;
                 }
                 if(!pc)break;
-                if((uint32_t)e->phase+1u<d->nphases) {
+                if((uint32_t)e->phase+1u<d->nphases &&
+                   !(e->phase==0u && d->origin==EXP_CE_ORIGIN_LEAGUE && ExpCe_FinalsSkipped(r,d,e))) {
                     if(d->origin==EXP_CE_ORIGIN_LEAGUE && e->partial) {
                         ed_block(r,host,e,EXP_CE_BLOCK_DATA_MISSING,
                                  "finals require complete regular table");++moved;break;
@@ -1486,6 +2010,12 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                         ed_log("PHASE_ADVANCED",e,NULL);
                     }
                     ++moved;break;
+                }
+                if(d->origin==EXP_CE_ORIGIN_LEAGUE && ExpCe_PlayoutActive(d) && !e->partial) {
+                    uint32_t lo=0u;
+                    if((!phase_generated(r,e->key,EXP_CE_PLAYOUT_PHASE) &&
+                        !ExpCe_PlayoutSkipped(r,d,e)) ||
+                       !ExpCe_PlayoutLoser(r,d,e,&lo))break; /* play-out still to be played */
                 }
                 if(!final_order(r,d,e,host)) {
                     ed_block(r,host,e,EXP_CE_BLOCK_DATA_MISSING,
@@ -1523,7 +2053,12 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                 if(today>=e->expiry_day) {
                     int ar;
                     if(!host || !host->archive)break;
-                    ar=host->archive(host->user,e->key,e->final_order[0],
+                    /* v309: a league whose finals only decide a promotion keeps the
+                     * regular-season leader as champion */
+                    ar=d->promotion_playoff && e->nregular>=2u?
+                       host->archive(host->user,e->key,e->regular_order[0],
+                                     e->regular_order[1],today):
+                       host->archive(host->user,e->key,e->final_order[0],
                                      e->final_order[1],today);
                     if(ar!=0 && ar!=1)
                         break; /* never archive without the registry proof */
@@ -1682,7 +2217,7 @@ int ExpCe_BeginWorld(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             if(d->missing[0]){ed_block(r,host,e,EXP_CE_BLOCK_DATA_MISSING,d->missing);continue;}
             memcpy(e->entrants,d->first,(size_t)d->nfirst*sizeof *d->first);
             e->nentrants=d->nfirst;
-            if(!e->nentrants)
+            if(!e->nentrants && !d->first_from_sources)
                 ed_block(r,host,e,EXP_CE_BLOCK_ENTRANTS,"first edition entrants");
         }
     }
@@ -1695,6 +2230,12 @@ int ExpCe_RulesForFixture(const ExpandedUniversalFixture *f,
     uint32_t phase;
     if(!f || !(d=def_find(f->key.edition.competition.stable_competition)))return 0;
     phase=EXP_CE_STAGE_PHASE(f->key.stage);
+    if(phase==EXP_CE_PLAYOUT_PHASE) { /* v310 league play-out */
+        if(!ExpCe_PlayoutActive(d) || f->competition_type!=d->type)return 0;
+        if(match)*match=d->playout.match;
+        if(table)memset(table,0,sizeof *table);
+        return 1;
+    }
     /* integrity: the fixture's declared type must be its definition's */
     if(phase>=d->nphases || d->phases[phase].missing[0] ||
        f->competition_type!=d->type)return 0;
@@ -1722,6 +2263,11 @@ int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,
     uint32_t phase;
     if(!f || !(d=def_find(f->key.edition.competition.stable_competition)))return 0;
     phase=EXP_CE_STAGE_PHASE(f->key.stage);
+    if(phase==EXP_CE_PLAYOUT_PHASE && ExpCe_PlayoutActive(d)) {
+        if(kind)*kind=EXP_CE_PHASE_KNOCKOUT;
+        if(meetings)*meetings=d->playout.match.legs;
+        return 1;
+    }
     if(phase>=d->nphases)return 0;
     if(kind)*kind=d->phases[phase].kind;
     if(meetings)*meetings=d->phases[phase].meetings;
@@ -1819,7 +2365,7 @@ static const struct {const char *n;uint8_t v;} k_pairings[]={
     {"LISTED",EXP_CE_PAIR_LISTED},{"SEEDED",EXP_CE_PAIR_SEEDED},
     {"CROSS_GROUPS",EXP_CE_PAIR_CROSS_GROUPS},{"BRACKET",EXP_CE_PAIR_BRACKET},
     {"DRAW",EXP_CE_PAIR_DRAW},{"POTS",EXP_CE_PAIR_POTS},
-    {"RESEED_TABLE",EXP_CE_PAIR_RESEED_TABLE}};
+    {"RESEED_TABLE",EXP_CE_PAIR_RESEED_TABLE},{"GROUP_TABLE",EXP_CE_PAIR_GROUP_TABLE},{"SOURCES",EXP_CE_PAIR_SOURCES}};
 static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
                        const ExpCeMatchRules *mbase,ExpCePhaseDef *ph)
 {
@@ -1857,6 +2403,14 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
     }
     ph->match=*mbase;
     if(ph->kind==EXP_CE_PHASE_KNOCKOUT)ph->match.needs_winner=1u;
+    {   /* v311: a group phase whose drawn matches are decided on penalties plays them like a
+         * single-leg tie that needs a winner (the table keeps the regulation draw) */
+        const char *tp=NULL;int tl=0;
+        if(ph->kind==EXP_CE_PHASE_TABLE &&
+           ((tbase && tbase->draw_penalties) ||
+            mjson_find(j,l,"$.table.draw_penalties",&tp,&tl)==MJSON_TOK_ARRAY))
+            ph->match.needs_winner=1u;
+    }
     if(mjson_find(j,l,"$.match",&o,&ol)==MJSON_TOK_OBJECT &&
        !ExpCeRules_ParseMatch(o,ol,&ph->match,&ph->match,&err)) {
         snprintf(ph->missing,sizeof ph->missing,"%.24s: %.50s",err.field,err.reason);
@@ -1884,6 +2438,64 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
     if(mjson_find(j,l,"$.window",&o,&ol)==MJSON_TOK_OBJECT) {
         if(!parse_window(o,ol,&ph->window,ph->missing,sizeof ph->missing))return 0;
         ph->has_window=1u;
+    }
+    if(mjson_find(j,l,"$.ties",&o,&ol)==MJSON_TOK_ARRAY) {
+        /* "ties": [{"home":{"rank":1},"away":{"rank":2}}, {"home":{"loser":[1,1]},"away":{"winner":[1,2]}}] */
+        int to=0,tk,tkl,tv,tvl,tt;
+        while((to=mjson_next(o,ol,to,&tk,&tkl,&tv,&tvl,&tt))>0) {
+            unsigned side;
+            if(tt!=MJSON_TOK_OBJECT || ph->nties>=8u){snprintf(ph->missing,sizeof ph->missing,"ties");return 0;}
+            for(side=0u;side<2u;++side) {
+                const char *sp=NULL;int sl=0;
+                double a=0,b=0;
+                uint8_t *x=ph->tsrc[ph->nties][side];
+                if(mjson_find(o+tv,tvl,side?"$.away":"$.home",&sp,&sl)!=MJSON_TOK_OBJECT){
+                    snprintf(ph->missing,sizeof ph->missing,"ties side");return 0;}
+                if(mjson_get_number(sp,sl,"$.rank",&a)>0 && a>=1 && a<=64){x[0]=1u;x[1]=(uint8_t)a;}
+                else if(mjson_get_number(sp,sl,"$.winner[0]",&a)>0 && mjson_get_number(sp,sl,"$.winner[1]",&b)>0 &&
+                        a>=1 && a<=7 && b>=1 && b<=8){x[0]=2u;x[1]=(uint8_t)a;x[2]=(uint8_t)b;}
+                else if(mjson_get_number(sp,sl,"$.loser[0]",&a)>0 && mjson_get_number(sp,sl,"$.loser[1]",&b)>0 &&
+                        a>=1 && a<=7 && b>=1 && b<=8){x[0]=3u;x[1]=(uint8_t)a;x[2]=(uint8_t)b;}
+                else {snprintf(ph->missing,sizeof ph->missing,"ties source");return 0;}
+            }
+            ++ph->nties;
+        }
+    }
+    if(mjson_find(j,l,"$.pairs",&o,&ol)==MJSON_TOK_ARRAY) {
+        /* "pairs": [[homeGroup,homeRank,awayGroup,awayRank], ...] (GROUP_TABLE) */
+        int po2=0,pk2,pkl2,pv2,pvl2,pt2;
+        while((po2=mjson_next(o,ol,po2,&pk2,&pkl2,&pv2,&pvl2,&pt2))>0) {
+            double q[4];
+            unsigned z;
+            if(pt2!=MJSON_TOK_ARRAY || ph->ngp>=8u){snprintf(ph->missing,sizeof ph->missing,"pairs");return 0;}
+            for(z=0u;z<4u;++z) {
+                char path[8];
+                snprintf(path,sizeof path,"$[%u]",z);
+                if(mjson_get_number(o+pv2,pvl2,path,&q[z])<=0 || q[z]<1 || q[z]>16){
+                    snprintf(ph->missing,sizeof ph->missing,"pairs values");return 0;}
+                ph->gp[ph->ngp][z]=(uint8_t)q[z];
+            }
+            ++ph->ngp;
+        }
+    }
+    if(mjson_find(j,l,"$.after_phase_end",&o,&ol)==MJSON_TOK_OBJECT) {
+        /* "after_phase_end": {"phase": 0, "days": [8, 11]} */
+        double av=0;const char *da=NULL;int dl=0,doff=0,dko,dkl,dvo,dvl,dvt;
+        if(mjson_get_number(o,ol,"$.phase",&av)<=0 || av<0 || av>6 ||
+           mjson_find(o,ol,"$.days",&da,&dl)!=MJSON_TOK_ARRAY) {
+            snprintf(ph->missing,sizeof ph->missing,"after_phase_end");return 0;
+        }
+        ph->rel_anchor=(uint8_t)av;
+        while((doff=mjson_next(da,dl,doff,&dko,&dkl,&dvo,&dvl,&dvt))>0) {
+            double dv=0;char nb[16];
+            if(dvt!=MJSON_TOK_NUMBER || dvl>=(int)sizeof nb || ph->nrel>=4u){
+                snprintf(ph->missing,sizeof ph->missing,"after_phase_end.days");return 0;}
+            memcpy(nb,da+dvo,(size_t)dvl);nb[dvl]=0;dv=atof(nb);
+            if(dv<1 || dv>200 || (ph->nrel && (uint16_t)dv<=ph->rel[ph->nrel-1u])){
+                snprintf(ph->missing,sizeof ph->missing,"after_phase_end.days 1..200 ascending");return 0;}
+            ph->rel[ph->nrel++]=(uint16_t)dv;
+        }
+        if(!ph->nrel){snprintf(ph->missing,sizeof ph->missing,"after_phase_end.days empty");return 0;}
     }
     if(mjson_find(j,l,"$.first_edition_days",&o,&ol)==MJSON_TOK_ARRAY) {
         int off=0,ko,kl,vo,vl,vt;
@@ -1922,7 +2534,8 @@ int ExpCe_LoadLeagueFinals(const char *json,int len,uint16_t world)
     while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
         const char *row=arr+vo,*o=NULL,*phases=NULL;
         int ol=0,pl=0,po=0,pk,pkl,pv,pvl,pt;
-        double country=0,comp=0,div=0,qual=0;
+        double country=0,comp=0,div=0,qual=0,from=1;
+        int pp=0;
         ExpCeDef *d,*copy;
         if(mjson_find(row,vl,"$.finals",&o,&ol)==MJSON_TOK_INVALID)continue;
         if(vt!=MJSON_TOK_OBJECT || mjson_find(row,vl,"$.finals",&o,&ol)!=MJSON_TOK_OBJECT ||
@@ -1936,14 +2549,36 @@ int ExpCe_LoadLeagueFinals(const char *json,int len,uint16_t world)
            qual!=(double)(uint8_t)qual ||
            mjson_find(o,ol,"$.phases",&phases,&pl)!=MJSON_TOK_ARRAY)goto done;
         d=def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)div));
-        if(!d || d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE ||
+        if(!d) {
+            /* v309: a finals row of a league this world does not define (e.g. a
+             * reduced test/mod league set) is not an error of the others */
+            fprintf(stderr,"[ce-engine] LEAGUE_FINALS_SKIPPED country=%u comp=%u "
+                "division=%u reason=league-not-defined-in-this-world\n",
+                (unsigned)country,(unsigned)comp,(unsigned)div);
+            continue;
+        }
+        if(d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE ||
            d->nphases!=1u || d->missing[0] || qual>d->clubs)goto done;
         i=(uint32_t)(d-s_ce.defs);
         if(staged[i])goto done;
         copy=(ExpCeDef *)malloc(sizeof *copy);
         if(!copy)goto done;
         staged[i]=copy;*copy=*d;
+        if(mjson_get_number(o,ol,"$.qualify_from",&from)>0 &&
+           (from<1 || from>qual-1 || from!=(double)(uint8_t)from))goto done;
+        if(mjson_get_bool(o,ol,"$.promotion_playoff",&pp)>0)copy->promotion_playoff=(uint8_t)(pp!=0);
+        {   /* v311: "skip_if_gap": {"hi_rank":3,"lo_rank":4,"points_greater_than":14} */
+            const char *go=NULL;int gl=0;
+            double ghi=0,glo=0,gmin=0;
+            if(mjson_find(o,ol,"$.skip_if_gap",&go,&gl)==MJSON_TOK_OBJECT) {
+                if(mjson_get_number(go,gl,"$.hi_rank",&ghi)<=0 || mjson_get_number(go,gl,"$.lo_rank",&glo)<=0 ||
+                   mjson_get_number(go,gl,"$.points_greater_than",&gmin)<=0 ||
+                   ghi<1 || glo<=ghi || glo>64 || gmin<1 || gmin>99)goto done;
+                copy->fin_gap_hi=(uint8_t)ghi;copy->fin_gap_lo=(uint8_t)glo;copy->fin_gap_min=(uint8_t)gmin;
+            }
+        }
         copy->phases[0].qualify=(uint8_t)qual;
+        copy->phases[0].qualify_from=(uint8_t)from;
         while((po=mjson_next(phases,pl,po,&pk,&pkl,&pv,&pvl,&pt))>0) {
             ExpCePhaseDef *ph;
             if(pt!=MJSON_TOK_OBJECT || copy->nphases>=EXP_CE_MAX_PHASES)goto done;
@@ -1953,14 +2588,211 @@ int ExpCe_LoadLeagueFinals(const char *json,int len,uint16_t world)
         }
         if(po<0 || copy->nphases<2u || !def_check(copy))goto done;
         /* Check qualifier count and byes now, not halfway through the season. */
-        {uint32_t p,n=(uint32_t)qual;
+        {uint32_t p,n=(uint32_t)(qual-from+1.0);
          for(p=1u;p<copy->nphases;++p){
              const ExpCePhaseDef *ph=&copy->phases[p];
-             if(ph->pairing!=EXP_CE_PAIR_RESEED_TABLE || n<ph->byes+2u ||
+             if(ph->pairing==EXP_CE_PAIR_SOURCES) {   /* v311: bracket graph, validate references */
+                 uint32_t tt,ss;
+                 if(!ph->nties)goto done;
+                 for(tt=0u;tt<ph->nties;++tt)
+                     for(ss=0u;ss<2u;++ss) {
+                         const uint8_t *x=ph->tsrc[tt][ss];
+                         if(x[0]==1u){ if(x[1]<(uint8_t)(from) || x[1]>(uint8_t)qual)goto done; }
+                         else if(x[0]==2u || x[0]==3u) {
+                             if(x[1]<1u || x[1]>=p || copy->phases[x[1]].kind!=EXP_CE_PHASE_KNOCKOUT ||
+                                x[2]<1u || x[2]>(copy->phases[x[1]].pairing==EXP_CE_PAIR_SOURCES?
+                                                 copy->phases[x[1]].nties:255u))goto done;
+                         } else goto done;
+                     }
+                 n=ph->nties; /* ties of the last SOURCES phase decide the closing arithmetic */
+                 continue;
+             }
+             if((ph->pairing!=EXP_CE_PAIR_RESEED_TABLE &&
+                 (p<2u || (ph->pairing!=EXP_CE_PAIR_SEEDED && ph->pairing!=EXP_CE_PAIR_BRACKET))) ||
+                n<ph->byes+2u ||
                 ((n-ph->byes)&1u))goto done;
              n=ph->byes+(n-ph->byes)/2u;
          }
          if(n!=1u)goto done;}
+        copy->rules_hash=def_hash(copy);
+        ++added;
+    }
+    if(off<0)goto done;
+    for(i=0;i<s_ce.ndefs;++i)if(staged[i])s_ce.defs[i]=*staged[i];
+    rc=added;
+done:
+    for(i=0;i<s_ce.ndefs;++i)free(staged[i]);
+    free(staged);return rc;
+}
+/* v311: the shared pool clubs of one league division (stable keys); replaces the list. The
+ * definition must be an independent regional pyramid. 1 ok. */
+int ExpCe_SetPoolClubs(uint8_t country,uint8_t comp_id,uint8_t division,const uint32_t *keys,uint32_t n)
+{
+    ExpCeDef *d=(ExpCeDef *)def_find(ExpCe_LeagueCompetitionId(country,comp_id,division));
+    uint32_t i,j;
+    if(!d || d->origin!=EXP_CE_ORIGIN_LEAGUE || n>8u || (n && !keys))return 0;
+    for(i=0u;i<n;++i) {
+        if(!keys[i])return 0;
+        for(j=0u;j<i;++j)if(keys[j]==keys[i])return 0;
+    }
+    memset(d->pool_clubs,0,sizeof d->pool_clubs);
+    for(i=0u;i<n;++i)d->pool_clubs[i]=keys[i];
+    d->pool_n=(uint8_t)n;
+    d->rules_hash=def_hash(d);
+    return 1;
+}
+/* "pool": {"direct":N,"playoff":0|1} on a league_calendar.json row; the pool clubs come from
+ * ExpCe_SetPoolClubs. A play-out needs the row's "playout" (rules/days). */
+int ExpCe_LoadLeaguePools(const char *json,int len,uint16_t world)
+{
+    const char *arr=NULL;
+    int alen=0,off=0,ko,kl,vo,vl,vt,added=0;
+    double schema=0;
+    if(!json || mjson_get_number(json,len,"$.schema",&schema)<=0 || schema!=1 ||
+       mjson_find(json,len,"$.leagues",&arr,&alen)!=MJSON_TOK_ARRAY)return -1;
+    while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
+        const char *row=arr+vo,*o=NULL;
+        int ol=0;
+        double country=0,comp=0,div=0,dir=0,po=0;
+        ExpCeDef *d;
+        if(mjson_find(row,vl,"$.pool",&o,&ol)==MJSON_TOK_INVALID)continue;
+        if(vt!=MJSON_TOK_OBJECT || mjson_find(row,vl,"$.pool",&o,&ol)!=MJSON_TOK_OBJECT ||
+           mjson_get_number(row,vl,"$.team_number",&country)<=0 ||
+           mjson_get_number(row,vl,"$.comp_id",&comp)<=0 ||
+           mjson_get_number(row,vl,"$.division",&div)<=0 ||
+           mjson_get_number(o,ol,"$.direct",&dir)<=0 || dir<1 || dir>3)return -1;
+        (void)mjson_get_number(o,ol,"$.playoff",&po);
+        if(po!=0 && po!=1)return -1;
+        d=(ExpCeDef *)def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)div));
+        if(!d)continue;
+        if(d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE || d->missing[0] || d->nphases<1u ||
+           (po && !d->has_playout))return -1;
+        d->pool_direct=(uint8_t)dir;d->pool_playoff=(uint8_t)po;
+        d->rules_hash=def_hash(d);
+        ++added;
+    }
+    if(off<0)return -1;
+    return added;
+}
+/* v311: optional parallel level below a league division (league_calendar.json row):
+ *   "parallel_level": {"groups":[2,3,4],"promoted_per_group":1,"extra_promoted":1}
+ * The division's relegations become groups*promoted_per_group+extra (the movement
+ * the data declare); every group must exist in the same family and promote
+ * `promoted_per_group`. All rows validated first. -1 malformed. */
+int ExpCe_LoadParallelLevels(const char *json,int len,uint16_t world)
+{
+    const char *arr=NULL;
+    int alen=0,off=0,ko,kl,vo,vl,vt,added=0,rc=-1;
+    double schema=0;
+    ExpCeDef **staged=NULL;
+    uint32_t i;
+    if(!json || mjson_get_number(json,len,"$.schema",&schema)<=0 || schema!=1 ||
+       mjson_find(json,len,"$.leagues",&arr,&alen)!=MJSON_TOK_ARRAY)return -1;
+    staged=(ExpCeDef **)calloc(s_ce.ndefs?s_ce.ndefs:1u,sizeof *staged);
+    if(!staged)return -1;
+    while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
+        const char *row=arr+vo,*o=NULL,*ga=NULL;
+        int ol=0,gl=0,goff=0,gko,gkl,gvo,gvl,gvt;
+        double country=0,comp=0,div=0,per=0,extra=0;
+        ExpCeDef *d,*copy;
+        if(mjson_find(row,vl,"$.parallel_level",&o,&ol)==MJSON_TOK_INVALID)continue;
+        if(vt!=MJSON_TOK_OBJECT || mjson_find(row,vl,"$.parallel_level",&o,&ol)!=MJSON_TOK_OBJECT ||
+           mjson_get_number(row,vl,"$.team_number",&country)<=0 ||
+           mjson_get_number(row,vl,"$.comp_id",&comp)<=0 ||
+           mjson_get_number(row,vl,"$.division",&div)<=0 ||
+           mjson_get_number(o,ol,"$.promoted_per_group",&per)<=0 || per<1 || per>4 ||
+           mjson_find(o,ol,"$.groups",&ga,&gl)!=MJSON_TOK_ARRAY)goto done;
+        (void)mjson_get_number(o,ol,"$.extra_promoted",&extra);
+        if(extra<0 || extra>4)goto done;
+        d=def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)div));
+        if(!d)continue;
+        if(d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE || d->missing[0])goto done;
+        i=(uint32_t)(d-s_ce.defs);
+        if(staged[i])goto done;
+        copy=(ExpCeDef *)malloc(sizeof *copy);
+        if(!copy)goto done;
+        staged[i]=copy;*copy=*d;
+        copy->par_n=0u;
+        while((goff=mjson_next(ga,gl,goff,&gko,&gkl,&gvo,&gvl,&gvt))>0) {
+            double g=0;
+            char nb[16];
+            const ExpCeDef *gd;
+            if(gvt!=MJSON_TOK_NUMBER || gvl>=(int)sizeof nb || copy->par_n>=8u)goto done;
+            memcpy(nb,ga+gvo,(size_t)gvl);nb[gvl]=0;g=atof(nb);
+            if(g<=div || g>15)goto done;
+            gd=def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)g));
+            if(!gd || gd->missing[0] || gd->origin!=EXP_CE_ORIGIN_LEAGUE ||
+               gd->promoted!=(uint8_t)per || gd->clubs<(uint16_t)(per+extra+1))goto done;
+            copy->par_groups[copy->par_n++]=(uint8_t)g;
+        }
+        if(goff<0 || copy->par_n<1u)goto done;
+        copy->par_per_group=(uint8_t)per;copy->par_extra=(uint8_t)extra;
+        copy->relegated=(uint8_t)((double)copy->par_n*per+extra);
+        if(copy->relegated>15u || copy->relegated>=copy->clubs)goto done;
+        copy->rules_hash=def_hash(copy);
+        ++added;
+    }
+    if(off<0)goto done;
+    for(i=0;i<s_ce.ndefs;++i)if(staged[i])s_ce.defs[i]=*staged[i];
+    rc=added;
+done:
+    for(i=0;i<s_ce.ndefs;++i)free(staged[i]);
+    free(staged);return rc;
+}
+/* v310: optional league play-out on league_calendar.json rows:
+ *   "playout": {"rank_hi":16,"rank_lo":17,"relegated_total":4,"kind":"KNOCKOUT",
+ *     "pairing":"LISTED","higher_home":2,"match":{...},"after_phase_end":{...}}
+ * Validated for ALL rows before any definition changes. A row whose league is not
+ * defined in this world is skipped. -1 malformed, else the number applied. */
+int ExpCe_LoadLeaguePlayouts(const char *json,int len,uint16_t world)
+{
+    const char *arr=NULL;
+    int alen=0,off=0,ko,kl,vo,vl,vt,added=0,rc=-1;
+    double schema=0;
+    ExpCeDef **staged=NULL;
+    uint32_t i;
+    if(!json || mjson_get_number(json,len,"$.schema",&schema)<=0 || schema!=1 ||
+       mjson_find(json,len,"$.leagues",&arr,&alen)!=MJSON_TOK_ARRAY)return -1;
+    staged=(ExpCeDef **)calloc(s_ce.ndefs?s_ce.ndefs:1u,sizeof *staged);
+    if(!staged)return -1;
+    while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
+        const char *row=arr+vo,*o=NULL;
+        int ol=0;
+        double country=0,comp=0,div=0,hi=0,lo=0,tot=0;
+        ExpCeDef *d,*copy;
+        if(mjson_find(row,vl,"$.playout",&o,&ol)==MJSON_TOK_INVALID)continue;
+        if(vt!=MJSON_TOK_OBJECT || mjson_find(row,vl,"$.playout",&o,&ol)!=MJSON_TOK_OBJECT ||
+           mjson_get_number(row,vl,"$.team_number",&country)<=0 ||
+           mjson_get_number(row,vl,"$.comp_id",&comp)<=0 ||
+           mjson_get_number(row,vl,"$.division",&div)<=0 ||
+           country<0 || country>254 || comp<0 || comp>255 || div<0 || div>15 ||
+           mjson_get_number(o,ol,"$.rank_hi",&hi)<=0 || mjson_get_number(o,ol,"$.rank_lo",&lo)<=0 ||
+           mjson_get_number(o,ol,"$.relegated_total",&tot)<=0 ||
+           hi<1 || lo<=hi || lo>64 || tot<1 || tot>15)goto done;
+        d=def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)div));
+        if(!d)continue; /* league not defined in this world */
+        if(d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE || d->nphases<1u ||
+           d->missing[0] || lo>d->clubs)goto done;
+        i=(uint32_t)(d-s_ce.defs);
+        if(staged[i])goto done;
+        copy=(ExpCeDef *)malloc(sizeof *copy);
+        if(!copy)goto done;
+        staged[i]=copy;*copy=*d;
+        memset(&copy->playout,0,sizeof copy->playout);
+        if(!parse_phase(o,ol,&copy->phases[0].table,&copy->phases[0].match,&copy->playout) ||
+           copy->playout.kind!=EXP_CE_PHASE_KNOCKOUT ||
+           copy->playout.nrel!=copy->playout.match.legs || copy->playout.rel_anchor!=0u ||
+           copy->playout.higher_home<1u || copy->playout.higher_home>2u)goto done;
+        {   ExpCeRuleError err;
+            if(!ExpCeRules_ValidateMatch(&copy->playout.match,&err))goto done; }
+        {   double pg=0;
+            if(mjson_get_number(o,ol,"$.skip_if_gap_points_greater_than",&pg)>0) {
+                if(pg<1 || pg>99)goto done;
+                copy->playout_gap_min=(uint8_t)pg;
+            }
+        }
+        copy->has_playout=1u;copy->playout_hi=(uint8_t)hi;copy->playout_lo=(uint8_t)lo;
+        copy->playout_relegated_total=(uint8_t)tot;
         copy->rules_hash=def_hash(copy);
         ++added;
     }
@@ -2071,6 +2903,9 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                 d->first_year=(uint16_t)v;
             if(json_str(o,ol,"$.missing",t,sizeof t) && !d->missing[0])
                 snprintf(d->missing,sizeof d->missing,"first edition: %.80s",t);
+            {   int fs=0;
+                if(mjson_get_bool(o,ol,"$.from_sources",&fs)>0)d->first_from_sources=(uint8_t)(fs!=0);
+            }
             if(mjson_find(o,ol,"$.entrants",&ea,&el)==MJSON_TOK_ARRAY)
                 while((eo=mjson_next(ea,el,eo,&ek,&ekl,&ev,&evl,&et))>0) {
                     ExpCeEntrant *x;
@@ -2099,7 +2934,7 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                         x->join_phase=(uint8_t)v;
                     ++d->nfirst;
                 }
-            if(!d->nfirst && !d->missing[0])
+            if(!d->nfirst && !d->first_from_sources && !d->missing[0])
                 snprintf(d->missing,sizeof d->missing,"first_edition.entrants");
         }
         /* participants of the following editions */

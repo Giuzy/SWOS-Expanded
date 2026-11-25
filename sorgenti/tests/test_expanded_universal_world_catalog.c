@@ -6,6 +6,15 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include "expanded_ce_admin.h"
+#include "swos_io.h"
+/* v00.13.309: the catalog reads shared JSON (start history, pools) through mjson */
+const char *swos_data_path(const char *rel,char *buf,uint32_t sz)
+{(void)rel;snprintf(buf,sz,"%s","/nonexistent/none.json");return buf;}
+void *swos_io_realloc(void *p,uint32_t n){return realloc(p,n);}
+int ExpCeAdmin_IsTest(ExpandedClubKey c){(void)c;return 0;}
+uint16_t _teamsCountryNumbers[256];
 #include "expanded_universal_world_catalog.h"
 #include "expanded_universal_pairings.h"
 #include "expanded_universal_json_leagues.h"

@@ -374,6 +374,25 @@ int ExpandedUniversalLive_Start(void)
     if(!exp_live_engine_start(r)){ExpandedUniversal_CarResetCurrent();return 0;}
     return 1;
 }
+/* v311: rank_tiebreak==2 (Serie B final / play-out): when the two clubs finished the
+ * REGULAR season level on points, the deciding match gets extra time and penalties.
+ * Decided by the CE from the regular table BEFORE the match; OG only plays it. */
+static int exp_live_equal_regular_points(const ExpandedUniversalFixture *f)
+{
+    ExpandedUniversalRegistry *const r=ExpandedUniversal_CarRegistry();
+    ExpCeTableRules tr;
+    ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+    uint32_t n=0u,i;
+    int h=-1,a=-1;
+    if(!r || !ExpCe_TableRules(f->key.edition,EXP_CE_STAGE(0u,1u),&tr) ||
+       !ExpCeTable_Compute(r,f->key.edition,EXP_CE_STAGE(0u,1u),&tr,
+           ExpandedUniversalLive_ClubNameCompare,NULL,rows,EXP_CE_MAX_ENTRANTS,&n))return 0;
+    for(i=0u;i<n;++i) {
+        if(ExpandedClubKey_Equal(rows[i].club,f->home))h=(int)i;
+        if(ExpandedClubKey_Equal(rows[i].club,f->away))a=(int)i;
+    }
+    return h>=0 && a>=0 && rows[h].points==rows[a].points;
+}
 static ExpandedUniversalResult run_match(
     const ExpandedUniversalFixture *f,int interactive,int cpu_batch)
 {
@@ -390,9 +409,11 @@ static ExpandedUniversalResult run_match(
          * rules = refused BEFORE any claim (local block, never a guess). */
         ExpandedUniversalRegistry *const rr=ExpandedUniversal_CarRegistry();
         ExpCeMatchRules mr;
+        ExpCeTableRules tr;
         uint8_t kind=0u,meetings=0u,decides=0u;
         uint16_t h1=0u,a1=0u;
-        if(!ExpCe_RulesForFixture(f,&mr,NULL) ||
+        memset(&tr,0,sizeof tr);
+        if(!ExpCe_RulesForFixture(f,&mr,&tr) ||
            !ExpCe_FixturePhase(f,&kind,&meetings)) {
             exp_live_fault("RULES_MISSING",rr,f,"SCHEDULED",
                 (int)EXP_UNIVERSAL_INVALID,"V:no-valid-rules-for-competition-phase");
@@ -403,11 +424,19 @@ static ExpandedUniversalResult run_match(
                 (int)EXP_UNIVERSAL_INVALID,"V:first-leg-missing-or-not-played");
             return EXP_UNIVERSAL_INVALID;
         }
+        /* v309: a TABLE phase whose drawn matches are decided on penalties
+         * (table.draw_penalties): OG plays the shoot-out after a level
+         * regulation score (same OG context as a single-leg knockout) */
+        if(kind==EXP_CE_PHASE_TABLE && tr.draw_penalties && mr.penalties)
+            decides=1u;
         ctx.minimum_substitutes=(int16_t)mr.subs;    /* OG minSubs = allowed */
         ctx.maximum_substitutes=(int16_t)mr.bench;   /* OG maxSubs = bench */
         ctx.match_parameters=(int16_t)mr.discipline; /* OG 0x3C / paramD3 */
         ctx.decides_tie=decides;ctx.extra_time=mr.extra_time;
         ctx.penalties=mr.penalties;ctx.away_goals=mr.away_goals;
+        if(decides && mr.rank_tiebreak==2u && exp_live_equal_regular_points(f)) {
+            ctx.extra_time=1;ctx.penalties=1;   /* level on regular points: played to the end */
+        }
         ctx.second_leg=(uint8_t)(mr.legs==2u && f->key.leg==1u);
         ctx.first_leg_home=h1;ctx.first_leg_away=a1;
         ctx.sub_windows=mr.windows;ctx.halftime_free=mr.halftime_free;

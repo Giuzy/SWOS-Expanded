@@ -62,7 +62,50 @@
       "extra_weekdays": "WED",
       "min_rest_days": 3,
       "breaks": [],
-      "division": 1
+      "division": 1,
+      "template_scope": "row187 Serie B GAME_TEMPLATE_2026: play-off for the 3rd promotion (ranks 3-8) with days relative to the real end of the regular season; playout / 4th relegation, direct-promotion gap rules and extra time + penalties when regular points are equal are NOT implemented",
+      "parallel_level": {
+        "groups": [2, 3, 4],
+        "promoted_per_group": 1,
+        "extra_promoted": 1,
+        "provenance": "USER_APPROVED_GAME_POLICY_26_11_2026: Serie C (three parallel groups) promotes 4 for now (3 group winners + the best next-placed club by points per game, goal difference, goals for, lower group); each relegated club replaces a promoted one in the same group, so every group keeps 20 clubs; geography is NOT modelled"
+      },
+      "playout": {
+        "rank_hi": 16,
+        "rank_lo": 17,
+        "relegated_total": 4,
+        "provenance": "GAME_TEMPLATE_2026; EUROPE/ITA/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json additionalRules.serieB: playout ranks 16-17, two legs, second leg at the better rank, +7/+14 days; ACTIVE ONLY when the data give 4 relegations from this division and 4 promotions from the one below (today the native Serie C promotes 3: inactive, no club or result is invented)",
+        "kind": "KNOCKOUT",
+        "pairing": "LISTED",
+        "higher_home": 2,
+        "match": {"legs": 2, "extra_time": 0, "penalties": 0, "rank_tiebreak": 2, "away_goals": 0},
+        "skip_if_gap_points_greater_than": 4,
+        "after_phase_end": {"phase": 0, "days": [7, 14]}
+      },
+      "finals": {
+        "qualify": 8,
+        "qualify_from": 3,
+        "promotion_playoff": true,
+        "skip_if_gap": {"hi_rank": 3, "lo_rank": 4, "points_greater_than": 14},
+        "provenance": "GAME_TEMPLATE_2026; EUROPE/ITA/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json additionalRules.serieB; +4, +8/+11, +16/+21 days from the end of the regular season",
+        "phases": [
+          {
+            "kind": "KNOCKOUT", "pairing": "RESEED_TABLE", "byes": 2, "higher_home": 1,
+            "match": {"legs": 1, "extra_time": 1, "penalties": 0, "rank_tiebreak": 1, "away_goals": 0},
+            "after_phase_end": {"phase": 0, "days": [4]}
+          },
+          {
+            "kind": "KNOCKOUT", "pairing": "SEEDED", "higher_home": 2,
+            "match": {"legs": 2, "extra_time": 0, "penalties": 0, "rank_tiebreak": 1, "away_goals": 0},
+            "after_phase_end": {"phase": 0, "days": [8, 11]}
+          },
+          {
+            "kind": "KNOCKOUT", "pairing": "RESEED_TABLE", "higher_home": 2,
+            "match": {"legs": 2, "extra_time": 0, "penalties": 0, "rank_tiebreak": 2, "away_goals": 0},
+            "after_phase_end": {"phase": 0, "days": [16, 21]}
+          }
+        ]
+      }
     },
     {
       "id": "_italianLeague",
@@ -401,7 +444,16 @@
       "min_rest_days": 3,
       "breaks": [],
       "division": 1,
-      "template_scope": "row208 regular window; pre-START results and finals pending"
+      "template_scope": "row208 NPL NSW: regular season + finals series (title) + bottom pool exchange with the League One play-out (pool challenger)",
+      "pool": {"direct": 1, "playoff": 1, "provenance": "USER_APPROVED_GAME_POLICY (bottom_pools.json): NSW relegates the last club directly and the 15th plays a two-leg play-out against a pool challenger; roles by deterministic CE draw (no file order)"},
+      "playout": {
+        "rank_hi": 15, "rank_lo": 16, "relegated_total": 1,
+        "provenance": "row208 movement.playout: higher rank 15 v the lower-tier challenger, two legs, first leg at the LOWER club, second at the UPPER club, aggregate, no away goals, extra time 30 and penalties; 2026 dates 05/09 and 12/09 = +6/+13 days after the real end of the regular season (30/08)",
+        "kind": "KNOCKOUT", "pairing": "LISTED", "higher_home": 2,
+        "match": {"legs": 2, "extra_time": 1, "penalties": 1, "away_goals": 0},
+        "after_phase_end": {"phase": 0, "days": [6, 13]}
+      },
+      "finals": {"qualify":6,"provenance":"GAME_TEMPLATE_2026; row208: 6 finalists, eliminations 3v6 and 4v5, semi-finals 1 v lowest surviving seed and 2 v highest, final; single matches with extra time and penalties; +3/+7/+14 days after the real end of the regular season (2026: 02/09, 06/09, 13/09)","phases":[{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","byes":2,"higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[3]}},{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[7]}},{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[14]}}]}
     },
     {
       "id": "_australianLeague",
@@ -415,7 +467,9 @@
       "min_rest_days": 3,
       "breaks": [],
       "division": 2,
-      "template_scope": "row209 regular window; pre-START results and finals pending"
+      "template_scope": "row209 NPL Victoria: regular season + finals series (title) + three-club bottom pool exchange (approved simplification of VPL1 promotion/relegation)",
+      "pool": {"direct": 3, "playoff": 0, "provenance": "USER_APPROVED_GAME_POLICY (bottom_pools.json): three direct exchanges with the reserve pool; roles by deterministic CE draw"},
+      "finals": {"qualify":6,"provenance":"GAME_TEMPLATE_2026; row209: 6 qualifiers, 3v6 and 4v5, semi-finals 1 hosts the lowest-ranked surviving seed and 2 the highest, final, extra time 2x15 then penalties; days relative to the end of the regular season are a game template","phases":[{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","byes":2,"higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[3]}},{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[7]}},{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[14]}}]}
     },
     {
       "id": "_australianLeague",
@@ -429,7 +483,9 @@
       "min_rest_days": 3,
       "breaks": [],
       "division": 3,
-      "template_scope": "row210 regular window; pre-START results and finals pending"
+      "template_scope": "row210 NPL Queensland: regular season + finals series with page-system bracket (title) + two-club bottom pool exchange",
+      "pool": {"direct": 2, "playoff": 0, "provenance": "USER_APPROVED_GAME_POLICY (bottom_pools.json): two direct exchanges with the reserve pool; roles by deterministic CE draw"},
+      "finals": {"qualify":4,"provenance":"GAME_TEMPLATE_2026; row210 finals: QF 1v2, EF 3v4, PF loser(QF) v winner(EF), GF winner(QF) v winner(PF); extra time 30 and penalties; days relative to the end of the regular season are a game template","phases":[{"kind":"KNOCKOUT","pairing":"SOURCES","higher_home":1,"ties":[{"home":{"rank":1},"away":{"rank":2}},{"home":{"rank":3},"away":{"rank":4}}],"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[7]}},{"kind":"KNOCKOUT","pairing":"SOURCES","higher_home":1,"ties":[{"home":{"loser":[1,1]},"away":{"winner":[1,2]}}],"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[14]}},{"kind":"KNOCKOUT","pairing":"SOURCES","higher_home":1,"ties":[{"home":{"winner":[1,1]},"away":{"winner":[2,1]}}],"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[21]}}]}
     },
     {
       "id": "_austrianLeague",

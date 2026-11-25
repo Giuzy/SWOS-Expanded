@@ -30,6 +30,9 @@
 #define EXP_CE_MAX_POOL 40u
 #define EXP_CE_MAX_EXCLUDE 8u
 #define EXP_CE_MAX_BREAKS 8u
+/* v310: stage phase index reserved for the league PLAY-OUT (a parallel relegation
+ * tie between two table ranks); never a position of the linear phase chain */
+#define EXP_CE_PLAYOUT_PHASE 7u
 
 typedef enum ExpCeEditionState {
     EXP_CE_ED_CREATED = 1,
@@ -67,7 +70,10 @@ typedef enum ExpCePairing {
     EXP_CE_PAIR_BRACKET = 4,      /* winners of ties 1-2, 3-4 ... */
     EXP_CE_PAIR_DRAW = 5,         /* deterministic CE game draw */
     EXP_CE_PAIR_POTS = 6,         /* groups: one club per pot, game draw */
-    EXP_CE_PAIR_RESEED_TABLE = 7  /* KO: original single-table rank, best v worst */
+    EXP_CE_PAIR_RESEED_TABLE = 7, /* KO: original single-table rank, best v worst */
+    EXP_CE_PAIR_GROUP_TABLE = 8,  /* v311: explicit pairs (group,rank) v (group,rank) from a group phase */
+    EXP_CE_PAIR_SOURCES = 9       /* v311: each tie names its two sides by SOURCE (table rank,
+                                     winner/loser of an earlier tie): any bracket graph */
 } ExpCePairing;
 
 typedef enum ExpCeSource {
@@ -113,6 +119,8 @@ typedef struct ExpCePhaseDef {
     uint8_t meetings;             /* TABLE: round robin meetings 1..4 */
     ExpPairExtras extras;
     uint8_t qualify;              /* TABLE: qualifiers per group to next */
+    uint8_t qualify_from;         /* v309: first qualifying rank (0/1 = from the top);
+                                     Serie B play-off: ranks 3..8 */
     uint8_t pairing;              /* ExpCePairing (KO or group formation) */
     uint8_t byes;                 /* KO: best seeds skip this phase */
     uint8_t higher_home;          /* KO: 1 higher seed hosts leg 1 (or the
@@ -123,6 +131,15 @@ typedef struct ExpCePhaseDef {
      * of this competition (e.g. the A-League), the OTHER club hosts. 0 =
      * none. Never applied to the last phase (neutral final). */
     uint32_t host_nonmember_comp;
+    /* v309: knockout round days RELATIVE to the actual last day of an earlier
+     * phase of the same edition (e.g. Serie B play-offs: +4, +8/+11, +16/+21
+     * days after the regular season really ended). One value per leg round. */
+    /* v311 SOURCES ties: side kind (1 table rank, 2 winner of tie, 3 loser of tie),
+     * then rank | (phase,tie) */
+    uint8_t nties,tsrc[8][2][3];
+    uint8_t ngp,gp[8][4];         /* v311 GROUP_TABLE pairs: homeGroup,homeRank,awayGroup,awayRank */
+    uint8_t nrel,rel_anchor;
+    uint16_t rel[4];
     uint8_t has_window;
     ExpCeWindow window;           /* dates (GAME_TEMPLATE unless verified) */
     /* verified real round days of the FIRST edition (take precedence over
@@ -162,6 +179,39 @@ typedef struct ExpCeDef {
     uint32_t id;                  /* stable competition id (CE key) */
     uint16_t world;
     uint8_t country, type, origin;
+    /* v310 league play-out: tie between table ranks playout_hi/lo (hi = the better,
+     * hosts the deciding leg); the loser is relegated IN ADDITION to the bottom
+     * relegated-1 ranks. Active only when `relegated` equals playout_relegated_total
+     * (the data and the lower division really provide that many movements). */
+    /* v311 PARALLEL LEVEL below this division (e.g. Serie C groups under Serie B):
+     * par_n groups; each promotes par_per_group clubs, plus par_extra best of the
+     * next-placed clubs across groups (points per game, goal difference, goals for,
+     * lower group first). The relegated count of this division equals the total
+     * promoted; each relegated club replaces a promoted one in the SAME group
+     * (i-th relegated -> group of the i-th promoted): group sizes never change. */
+    uint8_t par_n,par_groups[8],par_per_group,par_extra;
+    /* v311 conditional rules decided by the REGULAR table (derived, never stored):
+     * finals skipped (the best fin_gap_hi directly promoted) when the points of
+     * rank fin_gap_hi exceed those of rank fin_gap_lo by MORE than fin_gap_min;
+     * play-out skipped (rank playout_lo relegated directly) when the points of rank
+     * playout_hi exceed those of playout_lo by MORE than playout_gap_min. 0 = none. */
+    uint8_t fin_gap_hi,fin_gap_lo,fin_gap_min,playout_gap_min;
+    /* v311 BOTTOM POOL of an independent pyramid (shared pool clubs of the same country and
+     * division): at rollover the bottom `pool_direct` clubs go to the pool and as many pool
+     * clubs come in; with pool_playoff the club ranked just above them plays a two-leg
+     * play-out against a pool CHALLENGER (the playout rules below). The pool is the
+     * complement of the immutable universe (all clubs this competition has ever had plus the
+     * configured pool clubs) in the current membership: no new persistent state. Roles
+     * (direct entrants vs challenger) come from a deterministic CE draw. */
+    uint8_t pool_direct,pool_playoff,pool_n;
+    uint32_t pool_clubs[8];
+    uint8_t has_playout,playout_hi,playout_lo,playout_relegated_total;
+    ExpCePhaseDef playout;
+    uint8_t promotion_playoff;    /* v309: league with finals whose WINNER is promoted in
+                                     addition to the first promoted-1 table ranks, and whose
+                                     champion remains the regular-season leader */
+    uint8_t first_from_sources;   /* v311: the FIRST edition resolves its entrants from
+                                     next_entrants sources (waits for them), not a list */
     uint8_t viewer_button;        /* CE button in WORLD/VIEW COMPETITIONS */
     uint16_t viewer_native_id_plus_one; /* optional original menu alias, not a sporting ID */
     char name[40];
@@ -282,6 +332,22 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,
 /* Rules of one fixture (its competition + phase). 1 ok. */
 int ExpCe_RulesForFixture(const ExpandedUniversalFixture *f,
                           ExpCeMatchRules *match,ExpCeTableRules *table);
+/* 1 = this league definition's play-out is active (see has_playout). */
+int ExpCe_PlayoutActive(const ExpCeDef *d);
+/* 1 = the finals / play-out of this edition are skipped by their points-gap rule
+ * (regular table complete and the gap exceeded). Reader only. */
+int ExpCe_FinalsSkipped(const ExpandedUniversalRegistry *r,const ExpCeDef *d,const ExpCeEdition *e);
+int ExpCe_PlayoutSkipped(const ExpandedUniversalRegistry *r,const ExpCeDef *d,const ExpCeEdition *e);
+int ExpCe_LoadParallelLevels(const char *json,int len,uint16_t world);
+/* v311: bottom-pool config rows ("pool": {"direct":N,"playoff":0|1}) of league_calendar.json. */
+int ExpCe_LoadLeaguePools(const char *json,int len,uint16_t world);
+/* the shared pool clubs of (country, division): stable keys, replaces the list. */
+int ExpCe_SetPoolClubs(uint8_t country,uint8_t comp_id,uint8_t division,const uint32_t *keys,uint32_t n);
+int ExpCe_LoadLeaguePlayouts(const char *json,int len,uint16_t world);
+/* The relegation loser of the play-out of an edition: 1 decided (club set), 0 not
+ * decided / none. Reader only. */
+int ExpCe_PlayoutLoser(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
+                       const ExpCeEdition *e,uint32_t *loser);
 /* Phase shape of a fixture: kind (TABLE/KNOCKOUT) and meetings (OG quick
  * scorer: a single-meeting table is played without home advantage, as OG
  * does for playEachTeam==1). 1 ok. */

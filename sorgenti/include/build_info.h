@@ -218,7 +218,19 @@
 /* v308 PREPARED: cross-region free standby compensation; runtime hookup pending. */
 /* v308 PREPARED: opt-in original-table KO reseeding (not activated in leagues). */
 /* v308 PREPARED: A-League finals attached to CE, UL03 regular ranking, phase-aware manager dispatch. */
-#define SWOS_EXPANDED_VERSION "00.13.308"
+/* v00.13.309: baseline repair of the 306-308 prepared code (isolated tests broke: finals file
+ * optional, finals rows of undefined leagues skipped, catalog test links the JSON reader). */
+/* v00.13.310: Serie B promotion play-off (ranks 3-8, days relative to the real end of the regular
+ * season), 3rd promotion = play-off winner, champion = table leader; draw-by-penalties points;
+ * rank tie-break; relative-day knockout phases. */
+/* v00.13.311: generic league PLAY-OUT branch (relegation tie between table ranks, loser relegated,
+ * active only when the data provide the extra movement), Serie B play-out defined but inactive. */
+/* v00.13.312: Serie B complete (play-out active with Serie C promoting 4 via the parallel-level exchange,
+ * conditional gap rules, ET+penalties on level regular points). */
+/* v00.13.313: Australian Championship defined in data (blocked only by the OG bench limit), GROUP_TABLE pairing,
+ * first edition from sources, catalog-only real clubs, 4 fixed federation clubs in the shared pool. */
+/* v00.13.314: bottom pool integrated (config + shared pool clubs, roles by CE draw), regional finals from sources, first edition from sources. */
+#define SWOS_EXPANDED_VERSION "00.13.314"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

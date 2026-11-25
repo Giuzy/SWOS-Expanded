@@ -59,6 +59,10 @@ typedef enum ExpCeTieBreak {
 
 typedef struct ExpCeTableRules {
     uint8_t win, draw, loss;
+    /* v309: drawn match decided on penalties (draw_penalties=1): the winner
+     * of the shoot-out gets draw_pen_win points, the loser draw_pen_loss; the
+     * regulation result is still a draw. 0 = ordinary draw points. */
+    uint8_t draw_penalties, draw_pen_win, draw_pen_loss;
     uint8_t tiebreak[EXP_CE_MAX_TIEBREAK];
     uint8_t ntb;
     uint8_t provenance;
@@ -70,6 +74,14 @@ typedef struct ExpCeMatchRules {
     uint8_t extra_time;      /* after a level single match / level aggregate */
     uint8_t penalties;       /* after extra time (or regulation if no ET) */
     uint8_t away_goals;      /* aggregate tie-break BEFORE extra time */
+    /* v309: a tie still level after the played decision (aggregate, extra
+     * time) goes to the club with the better REGULAR-SEASON rank. By
+     * construction that club hosts the deciding leg (higher_home), so no
+     * table is read. Replaces penalties as terminal decider (Serie B play-off). */
+    /* 1 = rank decides a level tie; 2 = rank decides UNLESS the two clubs finished the
+     * regular season level on points, then the deciding match goes to extra time and
+     * penalties (decided by the CE before the match, from the regular table) */
+    uint8_t rank_tiebreak;
     uint8_t bench;           /* players on the bench (OG maxSubs) */
     uint8_t subs;            /* substitutions allowed (OG minSubs) */
     uint8_t windows;         /* 0 = no window limit (OG behaviour) */

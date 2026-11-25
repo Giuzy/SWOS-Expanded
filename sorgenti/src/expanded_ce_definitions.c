@@ -7,6 +7,7 @@
 #include "expanded_ce_engine.h"
 #include "expanded_ce_admin.h"
 #include "expanded_ce_start_history.h"
+#include "expanded_ce_shared_pool_data.h"
 #include "expanded_universal_json_leagues.h"
 #include "swos_io.h"
 #include "world.h"
@@ -95,9 +96,35 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
                fread(bytes,1,(size_t)size,file)==(size_t)size) {
                 bytes[size]=0;
                 finals=ExpCe_LoadLeagueFinals(bytes,(int)size,world);
+                if(finals>=0) { /* v311: parallel levels, then v310 play-outs (same file) */
+                    const int pl=ExpCe_LoadParallelLevels(bytes,(int)size,world);
+                    int po=pl<0?-1:ExpCe_LoadLeaguePlayouts(bytes,(int)size,world);
+                    if(po>=0) {  /* v311: bottom pools of independent pyramids (config + shared pool clubs) */
+                        const int pp=ExpCe_LoadLeaguePools(bytes,(int)size,world);
+                        ExpCeSharedPoolData sp={0};
+                        fprintf(stderr,"[ce-engine] LEAGUE_POOLS definitions=%d\n",pp);
+                        if(pp<0 || !ExpCeSharedPool_Load(&sp))po=-1;
+                        else {
+                            uint32_t di;
+                            for(di=0u;di<ExpCe_DefinitionCount();++di) {
+                                const ExpCeDef *dd=ExpCe_DefinitionAt(di);
+                                uint32_t keys[8],kn=0u,ri;
+                                if(!dd || !dd->pool_direct)continue;
+                                for(ri=0u;ri<sp.n && kn<8u;++ri)
+                                    if(sp.rows[ri].country==dd->country && sp.rows[ri].division==dd->division)
+                                        keys[kn++]=sp.rows[ri].key;
+                                if(!ExpCe_SetPoolClubs(dd->country,dd->comp_id,dd->division,keys,kn))po=-1;
+                            }
+                        }
+                        ExpCeSharedPool_Free(&sp);
+                    }
+                    fprintf(stderr,"[ce-engine] LEAGUE_PLAYOUTS definitions=%d",po);
+                    fputc(10,stderr);
+                    if(po<0)finals=-1;
+                }
             }
             free(bytes);fclose(file);
-        }
+        } else finals=0; /* no file: no optional finals (isolated tests, reduced data) */
         fprintf(stderr,"[ce-engine] LEAGUE_FINALS definitions=%d\n",finals);
         if(finals<0)return -2;
     }

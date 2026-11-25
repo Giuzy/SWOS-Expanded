@@ -198,7 +198,7 @@ int main(void)
     free(json);
     {   int tl=0;
         char *tj=slurp("../data_json/worlds/2627/competitions/test_clubs.json",&tl);
-        assert(ExpCeAdmin_LoadJson(tj,tl,WORLD_2627)==25);
+        assert(ExpCeAdmin_LoadJson(tj,tl,WORLD_2627)==24 && ExpCeAdmin_IsRealWithTestPlayers((ExpandedClubKey){WORLD_2627,(44u<<16)|65u,EXP_PARTICIPANT_CLUB}) && !ExpCeAdmin_IsTest((ExpandedClubKey){WORLD_2627,(44u<<16)|65u,EXP_PARTICIPANT_CLUB}));
         free(tj);
     }
     add_league_first_season(44u,88u,12u);   /* A-League Men (12 clubs 44:1..44:12) */
@@ -376,7 +376,7 @@ int main(void)
                 if(x->source==EXP_CE_SRC_LEAGUE_RANK || x->source==EXP_CE_SRC_REALLOCATED)++al;
                 if(x->source==EXP_CE_SRC_LISTED) {
                     ++listed;
-                    assert(ExpCeAdmin_IsTest(x->club));
+                    assert(ExpCeAdmin_IsTest(x->club) || ExpCeAdmin_IsRealWithTestPlayers(x->club));
                 }
             }
             assert(champ==1u && al==10u && listed==21u);
@@ -399,6 +399,42 @@ int main(void)
     }
     puts("AUSTRALIA_CUP_REAL_JSON_32_ENTRANTS_31_GAMES_TEST_ADMIN_RESULTS=PASS");
     puts("SUPERCOPPA_ITALIANA_REAL_JSON_FIRST_EDITION_ARCHIVE_NO_INVENTED_RENEWAL=PASS");
+    {   /* v311: the REAL Australian Championship definition. As written (approved bench 7) it is
+         * BLOCKED by the OG bench cap; with the bench set to the OG maximum in a COPY of the text,
+         * everything else is valid, so only the bench limit stands in the way. */
+        char *cj;int cl=0,k;
+        char *p7;
+        assert(ExpCe_Definition(2884098u) && strstr(ExpCe_Definition(2884098u)->missing,"bench"));
+        cj=slurp("../data_json/worlds/2627/competitions/ce_competitions.json",&cl);
+        p7=strstr(cj,"\"AUSTRALIAN CHAMPIONSHIP\"");
+        assert(p7);
+        p7=strstr(p7,"\"bench\": 7");
+        assert(p7);
+        p7[9]='5';
+        {   /* the extra-time allowances need bench room too: neutralise them in the COPY only */
+            char *q=strstr(p7,"\"et_extra_subs\": 1");
+            assert(q);
+            q[17]='0';
+            q=strstr(p7,"\"et_extra_windows\": 1");
+            assert(q);
+            q[20]='0';
+        }
+        ExpCe_Reset();
+        assert(ExpCe_LoadJsonDefinitions(cj,cl,WORLD_2627,"copy")>=4);
+        {
+            const ExpCeDef *ch=ExpCe_Definition(2884098u);
+            assert(ch && !ch->missing[0] && ch->type==2u && ch->nphases==4u && ch->first_from_sources==1u &&
+                   ch->phases[0].groups==4u && ch->phases[0].meetings==2u && ch->phases[0].pairing==EXP_CE_PAIR_POTS &&
+                   ch->phases[1].pairing==EXP_CE_PAIR_GROUP_TABLE && ch->phases[1].ngp==4u &&
+                   ch->phases[0].table.draw_penalties==1u && ch->phases[0].table.draw_pen_win==2u &&
+                   ch->phases[0].table.draw_pen_loss==1u && ch->nsources==5u && ch->sources[0].nclubs==8u &&
+                   ch->sources[4].nclubs==5u && ch->sources[1].nexclude==7u && ch->sources[2].nexclude==4u &&
+                   ch->sources[3].nexclude==1u);
+            (void)k;
+        }
+        free(cj);
+        puts("AUSTRALIAN_CHAMPIONSHIP_REAL_JSON_VALID_EXCEPT_OG_BENCH_7_LIMIT=PASS");
+    }
     puts("OG_QUICK_50HZ_WINDOWS_GAMEPLAY=NOT_TESTED");
     return 0;
 }

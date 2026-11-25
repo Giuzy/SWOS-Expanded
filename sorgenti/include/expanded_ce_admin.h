@@ -28,6 +28,10 @@ int ExpCe_LoadTestClubs(uint16_t world);
 int ExpCeAdmin_LoadJson(const char *json,int len,uint16_t world);
 uint32_t ExpCeAdmin_Count(void);
 int ExpCeAdmin_IsTest(ExpandedClubKey club);
+/* v311: a REAL club that only carries TEST players (listed in
+ * "real_clubs_with_test_players"): imported to the catalog although outside every
+ * league, plays genuine OG matches, NEVER an administrative result. */
+int ExpCeAdmin_IsRealWithTestPlayers(ExpandedClubKey club);
 /* 1: administrative result written to *score (EXP_CE_SCORE_ADMIN_TEST set,
  * *reason names the rule); 0: not an administrative match (real OG result). */
 int ExpCeAdmin_Decide(const ExpandedUniversalFixture *fixture,

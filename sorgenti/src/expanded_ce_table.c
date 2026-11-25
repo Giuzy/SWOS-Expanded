@@ -61,7 +61,7 @@ static int row_find(ExpCeTableRow *rows,uint32_t n,ExpandedClubKey k)
     return -1;
 }
 /* Score lite view (goals incl. extra time). */
-typedef struct ExpFixtureScoreLite { uint32_t home,away; } ExpFixtureScoreLite;
+typedef struct ExpFixtureScoreLite { uint32_t home,away,pen_home,pen_away; uint8_t pen; } ExpFixtureScoreLite;
 static void row_apply(ExpCeTableRow *h,ExpCeTableRow *a,
                       const ExpFixtureScoreLite *s,const ExpCeTableRules *t)
 {
@@ -71,6 +71,14 @@ static void row_apply(ExpCeTableRow *h,ExpCeTableRow *a,
     a->away_goals_for+=s->away;
     if(s->home>s->away){++h->wins;++a->losses;h->points+=t->win;a->points+=t->loss;}
     else if(s->home<s->away){++a->wins;++h->losses;a->points+=t->win;h->points+=t->loss;}
+    else if(t->draw_penalties && s->pen && s->pen_home!=s->pen_away) {
+        /* v309: a drawn match decided on penalties (e.g. Australian Championship
+         * groups): the regulation result stays a DRAW (goals, draws), only the
+         * points follow the penalty winner */
+        ++h->draws;++a->draws;
+        if(s->pen_home>s->pen_away){h->points+=t->draw_pen_win;a->points+=t->draw_pen_loss;}
+        else {a->points+=t->draw_pen_win;h->points+=t->draw_pen_loss;}
+    }
     else {++h->draws;++a->draws;h->points+=t->draw;a->points+=t->draw;}
 }
 /* Mini-table among rows[from..to): only fixtures between two of them. */
@@ -92,6 +100,8 @@ static int mini_values(const TbCtx *c,ExpCeTableRow *rows,uint32_t from,
         hi=row_find(mini,n,f->home);ai=row_find(mini,n,f->away);
         if(hi<0 || ai<0)continue;
         s.home=l->score.home;s.away=l->score.away;
+        s.pen=(l->score.flags&EXP_CE_SCORE_PENALTIES)!=0u;
+        s.pen_home=l->score.penalties_home;s.pen_away=l->score.penalties_away;
         row_apply(&mini[hi],&mini[ai],&s,c->rules);
     }
     for(i=0;i<n;++i) {
@@ -213,6 +223,8 @@ int ExpCeTable_Compute(const ExpandedUniversalRegistry *r,
         if(l->state==EXP_FIXTURE_CLAIMED)return 0; /* unresolved */
         if(l->state!=EXP_FIXTURE_PLAYED)continue;
         s.home=l->score.home;s.away=l->score.away;
+        s.pen=(l->score.flags&EXP_CE_SCORE_PENALTIES)!=0u;
+        s.pen_home=l->score.penalties_home;s.pen_away=l->score.penalties_away;
         row_apply(&rows[hi],&rows[ai],&s,rules);
         if(l->score.flags&EXP_CE_SCORE_START_HISTORY)++historical;
     }
@@ -303,6 +315,13 @@ ExpCeTieResult ExpCeTie_Resolve(const ExpandedUniversalRegistry *r,
         const ExpandedClubKey home=legs==2u?b:a,away=legs==2u?a:b;
         const int home_wins=last->score.penalties_home>last->score.penalties_away;
         *winner=home_wins?home:away;*loser=home_wins?away:home;
+        return EXP_CE_TIE_DECIDED;
+    }
+    if(rules->rank_tiebreak) {
+        /* v309: the better regular-season rank advances. higher_home makes it
+         * the host of the deciding leg (b on a 2-leg tie, a otherwise). */
+        const ExpandedClubKey home=legs==2u?b:a,away=legs==2u?a:b;
+        *winner=home;*loser=away;
         return EXP_CE_TIE_DECIDED;
     }
     return EXP_CE_TIE_UNRESOLVED;

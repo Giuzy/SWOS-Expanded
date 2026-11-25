@@ -50,6 +50,11 @@ void Platform_UniversalCpuProgress(uint32_t count){(void)count;}
 int CarWriter_TakeFailure(void){return 0;}
 static ExpandedWorldClockProvider s_provider;
 void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider p){s_provider=p;}
+/* v311: definitions.c loads the shared pool (identity helpers of the native world) */
+uint16_t _teamsCountryNumbers[256];
+uint8_t World_FileCountry(uint8_t f){return f;}
+uint16_t World_Slot(uint8_t f,uint8_t o){(void)f;return o;}
+uint16_t World_SlotTeam(uint8_t c,uint16_t slot){return (uint16_t)(((uint16_t)c<<8)|slot);}
 const char *World_Tag(void){return "2627";}
 const char *swos_data_path(const char *rel,char *buf,uint32_t n)
 { (void)rel; snprintf(buf,n,"%s","/nonexistent/ce_competitions.json"); return buf; }

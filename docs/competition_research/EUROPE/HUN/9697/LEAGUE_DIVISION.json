@@ -97,6 +97,3760 @@
       ],
       "limitations": "Historic NB I/A designation confirmed by archive playoff heading; no final positions or scores imported. Tier2 exact access ranking/keys pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "82373908244e3152f9787d1f0c4a9b719a61ef820147ad3d45f68618450174f7": {
+          "sourceGroup": {
+            "source": "parquet/games.parquet",
+            "competition": "hungary",
+            "country": "HUN",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 21,
+            "fixtures": 306,
+            "orientedPairs": 245,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Debrecen": {
+              "uuid": "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "file": 16,
+              "ordinal": 3,
+              "league": 0,
+              "name": "DEBRECEN",
+              "path": "data_json\\teams\\HUNGARY.json"
+            },
+            "Diósgyőr": {
+              "uuid": "9c142709-1774-52c3-8016-98bb56dd7360",
+              "file": 16,
+              "ordinal": 4,
+              "league": 0,
+              "name": "DIOSGYOR",
+              "path": "data_json\\teams\\HUNGARY.json"
+            },
+            "Ferencváros": {
+              "uuid": "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "file": 16,
+              "ordinal": 5,
+              "league": 0,
+              "name": "FERENCVAROS",
+              "path": "data_json\\teams\\HUNGARY.json"
+            },
+            "Gazszer FC": {
+              "uuid": "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "file": 16,
+              "ordinal": 19,
+              "league": 4,
+              "name": "GAZSZER FC",
+              "path": "data_json\\teams\\HUNGARY.json"
+            },
+            "MTK": {
+              "uuid": "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "file": 16,
+              "ordinal": 9,
+              "league": 0,
+              "name": "MTK",
+              "path": "data_json\\teams\\HUNGARY.json"
+            },
+            "Zalaegerszeg": {
+              "uuid": "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "file": 16,
+              "ordinal": 20,
+              "league": 0,
+              "name": "ZALAEGERSZEG",
+              "path": "data_json\\teams\\HUNGARY.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Bekescsaba 1912 Eloere Se",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bfc Siofok",
+              "candidateCount": 0
+            },
+            {
+              "label": "Budapest Honved",
+              "candidateCount": 0
+            },
+            {
+              "label": "Budapesti Vasas",
+              "candidateCount": 0
+            },
+            {
+              "label": "Budapesti Vsc",
+              "candidateCount": 0
+            },
+            {
+              "label": "CSepel FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Dunakanyar Vac FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fehérvár",
+              "candidateCount": 0
+            },
+            {
+              "label": "Győri ETO",
+              "candidateCount": 0
+            },
+            {
+              "label": "Iii Keruleti Tue Upe",
+              "candidateCount": 0
+            },
+            {
+              "label": "Pecsi Mfc",
+              "candidateCount": 0
+            },
+            {
+              "label": "Stadler FC Akaszto",
+              "candidateCount": 0
+            },
+            {
+              "label": "Szombathelyi Haladas",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tiszakecske",
+              "candidateCount": 0
+            },
+            {
+              "label": "Újpest",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-02-28",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "CSepel FC",
+              null,
+              null,
+              "games.parquet:batch8:25004",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:25058",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Debrecen",
+              "Győri ETO",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:25055",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Fehérvár",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:25057",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Ferencváros",
+              "Bfc Siofok",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:25054",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:25060",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:25056",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:25059",
+              ""
+            ],
+            [
+              "1997-03-02",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:25161",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Pecsi Mfc",
+              null,
+              null,
+              "games.parquet:batch8:25351",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:25347",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "CSepel FC",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:25349",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:25348",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Győri ETO",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:25346",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:25350",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "MTK",
+              "Budapesti Vasas",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:25344",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:25352",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Újpest",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:25345",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:25676",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:25677",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Debrecen",
+              "Zalaegerszeg",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:25670",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Fehérvár",
+              "CSepel FC",
+              null,
+              null,
+              "games.parquet:batch8:25673",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Ferencváros",
+              "MTK",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:25669",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Győri ETO",
+              "Iii Keruleti Tue Upe",
+              null,
+              null,
+              "games.parquet:batch8:25674",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:25672",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:25675",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Újpest",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:25671",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Iii Keruleti Tue Upe",
+              null,
+              null,
+              "games.parquet:batch8:26045",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:26049",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:26046",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "CSepel FC",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:26048",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:26047",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "MTK",
+              "Pecsi Mfc",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:26043",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:26050",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Győri ETO",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:26044",
+              ""
+            ],
+            [
+              "1997-03-23",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:26182",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:26341",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Debrecen",
+              "Budapest Honved",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:26335",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Fehérvár",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:26338",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Ferencváros",
+              "CSepel FC",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:26334",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Győri ETO",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:26339",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:26342",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:26337",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:26340",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Újpest",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:26336",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:26399",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:26401",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:26403",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "CSepel FC",
+              "Pecsi Mfc",
+              null,
+              null,
+              "games.parquet:batch8:26404",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:26402",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "MTK",
+              "Debrecen",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:26398",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:26405",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:26400",
+              ""
+            ],
+            [
+              "1997-03-30",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Iii Keruleti Tue Upe",
+              null,
+              null,
+              "games.parquet:batch8:26445",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:26612",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Debrecen",
+              "Dunakanyar Vac FC",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:26606",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Fehérvár",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:26609",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Ferencváros",
+              "Budapesti Vsc",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:26605",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Győri ETO",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:26611",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:26608",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Bfc Siofok",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:26610",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "Újpest",
+              "CSepel FC",
+              null,
+              null,
+              "games.parquet:batch8:26607",
+              ""
+            ],
+            [
+              "1997-04-06",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:26727",
+              ""
+            ],
+            [
+              "1997-04-11",
+              "EXPLICIT",
+              "Fehérvár",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:26947",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:27005",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:27007",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "CSepel FC",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:27009",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:27008",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "MTK",
+              "Iii Keruleti Tue Upe",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:27004",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:27010",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:27006",
+              ""
+            ],
+            [
+              "1997-04-13",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Pecsi Mfc",
+              null,
+              null,
+              "games.parquet:batch8:27145",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:27323",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:27321",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Debrecen",
+              "Stadler FC Akaszto",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:27316",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Ferencváros",
+              "Fehérvár",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:27315",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Győri ETO",
+              "CSepel FC",
+              null,
+              null,
+              "games.parquet:batch8:27320",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:27322",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:27318",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "MTK",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:27319",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Újpest",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:27317",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:27433",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:27435",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "CSepel FC",
+              "Iii Keruleti Tue Upe",
+              null,
+              null,
+              "games.parquet:batch8:27436",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:27434",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Fehérvár",
+              "Pecsi Mfc",
+              null,
+              null,
+              "games.parquet:batch8:27431",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "MTK",
+              "Bfc Siofok",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:27430",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:27437",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:27432",
+              ""
+            ],
+            [
+              "1997-04-20",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:27623",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:28058",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Budapest Honved",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:28057",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Debrecen",
+              "Szombathelyi Haladas",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:28053",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Ferencváros",
+              "Bekescsaba 1912 Eloere Se",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:28052",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Győri ETO",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:28056",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "CSepel FC",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:28055",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Újpest",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:28054",
+              ""
+            ],
+            [
+              "1997-05-04",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:28212",
+              ""
+            ],
+            [
+              "1997-05-05",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:28305",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:28329",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Iii Keruleti Tue Upe",
+              null,
+              null,
+              "games.parquet:batch8:28331",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "CSepel FC",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:28332",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:28330",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "Fehérvár",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:28327",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "Ferencváros",
+              "Pecsi Mfc",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:28325",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "MTK",
+              "Bekescsaba 1912 Eloere Se",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:28326",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:28333",
+              ""
+            ],
+            [
+              "1997-05-07",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:28328",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:28581",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Budapest Honved",
+              "CSepel FC",
+              null,
+              null,
+              "games.parquet:batch8:28579",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Debrecen",
+              "Budapesti Vasas",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:28573",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Győri ETO",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:28578",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:28580",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "MTK",
+              "Dunakanyar Vac FC",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:28574",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:28576",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Budapesti Vsc",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:28577",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "Újpest",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:28575",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:28721",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:28723",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:28724",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "CSepel FC",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:28725",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Fehérvár",
+              "Iii Keruleti Tue Upe",
+              null,
+              null,
+              "games.parquet:batch8:28720",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Ferencváros",
+              "Debrecen",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:28718",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:28719",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:28726",
+              ""
+            ],
+            [
+              "1997-05-14",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:28722",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:28835",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:28832",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "Debrecen",
+              "Pecsi Mfc",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:28829",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "CSepel FC",
+              null,
+              null,
+              "games.parquet:batch8:28833",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:28834",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "MTK",
+              "Stadler FC Akaszto",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:28830",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Fehérvár",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:28831",
+              ""
+            ],
+            [
+              "1997-05-18",
+              "EXPLICIT",
+              "Győri ETO",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:28970",
+              ""
+            ],
+            [
+              "1997-05-18",
+              "EXPLICIT",
+              "Újpest",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:28969",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "CSepel FC",
+              null,
+              null,
+              "games.parquet:batch8:29195",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:29197",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:29198",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Fehérvár",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:29194",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Ferencváros",
+              "Iii Keruleti Tue Upe",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:29191",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Pecsi Mfc",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:29193",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:29199",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:29196",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Újpest",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:29192",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:29446",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:29442",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "CSepel FC",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:29444",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Debrecen",
+              "Bekescsaba 1912 Eloere Se",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:29438",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:29443",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Győri ETO",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:29441",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Iii Keruleti Tue Upe",
+              "Pecsi Mfc",
+              null,
+              null,
+              "games.parquet:batch8:29445",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "MTK",
+              "Szombathelyi Haladas",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:29439",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Ferencváros",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:29440",
+              ""
+            ],
+            [
+              "1997-07-18",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:30608",
+              ""
+            ],
+            [
+              "1997-07-19",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:30620",
+              ""
+            ],
+            [
+              "1997-07-19",
+              "EXPLICIT",
+              "Győri ETO",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:30618",
+              ""
+            ],
+            [
+              "1997-07-19",
+              "EXPLICIT",
+              "MTK",
+              "Fehérvár",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:30616",
+              ""
+            ],
+            [
+              "1997-07-19",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:30619",
+              ""
+            ],
+            [
+              "1997-07-19",
+              "EXPLICIT",
+              "Újpest",
+              "Tiszakecske",
+              null,
+              null,
+              "games.parquet:batch8:30617",
+              ""
+            ],
+            [
+              "1997-07-20",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Budapest Honved",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              null,
+              "games.parquet:batch8:30679",
+              ""
+            ],
+            [
+              "1997-07-21",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Bekescsaba 1912 Eloere Se",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              null,
+              "games.parquet:batch8:30715",
+              ""
+            ],
+            [
+              "1997-07-22",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:30719",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:30808",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Budapest Honved",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:30809",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:30810",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Ferencváros",
+              "Budapesti Vsc",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:30806",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Újpest",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:30807",
+              ""
+            ],
+            [
+              "1997-07-27",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Diósgyőr",
+              null,
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:30874",
+              ""
+            ],
+            [
+              "1997-07-28",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:30908",
+              ""
+            ],
+            [
+              "1997-08-01",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:31009",
+              ""
+            ],
+            [
+              "1997-08-01",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Budapest Honved",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              null,
+              "games.parquet:batch8:31010",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Zalaegerszeg",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:31044",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "MTK",
+              "Tiszakecske",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:31042",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:31045",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Újpest",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:31043",
+              ""
+            ],
+            [
+              "1997-08-03",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:31145",
+              ""
+            ],
+            [
+              "1997-08-03",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:31144",
+              ""
+            ],
+            [
+              "1997-08-04",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:31228",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:31403",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:31404",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Debrecen",
+              "Budapesti Vasas",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:31398",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Fehérvár",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:31400",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Ferencváros",
+              "Szombathelyi Haladas",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:31397",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Győri ETO",
+              "Diósgyőr",
+              null,
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:31402",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Gazszer FC",
+              null,
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:31405",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "MTK",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:31401",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Újpest",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:31399",
+              ""
+            ],
+            [
+              "1997-08-13",
+              "EXPLICIT",
+              "Debrecen",
+              "Stadler FC Akaszto",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:31617",
+              ""
+            ],
+            [
+              "1997-08-13",
+              "EXPLICIT",
+              "Fehérvár",
+              "Gazszer FC",
+              null,
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:31618",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:31996",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Újpest",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              null,
+              "games.parquet:batch8:31997",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:31998",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "MTK",
+              "Győri ETO",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:31995",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:31999",
+              ""
+            ],
+            [
+              "1997-08-24",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:32135",
+              ""
+            ],
+            [
+              "1997-08-24",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:32134",
+              ""
+            ],
+            [
+              "1997-08-25",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Tiszakecske",
+              null,
+              null,
+              "games.parquet:batch8:32220",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:32373",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:32374",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Dunakanyar Vac FC",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              null,
+              "games.parquet:batch8:32375",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Fehérvár",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:32370",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Ferencváros",
+              "Debrecen",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:32369",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Győri ETO",
+              "Gazszer FC",
+              null,
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:32372",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Bfc Siofok",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:32371",
+              ""
+            ],
+            [
+              "1997-08-31",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:32527",
+              ""
+            ],
+            [
+              "1997-08-31",
+              "EXPLICIT",
+              "Újpest",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:32526",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:32701",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:32697",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:32699",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Debrecen",
+              "Bekescsaba 1912 Eloere Se",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:32694",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:32698",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Újpest",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              null,
+              "games.parquet:batch8:32700",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "MTK",
+              "Diósgyőr",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:32695",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Tiszakecske",
+              null,
+              null,
+              "games.parquet:batch8:32702",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:32696",
+              ""
+            ],
+            [
+              "1997-09-07",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Dunakanyar Vac FC",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              null,
+              "games.parquet:batch8:32829",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:33036",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Gazszer FC",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:33037",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Győri ETO",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:33035",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "MTK",
+              "Dunakanyar Vac FC",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:33032",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:33038",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Stadler FC Akaszto",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:33034",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Újpest",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:33033",
+              ""
+            ],
+            [
+              "1997-09-14",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:33212",
+              ""
+            ],
+            [
+              "1997-09-15",
+              "EXPLICIT",
+              "Fehérvár",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:33344",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Diósgyőr",
+              null,
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:33539",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Tiszakecske",
+              null,
+              null,
+              "games.parquet:batch8:33536",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Debrecen",
+              "Budapest Honved",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:33534",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:33537",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Gazszer FC",
+              "MTK",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:33538",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:33540",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:33535",
+              ""
+            ],
+            [
+              "1997-09-21",
+              "EXPLICIT",
+              "Ferencváros",
+              "Fehérvár",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:33669",
+              ""
+            ],
+            [
+              "1997-09-22",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:33820",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:33941",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Budapesti Vsc",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              null,
+              "games.parquet:batch8:33942",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "Fehérvár",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:33938",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "Győri ETO",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:33940",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "MTK",
+              "Bfc Siofok",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:33936",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:33943",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Budapesti Vasas",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:33939",
+              ""
+            ],
+            [
+              "1997-09-25",
+              "EXPLICIT",
+              "Újpest",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:33937",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:34165",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Gazszer FC",
+              null,
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:34169",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:34167",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:34168",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Debrecen",
+              "Zalaegerszeg",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:34164",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Ferencváros",
+              "Tiszakecske",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:34163",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Diósgyőr",
+              null,
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:34170",
+              ""
+            ],
+            [
+              "1997-09-28",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:34166",
+              ""
+            ],
+            [
+              "1997-10-01",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:34354",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:34503",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:34500",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Szombathelyi Haladas",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              null,
+              "games.parquet:batch8:34501",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "Győri ETO",
+              "Debrecen",
+              null,
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:34499",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "MTK",
+              "Stadler FC Akaszto",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:34496",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:34502",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Ferencváros",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:34498",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "Újpest",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:34497",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Budapesti Vsc",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              null,
+              "games.parquet:batch8:34661",
+              ""
+            ],
+            [
+              "1997-10-12",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Zalaegerszeg",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:34872",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:35097",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Diósgyőr",
+              null,
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:35099",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:35100",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Fehérvár",
+              "Tiszakecske",
+              null,
+              null,
+              "games.parquet:batch8:35096",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Ferencváros",
+              "Győri ETO",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              null,
+              "games.parquet:batch8:35095",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Gazszer FC",
+              null,
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:35101",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:35098",
+              ""
+            ],
+            [
+              "1997-10-19",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:35263",
+              ""
+            ],
+            [
+              "1997-10-19",
+              "EXPLICIT",
+              "Debrecen",
+              "Újpest",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:35262",
+              ""
+            ],
+            [
+              "1997-10-31",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Fehérvár",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:35847",
+              ""
+            ],
+            [
+              "1997-11-01",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:35892",
+              ""
+            ],
+            [
+              "1997-11-01",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Debrecen",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:35889",
+              ""
+            ],
+            [
+              "1997-11-01",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Szombathelyi Haladas",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              null,
+              "games.parquet:batch8:35890",
+              ""
+            ],
+            [
+              "1997-11-01",
+              "EXPLICIT",
+              "Győri ETO",
+              "Bekescsaba 1912 Eloere Se",
+              null,
+              null,
+              "games.parquet:batch8:35888",
+              ""
+            ],
+            [
+              "1997-11-01",
+              "EXPLICIT",
+              "MTK",
+              "Budapesti Vasas",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              null,
+              "games.parquet:batch8:35887",
+              ""
+            ],
+            [
+              "1997-11-01",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:35891",
+              ""
+            ],
+            [
+              "1997-11-02",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:36024",
+              ""
+            ],
+            [
+              "1997-11-03",
+              "EXPLICIT",
+              "Újpest",
+              "Ferencváros",
+              null,
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:36121",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:36270",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:36271",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Gazszer FC",
+              null,
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:36272",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Debrecen",
+              "MTK",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:36268",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Tiszakecske",
+              null,
+              null,
+              "games.parquet:batch8:36273",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Fehérvár",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:36269",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Ferencváros",
+              "Diósgyőr",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:36267",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:36274",
+              ""
+            ],
+            [
+              "1997-11-10",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Bfc Siofok",
+              null,
+              null,
+              "games.parquet:batch8:36543",
+              ""
+            ],
+            [
+              "1997-11-18",
+              "EXPLICIT",
+              "Budapesti Vsc",
+              "Szombathelyi Haladas",
+              null,
+              null,
+              "games.parquet:batch8:36800",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "Bfc Siofok",
+              "Budapesti Vasas",
+              null,
+              null,
+              "games.parquet:batch8:36831",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "Diósgyőr",
+              "Bekescsaba 1912 Eloere Se",
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              null,
+              "games.parquet:batch8:36829",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "Gazszer FC",
+              "Debrecen",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              "games.parquet:batch8:36830",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "Győri ETO",
+              "Budapest Honved",
+              null,
+              null,
+              "games.parquet:batch8:36828",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "MTK",
+              "Ferencváros",
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "games.parquet:batch8:36825",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "Stadler FC Akaszto",
+              "Dunakanyar Vac FC",
+              null,
+              null,
+              "games.parquet:batch8:36832",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "Zalaegerszeg",
+              "Tiszakecske",
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              null,
+              "games.parquet:batch8:36827",
+              ""
+            ],
+            [
+              "1997-11-19",
+              "EXPLICIT",
+              "Újpest",
+              "Fehérvár",
+              null,
+              null,
+              "games.parquet:batch8:36826",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Bekescsaba 1912 Eloere Se",
+              "MTK",
+              null,
+              "14dbcd95-8961-5805-8e89-9ba83957385c",
+              "games.parquet:batch8:36933",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Budapesti Vasas",
+              "Budapesti Vsc",
+              null,
+              null,
+              "games.parquet:batch8:36935",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Debrecen",
+              "Bfc Siofok",
+              "216f8da5-4d03-5b99-8088-1134342adfcc",
+              null,
+              "games.parquet:batch8:36931",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Dunakanyar Vac FC",
+              "Zalaegerszeg",
+              null,
+              "9487199d-1b7c-51f3-a599-7a12c71b3b68",
+              "games.parquet:batch8:36936",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Fehérvár",
+              "Diósgyőr",
+              null,
+              "9c142709-1774-52c3-8016-98bb56dd7360",
+              "games.parquet:batch8:36932",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Ferencváros",
+              "Gazszer FC",
+              "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+              "fca67366-ac59-5df7-90db-766dc2d0e9be",
+              "games.parquet:batch8:36930",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Szombathelyi Haladas",
+              "Stadler FC Akaszto",
+              null,
+              null,
+              "games.parquet:batch8:36934",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Tiszakecske",
+              "Győri ETO",
+              null,
+              null,
+              "games.parquet:batch8:36937",
+              ""
+            ],
+            [
+              "1997-11-24",
+              "EXPLICIT",
+              "Budapest Honved",
+              "Újpest",
+              null,
+              null,
+              "games.parquet:batch8:37136",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "hungary",
+                "HUN",
+                "1996",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 18,
+                "fixtures": 274,
+                "orientedPairs": 228,
+                "invalid": 0,
+                "clubDayClashes": 0,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  18
+                ]
+              },
+              "mapped": 4
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-08-18",
+              "max_date": "2007-12-09"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Hungarian Nemzeti Bajnokság I 2018/19",
+              "season": "2018-19",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2018-07-21",
+              "max_date": "2019-05-19"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Hungarian Nemzeti Bajnokság I 2020/21",
+              "season": "2020-21",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2020-08-14",
+              "max_date": "2021-05-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "274",
+              "unique_oriented_pairs": "228",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "1996-03-17",
+              "max_date": "1996-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "306",
+              "unique_oriented_pairs": "245",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "1997-02-28",
+              "max_date": "1997-11-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "306",
+              "unique_oriented_pairs": "259",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "1998-03-01",
+              "max_date": "1998-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "289",
+              "unique_oriented_pairs": "252",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "1999-02-27",
+              "max_date": "1999-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "277",
+              "unique_oriented_pairs": "224",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "2000-02-26",
+              "max_date": "2000-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "234",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2001-03-02",
+              "max_date": "2001-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "198",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2002-03-01",
+              "max_date": "2002-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "186",
+              "unique_oriented_pairs": "142",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2003-03-07",
+              "max_date": "2003-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "216",
+              "unique_oriented_pairs": "176",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2004-03-06",
+              "max_date": "2004-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "185",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "55",
+              "min_date": "2005-03-12",
+              "max_date": "2005-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "256",
+              "unique_oriented_pairs": "208",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2006-02-24",
+              "max_date": "2006-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "224",
+              "unique_oriented_pairs": "186",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2007-02-23",
+              "max_date": "2007-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2008-02-22",
+              "max_date": "2008-11-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "202",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2009-02-21",
+              "max_date": "2009-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "248",
+              "unique_oriented_pairs": "202",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2010-02-26",
+              "max_date": "2010-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "248",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2011-02-25",
+              "max_date": "2011-11-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "194",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2012-03-02",
+              "max_date": "2012-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "192",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2013-03-01",
+              "max_date": "2013-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "239",
+              "unique_oriented_pairs": "192",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2014-02-28",
+              "max_date": "2014-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "219",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "2015-02-21",
+              "max_date": "2015-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "198",
+              "unique_oriented_pairs": "142",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2016-02-13",
+              "max_date": "2016-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "198",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2017-02-18",
+              "max_date": "2017-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2018-02-24",
+              "max_date": "2018-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "185",
+              "unique_oriented_pairs": "142",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2019-02-02",
+              "max_date": "2019-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "196",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2020-01-25",
+              "max_date": "2020-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "206",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2021-01-20",
+              "max_date": "2021-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "191",
+              "unique_oriented_pairs": "145",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2022-01-27",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "206",
+              "unique_oriented_pairs": "153",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "2023-01-24",
+              "max_date": "2023-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "197",
+              "unique_oriented_pairs": "146",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2024-02-02",
+              "max_date": "2024-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "hungary",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "125",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "18",
+              "min_date": "2025-02-01",
+              "max_date": "2025-09-21"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "7a1c07ae1b2239098af67d41e6fa378f727c21b237aad5f9350f57b82ee097c7": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

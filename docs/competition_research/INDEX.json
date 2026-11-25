@@ -3487,5 +3487,6 @@
     "phaseCatalogue": "closure/PHASE_MODELS_169.json",
     "status": "RESEARCH_ONLY",
     "audit": "closure/AUTOMATION_AUDIT_169.json"
-  }
+  },
+  "automaticInsertion": "closure/AUTOMATIC_INSERTION.json"
 }

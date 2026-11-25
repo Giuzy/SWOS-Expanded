@@ -59,6 +59,51 @@
         "finalMonth": "2027-05"
       },
       "scope": "Official federation confirms R32 start Aug16; secondary entry counts and nominal later windows, exact tie rules pending. No outcomes."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "e670db019766d84ce8f03273bcea23fbadc19dc4cc4b68086bdffbcec5a25b5c": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

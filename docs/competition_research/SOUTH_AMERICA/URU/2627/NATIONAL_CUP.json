@@ -64,6 +64,533 @@
       },
       "limits": "AUF July announcement and later August draw; full group access rules and actual first amateur date pending. No initial July state.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "13dc9122dfa1a99f03dd91fa95b14318236061c62867931c6bc2914d4bac477e": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Copa AUF Uruguay 2026",
+            "country": "URU",
+            "season": "2026",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 28,
+            "fixtures": 19,
+            "orientedPairs": 19,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 19,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Albion": {
+              "uuid": "a0dd2774-796c-5fd2-bad8-216614645d9e",
+              "file": 71,
+              "ordinal": 13,
+              "league": 0,
+              "name": "ALBION",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Atenas": {
+              "uuid": "706231be-de05-571f-81ca-3e51733a2a1a",
+              "file": 71,
+              "ordinal": 16,
+              "league": 1,
+              "name": "ATENAS",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Boston River": {
+              "uuid": "93c91097-80d2-565d-9436-cf2879b3abec",
+              "file": 71,
+              "ordinal": 6,
+              "league": 0,
+              "name": "BOSTON RIVER",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Central Español": {
+              "uuid": "0a690f31-b66b-5b66-8955-3202279c64cf",
+              "file": 71,
+              "ordinal": 14,
+              "league": 0,
+              "name": "CENTRAL ESPANOL",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Cerrito": {
+              "uuid": "fe84038e-18f0-582e-bb86-d0fbbbb709db",
+              "file": 71,
+              "ordinal": 23,
+              "league": 1,
+              "name": "CERRITO",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Cerro": {
+              "uuid": "40896b9e-21c9-56df-b1d5-c54d4f9ea495",
+              "file": 71,
+              "ordinal": 10,
+              "league": 0,
+              "name": "CERRO",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Cerro Largo": {
+              "uuid": "27b71e65-bd7b-510e-b141-ae217cb4f0ac",
+              "file": 71,
+              "ordinal": 7,
+              "league": 0,
+              "name": "CERRO LARGO",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Danubio": {
+              "uuid": "f16d2869-32d6-58dc-8a24-ced007b2ea06",
+              "file": 71,
+              "ordinal": 11,
+              "league": 0,
+              "name": "DANUBIO",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Fénix": {
+              "uuid": "c445d2b2-ba81-5ab2-92b4-a82ddac47670",
+              "file": 71,
+              "ordinal": 21,
+              "league": 1,
+              "name": "FENIX",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Juventud": {
+              "uuid": "bf680b57-46ce-5a19-bc17-b6bf0eb9f2d9",
+              "file": 71,
+              "ordinal": 2,
+              "league": 0,
+              "name": "JUVENTUD",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Maldonado": {
+              "uuid": "5a4d3df5-4935-5fb7-82ba-01013a4e9eb4",
+              "file": 71,
+              "ordinal": 15,
+              "league": 0,
+              "name": "MALDONADO",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Nacional": {
+              "uuid": "368d0b14-1149-5a5f-9438-e8ea8922ac82",
+              "file": 71,
+              "ordinal": 1,
+              "league": 0,
+              "name": "NACIONAL",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Oriental": {
+              "uuid": "5814f40d-eae9-5e0e-a994-63e286bf4e81",
+              "file": 71,
+              "ordinal": 19,
+              "league": 1,
+              "name": "ORIENTAL",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Peñarol": {
+              "uuid": "ecc2c2b7-ab6c-546a-b59c-a742911597ef",
+              "file": 71,
+              "ordinal": 3,
+              "league": 0,
+              "name": "PENAROL",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Progreso": {
+              "uuid": "0b5fb70c-1416-528b-a0f9-5cc47fe68624",
+              "file": 71,
+              "ordinal": 9,
+              "league": 0,
+              "name": "PROGRESO",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Rentistas": {
+              "uuid": "77e931cd-3916-5853-aea4-20b0788c8e43",
+              "file": 71,
+              "ordinal": 20,
+              "league": 1,
+              "name": "RENTISTAS",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "River Plate": {
+              "uuid": "e3d44ee4-0358-56ad-81b4-1e2bff35bedd",
+              "file": 71,
+              "ordinal": 27,
+              "league": 1,
+              "name": "RIVER PLATE",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            },
+            "Wanderers": {
+              "uuid": "3ffa8d31-e0d2-519e-9dd5-feef4018a110",
+              "file": 71,
+              "ordinal": 12,
+              "league": 0,
+              "name": "WANDERERS",
+              "path": "data_json\\worlds\\2627\\teams\\URUGUAY.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Colón",
+              "candidateCount": 0
+            },
+            {
+              "label": "Defensor Sporting",
+              "candidateCount": 0
+            },
+            {
+              "label": "Deutscher FK",
+              "candidateCount": 0
+            },
+            {
+              "label": "Italiano",
+              "candidateCount": 0
+            },
+            {
+              "label": "Lito",
+              "candidateCount": 0
+            },
+            {
+              "label": "Liverpool",
+              "candidateCount": 0
+            },
+            {
+              "label": "Plaza",
+              "candidateCount": 0
+            },
+            {
+              "label": "Racing",
+              "candidateCount": 0
+            },
+            {
+              "label": "Rampla Juniors",
+              "candidateCount": 0
+            },
+            {
+              "label": "Torque",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-08-25",
+              "INFERRED_FROM_EDITION",
+              "Defensor Sporting",
+              "Rentistas",
+              null,
+              "77e931cd-3916-5853-aea4-20b0788c8e43",
+              "corpus/tablesu/uru2026.txt:2327",
+              "Round 1"
+            ],
+            [
+              "2026-08-26",
+              "INFERRED_FROM_EDITION",
+              "Danubio",
+              "Atenas",
+              "f16d2869-32d6-58dc-8a24-ced007b2ea06",
+              "706231be-de05-571f-81ca-3e51733a2a1a",
+              "corpus/tablesu/uru2026.txt:2294",
+              "Round 1 "
+            ],
+            [
+              "2026-08-26",
+              "INFERRED_FROM_EDITION",
+              "Juventud",
+              "Oriental",
+              "bf680b57-46ce-5a19-bc17-b6bf0eb9f2d9",
+              "5814f40d-eae9-5e0e-a994-63e286bf4e81",
+              "corpus/tablesu/uru2026.txt:2385",
+              "Round 1"
+            ],
+            [
+              "2026-08-26",
+              "INFERRED_FROM_EDITION",
+              "Peñarol",
+              "Torque",
+              "ecc2c2b7-ab6c-546a-b59c-a742911597ef",
+              null,
+              "corpus/tablesu/uru2026.txt:2298",
+              "Round 1 "
+            ],
+            [
+              "2026-08-26",
+              "INFERRED_FROM_EDITION",
+              "Plaza",
+              "Cerro Largo",
+              null,
+              "27b71e65-bd7b-510e-b141-ae217cb4f0ac",
+              "corpus/tablesu/uru2026.txt:2329",
+              "Round 1"
+            ],
+            [
+              "2026-08-26",
+              "INFERRED_FROM_EDITION",
+              "Progreso",
+              "River Plate",
+              "0b5fb70c-1416-528b-a0f9-5cc47fe68624",
+              "e3d44ee4-0358-56ad-81b4-1e2bff35bedd",
+              "corpus/tablesu/uru2026.txt:2416",
+              "Round 1"
+            ],
+            [
+              "2026-08-27",
+              "INFERRED_FROM_EDITION",
+              "Fénix",
+              "Liverpool",
+              "c445d2b2-ba81-5ab2-92b4-a82ddac47670",
+              null,
+              "corpus/tablesu/uru2026.txt:2445",
+              "Round 1"
+            ],
+            [
+              "2026-08-27",
+              "INFERRED_FROM_EDITION",
+              "Nacional",
+              "Albion",
+              "368d0b14-1149-5a5f-9438-e8ea8922ac82",
+              "a0dd2774-796c-5fd2-bad8-216614645d9e",
+              "corpus/tablesu/uru2026.txt:2419",
+              "Round 1"
+            ],
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "Colón",
+              "Fénix",
+              null,
+              "c445d2b2-ba81-5ab2-92b4-a82ddac47670",
+              "corpus/tablesu/uru2026.txt:2452",
+              "Round 2"
+            ],
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "Wanderers",
+              "Cerro",
+              "3ffa8d31-e0d2-519e-9dd5-feef4018a110",
+              "40896b9e-21c9-56df-b1d5-c54d4f9ea495",
+              "corpus/tablesu/uru2026.txt:2362",
+              "Round 2"
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "Atenas",
+              "Peñarol",
+              "706231be-de05-571f-81ca-3e51733a2a1a",
+              "ecc2c2b7-ab6c-546a-b59c-a742911597ef",
+              "corpus/tablesu/uru2026.txt:2306",
+              "Round 2"
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "Central Español",
+              "Juventud",
+              "0a690f31-b66b-5b66-8955-3202279c64cf",
+              "bf680b57-46ce-5a19-bc17-b6bf0eb9f2d9",
+              "corpus/tablesu/uru2026.txt:2392",
+              "Round 2"
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "Cerrito",
+              "Maldonado",
+              "fe84038e-18f0-582e-bb86-d0fbbbb709db",
+              "5a4d3df5-4935-5fb7-82ba-01013a4e9eb4",
+              "corpus/tablesu/uru2026.txt:2365",
+              "Round 2"
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "Deutscher FK",
+              "Italiano",
+              null,
+              null,
+              "corpus/tablesu/uru2026.txt:2489",
+              "Round 3"
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "Liverpool",
+              "Boston River",
+              null,
+              "93c91097-80d2-565d-9436-cf2879b3abec",
+              "corpus/tablesu/uru2026.txt:2456",
+              "Round 2"
+            ],
+            [
+              "2026-09-03",
+              "INFERRED_FROM_EDITION",
+              "Albion",
+              "Progreso",
+              "a0dd2774-796c-5fd2-bad8-216614645d9e",
+              "0b5fb70c-1416-528b-a0f9-5cc47fe68624",
+              "corpus/tablesu/uru2026.txt:2422",
+              "Round 2 "
+            ],
+            [
+              "2026-09-03",
+              "INFERRED_FROM_EDITION",
+              "Oriental",
+              "Racing",
+              "5814f40d-eae9-5e0e-a994-63e286bf4e81",
+              null,
+              "corpus/tablesu/uru2026.txt:2395",
+              "Round 2"
+            ],
+            [
+              "2026-09-03",
+              "INFERRED_FROM_EDITION",
+              "Rampla Juniors",
+              "Lito",
+              null,
+              null,
+              "corpus/tablesu/uru2026.txt:2492",
+              "Round 3"
+            ],
+            [
+              "2026-09-03",
+              "INFERRED_FROM_EDITION",
+              "River Plate",
+              "Nacional",
+              "e3d44ee4-0358-56ad-81b4-1e2bff35bedd",
+              "368d0b14-1149-5a5f-9438-e8ea8922ac82",
+              "corpus/tablesu/uru2026.txt:2424",
+              "Round 2 "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa AUF Uruguay 2023/24",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "80",
+              "unique_oriented_pairs": "80",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "67",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-12",
+              "max_date": "2024-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa AUF Uruguay 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-12",
+              "max_date": "2024-10-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa AUF Uruguay 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-05",
+              "max_date": "2025-10-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa AUF Uruguay 2026",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-08-25",
+              "max_date": "2026-09-03"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "e670db019766d84ce8f03273bcea23fbadc19dc4cc4b68086bdffbcec5a25b5c": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

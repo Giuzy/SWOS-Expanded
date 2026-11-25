@@ -897,6 +897,286 @@
         "groupMatchEndsAt90": true
       },
       "scope": "Historical archive describes consecutive home/away fixtures as one points-bearing series, not ordinary league match points. Earlier 72 score records preserved. Do not infer future winner."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "0c5b8a70053d6facb476d1a5158c194b5fc9017de2eecc1fdcf3ab71346ce838": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-03-15",
+              "max_date": "2017-05-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-03-07",
+              "max_date": "2018-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-03-06",
+              "max_date": "2019-05-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-03-02",
+              "max_date": "2021-10-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "69",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-02-23",
+              "max_date": "2022-10-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "81",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-03-08",
+              "max_date": "2023-11-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "35",
+              "unique_oriented_pairs": "35",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-03-06",
+              "max_date": "2024-05-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League YBC Levain Cup",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-03",
+              "max_date": "2025-11-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-10-05",
+              "max_date": "2011-10-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-03-20",
+              "max_date": "2012-06-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "58",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-03-20",
+              "max_date": "2013-11-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-03-19",
+              "max_date": "2014-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-03-18",
+              "max_date": "2015-06-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup (J.League Cup)",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "90",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-03-29",
+              "max_date": "2006-11-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup (J.League Cup) 2005",
+              "season": "2005",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-03-19",
+              "max_date": "2005-10-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Yamazaki Nabisco Cup 2004",
+              "season": "2004",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-03-27",
+              "max_date": "2004-10-11"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -959,6 +1239,1469 @@
         "R3Ties": 16
       },
       "scope": "RSSSF archive, national opening November3. Earlier regional qualifiers not dated; do not mark definitively excluded before final audit."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "b715701a20d16f698e193acb3fc945e56d64fee54b5b33a7c8c094e2e190e56d": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Japan Cup (Emperor's Cup) 1997",
+            "country": "JPN",
+            "season": "1997",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 114,
+            "fixtures": 77,
+            "orientedPairs": 77,
+            "invalid": 0,
+            "clubDayClashes": 1,
+            "inferredDates": 77,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "(3-9/4-9); CK 5-3 (1-2/4-1); FK 25-26 (8-14/17-12);",
+              "candidateCount": 0
+            },
+            {
+              "label": "(h1/h2 8-4/6-3);",
+              "candidateCount": 0
+            },
+            {
+              "label": "10,957",
+              "candidateCount": 0
+            },
+            {
+              "label": "32,308",
+              "candidateCount": 0
+            },
+            {
+              "label": "48,016",
+              "candidateCount": 0
+            },
+            {
+              "label": "Akita City Hall (Akita)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Albirex Niigata (Niigata)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Alo's Hokuriku (Toyama)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Aoyama Gakuin Univ (Tokyo)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Aster Aomori (Aomori)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka (J.League)      2,082",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka (J.League)      3,018",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka (J.League) 12,252",
+              "candidateCount": 0
+            },
+            {
+              "label": "Blaze Kumamoto (Kumamoto)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Brummell Sendai (Miyagi)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Consadole Sapporo (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Consadole Sapporo (JFL)        2,885",
+              "candidateCount": 0
+            },
+            {
+              "label": "Denso (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ehime FC Youth (Ehime)",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Primeiro (Fukushima)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fukui Teachers' SC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fukui Teachers' SC (Fukui)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fukuoka Univ (Fukuoka)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fukushima FC (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fukushima FC (JFL)            10,834",
+              "candidateCount": 0
+            },
+            {
+              "label": "Funabashi Mun HS (Chiba)",
+              "candidateCount": 0
+            },
+            {
+              "label": "GK",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka (J.League)         5,497",
+              "candidateCount": 0
+            },
+            {
+              "label": "Hannan Univ (Kansai Stud)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Hannan Univ (Kansai Stud)      3,552",
+              "candidateCount": 0
+            },
+            {
+              "label": "Hatsushiba Hashimoto HS",
+              "candidateCount": 0
+            },
+            {
+              "label": "Hiroshima Univ (Hiroshima)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Hokkaido El. Power (Hokkaido)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Honda Giken Hamamatsu (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Hosho HS (Miyazaki)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Iwami FC (Shimane)",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jatco (Shizuoka)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jatco (Shizuoka)              12,197",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata           - Yokohama Flugels",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata (J.League)        3,577",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata (J.League)        4,688",
+              "candidateCount": 0
+            },
+            {
+              "label": "Juntendo Univ (Kanto U)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Juntendo Univ (Kanto U)        6,941",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kagawa Shiun Club (Kagawa)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kagoshima Jitsugyo HS",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kanagawa Univ (Kanagawa)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kansai Univ (Osaka)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers        - Tokyo Gas",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers        - Yokohama Flugels",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kawasaki Frontale (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kawasaki Frontale (JFL)        3,028",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kochi Univ (Kochi)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kokushikan Univ (Kanto U)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kokushikan Univ (Kanto U)      3,468",
+              "candidateCount": 0
+            },
+            {
+              "label": "Komazawa Univ (Kanto U)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Komazawa Univ (Kanto U)        2,590",
+              "candidateCount": 0
+            },
+            {
+              "label": "Komazawa Univ (Kantou U)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kusatsu East HS (Shiga)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kwansei Gakuin Univ (Hyogo)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoiku Kenkyusha (Kyoto)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Luminozo Sayama (Saitama)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Maebashi Com HS (Gunma)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mindhouse TC (Mie)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mito Hollyhock (Ibaraki)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mitsubishi Heavy Ind. Nagasaki",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mitsubishi Motors Mizushima",
+              "candidateCount": 0
+            },
+            {
+              "label": "Moka HS (Tochigi)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Momoyama Gakuin Univ",
+              "candidateCount": 0
+            },
+            {
+              "label": "Momoyama Gakuin Univ           2,812",
+              "candidateCount": 0
+            },
+            {
+              "label": "Montedio Yamagata (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Montedio Yamagata (JFL)        3,537",
+              "candidateCount": 0
+            },
+            {
+              "label": "NTT Kanto (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "NTT Kanto (JFL)               15,261",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Bank (Aichi)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nara Sangyo Univ (Nara)",
+              "candidateCount": 0
+            },
+            {
+              "label": "National Stadium. Referee: Okada. Shots:",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nippon Steel Kamaishi (Iwate)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nippon Steel Oita (Oita)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nirasaki Astros (Yamanashi)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Oita Trinity (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Okinawa Int'l Univ (Okinawa)",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Tottori (Tottori)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Saga Com HS (Saga)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sagan Tosu (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima (J.League) 3,005",
+              "candidateCount": 0
+            },
+            {
+              "label": "Seino Transports (Gifu)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tatara Gakuen HS (Yamaguchi)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Teihens FC (Ishikawa)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tokyo Gas (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tokyo Gas (JFL)                2,017",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ventforet Kofu (JFL)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ventforet Kofu (JFL)           2,302",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe (J.League)         2,681",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vortis Tokushima (Tokushima)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Waseda Univ (Kanto U)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yamaga Club (Nagano)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yamagata FC (Yamagata)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels (J.League)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels (J.League)    3,123",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels (J.League)    7,700",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos (J.League)",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-01-01",
+              "INFERRED_FROM_EDITION",
+              "GK",
+              "(3-9/4-9); CK 5-3 (1-2/4-1); FK 25-26 (8-14/17-12);",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1751",
+              "Final "
+            ],
+            [
+              "1997-01-01",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers        - Yokohama Flugels",
+              "48,016",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1747",
+              "Final "
+            ],
+            [
+              "1997-01-01",
+              "INFERRED_FROM_EDITION",
+              "National Stadium. Referee: Okada. Shots:",
+              "(h1/h2 8-4/6-3);",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1750",
+              "Final "
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Aoyama Gakuin Univ (Tokyo)",
+              "Denso (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1608",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Blaze Kumamoto (Kumamoto)",
+              "Honda Giken Hamamatsu (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1594",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Brummell Sendai (Miyagi)",
+              "Yamaga Club (Nagano)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1571",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Ehime FC Youth (Ehime)",
+              "Alo's Hokuriku (Toyama)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1593",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "FC Primeiro (Fukushima)",
+              "Hannan Univ (Kansai Stud)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1609",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Fukuoka Univ (Fukuoka)",
+              "Akita City Hall (Akita)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1607",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Funabashi Mun HS (Chiba)",
+              "Komazawa Univ (Kantou U)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1622",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Hiroshima Univ (Hiroshima)",
+              "Aster Aomori (Aomori)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1620",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Hosho HS (Miyazaki)",
+              "Tatara Gakuen HS (Yamaguchi)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1616",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Iwami FC (Shimane)",
+              "Juntendo Univ (Kanto U)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1574",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Jatco (Shizuoka)",
+              "Okinawa Int'l Univ (Okinawa)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1597",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Kagawa Shiun Club (Kagawa)",
+              "Waseda Univ (Kanto U)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1598",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Kagoshima Jitsugyo HS",
+              "Consadole Sapporo (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1617",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Kanagawa Univ (Kanagawa)",
+              "Ventforet Kofu (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1605",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Kansai Univ (Osaka)",
+              "Tokyo Gas (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1590",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Kusatsu East HS (Shiga)",
+              "Sagan Tosu (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1583",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Kwansei Gakuin Univ (Hyogo)",
+              "Albirex Niigata (Niigata)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1596",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Kyoiku Kenkyusha (Kyoto)",
+              "Montedio Yamagata (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1614",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Luminozo Sayama (Saitama)",
+              "Nippon Steel Kamaishi (Iwate)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1604",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Maebashi Com HS (Gunma)",
+              "Fukushima FC (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1610",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Mindhouse TC (Mie)",
+              "Momoyama Gakuin Univ",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1588",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Mito Hollyhock (Ibaraki)",
+              "Hokkaido El. Power (Hokkaido)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1577",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Mitsubishi Heavy Ind. Nagasaki",
+              "Hatsushiba Hashimoto HS",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1575",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Mitsubishi Motors Mizushima",
+              "Yamagata FC (Yamagata)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1581",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Moka HS (Tochigi)",
+              "Kokushikan Univ (Kanto U)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1600",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Bank (Aichi)",
+              "Fukui Teachers' SC (Fukui)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1613",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Nara Sangyo Univ (Nara)",
+              "Nippon Steel Oita (Oita)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1585",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Nirasaki Astros (Yamanashi)",
+              "NTT Kanto (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1579",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "SC Tottori (Tottori)",
+              "Kawasaki Frontale (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1601",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Saga Com HS (Saga)",
+              "Oita Trinity (JFL)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1586",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Seino Transports (Gifu)",
+              "Kochi Univ (Kochi)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1599",
+              ""
+            ],
+            [
+              "1997-11-30",
+              "INFERRED_FROM_EDITION",
+              "Vortis Tokushima (Tokushima)",
+              "Teihens FC (Ishikawa)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1621",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Aoyama Gakuin Univ (Tokyo)",
+              "Hannan Univ (Kansai Stud)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1650",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka (J.League)",
+              "Jatco (Shizuoka)              12,197",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1678",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Brummell Sendai (Miyagi)",
+              "Juntendo Univ (Kanto U)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1625",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka (J.League)",
+              "Ventforet Kofu (JFL)           2,302",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1685",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Consadole Sapporo (JFL)",
+              "Aster Aomori (Aomori)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1656",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Fukushima FC (JFL)",
+              "Fukui Teachers' SC",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1651",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Honda Giken Hamamatsu (JFL)",
+              "Albirex Niigata (Niigata)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1640",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara (J.League)",
+              "Consadole Sapporo (JFL)        2,885",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1695",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Jatco (Shizuoka)",
+              "Kagawa Shiun Club (Kagawa)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1642",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata (J.League)",
+              "Hannan Univ (Kansai Stud)      3,552",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1688",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers (J.League)",
+              "Juntendo Univ (Kanto U)        6,941",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1662",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol (J.League)",
+              "Kokushikan Univ (Kanto U)      3,468",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1681",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Kawasaki Frontale (JFL)",
+              "Luminozo Sayama (Saitama)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1646",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Mito Hollyhock (Ibaraki)",
+              "Avispa Fukuoka (J.League)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1630",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Montedio Yamagata (JFL)",
+              "Hosho HS (Miyazaki)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1653",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "NTT Kanto (JFL)",
+              "Yamagata FC (Yamagata)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1632",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Oita Trinity (JFL)",
+              "Momoyama Gakuin Univ",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1635",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Sagan Tosu (JFL)",
+              "Nara Sangyo Univ (Nara)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1634",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima (J.League)",
+              "Montedio Yamagata (JFL)        3,537",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1693",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Seino Transports (Gifu)",
+              "Kokushikan Univ (Kanto U)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1644",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse (J.League)",
+              "Fukushima FC (JFL)            10,834",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1691",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Tokyo Gas (JFL)",
+              "Ehime FC Youth (Ehime)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1638",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds (J.League)",
+              "NTT Kanto (JFL)               15,261",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1667",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Ventforet Kofu (JFL)",
+              "Fukuoka Univ (Fukuoka)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1648",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki (J.League)",
+              "Avispa Fukuoka (J.League)      2,082",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1665",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki (J.League)",
+              "Mitsubishi Heavy Ind. Nagasaki",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1627",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe (J.League)",
+              "Kawasaki Frontale (JFL)        3,028",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1683",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Vortis Tokushima (Tokushima)",
+              "Komazawa Univ (Kanto U)",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1659",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels (J.League)",
+              "Komazawa Univ (Kanto U)        2,590",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1697",
+              ""
+            ],
+            [
+              "1997-12-07",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos (J.League)",
+              "Momoyama Gakuin Univ           2,812",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1671",
+              ""
+            ],
+            [
+              "1997-12-20",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka (J.League)",
+              "Jubilo Iwata (J.League)        3,577",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1713",
+              ""
+            ],
+            [
+              "1997-12-20",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara (J.League)",
+              "Yokohama Flugels (J.League)    7,700",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1717",
+              ""
+            ],
+            [
+              "1997-12-20",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers (J.League)",
+              "Avispa Fukuoka (J.League)      3,018",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1702",
+              ""
+            ],
+            [
+              "1997-12-20",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol (J.League)",
+              "Vissel Kobe (J.League)         2,681",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1711",
+              ""
+            ],
+            [
+              "1997-12-20",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga (J.League)",
+              "Bellmare Hiratsuka (J.League) 12,252",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1709",
+              ""
+            ],
+            [
+              "1997-12-20",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse (J.League)",
+              "Sanfrecce Hiroshima (J.League) 3,005",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1715",
+              ""
+            ],
+            [
+              "1997-12-20",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos (J.League)",
+              "Tokyo Gas (JFL)                2,017",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1707",
+              ""
+            ],
+            [
+              "1997-12-23",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers (J.League)",
+              "Gamba Osaka (J.League)         5,497",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1721",
+              "Quarterfinals "
+            ],
+            [
+              "1997-12-23",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol (J.League)",
+              "Jubilo Iwata (J.League)        4,688",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1726",
+              "Quarterfinals "
+            ],
+            [
+              "1997-12-23",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse (J.League)",
+              "Yokohama Flugels (J.League)    3,123",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1728",
+              "Quarterfinals "
+            ],
+            [
+              "1997-12-28",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata           - Yokohama Flugels",
+              "10,957",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1739",
+              "Semifinals "
+            ],
+            [
+              "1997-12-28",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers        - Tokyo Gas",
+              "32,308",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:1734",
+              "Semifinals "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "120",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-03",
+              "max_date": "2010-12-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "80",
+              "rows": "69",
+              "unique_oriented_pairs": "69",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-03",
+              "max_date": "2012-01-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "115",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "64",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-20",
+              "max_date": "2023-10-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "125",
+              "rows": "73",
+              "unique_oriented_pairs": "73",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "73",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-05-25",
+              "max_date": "2024-11-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup 1999",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "118",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-11-28",
+              "max_date": "1999-12-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup 2000",
+              "season": "2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "119",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "64",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-11-25",
+              "max_date": "2001-03-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup 2001",
+              "season": "2001",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "119",
+              "rows": "66",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "66",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-11-25",
+              "max_date": "2001-12-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Emperor's Cup 2004",
+              "season": "2004",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "122",
+              "rows": "70",
+              "unique_oriented_pairs": "70",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "70",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-09-23",
+              "max_date": "2004-12-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Japan Cup (Emperor's Cup) 1997",
+              "season": "1997",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "114",
+              "rows": "77",
+              "unique_oriented_pairs": "77",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "77",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-01-01",
+              "max_date": "1997-12-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Japan Cup (Emperor's Cup) 1998",
+              "season": "1998",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "130",
+              "rows": "72",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "71",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-01-01",
+              "max_date": "1999-02-27"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

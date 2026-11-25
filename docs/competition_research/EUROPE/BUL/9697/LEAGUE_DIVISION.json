@@ -88,6 +88,3207 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Earliest actual match date not established."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "fd63498dd055b359cf2708989bda3781ca952ae47b2502ead3899045de8ea578": {
+          "sourceGroup": {
+            "source": "parquet/games.parquet",
+            "competition": "bulgaria",
+            "country": "BUL",
+            "season": "1996",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 19,
+            "fixtures": 240,
+            "orientedPairs": 196,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              16
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Botev Plovdiv": {
+              "uuid": "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "file": 3,
+              "ordinal": 1,
+              "league": 0,
+              "name": "BOTEV PLOVDIV",
+              "path": "data_json\\teams\\BULGARIA.json"
+            },
+            "CSKA Sofia": {
+              "uuid": "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "file": 3,
+              "ordinal": 2,
+              "league": 0,
+              "name": "CSKA SOFIA",
+              "path": "data_json\\teams\\BULGARIA.json"
+            },
+            "Levski Sofia": {
+              "uuid": "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "file": 3,
+              "ordinal": 6,
+              "league": 0,
+              "name": "LEVSKI SOFIA",
+              "path": "data_json\\teams\\BULGARIA.json"
+            },
+            "Lokomotiv Sofia": {
+              "uuid": "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "file": 3,
+              "ordinal": 9,
+              "league": 0,
+              "name": "LOKOMOTIV SOFIA",
+              "path": "data_json\\teams\\BULGARIA.json"
+            },
+            "Slavia Sofia": {
+              "uuid": "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "file": 3,
+              "ordinal": 14,
+              "league": 0,
+              "name": "SLAVIA SOFIA",
+              "path": "data_json\\teams\\BULGARIA.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Etar Tarnovo",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Maritsa 1921 Plovdiv",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Minyor Pernik",
+              "candidateCount": 0
+            },
+            {
+              "label": "Levski Kjustendil",
+              "candidateCount": 0
+            },
+            {
+              "label": "Lokomotiv Plovdiv",
+              "candidateCount": 0
+            },
+            {
+              "label": "Neftochimik Burgas",
+              "candidateCount": 0
+            },
+            {
+              "label": "PFC Dobrudzha Dobrich",
+              "candidateCount": 0
+            },
+            {
+              "label": "PFC Litex Lovech",
+              "candidateCount": 0
+            },
+            {
+              "label": "PFC Montana",
+              "candidateCount": 0
+            },
+            {
+              "label": "PFC Shumen",
+              "candidateCount": 0
+            },
+            {
+              "label": "Spartak Pd",
+              "candidateCount": 0
+            },
+            {
+              "label": "Spartak Pleven",
+              "candidateCount": 0
+            },
+            {
+              "label": "Spartak Varna",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vidima Rakovski",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-02-16",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "CSKA Sofia",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:11199",
+              ""
+            ],
+            [
+              "1996-02-17",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Lokomotiv Plovdiv",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:11208",
+              ""
+            ],
+            [
+              "1996-02-17",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:11209",
+              ""
+            ],
+            [
+              "1996-02-17",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:11211",
+              ""
+            ],
+            [
+              "1996-02-17",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "PFC Dobrudzha Dobrich",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:11212",
+              ""
+            ],
+            [
+              "1996-02-17",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:11213",
+              ""
+            ],
+            [
+              "1996-02-17",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:11214",
+              ""
+            ],
+            [
+              "1996-02-17",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:11210",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Spartak Pd",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:11358",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:11360",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:11361",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:11362",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Botev Plovdiv",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:11363",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:11365",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "PFC Shumen",
+              null,
+              null,
+              "games.parquet:batch8:11359",
+              ""
+            ],
+            [
+              "1996-02-24",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:11364",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Etar Tarnovo",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:11538",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "PFC Montana",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:11539",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:11541",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Neftochimik Burgas",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:11542",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:11543",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Spartak Varna",
+              "PFC Litex Lovech",
+              null,
+              null,
+              "games.parquet:batch8:11544",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:11540",
+              ""
+            ],
+            [
+              "1996-03-03",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "PFC Dobrudzha Dobrich",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:11646",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Levski Kjustendil",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:11788",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:11790",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:11791",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "PFC Montana",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:11792",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "PFC Shumen",
+              null,
+              null,
+              "games.parquet:batch8:11794",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Spartak Pd",
+              null,
+              null,
+              "games.parquet:batch8:11789",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:11793",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:11795",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "Neftochimik Burgas",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:12009",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:12011",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Spartak Varna",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:12010",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "PFC Montana",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:12012",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:12014",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "PFC Litex Lovech",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:12015",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:12016",
+              ""
+            ],
+            [
+              "1996-03-13",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:12013",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:12078",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:12079",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "CSKA Sofia",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:12080",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Spartak Pd",
+              null,
+              null,
+              "games.parquet:batch8:12082",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:12077",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "PFC Shumen",
+              null,
+              null,
+              "games.parquet:batch8:12081",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:12083",
+              ""
+            ],
+            [
+              "1996-03-17",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Vidima Rakovski",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:12203",
+              ""
+            ],
+            [
+              "1996-03-22",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "PFC Litex Lovech",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:12403",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "PFC Dobrudzha Dobrich",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:12432",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:12433",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "PFC Montana",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:12434",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:12436",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Levski Sofia",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:12437",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:12438",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:12435",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:12757",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Levski Sofia",
+              "PFC Shumen",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:12758",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:12759",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:12761",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:12756",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "Spartak Pd",
+              null,
+              null,
+              "games.parquet:batch8:12760",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Vidima Rakovski",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:12762",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:12763",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "Levski Sofia",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:13092",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Neftochimik Burgas",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:13093",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:13094",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Lokomotiv Plovdiv",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:13095",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "PFC Montana",
+              "PFC Litex Lovech",
+              null,
+              null,
+              "games.parquet:batch8:13096",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:13098",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:13099",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:13097",
+              ""
+            ],
+            [
+              "1996-04-09",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:13369",
+              ""
+            ],
+            [
+              "1996-04-10",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:13400",
+              ""
+            ],
+            [
+              "1996-04-10",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Spartak Pd",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:13401",
+              ""
+            ],
+            [
+              "1996-04-10",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:13402",
+              ""
+            ],
+            [
+              "1996-04-10",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:13403",
+              ""
+            ],
+            [
+              "1996-04-10",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:13404",
+              ""
+            ],
+            [
+              "1996-04-10",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Botev Plovdiv",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:13405",
+              ""
+            ],
+            [
+              "1996-04-10",
+              "EXPLICIT",
+              "Spartak Varna",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:13406",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "PFC Shumen",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:13492",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "PFC Litex Lovech",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:13493",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:13495",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Etar Tarnovo",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:13496",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:13494",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "PFC Montana",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:13497",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:13499",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:13498",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "Vidima Rakovski",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:13864",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:13865",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Levski Kjustendil",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:13866",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:13868",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:13867",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Spartak Pd",
+              null,
+              null,
+              "games.parquet:batch8:13869",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "PFC Montana",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:13870",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Spartak Varna",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:13871",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Levski Sofia",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:14189",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:14191",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:14192",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Spartak Varna",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:14193",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "PFC Litex Lovech",
+              null,
+              null,
+              "games.parquet:batch8:14190",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "PFC Montana",
+              "PFC Shumen",
+              null,
+              null,
+              "games.parquet:batch8:14194",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:14196",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:14195",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "PFC Montana",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:14596",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:14597",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Lokomotiv Sofia",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:14598",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "PFC Litex Lovech",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:14599",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "PFC Shumen",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:14600",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "CSKA Sofia",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:14601",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Spartak Pd",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:14602",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Spartak Varna",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:14603",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "PFC Shumen",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:14958",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:14960",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:14964",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Slavia Sofia",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:14961",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "PFC Litex Lovech",
+              null,
+              null,
+              "games.parquet:batch8:14963",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:14959",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "PFC Montana",
+              "Spartak Pd",
+              null,
+              null,
+              "games.parquet:batch8:14962",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:14965",
+              ""
+            ],
+            [
+              "1996-08-09",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:17433",
+              ""
+            ],
+            [
+              "1996-08-09",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:17434",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:17450",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:17454",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Spartak Varna",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:17452",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "PFC Montana",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:17451",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "FK Minyor Pernik",
+              null,
+              null,
+              "games.parquet:batch8:17453",
+              ""
+            ],
+            [
+              "1996-08-11",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Spartak Pleven",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:17526",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "Lokomotiv Plovdiv",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:17734",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "FC Maritsa 1921 Plovdiv",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:17736",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "FK Minyor Pernik",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:17732",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:17733",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Levski Sofia",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:17730",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:17731",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Spartak Pleven",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:17735",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:17729",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:18093",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:18095",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Spartak Varna",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:18098",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Spartak Pleven",
+              null,
+              null,
+              "games.parquet:batch8:18097",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "FK Minyor Pernik",
+              null,
+              null,
+              "games.parquet:batch8:18092",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "PFC Montana",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:18091",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "CSKA Sofia",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:18096",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:18094",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "PFC Montana",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:18889",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "FK Minyor Pernik",
+              "FC Maritsa 1921 Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:18891",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:18888",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Etar Tarnovo",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:18892",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Lokomotiv Plovdiv",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:18885",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:18886",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "Spartak Pleven",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:18890",
+              ""
+            ],
+            [
+              "1996-09-08",
+              "EXPLICIT",
+              "Spartak Varna",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:18887",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "PFC Dobrudzha Dobrich",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:19292",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:19286",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:19291",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:19293",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:19290",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "PFC Montana",
+              "Spartak Pleven",
+              null,
+              null,
+              "games.parquet:batch8:19289",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "FK Minyor Pernik",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:19287",
+              ""
+            ],
+            [
+              "1996-09-15",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:19288",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "FC Maritsa 1921 Plovdiv",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:19765",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:19761",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "FK Minyor Pernik",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:19760",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:19759",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Vidima Rakovski",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:19764",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "PFC Montana",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:19758",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "Spartak Pleven",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:19762",
+              ""
+            ],
+            [
+              "1996-09-22",
+              "EXPLICIT",
+              "Spartak Varna",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:19763",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Levski Kjustendil",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:20164",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "Spartak Pleven",
+              null,
+              null,
+              "games.parquet:batch8:20162",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:20158",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:20161",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "FK Minyor Pernik",
+              null,
+              null,
+              "games.parquet:batch8:20160",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "PFC Montana",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:20157",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Botev Plovdiv",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:20163",
+              ""
+            ],
+            [
+              "1996-09-29",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:20159",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "CSKA Sofia",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:20649",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:20644",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:20646",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Neftochimik Burgas",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:20648",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:20647",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "FC Maritsa 1921 Plovdiv",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:20642",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Spartak Pleven",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:20643",
+              ""
+            ],
+            [
+              "1996-10-12",
+              "EXPLICIT",
+              "Spartak Varna",
+              "FK Minyor Pernik",
+              null,
+              null,
+              "games.parquet:batch8:20645",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Spartak Pleven",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:21194",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:21201",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "FK Minyor Pernik",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:21198",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:21196",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:21197",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "PFC Montana",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:21195",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Lokomotiv Sofia",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:21200",
+              ""
+            ],
+            [
+              "1996-10-20",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:21199",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "FK Minyor Pernik",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:21523",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "FC Maritsa 1921 Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:21522",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Slavia Sofia",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:21524",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:21520",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "CSKA Sofia",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:21517",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Spartak Pleven",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:21519",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:21521",
+              ""
+            ],
+            [
+              "1996-10-26",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:21518",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Levski Sofia",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:22020",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:22015",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "FK Minyor Pernik",
+              "Spartak Pleven",
+              null,
+              null,
+              "games.parquet:batch8:22019",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:22017",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:22014",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:22018",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "PFC Montana",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:22013",
+              ""
+            ],
+            [
+              "1996-11-03",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Etar Tarnovo",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:22016",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:22450",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "Levski Sofia",
+              "PFC Dobrudzha Dobrich",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:22453",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:22451",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "FK Minyor Pernik",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              null,
+              "games.parquet:batch8:22448",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "PFC Montana",
+              "Neftochimik Burgas",
+              null,
+              null,
+              "games.parquet:batch8:22449",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "Spartak Pleven",
+              "Levski Kjustendil",
+              null,
+              null,
+              "games.parquet:batch8:22447",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Botev Plovdiv",
+              null,
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:22446",
+              ""
+            ],
+            [
+              "1996-11-16",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "FC Maritsa 1921 Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:22452",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "Spartak Pleven",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              null,
+              "games.parquet:batch8:22787",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "Lokomotiv Plovdiv",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:22788",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "PFC Montana",
+              null,
+              null,
+              "games.parquet:batch8:22783",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "FK Minyor Pernik",
+              "Levski Sofia",
+              null,
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:22789",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:22785",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:22782",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:22786",
+              ""
+            ],
+            [
+              "1996-11-23",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Vidima Rakovski",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:22784",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "Etar Tarnovo",
+              "FK Minyor Pernik",
+              null,
+              null,
+              "games.parquet:batch8:23071",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "Levski Sofia",
+              "Levski Kjustendil",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              null,
+              "games.parquet:batch8:23075",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "Lokomotiv Plovdiv",
+              "PFC Dobrudzha Dobrich",
+              null,
+              null,
+              "games.parquet:batch8:23072",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "Lokomotiv Sofia",
+              "Botev Plovdiv",
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "games.parquet:batch8:23068",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "Neftochimik Burgas",
+              "FC Maritsa 1921 Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:23074",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "PFC Montana",
+              "Slavia Sofia",
+              null,
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              "games.parquet:batch8:23070",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "Spartak Varna",
+              "Spartak Pleven",
+              null,
+              null,
+              "games.parquet:batch8:23073",
+              ""
+            ],
+            [
+              "1996-11-30",
+              "EXPLICIT",
+              "Vidima Rakovski",
+              "CSKA Sofia",
+              null,
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              "games.parquet:batch8:23069",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "Botev Plovdiv",
+              "Levski Sofia",
+              "6dacf7b9-96ad-59f2-bac9-1789e50fb18d",
+              "0797079e-3def-58ab-9ea6-fa8b9514ee30",
+              "games.parquet:batch8:23351",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "CSKA Sofia",
+              "PFC Montana",
+              "bba3638c-62b8-5ab0-966d-5864e4ff079d",
+              null,
+              "games.parquet:batch8:23358",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "FC Maritsa 1921 Plovdiv",
+              "Spartak Varna",
+              null,
+              null,
+              "games.parquet:batch8:23357",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "FK Minyor Pernik",
+              "Lokomotiv Plovdiv",
+              null,
+              null,
+              "games.parquet:batch8:23355",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "Levski Kjustendil",
+              "Etar Tarnovo",
+              null,
+              null,
+              "games.parquet:batch8:23356",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "PFC Dobrudzha Dobrich",
+              "Vidima Rakovski",
+              null,
+              null,
+              "games.parquet:batch8:23354",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "Slavia Sofia",
+              "Neftochimik Burgas",
+              "17fc1220-60f1-5673-83ab-583a44a7252a",
+              null,
+              "games.parquet:batch8:23352",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "Spartak Pleven",
+              "Lokomotiv Sofia",
+              null,
+              "8f796737-d53c-5d1d-97fb-e19756f8d97f",
+              "games.parquet:batch8:23353",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 120,
+            "status": "REVIEW_REQUIRED",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "bulgaria",
+                "BUL",
+                "1997",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 19,
+                "fixtures": 240,
+                "orientedPairs": 197,
+                "invalid": 0,
+                "clubDayClashes": 0,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  16
+                ]
+              },
+              "mapped": 5
+            },
+            {
+              "sourceGroup": [
+                "corpus/corpus.zip",
+                "First Division \"A PFG\" 1996/97",
+                "BUL",
+                "1996/97",
+                "SOURCE_TITLE"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 24,
+                "fixtures": 15,
+                "orientedPairs": 15,
+                "invalid": 0,
+                "clubDayClashes": 4,
+                "inferredDates": 15,
+                "expectedRegularTeams": [
+                  16
+                ]
+              },
+              "mapped": 0
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division \"A PFG\" 1996/97",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-05-17",
+              "max_date": "1997-05-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "196",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "1996-02-16",
+              "max_date": "1996-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "1997-02-22",
+              "max_date": "1997-11-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "1998-02-21",
+              "max_date": "1998-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "240",
+              "unique_oriented_pairs": "204",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "1999-02-26",
+              "max_date": "1999-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "211",
+              "unique_oriented_pairs": "185",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "26",
+              "min_date": "2000-02-26",
+              "max_date": "2000-11-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "210",
+              "unique_oriented_pairs": "184",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "26",
+              "min_date": "2001-03-03",
+              "max_date": "2001-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "184",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "35",
+              "min_date": "2002-02-08",
+              "max_date": "2002-11-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "211",
+              "unique_oriented_pairs": "176",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "35",
+              "min_date": "2003-02-22",
+              "max_date": "2003-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "188",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2004-02-13",
+              "max_date": "2004-11-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "225",
+              "unique_oriented_pairs": "192",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "33",
+              "min_date": "2005-02-26",
+              "max_date": "2005-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "225",
+              "unique_oriented_pairs": "187",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2006-03-04",
+              "max_date": "2006-11-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "195",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2007-03-03",
+              "max_date": "2007-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2008-02-24",
+              "max_date": "2008-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2009-03-06",
+              "max_date": "2009-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2010-02-26",
+              "max_date": "2010-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "196",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2011-02-26",
+              "max_date": "2011-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2012-03-03",
+              "max_date": "2012-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "280",
+              "unique_oriented_pairs": "223",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "57",
+              "min_date": "2013-03-01",
+              "max_date": "2013-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "220",
+              "unique_oriented_pairs": "164",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2014-02-15",
+              "max_date": "2014-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "158",
+              "unique_oriented_pairs": "118",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2015-02-27",
+              "max_date": "2015-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "196",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2016-02-20",
+              "max_date": "2016-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "249",
+              "unique_oriented_pairs": "187",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2017-02-12",
+              "max_date": "2017-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "243",
+              "unique_oriented_pairs": "167",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "76",
+              "min_date": "2018-02-17",
+              "max_date": "2018-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "243",
+              "unique_oriented_pairs": "177",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2019-02-15",
+              "max_date": "2019-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "188",
+              "unique_oriented_pairs": "147",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2020-02-14",
+              "max_date": "2020-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "241",
+              "unique_oriented_pairs": "174",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "67",
+              "min_date": "2021-02-12",
+              "max_date": "2021-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "235",
+              "unique_oriented_pairs": "183",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2022-02-13",
+              "max_date": "2022-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "298",
+              "unique_oriented_pairs": "219",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "79",
+              "min_date": "2023-02-10",
+              "max_date": "2023-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "276",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "70",
+              "min_date": "2024-02-16",
+              "max_date": "2024-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "bulgaria",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "217",
+              "unique_oriented_pairs": "162",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "55",
+              "min_date": "2025-02-07",
+              "max_date": "2025-09-22"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "192",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2014-07-19",
+              "max_date": "2015-05-31"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "11",
+              "rows": "181",
+              "unique_oriented_pairs": "91",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2015-07-17",
+              "max_date": "2016-06-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "14",
+              "rows": "251",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2016-07-29",
+              "max_date": "2017-06-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "14",
+              "rows": "251",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2017-07-14",
+              "max_date": "2018-05-24"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "253",
+              "unique_oriented_pairs": "184",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2018-07-20",
+              "max_date": "2019-05-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "218",
+              "unique_oriented_pairs": "184",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2019-07-12",
+              "max_date": "2020-07-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "15",
+              "rows": "223",
+              "unique_oriented_pairs": "183",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2020-08-07",
+              "max_date": "2021-05-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "15",
+              "rows": "223",
+              "unique_oriented_pairs": "183",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2021-07-23",
+              "max_date": "2022-05-28"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "First Professional Football League",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "152",
+              "unique_oriented_pairs": "152",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-08",
+              "max_date": "2022-11-19"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

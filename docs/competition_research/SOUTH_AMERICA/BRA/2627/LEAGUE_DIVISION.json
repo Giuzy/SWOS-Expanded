@@ -3070,6 +3070,6217 @@
         "scope": "Comparison by reviewed club aliases and oriented pairing within two days. Same-date/score counts only; no result imports, existing snapshot preserved, no independent completeness or native identity certification."
       },
       "historicalUnscoredNote": "2016-12-11 entry without score: do not assume completed match."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "23f91ee771fc006092ec614f351b07f011cac0323036bfe7b6f5058daded3c5a": {
+          "sourceGroup": {
+            "source": "github/openfootball/football.json",
+            "competition": "Brasileiro Série A 2026",
+            "country": "",
+            "season": "2026",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 20,
+            "fixtures": 380,
+            "orientedPairs": 380,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "RB Bragantino": {
+              "uuid": "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "file": 46,
+              "ordinal": 9,
+              "league": 0,
+              "name": "RB BRAGANTINO",
+              "path": "data_json\\worlds\\2627\\teams\\BRAZIL.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Botafogo FR",
+              "candidateCount": 0
+            },
+            {
+              "label": "CA Mineiro",
+              "candidateCount": 0
+            },
+            {
+              "label": "CA Paranaense",
+              "candidateCount": 0
+            },
+            {
+              "label": "CR Flamengo",
+              "candidateCount": 0
+            },
+            {
+              "label": "CR Vasco da Gama",
+              "candidateCount": 0
+            },
+            {
+              "label": "Chapecoense AF",
+              "candidateCount": 0
+            },
+            {
+              "label": "Clube do Remo",
+              "candidateCount": 0
+            },
+            {
+              "label": "Coritiba FBC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cruzeiro EC",
+              "candidateCount": 0
+            },
+            {
+              "label": "EC Bahia",
+              "candidateCount": 0
+            },
+            {
+              "label": "EC Vitória",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fluminense FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Grêmio FBPA",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mirassol FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Corinthians Paulista",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Internacional",
+              "candidateCount": 0
+            },
+            {
+              "label": "SE Palmeiras",
+              "candidateCount": 0
+            },
+            {
+              "label": "Santos FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "São Paulo FC",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "CA Mineiro",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:1",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:6",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:2",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "EC Vitória",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:4",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:5",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:7",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "SC Internacional",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:3",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-28",
+              "EXPLICIT",
+              "São Paulo FC",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:8",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-29",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:10",
+              "Matchday 1"
+            ],
+            [
+              "2026-01-29",
+              "EXPLICIT",
+              "Mirassol FC",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:9",
+              "Matchday 1"
+            ],
+            [
+              "2026-02-04",
+              "EXPLICIT",
+              "CR Flamengo",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:12",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-04",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:13",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-04",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:15",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-04",
+              "EXPLICIT",
+              "RB Bragantino",
+              "CA Mineiro",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:11",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-04",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:16",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-04",
+              "EXPLICIT",
+              "Santos FC",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:14",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-05",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:18",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-05",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:19",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-05",
+              "EXPLICIT",
+              "EC Bahia",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:17",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-10",
+              "EXPLICIT",
+              "EC Vitória",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:20",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-11",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:23",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-11",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:25",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-11",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:21",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-11",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:22",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-11",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:24",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-12",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:26",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-12",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:27",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-12",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:28",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-12",
+              "EXPLICIT",
+              "SC Internacional",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:29",
+              "Matchday 3"
+            ],
+            [
+              "2026-02-19",
+              "EXPLICIT",
+              "CA Paranaense",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:30",
+              "Matchday 2"
+            ],
+            [
+              "2026-02-25",
+              "EXPLICIT",
+              "Clube do Remo",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:32",
+              "Matchday 4"
+            ],
+            [
+              "2026-02-25",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:33",
+              "Matchday 4"
+            ],
+            [
+              "2026-02-25",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:34",
+              "Matchday 4"
+            ],
+            [
+              "2026-02-25",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:35",
+              "Matchday 4"
+            ],
+            [
+              "2026-02-25",
+              "EXPLICIT",
+              "RB Bragantino",
+              "CA Paranaense",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:31",
+              "Matchday 4"
+            ],
+            [
+              "2026-02-25",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:36",
+              "Matchday 4"
+            ],
+            [
+              "2026-02-26",
+              "EXPLICIT",
+              "Santos FC",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:37",
+              "Matchday 4"
+            ],
+            [
+              "2026-03-10",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:38",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-11",
+              "EXPLICIT",
+              "CA Mineiro",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:39",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-11",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:42",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-11",
+              "EXPLICIT",
+              "EC Bahia",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:40",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-11",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:41",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-12",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:44",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-12",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:43",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-12",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:46",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-12",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:45",
+              "Matchday 5"
+            ],
+            [
+              "2026-03-14",
+              "EXPLICIT",
+              "Botafogo FR",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:48",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-14",
+              "EXPLICIT",
+              "EC Vitória",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:47",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-15",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:52",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-15",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:55",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-15",
+              "EXPLICIT",
+              "Fluminense FC",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:49",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-15",
+              "EXPLICIT",
+              "RB Bragantino",
+              "São Paulo FC",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:54",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-15",
+              "EXPLICIT",
+              "SC Internacional",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:50",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-15",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:53",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-15",
+              "EXPLICIT",
+              "Santos FC",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:51",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-16",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:56",
+              "Matchday 6"
+            ],
+            [
+              "2026-03-18",
+              "EXPLICIT",
+              "CA Mineiro",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:60",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-18",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:59",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-18",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:63",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-18",
+              "EXPLICIT",
+              "EC Bahia",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:57",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-18",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:61",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-18",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:58",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-18",
+              "EXPLICIT",
+              "Santos FC",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:62",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-19",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:65",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-19",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:66",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-19",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:64",
+              "Matchday 7"
+            ],
+            [
+              "2026-03-21",
+              "EXPLICIT",
+              "Fluminense FC",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:68",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-21",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Botafogo FR",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:67",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-21",
+              "EXPLICIT",
+              "São Paulo FC",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:69",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-22",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:70",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-22",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:73",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-22",
+              "EXPLICIT",
+              "Clube do Remo",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:72",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-22",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:71",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-22",
+              "EXPLICIT",
+              "EC Vitória",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:75",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-22",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:76",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-22",
+              "EXPLICIT",
+              "SC Internacional",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:74",
+              "Matchday 8"
+            ],
+            [
+              "2026-03-29",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:77",
+              "Matchday 5"
+            ],
+            [
+              "2026-04-01",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:78",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-01",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:82",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-01",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:81",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-01",
+              "EXPLICIT",
+              "EC Bahia",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:80",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-01",
+              "EXPLICIT",
+              "Fluminense FC",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:83",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-01",
+              "EXPLICIT",
+              "SC Internacional",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:79",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-02",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:84",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-02",
+              "EXPLICIT",
+              "RB Bragantino",
+              "CR Flamengo",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:86",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-02",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:87",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-02",
+              "EXPLICIT",
+              "Santos FC",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:85",
+              "Matchday 9"
+            ],
+            [
+              "2026-04-04",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:90",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-04",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:89",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-04",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:88",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-05",
+              "EXPLICIT",
+              "CA Mineiro",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:92",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-05",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:93",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-05",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:91",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-05",
+              "EXPLICIT",
+              "EC Bahia",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:94",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-05",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:97",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-05",
+              "EXPLICIT",
+              "Mirassol FC",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:96",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-05",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:95",
+              "Matchday 10"
+            ],
+            [
+              "2026-04-11",
+              "EXPLICIT",
+              "Clube do Remo",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:98",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-11",
+              "EXPLICIT",
+              "EC Vitória",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:99",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-11",
+              "EXPLICIT",
+              "Mirassol FC",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:100",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-11",
+              "EXPLICIT",
+              "SC Internacional",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:102",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-11",
+              "EXPLICIT",
+              "Santos FC",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:101",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-12",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:104",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-12",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:103",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-12",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:107",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-12",
+              "EXPLICIT",
+              "Fluminense FC",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:105",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-12",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:106",
+              "Matchday 11"
+            ],
+            [
+              "2026-04-18",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:109",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-18",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:108",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-18",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:111",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-18",
+              "EXPLICIT",
+              "EC Vitória",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:110",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-19",
+              "EXPLICIT",
+              "CR Flamengo",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:117",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-19",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:113",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-19",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Clube do Remo",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:115",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-19",
+              "EXPLICIT",
+              "SC Internacional",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:112",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-19",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:116",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-19",
+              "EXPLICIT",
+              "Santos FC",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:114",
+              "Matchday 12"
+            ],
+            [
+              "2026-04-25",
+              "EXPLICIT",
+              "Botafogo FR",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:119",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-25",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:120",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-25",
+              "EXPLICIT",
+              "EC Bahia",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:118",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-25",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:121",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-26",
+              "EXPLICIT",
+              "CA Mineiro",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:126",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-26",
+              "EXPLICIT",
+              "CA Paranaense",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:124",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-26",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:127",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-26",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:123",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-26",
+              "EXPLICIT",
+              "RB Bragantino",
+              "SE Palmeiras",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:125",
+              "Matchday 13"
+            ],
+            [
+              "2026-04-26",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:122",
+              "Matchday 13"
+            ],
+            [
+              "2026-05-02",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:128",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-02",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:131",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-02",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:132",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-02",
+              "EXPLICIT",
+              "EC Vitória",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:130",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-02",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:129",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-03",
+              "EXPLICIT",
+              "CR Flamengo",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:133",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-03",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:135",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-03",
+              "EXPLICIT",
+              "Mirassol FC",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:137",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-03",
+              "EXPLICIT",
+              "SC Internacional",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:136",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-03",
+              "EXPLICIT",
+              "São Paulo FC",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:134",
+              "Matchday 14"
+            ],
+            [
+              "2026-05-09",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:138",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-09",
+              "EXPLICIT",
+              "EC Bahia",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:140",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-09",
+              "EXPLICIT",
+              "Fluminense FC",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:139",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-10",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:141",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-10",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:147",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-10",
+              "EXPLICIT",
+              "Clube do Remo",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:142",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-10",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:146",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-10",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:144",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-10",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:143",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-10",
+              "EXPLICIT",
+              "Santos FC",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:145",
+              "Matchday 15"
+            ],
+            [
+              "2026-05-16",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:148",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-16",
+              "EXPLICIT",
+              "Fluminense FC",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:150",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-16",
+              "EXPLICIT",
+              "SC Internacional",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:149",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-16",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:151",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-17",
+              "EXPLICIT",
+              "Botafogo FR",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:154",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-17",
+              "EXPLICIT",
+              "CA Paranaense",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:157",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-17",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:156",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-17",
+              "EXPLICIT",
+              "EC Bahia",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:153",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-17",
+              "EXPLICIT",
+              "RB Bragantino",
+              "EC Vitória",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:155",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-17",
+              "EXPLICIT",
+              "Santos FC",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:152",
+              "Matchday 16"
+            ],
+            [
+              "2026-05-23",
+              "EXPLICIT",
+              "CR Flamengo",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:162",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-23",
+              "EXPLICIT",
+              "EC Vitória",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:159",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-23",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:160",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-23",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:161",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-23",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:158",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-24",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:166",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-24",
+              "EXPLICIT",
+              "Clube do Remo",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:164",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-24",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:163",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-24",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:165",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-25",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:167",
+              "Matchday 17"
+            ],
+            [
+              "2026-05-30",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:168",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-30",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:169",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-30",
+              "EXPLICIT",
+              "EC Bahia",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:170",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-30",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:171",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-30",
+              "EXPLICIT",
+              "Santos FC",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:172",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-31",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:175",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-31",
+              "EXPLICIT",
+              "Clube do Remo",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:177",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-31",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:176",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-31",
+              "EXPLICIT",
+              "RB Bragantino",
+              "SC Internacional",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:173",
+              "Matchday 18"
+            ],
+            [
+              "2026-05-31",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:174",
+              "Matchday 18"
+            ],
+            [
+              "2026-07-16",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:178",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-16",
+              "EXPLICIT",
+              "EC Vitória",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:179",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-17",
+              "EXPLICIT",
+              "EC Bahia",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:180",
+              "Matchday 4"
+            ],
+            [
+              "2026-07-17",
+              "EXPLICIT",
+              "Fluminense FC",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:181",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-17",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:182",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-21",
+              "EXPLICIT",
+              "CA Mineiro",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:183",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-22",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:185",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-22",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:184",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-22",
+              "EXPLICIT",
+              "SC Internacional",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:186",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-22",
+              "EXPLICIT",
+              "São Paulo FC",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:187",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-23",
+              "EXPLICIT",
+              "Botafogo FR",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:188",
+              "Matchday 4"
+            ],
+            [
+              "2026-07-23",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:189",
+              "Matchday 19"
+            ],
+            [
+              "2026-07-25",
+              "EXPLICIT",
+              "CA Paranaense",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:190",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-25",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:192",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-25",
+              "EXPLICIT",
+              "Santos FC",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:191",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-26",
+              "EXPLICIT",
+              "CR Flamengo",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:196",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-26",
+              "EXPLICIT",
+              "Clube do Remo",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:199",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-26",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:194",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-26",
+              "EXPLICIT",
+              "EC Bahia",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:193",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-26",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:197",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-26",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Coritiba FBC",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:195",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-26",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:198",
+              "Matchday 20"
+            ],
+            [
+              "2026-07-29",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:200",
+              "Matchday 21"
+            ],
+            [
+              "2026-07-29",
+              "EXPLICIT",
+              "EC Vitória",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:204",
+              "Matchday 21"
+            ],
+            [
+              "2026-07-29",
+              "EXPLICIT",
+              "Fluminense FC",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:203",
+              "Matchday 21"
+            ],
+            [
+              "2026-07-29",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:202",
+              "Matchday 21"
+            ],
+            [
+              "2026-07-29",
+              "EXPLICIT",
+              "SC Internacional",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:201",
+              "Matchday 21"
+            ],
+            [
+              "2026-07-30",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:206",
+              "Matchday 21"
+            ],
+            [
+              "2026-07-30",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:205",
+              "Matchday 21"
+            ],
+            [
+              "2026-08-08",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:210",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-08",
+              "EXPLICIT",
+              "Clube do Remo",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:208",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-08",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:209",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-08",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:207",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-09",
+              "EXPLICIT",
+              "CR Flamengo",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:216",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-09",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:211",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-09",
+              "EXPLICIT",
+              "EC Bahia",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:212",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-09",
+              "EXPLICIT",
+              "RB Bragantino",
+              "SC Corinthians Paulista",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:214",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-09",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:213",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-09",
+              "EXPLICIT",
+              "Santos FC",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:215",
+              "Matchday 22"
+            ],
+            [
+              "2026-08-15",
+              "EXPLICIT",
+              "CA Paranaense",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:218",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-15",
+              "EXPLICIT",
+              "Fluminense FC",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:217",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-15",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:219",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-16",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:221",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-16",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:222",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-16",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:220",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-16",
+              "EXPLICIT",
+              "EC Vitória",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:224",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-16",
+              "EXPLICIT",
+              "Mirassol FC",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:223",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-16",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:225",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-17",
+              "EXPLICIT",
+              "SC Internacional",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:226",
+              "Matchday 23"
+            ],
+            [
+              "2026-08-22",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:229",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-22",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:227",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-22",
+              "EXPLICIT",
+              "SC Internacional",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:228",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-23",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:233",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-23",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:235",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-23",
+              "EXPLICIT",
+              "EC Vitória",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:232",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-23",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Grêmio FBPA",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:230",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-23",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:231",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-23",
+              "EXPLICIT",
+              "Santos FC",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:234",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-24",
+              "EXPLICIT",
+              "Botafogo FR",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:236",
+              "Matchday 24"
+            ],
+            [
+              "2026-08-29",
+              "EXPLICIT",
+              "CA Mineiro",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:237",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-29",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:239",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-29",
+              "EXPLICIT",
+              "São Paulo FC",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:238",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-30",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:240",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-30",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:242",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-30",
+              "EXPLICIT",
+              "EC Bahia",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:245",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-30",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:243",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-30",
+              "EXPLICIT",
+              "Mirassol FC",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:244",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-30",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:241",
+              "Matchday 25"
+            ],
+            [
+              "2026-08-31",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:246",
+              "Matchday 25"
+            ],
+            [
+              "2026-09-02",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:247",
+              "Matchday 4"
+            ],
+            [
+              "2026-09-05",
+              "EXPLICIT",
+              "Fluminense FC",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:250",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-05",
+              "EXPLICIT",
+              "RB Bragantino",
+              "EC Bahia",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:248",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-05",
+              "EXPLICIT",
+              "São Paulo FC",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:249",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-06",
+              "EXPLICIT",
+              "Botafogo FR",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:255",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-06",
+              "EXPLICIT",
+              "Clube do Remo",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:254",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-06",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:251",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-06",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:252",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-06",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:256",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-06",
+              "EXPLICIT",
+              "SC Internacional",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:253",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-07",
+              "EXPLICIT",
+              "EC Vitória",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:257",
+              "Matchday 26"
+            ],
+            [
+              "2026-09-11",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:258",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-12",
+              "EXPLICIT",
+              "Botafogo FR",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:263",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-12",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:259",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-12",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:261",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-12",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:260",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-12",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:262",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-12",
+              "EXPLICIT",
+              "Santos FC",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:264",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-13",
+              "EXPLICIT",
+              "CR Flamengo",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:266",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-13",
+              "EXPLICIT",
+              "Mirassol FC",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:265",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-14",
+              "EXPLICIT",
+              "EC Bahia",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:267",
+              "Matchday 27"
+            ],
+            [
+              "2026-09-16",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:268",
+              "Matchday 21"
+            ],
+            [
+              "2026-09-19",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:269",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-19",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:272",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-19",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:271",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-19",
+              "EXPLICIT",
+              "Mirassol FC",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:270",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-19",
+              "EXPLICIT",
+              "São Paulo FC",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:273",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-20",
+              "EXPLICIT",
+              "CA Paranaense",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:278",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-20",
+              "EXPLICIT",
+              "CR Flamengo",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:277",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-20",
+              "EXPLICIT",
+              "EC Vitória",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:276",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-20",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:274",
+              "Matchday 28"
+            ],
+            [
+              "2026-09-20",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:275",
+              "Matchday 28"
+            ],
+            [
+              "2026-10-02",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:279",
+              "Matchday 21"
+            ],
+            [
+              "2026-10-03",
+              "EXPLICIT",
+              "CA Mineiro",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:280",
+              "Matchday 21"
+            ],
+            [
+              "2026-10-07",
+              "EXPLICIT",
+              "Botafogo FR",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:285",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-07",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:283",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-07",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:286",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-07",
+              "EXPLICIT",
+              "EC Vitória",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:284",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-07",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Mirassol FC",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:281",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-07",
+              "EXPLICIT",
+              "SC Internacional",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:282",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-08",
+              "EXPLICIT",
+              "CA Paranaense",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:288",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-08",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:289",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-08",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:290",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-08",
+              "EXPLICIT",
+              "Santos FC",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:287",
+              "Matchday 29"
+            ],
+            [
+              "2026-10-10",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:291",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-10",
+              "EXPLICIT",
+              "São Paulo FC",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:292",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-11",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:293",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-11",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:294",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-11",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:298",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-11",
+              "EXPLICIT",
+              "EC Bahia",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:297",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-11",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:295",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-11",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:296",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-12",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:299",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-12",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Cruzeiro EC",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:300",
+              "Matchday 30"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "Botafogo FR",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:304",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:302",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "CA Paranaense",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:301",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "Clube do Remo",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:309",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "EC Bahia",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:303",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:306",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:307",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "Mirassol FC",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:308",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:305",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-17",
+              "EXPLICIT",
+              "São Paulo FC",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:310",
+              "Matchday 31"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "CR Flamengo",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:314",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:319",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:311",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:312",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:313",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "EC Vitória",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:320",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "Mirassol FC",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:316",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "SC Internacional",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:315",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:317",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-24",
+              "EXPLICIT",
+              "Santos FC",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:318",
+              "Matchday 32"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "CA Mineiro",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:321",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:330",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:328",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:325",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "EC Bahia",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:322",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "Fluminense FC",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:326",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:327",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Chapecoense AF",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:323",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:324",
+              "Matchday 33"
+            ],
+            [
+              "2026-10-28",
+              "EXPLICIT",
+              "Santos FC",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:329",
+              "Matchday 33"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "Botafogo FR",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:332",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "CA Paranaense",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:331",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:336",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:334",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:335",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "EC Vitória",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:340",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Santos FC",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:333",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "SC Internacional",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:337",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:338",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-04",
+              "EXPLICIT",
+              "São Paulo FC",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:339",
+              "Matchday 34"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "CR Flamengo",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:344",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:349",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "Clube do Remo",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:347",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:342",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:343",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "EC Vitória",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:350",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:345",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "Mirassol FC",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:346",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:341",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-18",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Fluminense FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:348",
+              "Matchday 35"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "Botafogo FR",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:354",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "CA Mineiro",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:352",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "CA Paranaense",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:351",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:356",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "EC Bahia",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:353",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:357",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "RB Bragantino",
+              "CR Vasco da Gama",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:355",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "SC Internacional",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:358",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:359",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-21",
+              "EXPLICIT",
+              "Santos FC",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:360",
+              "Matchday 36"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "Botafogo FR",
+              "EC Bahia",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:362",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "CA Mineiro",
+              "CR Vasco da Gama",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:361",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "Chapecoense AF",
+              "SE Palmeiras",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:363",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "Coritiba FBC",
+              "CR Flamengo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:365",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "EC Vitória",
+              "Santos FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:370",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "Fluminense FC",
+              "Cruzeiro EC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:366",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "Mirassol FC",
+              "CA Paranaense",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:368",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "SC Corinthians Paulista",
+              "Grêmio FBPA",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:364",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "SC Internacional",
+              "RB Bragantino",
+              null,
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              "football.json-master/2026/br.1.json:367",
+              "Matchday 37"
+            ],
+            [
+              "2026-11-28",
+              "EXPLICIT",
+              "São Paulo FC",
+              "Clube do Remo",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:369",
+              "Matchday 37"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "CA Paranaense",
+              "São Paulo FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:371",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "CR Flamengo",
+              "Chapecoense AF",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:375",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "CR Vasco da Gama",
+              "EC Vitória",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:380",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "Clube do Remo",
+              "SC Corinthians Paulista",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:378",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "Cruzeiro EC",
+              "SC Internacional",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:374",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "EC Bahia",
+              "CA Mineiro",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:372",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "Grêmio FBPA",
+              "Mirassol FC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:376",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "RB Bragantino",
+              "Fluminense FC",
+              "ddd1ccb4-d3bd-54cf-a2bd-f552173449eb",
+              null,
+              "football.json-master/2026/br.1.json:373",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "SE Palmeiras",
+              "Coritiba FBC",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:377",
+              "Matchday 38"
+            ],
+            [
+              "2026-12-02",
+              "EXPLICIT",
+              "Santos FC",
+              "Botafogo FR",
+              null,
+              null,
+              "football.json-master/2026/br.1.json:379",
+              "Matchday 38"
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 177,
+            "status": "REVIEW_REQUIRED",
+            "scores": [
+              [
+                "2026-01-28",
+                "CA Mineiro",
+                "SE Palmeiras",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:1"
+              ],
+              [
+                "2026-01-28",
+                "Chapecoense AF",
+                "Santos FC",
+                4,
+                2,
+                "football.json-master/2026/br.1.json:6"
+              ],
+              [
+                "2026-01-28",
+                "Coritiba FBC",
+                "RB Bragantino",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:2"
+              ],
+              [
+                "2026-01-28",
+                "EC Vitória",
+                "Clube do Remo",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:4"
+              ],
+              [
+                "2026-01-28",
+                "Fluminense FC",
+                "Grêmio FBPA",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:5"
+              ],
+              [
+                "2026-01-28",
+                "SC Corinthians Paulista",
+                "EC Bahia",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:7"
+              ],
+              [
+                "2026-01-28",
+                "SC Internacional",
+                "CA Paranaense",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:3"
+              ],
+              [
+                "2026-01-28",
+                "São Paulo FC",
+                "CR Flamengo",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:8"
+              ],
+              [
+                "2026-01-29",
+                "Botafogo FR",
+                "Cruzeiro EC",
+                4,
+                0,
+                "football.json-master/2026/br.1.json:10"
+              ],
+              [
+                "2026-01-29",
+                "Mirassol FC",
+                "CR Vasco da Gama",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:9"
+              ],
+              [
+                "2026-02-04",
+                "CR Flamengo",
+                "SC Internacional",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:12"
+              ],
+              [
+                "2026-02-04",
+                "Clube do Remo",
+                "Mirassol FC",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:13"
+              ],
+              [
+                "2026-02-04",
+                "Grêmio FBPA",
+                "Botafogo FR",
+                5,
+                3,
+                "football.json-master/2026/br.1.json:15"
+              ],
+              [
+                "2026-02-04",
+                "RB Bragantino",
+                "CA Mineiro",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:11"
+              ],
+              [
+                "2026-02-04",
+                "SE Palmeiras",
+                "EC Vitória",
+                5,
+                1,
+                "football.json-master/2026/br.1.json:16"
+              ],
+              [
+                "2026-02-04",
+                "Santos FC",
+                "São Paulo FC",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:14"
+              ],
+              [
+                "2026-02-05",
+                "CR Vasco da Gama",
+                "Chapecoense AF",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:18"
+              ],
+              [
+                "2026-02-05",
+                "Cruzeiro EC",
+                "Coritiba FBC",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:19"
+              ],
+              [
+                "2026-02-05",
+                "EC Bahia",
+                "Fluminense FC",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:17"
+              ],
+              [
+                "2026-02-10",
+                "EC Vitória",
+                "CR Flamengo",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:20"
+              ],
+              [
+                "2026-02-11",
+                "CA Mineiro",
+                "Clube do Remo",
+                3,
+                3,
+                "football.json-master/2026/br.1.json:23"
+              ],
+              [
+                "2026-02-11",
+                "CR Vasco da Gama",
+                "EC Bahia",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:25"
+              ],
+              [
+                "2026-02-11",
+                "Chapecoense AF",
+                "Coritiba FBC",
+                3,
+                3,
+                "football.json-master/2026/br.1.json:21"
+              ],
+              [
+                "2026-02-11",
+                "Mirassol FC",
+                "Cruzeiro EC",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:22"
+              ],
+              [
+                "2026-02-11",
+                "São Paulo FC",
+                "Grêmio FBPA",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:24"
+              ],
+              [
+                "2026-02-12",
+                "CA Paranaense",
+                "Santos FC",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:26"
+              ],
+              [
+                "2026-02-12",
+                "Fluminense FC",
+                "Botafogo FR",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:27"
+              ],
+              [
+                "2026-02-12",
+                "SC Corinthians Paulista",
+                "RB Bragantino",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:28"
+              ],
+              [
+                "2026-02-12",
+                "SC Internacional",
+                "SE Palmeiras",
+                1,
+                3,
+                "football.json-master/2026/br.1.json:29"
+              ],
+              [
+                "2026-02-19",
+                "CA Paranaense",
+                "SC Corinthians Paulista",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:30"
+              ],
+              [
+                "2026-02-25",
+                "Clube do Remo",
+                "SC Internacional",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:32"
+              ],
+              [
+                "2026-02-25",
+                "Coritiba FBC",
+                "São Paulo FC",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:33"
+              ],
+              [
+                "2026-02-25",
+                "Cruzeiro EC",
+                "SC Corinthians Paulista",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:34"
+              ],
+              [
+                "2026-02-25",
+                "Grêmio FBPA",
+                "CA Mineiro",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:35"
+              ],
+              [
+                "2026-02-25",
+                "RB Bragantino",
+                "CA Paranaense",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:31"
+              ],
+              [
+                "2026-02-25",
+                "SE Palmeiras",
+                "Fluminense FC",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:36"
+              ],
+              [
+                "2026-02-26",
+                "Santos FC",
+                "CR Vasco da Gama",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:37"
+              ],
+              [
+                "2026-03-10",
+                "Mirassol FC",
+                "Santos FC",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:38"
+              ],
+              [
+                "2026-03-11",
+                "CA Mineiro",
+                "SC Internacional",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:39"
+              ],
+              [
+                "2026-03-11",
+                "CR Flamengo",
+                "Cruzeiro EC",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:42"
+              ],
+              [
+                "2026-03-11",
+                "EC Bahia",
+                "EC Vitória",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:40"
+              ],
+              [
+                "2026-03-11",
+                "SC Corinthians Paulista",
+                "Coritiba FBC",
+                0,
+                2,
+                "football.json-master/2026/br.1.json:41"
+              ],
+              [
+                "2026-03-12",
+                "CR Vasco da Gama",
+                "SE Palmeiras",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:44"
+              ],
+              [
+                "2026-03-12",
+                "Clube do Remo",
+                "Fluminense FC",
+                0,
+                2,
+                "football.json-master/2026/br.1.json:43"
+              ],
+              [
+                "2026-03-12",
+                "Grêmio FBPA",
+                "RB Bragantino",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:46"
+              ],
+              [
+                "2026-03-12",
+                "São Paulo FC",
+                "Chapecoense AF",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:45"
+              ],
+              [
+                "2026-03-14",
+                "Botafogo FR",
+                "CR Flamengo",
+                0,
+                3,
+                "football.json-master/2026/br.1.json:48"
+              ],
+              [
+                "2026-03-14",
+                "EC Vitória",
+                "CA Mineiro",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:47"
+              ],
+              [
+                "2026-03-15",
+                "Coritiba FBC",
+                "Clube do Remo",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:52"
+              ],
+              [
+                "2026-03-15",
+                "Cruzeiro EC",
+                "CR Vasco da Gama",
+                3,
+                3,
+                "football.json-master/2026/br.1.json:55"
+              ],
+              [
+                "2026-03-15",
+                "Fluminense FC",
+                "CA Paranaense",
+                3,
+                2,
+                "football.json-master/2026/br.1.json:49"
+              ],
+              [
+                "2026-03-15",
+                "RB Bragantino",
+                "São Paulo FC",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:54"
+              ],
+              [
+                "2026-03-15",
+                "SC Internacional",
+                "EC Bahia",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:50"
+              ],
+              [
+                "2026-03-15",
+                "SE Palmeiras",
+                "Mirassol FC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:53"
+              ],
+              [
+                "2026-03-15",
+                "Santos FC",
+                "SC Corinthians Paulista",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:51"
+              ],
+              [
+                "2026-03-16",
+                "Chapecoense AF",
+                "Grêmio FBPA",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:56"
+              ],
+              [
+                "2026-03-18",
+                "CA Mineiro",
+                "São Paulo FC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:60"
+              ],
+              [
+                "2026-03-18",
+                "CA Paranaense",
+                "Cruzeiro EC",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:59"
+              ],
+              [
+                "2026-03-18",
+                "CR Vasco da Gama",
+                "Fluminense FC",
+                3,
+                2,
+                "football.json-master/2026/br.1.json:63"
+              ],
+              [
+                "2026-03-18",
+                "EC Bahia",
+                "RB Bragantino",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:57"
+              ],
+              [
+                "2026-03-18",
+                "Mirassol FC",
+                "Coritiba FBC",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:61"
+              ],
+              [
+                "2026-03-18",
+                "SE Palmeiras",
+                "Botafogo FR",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:58"
+              ],
+              [
+                "2026-03-18",
+                "Santos FC",
+                "SC Internacional",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:62"
+              ],
+              [
+                "2026-03-19",
+                "CR Flamengo",
+                "Clube do Remo",
+                3,
+                0,
+                "football.json-master/2026/br.1.json:65"
+              ],
+              [
+                "2026-03-19",
+                "Grêmio FBPA",
+                "EC Vitória",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:64"
+              ],
+              [
+                "2026-03-21",
+                "Fluminense FC",
+                "CA Mineiro",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:68"
+              ],
+              [
+                "2026-03-21",
+                "RB Bragantino",
+                "Botafogo FR",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:67"
+              ],
+              [
+                "2026-03-21",
+                "São Paulo FC",
+                "SE Palmeiras",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:69"
+              ],
+              [
+                "2026-03-22",
+                "CA Paranaense",
+                "Coritiba FBC",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:70"
+              ],
+              [
+                "2026-03-22",
+                "CR Vasco da Gama",
+                "Grêmio FBPA",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:73"
+              ],
+              [
+                "2026-03-22",
+                "Clube do Remo",
+                "EC Bahia",
+                4,
+                1,
+                "football.json-master/2026/br.1.json:72"
+              ],
+              [
+                "2026-03-22",
+                "EC Vitória",
+                "Mirassol FC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:75"
+              ],
+              [
+                "2026-03-22",
+                "SC Corinthians Paulista",
+                "CR Flamengo",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:76"
+              ],
+              [
+                "2026-03-22",
+                "SC Internacional",
+                "Chapecoense AF",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:74"
+              ],
+              [
+                "2026-03-29",
+                "CA Paranaense",
+                "Botafogo FR",
+                4,
+                1,
+                "football.json-master/2026/br.1.json:77"
+              ],
+              [
+                "2026-04-01",
+                "Botafogo FR",
+                "Mirassol FC",
+                3,
+                2,
+                "football.json-master/2026/br.1.json:78"
+              ],
+              [
+                "2026-04-01",
+                "Coritiba FBC",
+                "CR Vasco da Gama",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:82"
+              ],
+              [
+                "2026-04-01",
+                "Cruzeiro EC",
+                "EC Vitória",
+                3,
+                0,
+                "football.json-master/2026/br.1.json:81"
+              ],
+              [
+                "2026-04-01",
+                "EC Bahia",
+                "CA Paranaense",
+                3,
+                0,
+                "football.json-master/2026/br.1.json:80"
+              ],
+              [
+                "2026-04-01",
+                "Fluminense FC",
+                "SC Corinthians Paulista",
+                3,
+                1,
+                "football.json-master/2026/br.1.json:83"
+              ],
+              [
+                "2026-04-01",
+                "SC Internacional",
+                "São Paulo FC",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:79"
+              ],
+              [
+                "2026-04-02",
+                "Chapecoense AF",
+                "CA Mineiro",
+                0,
+                4,
+                "football.json-master/2026/br.1.json:84"
+              ],
+              [
+                "2026-04-02",
+                "RB Bragantino",
+                "CR Flamengo",
+                3,
+                0,
+                "football.json-master/2026/br.1.json:86"
+              ],
+              [
+                "2026-04-02",
+                "SE Palmeiras",
+                "Grêmio FBPA",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:87"
+              ],
+              [
+                "2026-04-02",
+                "Santos FC",
+                "Clube do Remo",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:85"
+              ],
+              [
+                "2026-04-04",
+                "CR Vasco da Gama",
+                "Botafogo FR",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:90"
+              ],
+              [
+                "2026-04-04",
+                "Coritiba FBC",
+                "Fluminense FC",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:89"
+              ],
+              [
+                "2026-04-04",
+                "São Paulo FC",
+                "Cruzeiro EC",
+                4,
+                1,
+                "football.json-master/2026/br.1.json:88"
+              ],
+              [
+                "2026-04-05",
+                "CA Mineiro",
+                "CA Paranaense",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:92"
+              ],
+              [
+                "2026-04-05",
+                "CR Flamengo",
+                "Santos FC",
+                3,
+                1,
+                "football.json-master/2026/br.1.json:93"
+              ],
+              [
+                "2026-04-05",
+                "Chapecoense AF",
+                "EC Vitória",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:91"
+              ],
+              [
+                "2026-04-05",
+                "EC Bahia",
+                "SE Palmeiras",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:94"
+              ],
+              [
+                "2026-04-05",
+                "Mirassol FC",
+                "RB Bragantino",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:96"
+              ],
+              [
+                "2026-04-05",
+                "SC Corinthians Paulista",
+                "SC Internacional",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:95"
+              ],
+              [
+                "2026-04-11",
+                "Clube do Remo",
+                "CR Vasco da Gama",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:98"
+              ],
+              [
+                "2026-04-11",
+                "EC Vitória",
+                "São Paulo FC",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:99"
+              ],
+              [
+                "2026-04-11",
+                "Mirassol FC",
+                "EC Bahia",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:100"
+              ],
+              [
+                "2026-04-11",
+                "Santos FC",
+                "CA Mineiro",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:101"
+              ],
+              [
+                "2026-04-12",
+                "Botafogo FR",
+                "Coritiba FBC",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:104"
+              ],
+              [
+                "2026-04-12",
+                "CA Paranaense",
+                "Chapecoense AF",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:103"
+              ],
+              [
+                "2026-04-12",
+                "Cruzeiro EC",
+                "RB Bragantino",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:107"
+              ],
+              [
+                "2026-04-12",
+                "Fluminense FC",
+                "CR Flamengo",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:105"
+              ],
+              [
+                "2026-04-18",
+                "CR Vasco da Gama",
+                "São Paulo FC",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:109"
+              ],
+              [
+                "2026-04-18",
+                "Chapecoense AF",
+                "Botafogo FR",
+                1,
+                4,
+                "football.json-master/2026/br.1.json:108"
+              ],
+              [
+                "2026-04-18",
+                "Cruzeiro EC",
+                "Grêmio FBPA",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:111"
+              ],
+              [
+                "2026-04-19",
+                "CR Flamengo",
+                "EC Bahia",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:117"
+              ],
+              [
+                "2026-04-19",
+                "Coritiba FBC",
+                "CA Mineiro",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:113"
+              ],
+              [
+                "2026-04-19",
+                "RB Bragantino",
+                "Clube do Remo",
+                4,
+                2,
+                "football.json-master/2026/br.1.json:115"
+              ],
+              [
+                "2026-04-19",
+                "SC Internacional",
+                "Mirassol FC",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:112"
+              ],
+              [
+                "2026-04-19",
+                "SE Palmeiras",
+                "CA Paranaense",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:116"
+              ],
+              [
+                "2026-04-19",
+                "Santos FC",
+                "Fluminense FC",
+                2,
+                3,
+                "football.json-master/2026/br.1.json:114"
+              ],
+              [
+                "2026-04-25",
+                "Botafogo FR",
+                "SC Internacional",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:119"
+              ],
+              [
+                "2026-04-25",
+                "Clube do Remo",
+                "Cruzeiro EC",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:120"
+              ],
+              [
+                "2026-04-25",
+                "EC Bahia",
+                "Santos FC",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:118"
+              ],
+              [
+                "2026-04-25",
+                "São Paulo FC",
+                "Mirassol FC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:121"
+              ],
+              [
+                "2026-04-26",
+                "CA Mineiro",
+                "CR Flamengo",
+                0,
+                4,
+                "football.json-master/2026/br.1.json:126"
+              ],
+              [
+                "2026-04-26",
+                "CA Paranaense",
+                "EC Vitória",
+                3,
+                1,
+                "football.json-master/2026/br.1.json:124"
+              ],
+              [
+                "2026-04-26",
+                "Fluminense FC",
+                "Chapecoense AF",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:127"
+              ],
+              [
+                "2026-04-26",
+                "Grêmio FBPA",
+                "Coritiba FBC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:123"
+              ],
+              [
+                "2026-04-26",
+                "RB Bragantino",
+                "SE Palmeiras",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:125"
+              ],
+              [
+                "2026-04-26",
+                "SC Corinthians Paulista",
+                "CR Vasco da Gama",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:122"
+              ],
+              [
+                "2026-05-02",
+                "Botafogo FR",
+                "Clube do Remo",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:128"
+              ],
+              [
+                "2026-05-02",
+                "Cruzeiro EC",
+                "CA Mineiro",
+                1,
+                3,
+                "football.json-master/2026/br.1.json:132"
+              ],
+              [
+                "2026-05-02",
+                "EC Vitória",
+                "Coritiba FBC",
+                4,
+                1,
+                "football.json-master/2026/br.1.json:130"
+              ],
+              [
+                "2026-05-02",
+                "SE Palmeiras",
+                "Santos FC",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:129"
+              ],
+              [
+                "2026-05-03",
+                "CR Flamengo",
+                "CR Vasco da Gama",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:133"
+              ],
+              [
+                "2026-05-03",
+                "Chapecoense AF",
+                "RB Bragantino",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:135"
+              ],
+              [
+                "2026-05-03",
+                "Mirassol FC",
+                "SC Corinthians Paulista",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:137"
+              ],
+              [
+                "2026-05-03",
+                "SC Internacional",
+                "Fluminense FC",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:136"
+              ],
+              [
+                "2026-05-03",
+                "São Paulo FC",
+                "EC Bahia",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:134"
+              ],
+              [
+                "2026-05-09",
+                "Coritiba FBC",
+                "SC Internacional",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:138"
+              ],
+              [
+                "2026-05-09",
+                "EC Bahia",
+                "Cruzeiro EC",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:140"
+              ],
+              [
+                "2026-05-09",
+                "Fluminense FC",
+                "EC Vitória",
+                2,
+                2,
+                "football.json-master/2026/br.1.json:139"
+              ],
+              [
+                "2026-05-10",
+                "CA Mineiro",
+                "Botafogo FR",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:141"
+              ],
+              [
+                "2026-05-10",
+                "CR Vasco da Gama",
+                "CA Paranaense",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:147"
+              ],
+              [
+                "2026-05-10",
+                "Clube do Remo",
+                "SE Palmeiras",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:142"
+              ],
+              [
+                "2026-05-10",
+                "Grêmio FBPA",
+                "CR Flamengo",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:146"
+              ],
+              [
+                "2026-05-10",
+                "Mirassol FC",
+                "Chapecoense AF",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:144"
+              ],
+              [
+                "2026-05-10",
+                "SC Corinthians Paulista",
+                "São Paulo FC",
+                3,
+                2,
+                "football.json-master/2026/br.1.json:143"
+              ],
+              [
+                "2026-05-10",
+                "Santos FC",
+                "RB Bragantino",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:145"
+              ],
+              [
+                "2026-05-16",
+                "CA Mineiro",
+                "Mirassol FC",
+                3,
+                1,
+                "football.json-master/2026/br.1.json:148"
+              ],
+              [
+                "2026-05-16",
+                "Fluminense FC",
+                "São Paulo FC",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:150"
+              ],
+              [
+                "2026-05-16",
+                "SC Internacional",
+                "CR Vasco da Gama",
+                4,
+                1,
+                "football.json-master/2026/br.1.json:149"
+              ],
+              [
+                "2026-05-16",
+                "SE Palmeiras",
+                "Cruzeiro EC",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:151"
+              ],
+              [
+                "2026-05-17",
+                "Botafogo FR",
+                "SC Corinthians Paulista",
+                3,
+                1,
+                "football.json-master/2026/br.1.json:154"
+              ],
+              [
+                "2026-05-17",
+                "CA Paranaense",
+                "CR Flamengo",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:157"
+              ],
+              [
+                "2026-05-17",
+                "Chapecoense AF",
+                "Clube do Remo",
+                2,
+                3,
+                "football.json-master/2026/br.1.json:156"
+              ],
+              [
+                "2026-05-17",
+                "EC Bahia",
+                "Grêmio FBPA",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:153"
+              ],
+              [
+                "2026-05-17",
+                "RB Bragantino",
+                "EC Vitória",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:155"
+              ],
+              [
+                "2026-05-17",
+                "Santos FC",
+                "Coritiba FBC",
+                0,
+                3,
+                "football.json-master/2026/br.1.json:152"
+              ],
+              [
+                "2026-05-23",
+                "CR Flamengo",
+                "SE Palmeiras",
+                0,
+                3,
+                "football.json-master/2026/br.1.json:162"
+              ],
+              [
+                "2026-05-23",
+                "EC Vitória",
+                "SC Internacional",
+                2,
+                0,
+                "football.json-master/2026/br.1.json:159"
+              ],
+              [
+                "2026-05-23",
+                "Grêmio FBPA",
+                "Santos FC",
+                3,
+                2,
+                "football.json-master/2026/br.1.json:160"
+              ],
+              [
+                "2026-05-23",
+                "Mirassol FC",
+                "Fluminense FC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:161"
+              ],
+              [
+                "2026-05-23",
+                "São Paulo FC",
+                "Botafogo FR",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:158"
+              ],
+              [
+                "2026-05-24",
+                "CR Vasco da Gama",
+                "RB Bragantino",
+                0,
+                3,
+                "football.json-master/2026/br.1.json:166"
+              ],
+              [
+                "2026-05-24",
+                "Clube do Remo",
+                "CA Paranaense",
+                1,
+                2,
+                "football.json-master/2026/br.1.json:164"
+              ],
+              [
+                "2026-05-24",
+                "Cruzeiro EC",
+                "Chapecoense AF",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:163"
+              ],
+              [
+                "2026-05-24",
+                "SC Corinthians Paulista",
+                "CA Mineiro",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:165"
+              ],
+              [
+                "2026-05-25",
+                "Coritiba FBC",
+                "EC Bahia",
+                3,
+                2,
+                "football.json-master/2026/br.1.json:167"
+              ],
+              [
+                "2026-05-30",
+                "CA Paranaense",
+                "Mirassol FC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:168"
+              ],
+              [
+                "2026-05-30",
+                "CR Flamengo",
+                "Coritiba FBC",
+                3,
+                0,
+                "football.json-master/2026/br.1.json:169"
+              ],
+              [
+                "2026-05-30",
+                "EC Bahia",
+                "Botafogo FR",
+                2,
+                1,
+                "football.json-master/2026/br.1.json:170"
+              ],
+              [
+                "2026-05-30",
+                "Grêmio FBPA",
+                "SC Corinthians Paulista",
+                1,
+                3,
+                "football.json-master/2026/br.1.json:171"
+              ],
+              [
+                "2026-05-30",
+                "Santos FC",
+                "EC Vitória",
+                3,
+                1,
+                "football.json-master/2026/br.1.json:172"
+              ],
+              [
+                "2026-05-31",
+                "CR Vasco da Gama",
+                "CA Mineiro",
+                0,
+                1,
+                "football.json-master/2026/br.1.json:175"
+              ],
+              [
+                "2026-05-31",
+                "Clube do Remo",
+                "São Paulo FC",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:177"
+              ],
+              [
+                "2026-05-31",
+                "Cruzeiro EC",
+                "Fluminense FC",
+                1,
+                1,
+                "football.json-master/2026/br.1.json:176"
+              ],
+              [
+                "2026-05-31",
+                "RB Bragantino",
+                "SC Internacional",
+                3,
+                1,
+                "football.json-master/2026/br.1.json:173"
+              ],
+              [
+                "2026-05-31",
+                "SE Palmeiras",
+                "Chapecoense AF",
+                1,
+                0,
+                "football.json-master/2026/br.1.json:174"
+              ]
+            ]
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Brasileiro Série A 2019",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-27",
+              "max_date": "2019-12-08"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Brasileiro Série A 2020",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "268",
+              "unique_oriented_pairs": "268",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-08",
+              "max_date": "2020-12-27"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Brasileiro Série A 2020",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-01-06",
+              "max_date": "2021-02-25"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Brasileiro Série A 2025",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-03-29",
+              "max_date": "2025-12-07"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Brasileiro Série A 2026",
+              "season": "2026",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-01-28",
+              "max_date": "2026-12-02"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-01-07",
+              "max_date": "2012-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-01-06",
+              "max_date": "2013-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-01-06",
+              "max_date": "2014-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-07",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-01-06",
+              "max_date": "2016-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-07",
+              "max_date": "2017-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-05",
+              "max_date": "2018-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-05",
+              "max_date": "2019-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "268",
+              "unique_oriented_pairs": "268",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-01-10",
+              "max_date": "2020-12-27"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "492",
+              "unique_oriented_pairs": "420",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2021-01-02",
+              "max_date": "2021-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-05",
+              "max_date": "2022-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-07",
+              "max_date": "2023-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "BRA",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "290",
+              "unique_oriented_pairs": "290",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-06",
+              "max_date": "2024-12-07"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-01-07",
+              "max_date": "2012-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-01-06",
+              "max_date": "2013-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-01-06",
+              "max_date": "2014-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-07",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-01-06",
+              "max_date": "2016-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-07",
+              "max_date": "2017-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-05",
+              "max_date": "2018-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-05",
+              "max_date": "2019-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "268",
+              "unique_oriented_pairs": "268",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-01-10",
+              "max_date": "2020-12-27"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "492",
+              "unique_oriented_pairs": "420",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2021-01-02",
+              "max_date": "2021-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-05",
+              "max_date": "2022-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-07",
+              "max_date": "2023-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "BRA",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "290",
+              "unique_oriented_pairs": "290",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-06",
+              "max_date": "2024-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "276",
+              "unique_oriented_pairs": "276",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-08-01",
+              "max_date": "1996-11-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "26",
+              "rows": "349",
+              "unique_oriented_pairs": "337",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "1997-07-05",
+              "max_date": "1997-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "276",
+              "unique_oriented_pairs": "276",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-07-25",
+              "max_date": "1998-11-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "231",
+              "unique_oriented_pairs": "231",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-07-24",
+              "max_date": "1999-11-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "25",
+              "rows": "300",
+              "unique_oriented_pairs": "300",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-07-29",
+              "max_date": "2000-11-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "28",
+              "rows": "378",
+              "unique_oriented_pairs": "378",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-08-01",
+              "max_date": "2001-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "26",
+              "rows": "325",
+              "unique_oriented_pairs": "325",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-08-10",
+              "max_date": "2002-11-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "552",
+              "unique_oriented_pairs": "552",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-03-29",
+              "max_date": "2003-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "552",
+              "unique_oriented_pairs": "552",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-04-21",
+              "max_date": "2004-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "462",
+              "unique_oriented_pairs": "462",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-04-23",
+              "max_date": "2005-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-04-15",
+              "max_date": "2006-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-05-12",
+              "max_date": "2007-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-05-10",
+              "max_date": "2008-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-05-09",
+              "max_date": "2009-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-05-08",
+              "max_date": "2010-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-05-21",
+              "max_date": "2011-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-05-19",
+              "max_date": "2012-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-05-25",
+              "max_date": "2013-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-04-19",
+              "max_date": "2014-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-05-09",
+              "max_date": "2015-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "379",
+              "unique_oriented_pairs": "379",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-05-14",
+              "max_date": "2016-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-05-13",
+              "max_date": "2017-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-04-14",
+              "max_date": "2018-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-27",
+              "max_date": "2019-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "268",
+              "unique_oriented_pairs": "268",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-09",
+              "max_date": "2020-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "492",
+              "unique_oriented_pairs": "420",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2021-01-06",
+              "max_date": "2021-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-04-09",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-15",
+              "max_date": "2023-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-13",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "brazil",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "233",
+              "unique_oriented_pairs": "230",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2025-03-29",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Campeonato Brasileiro Série A",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-04-09",
+              "max_date": "2022-11-13"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -3248,6 +9459,104 @@
         "matches": 11
       },
       "missing": "Remaining matches outside extracted rounds/regions, independent reconciliation, stable keys and full regulation."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "0f358cca5a32783d53f4ea624c112eedd3f2d1e246626400973b9a20df6fe681": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Brazil 1997 Championship Second Division",
+              "season": "1997",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-11-05",
+              "max_date": "1997-12-07"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Brasileiro Série B 2025",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-04-04",
+              "max_date": "2025-11-22"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Campeonato Brasileiro Série B",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-04-08",
+              "max_date": "2022-11-06"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

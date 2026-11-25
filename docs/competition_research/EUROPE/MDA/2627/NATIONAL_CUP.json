@@ -53,6 +53,368 @@
         "winnerAccess": "UEFA Conference League"
       },
       "scope": "FMF announcement; later leg rules not extracted."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "37d68846e6faea6999b4f60e85d96af0996bc6a8068f7445c6a66989234a46b1": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Cupa Orange 2026/27",
+            "country": "MDA",
+            "season": "2026/27",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 14,
+            "fixtures": 7,
+            "orientedPairs": 7,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 7,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "FC CHIŞINĂU",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC CONGAZ",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Fălești",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Stăuceni",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Țarigrad",
+              "candidateCount": 0
+            },
+            {
+              "label": "FCM UNGHENI",
+              "candidateCount": 0
+            },
+            {
+              "label": "ISKRA (Rîbnița)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Național (Ialoveni)",
+              "candidateCount": 0
+            },
+            {
+              "label": "OGUZ (Comrat)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Olimp (Comrat)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Spartanii S. (Chișinău)",
+              "candidateCount": 0
+            },
+            {
+              "label": "UNIVER (Comrat)",
+              "candidateCount": 0
+            },
+            {
+              "label": "VICTORIA (Chișinău)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vulturii C. (Sîngerei)",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "OGUZ (Comrat)",
+              "Vulturii C. (Sîngerei)",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:320",
+              ""
+            ],
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "Spartanii S. (Chișinău)",
+              "UNIVER (Comrat)",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:322",
+              ""
+            ],
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "VICTORIA (Chișinău)",
+              "FC Fălești",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:324",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "FC Stăuceni",
+              "FC CHIŞINĂU",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:331",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "FCM UNGHENI",
+              "Olimp (Comrat)",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:333",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "ISKRA (Rîbnița)",
+              "FC Țarigrad",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:328",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "Național (Ialoveni)",
+              "FC CONGAZ",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:336",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-16",
+              "max_date": "2010-05-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-04",
+              "max_date": "2011-05-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "51",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-14",
+              "max_date": "2012-05-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-25",
+              "max_date": "2013-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "46",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-24",
+              "max_date": "2014-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-23",
+              "max_date": "2015-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-09-13",
+              "max_date": "2016-05-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-20",
+              "max_date": "2017-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Orange 2025/26",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-30",
+              "max_date": "2025-10-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Orange 2026/27",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-09-01",
+              "max_date": "2026-09-02"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "e670db019766d84ce8f03273bcea23fbadc19dc4cc4b68086bdffbcec5a25b5c": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

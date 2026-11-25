@@ -1822,6 +1822,2179 @@
         "scope": "Existing pre-cutoff fixture records unchanged. Nominal home/away requires independent verification; comparison entries refer to same matches, not additional fixtures."
       },
       "identityScope": "Explicit international labels mapped to existing FIFA-style matrix labels only, not OG native team keys."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "b34bdc5d4b6913516a218e7f071da4c7cd48c6d61bc6940ed3a6fe49dea77f76": {
+          "sourceGroup": {
+            "source": "github/martj42/international_results",
+            "competition": "FIFA World Cup",
+            "country": "INTERNATIONAL",
+            "season": "2026",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 48,
+            "fixtures": 104,
+            "orientedPairs": 104,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Algeria",
+              "candidateCount": 0
+            },
+            {
+              "label": "Argentina",
+              "candidateCount": 0
+            },
+            {
+              "label": "Australia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Austria",
+              "candidateCount": 0
+            },
+            {
+              "label": "Belgium",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bosnia and Herzegovina",
+              "candidateCount": 0
+            },
+            {
+              "label": "Brazil",
+              "candidateCount": 0
+            },
+            {
+              "label": "Canada",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cape Verde",
+              "candidateCount": 0
+            },
+            {
+              "label": "Colombia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Croatia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Curaçao",
+              "candidateCount": 0
+            },
+            {
+              "label": "Czech Republic",
+              "candidateCount": 0
+            },
+            {
+              "label": "DR Congo",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ecuador",
+              "candidateCount": 0
+            },
+            {
+              "label": "Egypt",
+              "candidateCount": 0
+            },
+            {
+              "label": "England",
+              "candidateCount": 0
+            },
+            {
+              "label": "France",
+              "candidateCount": 0
+            },
+            {
+              "label": "Germany",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ghana",
+              "candidateCount": 0
+            },
+            {
+              "label": "Haiti",
+              "candidateCount": 0
+            },
+            {
+              "label": "Iran",
+              "candidateCount": 0
+            },
+            {
+              "label": "Iraq",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ivory Coast",
+              "candidateCount": 0
+            },
+            {
+              "label": "Japan",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jordan",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mexico",
+              "candidateCount": 0
+            },
+            {
+              "label": "Morocco",
+              "candidateCount": 0
+            },
+            {
+              "label": "Netherlands",
+              "candidateCount": 0
+            },
+            {
+              "label": "New Zealand",
+              "candidateCount": 0
+            },
+            {
+              "label": "Norway",
+              "candidateCount": 0
+            },
+            {
+              "label": "Panama",
+              "candidateCount": 0
+            },
+            {
+              "label": "Paraguay",
+              "candidateCount": 0
+            },
+            {
+              "label": "Portugal",
+              "candidateCount": 0
+            },
+            {
+              "label": "Qatar",
+              "candidateCount": 0
+            },
+            {
+              "label": "Saudi Arabia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Scotland",
+              "candidateCount": 0
+            },
+            {
+              "label": "Senegal",
+              "candidateCount": 0
+            },
+            {
+              "label": "South Africa",
+              "candidateCount": 0
+            },
+            {
+              "label": "South Korea",
+              "candidateCount": 0
+            },
+            {
+              "label": "Spain",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sweden",
+              "candidateCount": 0
+            },
+            {
+              "label": "Switzerland",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tunisia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Turkey",
+              "candidateCount": 0
+            },
+            {
+              "label": "United States",
+              "candidateCount": 0
+            },
+            {
+              "label": "Uruguay",
+              "candidateCount": 0
+            },
+            {
+              "label": "Uzbekistan",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-06-11",
+              "EXPLICIT",
+              "Mexico",
+              "South Africa",
+              null,
+              null,
+              "international_results-master/results.csv:49446",
+              ""
+            ],
+            [
+              "2026-06-11",
+              "EXPLICIT",
+              "South Korea",
+              "Czech Republic",
+              null,
+              null,
+              "international_results-master/results.csv:49447",
+              ""
+            ],
+            [
+              "2026-06-12",
+              "EXPLICIT",
+              "Canada",
+              "Bosnia and Herzegovina",
+              null,
+              null,
+              "international_results-master/results.csv:49448",
+              ""
+            ],
+            [
+              "2026-06-12",
+              "EXPLICIT",
+              "United States",
+              "Paraguay",
+              null,
+              null,
+              "international_results-master/results.csv:49449",
+              ""
+            ],
+            [
+              "2026-06-13",
+              "EXPLICIT",
+              "Australia",
+              "Turkey",
+              null,
+              null,
+              "international_results-master/results.csv:49453",
+              ""
+            ],
+            [
+              "2026-06-13",
+              "EXPLICIT",
+              "Brazil",
+              "Morocco",
+              null,
+              null,
+              "international_results-master/results.csv:49451",
+              ""
+            ],
+            [
+              "2026-06-13",
+              "EXPLICIT",
+              "Haiti",
+              "Scotland",
+              null,
+              null,
+              "international_results-master/results.csv:49452",
+              ""
+            ],
+            [
+              "2026-06-13",
+              "EXPLICIT",
+              "Qatar",
+              "Switzerland",
+              null,
+              null,
+              "international_results-master/results.csv:49450",
+              ""
+            ],
+            [
+              "2026-06-14",
+              "EXPLICIT",
+              "Germany",
+              "Curaçao",
+              null,
+              null,
+              "international_results-master/results.csv:49454",
+              ""
+            ],
+            [
+              "2026-06-14",
+              "EXPLICIT",
+              "Ivory Coast",
+              "Ecuador",
+              null,
+              null,
+              "international_results-master/results.csv:49455",
+              ""
+            ],
+            [
+              "2026-06-14",
+              "EXPLICIT",
+              "Netherlands",
+              "Japan",
+              null,
+              null,
+              "international_results-master/results.csv:49456",
+              ""
+            ],
+            [
+              "2026-06-14",
+              "EXPLICIT",
+              "Sweden",
+              "Tunisia",
+              null,
+              null,
+              "international_results-master/results.csv:49457",
+              ""
+            ],
+            [
+              "2026-06-15",
+              "EXPLICIT",
+              "Belgium",
+              "Egypt",
+              null,
+              null,
+              "international_results-master/results.csv:49458",
+              ""
+            ],
+            [
+              "2026-06-15",
+              "EXPLICIT",
+              "Iran",
+              "New Zealand",
+              null,
+              null,
+              "international_results-master/results.csv:49459",
+              ""
+            ],
+            [
+              "2026-06-15",
+              "EXPLICIT",
+              "Saudi Arabia",
+              "Uruguay",
+              null,
+              null,
+              "international_results-master/results.csv:49461",
+              ""
+            ],
+            [
+              "2026-06-15",
+              "EXPLICIT",
+              "Spain",
+              "Cape Verde",
+              null,
+              null,
+              "international_results-master/results.csv:49460",
+              ""
+            ],
+            [
+              "2026-06-16",
+              "EXPLICIT",
+              "Argentina",
+              "Algeria",
+              null,
+              null,
+              "international_results-master/results.csv:49464",
+              ""
+            ],
+            [
+              "2026-06-16",
+              "EXPLICIT",
+              "Austria",
+              "Jordan",
+              null,
+              null,
+              "international_results-master/results.csv:49465",
+              ""
+            ],
+            [
+              "2026-06-16",
+              "EXPLICIT",
+              "France",
+              "Senegal",
+              null,
+              null,
+              "international_results-master/results.csv:49462",
+              ""
+            ],
+            [
+              "2026-06-16",
+              "EXPLICIT",
+              "Iraq",
+              "Norway",
+              null,
+              null,
+              "international_results-master/results.csv:49463",
+              ""
+            ],
+            [
+              "2026-06-17",
+              "EXPLICIT",
+              "England",
+              "Croatia",
+              null,
+              null,
+              "international_results-master/results.csv:49468",
+              ""
+            ],
+            [
+              "2026-06-17",
+              "EXPLICIT",
+              "Ghana",
+              "Panama",
+              null,
+              null,
+              "international_results-master/results.csv:49469",
+              ""
+            ],
+            [
+              "2026-06-17",
+              "EXPLICIT",
+              "Portugal",
+              "DR Congo",
+              null,
+              null,
+              "international_results-master/results.csv:49466",
+              ""
+            ],
+            [
+              "2026-06-17",
+              "EXPLICIT",
+              "Uzbekistan",
+              "Colombia",
+              null,
+              null,
+              "international_results-master/results.csv:49467",
+              ""
+            ],
+            [
+              "2026-06-18",
+              "EXPLICIT",
+              "Canada",
+              "Qatar",
+              null,
+              null,
+              "international_results-master/results.csv:49473",
+              ""
+            ],
+            [
+              "2026-06-18",
+              "EXPLICIT",
+              "Czech Republic",
+              "South Africa",
+              null,
+              null,
+              "international_results-master/results.csv:49470",
+              ""
+            ],
+            [
+              "2026-06-18",
+              "EXPLICIT",
+              "Mexico",
+              "South Korea",
+              null,
+              null,
+              "international_results-master/results.csv:49471",
+              ""
+            ],
+            [
+              "2026-06-18",
+              "EXPLICIT",
+              "Switzerland",
+              "Bosnia and Herzegovina",
+              null,
+              null,
+              "international_results-master/results.csv:49472",
+              ""
+            ],
+            [
+              "2026-06-19",
+              "EXPLICIT",
+              "Brazil",
+              "Haiti",
+              null,
+              null,
+              "international_results-master/results.csv:49475",
+              ""
+            ],
+            [
+              "2026-06-19",
+              "EXPLICIT",
+              "Scotland",
+              "Morocco",
+              null,
+              null,
+              "international_results-master/results.csv:49474",
+              ""
+            ],
+            [
+              "2026-06-19",
+              "EXPLICIT",
+              "Turkey",
+              "Paraguay",
+              null,
+              null,
+              "international_results-master/results.csv:49477",
+              ""
+            ],
+            [
+              "2026-06-19",
+              "EXPLICIT",
+              "United States",
+              "Australia",
+              null,
+              null,
+              "international_results-master/results.csv:49476",
+              ""
+            ],
+            [
+              "2026-06-20",
+              "EXPLICIT",
+              "Ecuador",
+              "Curaçao",
+              null,
+              null,
+              "international_results-master/results.csv:49479",
+              ""
+            ],
+            [
+              "2026-06-20",
+              "EXPLICIT",
+              "Germany",
+              "Ivory Coast",
+              null,
+              null,
+              "international_results-master/results.csv:49478",
+              ""
+            ],
+            [
+              "2026-06-20",
+              "EXPLICIT",
+              "Netherlands",
+              "Sweden",
+              null,
+              null,
+              "international_results-master/results.csv:49480",
+              ""
+            ],
+            [
+              "2026-06-20",
+              "EXPLICIT",
+              "Tunisia",
+              "Japan",
+              null,
+              null,
+              "international_results-master/results.csv:49481",
+              ""
+            ],
+            [
+              "2026-06-21",
+              "EXPLICIT",
+              "Belgium",
+              "Iran",
+              null,
+              null,
+              "international_results-master/results.csv:49482",
+              ""
+            ],
+            [
+              "2026-06-21",
+              "EXPLICIT",
+              "New Zealand",
+              "Egypt",
+              null,
+              null,
+              "international_results-master/results.csv:49483",
+              ""
+            ],
+            [
+              "2026-06-21",
+              "EXPLICIT",
+              "Spain",
+              "Saudi Arabia",
+              null,
+              null,
+              "international_results-master/results.csv:49484",
+              ""
+            ],
+            [
+              "2026-06-21",
+              "EXPLICIT",
+              "Uruguay",
+              "Cape Verde",
+              null,
+              null,
+              "international_results-master/results.csv:49485",
+              ""
+            ],
+            [
+              "2026-06-22",
+              "EXPLICIT",
+              "Argentina",
+              "Austria",
+              null,
+              null,
+              "international_results-master/results.csv:49488",
+              ""
+            ],
+            [
+              "2026-06-22",
+              "EXPLICIT",
+              "France",
+              "Iraq",
+              null,
+              null,
+              "international_results-master/results.csv:49486",
+              ""
+            ],
+            [
+              "2026-06-22",
+              "EXPLICIT",
+              "Jordan",
+              "Algeria",
+              null,
+              null,
+              "international_results-master/results.csv:49489",
+              ""
+            ],
+            [
+              "2026-06-22",
+              "EXPLICIT",
+              "Norway",
+              "Senegal",
+              null,
+              null,
+              "international_results-master/results.csv:49487",
+              ""
+            ],
+            [
+              "2026-06-23",
+              "EXPLICIT",
+              "Colombia",
+              "DR Congo",
+              null,
+              null,
+              "international_results-master/results.csv:49491",
+              ""
+            ],
+            [
+              "2026-06-23",
+              "EXPLICIT",
+              "England",
+              "Ghana",
+              null,
+              null,
+              "international_results-master/results.csv:49492",
+              ""
+            ],
+            [
+              "2026-06-23",
+              "EXPLICIT",
+              "Panama",
+              "Croatia",
+              null,
+              null,
+              "international_results-master/results.csv:49493",
+              ""
+            ],
+            [
+              "2026-06-23",
+              "EXPLICIT",
+              "Portugal",
+              "Uzbekistan",
+              null,
+              null,
+              "international_results-master/results.csv:49490",
+              ""
+            ],
+            [
+              "2026-06-24",
+              "EXPLICIT",
+              "Bosnia and Herzegovina",
+              "Qatar",
+              null,
+              null,
+              "international_results-master/results.csv:49497",
+              ""
+            ],
+            [
+              "2026-06-24",
+              "EXPLICIT",
+              "Canada",
+              "Switzerland",
+              null,
+              null,
+              "international_results-master/results.csv:49496",
+              ""
+            ],
+            [
+              "2026-06-24",
+              "EXPLICIT",
+              "Mexico",
+              "Czech Republic",
+              null,
+              null,
+              "international_results-master/results.csv:49494",
+              ""
+            ],
+            [
+              "2026-06-24",
+              "EXPLICIT",
+              "Morocco",
+              "Haiti",
+              null,
+              null,
+              "international_results-master/results.csv:49499",
+              ""
+            ],
+            [
+              "2026-06-24",
+              "EXPLICIT",
+              "Scotland",
+              "Brazil",
+              null,
+              null,
+              "international_results-master/results.csv:49498",
+              ""
+            ],
+            [
+              "2026-06-24",
+              "EXPLICIT",
+              "South Africa",
+              "South Korea",
+              null,
+              null,
+              "international_results-master/results.csv:49495",
+              ""
+            ],
+            [
+              "2026-06-25",
+              "EXPLICIT",
+              "Curaçao",
+              "Ivory Coast",
+              null,
+              null,
+              "international_results-master/results.csv:49502",
+              ""
+            ],
+            [
+              "2026-06-25",
+              "EXPLICIT",
+              "Ecuador",
+              "Germany",
+              null,
+              null,
+              "international_results-master/results.csv:49503",
+              ""
+            ],
+            [
+              "2026-06-25",
+              "EXPLICIT",
+              "Japan",
+              "Sweden",
+              null,
+              null,
+              "international_results-master/results.csv:49504",
+              ""
+            ],
+            [
+              "2026-06-25",
+              "EXPLICIT",
+              "Paraguay",
+              "Australia",
+              null,
+              null,
+              "international_results-master/results.csv:49501",
+              ""
+            ],
+            [
+              "2026-06-25",
+              "EXPLICIT",
+              "Tunisia",
+              "Netherlands",
+              null,
+              null,
+              "international_results-master/results.csv:49505",
+              ""
+            ],
+            [
+              "2026-06-25",
+              "EXPLICIT",
+              "United States",
+              "Turkey",
+              null,
+              null,
+              "international_results-master/results.csv:49500",
+              ""
+            ],
+            [
+              "2026-06-26",
+              "EXPLICIT",
+              "Cape Verde",
+              "Saudi Arabia",
+              null,
+              null,
+              "international_results-master/results.csv:49508",
+              ""
+            ],
+            [
+              "2026-06-26",
+              "EXPLICIT",
+              "Egypt",
+              "Iran",
+              null,
+              null,
+              "international_results-master/results.csv:49506",
+              ""
+            ],
+            [
+              "2026-06-26",
+              "EXPLICIT",
+              "New Zealand",
+              "Belgium",
+              null,
+              null,
+              "international_results-master/results.csv:49507",
+              ""
+            ],
+            [
+              "2026-06-26",
+              "EXPLICIT",
+              "Norway",
+              "France",
+              null,
+              null,
+              "international_results-master/results.csv:49510",
+              ""
+            ],
+            [
+              "2026-06-26",
+              "EXPLICIT",
+              "Senegal",
+              "Iraq",
+              null,
+              null,
+              "international_results-master/results.csv:49511",
+              ""
+            ],
+            [
+              "2026-06-26",
+              "EXPLICIT",
+              "Uruguay",
+              "Spain",
+              null,
+              null,
+              "international_results-master/results.csv:49509",
+              ""
+            ],
+            [
+              "2026-06-27",
+              "EXPLICIT",
+              "Algeria",
+              "Austria",
+              null,
+              null,
+              "international_results-master/results.csv:49512",
+              ""
+            ],
+            [
+              "2026-06-27",
+              "EXPLICIT",
+              "Colombia",
+              "Portugal",
+              null,
+              null,
+              "international_results-master/results.csv:49514",
+              ""
+            ],
+            [
+              "2026-06-27",
+              "EXPLICIT",
+              "Croatia",
+              "Ghana",
+              null,
+              null,
+              "international_results-master/results.csv:49517",
+              ""
+            ],
+            [
+              "2026-06-27",
+              "EXPLICIT",
+              "DR Congo",
+              "Uzbekistan",
+              null,
+              null,
+              "international_results-master/results.csv:49515",
+              ""
+            ],
+            [
+              "2026-06-27",
+              "EXPLICIT",
+              "Jordan",
+              "Argentina",
+              null,
+              null,
+              "international_results-master/results.csv:49513",
+              ""
+            ],
+            [
+              "2026-06-27",
+              "EXPLICIT",
+              "Panama",
+              "England",
+              null,
+              null,
+              "international_results-master/results.csv:49516",
+              ""
+            ],
+            [
+              "2026-06-28",
+              "EXPLICIT",
+              "South Africa",
+              "Canada",
+              null,
+              null,
+              "international_results-master/results.csv:49518",
+              ""
+            ],
+            [
+              "2026-06-29",
+              "EXPLICIT",
+              "Brazil",
+              "Japan",
+              null,
+              null,
+              "international_results-master/results.csv:49519",
+              ""
+            ],
+            [
+              "2026-06-29",
+              "EXPLICIT",
+              "Germany",
+              "Paraguay",
+              null,
+              null,
+              "international_results-master/results.csv:49520",
+              ""
+            ],
+            [
+              "2026-06-29",
+              "EXPLICIT",
+              "Netherlands",
+              "Morocco",
+              null,
+              null,
+              "international_results-master/results.csv:49521",
+              ""
+            ],
+            [
+              "2026-06-30",
+              "EXPLICIT",
+              "France",
+              "Sweden",
+              null,
+              null,
+              "international_results-master/results.csv:49523",
+              ""
+            ],
+            [
+              "2026-06-30",
+              "EXPLICIT",
+              "Ivory Coast",
+              "Norway",
+              null,
+              null,
+              "international_results-master/results.csv:49522",
+              ""
+            ],
+            [
+              "2026-06-30",
+              "EXPLICIT",
+              "Mexico",
+              "Ecuador",
+              null,
+              null,
+              "international_results-master/results.csv:49524",
+              ""
+            ],
+            [
+              "2026-07-01",
+              "EXPLICIT",
+              "Belgium",
+              "Senegal",
+              null,
+              null,
+              "international_results-master/results.csv:49526",
+              ""
+            ],
+            [
+              "2026-07-01",
+              "EXPLICIT",
+              "England",
+              "DR Congo",
+              null,
+              null,
+              "international_results-master/results.csv:49525",
+              ""
+            ],
+            [
+              "2026-07-01",
+              "EXPLICIT",
+              "United States",
+              "Bosnia and Herzegovina",
+              null,
+              null,
+              "international_results-master/results.csv:49527",
+              ""
+            ],
+            [
+              "2026-07-02",
+              "EXPLICIT",
+              "Portugal",
+              "Croatia",
+              null,
+              null,
+              "international_results-master/results.csv:49529",
+              ""
+            ],
+            [
+              "2026-07-02",
+              "EXPLICIT",
+              "Spain",
+              "Austria",
+              null,
+              null,
+              "international_results-master/results.csv:49528",
+              ""
+            ],
+            [
+              "2026-07-02",
+              "EXPLICIT",
+              "Switzerland",
+              "Algeria",
+              null,
+              null,
+              "international_results-master/results.csv:49530",
+              ""
+            ],
+            [
+              "2026-07-03",
+              "EXPLICIT",
+              "Argentina",
+              "Cape Verde",
+              null,
+              null,
+              "international_results-master/results.csv:49532",
+              ""
+            ],
+            [
+              "2026-07-03",
+              "EXPLICIT",
+              "Australia",
+              "Egypt",
+              null,
+              null,
+              "international_results-master/results.csv:49531",
+              ""
+            ],
+            [
+              "2026-07-03",
+              "EXPLICIT",
+              "Colombia",
+              "Ghana",
+              null,
+              null,
+              "international_results-master/results.csv:49533",
+              ""
+            ],
+            [
+              "2026-07-04",
+              "EXPLICIT",
+              "Canada",
+              "Morocco",
+              null,
+              null,
+              "international_results-master/results.csv:49534",
+              ""
+            ],
+            [
+              "2026-07-04",
+              "EXPLICIT",
+              "Paraguay",
+              "France",
+              null,
+              null,
+              "international_results-master/results.csv:49535",
+              ""
+            ],
+            [
+              "2026-07-05",
+              "EXPLICIT",
+              "Brazil",
+              "Norway",
+              null,
+              null,
+              "international_results-master/results.csv:49536",
+              ""
+            ],
+            [
+              "2026-07-05",
+              "EXPLICIT",
+              "Mexico",
+              "England",
+              null,
+              null,
+              "international_results-master/results.csv:49537",
+              ""
+            ],
+            [
+              "2026-07-06",
+              "EXPLICIT",
+              "Portugal",
+              "Spain",
+              null,
+              null,
+              "international_results-master/results.csv:49538",
+              ""
+            ],
+            [
+              "2026-07-06",
+              "EXPLICIT",
+              "United States",
+              "Belgium",
+              null,
+              null,
+              "international_results-master/results.csv:49539",
+              ""
+            ],
+            [
+              "2026-07-07",
+              "EXPLICIT",
+              "Argentina",
+              "Egypt",
+              null,
+              null,
+              "international_results-master/results.csv:49540",
+              ""
+            ],
+            [
+              "2026-07-07",
+              "EXPLICIT",
+              "Switzerland",
+              "Colombia",
+              null,
+              null,
+              "international_results-master/results.csv:49541",
+              ""
+            ],
+            [
+              "2026-07-09",
+              "EXPLICIT",
+              "France",
+              "Morocco",
+              null,
+              null,
+              "international_results-master/results.csv:49542",
+              ""
+            ],
+            [
+              "2026-07-10",
+              "EXPLICIT",
+              "Spain",
+              "Belgium",
+              null,
+              null,
+              "international_results-master/results.csv:49543",
+              ""
+            ],
+            [
+              "2026-07-11",
+              "EXPLICIT",
+              "Argentina",
+              "Switzerland",
+              null,
+              null,
+              "international_results-master/results.csv:49545",
+              ""
+            ],
+            [
+              "2026-07-11",
+              "EXPLICIT",
+              "Norway",
+              "England",
+              null,
+              null,
+              "international_results-master/results.csv:49544",
+              ""
+            ],
+            [
+              "2026-07-14",
+              "EXPLICIT",
+              "France",
+              "Spain",
+              null,
+              null,
+              "international_results-master/results.csv:49546",
+              ""
+            ],
+            [
+              "2026-07-15",
+              "EXPLICIT",
+              "England",
+              "Argentina",
+              null,
+              null,
+              "international_results-master/results.csv:49547",
+              ""
+            ],
+            [
+              "2026-07-18",
+              "EXPLICIT",
+              "France",
+              "England",
+              null,
+              null,
+              "international_results-master/results.csv:49548",
+              ""
+            ],
+            [
+              "2026-07-19",
+              "EXPLICIT",
+              "Spain",
+              "Argentina",
+              null,
+              null,
+              "international_results-master/results.csv:49550",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 79,
+            "status": "REVIEW_REQUIRED",
+            "scores": [
+              [
+                "2026-06-11",
+                "Mexico",
+                "South Africa",
+                2,
+                0,
+                "international_results-master/results.csv:49446"
+              ],
+              [
+                "2026-06-11",
+                "South Korea",
+                "Czech Republic",
+                2,
+                1,
+                "international_results-master/results.csv:49447"
+              ],
+              [
+                "2026-06-12",
+                "Canada",
+                "Bosnia and Herzegovina",
+                1,
+                1,
+                "international_results-master/results.csv:49448"
+              ],
+              [
+                "2026-06-12",
+                "United States",
+                "Paraguay",
+                4,
+                1,
+                "international_results-master/results.csv:49449"
+              ],
+              [
+                "2026-06-13",
+                "Australia",
+                "Turkey",
+                2,
+                0,
+                "international_results-master/results.csv:49453"
+              ],
+              [
+                "2026-06-13",
+                "Brazil",
+                "Morocco",
+                1,
+                1,
+                "international_results-master/results.csv:49451"
+              ],
+              [
+                "2026-06-13",
+                "Haiti",
+                "Scotland",
+                0,
+                1,
+                "international_results-master/results.csv:49452"
+              ],
+              [
+                "2026-06-13",
+                "Qatar",
+                "Switzerland",
+                1,
+                1,
+                "international_results-master/results.csv:49450"
+              ],
+              [
+                "2026-06-14",
+                "Germany",
+                "Curaçao",
+                7,
+                1,
+                "international_results-master/results.csv:49454"
+              ],
+              [
+                "2026-06-14",
+                "Ivory Coast",
+                "Ecuador",
+                1,
+                0,
+                "international_results-master/results.csv:49455"
+              ],
+              [
+                "2026-06-14",
+                "Netherlands",
+                "Japan",
+                2,
+                2,
+                "international_results-master/results.csv:49456"
+              ],
+              [
+                "2026-06-14",
+                "Sweden",
+                "Tunisia",
+                5,
+                1,
+                "international_results-master/results.csv:49457"
+              ],
+              [
+                "2026-06-15",
+                "Belgium",
+                "Egypt",
+                1,
+                1,
+                "international_results-master/results.csv:49458"
+              ],
+              [
+                "2026-06-15",
+                "Iran",
+                "New Zealand",
+                2,
+                2,
+                "international_results-master/results.csv:49459"
+              ],
+              [
+                "2026-06-15",
+                "Saudi Arabia",
+                "Uruguay",
+                1,
+                1,
+                "international_results-master/results.csv:49461"
+              ],
+              [
+                "2026-06-15",
+                "Spain",
+                "Cape Verde",
+                0,
+                0,
+                "international_results-master/results.csv:49460"
+              ],
+              [
+                "2026-06-16",
+                "Argentina",
+                "Algeria",
+                3,
+                0,
+                "international_results-master/results.csv:49464"
+              ],
+              [
+                "2026-06-16",
+                "Austria",
+                "Jordan",
+                3,
+                1,
+                "international_results-master/results.csv:49465"
+              ],
+              [
+                "2026-06-16",
+                "France",
+                "Senegal",
+                3,
+                1,
+                "international_results-master/results.csv:49462"
+              ],
+              [
+                "2026-06-16",
+                "Iraq",
+                "Norway",
+                1,
+                4,
+                "international_results-master/results.csv:49463"
+              ],
+              [
+                "2026-06-17",
+                "England",
+                "Croatia",
+                4,
+                2,
+                "international_results-master/results.csv:49468"
+              ],
+              [
+                "2026-06-17",
+                "Ghana",
+                "Panama",
+                1,
+                0,
+                "international_results-master/results.csv:49469"
+              ],
+              [
+                "2026-06-17",
+                "Portugal",
+                "DR Congo",
+                1,
+                1,
+                "international_results-master/results.csv:49466"
+              ],
+              [
+                "2026-06-17",
+                "Uzbekistan",
+                "Colombia",
+                1,
+                3,
+                "international_results-master/results.csv:49467"
+              ],
+              [
+                "2026-06-18",
+                "Canada",
+                "Qatar",
+                6,
+                0,
+                "international_results-master/results.csv:49473"
+              ],
+              [
+                "2026-06-18",
+                "Czech Republic",
+                "South Africa",
+                1,
+                1,
+                "international_results-master/results.csv:49470"
+              ],
+              [
+                "2026-06-18",
+                "Mexico",
+                "South Korea",
+                1,
+                0,
+                "international_results-master/results.csv:49471"
+              ],
+              [
+                "2026-06-18",
+                "Switzerland",
+                "Bosnia and Herzegovina",
+                4,
+                1,
+                "international_results-master/results.csv:49472"
+              ],
+              [
+                "2026-06-19",
+                "Brazil",
+                "Haiti",
+                3,
+                0,
+                "international_results-master/results.csv:49475"
+              ],
+              [
+                "2026-06-19",
+                "Scotland",
+                "Morocco",
+                0,
+                1,
+                "international_results-master/results.csv:49474"
+              ],
+              [
+                "2026-06-19",
+                "Turkey",
+                "Paraguay",
+                0,
+                1,
+                "international_results-master/results.csv:49477"
+              ],
+              [
+                "2026-06-19",
+                "United States",
+                "Australia",
+                2,
+                0,
+                "international_results-master/results.csv:49476"
+              ],
+              [
+                "2026-06-20",
+                "Ecuador",
+                "Curaçao",
+                0,
+                0,
+                "international_results-master/results.csv:49479"
+              ],
+              [
+                "2026-06-20",
+                "Germany",
+                "Ivory Coast",
+                2,
+                1,
+                "international_results-master/results.csv:49478"
+              ],
+              [
+                "2026-06-20",
+                "Netherlands",
+                "Sweden",
+                5,
+                1,
+                "international_results-master/results.csv:49480"
+              ],
+              [
+                "2026-06-20",
+                "Tunisia",
+                "Japan",
+                0,
+                4,
+                "international_results-master/results.csv:49481"
+              ],
+              [
+                "2026-06-21",
+                "Belgium",
+                "Iran",
+                0,
+                0,
+                "international_results-master/results.csv:49482"
+              ],
+              [
+                "2026-06-21",
+                "New Zealand",
+                "Egypt",
+                1,
+                3,
+                "international_results-master/results.csv:49483"
+              ],
+              [
+                "2026-06-21",
+                "Spain",
+                "Saudi Arabia",
+                4,
+                0,
+                "international_results-master/results.csv:49484"
+              ],
+              [
+                "2026-06-21",
+                "Uruguay",
+                "Cape Verde",
+                2,
+                2,
+                "international_results-master/results.csv:49485"
+              ],
+              [
+                "2026-06-22",
+                "Argentina",
+                "Austria",
+                2,
+                0,
+                "international_results-master/results.csv:49488"
+              ],
+              [
+                "2026-06-22",
+                "France",
+                "Iraq",
+                3,
+                0,
+                "international_results-master/results.csv:49486"
+              ],
+              [
+                "2026-06-22",
+                "Jordan",
+                "Algeria",
+                1,
+                2,
+                "international_results-master/results.csv:49489"
+              ],
+              [
+                "2026-06-22",
+                "Norway",
+                "Senegal",
+                3,
+                2,
+                "international_results-master/results.csv:49487"
+              ],
+              [
+                "2026-06-23",
+                "Colombia",
+                "DR Congo",
+                1,
+                0,
+                "international_results-master/results.csv:49491"
+              ],
+              [
+                "2026-06-23",
+                "England",
+                "Ghana",
+                0,
+                0,
+                "international_results-master/results.csv:49492"
+              ],
+              [
+                "2026-06-23",
+                "Panama",
+                "Croatia",
+                0,
+                1,
+                "international_results-master/results.csv:49493"
+              ],
+              [
+                "2026-06-23",
+                "Portugal",
+                "Uzbekistan",
+                5,
+                0,
+                "international_results-master/results.csv:49490"
+              ],
+              [
+                "2026-06-24",
+                "Bosnia and Herzegovina",
+                "Qatar",
+                3,
+                1,
+                "international_results-master/results.csv:49497"
+              ],
+              [
+                "2026-06-24",
+                "Canada",
+                "Switzerland",
+                1,
+                2,
+                "international_results-master/results.csv:49496"
+              ],
+              [
+                "2026-06-24",
+                "Mexico",
+                "Czech Republic",
+                3,
+                0,
+                "international_results-master/results.csv:49494"
+              ],
+              [
+                "2026-06-24",
+                "Morocco",
+                "Haiti",
+                4,
+                2,
+                "international_results-master/results.csv:49499"
+              ],
+              [
+                "2026-06-24",
+                "Scotland",
+                "Brazil",
+                0,
+                3,
+                "international_results-master/results.csv:49498"
+              ],
+              [
+                "2026-06-24",
+                "South Africa",
+                "South Korea",
+                1,
+                0,
+                "international_results-master/results.csv:49495"
+              ],
+              [
+                "2026-06-25",
+                "Curaçao",
+                "Ivory Coast",
+                0,
+                2,
+                "international_results-master/results.csv:49502"
+              ],
+              [
+                "2026-06-25",
+                "Ecuador",
+                "Germany",
+                2,
+                1,
+                "international_results-master/results.csv:49503"
+              ],
+              [
+                "2026-06-25",
+                "Japan",
+                "Sweden",
+                1,
+                1,
+                "international_results-master/results.csv:49504"
+              ],
+              [
+                "2026-06-25",
+                "Paraguay",
+                "Australia",
+                0,
+                0,
+                "international_results-master/results.csv:49501"
+              ],
+              [
+                "2026-06-25",
+                "Tunisia",
+                "Netherlands",
+                1,
+                3,
+                "international_results-master/results.csv:49505"
+              ],
+              [
+                "2026-06-25",
+                "United States",
+                "Turkey",
+                2,
+                3,
+                "international_results-master/results.csv:49500"
+              ],
+              [
+                "2026-06-26",
+                "Cape Verde",
+                "Saudi Arabia",
+                0,
+                0,
+                "international_results-master/results.csv:49508"
+              ],
+              [
+                "2026-06-26",
+                "Egypt",
+                "Iran",
+                1,
+                1,
+                "international_results-master/results.csv:49506"
+              ],
+              [
+                "2026-06-26",
+                "New Zealand",
+                "Belgium",
+                1,
+                5,
+                "international_results-master/results.csv:49507"
+              ],
+              [
+                "2026-06-26",
+                "Norway",
+                "France",
+                1,
+                4,
+                "international_results-master/results.csv:49510"
+              ],
+              [
+                "2026-06-26",
+                "Senegal",
+                "Iraq",
+                5,
+                0,
+                "international_results-master/results.csv:49511"
+              ],
+              [
+                "2026-06-26",
+                "Uruguay",
+                "Spain",
+                0,
+                1,
+                "international_results-master/results.csv:49509"
+              ],
+              [
+                "2026-06-27",
+                "Algeria",
+                "Austria",
+                3,
+                3,
+                "international_results-master/results.csv:49512"
+              ],
+              [
+                "2026-06-27",
+                "Colombia",
+                "Portugal",
+                0,
+                0,
+                "international_results-master/results.csv:49514"
+              ],
+              [
+                "2026-06-27",
+                "Croatia",
+                "Ghana",
+                2,
+                1,
+                "international_results-master/results.csv:49517"
+              ],
+              [
+                "2026-06-27",
+                "DR Congo",
+                "Uzbekistan",
+                3,
+                1,
+                "international_results-master/results.csv:49515"
+              ],
+              [
+                "2026-06-27",
+                "Jordan",
+                "Argentina",
+                1,
+                3,
+                "international_results-master/results.csv:49513"
+              ],
+              [
+                "2026-06-27",
+                "Panama",
+                "England",
+                0,
+                2,
+                "international_results-master/results.csv:49516"
+              ],
+              [
+                "2026-06-28",
+                "South Africa",
+                "Canada",
+                0,
+                1,
+                "international_results-master/results.csv:49518"
+              ],
+              [
+                "2026-06-29",
+                "Brazil",
+                "Japan",
+                2,
+                1,
+                "international_results-master/results.csv:49519"
+              ],
+              [
+                "2026-06-29",
+                "Germany",
+                "Paraguay",
+                1,
+                1,
+                "international_results-master/results.csv:49520"
+              ],
+              [
+                "2026-06-29",
+                "Netherlands",
+                "Morocco",
+                1,
+                1,
+                "international_results-master/results.csv:49521"
+              ],
+              [
+                "2026-06-30",
+                "France",
+                "Sweden",
+                3,
+                0,
+                "international_results-master/results.csv:49523"
+              ],
+              [
+                "2026-06-30",
+                "Ivory Coast",
+                "Norway",
+                1,
+                2,
+                "international_results-master/results.csv:49522"
+              ],
+              [
+                "2026-06-30",
+                "Mexico",
+                "Ecuador",
+                2,
+                0,
+                "international_results-master/results.csv:49524"
+              ]
+            ]
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "32",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-06-10",
+              "max_date": "1998-07-12"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "32",
+              "rows": "64",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2002-05-31",
+              "max_date": "2002-06-30"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "32",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-06-09",
+              "max_date": "2006-07-09"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "32",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-06-11",
+              "max_date": "2010-07-11"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "32",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-06-12",
+              "max_date": "2014-07-13"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "32",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-06-14",
+              "max_date": "2018-07-15"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "32",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-11-20",
+              "max_date": "2022-12-18"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "FIFA World Cup",
+              "season": "2026",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "48",
+              "rows": "104",
+              "unique_oriented_pairs": "104",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-06-11",
+              "max_date": "2026-07-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FIFA World Cup",
+              "season": "1998",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "51",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-06-10",
+              "max_date": "1998-07-12"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FIFA World Cup",
+              "season": "2002",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "64",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2002-05-31",
+              "max_date": "2002-06-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FIFA World Cup",
+              "season": "2006",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-06-09",
+              "max_date": "2006-07-09"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FIFA World Cup",
+              "season": "2010",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-06-11",
+              "max_date": "2010-07-11"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FIFA World Cup",
+              "season": "2014",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-06-12",
+              "max_date": "2014-07-13"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FIFA World Cup",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-06-14",
+              "max_date": "2018-07-15"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FIFA World Cup",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-11-20",
+              "max_date": "2022-12-02"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "48a5fa4f6dec4177194712375b3f18b6ebbea127f69edba7b103e79698f4f6e9": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -1871,6 +4044,54 @@
       ],
       "limitations": "official search excerpt, future announced format",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -2107,6 +4328,286 @@
           ]
         ],
         "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
+      }
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "30ebc89bc893448780be71f15387a09f38c26b4a86a42833233522bab48333a2": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-06-11",
+              "max_date": "1997-06-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1999-06-29",
+              "max_date": "1999-07-18"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2001-07-11",
+              "max_date": "2001-07-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-06",
+              "max_date": "2004-07-25"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2007-06-26",
+              "max_date": "2007-07-15"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2011-07-01",
+              "max_date": "2011-07-24"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2015-06-11",
+              "max_date": "2015-07-04"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2016-06-03",
+              "max_date": "2016-06-26"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2019-06-14",
+              "max_date": "2019-07-07"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "28",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2021-06-13",
+              "max_date": "2021-07-10"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-06-20",
+              "max_date": "2024-07-14"
+            },
+            {
+              "source": "github/openfootball/copa-america",
+              "competition": "Copa América",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "27",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-06-20",
+              "max_date": "2024-07-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2015-06-11",
+              "max_date": "2015-07-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "26",
+              "rows": "32",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2016-06-03",
+              "max_date": "2016-06-26"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "24",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-06-14",
+              "max_date": "2019-07-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "28",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2021-06-13",
+              "max_date": "2021-07-10"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "2b85baae712177d76252e5c74a1ac82f53864304abb8152d5d46a10ce79b57a7": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
       }
     }
   },
@@ -2439,6 +4940,162 @@
         ],
         "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
       }
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "7b1f4356a5372bc207da2f1017063646e548a6558b76d0096ea8452056c14e42": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2010",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "27",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-01-10",
+              "max_date": "2010-01-31"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2012",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "28",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2012-01-21",
+              "max_date": "2012-02-12"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2013",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-01-19",
+              "max_date": "2013-02-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-17",
+              "max_date": "2015-02-08"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-14",
+              "max_date": "2017-02-05"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "48",
+              "rows": "52",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2019-06-21",
+              "max_date": "2019-07-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "48",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-09",
+              "max_date": "2022-02-06"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -2688,6 +5345,119 @@
         ],
         "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
       }
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "a48cfb96b4b7970e0fea5ffc67a2560e762b9a5ecc7e9dfe207970c181d2d0ac": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "24",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-07",
+              "max_date": "2015-07-26"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "23",
+              "rows": "25",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2017-07-07",
+              "max_date": "2017-07-26"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-06-15",
+              "max_date": "2019-07-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-10",
+              "max_date": "2021-08-01"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "7a1c07ae1b2239098af67d41e6fa378f727c21b237aad5f9350f57b82ee097c7": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -2755,6 +5525,260 @@
       ],
       "limitations": "official HTML search excerpts; schedule open cache miss",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "ac512bf0d4c7149e75501f00164264e819d9296db3c0ab504af5641730f82de6": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1996-12-04",
+              "max_date": "1996-12-21"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-10-12",
+              "max_date": "2000-10-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-17",
+              "max_date": "2004-08-07"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-07-07",
+              "max_date": "2007-07-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-01-07",
+              "max_date": "2011-01-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2015-01-09",
+              "max_date": "2015-01-31"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-05",
+              "max_date": "2019-02-01"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "51",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-01-12",
+              "max_date": "2024-02-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2000",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "26",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2000-10-12",
+              "max_date": "2000-10-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2004",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-17",
+              "max_date": "2004-08-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2007",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-07-07",
+              "max_date": "2007-07-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2011",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-01-07",
+              "max_date": "2011-01-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-09",
+              "max_date": "2015-01-31"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "48",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-05",
+              "max_date": "2019-02-01"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -2911,6 +5935,90 @@
           ]
         ],
         "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
+      }
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "88378dbc487033c74e064517431892462140dca647b4cda1c8dd625378664ac5": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "OFC Nations Cup",
+              "season": "2008",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "8",
+              "rows": "12",
+              "unique_oriented_pairs": "12",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-10-17",
+              "max_date": "2008-11-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "OFC Nations Cup",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "5",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-06-08",
+              "max_date": "2016-06-11"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "2b85baae712177d76252e5c74a1ac82f53864304abb8152d5d46a10ce79b57a7": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
       }
     }
   }

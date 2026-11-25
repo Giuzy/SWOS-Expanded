@@ -470,6 +470,3111 @@
         "notes": "29 individually dated records, including one disputed date stored once; 10 additional ordered Cristal score records without independently confirmed exact dates, retained separately. No post-cutoff results. No complete standings inferred. Reported March4 opening vs first observed March16 club fixtures remains unverified, not a proven contradiction."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "117ab9f7eb7590397ae3d4230eaca98c679b3a099dba8e156aed2c446335ee59": {
+          "sourceGroup": {
+            "source": "parquet/games.parquet",
+            "competition": "peru",
+            "country": "PER",
+            "season": "1996",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 16,
+            "fixtures": 240,
+            "orientedPairs": 236,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              16
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Alianza Lima": {
+              "uuid": "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "file": 65,
+              "ordinal": 1,
+              "league": 0,
+              "name": "ALIANZA LIMA",
+              "path": "data_json\\teams\\PERU.json"
+            },
+            "Atletico Torino": {
+              "uuid": "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "file": 65,
+              "ordinal": 2,
+              "league": 0,
+              "name": "ATLETICO TORINO",
+              "path": "data_json\\teams\\PERU.json"
+            },
+            "Ciclista Lima": {
+              "uuid": "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "file": 65,
+              "ordinal": 3,
+              "league": 0,
+              "name": "CICLISTA LIMA",
+              "path": "data_json\\teams\\PERU.json"
+            },
+            "Cienciano": {
+              "uuid": "04770687-f8d9-53e6-9868-c46742a047b2",
+              "file": 65,
+              "ordinal": 4,
+              "league": 0,
+              "name": "CIENCIANO",
+              "path": "data_json\\teams\\PERU.json"
+            },
+            "Juan Aurich": {
+              "uuid": "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "file": 65,
+              "ordinal": 7,
+              "league": 0,
+              "name": "JUAN AURICH",
+              "path": "data_json\\teams\\PERU.json"
+            },
+            "Sport Boys": {
+              "uuid": "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "file": 65,
+              "ordinal": 11,
+              "league": 0,
+              "name": "SPORT BOYS",
+              "path": "data_json\\teams\\PERU.json"
+            },
+            "Sporting Cristal": {
+              "uuid": "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "file": 65,
+              "ordinal": 12,
+              "league": 0,
+              "name": "SPORTING CRISTAL",
+              "path": "data_json\\teams\\PERU.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Club Alianza Atletico",
+              "candidateCount": 0
+            },
+            {
+              "label": "Club Union Minas",
+              "candidateCount": 0
+            },
+            {
+              "label": "Deportiva San Augustin",
+              "candidateCount": 0
+            },
+            {
+              "label": "Deportivo Municipal",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fbc Melgar",
+              "candidateCount": 0
+            },
+            {
+              "label": "Guardia Republicana",
+              "candidateCount": 0
+            },
+            {
+              "label": "La Loretana",
+              "candidateCount": 0
+            },
+            {
+              "label": "Universitario De Deportes",
+              "candidateCount": 0
+            },
+            {
+              "label": "Wanka",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "La Loretana",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:11620",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Cienciano",
+              "Deportivo Municipal",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:11618",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:11615",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:11614",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:11619",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Universitario De Deportes",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:11616",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Sport Boys",
+              "Atletico Torino",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:11617",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Wanka",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:11613",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Juan Aurich",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:11866",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Ciclista Lima",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:11872",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:11870",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:11867",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:11869",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "La Loretana",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:11871",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Cienciano",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:11868",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:11865",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Deportivo Municipal",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:12160",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Cienciano",
+              "Fbc Melgar",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:12165",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:12166",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:12162",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:12159",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Juan Aurich",
+              "La Loretana",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:12163",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Sport Boys",
+              "Sporting Cristal",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:12161",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Wanka",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:12164",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Deportiva San Augustin",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:12499",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Juan Aurich",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:12505",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:12503",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:12500",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:12502",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "La Loretana",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:12504",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Ciclista Lima",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:12501",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:12498",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Fbc Melgar",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:12843",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Cienciano",
+              "Universitario De Deportes",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:12842",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:12841",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:12845",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:12839",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Deportivo Municipal",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:12846",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Sport Boys",
+              "Club Alianza Atletico",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:12840",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Wanka",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:12844",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Cienciano",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:13187",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Deportiva San Augustin",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:13193",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:13191",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:13188",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:13190",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "La Loretana",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:13192",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Juan Aurich",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:13189",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:13186",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Universitario De Deportes",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:13568",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Cienciano",
+              "La Loretana",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:13572",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:13573",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:13566",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:13567",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Fbc Melgar",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:13570",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Sport Boys",
+              "Alianza Lima",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:13569",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Wanka",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:13571",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Ciclista Lima",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:13945",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Cienciano",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:13951",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:13949",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:13946",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:13948",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "La Loretana",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:13950",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Deportiva San Augustin",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:13947",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:13944",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Sporting Cristal",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:14280",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Cienciano",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:14275",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:14278",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:14273",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:14277",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:14274",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "La Loretana",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:14279",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Sport Boys",
+              "Club Union Minas",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:14276",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Fbc Melgar",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:14666",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Cienciano",
+              "Guardia Republicana",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:14672",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:14669",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:14667",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Sport Boys",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:14670",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "La Loretana",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:14668",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:14665",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Wanka",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:14671",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Alianza Lima",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:15038",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Juan Aurich",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:15033",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:15036",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:15031",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:15035",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:15032",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "La Loretana",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:15037",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Sport Boys",
+              "Wanka",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:15034",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Alianza Lima",
+              "La Loretana",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:15388",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Cienciano",
+              "Sport Boys",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:15393",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:15394",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:15389",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Guardia Republicana",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:15391",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Fbc Melgar",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:15390",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:15387",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Wanka",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:15392",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Sport Boys",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:15686",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Cienciano",
+              "Club Union Minas",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:15692",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:15685",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:15688",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:15689",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Wanka",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:15691",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "La Loretana",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:15690",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:15687",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Deportivo Municipal",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:15896",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Fbc Melgar",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:15899",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:15898",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:15901",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:15894",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Sport Boys",
+              "Deportiva San Augustin",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:15895",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Universitario De Deportes",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:15897",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Wanka",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:15900",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Sporting Cristal",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:16071",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:16075",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:16068",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:16074",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:16069",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Cienciano",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:16072",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:16070",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Wanka",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:16073",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Wanka",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:16236",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Sport Boys",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:16239",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:16240",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:16234",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:16237",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "La Loretana",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:16238",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Club Union Minas",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:16235",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:16233",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Atletico Torino",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:16378",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Cienciano",
+              "Sporting Cristal",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:16375",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:16379",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:16381",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:16374",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Alianza Lima",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:16376",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Sport Boys",
+              "Deportivo Municipal",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:16377",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Wanka",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:16380",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Guardia Republicana",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:16515",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Wanka",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:16519",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Cienciano",
+              "Fbc Melgar",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:16520",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:16521",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:16517",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "La Loretana",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:16518",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Sport Boys",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:16516",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:16514",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Sporting Cristal",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:16638",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Cienciano",
+              "Club Alianza Atletico",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:16640",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:16635",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:16636",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:16641",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Atletico Torino",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:16642",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Sport Boys",
+              "Fbc Melgar",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:16639",
+              ""
+            ],
+            [
+              "1996-07-06",
+              "EXPLICIT",
+              "Wanka",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:16637",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Club Union Minas",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:16777",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Guardia Republicana",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:16771",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:16773",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:16774",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:16772",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "La Loretana",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:16770",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Wanka",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:16775",
+              ""
+            ],
+            [
+              "1996-07-13",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:16776",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Club Alianza Atletico",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:16910",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Cienciano",
+              "Alianza Lima",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:16907",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Club Union Minas",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:16909",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:16912",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:16911",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Juan Aurich",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:16906",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:16905",
+              ""
+            ],
+            [
+              "1996-07-20",
+              "EXPLICIT",
+              "Wanka",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:16908",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Sport Boys",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:17066",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Club Union Minas",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:17070",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:17068",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:17064",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:17067",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "La Loretana",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:17069",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Guardia Republicana",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:17065",
+              ""
+            ],
+            [
+              "1996-07-27",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Ciclista Lima",
+              null,
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:17063",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Alianza Lima",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:17263",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Cienciano",
+              "Atletico Torino",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:17266",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:17264",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:17261",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:17260",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Club Alianza Atletico",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:17265",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Sport Boys",
+              "La Loretana",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:17259",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Wanka",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:17262",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Club Alianza Atletico",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:17498",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Cienciano",
+              "Ciclista Lima",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:17495",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:17496",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:17499",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Deportiva San Augustin",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:17493",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Atletico Torino",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:17500",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:17497",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Wanka",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:17494",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Universitario De Deportes",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:17840",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Club Union Minas",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:17843",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Deportivo Municipal",
+              null,
+              null,
+              "games.parquet:batch8:17841",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:17842",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:17839",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:17844",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Sport Boys",
+              "Juan Aurich",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:17837",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "La Loretana",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:17838",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Atletico Torino",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:18208",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Cienciano",
+              "Deportiva San Augustin",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:18202",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Guardia Republicana",
+              null,
+              null,
+              "games.parquet:batch8:18203",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:18206",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Ciclista Lima",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:18204",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Club Alianza Atletico",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:18207",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "La Loretana",
+              null,
+              null,
+              "games.parquet:batch8:18201",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Wanka",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:18205",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Deportivo Municipal",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:18490",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Wanka",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:18492",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:18489",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Club Union Minas",
+              null,
+              null,
+              "games.parquet:batch8:18486",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:18487",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:18491",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "La Loretana",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:18488",
+              ""
+            ],
+            [
+              "1996-08-31",
+              "EXPLICIT",
+              "Sport Boys",
+              "Cienciano",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:18493",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Alianza Lima",
+              "Universitario De Deportes",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              null,
+              "games.parquet:batch8:18847",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Atletico Torino",
+              "La Loretana",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:18850",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Club Alianza Atletico",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:18849",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Cienciano",
+              null,
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "games.parquet:batch8:18852",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Guardia Republicana",
+              "Deportiva San Augustin",
+              null,
+              null,
+              "games.parquet:batch8:18845",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Sport Boys",
+              "Ciclista Lima",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              "games.parquet:batch8:18846",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Deportivo Municipal",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              null,
+              "games.parquet:batch8:18848",
+              ""
+            ],
+            [
+              "1996-09-07",
+              "EXPLICIT",
+              "Wanka",
+              "Juan Aurich",
+              null,
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:18851",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Guardia Republicana",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:19148",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "Cienciano",
+              "Wanka",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              null,
+              "games.parquet:batch8:19153",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "Deportiva San Augustin",
+              "Sport Boys",
+              null,
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              "games.parquet:batch8:19149",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Alianza Lima",
+              null,
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:19150",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "Fbc Melgar",
+              "Atletico Torino",
+              null,
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              "games.parquet:batch8:19152",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "Juan Aurich",
+              "Club Union Minas",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              null,
+              "games.parquet:batch8:19154",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "La Loretana",
+              "Club Alianza Atletico",
+              null,
+              null,
+              "games.parquet:batch8:19151",
+              ""
+            ],
+            [
+              "1996-09-13",
+              "EXPLICIT",
+              "Universitario De Deportes",
+              "Sporting Cristal",
+              null,
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "games.parquet:batch8:19147",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "Atletico Torino",
+              "Club Alianza Atletico",
+              "09434734-7d3d-5670-ae1c-8b09ce0b411c",
+              null,
+              "games.parquet:batch8:19595",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "Ciclista Lima",
+              "Deportiva San Augustin",
+              "340e648f-5d23-56b8-a5be-c9f717b41c2f",
+              null,
+              "games.parquet:batch8:19588",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "Cienciano",
+              "Juan Aurich",
+              "04770687-f8d9-53e6-9868-c46742a047b2",
+              "a3ce9403-4432-5248-adc9-73f60b1691af",
+              "games.parquet:batch8:19592",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "Club Union Minas",
+              "Wanka",
+              null,
+              null,
+              "games.parquet:batch8:19593",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "Deportivo Municipal",
+              "Universitario De Deportes",
+              null,
+              null,
+              "games.parquet:batch8:19590",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "La Loretana",
+              "Fbc Melgar",
+              null,
+              null,
+              "games.parquet:batch8:19594",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "Sport Boys",
+              "Guardia Republicana",
+              "35c2e528-a97a-5b51-8934-e5d77f8385f2",
+              null,
+              "games.parquet:batch8:19589",
+              ""
+            ],
+            [
+              "1996-09-20",
+              "EXPLICIT",
+              "Sporting Cristal",
+              "Alianza Lima",
+              "81b3ea66-8f64-5a6c-98df-faa5692eccb9",
+              "6a8a6f1a-12cc-5724-8ea0-bf2aba5c3eb4",
+              "games.parquet:batch8:19591",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 144,
+            "status": "REVIEW_REQUIRED",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "peru",
+                "PER",
+                "1997",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 13,
+                "fixtures": 195,
+                "orientedPairs": 156,
+                "invalid": 0,
+                "clubDayClashes": 24,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  16
+                ]
+              },
+              "mapped": 4
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Primera División",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "352",
+              "unique_oriented_pairs": "249",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "352",
+              "duplicate_pair_occurrences": "103",
+              "min_date": "2009-02-14",
+              "max_date": "2009-12-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Primera División",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "231",
+              "unique_oriented_pairs": "231",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "231",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-02-12",
+              "max_date": "2011-12-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Primera División",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "351",
+              "unique_oriented_pairs": "239",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "351",
+              "duplicate_pair_occurrences": "112",
+              "min_date": "2012-02-18",
+              "max_date": "2012-11-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "against the Copa Perú runners-up for a place in the first division 2008.",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-01-13",
+              "max_date": "2008-01-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "plays in First Division. Sporting Cristal B was previously known as Sport Agustino.",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "131",
+              "unique_oriented_pairs": "131",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "131",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-06-12",
+              "max_date": "1999-11-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "236",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "1996-03-02",
+              "max_date": "1996-09-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "195",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "1997-02-23",
+              "max_date": "1997-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "267",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "135",
+              "min_date": "1998-02-14",
+              "max_date": "1998-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "264",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "132",
+              "min_date": "1999-02-06",
+              "max_date": "1999-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "263",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "131",
+              "min_date": "2000-02-05",
+              "max_date": "2000-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "267",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "135",
+              "min_date": "2001-02-17",
+              "max_date": "2001-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "264",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "132",
+              "min_date": "2002-02-22",
+              "max_date": "2002-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "209",
+              "unique_oriented_pairs": "121",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "88",
+              "min_date": "2003-03-01",
+              "max_date": "2003-11-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "350",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "168",
+              "min_date": "2004-01-31",
+              "max_date": "2004-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "313",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "157",
+              "min_date": "2005-03-05",
+              "max_date": "2005-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "268",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "136",
+              "min_date": "2006-02-03",
+              "max_date": "2006-12-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "264",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "132",
+              "min_date": "2007-02-03",
+              "max_date": "2007-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "365",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "183",
+              "min_date": "2008-02-16",
+              "max_date": "2008-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "354",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "114",
+              "min_date": "2009-02-14",
+              "max_date": "2009-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "354",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "114",
+              "min_date": "2010-02-13",
+              "max_date": "2010-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "243",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2011-02-12",
+              "max_date": "2011-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "354",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "114",
+              "min_date": "2012-02-18",
+              "max_date": "2012-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "356",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "116",
+              "min_date": "2013-02-09",
+              "max_date": "2013-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "245",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "5",
+              "min_date": "2014-06-07",
+              "max_date": "2014-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "281",
+              "unique_oriented_pairs": "272",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "9",
+              "min_date": "2015-05-01",
+              "max_date": "2015-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "359",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "119",
+              "min_date": "2016-02-05",
+              "max_date": "2016-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "354",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "114",
+              "min_date": "2017-02-04",
+              "max_date": "2017-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "358",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "118",
+              "min_date": "2018-02-03",
+              "max_date": "2018-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "310",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "2019-02-16",
+              "max_date": "2019-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "285",
+              "unique_oriented_pairs": "236",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2020-02-01",
+              "max_date": "2020-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "237",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2021-03-12",
+              "max_date": "2021-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "346",
+              "unique_oriented_pairs": "342",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "2022-02-04",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "344",
+              "unique_oriented_pairs": "342",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2023-02-03",
+              "max_date": "2023-11-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-26",
+              "max_date": "2024-11-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "peru",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "258",
+              "unique_oriented_pairs": "257",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2025-02-07",
+              "max_date": "2025-09-22"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

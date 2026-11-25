@@ -81,6 +81,2245 @@
         ]
       ],
       "missing": "Full date-level results and effective sanction date. Final Apertura table not used as cutoff until exact completion date verified."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "fa3d4253ee9ee8a17ab32fb73e7beb353e7a5581ad810c1ba875239034af0cb7": {
+          "sourceGroup": {
+            "source": "parquet/games.parquet",
+            "competition": "uruguay",
+            "country": "URU",
+            "season": "1996",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 12,
+            "fixtures": 160,
+            "orientedPairs": 126,
+            "invalid": 0,
+            "clubDayClashes": 56,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              12
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Central Espanol": {
+              "uuid": "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "file": 71,
+              "ordinal": 3,
+              "league": 0,
+              "name": "CENTRAL ESPANOL",
+              "path": "data_json\\teams\\URUGUAY.json"
+            },
+            "Danubio": {
+              "uuid": "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "file": 71,
+              "ordinal": 7,
+              "league": 0,
+              "name": "DANUBIO",
+              "path": "data_json\\teams\\URUGUAY.json"
+            },
+            "Liverpool": {
+              "uuid": "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "file": 71,
+              "ordinal": 14,
+              "league": 0,
+              "name": "LIVERPOOL",
+              "path": "data_json\\teams\\URUGUAY.json"
+            },
+            "Nacional": {
+              "uuid": "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "file": 71,
+              "ordinal": 16,
+              "league": 0,
+              "name": "NACIONAL",
+              "path": "data_json\\teams\\URUGUAY.json"
+            },
+            "River Plate": {
+              "uuid": "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "file": 71,
+              "ordinal": 22,
+              "league": 0,
+              "name": "RIVER PLATE",
+              "path": "data_json\\teams\\URUGUAY.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "CA Cerro",
+              "candidateCount": 0
+            },
+            {
+              "label": "CA Penarol",
+              "candidateCount": 0
+            },
+            {
+              "label": "Club Social Y Deportivo Huracan Buceo",
+              "candidateCount": 0
+            },
+            {
+              "label": "Defensor Sporting",
+              "candidateCount": 0
+            },
+            {
+              "label": "Institucion Atletica Sud America",
+              "candidateCount": 0
+            },
+            {
+              "label": "Montevideo Wanderers",
+              "candidateCount": 0
+            },
+            {
+              "label": "Rampla Juniors Futbol Club",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "CA Cerro",
+              "Liverpool",
+              null,
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:11623",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "CA Penarol",
+              "Institucion Atletica Sud America",
+              null,
+              null,
+              "games.parquet:batch8:11621",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Central Espanol",
+              "Nacional",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:11622",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:11626",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Danubio",
+              "Club Social Y Deportivo Huracan Buceo",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:11627",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:11625",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Liverpool",
+              "Defensor Sporting",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:11629",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Danubio",
+              null,
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:11624",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:11628",
+              ""
+            ],
+            [
+              "1996-03-02",
+              "EXPLICIT",
+              "River Plate",
+              "Nacional",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:11630",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Montevideo Wanderers",
+              null,
+              null,
+              "games.parquet:batch8:11880",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:11883",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Danubio",
+              "CA Penarol",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:11882",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Danubio",
+              "Rampla Juniors Futbol Club",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:11877",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Institucion Atletica Sud America",
+              null,
+              null,
+              "games.parquet:batch8:11879",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:11881",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Liverpool",
+              "Central Espanol",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:11876",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Liverpool",
+              "Rampla Juniors Futbol Club",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:11884",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "Nacional",
+              "CA Cerro",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:11875",
+              ""
+            ],
+            [
+              "1996-03-09",
+              "EXPLICIT",
+              "River Plate",
+              "CA Penarol",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              null,
+              "games.parquet:batch8:11878",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "CA Cerro",
+              "Institucion Atletica Sud America",
+              null,
+              null,
+              "games.parquet:batch8:12169",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "CA Penarol",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:12172",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Central Espanol",
+              null,
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:12171",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Danubio",
+              "Nacional",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:12167",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Danubio",
+              "Nacional",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:12174",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:12175",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Liverpool",
+              "CA Penarol",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:12173",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Liverpool",
+              "River Plate",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:12170",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Montevideo Wanderers",
+              null,
+              null,
+              "games.parquet:batch8:12168",
+              ""
+            ],
+            [
+              "1996-03-16",
+              "EXPLICIT",
+              "River Plate",
+              "Club Social Y Deportivo Huracan Buceo",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              null,
+              "games.parquet:batch8:12176",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "CA Cerro",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:12513",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "CA Penarol",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:12519",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Central Espanol",
+              "Rampla Juniors Futbol Club",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              null,
+              "games.parquet:batch8:12511",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:12514",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Liverpool",
+              "Club Social Y Deportivo Huracan Buceo",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:12516",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Liverpool",
+              "Danubio",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:12515",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Institucion Atletica Sud America",
+              null,
+              null,
+              "games.parquet:batch8:12512",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Nacional",
+              "River Plate",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:12510",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:12517",
+              ""
+            ],
+            [
+              "1996-03-23",
+              "EXPLICIT",
+              "River Plate",
+              "Danubio",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:12518",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "CA Penarol",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:12860",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "CA Penarol",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:12855",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Central Espanol",
+              "River Plate",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:12853",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Danubio",
+              "CA Cerro",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:12856",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Danubio",
+              "Liverpool",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:12861",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:12854",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:12857",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Nacional",
+              "Defensor Sporting",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:12862",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Liverpool",
+              null,
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:12858",
+              ""
+            ],
+            [
+              "1996-03-30",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:12859",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Central Espanol",
+              "Montevideo Wanderers",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              null,
+              "games.parquet:batch8:13202",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:13200",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:13209",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Danubio",
+              "Rampla Juniors Futbol Club",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:13207",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Danubio",
+              "River Plate",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:13203",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "CA Cerro",
+              null,
+              null,
+              "games.parquet:batch8:13204",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:13201",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Liverpool",
+              "Nacional",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:13205",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "Nacional",
+              "CA Penarol",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:13206",
+              ""
+            ],
+            [
+              "1996-04-06",
+              "EXPLICIT",
+              "River Plate",
+              "Liverpool",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:13208",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "CA Cerro",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:13585",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "CA Penarol",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:13589",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Danubio",
+              "CA Penarol",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:13582",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Danubio",
+              "Defensor Sporting",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:13587",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "Central Espanol",
+              null,
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:13580",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Liverpool",
+              null,
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:13584",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Nacional",
+              "Defensor Sporting",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:13581",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Nacional",
+              "Liverpool",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:13586",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:13588",
+              ""
+            ],
+            [
+              "1996-04-13",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:13583",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "CA Cerro",
+              "Montevideo Wanderers",
+              null,
+              null,
+              "games.parquet:batch8:13959",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "CA Penarol",
+              "Liverpool",
+              null,
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:13957",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Danubio",
+              null,
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:13960",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Central Espanol",
+              null,
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:13961",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:13958",
+              ""
+            ],
+            [
+              "1996-04-20",
+              "EXPLICIT",
+              "River Plate",
+              "Institucion Atletica Sud America",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              null,
+              "games.parquet:batch8:13962",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "CA Penarol",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:14287",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Central Espanol",
+              "CA Cerro",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              null,
+              "games.parquet:batch8:14292",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Danubio",
+              "Defensor Sporting",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:14288",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Liverpool",
+              "Club Social Y Deportivo Huracan Buceo",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:14290",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:14291",
+              ""
+            ],
+            [
+              "1996-04-27",
+              "EXPLICIT",
+              "Nacional",
+              "Institucion Atletica Sud America",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:14289",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "CA Cerro",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:14685",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:14686",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Danubio",
+              "Central Espanol",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:14684",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:14682",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "Liverpool",
+              null,
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:14683",
+              ""
+            ],
+            [
+              "1996-05-04",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:14681",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "CA Cerro",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:15045",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "CA Penarol",
+              "Central Espanol",
+              null,
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:15044",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:15048",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "Danubio",
+              null,
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:15046",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Liverpool",
+              "Defensor Sporting",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:15047",
+              ""
+            ],
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Nacional",
+              "Montevideo Wanderers",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:15049",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Danubio",
+              "Montevideo Wanderers",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:15405",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:15402",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Liverpool",
+              "CA Cerro",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:15404",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Nacional",
+              "Central Espanol",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:15403",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:15407",
+              ""
+            ],
+            [
+              "1996-05-18",
+              "EXPLICIT",
+              "River Plate",
+              "Defensor Sporting",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              null,
+              "games.parquet:batch8:15406",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "CA Cerro",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:15698",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "CA Penarol",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:15702",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Central Espanol",
+              "Liverpool",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:15699",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:15697",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:15701",
+              ""
+            ],
+            [
+              "1996-05-25",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Danubio",
+              null,
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:15700",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Central Espanol",
+              "Club Social Y Deportivo Huracan Buceo",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              null,
+              "games.parquet:batch8:15913",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:15910",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "CA Cerro",
+              null,
+              null,
+              "games.parquet:batch8:15909",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:15911",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "Nacional",
+              "Danubio",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:15908",
+              ""
+            ],
+            [
+              "1996-06-01",
+              "EXPLICIT",
+              "River Plate",
+              "Liverpool",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:15912",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "CA Cerro",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:16084",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:16089",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Danubio",
+              "Liverpool",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:16088",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "Montevideo Wanderers",
+              null,
+              null,
+              "games.parquet:batch8:16085",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Central Espanol",
+              null,
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:16087",
+              ""
+            ],
+            [
+              "1996-06-08",
+              "EXPLICIT",
+              "River Plate",
+              "Nacional",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:16086",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "CA Cerro",
+              "Danubio",
+              null,
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:16251",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Institucion Atletica Sud America",
+              null,
+              null,
+              "games.parquet:batch8:16254",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Montevideo Wanderers",
+              null,
+              null,
+              "games.parquet:batch8:16253",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Liverpool",
+              "Rampla Juniors Futbol Club",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:16252",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "Nacional",
+              "CA Penarol",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:16249",
+              ""
+            ],
+            [
+              "1996-06-15",
+              "EXPLICIT",
+              "River Plate",
+              "Central Espanol",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:16250",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "CA Cerro",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:16388",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "CA Penarol",
+              "Club Social Y Deportivo Huracan Buceo",
+              null,
+              null,
+              "games.parquet:batch8:16385",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Central Espanol",
+              null,
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:16387",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Nacional",
+              "Liverpool",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:16389",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Institucion Atletica Sud America",
+              null,
+              null,
+              "games.parquet:batch8:16386",
+              ""
+            ],
+            [
+              "1996-06-22",
+              "EXPLICIT",
+              "River Plate",
+              "Danubio",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:16390",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "CA Penarol",
+              "Danubio",
+              null,
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:16528",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Central Espanol",
+              "Institucion Atletica Sud America",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              null,
+              "games.parquet:batch8:16529",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "CA Cerro",
+              null,
+              null,
+              "games.parquet:batch8:16527",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:16524",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "Liverpool",
+              "Montevideo Wanderers",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:16526",
+              ""
+            ],
+            [
+              "1996-06-29",
+              "EXPLICIT",
+              "River Plate",
+              "Rampla Juniors Futbol Club",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              null,
+              "games.parquet:batch8:16525",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Central Espanol",
+              "Defensor Sporting",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              null,
+              "games.parquet:batch8:17270",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Danubio",
+              "Club Social Y Deportivo Huracan Buceo",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:17268",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Institucion Atletica Sud America",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:17272",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Liverpool",
+              "CA Penarol",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:17267",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "CA Cerro",
+              null,
+              null,
+              "games.parquet:batch8:17269",
+              ""
+            ],
+            [
+              "1996-08-03",
+              "EXPLICIT",
+              "Nacional",
+              "Rampla Juniors Futbol Club",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:17271",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Central Espanol",
+              "CA Cerro",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              null,
+              "games.parquet:batch8:17504",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "Liverpool",
+              null,
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:17503",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Danubio",
+              "Defensor Sporting",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:17502",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Nacional",
+              "Institucion Atletica Sud America",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:17506",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "CA Penarol",
+              null,
+              null,
+              "games.parquet:batch8:17501",
+              ""
+            ],
+            [
+              "1996-08-10",
+              "EXPLICIT",
+              "River Plate",
+              "Montevideo Wanderers",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              null,
+              "games.parquet:batch8:17505",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "CA Penarol",
+              "Montevideo Wanderers",
+              null,
+              null,
+              "games.parquet:batch8:17845",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Central Espanol",
+              "Danubio",
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              "games.parquet:batch8:17848",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Liverpool",
+              "Institucion Atletica Sud America",
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              null,
+              "games.parquet:batch8:17847",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Nacional",
+              "Club Social Y Deportivo Huracan Buceo",
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              null,
+              "games.parquet:batch8:17850",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "Rampla Juniors Futbol Club",
+              "Defensor Sporting",
+              null,
+              null,
+              "games.parquet:batch8:17846",
+              ""
+            ],
+            [
+              "1996-08-17",
+              "EXPLICIT",
+              "River Plate",
+              "CA Cerro",
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              null,
+              "games.parquet:batch8:17849",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "CA Cerro",
+              "Rampla Juniors Futbol Club",
+              null,
+              null,
+              "games.parquet:batch8:18212",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "CA Penarol",
+              "Central Espanol",
+              null,
+              "2f58ae66-2a1c-5bdb-b153-0fe9d32d62de",
+              "games.parquet:batch8:18215",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Club Social Y Deportivo Huracan Buceo",
+              "River Plate",
+              null,
+              "1a15fa59-826d-5f15-93f2-37103ede79e8",
+              "games.parquet:batch8:18214",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Danubio",
+              "Institucion Atletica Sud America",
+              "03d49957-b7c4-5b04-8409-08b4334b32b0",
+              null,
+              "games.parquet:batch8:18216",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Defensor Sporting",
+              "Liverpool",
+              null,
+              "16b170c1-4e1f-5af9-9516-d2cc2dfd8898",
+              "games.parquet:batch8:18213",
+              ""
+            ],
+            [
+              "1996-08-24",
+              "EXPLICIT",
+              "Montevideo Wanderers",
+              "Nacional",
+              null,
+              "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+              "games.parquet:batch8:18211",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 136,
+            "status": "REVIEW_REQUIRED",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "uruguay",
+                "URU",
+                "1997",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 12,
+                "fixtures": 138,
+                "orientedPairs": 110,
+                "invalid": 0,
+                "clubDayClashes": 9,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  12
+                ]
+              },
+              "mapped": 5
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Rampla Juniors remain in first division.",
+              "season": "1998",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-11-05",
+              "max_date": "1998-11-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Six teams have presented a request to be included in the first division 1999:",
+              "season": "1998",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "193",
+              "unique_oriented_pairs": "181",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "190",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "1998-03-14",
+              "max_date": "1999-03-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "160",
+              "unique_oriented_pairs": "126",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "1996-03-02",
+              "max_date": "1996-08-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "138",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "28",
+              "min_date": "1997-03-01",
+              "max_date": "1997-09-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "139",
+              "unique_oriented_pairs": "125",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "14",
+              "min_date": "1998-03-07",
+              "max_date": "1998-08-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "229",
+              "unique_oriented_pairs": "208",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "21",
+              "min_date": "1999-03-06",
+              "max_date": "1999-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "291",
+              "unique_oriented_pairs": "286",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "5",
+              "min_date": "2000-02-18",
+              "max_date": "2000-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "245",
+              "unique_oriented_pairs": "196",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2001-02-16",
+              "max_date": "2001-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "245",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2002-02-02",
+              "max_date": "2002-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "304",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2003-02-21",
+              "max_date": "2003-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "251",
+              "unique_oriented_pairs": "200",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2004-03-20",
+              "max_date": "2004-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "308",
+              "unique_oriented_pairs": "226",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2005-03-05",
+              "max_date": "2005-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "273",
+              "unique_oriented_pairs": "195",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "78",
+              "min_date": "2006-02-18",
+              "max_date": "2006-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "258",
+              "unique_oriented_pairs": "203",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "55",
+              "min_date": "2007-02-17",
+              "max_date": "2007-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "251",
+              "unique_oriented_pairs": "195",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2008-02-16",
+              "max_date": "2008-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "255",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "64",
+              "min_date": "2009-02-07",
+              "max_date": "2009-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "243",
+              "unique_oriented_pairs": "195",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2010-01-23",
+              "max_date": "2010-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2011-02-05",
+              "max_date": "2011-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "196",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2012-02-18",
+              "max_date": "2012-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "42",
+              "min_date": "2013-02-23",
+              "max_date": "2013-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "243",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2014-02-01",
+              "max_date": "2014-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "200",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2015-02-14",
+              "max_date": "2015-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "202",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2016-02-06",
+              "max_date": "2016-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "302",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2017-02-04",
+              "max_date": "2017-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "261",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2018-02-03",
+              "max_date": "2018-11-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "299",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2019-02-16",
+              "max_date": "2019-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "175",
+              "unique_oriented_pairs": "143",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "32",
+              "min_date": "2020-02-15",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "367",
+              "unique_oriented_pairs": "282",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2021-01-13",
+              "max_date": "2021-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "298",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2022-02-05",
+              "max_date": "2022-10-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "300",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2023-02-04",
+              "max_date": "2023-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "297",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "57",
+              "min_date": "2024-02-17",
+              "max_date": "2024-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "uruguay",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "176",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "28",
+              "min_date": "2025-01-31",
+              "max_date": "2025-06-30"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -233,6 +2472,52 @@
         "notes": "Contemporary report June4 proves round1 already played; exact match days and further pre-July scores not established. No later results or table imported."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

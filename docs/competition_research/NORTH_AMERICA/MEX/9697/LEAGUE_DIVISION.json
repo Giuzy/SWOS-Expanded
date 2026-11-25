@@ -80,6 +80,4083 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "2732f6c5af390397094e76224c8e068417d9183908fe27c203a1a3bd7dcdd4ce": {
+          "sourceGroup": {
+            "source": "parquet/games.parquet",
+            "competition": "mexico",
+            "country": "MEX",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 17,
+            "fixtures": 303,
+            "orientedPairs": 136,
+            "invalid": 0,
+            "clubDayClashes": 43,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Club Leon": {
+              "uuid": "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "file": 60,
+              "ordinal": 8,
+              "league": 0,
+              "name": "CLUB LEON",
+              "path": "data_json\\teams\\MEXICO.json"
+            },
+            "Cruz Azul": {
+              "uuid": "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "file": 60,
+              "ordinal": 15,
+              "league": 0,
+              "name": "CRUZ AZUL",
+              "path": "data_json\\teams\\MEXICO.json"
+            },
+            "Toluca": {
+              "uuid": "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "file": 60,
+              "ordinal": 30,
+              "league": 0,
+              "name": "TOLUCA",
+              "path": "data_json\\teams\\MEXICO.json"
+            },
+            "Toros Neza": {
+              "uuid": "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "file": 60,
+              "ordinal": 31,
+              "league": 0,
+              "name": "TOROS NEZA",
+              "path": "data_json\\teams\\MEXICO.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "CF Atlante",
+              "candidateCount": 0
+            },
+            {
+              "label": "Celaya FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Club América",
+              "candidateCount": 0
+            },
+            {
+              "label": "Estudiantes Tecos",
+              "candidateCount": 0
+            },
+            {
+              "label": "Guadalajara",
+              "candidateCount": 0
+            },
+            {
+              "label": "Monarcas Morelia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Monterrey",
+              "candidateCount": 0
+            },
+            {
+              "label": "Necaxa",
+              "candidateCount": 0
+            },
+            {
+              "label": "Pachuca",
+              "candidateCount": 0
+            },
+            {
+              "label": "Puebla FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Santos Laguna",
+              "candidateCount": 0
+            },
+            {
+              "label": "TR de la Veracruz",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tigres UANL",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "CF Atlante",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:23999",
+              ""
+            ],
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "Club América",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:24005",
+              ""
+            ],
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "Club Leon",
+              "Monarcas Morelia",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:24003",
+              ""
+            ],
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "Guadalajara",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:24002",
+              ""
+            ],
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "Guadalajara",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:24004",
+              ""
+            ],
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "Monterrey",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:24000",
+              ""
+            ],
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "Necaxa",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:24001",
+              ""
+            ],
+            [
+              "1997-01-11",
+              "EXPLICIT",
+              "Puebla FC",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:23998",
+              ""
+            ],
+            [
+              "1997-01-18",
+              "EXPLICIT",
+              "Celaya FC",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:24118",
+              ""
+            ],
+            [
+              "1997-01-18",
+              "EXPLICIT",
+              "Club América",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:24120",
+              ""
+            ],
+            [
+              "1997-01-18",
+              "EXPLICIT",
+              "Guadalajara",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:24119",
+              ""
+            ],
+            [
+              "1997-01-18",
+              "EXPLICIT",
+              "Monterrey",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:24121",
+              ""
+            ],
+            [
+              "1997-01-18",
+              "EXPLICIT",
+              "Puebla FC",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:24117",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "CF Atlante",
+              "Guadalajara",
+              null,
+              null,
+              "games.parquet:batch8:24202",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Celaya FC",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:24199",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Club Leon",
+              "Cruz Azul",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:24201",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:24205",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:24203",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:24204",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Monterrey",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:24200",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Pachuca",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:24198",
+              ""
+            ],
+            [
+              "1997-01-24",
+              "EXPLICIT",
+              "Puebla FC",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:24197",
+              ""
+            ],
+            [
+              "1997-01-28",
+              "EXPLICIT",
+              "CF Atlante",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:24297",
+              ""
+            ],
+            [
+              "1997-01-28",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Tigres UANL",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:24299",
+              ""
+            ],
+            [
+              "1997-01-28",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:24298",
+              ""
+            ],
+            [
+              "1997-01-28",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:24300",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "CF Atlante",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:24325",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Club América",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:24321",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Club Leon",
+              "Puebla FC",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:24323",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:24320",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Guadalajara",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:24324",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:24326",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Monterrey",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:24322",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Pachuca",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:24327",
+              ""
+            ],
+            [
+              "1997-01-31",
+              "EXPLICIT",
+              "Santos Laguna",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:24328",
+              ""
+            ],
+            [
+              "1997-02-05",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Toros Neza",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:24474",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "CF Atlante",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:24488",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "Celaya FC",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:24483",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "Club América",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:24485",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "Club Leon",
+              "Estudiantes Tecos",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:24484",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monterrey",
+              null,
+              null,
+              "games.parquet:batch8:24486",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "Guadalajara",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:24487",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "Necaxa",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:24482",
+              ""
+            ],
+            [
+              "1997-02-07",
+              "EXPLICIT",
+              "Pachuca",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:24489",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "CF Atlante",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:24613",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Celaya FC",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:24612",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Club América",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:24608",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Club Leon",
+              "Pachuca",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:24614",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Guadalajara",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:24609",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Guadalajara",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:24616",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:24611",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Monterrey",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:24610",
+              ""
+            ],
+            [
+              "1997-02-14",
+              "EXPLICIT",
+              "Necaxa",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:24615",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "CF Atlante",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:24864",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "Celaya FC",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:24868",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "Club América",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:24869",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Santos Laguna",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:24863",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "Guadalajara",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:24865",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:24866",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "Monterrey",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:24867",
+              ""
+            ],
+            [
+              "1997-02-22",
+              "EXPLICIT",
+              "Toluca",
+              "TR de la Veracruz",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              null,
+              "games.parquet:batch8:24862",
+              ""
+            ],
+            [
+              "1997-02-26",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Monarcas Morelia",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:24988",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "CF Atlante",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:25115",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Celaya FC",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:25110",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Puebla FC",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:25109",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Guadalajara",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:25113",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Guadalajara",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:25112",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:25111",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Monterrey",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:25108",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Necaxa",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:25114",
+              ""
+            ],
+            [
+              "1997-03-01",
+              "EXPLICIT",
+              "Toros Neza",
+              "TR de la Veracruz",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              null,
+              "games.parquet:batch8:25107",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "CF Atlante",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:25393",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Celaya FC",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:25396",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Estudiantes Tecos",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:25389",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Guadalajara",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:25392",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:25388",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Monterrey",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:25391",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Necaxa",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:25395",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Puebla FC",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:25390",
+              ""
+            ],
+            [
+              "1997-03-08",
+              "EXPLICIT",
+              "Tigres UANL",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:25394",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "CF Atlante",
+              "Guadalajara",
+              null,
+              null,
+              "games.parquet:batch8:25717",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Celaya FC",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:25713",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Club Leon",
+              "TR de la Veracruz",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:25712",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Pachuca",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:25715",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:25718",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Monterrey",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:25720",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Necaxa",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:25719",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Puebla FC",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:25716",
+              ""
+            ],
+            [
+              "1997-03-15",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:25714",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "CF Atlante",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:26090",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Club América",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:26098",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Club Leon",
+              "Necaxa",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:26094",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Guadalajara",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:26093",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Guadalajara",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:26097",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Monterrey",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:26095",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Pachuca",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:26091",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:26092",
+              ""
+            ],
+            [
+              "1997-03-22",
+              "EXPLICIT",
+              "Toluca",
+              "Toros Neza",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:26096",
+              ""
+            ],
+            [
+              "1997-03-26",
+              "EXPLICIT",
+              "Guadalajara",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:26357",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "CF Atlante",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:26413",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Club América",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:26417",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:26412",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monterrey",
+              null,
+              null,
+              "games.parquet:batch8:26411",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:26410",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Pachuca",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:26414",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:26415",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Toluca",
+              "Tigres UANL",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              null,
+              "games.parquet:batch8:26416",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "CF Atlante",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:26549",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Celaya FC",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:26551",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Club Leon",
+              "Toluca",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:26552",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:26553",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Guadalajara",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:26554",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:26555",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Monterrey",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:26550",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Pachuca",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:26556",
+              ""
+            ],
+            [
+              "1997-04-04",
+              "EXPLICIT",
+              "Toros Neza",
+              "Tigres UANL",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              null,
+              "games.parquet:batch8:26548",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "CF Atlante",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:26902",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "Celaya FC",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:26901",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "Club América",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:26900",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "Club Leon",
+              "Toros Neza",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:26907",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:26903",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "Guadalajara",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:26905",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "Monterrey",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:26906",
+              ""
+            ],
+            [
+              "1997-04-09",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:26904",
+              ""
+            ],
+            [
+              "1997-04-12",
+              "EXPLICIT",
+              "Celaya FC",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:27046",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "CF Atlante",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:27502",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Celaya FC",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:27500",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Club América",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:27507",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Club Leon",
+              "Tigres UANL",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:27499",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Necaxa",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:27506",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Cruz Azul",
+              "TR de la Veracruz",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:27498",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:27503",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Monterrey",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:27501",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Puebla FC",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:27504",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "CF Atlante",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:27891",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Club América",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:27894",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Club Leon",
+              "Santos Laguna",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:27896",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:27888",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Guadalajara",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:27892",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:27893",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:27895",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Monterrey",
+              "Pachuca",
+              null,
+              null,
+              "games.parquet:batch8:27889",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Necaxa",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:27890",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "CF Atlante",
+              "Monterrey",
+              null,
+              null,
+              "games.parquet:batch8:28098",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Celaya FC",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:28102",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Club América",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:28103",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Toluca",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:28095",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Guadalajara",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:28096",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:28099",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:28100",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Necaxa",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:28097",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Pachuca",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:28101",
+              ""
+            ],
+            [
+              "1997-07-25",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:30796",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Club América",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:30837",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Guadalajara",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:30839",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Guadalajara",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:30840",
+              ""
+            ],
+            [
+              "1997-07-26",
+              "EXPLICIT",
+              "Monterrey",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:30838",
+              ""
+            ],
+            [
+              "1997-07-27",
+              "EXPLICIT",
+              "CF Atlante",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:30896",
+              ""
+            ],
+            [
+              "1997-07-27",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Santos Laguna",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:30898",
+              ""
+            ],
+            [
+              "1997-07-27",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:30897",
+              ""
+            ],
+            [
+              "1997-07-30",
+              "EXPLICIT",
+              "CF Atlante",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:30947",
+              ""
+            ],
+            [
+              "1997-07-30",
+              "EXPLICIT",
+              "Celaya FC",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:30944",
+              ""
+            ],
+            [
+              "1997-07-30",
+              "EXPLICIT",
+              "Club América",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:30946",
+              ""
+            ],
+            [
+              "1997-07-30",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:30950",
+              ""
+            ],
+            [
+              "1997-07-30",
+              "EXPLICIT",
+              "Monterrey",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:30949",
+              ""
+            ],
+            [
+              "1997-07-30",
+              "EXPLICIT",
+              "Puebla FC",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:30945",
+              ""
+            ],
+            [
+              "1997-07-30",
+              "EXPLICIT",
+              "Toluca",
+              "Tigres UANL",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              null,
+              "games.parquet:batch8:30943",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "CF Atlante",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:31087",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Celaya FC",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:31084",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Club América",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:31081",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Tigres UANL",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:31083",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Guadalajara",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:31086",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:31085",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Monterrey",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:31088",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Necaxa",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:31082",
+              ""
+            ],
+            [
+              "1997-08-02",
+              "EXPLICIT",
+              "Santos Laguna",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:31089",
+              ""
+            ],
+            [
+              "1997-08-06",
+              "EXPLICIT",
+              "Club Leon",
+              "Santos Laguna",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:31270",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "CF Atlante",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:31464",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Club Leon",
+              "Tigres UANL",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:31467",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Toluca",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:31461",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:31469",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:31466",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Guadalajara",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:31468",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:31462",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Monterrey",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:31463",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Puebla FC",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:31465",
+              ""
+            ],
+            [
+              "1997-08-14",
+              "EXPLICIT",
+              "CF Atlante",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:31662",
+              ""
+            ],
+            [
+              "1997-08-14",
+              "EXPLICIT",
+              "Celaya FC",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:31660",
+              ""
+            ],
+            [
+              "1997-08-14",
+              "EXPLICIT",
+              "Club América",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:31657",
+              ""
+            ],
+            [
+              "1997-08-14",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:31658",
+              ""
+            ],
+            [
+              "1997-08-14",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monterrey",
+              null,
+              null,
+              "games.parquet:batch8:31661",
+              ""
+            ],
+            [
+              "1997-08-14",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:31663",
+              ""
+            ],
+            [
+              "1997-08-14",
+              "EXPLICIT",
+              "Tigres UANL",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:31659",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Celaya FC",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:31880",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Club América",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:31881",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Club Leon",
+              "Toluca",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:31875",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Cruz Azul",
+              "TR de la Veracruz",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:31874",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Guadalajara",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:31876",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Monterrey",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:31878",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Puebla FC",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:31877",
+              ""
+            ],
+            [
+              "1997-08-19",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:31879",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "CF Atlante",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:32075",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Celaya FC",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:32072",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Club Leon",
+              "TR de la Veracruz",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:32076",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:32073",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Monterrey",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:32078",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Necaxa",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:32074",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:32077",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "Club Leon",
+              "Cruz Azul",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:32287",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "Guadalajara",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:32288",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "CF Atlante",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:32454",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Club América",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:32448",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Club Leon",
+              "Puebla FC",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:32450",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Guadalajara",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:32451",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Guadalajara",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:32452",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:32453",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Monterrey",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:32449",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Toluca",
+              "TR de la Veracruz",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              null,
+              "games.parquet:batch8:32447",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Toros Neza",
+              "Tigres UANL",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              null,
+              "games.parquet:batch8:32455",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "Guadalajara",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:32707",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "CF Atlante",
+              "Monterrey",
+              null,
+              null,
+              "games.parquet:batch8:32743",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "Celaya FC",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:32737",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "Club América",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:32736",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Toros Neza",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:32738",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:32742",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:32740",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "Necaxa",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:32744",
+              ""
+            ],
+            [
+              "1997-09-04",
+              "EXPLICIT",
+              "Puebla FC",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:32739",
+              ""
+            ],
+            [
+              "1997-09-10",
+              "EXPLICIT",
+              "Necaxa",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:32942",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "CF Atlante",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:33127",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Celaya FC",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:33129",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Club Leon",
+              "Toros Neza",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:33134",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Tigres UANL",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:33133",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Guadalajara",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:33130",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Guadalajara",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:33131",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:33132",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Monterrey",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:33128",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Puebla FC",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:33126",
+              ""
+            ],
+            [
+              "1997-09-17",
+              "EXPLICIT",
+              "CF Atlante",
+              "Guadalajara",
+              null,
+              null,
+              "games.parquet:batch8:33429",
+              ""
+            ],
+            [
+              "1997-09-17",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Puebla FC",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:33430",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "CF Atlante",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:33454",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Celaya FC",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:33456",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Club Leon",
+              "Tigres UANL",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:33455",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:33449",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:33448",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Guadalajara",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:33453",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Monterrey",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:33451",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Necaxa",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:33450",
+              ""
+            ],
+            [
+              "1997-09-18",
+              "EXPLICIT",
+              "Toros Neza",
+              "TR de la Veracruz",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              null,
+              "games.parquet:batch8:33452",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "CF Atlante",
+              "Celaya FC",
+              null,
+              null,
+              "games.parquet:batch8:33910",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Club América",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:33911",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Necaxa",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:33909",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Guadalajara",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:33914",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:33906",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:33907",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Monterrey",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:33912",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Puebla FC",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:33908",
+              ""
+            ],
+            [
+              "1997-09-24",
+              "EXPLICIT",
+              "Tigres UANL",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:33913",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "CF Atlante",
+              "Guadalajara",
+              null,
+              null,
+              "games.parquet:batch8:34085",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Celaya FC",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:34081",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Club América",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:34089",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Club Leon",
+              "Necaxa",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:34086",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Monarcas Morelia",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:34082",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Guadalajara",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:34084",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Monterrey",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:34087",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Puebla FC",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:34083",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:34088",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "CF Atlante",
+              "Estudiantes Tecos",
+              null,
+              null,
+              "games.parquet:batch8:34414",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Celaya FC",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:34417",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Club América",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:34421",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Club Leon",
+              "Monarcas Morelia",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:34418",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Guadalajara",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:34415",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Guadalajara",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:34416",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Monterrey",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:34419",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Necaxa",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:34413",
+              ""
+            ],
+            [
+              "1997-10-02",
+              "EXPLICIT",
+              "Toluca",
+              "Toros Neza",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:34420",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "CF Atlante",
+              "Club América",
+              null,
+              null,
+              "games.parquet:batch8:35017",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Celaya FC",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:35013",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Estudiantes Tecos",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:35014",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Guadalajara",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:35015",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monterrey",
+              null,
+              null,
+              "games.parquet:batch8:35016",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:35012",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Necaxa",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:35011",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:35009",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Toros Neza",
+              "Tigres UANL",
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              null,
+              "games.parquet:batch8:35010",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "CF Atlante",
+              "Santos Laguna",
+              null,
+              null,
+              "games.parquet:batch8:35194",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Celaya FC",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:35189",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Club América",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:35195",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Cruz Azul",
+              "Estudiantes Tecos",
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              null,
+              "games.parquet:batch8:35190",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Guadalajara",
+              "Club Leon",
+              null,
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              "games.parquet:batch8:35191",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Guadalajara",
+              "Necaxa",
+              null,
+              null,
+              "games.parquet:batch8:35187",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Monarcas Morelia",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:35192",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Monterrey",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:35188",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Toluca",
+              "Tigres UANL",
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              null,
+              "games.parquet:batch8:35193",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "CF Atlante",
+              "Toluca",
+              null,
+              "84a00927-2e0b-5f84-9dc9-49fbb3decb2b",
+              "games.parquet:batch8:35711",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Celaya FC",
+              "Puebla FC",
+              null,
+              null,
+              "games.parquet:batch8:35714",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Club América",
+              "Cruz Azul",
+              null,
+              "b9ddca5f-a288-547c-bd89-e97c22f5b1eb",
+              "games.parquet:batch8:35713",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Club Leon",
+              "Estudiantes Tecos",
+              "bff22d1a-40fd-5b9e-acf1-a3bfd78dfa87",
+              null,
+              "games.parquet:batch8:35718",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Guadalajara",
+              "Monarcas Morelia",
+              null,
+              null,
+              "games.parquet:batch8:35717",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Guadalajara",
+              "TR de la Veracruz",
+              null,
+              null,
+              "games.parquet:batch8:35715",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Monterrey",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:35716",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Necaxa",
+              "Toros Neza",
+              null,
+              "269dbbd4-49ee-5d26-ac6b-f21946656244",
+              "games.parquet:batch8:35712",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Santos Laguna",
+              "Tigres UANL",
+              null,
+              null,
+              "games.parquet:batch8:35719",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "mexico",
+                "MEX",
+                "1996",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 17,
+                "fixtures": 286,
+                "orientedPairs": 137,
+                "invalid": 0,
+                "clubDayClashes": 29,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  18
+                ]
+              },
+              "mapped": 4
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Liga MX 2018/19",
+              "season": "2018-19",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "18",
+              "rows": "334",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "28",
+              "min_date": "2018-07-20",
+              "max_date": "2019-05-26"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Liga MX 2019/20",
+              "season": "2019-20",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "324",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "14",
+              "min_date": "2019-07-19",
+              "max_date": "2020-05-11"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Liga MX 2020/21",
+              "season": "2020-21",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "18",
+              "rows": "342",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "2020-07-24",
+              "max_date": "2021-05-30"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Liga MX 2024/25",
+              "season": "2024-25",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "18",
+              "rows": "340",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2024-07-05",
+              "max_date": "2025-05-25"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "167",
+              "unique_oriented_pairs": "160",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "7",
+              "min_date": "2012-01-09",
+              "max_date": "2012-12-08"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "250",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "84",
+              "min_date": "2013-01-04",
+              "max_date": "2013-12-16"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "92",
+              "min_date": "2014-01-02",
+              "max_date": "2014-12-15"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "256",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "78",
+              "min_date": "2015-01-02",
+              "max_date": "2015-12-14"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "259",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "75",
+              "min_date": "2016-01-05",
+              "max_date": "2016-12-26"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "235",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "99",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "334",
+              "unique_oriented_pairs": "237",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "97",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "352",
+              "unique_oriented_pairs": "261",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "91",
+              "min_date": "2019-01-09",
+              "max_date": "2019-12-30"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "261",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2020-01-02",
+              "max_date": "2020-12-15"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "342",
+              "unique_oriented_pairs": "251",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "91",
+              "min_date": "2021-01-02",
+              "max_date": "2021-12-13"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "342",
+              "unique_oriented_pairs": "245",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "97",
+              "min_date": "2022-01-05",
+              "max_date": "2022-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "341",
+              "unique_oriented_pairs": "238",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "103",
+              "min_date": "2023-01-04",
+              "max_date": "2023-12-18"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "MEX",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "271",
+              "unique_oriented_pairs": "213",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2024-01-02",
+              "max_date": "2024-12-05"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "167",
+              "unique_oriented_pairs": "160",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "7",
+              "min_date": "2012-01-09",
+              "max_date": "2012-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "250",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "84",
+              "min_date": "2013-01-04",
+              "max_date": "2013-12-16"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "92",
+              "min_date": "2014-01-02",
+              "max_date": "2014-12-15"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "256",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "78",
+              "min_date": "2015-01-02",
+              "max_date": "2015-12-14"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "259",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "75",
+              "min_date": "2016-01-05",
+              "max_date": "2016-12-26"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "235",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "99",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "334",
+              "unique_oriented_pairs": "237",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "97",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "352",
+              "unique_oriented_pairs": "261",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "91",
+              "min_date": "2019-01-09",
+              "max_date": "2019-12-30"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "261",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2020-01-02",
+              "max_date": "2020-12-15"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "342",
+              "unique_oriented_pairs": "251",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "91",
+              "min_date": "2021-01-02",
+              "max_date": "2021-12-13"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "342",
+              "unique_oriented_pairs": "245",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "97",
+              "min_date": "2022-01-05",
+              "max_date": "2022-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "341",
+              "unique_oriented_pairs": "238",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "103",
+              "min_date": "2023-01-04",
+              "max_date": "2023-12-18"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "MEX",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "271",
+              "unique_oriented_pairs": "213",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2024-01-02",
+              "max_date": "2024-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "286",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "149",
+              "min_date": "1996-01-03",
+              "max_date": "1996-11-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "303",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "167",
+              "min_date": "1997-01-11",
+              "max_date": "1997-10-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "302",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "167",
+              "min_date": "1998-01-03",
+              "max_date": "1998-11-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "302",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "182",
+              "min_date": "1999-01-15",
+              "max_date": "1999-11-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "319",
+              "unique_oriented_pairs": "203",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "116",
+              "min_date": "2000-01-15",
+              "max_date": "2000-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "352",
+              "unique_oriented_pairs": "215",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "137",
+              "min_date": "2001-01-06",
+              "max_date": "2001-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "384",
+              "unique_oriented_pairs": "255",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "129",
+              "min_date": "2002-01-05",
+              "max_date": "2002-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "407",
+              "unique_oriented_pairs": "266",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "141",
+              "min_date": "2003-01-11",
+              "max_date": "2003-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "367",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "125",
+              "min_date": "2004-01-17",
+              "max_date": "2004-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "332",
+              "unique_oriented_pairs": "204",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "128",
+              "min_date": "2005-01-15",
+              "max_date": "2005-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "334",
+              "unique_oriented_pairs": "196",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "138",
+              "min_date": "2006-01-20",
+              "max_date": "2006-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "338",
+              "unique_oriented_pairs": "207",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "131",
+              "min_date": "2007-01-19",
+              "max_date": "2007-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "334",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "128",
+              "min_date": "2008-01-19",
+              "max_date": "2008-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "330",
+              "unique_oriented_pairs": "211",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "119",
+              "min_date": "2009-01-17",
+              "max_date": "2009-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "330",
+              "unique_oriented_pairs": "205",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "125",
+              "min_date": "2010-01-17",
+              "max_date": "2010-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "330",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "124",
+              "min_date": "2011-01-08",
+              "max_date": "2011-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "330",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "124",
+              "min_date": "2012-01-07",
+              "max_date": "2012-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "330",
+              "unique_oriented_pairs": "208",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "122",
+              "min_date": "2013-01-05",
+              "max_date": "2013-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "330",
+              "unique_oriented_pairs": "205",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "125",
+              "min_date": "2014-01-04",
+              "max_date": "2014-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "326",
+              "unique_oriented_pairs": "209",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "117",
+              "min_date": "2015-01-10",
+              "max_date": "2015-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "328",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "118",
+              "min_date": "2016-01-09",
+              "max_date": "2016-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "328",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "135",
+              "min_date": "2017-01-07",
+              "max_date": "2017-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "328",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "130",
+              "min_date": "2018-01-06",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "348",
+              "unique_oriented_pairs": "223",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "125",
+              "min_date": "2019-01-05",
+              "max_date": "2019-12-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "257",
+              "unique_oriented_pairs": "177",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "80",
+              "min_date": "2020-01-11",
+              "max_date": "2020-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "338",
+              "unique_oriented_pairs": "204",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "134",
+              "min_date": "2021-01-09",
+              "max_date": "2021-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "336",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "135",
+              "min_date": "2022-01-07",
+              "max_date": "2022-10-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "333",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "140",
+              "min_date": "2023-01-07",
+              "max_date": "2023-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "335",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "138",
+              "min_date": "2024-01-13",
+              "max_date": "2024-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "mexico",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "251",
+              "unique_oriented_pairs": "178",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "73",
+              "min_date": "2025-01-11",
+              "max_date": "2025-09-21"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -152,6 +4229,90 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "84409b2e1541044e97d755732c81461451d1852975463d150400b2a606808a75": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Tepic (Second Division team)",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-05-28",
+              "max_date": "2003-05-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Veracruz (runners-up Second Division)",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "25",
+              "rows": "394",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "394",
+              "duplicate_pair_occurrences": "14",
+              "min_date": "2002-08-03",
+              "max_date": "2003-05-17"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

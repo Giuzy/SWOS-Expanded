@@ -94,6 +94,504 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "RSSSF uploaded corpus, historical 1996 edition. Group dates remain absent; 47 games implied by recorded group played counts versus nominal48, HB/EB/Streymur both5. Final and replay dates reference only; no actual future results or fixed final replay in career. Final replay observed, not independently certified general draw rule."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "9091265293cd198b2592ef395fc35065c3356e97f0ab80f3befb5f2515ef538a": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Faroe Islands Cup 1997",
+            "country": "FRO",
+            "season": "1997",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 14,
+            "fixtures": 11,
+            "orientedPairs": 11,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 11,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "B36": {
+              "uuid": "38694900-63eb-51d9-9e65-8f10cce781ac",
+              "file": 11,
+              "ordinal": 0,
+              "league": 0,
+              "name": "B 36",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "B68": {
+              "uuid": "497412a3-a2fb-5306-8bfb-01df06caf270",
+              "file": 11,
+              "ordinal": 1,
+              "league": 0,
+              "name": "B 68",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "GÍ": {
+              "uuid": "0d6028e9-4e84-57a6-98fb-52bb47e02275",
+              "file": 11,
+              "ordinal": 3,
+              "league": 0,
+              "name": "GI",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "HB": {
+              "uuid": "6e078425-7f08-58a8-a4ca-28072010c21d",
+              "file": 11,
+              "ordinal": 4,
+              "league": 0,
+              "name": "HB",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "KÍ": {
+              "uuid": "5c737292-8ec0-566d-abb4-82368dd98b75",
+              "file": 11,
+              "ordinal": 6,
+              "league": 0,
+              "name": "KI",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "LÍF": {
+              "uuid": "d18d7838-5655-5c25-be67-41f4d4bbefa8",
+              "file": 11,
+              "ordinal": 7,
+              "league": 0,
+              "name": "LIF",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "NSÍ": {
+              "uuid": "1e461179-2484-5c91-863e-67361d7ad607",
+              "file": 11,
+              "ordinal": 8,
+              "league": 4,
+              "name": "NSI",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "TB": {
+              "uuid": "a4a6ba23-b2e4-5a2d-9eb6-e1065c7f2002",
+              "file": 11,
+              "ordinal": 10,
+              "league": 0,
+              "name": "TB",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            },
+            "VB": {
+              "uuid": "02e35139-5351-5a2f-b69e-b49f84501bd5",
+              "file": 11,
+              "ordinal": 11,
+              "league": 0,
+              "name": "VB",
+              "path": "data_json\\teams\\FAROE_ISLANDS.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "AB",
+              "candidateCount": 0
+            },
+            {
+              "label": "Fram",
+              "candidateCount": 0
+            },
+            {
+              "label": "NÍF",
+              "candidateCount": 0
+            },
+            {
+              "label": "Skála",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sumba",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-03-16",
+              "INFERRED_FROM_EDITION",
+              "Fram",
+              "LÍF",
+              null,
+              "d18d7838-5655-5c25-be67-41f4d4bbefa8",
+              "corpus/tablesf/farcup97.txt:8",
+              "Round 1 "
+            ],
+            [
+              "1997-03-16",
+              "INFERRED_FROM_EDITION",
+              "NÍF",
+              "Skála",
+              null,
+              null,
+              "corpus/tablesf/farcup97.txt:7",
+              "Round 1 "
+            ],
+            [
+              "1997-03-16",
+              "INFERRED_FROM_EDITION",
+              "Sumba",
+              "AB",
+              null,
+              null,
+              "corpus/tablesf/farcup97.txt:9",
+              "Round 1 "
+            ],
+            [
+              "1997-05-08",
+              "INFERRED_FROM_EDITION",
+              "B36",
+              "TB",
+              "38694900-63eb-51d9-9e65-8f10cce781ac",
+              "a4a6ba23-b2e4-5a2d-9eb6-e1065c7f2002",
+              "corpus/tablesf/farcup97.txt:44",
+              "Quarterfinals "
+            ],
+            [
+              "1997-05-08",
+              "INFERRED_FROM_EDITION",
+              "HB",
+              "GÍ",
+              "6e078425-7f08-58a8-a4ca-28072010c21d",
+              "0d6028e9-4e84-57a6-98fb-52bb47e02275",
+              "corpus/tablesf/farcup97.txt:43",
+              "Quarterfinals "
+            ],
+            [
+              "1997-05-08",
+              "INFERRED_FROM_EDITION",
+              "KÍ",
+              "VB",
+              "5c737292-8ec0-566d-abb4-82368dd98b75",
+              "02e35139-5351-5a2f-b69e-b49f84501bd5",
+              "corpus/tablesf/farcup97.txt:42",
+              "Quarterfinals "
+            ],
+            [
+              "1997-05-08",
+              "INFERRED_FROM_EDITION",
+              "NSÍ",
+              "B68",
+              "1e461179-2484-5c91-863e-67361d7ad607",
+              "497412a3-a2fb-5306-8bfb-01df06caf270",
+              "corpus/tablesf/farcup97.txt:41",
+              "Quarterfinals "
+            ],
+            [
+              "1997-06-05",
+              "INFERRED_FROM_EDITION",
+              "GÍ",
+              "NSÍ",
+              "0d6028e9-4e84-57a6-98fb-52bb47e02275",
+              "1e461179-2484-5c91-863e-67361d7ad607",
+              "corpus/tablesf/farcup97.txt:50",
+              "First Legs "
+            ],
+            [
+              "1997-06-05",
+              "INFERRED_FROM_EDITION",
+              "VB",
+              "B36",
+              "02e35139-5351-5a2f-b69e-b49f84501bd5",
+              "38694900-63eb-51d9-9e65-8f10cce781ac",
+              "corpus/tablesf/farcup97.txt:49",
+              "First Legs "
+            ],
+            [
+              "1997-07-02",
+              "INFERRED_FROM_EDITION",
+              "B36",
+              "VB",
+              "38694900-63eb-51d9-9e65-8f10cce781ac",
+              "02e35139-5351-5a2f-b69e-b49f84501bd5",
+              "corpus/tablesf/farcup97.txt:54",
+              "Second Legs "
+            ],
+            [
+              "1997-07-02",
+              "INFERRED_FROM_EDITION",
+              "NSÍ",
+              "GÍ",
+              "1e461179-2484-5c91-863e-67361d7ad607",
+              "0d6028e9-4e84-57a6-98fb-52bb47e02275",
+              "corpus/tablesf/farcup97.txt:53",
+              "Second Legs "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 1996",
+              "season": "1996",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-03-17",
+              "max_date": "1996-06-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 1997",
+              "season": "1997",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-03-16",
+              "max_date": "1997-07-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 1998",
+              "season": "1998",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-03-22",
+              "max_date": "1998-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 1999",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "88",
+              "unique_oriented_pairs": "41",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "88",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "1999-03-21",
+              "max_date": "1999-05-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2000",
+              "season": "2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "143",
+              "unique_oriented_pairs": "87",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "143",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2000-03-12",
+              "max_date": "2000-08-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2001",
+              "season": "2001",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "50",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2001-03-03",
+              "max_date": "2001-05-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2002",
+              "season": "2002",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "43",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "15",
+              "min_date": "2002-03-03",
+              "max_date": "2002-10-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2003",
+              "season": "2003",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "22",
+              "rows": "50",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2003-03-09",
+              "max_date": "2003-05-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2004",
+              "season": "2004",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "21",
+              "rows": "51",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "51",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2004-03-02",
+              "max_date": "2004-07-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2005",
+              "season": "2005",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-03-05",
+              "max_date": "2005-07-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2006",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-03-18",
+              "max_date": "2006-09-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2007",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-03-10",
+              "max_date": "2007-07-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2008",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-03-15",
+              "max_date": "2008-05-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Faroe Islands Cup 2009",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-03-28",
+              "max_date": "2009-05-28"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "db3938aad6089854c7ac52a21e946b5678fb4edad7b56fa538f3400cf9908b02": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

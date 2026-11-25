@@ -97,6 +97,933 @@
         "05-28/30"
       ],
       "windowScope": "Nominal round1–17 2026; round18–33 2027. R1 actual includes Aug3."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "d4411d953fc449be031726bb0082a1da20fcdf0084a07708133e28d9b87870e0": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Armenian Premier League",
+            "country": "ARM",
+            "season": "2026/27",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 12,
+            "fixtures": 29,
+            "orientedPairs": 29,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 29,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Alashkert": {
+              "uuid": "bfbb30b5-a8a3-53f8-a2be-5badc1766516",
+              "file": 52,
+              "ordinal": 3,
+              "league": 0,
+              "name": "ALASHKERT",
+              "path": "data_json\\worlds\\2627\\teams\\ARMENIA.json"
+            },
+            "Sardarapat": {
+              "uuid": "5dcd4d6a-02c6-52fb-8a1d-fc56366d809f",
+              "file": 52,
+              "ordinal": 10,
+              "league": 0,
+              "name": "SARDARAPAT",
+              "path": "data_json\\worlds\\2627\\teams\\ARMENIA.json"
+            },
+            "Syunik": {
+              "uuid": "e2e518fd-faaa-54df-a5a5-b989074f3dca",
+              "file": 52,
+              "ordinal": 11,
+              "league": 0,
+              "name": "SYUNIK",
+              "path": "data_json\\worlds\\2627\\teams\\ARMENIA.json"
+            },
+            "Van": {
+              "uuid": "22da8707-a3b8-5739-aabb-2fe1a0059721",
+              "file": 52,
+              "ordinal": 5,
+              "league": 0,
+              "name": "VAN",
+              "path": "data_json\\worlds\\2627\\teams\\ARMENIA.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Ar-Armenia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ararat",
+              "candidateCount": 0
+            },
+            {
+              "label": "BKMA",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gandzasar",
+              "candidateCount": 0
+            },
+            {
+              "label": "Noah",
+              "candidateCount": 0
+            },
+            {
+              "label": "Pyunik",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shirak",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urartu",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-07-31",
+              "INFERRED_FROM_EDITION",
+              "Van",
+              "Sardarapat",
+              "22da8707-a3b8-5739-aabb-2fe1a0059721",
+              "5dcd4d6a-02c6-52fb-8a1d-fc56366d809f",
+              "corpus/tablesa/arme2027.txt:45",
+              "Round 1"
+            ],
+            [
+              "2026-08-01",
+              "INFERRED_FROM_EDITION",
+              "BKMA",
+              "Shirak",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:52",
+              "Round 1"
+            ],
+            [
+              "2026-08-01",
+              "INFERRED_FROM_EDITION",
+              "Gandzasar",
+              "Ar-Armenia",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:49",
+              "Round 1"
+            ],
+            [
+              "2026-08-02",
+              "INFERRED_FROM_EDITION",
+              "Noah",
+              "Syunik",
+              null,
+              "e2e518fd-faaa-54df-a5a5-b989074f3dca",
+              "corpus/tablesa/arme2027.txt:54",
+              "Round 1"
+            ],
+            [
+              "2026-08-02",
+              "INFERRED_FROM_EDITION",
+              "Urartu",
+              "Pyunik",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:56",
+              "Round 1"
+            ],
+            [
+              "2026-08-03",
+              "INFERRED_FROM_EDITION",
+              "Alashkert",
+              "Ararat",
+              "bfbb30b5-a8a3-53f8-a2be-5badc1766516",
+              null,
+              "corpus/tablesa/arme2027.txt:60",
+              "Round 1"
+            ],
+            [
+              "2026-08-07",
+              "INFERRED_FROM_EDITION",
+              "Ar-Armenia",
+              "Urartu",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:67",
+              "Round 2"
+            ],
+            [
+              "2026-08-07",
+              "INFERRED_FROM_EDITION",
+              "Ararat",
+              "Sardarapat",
+              null,
+              "5dcd4d6a-02c6-52fb-8a1d-fc56366d809f",
+              "corpus/tablesa/arme2027.txt:65",
+              "Round 2"
+            ],
+            [
+              "2026-08-08",
+              "INFERRED_FROM_EDITION",
+              "Gandzasar",
+              "Syunik",
+              null,
+              "e2e518fd-faaa-54df-a5a5-b989074f3dca",
+              "corpus/tablesa/arme2027.txt:70",
+              "Round 2"
+            ],
+            [
+              "2026-08-09",
+              "INFERRED_FROM_EDITION",
+              "Pyunik",
+              "Van",
+              null,
+              "22da8707-a3b8-5739-aabb-2fe1a0059721",
+              "corpus/tablesa/arme2027.txt:76",
+              "Round 2"
+            ],
+            [
+              "2026-08-09",
+              "INFERRED_FROM_EDITION",
+              "Shirak",
+              "Noah",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:73",
+              "Round 2"
+            ],
+            [
+              "2026-08-10",
+              "INFERRED_FROM_EDITION",
+              "Alashkert",
+              "BKMA",
+              "bfbb30b5-a8a3-53f8-a2be-5badc1766516",
+              null,
+              "corpus/tablesa/arme2027.txt:79",
+              "Round 2"
+            ],
+            [
+              "2026-08-13",
+              "INFERRED_FROM_EDITION",
+              "Urartu",
+              "Syunik",
+              null,
+              "e2e518fd-faaa-54df-a5a5-b989074f3dca",
+              "corpus/tablesa/arme2027.txt:84",
+              "Round 3"
+            ],
+            [
+              "2026-08-14",
+              "INFERRED_FROM_EDITION",
+              "Gandzasar",
+              "Shirak",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:87",
+              "Round 3"
+            ],
+            [
+              "2026-08-15",
+              "INFERRED_FROM_EDITION",
+              "Ar-Armenia",
+              "Van",
+              null,
+              "22da8707-a3b8-5739-aabb-2fe1a0059721",
+              "corpus/tablesa/arme2027.txt:90",
+              "Round 3"
+            ],
+            [
+              "2026-08-15",
+              "INFERRED_FROM_EDITION",
+              "BKMA",
+              "Ararat",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:92",
+              "Round 3"
+            ],
+            [
+              "2026-08-17",
+              "INFERRED_FROM_EDITION",
+              "Noah",
+              "Alashkert",
+              null,
+              "bfbb30b5-a8a3-53f8-a2be-5badc1766516",
+              "corpus/tablesa/arme2027.txt:95",
+              "Round 3"
+            ],
+            [
+              "2026-08-20",
+              "INFERRED_FROM_EDITION",
+              "Van",
+              "Syunik",
+              "22da8707-a3b8-5739-aabb-2fe1a0059721",
+              "e2e518fd-faaa-54df-a5a5-b989074f3dca",
+              "corpus/tablesa/arme2027.txt:102",
+              "Round 4"
+            ],
+            [
+              "2026-08-21",
+              "INFERRED_FROM_EDITION",
+              "Alashkert",
+              "Gandzasar",
+              "bfbb30b5-a8a3-53f8-a2be-5badc1766516",
+              null,
+              "corpus/tablesa/arme2027.txt:105",
+              "Round 4"
+            ],
+            [
+              "2026-08-21",
+              "INFERRED_FROM_EDITION",
+              "Ararat",
+              "Pyunik",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:107",
+              "Round 4"
+            ],
+            [
+              "2026-08-22",
+              "INFERRED_FROM_EDITION",
+              "Shirak",
+              "Urartu",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:110",
+              "Round 4"
+            ],
+            [
+              "2026-08-23",
+              "INFERRED_FROM_EDITION",
+              "Ar-Armenia",
+              "Sardarapat",
+              null,
+              "5dcd4d6a-02c6-52fb-8a1d-fc56366d809f",
+              "corpus/tablesa/arme2027.txt:115",
+              "Round 4"
+            ],
+            [
+              "2026-08-23",
+              "INFERRED_FROM_EDITION",
+              "BKMA",
+              "Noah",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:113",
+              "Round 4"
+            ],
+            [
+              "2026-08-28",
+              "INFERRED_FROM_EDITION",
+              "Urartu",
+              "Alashkert",
+              null,
+              "bfbb30b5-a8a3-53f8-a2be-5badc1766516",
+              "corpus/tablesa/arme2027.txt:120",
+              "Round 5"
+            ],
+            [
+              "2026-08-29",
+              "INFERRED_FROM_EDITION",
+              "Van",
+              "Shirak",
+              "22da8707-a3b8-5739-aabb-2fe1a0059721",
+              null,
+              "corpus/tablesa/arme2027.txt:123",
+              "Round 5"
+            ],
+            [
+              "2026-08-30",
+              "INFERRED_FROM_EDITION",
+              "Gandzasar",
+              "BKMA",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:128",
+              "Round 5"
+            ],
+            [
+              "2026-08-30",
+              "INFERRED_FROM_EDITION",
+              "Noah",
+              "Ararat",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:126",
+              "Round 5"
+            ],
+            [
+              "2026-08-31",
+              "INFERRED_FROM_EDITION",
+              "Pyunik",
+              "Ar-Armenia",
+              null,
+              null,
+              "corpus/tablesa/arme2027.txt:131",
+              "Round 5"
+            ],
+            [
+              "2026-08-31",
+              "INFERRED_FROM_EDITION",
+              "Sardarapat",
+              "Syunik",
+              "5dcd4d6a-02c6-52fb-8a1d-fc56366d809f",
+              "e2e518fd-faaa-54df-a5a5-b989074f3dca",
+              "corpus/tablesa/arme2027.txt:133",
+              "Round 5"
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Armenian Premier League",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "165",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "165",
+              "duplicate_pair_occurrences": "55",
+              "min_date": "2024-08-02",
+              "max_date": "2025-05-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Armenian Premier League",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "135",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "135",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2025-08-01",
+              "max_date": "2026-05-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Armenian Premier League",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-07-31",
+              "max_date": "2026-08-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2003",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "121",
+              "unique_oriented_pairs": "121",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "121",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-05-01",
+              "max_date": "2003-11-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "90",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "90",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-05-01",
+              "max_date": "2006-11-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "87",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "87",
+              "duplicate_pair_occurrences": "28",
+              "min_date": "2007-04-25",
+              "max_date": "2007-10-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "112",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "112",
+              "duplicate_pair_occurrences": "55",
+              "min_date": "2008-04-05",
+              "max_date": "2008-11-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-20",
+              "max_date": "2023-05-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "104",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2000-03-25",
+              "max_date": "2000-11-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "127",
+              "unique_oriented_pairs": "127",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-04-17",
+              "max_date": "2001-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "131",
+              "unique_oriented_pairs": "131",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-04-13",
+              "max_date": "2002-11-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2003-04-12",
+              "max_date": "2003-11-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2004-04-08",
+              "max_date": "2004-11-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "104",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "32",
+              "min_date": "2005-04-12",
+              "max_date": "2005-11-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2006-04-14",
+              "max_date": "2006-11-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2007-04-14",
+              "max_date": "2007-11-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "113",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "57",
+              "min_date": "2008-04-06",
+              "max_date": "2008-11-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2009-03-21",
+              "max_date": "2009-11-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2010-03-27",
+              "max_date": "2010-11-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2011-03-05",
+              "max_date": "2011-11-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "128",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2012-03-31",
+              "max_date": "2012-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "96",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2013-03-09",
+              "max_date": "2013-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "116",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2014-03-01",
+              "max_date": "2014-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2015-03-01",
+              "max_date": "2015-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "102",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2016-03-02",
+              "max_date": "2016-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "6",
+              "rows": "84",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "54",
+              "min_date": "2017-03-04",
+              "max_date": "2017-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "121",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2018-02-28",
+              "max_date": "2018-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "143",
+              "unique_oriented_pairs": "85",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2019-03-02",
+              "max_date": "2019-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "101",
+              "unique_oriented_pairs": "71",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2020-02-28",
+              "max_date": "2020-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "129",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2021-02-19",
+              "max_date": "2021-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "177",
+              "unique_oriented_pairs": "106",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2022-02-19",
+              "max_date": "2022-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "181",
+              "unique_oriented_pairs": "106",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "75",
+              "min_date": "2023-02-24",
+              "max_date": "2023-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "156",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "67",
+              "min_date": "2024-02-22",
+              "max_date": "2024-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "armenia",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "90",
+              "unique_oriented_pairs": "71",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2025-02-24",
+              "max_date": "2025-09-21"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "e670db019766d84ce8f03273bcea23fbadc19dc4cc4b68086bdffbcec5a25b5c": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

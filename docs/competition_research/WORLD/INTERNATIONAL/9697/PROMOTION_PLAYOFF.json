@@ -65,6 +65,54 @@
       "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -132,6 +180,54 @@
       "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -199,6 +295,54 @@
       "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -263,6 +407,54 @@
       "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -323,6 +515,54 @@
       "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -383,6 +623,54 @@
       "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -443,6 +731,54 @@
       "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

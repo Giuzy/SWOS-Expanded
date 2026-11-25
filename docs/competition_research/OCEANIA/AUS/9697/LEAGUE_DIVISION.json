@@ -64,6 +64,365 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "63ec3d77442e3a2b2ace39b2f5f6bcfd4651db81ad1b00082ae4c08722a1729b": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "National Soccer League 1996/97",
+            "country": "AUS",
+            "season": "1996/97",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 6,
+            "fixtures": 9,
+            "orientedPairs": 8,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 9,
+            "expectedRegularTeams": [
+              14
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Adelaide City": {
+              "uuid": "fd1ac211-802c-5da2-a8e6-abfecaee7380",
+              "file": 44,
+              "ordinal": 3,
+              "league": 0,
+              "name": "ADELAIDE CITY",
+              "path": "data_json\\teams\\AUSTRALIA.json"
+            },
+            "South Melbourne": {
+              "uuid": "08cbcb7f-ba11-59a8-9baf-1f13c2d293dd",
+              "file": 44,
+              "ordinal": 39,
+              "league": 0,
+              "name": "SOUTH MELBOURNE",
+              "path": "data_json\\teams\\AUSTRALIA.json"
+            },
+            "Sydney United": {
+              "uuid": "b569f12f-808a-5926-a578-74e8fde03673",
+              "file": 44,
+              "ordinal": 42,
+              "league": 0,
+              "name": "SYDNEY UNITED",
+              "path": "data_json\\teams\\AUSTRALIA.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Brisbane Strikers",
+              "candidateCount": 0
+            },
+            {
+              "label": "Marconi-Fairfield",
+              "candidateCount": 0
+            },
+            {
+              "label": "Melbourne Knights",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Marconi-Fairfield",
+              "Adelaide City",
+              null,
+              "fd1ac211-802c-5da2-a8e6-abfecaee7380",
+              "corpus/tablesa/aus97.txt:390",
+              "First Legs"
+            ],
+            [
+              "1997-04-27",
+              "INFERRED_FROM_EDITION",
+              "Melbourne Knights",
+              "South Melbourne",
+              null,
+              "08cbcb7f-ba11-59a8-9baf-1f13c2d293dd",
+              "corpus/tablesa/aus97.txt:392",
+              "First Legs"
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Brisbane Strikers",
+              "Sydney United",
+              null,
+              "b569f12f-808a-5926-a578-74e8fde03673",
+              "corpus/tablesa/aus97.txt:401",
+              "First Leg "
+            ],
+            [
+              "1997-05-04",
+              "INFERRED_FROM_EDITION",
+              "Adelaide City",
+              "Marconi-Fairfield",
+              "fd1ac211-802c-5da2-a8e6-abfecaee7380",
+              null,
+              "corpus/tablesa/aus97.txt:395",
+              "Second Legs "
+            ],
+            [
+              "1997-05-04",
+              "INFERRED_FROM_EDITION",
+              "South Melbourne",
+              "Melbourne Knights",
+              "08cbcb7f-ba11-59a8-9baf-1f13c2d293dd",
+              null,
+              "corpus/tablesa/aus97.txt:396",
+              "Second Legs "
+            ],
+            [
+              "1997-05-11",
+              "INFERRED_FROM_EDITION",
+              "South Melbourne",
+              "Adelaide City",
+              "08cbcb7f-ba11-59a8-9baf-1f13c2d293dd",
+              "fd1ac211-802c-5da2-a8e6-abfecaee7380",
+              "corpus/tablesa/aus97.txt:407",
+              "Second Leg "
+            ],
+            [
+              "1997-05-11",
+              "INFERRED_FROM_EDITION",
+              "Sydney United",
+              "Brisbane Strikers",
+              "b569f12f-808a-5926-a578-74e8fde03673",
+              null,
+              "corpus/tablesa/aus97.txt:404",
+              "Second Leg "
+            ],
+            [
+              "1997-05-18",
+              "INFERRED_FROM_EDITION",
+              "Sydney United",
+              "South Melbourne",
+              "b569f12f-808a-5926-a578-74e8fde03673",
+              "08cbcb7f-ba11-59a8-9baf-1f13c2d293dd",
+              "corpus/tablesa/aus97.txt:410",
+              "Second Leg "
+            ],
+            [
+              "1997-05-25",
+              "INFERRED_FROM_EDITION",
+              "Brisbane Strikers",
+              "Sydney United",
+              null,
+              "b569f12f-808a-5926-a578-74e8fde03673",
+              "corpus/tablesa/aus97.txt:413",
+              "Final "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/aus97.txt:37 Author: Adri van Veen",
+              "excerpt": "NB: West Adelaide Hellas were renamed West Adelaide Sharks;"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/aus97.txt:38 Author: Adri van Veen",
+              "excerpt": "Morwell Falcons were renamed Gippsland Falcons;"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/aus97.txt:363 Author: Adri van Veen",
+              "excerpt": "NB: West Adelaide Hellas were renamed West Adelaide Sharks;"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/aus97.txt:364 Author: Adri van Veen",
+              "excerpt": "Morwell Falcons were renamed Gippsland Falcons;"
+            }
+          ],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 1996/97",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "9",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1997-04-26",
+              "max_date": "1997-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "9",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1998-04-19",
+              "max_date": "1998-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 1998/99",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "203",
+              "unique_oriented_pairs": "203",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "203",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-10-09",
+              "max_date": "1999-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 1999/00",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "211",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "240",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "1999-10-01",
+              "max_date": "2000-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-04-15",
+              "max_date": "2001-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "159",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "159",
+              "duplicate_pair_occurrences": "10",
+              "min_date": "2001-10-05",
+              "max_date": "2002-05-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "154",
+              "unique_oriented_pairs": "154",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "154",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-20",
+              "max_date": "2003-03-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "National Soccer League 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "170",
+              "unique_oriented_pairs": "162",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "170",
+              "duplicate_pair_occurrences": "8",
+              "min_date": "2003-09-19",
+              "max_date": "2004-05-11"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -126,6 +485,54 @@
       "finalsQualifiers": 4,
       "scope": "Regional tier candidate; dates at cutoff and exact OG membership unresolved. No future final tables imported as initial state.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -189,6 +596,54 @@
       "format": "Each stage winner qualifies to Grand Final; four withdrawals after season",
       "scope": "Regional tier candidate; dates at cutoff and exact OG membership unresolved. No future final tables imported as initial state.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -252,6 +707,54 @@
       "finalSeriesFirst": "1996-08-11",
       "scope": "Regional tier candidate; dates at cutoff and exact OG membership unresolved. No future final tables imported as initial state.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

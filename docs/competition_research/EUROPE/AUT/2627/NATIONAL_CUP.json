@@ -62,6 +62,1309 @@
       ],
       "limitations": "QF dates 10–11 Feb 2027 confirmed in later official announcement; exact R2 and full access/eligibility pending. Actual later-stage club pairings not frozen into simulated career.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "62d7aac8dec2e15807ff761945596f1b3a4c8aeb51abe916d64462f97eece816": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "ÖFB Cup",
+            "country": "AUT",
+            "season": "2026/27",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 68,
+            "fixtures": 48,
+            "orientedPairs": 48,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 48,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "LASK": {
+              "uuid": "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+              "file": 1,
+              "ordinal": 0,
+              "league": 0,
+              "name": "LASK",
+              "path": "data_json\\worlds\\2627\\teams\\AUSTRIA.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "ASK Voitsberg",
+              "candidateCount": 0
+            },
+            {
+              "label": "ATUS Velden",
+              "candidateCount": 0
+            },
+            {
+              "label": "DSV Leoben",
+              "candidateCount": 0
+            },
+            {
+              "label": "Deutschlandsberger SC",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Admira Wacker Mödling",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Blau-Weiß Linz",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Dornbirn 1913",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Hertha Wels",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Kitzbühel",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Lauterach",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Lustenau 07",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Red Bull Salzburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Wacker Innsbruck",
+              "candidateCount": 0
+            },
+            {
+              "label": "FCM Traiskirchen",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Austria Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "First Vienna FC 1894",
+              "candidateCount": 0
+            },
+            {
+              "label": "Floridsdorfer AC Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "GAK 1902",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kapfenberger SV 1919",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kremser SC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mattersburger SV 2020",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Austria Lustenau",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Imst",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Kalsdorf",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Rheindorf Altach",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Schwarz-Weiß Bregenz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Schwaz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Wiener Viktoria",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Wieselburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC-ESV Parndorf 1919",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Austria Klagenfur4t",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Austria Klagenfurt",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Bischofshofen",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Bischofshofen 1933",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Rapid Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Sturm Graz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Treibach",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Vorwärts Steyr",
+              "candidateCount": 0
+            },
+            {
+              "label": "SKN St. Pölten",
+              "candidateCount": 0
+            },
+            {
+              "label": "SKU Amstetten",
+              "candidateCount": 0
+            },
+            {
+              "label": "SPG SV Wallern/St. Marienkirchen",
+              "candidateCount": 0
+            },
+            {
+              "label": "SPG SV Wallern/St. Marienkirchen an der Polsenz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SR Donaufeld Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "SU Bad Leonfelden",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Austria Salzburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Horn",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Kuchl",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Lafnitz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Leithaprodersdorf",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Leobendorf",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Oberwart",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Ried",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Seekirchen 1945",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Tilmitsch",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Wals-Grünau",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Wienerberg Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "SVG Bleiburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "SVG Reichenau-Innsbruck",
+              "candidateCount": 0
+            },
+            {
+              "label": "TSV Hartberg",
+              "candidateCount": 0
+            },
+            {
+              "label": "TSV Harterg",
+              "candidateCount": 0
+            },
+            {
+              "label": "USV Scheiblingkirchen-Warth",
+              "candidateCount": 0
+            },
+            {
+              "label": "Union Dietach",
+              "candidateCount": 0
+            },
+            {
+              "label": "Union Gurten",
+              "candidateCount": 0
+            },
+            {
+              "label": "VfB Hohenems",
+              "candidateCount": 0
+            },
+            {
+              "label": "Wattener SG Tirol",
+              "candidateCount": 0
+            },
+            {
+              "label": "Wiener Sport-Club",
+              "candidateCount": 0
+            },
+            {
+              "label": "Wolfsberger AC",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "ATUS Velden",
+              "SK Austria Klagenfur4t",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:127",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "DSV Leoben",
+              "ASK Voitsberg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:136",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "Deutschlandsberger SC",
+              "SKU Amstetten",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:129",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "FC Dornbirn 1913",
+              "SV Ried",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:125",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "FC Lauterach",
+              "Wolfsberger AC",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:128",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "FCM Traiskirchen",
+              "SVG Bleiburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:134",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SC Wieselburg",
+              "Wattener SG Tirol",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:126",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Horn",
+              "Floridsdorfer AC Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:133",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Lafnitz",
+              "USV Scheiblingkirchen-Warth",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:131",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Leobendorf",
+              "SC Rheindorf Altach",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:130",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Seekirchen 1945",
+              "SK Sturm Graz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:137",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Tilmitsch",
+              "SKN St. Pölten",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:132",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "Union Gurten",
+              "FC Blau-Weiß Linz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:135",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "FC Lustenau 07",
+              "FC Kitzbühel",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:141",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "FC Wacker Innsbruck",
+              "SVG Reichenau-Innsbruck",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:144",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "Kremser SC",
+              "SC Austria Lustenau",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:149",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "Mattersburger SV 2020",
+              "First Vienna FC 1894",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:151",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SC Kalsdorf",
+              "LASK",
+              null,
+              "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+              "corpus/tableso/oost2027.txt:145",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SC Wiener Viktoria",
+              "SC-ESV Parndorf 1919",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:148",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SK Treibach",
+              "Kapfenberger SV 1919",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:150",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SK Vorwärts Steyr",
+              "SV Kuchl",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:152",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SR Donaufeld Wien",
+              "GAK 1902",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:140",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SU Bad Leonfelden",
+              "SC Schwarz-Weiß Bregenz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:143",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SV Oberwart",
+              "FC Red Bull Salzburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:146",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SV Wals-Grünau",
+              "SV Austria Salzburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:139",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "Union Dietach",
+              "SK Bischofshofen",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:142",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "VfB Hohenems",
+              "FC Hertha Wels",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:147",
+              "Round 1"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "Floridsdorfer AC Wien",
+              "SC Schwarz-Weiß Bregenz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:165",
+              "Round 2"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "Kapfenberger SV 1919",
+              "FC Hertha Wels",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:163",
+              "Round 2"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "SC Rheindorf Altach",
+              "SK Bischofshofen 1933",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:162",
+              "Round 2"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "SPG SV Wallern/St. Marienkirchen",
+              "SV Ried",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:164",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "ASK Voitsberg",
+              "SK Sturm Graz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:170",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "Deutschlandsberger SC",
+              "LASK",
+              null,
+              "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+              "corpus/tableso/oost2027.txt:168",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "FC Blau-Weiß Linz",
+              "FC Wacker Innsbruck",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:169",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "FCM Traiskirchen",
+              "FK Austria Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:173",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SK Austria Klagenfurt",
+              "SK Rapid Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:174",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SV Austria Salzburg",
+              "First Vienna FC 1894",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:171",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SV Lafnitz",
+              "SC Austria Lustenau",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:167",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SV Leithaprodersdorf",
+              "Wattener SG Tirol",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:172",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "FC Kitzbühel",
+              "GAK 1902",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:176",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "SC-ESV Parndorf 1919",
+              "Wolfsberger AC",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:177",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "SK Vorwärts Steyr",
+              "TSV Hartberg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:178",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "SKN St. Pölten",
+              "FC Red Bull Salzburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:179",
+              "Round 2"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SC Imst",
+              "TSV Harterg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:155",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SC Schwaz",
+              "SPG SV Wallern/St. Marienkirchen an der Polsenz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:154",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SV Leithaprodersdorf",
+              "FC Admira Wacker Mödling",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:156",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SV Wienerberg Wien",
+              "SK Rapid Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:158",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "Wiener Sport-Club",
+              "FK Austria Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:157",
+              "Round 1"
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 1998/99",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-09-04",
+              "max_date": "1999-05-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 1999/2000",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "112",
+              "rows": "174",
+              "unique_oriented_pairs": "87",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "174",
+              "duplicate_pair_occurrences": "87",
+              "min_date": "1999-08-06",
+              "max_date": "2000-05-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "128",
+              "rows": "194",
+              "unique_oriented_pairs": "97",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "194",
+              "duplicate_pair_occurrences": "97",
+              "min_date": "2000-08-01",
+              "max_date": "2001-05-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "100",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "100",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2001-08-21",
+              "max_date": "2002-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "59",
+              "rows": "102",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "102",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2002-08-27",
+              "max_date": "2003-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-14",
+              "max_date": "2010-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "111",
+              "rows": "92",
+              "unique_oriented_pairs": "92",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "92",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-23",
+              "max_date": "2011-05-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "109",
+              "rows": "93",
+              "unique_oriented_pairs": "93",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "93",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-15",
+              "max_date": "2012-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-12",
+              "max_date": "2013-05-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-07-13",
+              "max_date": "2014-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-07-11",
+              "max_date": "2015-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-17",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-08",
+              "max_date": "2017-04-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-14",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-20",
+              "max_date": "2019-04-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-19",
+              "max_date": "2020-03-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-28",
+              "max_date": "2021-03-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-16",
+              "max_date": "2022-03-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-15",
+              "max_date": "2023-04-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "74",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-20",
+              "max_date": "2024-04-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-26",
+              "max_date": "2025-04-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-07-25",
+              "max_date": "2026-03-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-07-24",
+              "max_date": "2027-06-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "197",
+              "rows": "155",
+              "unique_oriented_pairs": "151",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "155",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "1997-09-02",
+              "max_date": "1998-06-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "112",
+              "rows": "164",
+              "unique_oriented_pairs": "82",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "164",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2003-07-26",
+              "max_date": "2004-05-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 1999/00",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "22",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-09-04",
+              "max_date": "2000-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-28",
+              "max_date": "2001-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-09-22",
+              "max_date": "2002-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-03",
+              "max_date": "2003-05-01"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "ÖFB Cup 2018/19",
+              "season": "2018-19",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-20",
+              "max_date": "2019-05-01"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "ÖFB Cup 2019/20",
+              "season": "2019-20",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-19",
+              "max_date": "2020-05-29"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "ÖFB Cup 2020/21",
+              "season": "2020-21",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "63",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-28",
+              "max_date": "2021-05-01"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "7a1c07ae1b2239098af67d41e6fa378f727c21b237aad5f9350f57b82ee097c7": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

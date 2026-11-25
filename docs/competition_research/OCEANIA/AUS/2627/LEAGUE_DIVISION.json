@@ -116,6 +116,299 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "3891dbf2c0fa09b0dfc143f5590d4f08e5991309bd8f153bb1d9b1c1b48099c8": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "github/openfootball/world",
+              "competition": "A-League",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "138",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2018-10-19",
+              "max_date": "2019-05-19"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "A-League",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "148",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "146",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2019-10-11",
+              "max_date": "2020-08-30"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "A-League",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "161",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "158",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2020-12-28",
+              "max_date": "2021-06-27"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "A-League",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "163",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "158",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2021-11-19",
+              "max_date": "2022-05-28"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "A-League",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "163",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "155",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2022-10-07",
+              "max_date": "2023-06-03"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "A-League",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "169",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "167",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "2023-10-20",
+              "max_date": "2024-05-25"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "A-League",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "169",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "166",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2024-10-18",
+              "max_date": "2025-05-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2014",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2013-10-11",
+              "max_date": "2014-05-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2014-10-10",
+              "max_date": "2015-05-17"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2015-10-08",
+              "max_date": "2016-05-01"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2016-10-07",
+              "max_date": "2017-05-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2017-10-06",
+              "max_date": "2018-05-05"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2018-10-19",
+              "max_date": "2019-05-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "11",
+              "rows": "148",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2019-10-11",
+              "max_date": "2020-08-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "161",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2020-12-28",
+              "max_date": "2021-06-27"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "163",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2021-11-19",
+              "max_date": "2022-05-28"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "A-League Men",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "156",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "24",
+              "min_date": "2022-10-07",
+              "max_date": "2023-04-30"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "e670db019766d84ce8f03273bcea23fbadc19dc4cc4b68086bdffbcec5a25b5c": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -243,6 +536,52 @@
         "scope": "Three June result excerpts; full table and results not retrieved."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -382,6 +721,52 @@
         "scope": "All eight round21 scores reported by league June28; individual match dates not certified. No full cutoff table."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -541,6 +926,52 @@
         "scope": "Ten observed June results, early June archive and June27 corroborating snippets; postponed games excluded; full table not retrieved."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

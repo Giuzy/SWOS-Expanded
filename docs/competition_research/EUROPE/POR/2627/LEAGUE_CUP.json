@@ -59,6 +59,107 @@
       },
       "limits": "Full match rules pending. Approved 2027/28 change distinct from 2026 template.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "P",
+      "fields": {
+        "name": "V",
+        "identity": "V",
+        "participants": "V",
+        "format": "P",
+        "calendar": "P",
+        "regulation": "P",
+        "movement": "NA",
+        "qualification": "P",
+        "july1": "NA",
+        "evolution": "I"
+      },
+      "gaps": [
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "34d3ddc8edcf219b4b07946b19a9ffe1c853b69ea599380e96e994299bff2993": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": {
+            "phases": [
+              {
+                "type": "KNOCKOUT",
+                "rounds": [
+                  {
+                    "name": "QF",
+                    "entrants": 8,
+                    "legs": 1
+                  },
+                  {
+                    "name": "SF",
+                    "entrants": 4,
+                    "legs": 1
+                  },
+                  {
+                    "name": "FINAL",
+                    "entrants": 2,
+                    "legs": 1
+                  }
+                ]
+              }
+            ],
+            "notes": "7 games, existing provisional closure."
+          },
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Taça da Liga",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "5",
+              "unique_oriented_pairs": "5",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "5",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-05",
+              "max_date": "2015-08-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Taça da Liga",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-02-14",
+              "max_date": "2026-02-23"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "50316d01bc14e958ce971cdfb4bd973f237f4050bd4f23bb0176001bfd907edc": {
+          "status": "P",
+          "fields": {
+            "name": "V",
+            "identity": "V",
+            "participants": "V",
+            "format": "P",
+            "calendar": "P",
+            "regulation": "P",
+            "movement": "NA",
+            "qualification": "P",
+            "july1": "NA",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

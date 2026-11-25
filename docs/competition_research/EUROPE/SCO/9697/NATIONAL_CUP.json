@@ -104,6 +104,758 @@
       ],
       "limitations": "Historical main competition dates; separate qualifying cup eligibility and dates not reconciled.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "d72648f9f6ca8a3b2382e4fe3e37c46fd50b2b5f37e4ef9a0083f7e431ca0cba": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Scottish Cup 1997",
+            "country": "SCO",
+            "season": "1996/97",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 31,
+            "fixtures": 25,
+            "orientedPairs": 25,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 25,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Aberdeen": {
+              "uuid": "47ae483f-c246-5f4b-81c3-c4b5c18312a1",
+              "file": 33,
+              "ordinal": 0,
+              "league": 0,
+              "name": "ABERDEEN",
+              "path": "data_json\\teams\\SCOTLAND.json"
+            },
+            "Airdrie": {
+              "uuid": "2f752e6a-3551-5615-866f-e197a972d668",
+              "file": 33,
+              "ordinal": 1,
+              "league": 1,
+              "name": "AIRDRIE",
+              "path": "data_json\\teams\\SCOTLAND.json"
+            },
+            "Ayr United": {
+              "uuid": "cac3b356-e212-563f-a5f4-b351c872fa03",
+              "file": 33,
+              "ordinal": 5,
+              "league": 2,
+              "name": "AYR UNITED",
+              "path": "data_json\\teams\\SCOTLAND.json"
+            },
+            "Clyde": {
+              "uuid": "b9f1af38-defa-58dd-8eb2-a6827f3f97b7",
+              "file": 33,
+              "ordinal": 10,
+              "league": 2,
+              "name": "CLYDE",
+              "path": "data_json\\teams\\SCOTLAND.json"
+            },
+            "Dundee United": {
+              "uuid": "93b229fd-c6f6-57dd-8f42-39bc74fbb6fc",
+              "file": 33,
+              "ordinal": 15,
+              "league": 0,
+              "name": "DUNDEE UNITED",
+              "path": "data_json\\teams\\SCOTLAND.json"
+            },
+            "St Johnstone": {
+              "uuid": "60a41317-9850-58a2-8898-21b22fe66834",
+              "file": 33,
+              "ordinal": 35,
+              "league": 0,
+              "name": "ST. JOHNSTONE",
+              "path": "data_json\\teams\\SCOTLAND.json"
+            },
+            "Stirling Albion": {
+              "uuid": "fcd66c76-6c12-50fe-bf14-fbaf8a3ebc0c",
+              "file": 33,
+              "ordinal": 38,
+              "league": 1,
+              "name": "STIRLING ALBION",
+              "path": "data_json\\teams\\SCOTLAND.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Aberdeen Academical",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ayr Unitded",
+              "candidateCount": 0
+            },
+            {
+              "label": "Baillieston",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bonyrigg Rose Athletic",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cove Rangers",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cumbernauld United",
+              "candidateCount": 0
+            },
+            {
+              "label": "Edinburgh University",
+              "candidateCount": 0
+            },
+            {
+              "label": "Eskmill",
+              "candidateCount": 0
+            },
+            {
+              "label": "Forfar Farmington",
+              "candidateCount": 0
+            },
+            {
+              "label": "GFC St Johnstone",
+              "candidateCount": 0
+            },
+            {
+              "label": "Glasgow University",
+              "candidateCount": 0
+            },
+            {
+              "label": "Glenrothes",
+              "candidateCount": 0
+            },
+            {
+              "label": "Grange Athletic",
+              "candidateCount": 0
+            },
+            {
+              "label": "Guilliano's",
+              "candidateCount": 0
+            },
+            {
+              "label": "Hamilton",
+              "candidateCount": 0
+            },
+            {
+              "label": "Heriot-Watt University",
+              "candidateCount": 0
+            },
+            {
+              "label": "Highland Gunsmiths",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kemnay",
+              "candidateCount": 0
+            },
+            {
+              "label": "Livingstin Thistle",
+              "candidateCount": 0
+            },
+            {
+              "label": "Livingston Thistle",
+              "candidateCount": 0
+            },
+            {
+              "label": "Maryhill Eagles",
+              "candidateCount": 0
+            },
+            {
+              "label": "Queen of the South",
+              "candidateCount": 0
+            },
+            {
+              "label": "Stewarton Thistle",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tynecastle",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Aberdeen Academical",
+              "St Johnstone",
+              null,
+              "60a41317-9850-58a2-8898-21b22fe66834",
+              "corpus/tabless/scot-wom97.txt:19",
+              "Round 1"
+            ],
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Ayr United",
+              "Eskmill",
+              "cac3b356-e212-563f-a5f4-b351c872fa03",
+              null,
+              "corpus/tabless/scot-wom97.txt:15",
+              "Round 1"
+            ],
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Bonyrigg Rose Athletic",
+              "Stirling Albion",
+              null,
+              "fcd66c76-6c12-50fe-bf14-fbaf8a3ebc0c",
+              "corpus/tabless/scot-wom97.txt:12",
+              "Round 1"
+            ],
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Edinburgh University",
+              "GFC St Johnstone",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:14",
+              "Round 1"
+            ],
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Forfar Farmington",
+              "Glenrothes",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:13",
+              "Round 1"
+            ],
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Glasgow University",
+              "Tynecastle",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:11",
+              "Round 1"
+            ],
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Hamilton",
+              "Dundee United",
+              null,
+              "93b229fd-c6f6-57dd-8f42-39bc74fbb6fc",
+              "corpus/tabless/scot-wom97.txt:16",
+              "Round 1"
+            ],
+            [
+              "1997-01-19",
+              "INFERRED_FROM_EDITION",
+              "Livingston Thistle",
+              "Heriot-Watt University",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:10",
+              "Round 1"
+            ],
+            [
+              "1997-02-09",
+              "INFERRED_FROM_EDITION",
+              "Aberdeen Academical",
+              "Livingston Thistle",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:25",
+              "Round 2"
+            ],
+            [
+              "1997-02-09",
+              "INFERRED_FROM_EDITION",
+              "Edinburgh University",
+              "Forfar Farmington",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:28",
+              "Round 2"
+            ],
+            [
+              "1997-02-09",
+              "INFERRED_FROM_EDITION",
+              "Highland Gunsmiths",
+              "Baillieston",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:27",
+              "Round 2"
+            ],
+            [
+              "1997-02-09",
+              "INFERRED_FROM_EDITION",
+              "Stirling Albion",
+              "Queen of the South",
+              "fcd66c76-6c12-50fe-bf14-fbaf8a3ebc0c",
+              null,
+              "corpus/tabless/scot-wom97.txt:26",
+              "Round 2"
+            ],
+            [
+              "1997-02-09",
+              "INFERRED_FROM_EDITION",
+              "Tynecastle",
+              "Ayr United",
+              null,
+              "cac3b356-e212-563f-a5f4-b351c872fa03",
+              "corpus/tabless/scot-wom97.txt:24",
+              "Round 2"
+            ],
+            [
+              "1997-02-23",
+              "INFERRED_FROM_EDITION",
+              "Aberdeen",
+              "Ayr Unitded",
+              "47ae483f-c246-5f4b-81c3-c4b5c18312a1",
+              null,
+              "corpus/tabless/scot-wom97.txt:35",
+              "Round 3"
+            ],
+            [
+              "1997-02-23",
+              "INFERRED_FROM_EDITION",
+              "Baillieston",
+              "Airdrie",
+              null,
+              "2f752e6a-3551-5615-866f-e197a972d668",
+              "corpus/tabless/scot-wom97.txt:36",
+              "Round 3"
+            ],
+            [
+              "1997-02-23",
+              "INFERRED_FROM_EDITION",
+              "Clyde",
+              "Maryhill Eagles",
+              "b9f1af38-defa-58dd-8eb2-a6827f3f97b7",
+              null,
+              "corpus/tabless/scot-wom97.txt:37",
+              "Round 3"
+            ],
+            [
+              "1997-02-23",
+              "INFERRED_FROM_EDITION",
+              "Cove Rangers",
+              "Cumbernauld United",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:38",
+              "Round 3"
+            ],
+            [
+              "1997-02-23",
+              "INFERRED_FROM_EDITION",
+              "Stewarton Thistle",
+              "Hamilton",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:39",
+              "Round 3"
+            ],
+            [
+              "1997-03-09",
+              "INFERRED_FROM_EDITION",
+              "Livingston Thistle",
+              "Kemnay",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:41",
+              "Round 3"
+            ],
+            [
+              "1997-03-16",
+              "INFERRED_FROM_EDITION",
+              "Airdrie",
+              "Grange Athletic",
+              "2f752e6a-3551-5615-866f-e197a972d668",
+              null,
+              "corpus/tabless/scot-wom97.txt:50",
+              "Quarterfinals"
+            ],
+            [
+              "1997-03-16",
+              "INFERRED_FROM_EDITION",
+              "Clyde",
+              "Cove Rangers",
+              "b9f1af38-defa-58dd-8eb2-a6827f3f97b7",
+              null,
+              "corpus/tabless/scot-wom97.txt:49",
+              "Quarterfinals"
+            ],
+            [
+              "1997-03-16",
+              "INFERRED_FROM_EDITION",
+              "Stewarton Thistle",
+              "Ayr United",
+              null,
+              "cac3b356-e212-563f-a5f4-b351c872fa03",
+              "corpus/tabless/scot-wom97.txt:48",
+              "Quarterfinals"
+            ],
+            [
+              "1997-03-23",
+              "INFERRED_FROM_EDITION",
+              "Livingstin Thistle",
+              "Guilliano's",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:52",
+              "Quarterfinals"
+            ],
+            [
+              "1997-04-20",
+              "INFERRED_FROM_EDITION",
+              "Cove Rangers",
+              "Guilliano's",
+              null,
+              null,
+              "corpus/tabless/scot-wom97.txt:55",
+              "Semifinals "
+            ],
+            [
+              "1997-04-20",
+              "INFERRED_FROM_EDITION",
+              "Grange Athletic",
+              "Ayr United",
+              null,
+              "cac3b356-e212-563f-a5f4-b351c872fa03",
+              "corpus/tabless/scot-wom97.txt:56",
+              "Semifinals "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 1997",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-01-19",
+              "max_date": "1997-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2000",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-05-07",
+              "max_date": "2000-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-01-19",
+              "max_date": "2003-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2006",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-01-22",
+              "max_date": "2006-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2009",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "3",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-04-15",
+              "max_date": "2009-05-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2011",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-11-13",
+              "max_date": "2011-11-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2012",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-03-25",
+              "max_date": "2012-11-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2013",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-08",
+              "max_date": "2013-11-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2014",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-28",
+              "max_date": "2014-11-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2015",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-05-17",
+              "max_date": "2015-11-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-09-04",
+              "max_date": "2016-09-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2017",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-05-07",
+              "max_date": "2017-10-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-04-29",
+              "max_date": "2018-11-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2019",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-28",
+              "max_date": "2019-11-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2021/22",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-02-13",
+              "max_date": "2022-05-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2022/23",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "60",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-09-22",
+              "max_date": "2023-05-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2023/24",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-11-05",
+              "max_date": "2024-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Scottish Cup 2024/25",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "71",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-18",
+              "max_date": "2025-05-25"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

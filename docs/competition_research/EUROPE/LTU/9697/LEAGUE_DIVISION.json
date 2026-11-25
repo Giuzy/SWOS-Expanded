@@ -78,6 +78,2907 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Contemporary exact official title and group B admission rule not fully verified; no future standings imported; initial match date unknown."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "I",
+        "identity": "I",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "?",
+        "evolution": "I"
+      },
+      "gaps": [
+        "name",
+        "identity",
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "5c02acc6ac86b3fb2b87ebe13cdd6922e4818f7697e8e2f9f153343749f2ec43": {
+          "sourceGroup": {
+            "source": "parquet/games.parquet",
+            "competition": "lithuania",
+            "country": "LTU",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 16,
+            "fixtures": 214,
+            "orientedPairs": 161,
+            "invalid": 0,
+            "clubDayClashes": 10,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              8
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Fbk Kaunas": {
+              "uuid": "7438c4b4-6933-58db-9604-4aa396098407",
+              "file": 22,
+              "ordinal": 2,
+              "league": 0,
+              "name": "FBK KAUNAS",
+              "path": "data_json\\teams\\LITHUANIA.json"
+            },
+            "Gelezinis Vilkas": {
+              "uuid": "3da68972-6e0f-5539-95b7-95295a877a35",
+              "file": 22,
+              "ordinal": 3,
+              "league": 0,
+              "name": "GELEZINIS VILKAS",
+              "path": "data_json\\teams\\LITHUANIA.json"
+            },
+            "Inkaras Kaunas": {
+              "uuid": "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "file": 22,
+              "ordinal": 4,
+              "league": 0,
+              "name": "INKARAS KAUNAS",
+              "path": "data_json\\teams\\LITHUANIA.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Banga",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Atlantas",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Ekranas",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Lokomotyvas Vilnius",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Mastis Telsiai",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Nevzis",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Panerys Vilnius",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Ranga-Politechnika Kaunas",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Siauliai",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Tauras Taurage",
+              "candidateCount": 0
+            },
+            {
+              "label": "Interas Visaginas",
+              "candidateCount": 0
+            },
+            {
+              "label": "SM Vienybe Ukmerge",
+              "candidateCount": 0
+            },
+            {
+              "label": "Žalgiris",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-03-23",
+              "EXPLICIT",
+              "FK Ekranas",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:26262",
+              ""
+            ],
+            [
+              "1997-03-23",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:26264",
+              ""
+            ],
+            [
+              "1997-03-23",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "FK Panerys Vilnius",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:26263",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:26407",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "FK Ekranas",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:26408",
+              ""
+            ],
+            [
+              "1997-03-29",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Panerys Vilnius",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:26409",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:26649",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:26648",
+              ""
+            ],
+            [
+              "1997-04-05",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:26650",
+              ""
+            ],
+            [
+              "1997-04-06",
+              "EXPLICIT",
+              "FK Atlantas",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:26816",
+              ""
+            ],
+            [
+              "1997-04-06",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:26818",
+              ""
+            ],
+            [
+              "1997-04-06",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "FK Ekranas",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:26817",
+              ""
+            ],
+            [
+              "1997-04-06",
+              "EXPLICIT",
+              "Žalgiris",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:26815",
+              ""
+            ],
+            [
+              "1997-04-13",
+              "EXPLICIT",
+              "Banga",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:27233",
+              ""
+            ],
+            [
+              "1997-04-13",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:27234",
+              ""
+            ],
+            [
+              "1997-04-13",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:27235",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:27347",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "FK Siauliai",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:27349",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "FK Atlantas",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:27348",
+              ""
+            ],
+            [
+              "1997-04-16",
+              "EXPLICIT",
+              "Žalgiris",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:27346",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:27495",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:27496",
+              ""
+            ],
+            [
+              "1997-04-19",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:27497",
+              ""
+            ],
+            [
+              "1997-04-20",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:27696",
+              ""
+            ],
+            [
+              "1997-04-20",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:27698",
+              ""
+            ],
+            [
+              "1997-04-20",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "FK Siauliai",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:27697",
+              ""
+            ],
+            [
+              "1997-04-20",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:27695",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "FK Ekranas",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:27885",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:27886",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "Inkaras Kaunas",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:27887",
+              ""
+            ],
+            [
+              "1997-04-26",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:27884",
+              ""
+            ],
+            [
+              "1997-04-27",
+              "EXPLICIT",
+              "Banga",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:27975",
+              ""
+            ],
+            [
+              "1997-04-27",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:27974",
+              ""
+            ],
+            [
+              "1997-04-27",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:27976",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Banga",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:28092",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:28094",
+              ""
+            ],
+            [
+              "1997-05-03",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:28093",
+              ""
+            ],
+            [
+              "1997-05-04",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:28291",
+              ""
+            ],
+            [
+              "1997-05-04",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:28289",
+              ""
+            ],
+            [
+              "1997-05-04",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Ekranas",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:28290",
+              ""
+            ],
+            [
+              "1997-05-04",
+              "EXPLICIT",
+              "Žalgiris",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:28288",
+              ""
+            ],
+            [
+              "1997-05-10",
+              "EXPLICIT",
+              "FK Atlantas",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:28455",
+              ""
+            ],
+            [
+              "1997-05-10",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:28456",
+              ""
+            ],
+            [
+              "1997-05-10",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Siauliai",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:28457",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:28658",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:28657",
+              ""
+            ],
+            [
+              "1997-05-11",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:28656",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:28866",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:28868",
+              ""
+            ],
+            [
+              "1997-05-17",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:28867",
+              ""
+            ],
+            [
+              "1997-05-18",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:29033",
+              ""
+            ],
+            [
+              "1997-05-18",
+              "EXPLICIT",
+              "FK Siauliai",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:29032",
+              ""
+            ],
+            [
+              "1997-05-18",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "Žalgiris",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:29031",
+              ""
+            ],
+            [
+              "1997-05-18",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:29030",
+              ""
+            ],
+            [
+              "1997-05-21",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:29109",
+              ""
+            ],
+            [
+              "1997-05-21",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29110",
+              ""
+            ],
+            [
+              "1997-05-21",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:29108",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:29235",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "FK Siauliai",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:29236",
+              ""
+            ],
+            [
+              "1997-05-24",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "Žalgiris",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:29237",
+              ""
+            ],
+            [
+              "1997-05-25",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:29406",
+              ""
+            ],
+            [
+              "1997-05-25",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:29407",
+              ""
+            ],
+            [
+              "1997-05-25",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:29408",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:29461",
+              ""
+            ],
+            [
+              "1997-05-28",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29462",
+              ""
+            ],
+            [
+              "1997-05-30",
+              "EXPLICIT",
+              "Banga",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:29515",
+              ""
+            ],
+            [
+              "1997-05-30",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29516",
+              ""
+            ],
+            [
+              "1997-05-30",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:29517",
+              ""
+            ],
+            [
+              "1997-06-01",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:29690",
+              ""
+            ],
+            [
+              "1997-06-01",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:29691",
+              ""
+            ],
+            [
+              "1997-06-01",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "Žalgiris",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:29692",
+              ""
+            ],
+            [
+              "1997-06-01",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:29693",
+              ""
+            ],
+            [
+              "1997-06-03",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:29731",
+              ""
+            ],
+            [
+              "1997-06-03",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:29732",
+              ""
+            ],
+            [
+              "1997-06-03",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29730",
+              ""
+            ],
+            [
+              "1997-06-08",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:29779",
+              ""
+            ],
+            [
+              "1997-06-08",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:29780",
+              ""
+            ],
+            [
+              "1997-06-08",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:29781",
+              ""
+            ],
+            [
+              "1997-06-13",
+              "EXPLICIT",
+              "Banga",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:29849",
+              ""
+            ],
+            [
+              "1997-06-13",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29851",
+              ""
+            ],
+            [
+              "1997-06-13",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:29850",
+              ""
+            ],
+            [
+              "1997-06-15",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:29927",
+              ""
+            ],
+            [
+              "1997-06-15",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:29928",
+              ""
+            ],
+            [
+              "1997-06-15",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Atlantas",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:29929",
+              ""
+            ],
+            [
+              "1997-06-15",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29926",
+              ""
+            ],
+            [
+              "1997-06-18",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29991",
+              ""
+            ],
+            [
+              "1997-06-18",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:29992",
+              ""
+            ],
+            [
+              "1997-06-19",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:30006",
+              ""
+            ],
+            [
+              "1997-06-19",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:30008",
+              ""
+            ],
+            [
+              "1997-06-19",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "Fbk Kaunas",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:30007",
+              ""
+            ],
+            [
+              "1997-06-19",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:30005",
+              ""
+            ],
+            [
+              "1997-06-22",
+              "EXPLICIT",
+              "FK Atlantas",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:30073",
+              ""
+            ],
+            [
+              "1997-06-22",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "Žalgiris",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:30074",
+              ""
+            ],
+            [
+              "1997-06-22",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:30072",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "FK Atlantas",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:31455",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:31456",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:31458",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "FK Siauliai",
+              "SM Vienybe Ukmerge",
+              null,
+              null,
+              "games.parquet:batch8:31457",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "FK Lokomotyvas Vilnius",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              null,
+              "games.parquet:batch8:31460",
+              ""
+            ],
+            [
+              "1997-08-09",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "Interas Visaginas",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:31459",
+              ""
+            ],
+            [
+              "1997-08-10",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Tauras Taurage",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:31569",
+              ""
+            ],
+            [
+              "1997-08-10",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Nevzis",
+              null,
+              null,
+              "games.parquet:batch8:31568",
+              ""
+            ],
+            [
+              "1997-08-16",
+              "EXPLICIT",
+              "Banga",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:31745",
+              ""
+            ],
+            [
+              "1997-08-16",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:31747",
+              ""
+            ],
+            [
+              "1997-08-16",
+              "EXPLICIT",
+              "FK Nevzis",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:31748",
+              ""
+            ],
+            [
+              "1997-08-16",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "Gelezinis Vilkas",
+              null,
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "games.parquet:batch8:31751",
+              ""
+            ],
+            [
+              "1997-08-16",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:31749",
+              ""
+            ],
+            [
+              "1997-08-16",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "Interas Visaginas",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:31746",
+              ""
+            ],
+            [
+              "1997-08-16",
+              "EXPLICIT",
+              "SM Vienybe Ukmerge",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:31750",
+              ""
+            ],
+            [
+              "1997-08-17",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:31839",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:32068",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:32069",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "FK Mastis Telsiai",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              null,
+              "games.parquet:batch8:32071",
+              ""
+            ],
+            [
+              "1997-08-23",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "FK Siauliai",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:32070",
+              ""
+            ],
+            [
+              "1997-08-24",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:32201",
+              ""
+            ],
+            [
+              "1997-08-24",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Nevzis",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:32200",
+              ""
+            ],
+            [
+              "1997-08-24",
+              "EXPLICIT",
+              "Žalgiris",
+              "SM Vienybe Ukmerge",
+              null,
+              null,
+              "games.parquet:batch8:32199",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "FK Atlantas",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:32280",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:32281",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:32283",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:32284",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:32285",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "SM Vienybe Ukmerge",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:32286",
+              ""
+            ],
+            [
+              "1997-08-27",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "FK Nevzis",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              null,
+              "games.parquet:batch8:32282",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Banga",
+              "Gelezinis Vilkas",
+              null,
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "games.parquet:batch8:32441",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:32446",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "FK Nevzis",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:32443",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:32444",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:32442",
+              ""
+            ],
+            [
+              "1997-08-30",
+              "EXPLICIT",
+              "SM Vienybe Ukmerge",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:32445",
+              ""
+            ],
+            [
+              "1997-08-31",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:32610",
+              ""
+            ],
+            [
+              "1997-09-02",
+              "EXPLICIT",
+              "Žalgiris",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:32690",
+              ""
+            ],
+            [
+              "1997-09-03",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:32706",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "FK Ekranas",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:33121",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Nevzis",
+              null,
+              null,
+              "games.parquet:batch8:33122",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:33125",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "FK Tauras Taurage",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              null,
+              "games.parquet:batch8:33124",
+              ""
+            ],
+            [
+              "1997-09-13",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "SM Vienybe Ukmerge",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:33123",
+              ""
+            ],
+            [
+              "1997-09-14",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:33295",
+              ""
+            ],
+            [
+              "1997-09-14",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:33296",
+              ""
+            ],
+            [
+              "1997-09-14",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "Žalgiris",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:33297",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Banga",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:33601",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "FK Nevzis",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:33604",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "FK Siauliai",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:33603",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:33605",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "Fbk Kaunas",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:33607",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "Gelezinis Vilkas",
+              null,
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "games.parquet:batch8:33602",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "SM Vienybe Ukmerge",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:33606",
+              ""
+            ],
+            [
+              "1997-09-20",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:33600",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "FK Nevzis",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:34080",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Gelezinis Vilkas",
+              null,
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "games.parquet:batch8:34076",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:34077",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Ekranas",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:34073",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "FK Panerys Vilnius",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:34079",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:34075",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "SM Vienybe Ukmerge",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:34078",
+              ""
+            ],
+            [
+              "1997-09-27",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:34074",
+              ""
+            ],
+            [
+              "1997-10-04",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:34571",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "Banga",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:34735",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:34734",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "FK Ekranas",
+              "SM Vienybe Ukmerge",
+              null,
+              null,
+              "games.parquet:batch8:34736",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:34737",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:34733",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Nevzis",
+              null,
+              null,
+              "games.parquet:batch8:34738",
+              ""
+            ],
+            [
+              "1997-10-05",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "Žalgiris",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              null,
+              "games.parquet:batch8:34739",
+              ""
+            ],
+            [
+              "1997-10-11",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Atlantas",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:34865",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "FK Ekranas",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:35004",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "FK Nevzis",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:35007",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "FK Siauliai",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:35006",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:35005",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "SM Vienybe Ukmerge",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:35008",
+              ""
+            ],
+            [
+              "1997-10-15",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:35003",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "Banga",
+              "FK Nevzis",
+              null,
+              null,
+              "games.parquet:batch8:35183",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "FK Atlantas",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:35182",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:35181",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:35184",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:35186",
+              ""
+            ],
+            [
+              "1997-10-18",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:35185",
+              ""
+            ],
+            [
+              "1997-10-19",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "SM Vienybe Ukmerge",
+              null,
+              null,
+              "games.parquet:batch8:35340",
+              ""
+            ],
+            [
+              "1997-10-22",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "Gelezinis Vilkas",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "games.parquet:batch8:35441",
+              ""
+            ],
+            [
+              "1997-10-25",
+              "EXPLICIT",
+              "FK Ekranas",
+              "Gelezinis Vilkas",
+              null,
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "games.parquet:batch8:35554",
+              ""
+            ],
+            [
+              "1997-10-25",
+              "EXPLICIT",
+              "FK Nevzis",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:35556",
+              ""
+            ],
+            [
+              "1997-10-25",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:35557",
+              ""
+            ],
+            [
+              "1997-10-25",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Banga",
+              null,
+              null,
+              "games.parquet:batch8:35555",
+              ""
+            ],
+            [
+              "1997-10-25",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Lokomotyvas Vilnius",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:35559",
+              ""
+            ],
+            [
+              "1997-10-25",
+              "EXPLICIT",
+              "SM Vienybe Ukmerge",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:35558",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "FK Ranga-Politechnika Kaunas",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:35710",
+              ""
+            ],
+            [
+              "1997-10-26",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Mastis Telsiai",
+              null,
+              null,
+              "games.parquet:batch8:35709",
+              ""
+            ],
+            [
+              "1997-10-30",
+              "EXPLICIT",
+              "Banga",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:35820",
+              ""
+            ],
+            [
+              "1997-10-30",
+              "EXPLICIT",
+              "FK Atlantas",
+              "SM Vienybe Ukmerge",
+              null,
+              null,
+              "games.parquet:batch8:35819",
+              ""
+            ],
+            [
+              "1997-10-30",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:35823",
+              ""
+            ],
+            [
+              "1997-10-30",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:35825",
+              ""
+            ],
+            [
+              "1997-10-30",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:35824",
+              ""
+            ],
+            [
+              "1997-10-30",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "FK Panerys Vilnius",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              null,
+              "games.parquet:batch8:35821",
+              ""
+            ],
+            [
+              "1997-10-30",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "FK Nevzis",
+              null,
+              null,
+              "games.parquet:batch8:35822",
+              ""
+            ],
+            [
+              "1997-10-31",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:35854",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "FK Atlantas",
+              "Gelezinis Vilkas",
+              null,
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "games.parquet:batch8:36356",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "FK Ekranas",
+              "FK Ranga-Politechnika Kaunas",
+              null,
+              null,
+              "games.parquet:batch8:36357",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "FK Siauliai",
+              "Interas Visaginas",
+              null,
+              null,
+              "games.parquet:batch8:36358",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Fbk Kaunas",
+              "FK Mastis Telsiai",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              null,
+              "games.parquet:batch8:36360",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "SM Vienybe Ukmerge",
+              "FK Nevzis",
+              null,
+              null,
+              "games.parquet:batch8:36359",
+              ""
+            ],
+            [
+              "1997-11-08",
+              "EXPLICIT",
+              "Žalgiris",
+              "FK Tauras Taurage",
+              null,
+              null,
+              "games.parquet:batch8:36355",
+              ""
+            ],
+            [
+              "1997-11-09",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "FK Lokomotyvas Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:36494",
+              ""
+            ],
+            [
+              "1997-11-09",
+              "EXPLICIT",
+              "Inkaras Kaunas",
+              "Banga",
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              null,
+              "games.parquet:batch8:36495",
+              ""
+            ],
+            [
+              "1997-11-11",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "Fbk Kaunas",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:36569",
+              ""
+            ],
+            [
+              "1997-11-12",
+              "EXPLICIT",
+              "FK Nevzis",
+              "FK Siauliai",
+              null,
+              null,
+              "games.parquet:batch8:36585",
+              ""
+            ],
+            [
+              "1997-11-12",
+              "EXPLICIT",
+              "FK Panerys Vilnius",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:36586",
+              ""
+            ],
+            [
+              "1997-11-15",
+              "EXPLICIT",
+              "Banga",
+              "Fbk Kaunas",
+              null,
+              "7438c4b4-6933-58db-9604-4aa396098407",
+              "games.parquet:batch8:36692",
+              ""
+            ],
+            [
+              "1997-11-15",
+              "EXPLICIT",
+              "FK Lokomotyvas Vilnius",
+              "FK Atlantas",
+              null,
+              null,
+              "games.parquet:batch8:36693",
+              ""
+            ],
+            [
+              "1997-11-15",
+              "EXPLICIT",
+              "FK Mastis Telsiai",
+              "FK Ekranas",
+              null,
+              null,
+              "games.parquet:batch8:36694",
+              ""
+            ],
+            [
+              "1997-11-15",
+              "EXPLICIT",
+              "FK Ranga-Politechnika Kaunas",
+              "FK Panerys Vilnius",
+              null,
+              null,
+              "games.parquet:batch8:36695",
+              ""
+            ],
+            [
+              "1997-11-15",
+              "EXPLICIT",
+              "FK Tauras Taurage",
+              "Inkaras Kaunas",
+              null,
+              "e17d7612-592a-530e-b0dc-26a0f502c735",
+              "games.parquet:batch8:36696",
+              ""
+            ],
+            [
+              "1997-11-16",
+              "EXPLICIT",
+              "Gelezinis Vilkas",
+              "SM Vienybe Ukmerge",
+              "3da68972-6e0f-5539-95b7-95295a877a35",
+              null,
+              "games.parquet:batch8:36773",
+              ""
+            ],
+            [
+              "1997-11-22",
+              "EXPLICIT",
+              "Interas Visaginas",
+              "Žalgiris",
+              null,
+              null,
+              "games.parquet:batch8:36998",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "lithuania",
+                "LTU",
+                "1996",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 16,
+                "fixtures": 206,
+                "orientedPairs": 120,
+                "invalid": 0,
+                "clubDayClashes": 17,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  8
+                ]
+              },
+              "mapped": 2
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "A LYGA 2013",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "144",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "144",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2013-03-09",
+              "max_date": "2013-11-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "A LYGA 2014",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "179",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "179",
+              "duplicate_pair_occurrences": "89",
+              "min_date": "2014-03-08",
+              "max_date": "2014-11-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "A LYGA 2015",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "167",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "167",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2015-02-28",
+              "max_date": "2015-11-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "A LYGA 2020",
+              "season": "2020",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "60",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2020-03-06",
+              "max_date": "2020-11-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "A LYGA 2021",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "180",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2021-03-05",
+              "max_date": "2021-11-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "A LYGA 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "179",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "179",
+              "duplicate_pair_occurrences": "89",
+              "min_date": "2023-03-03",
+              "max_date": "2023-11-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "A LYGA 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "179",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "179",
+              "duplicate_pair_occurrences": "89",
+              "min_date": "2024-03-01",
+              "max_date": "2024-11-09"
+            },
+            {
+              "source": "github/openfootball/europe",
+              "competition": "Lithuania First Division",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "179",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2023-03-03",
+              "max_date": "2023-11-12"
+            },
+            {
+              "source": "github/openfootball/europe",
+              "competition": "Lithuania First Division",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "179",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2024-03-01",
+              "max_date": "2024-11-09"
+            },
+            {
+              "source": "github/openfootball/europe",
+              "competition": "Lithuania First Division",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-28",
+              "max_date": "2025-03-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "206",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "86",
+              "min_date": "1996-03-31",
+              "max_date": "1996-11-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "214",
+              "unique_oriented_pairs": "161",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "1997-03-23",
+              "max_date": "1997-11-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "202",
+              "unique_oriented_pairs": "168",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "1998-03-08",
+              "max_date": "1998-11-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "154",
+              "unique_oriented_pairs": "117",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "1999-04-03",
+              "max_date": "1999-11-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2000-03-25",
+              "max_date": "2000-11-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2001-03-25",
+              "max_date": "2001-11-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "324",
+              "unique_oriented_pairs": "106",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "218",
+              "min_date": "2002-04-01",
+              "max_date": "2002-11-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2003-04-04",
+              "max_date": "2003-10-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2004-04-18",
+              "max_date": "2004-11-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2005-04-12",
+              "max_date": "2005-11-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2006-04-15",
+              "max_date": "2006-11-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2007-04-07",
+              "max_date": "2007-11-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2008-03-29",
+              "max_date": "2008-11-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2009-04-04",
+              "max_date": "2009-10-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "135",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2010-03-20",
+              "max_date": "2010-11-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2011-03-12",
+              "max_date": "2011-11-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2012-03-10",
+              "max_date": "2012-11-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "144",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2013-03-09",
+              "max_date": "2013-11-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2014-03-08",
+              "max_date": "2014-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2015-02-28",
+              "max_date": "2015-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "127",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2016-03-02",
+              "max_date": "2016-11-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "127",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2017-03-03",
+              "max_date": "2017-11-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "127",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2018-02-24",
+              "max_date": "2018-11-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "127",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2019-03-02",
+              "max_date": "2019-11-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "6",
+              "rows": "60",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2020-03-06",
+              "max_date": "2020-11-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2021-03-05",
+              "max_date": "2021-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2022-03-04",
+              "max_date": "2022-11-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2023-03-03",
+              "max_date": "2023-11-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "179",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "89",
+              "min_date": "2024-03-01",
+              "max_date": "2024-11-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "lithuania",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "146",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2025-02-28",
+              "max_date": "2025-09-21"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
+          "status": "I",
+          "fields": {
+            "name": "I",
+            "identity": "I",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "?",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

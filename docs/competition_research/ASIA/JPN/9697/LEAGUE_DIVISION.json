@@ -1254,6 +1254,4585 @@
       ],
       "scope": "All pre-cutoff match records across blocks59+92; points computed from actual results; equal-point ranking and native keys not independently reconciled.",
       "nextRoundDate": "1996-08-28"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "7c87108cba31ec13486f0b141ad51f3c1ce48c7eda66b78fcb6fd7db4028f534": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "J-League",
+            "country": "JPN",
+            "season": "1997",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 232,
+            "fixtures": 215,
+            "orientedPairs": 215,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 215,
+            "expectedRegularTeams": [
+              16
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Avispa Fukuoka": {
+              "uuid": "d45706f9-449d-5522-be90-50570a22b860",
+              "file": 55,
+              "ordinal": 18,
+              "league": 1,
+              "name": "AVISPA FUKUOKA",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Cerezo Osaka": {
+              "uuid": "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              "file": 55,
+              "ordinal": 2,
+              "league": 0,
+              "name": "CEREZO OSAKA",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Gamba Osaka": {
+              "uuid": "81abde7d-2196-50b0-8a38-79941161b55b",
+              "file": 55,
+              "ordinal": 6,
+              "league": 0,
+              "name": "GAMBA OSAKA",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Jubilo Iwata": {
+              "uuid": "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              "file": 55,
+              "ordinal": 9,
+              "league": 0,
+              "name": "JUBILO IWATA",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Kashima Antlers": {
+              "uuid": "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              "file": 55,
+              "ordinal": 12,
+              "league": 0,
+              "name": "KASHIMA ANTLERS",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Kashiwa Reysol": {
+              "uuid": "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              "file": 55,
+              "ordinal": 13,
+              "league": 0,
+              "name": "KASHIWA REYSOL",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Shimizu S-Pulse": {
+              "uuid": "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              "file": 55,
+              "ordinal": 19,
+              "league": 0,
+              "name": "SHIMIZU S-PULSE",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Verdy Kawasaki": {
+              "uuid": "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              "file": 55,
+              "ordinal": 25,
+              "league": 0,
+              "name": "VERDY KAWASAKI",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Yokohama Flugels": {
+              "uuid": "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              "file": 55,
+              "ordinal": 27,
+              "league": 0,
+              "name": "YOKOHAMA FLUGELS",
+              "path": "data_json\\teams\\JAPAN.json"
+            },
+            "Yokohama Marinos": {
+              "uuid": "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              "file": 55,
+              "ordinal": 26,
+              "league": 0,
+              "name": "YOKOHAMA MARINOS",
+              "path": "data_json\\teams\\JAPAN.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Avispa Fukuoka                      3,085",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      4,061",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      4,110",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      5,187",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      6,177",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      6,210",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      6,359",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      6,752",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      7,117",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      7,181",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                      8,019",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                     11,625",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                     15,937",
+              "candidateCount": 0
+            },
+            {
+              "label": "Avispa Fukuoka                     18,223",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  4,130",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  5,178",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  6,205",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  6,318",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  6,577",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  7,043",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  7,415",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  7,540",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                  9,117",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                 10,346",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                 12,754",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bellmare Hiratsuka                 16,093",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                        4,573",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                        6,784",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                        7,339",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                        7,439",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                        8,012",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                        8,681",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                       15,404",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                       17,480",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cerezo Osaka                       18,902",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         4,174",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         5,576",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         6,503",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         7,174",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         7,452",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         8,222",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         8,263",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                         9,090",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                        10,195",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                        11,031",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                        12,067",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                        16,233",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                        17,362",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                        27,734",
+              "candidateCount": 0
+            },
+            {
+              "label": "Gamba Osaka                        37,565",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 4,492",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 4,875",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 5,034",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 5,065",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 6,505",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 6,584",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 6,844",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                 9,218",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                12,169",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                13,669",
+              "candidateCount": 0
+            },
+            {
+              "label": "JEF United Ichihara                18,127",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        3,670",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        4,712",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        5,613",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        5,716",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        7,287",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        7,659",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        7,864",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        8,030",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                        8,577",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                       11,230",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                       13,451",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                       16,678",
+              "candidateCount": 0
+            },
+            {
+              "label": "Jubilo Iwata                       17,756",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                     6,991",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                     7,499",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                     8,148",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                     8,978",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    11,418",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    12,067",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    13,498",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    13,754",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    14,225",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    16,354",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    16,484",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    18,741",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashima Antlers                    21,027",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                      3,855",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                      4,113",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                      4,156",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                      5,113",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                      6,019",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                      7,427",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                     10,081",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                     10,118",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                     11,265",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                     19,473",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                     23,903",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kashiwa Reysol                     31,083",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  3,057",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  3,429",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  4,541",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  4,716",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  6,266",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  6,341",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  6,983",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  7,693",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  8,509",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  8,848",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                  9,327",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                 10,034",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                 15,805",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kyoto Purple Sanga                 16,732",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                4,176",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                6,160",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                6,816",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                7,158",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                7,312",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                8,020",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                8,077",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                8,090",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight                8,243",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight               10,459",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight               10,910",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight               11,217",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight               13,169",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight               16,988",
+              "candidateCount": 0
+            },
+            {
+              "label": "Nagoya Grampus Eight               17,305",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 4,553",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 4,601",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 5,271",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 5,340",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 5,887",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 6,598",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 7,126",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 7,421",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 8,360",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 8,573",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                 9,545",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sanfrecce Hiroshima                13,425",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                     4,761",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                     6,284",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                     6,524",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                    10,281",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                    13,026",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                    15,475",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                    17,117",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                    17,890",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                    19,167",
+              "candidateCount": 0
+            },
+            {
+              "label": "Shimizu S-Pulse                    25,027",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                  5,317",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                  6,342",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                  7,118",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                  7,841",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                  7,892",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                  8,542",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 10,846",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 11,056",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 11,654",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 13,269",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 16,071",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 16,752",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 18,281",
+              "candidateCount": 0
+            },
+            {
+              "label": "Urawa Red Diamonds                 20,161",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                      6,209",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                      7,503",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     10,471",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     10,504",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     10,959",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     13,043",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     13,253",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     16,109",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     16,428",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     17,222",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     18,871",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     18,927",
+              "candidateCount": 0
+            },
+            {
+              "label": "Verdy Kawasaki                     20,119",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         5,087",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         5,318",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         5,396",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         5,554",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         5,558",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         5,897",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         6,755",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         6,757",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         7,175",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                         9,045",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                        12,366",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                        12,854",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                        16,255",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vissel Kobe                        18,412",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    3,917",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    4,522",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    5,572",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    7,119",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    7,274",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    8,014",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    8,056",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    8,840",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                    9,006",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                   10,067",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                   12,307",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                   13,330",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Flugels                   15,336",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                    7,048",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                    8,273",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                    8,968",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                    9,168",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                   10,032",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                   11,078",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                   12,834",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                   13,874",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                   16,379",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                   17,346",
+              "candidateCount": 0
+            },
+            {
+              "label": "Yokohama Marinos                   20,098",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Bellmare Hiratsuka                  6,205",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:42",
+              "Round 1 "
+            ],
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Sanfrecce Hiroshima                 9,545",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:45",
+              "Round 1 "
+            ],
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Vissel Kobe                        16,255",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:32",
+              "Round 1 "
+            ],
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Shimizu S-Pulse                    25,027",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:35",
+              "Round 1 "
+            ],
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Cerezo Osaka                       17,480",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:39",
+              "Round 1 "
+            ],
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Yokohama Marinos                   20,098",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:47",
+              "Round 1 "
+            ],
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "JEF United Ichihara                12,169",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:50",
+              "Round 1 "
+            ],
+            [
+              "1997-04-12",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Avispa Fukuoka                      8,019",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:37",
+              "Round 1 "
+            ],
+            [
+              "1997-04-16",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Verdy Kawasaki                      7,503",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:63",
+              "Round 2 "
+            ],
+            [
+              "1997-04-16",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Yokohama Flugels                    8,056",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:65",
+              "Round 2 "
+            ],
+            [
+              "1997-04-16",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Kyoto Purple Sanga                  3,057",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:58",
+              "Round 2 "
+            ],
+            [
+              "1997-04-16",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Kashiwa Reysol                      4,156",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:67",
+              "Round 2 "
+            ],
+            [
+              "1997-04-16",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Urawa Red Diamonds                  7,118",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:61",
+              "Round 2 "
+            ],
+            [
+              "1997-04-16",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Gamba Osaka                         6,503",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:55",
+              "Round 2 "
+            ],
+            [
+              "1997-04-23",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Urawa Red Diamonds                  5,317",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:98",
+              "Round 4 "
+            ],
+            [
+              "1997-04-23",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "JEF United Ichihara                 4,875",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:112",
+              "Round 4 "
+            ],
+            [
+              "1997-04-23",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Yokohama Flugels                   15,336",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:100",
+              "Round 4 "
+            ],
+            [
+              "1997-04-23",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Gamba Osaka                         5,576",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:104",
+              "Round 4 "
+            ],
+            [
+              "1997-04-23",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Jubilo Iwata                        3,670",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:110",
+              "Round 4 "
+            ],
+            [
+              "1997-04-23",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Kyoto Purple Sanga                  4,541",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:106",
+              "Round 4 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Avispa Fukuoka                      5,187",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:127",
+              "Round 5 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Yokohama Marinos                    7,048",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:121",
+              "Round 5 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Kashima Antlers                    13,754",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:117",
+              "Round 5 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Vissel Kobe                         5,554",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:119",
+              "Round 5 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Shimizu S-Pulse                     6,284",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:129",
+              "Round 5 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Cerezo Osaka                       18,902",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:123",
+              "Round 5 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Sanfrecce Hiroshima                 8,573",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:125",
+              "Round 5 "
+            ],
+            [
+              "1997-04-26",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Nagoya Grampus Eight               10,910",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:131",
+              "Round 5 "
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Gamba Osaka                        27,734",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:138",
+              "Round 6 "
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Kashiwa Reysol                     31,083",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:136",
+              "Round 6 "
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Jubilo Iwata                       13,451",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:140",
+              "Round 6 "
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Kyoto Purple Sanga                  8,848",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:146",
+              "Round 6 "
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "JEF United Ichihara                 9,218",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:144",
+              "Round 6 "
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Urawa Red Diamonds                  8,542",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:142",
+              "Round 6 "
+            ],
+            [
+              "1997-05-03",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Bellmare Hiratsuka                 12,754",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:150",
+              "Round 6 "
+            ],
+            [
+              "1997-05-07",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Shimizu S-Pulse                    19,167",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:166",
+              "Round 7 "
+            ],
+            [
+              "1997-05-07",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Vissel Kobe                         5,318",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:172",
+              "Round 7 "
+            ],
+            [
+              "1997-05-07",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Yokohama Flugels                    7,274",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:168",
+              "Round 7 "
+            ],
+            [
+              "1997-05-07",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Nagoya Grampus Eight                6,816",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:159",
+              "Round 7 "
+            ],
+            [
+              "1997-05-07",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Avispa Fukuoka                      4,061",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:170",
+              "Round 7 "
+            ],
+            [
+              "1997-05-07",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Kashima Antlers                    18,741",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:161",
+              "Round 7 "
+            ],
+            [
+              "1997-05-07",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Cerezo Osaka                        6,784",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:164",
+              "Round 7 "
+            ],
+            [
+              "1997-05-10",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "JEF United Ichihara                 6,584",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:186",
+              "Round 8 "
+            ],
+            [
+              "1997-05-10",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Kyoto Purple Sanga                  6,983",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:188",
+              "Round 8 "
+            ],
+            [
+              "1997-05-10",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Gamba Osaka                        16,233",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:180",
+              "Round 8 "
+            ],
+            [
+              "1997-05-10",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Urawa Red Diamonds                 18,281",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:178",
+              "Round 8 "
+            ],
+            [
+              "1997-05-10",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Verdy Kawasaki                     13,253",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:192",
+              "Round 8 "
+            ],
+            [
+              "1997-05-10",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Kashiwa Reysol                     23,903",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:190",
+              "Round 8 "
+            ],
+            [
+              "1997-05-17",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Avispa Fukuoka                      7,117",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:199",
+              "Round 9"
+            ],
+            [
+              "1997-05-17",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Nagoya Grampus Eight                8,090",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:209",
+              "Round 9"
+            ],
+            [
+              "1997-05-17",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Cerezo Osaka                        4,573",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:207",
+              "Round 9"
+            ],
+            [
+              "1997-05-17",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Jubilo Iwata                        8,030",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:201",
+              "Round 9"
+            ],
+            [
+              "1997-05-17",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Vissel Kobe                         6,757",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:213",
+              "Round 9"
+            ],
+            [
+              "1997-05-17",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Sanfrecce Hiroshima                 7,126",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:203",
+              "Round 9"
+            ],
+            [
+              "1997-05-24",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Yokohama Marinos                   11,078",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:231",
+              "Round 10 "
+            ],
+            [
+              "1997-05-24",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Bellmare Hiratsuka                  4,130",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:224",
+              "Round 10 "
+            ],
+            [
+              "1997-05-24",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Urawa Red Diamonds                 11,654",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:229",
+              "Round 10 "
+            ],
+            [
+              "1997-05-24",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Kyoto Purple Sanga                 15,805",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:238",
+              "Round 10 "
+            ],
+            [
+              "1997-05-24",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Verdy Kawasaki                     18,871",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:222",
+              "Round 10 "
+            ],
+            [
+              "1997-05-24",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Shimizu S-Pulse                     6,524",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:234",
+              "Round 10 "
+            ],
+            [
+              "1997-05-24",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Gamba Osaka                         8,222",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:236",
+              "Round 10 "
+            ],
+            [
+              "1997-05-28",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Vissel Kobe                         7,175",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:255",
+              "Round 11 "
+            ],
+            [
+              "1997-05-28",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Jubilo Iwata                        5,716",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:257",
+              "Round 11 "
+            ],
+            [
+              "1997-05-28",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Kashima Antlers                    16,484",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:251",
+              "Round 11 "
+            ],
+            [
+              "1997-05-28",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Nagoya Grampus Eight                7,158",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:259",
+              "Round 11 "
+            ],
+            [
+              "1997-05-28",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Avispa Fukuoka                      6,177",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:253",
+              "Round 11 "
+            ],
+            [
+              "1997-05-28",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Yokohama Flugels                    9,006",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:246",
+              "Round 11 "
+            ],
+            [
+              "1997-05-31",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Sanfrecce Hiroshima                 7,421",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:278",
+              "Round 12 "
+            ],
+            [
+              "1997-05-31",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Bellmare Hiratsuka                 16,093",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:264",
+              "Round 12 "
+            ],
+            [
+              "1997-05-31",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Gamba Osaka                        11,031",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:273",
+              "Round 12 "
+            ],
+            [
+              "1997-05-31",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "JEF United Ichihara                13,669",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:266",
+              "Round 12 "
+            ],
+            [
+              "1997-05-31",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Yokohama Marinos                    9,168",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:280",
+              "Round 12 "
+            ],
+            [
+              "1997-05-31",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Kyoto Purple Sanga                  6,341",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:269",
+              "Round 12 "
+            ],
+            [
+              "1997-07-02",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Nagoya Grampus Eight                8,020",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:286",
+              "Round 13"
+            ],
+            [
+              "1997-07-05",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Urawa Red Diamonds                 16,071",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:297",
+              "Round 13"
+            ],
+            [
+              "1997-07-05",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Yokohama Flugels                    7,119",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:289",
+              "Round 13"
+            ],
+            [
+              "1997-07-05",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Jubilo Iwata                        7,659",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:304",
+              "Round 13"
+            ],
+            [
+              "1997-07-05",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Vissel Kobe                         9,045",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:301",
+              "Round 13"
+            ],
+            [
+              "1997-07-05",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Kashiwa Reysol                     10,081",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:295",
+              "Round 13"
+            ],
+            [
+              "1997-07-05",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Kashima Antlers                    14,225",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:299",
+              "Round 13"
+            ],
+            [
+              "1997-07-09",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Avispa Fukuoka                      4,110",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:322",
+              "Round 14 "
+            ],
+            [
+              "1997-07-09",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "JEF United Ichihara                 5,065",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:317",
+              "Round 14 "
+            ],
+            [
+              "1997-07-09",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Shimizu S-Pulse                    15,475",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:320",
+              "Round 14 "
+            ],
+            [
+              "1997-07-09",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Yokohama Marinos                   17,346",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:310",
+              "Round 14 "
+            ],
+            [
+              "1997-07-09",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Verdy Kawasaki                     18,927",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:324",
+              "Round 14 "
+            ],
+            [
+              "1997-07-09",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Bellmare Hiratsuka                  7,043",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:326",
+              "Round 14 "
+            ],
+            [
+              "1997-07-12",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Vissel Kobe                         6,755",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:345",
+              "Round 15 "
+            ],
+            [
+              "1997-07-12",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Kashiwa Reysol                      3,855",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:336",
+              "Round 15 "
+            ],
+            [
+              "1997-07-12",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Kashima Antlers                     6,991",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:333",
+              "Round 15 "
+            ],
+            [
+              "1997-07-12",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Nagoya Grampus Eight                8,243",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:342",
+              "Round 15 "
+            ],
+            [
+              "1997-07-12",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Gamba Osaka                         9,090",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:338",
+              "Round 15 "
+            ],
+            [
+              "1997-07-12",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Yokohama Flugels                   12,307",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:340",
+              "Round 15 "
+            ],
+            [
+              "1997-07-16",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Kyoto Purple Sanga                  4,716",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:366",
+              "Round 16 "
+            ],
+            [
+              "1997-07-16",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Avispa Fukuoka                     15,937",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:352",
+              "Round 16 "
+            ],
+            [
+              "1997-07-16",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Bellmare Hiratsuka                  6,577",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:362",
+              "Round 16 "
+            ],
+            [
+              "1997-07-16",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Sanfrecce Hiroshima                13,425",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:354",
+              "Round 16 "
+            ],
+            [
+              "1997-07-16",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "JEF United Ichihara                18,127",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:364",
+              "Round 16 "
+            ],
+            [
+              "1997-07-16",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Cerezo Osaka                        7,439",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:368",
+              "Round 16 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Nagoya Grampus Eight               11,217",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:387",
+              "Round 17 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Urawa Red Diamonds                 11,056",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:375",
+              "Round 17 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Kashima Antlers                    21,027",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:381",
+              "Round 17 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Gamba Osaka                         4,174",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:378",
+              "Round 17 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Verdy Kawasaki                     16,109",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:389",
+              "Round 17 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Yokohama Flugels                    8,840",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:373",
+              "Round 17 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Jubilo Iwata                       17,756",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:385",
+              "Round 17 "
+            ],
+            [
+              "1997-07-19",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Kashiwa Reysol                     11,265",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:383",
+              "Round 17 "
+            ],
+            [
+              "1997-07-30",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Kashima Antlers                    16,354",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:474",
+              "Round 1 "
+            ],
+            [
+              "1997-07-30",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Kashiwa Reysol                      5,113",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:459",
+              "Round 1 "
+            ],
+            [
+              "1997-07-30",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Vissel Kobe                         5,897",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:469",
+              "Round 1 "
+            ],
+            [
+              "1997-07-30",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Gamba Osaka                         8,263",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:466",
+              "Round 1 "
+            ],
+            [
+              "1997-07-30",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Nagoya Grampus Eight                4,176",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:472",
+              "Round 1 "
+            ],
+            [
+              "1997-07-30",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Yokohama Flugels                    8,014",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:463",
+              "Round 1 "
+            ],
+            [
+              "1997-07-30",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Jubilo Iwata                        7,864",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:456",
+              "Round 1 "
+            ],
+            [
+              "1997-08-02",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Gamba Osaka                         7,174",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:483",
+              "Round 2 "
+            ],
+            [
+              "1997-08-02",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Nagoya Grampus Eight                6,160",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:497",
+              "Round 2 "
+            ],
+            [
+              "1997-08-02",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Verdy Kawasaki                      6,209",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:480",
+              "Round 2 "
+            ],
+            [
+              "1997-08-02",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Jubilo Iwata                        5,613",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:490",
+              "Round 2 "
+            ],
+            [
+              "1997-08-02",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Kashima Antlers                     8,978",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:487",
+              "Round 2 "
+            ],
+            [
+              "1997-08-02",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Urawa Red Diamonds                 13,269",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:492",
+              "Round 2 "
+            ],
+            [
+              "1997-08-06",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Yokohama Marinos                   12,834",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:514",
+              "Round 3 "
+            ],
+            [
+              "1997-08-06",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Avispa Fukuoka                      7,181",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:510",
+              "Round 3 "
+            ],
+            [
+              "1997-08-06",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Sanfrecce Hiroshima                 5,887",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:517",
+              "Round 3 "
+            ],
+            [
+              "1997-08-06",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Vissel Kobe                        12,854",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:512",
+              "Round 3 "
+            ],
+            [
+              "1997-08-06",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Shimizu S-Pulse                    17,890",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:505",
+              "Round 3 "
+            ],
+            [
+              "1997-08-06",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Bellmare Hiratsuka                  7,415",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:508",
+              "Round 3 "
+            ],
+            [
+              "1997-08-09",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Kyoto Purple Sanga                  7,693",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:527",
+              "Round 4 "
+            ],
+            [
+              "1997-08-09",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Jubilo Iwata                        7,287",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:542",
+              "Round 4 "
+            ],
+            [
+              "1997-08-09",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Nagoya Grampus Eight               16,988",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:534",
+              "Round 4 "
+            ],
+            [
+              "1997-08-09",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Urawa Red Diamonds                  6,342",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:532",
+              "Round 4 "
+            ],
+            [
+              "1997-08-09",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Gamba Osaka                        12,067",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:540",
+              "Round 4 "
+            ],
+            [
+              "1997-08-09",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Yokohama Flugels                    3,917",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:529",
+              "Round 4 "
+            ],
+            [
+              "1997-08-09",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Verdy Kawasaki                     17,222",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:537",
+              "Round 4 "
+            ],
+            [
+              "1997-08-15",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Yokohama Marinos                   13,874",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:551",
+              "Round 5"
+            ],
+            [
+              "1997-08-16",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Sanfrecce Hiroshima                 6,598",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:568",
+              "Round 5"
+            ],
+            [
+              "1997-08-16",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Vissel Kobe                        12,366",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:566",
+              "Round 5"
+            ],
+            [
+              "1997-08-16",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Cerezo Osaka                        8,012",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:558",
+              "Round 5"
+            ],
+            [
+              "1997-08-16",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Avispa Fukuoka                     18,223",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:556",
+              "Round 5"
+            ],
+            [
+              "1997-08-16",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Kashima Antlers                    13,498",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:562",
+              "Round 5"
+            ],
+            [
+              "1997-08-20",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Gamba Osaka                         7,452",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:590",
+              "Round 6 "
+            ],
+            [
+              "1997-08-20",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Urawa Red Diamonds                  7,841",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:581",
+              "Round 6 "
+            ],
+            [
+              "1997-08-20",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Jubilo Iwata                       16,678",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:573",
+              "Round 6 "
+            ],
+            [
+              "1997-08-20",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Yokohama Flugels                   13,330",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:579",
+              "Round 6 "
+            ],
+            [
+              "1997-08-20",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Verdy Kawasaki                     10,504",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:587",
+              "Round 6 "
+            ],
+            [
+              "1997-08-20",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Kyoto Purple Sanga                  9,327",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:577",
+              "Round 6 "
+            ],
+            [
+              "1997-08-20",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Kashiwa Reysol                      4,113",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:584",
+              "Round 6 "
+            ],
+            [
+              "1997-08-23",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Yokohama Marinos                   10,032",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:595",
+              "Round 7 "
+            ],
+            [
+              "1997-08-23",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Shimizu S-Pulse                     4,761",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:597",
+              "Round 7 "
+            ],
+            [
+              "1997-08-23",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Nagoya Grampus Eight               13,169",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:608",
+              "Round 7 "
+            ],
+            [
+              "1997-08-23",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Kashima Antlers                    12,067",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:604",
+              "Round 7 "
+            ],
+            [
+              "1997-08-23",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Sanfrecce Hiroshima                 5,340",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:611",
+              "Round 7 "
+            ],
+            [
+              "1997-08-23",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Vissel Kobe                        18,412",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:613",
+              "Round 7 "
+            ],
+            [
+              "1997-08-23",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Avispa Fukuoka                      6,359",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:602",
+              "Round 7 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Kyoto Purple Sanga                  8,509",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:635",
+              "Round 8 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Verdy Kawasaki                     13,043",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:629",
+              "Round 8 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Urawa Red Diamonds                 16,752",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:620",
+              "Round 8 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Kashiwa Reysol                     19,473",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:627",
+              "Round 8 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "JEF United Ichihara                 6,505",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:633",
+              "Round 8 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Bellmare Hiratsuka                 10,346",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:618",
+              "Round 8 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Gamba Osaka                        10,195",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:622",
+              "Round 8 "
+            ],
+            [
+              "1997-08-30",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Jubilo Iwata                        8,577",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:625",
+              "Round 8 "
+            ],
+            [
+              "1997-09-03",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Sanfrecce Hiroshima                 5,271",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:650",
+              "Round 9 "
+            ],
+            [
+              "1997-09-03",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Avispa Fukuoka                      3,085",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:641",
+              "Round 9 "
+            ],
+            [
+              "1997-09-03",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Yokohama Flugels                    5,572",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:656",
+              "Round 9 "
+            ],
+            [
+              "1997-09-03",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Nagoya Grampus Eight               17,305",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:644",
+              "Round 9 "
+            ],
+            [
+              "1997-09-03",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Vissel Kobe                         5,087",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:646",
+              "Round 9 "
+            ],
+            [
+              "1997-09-06",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Bellmare Hiratsuka                  6,318",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:675",
+              "Round 10 "
+            ],
+            [
+              "1997-09-06",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "JEF United Ichihara                 4,492",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:677",
+              "Round 10 "
+            ],
+            [
+              "1997-09-06",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Kashiwa Reysol                     10,118",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:665",
+              "Round 10 "
+            ],
+            [
+              "1997-09-06",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Verdy Kawasaki                     16,428",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:663",
+              "Round 10 "
+            ],
+            [
+              "1997-09-06",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Gamba Osaka                        17,362",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:661",
+              "Round 10 "
+            ],
+            [
+              "1997-09-06",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Kyoto Purple Sanga                  3,429",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:672",
+              "Round 10 "
+            ],
+            [
+              "1997-09-06",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Urawa Red Diamonds                 10,846",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:670",
+              "Round 10 "
+            ],
+            [
+              "1997-09-10",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Verdy Kawasaki                     10,471",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:694",
+              "Round 11 "
+            ],
+            [
+              "1997-09-10",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Bellmare Hiratsuka                  7,540",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:689",
+              "Round 11 "
+            ],
+            [
+              "1997-09-10",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "JEF United Ichihara                 5,034",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:684",
+              "Round 11 "
+            ],
+            [
+              "1997-09-10",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Shimizu S-Pulse                    13,026",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:692",
+              "Round 11 "
+            ],
+            [
+              "1997-09-10",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Kyoto Purple Sanga                 16,732",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:686",
+              "Round 11 "
+            ],
+            [
+              "1997-09-10",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Yokohama Marinos                    8,273",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:699",
+              "Round 11 "
+            ],
+            [
+              "1997-09-13",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Yokohama Flugels                   10,067",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:713",
+              "Round 12 "
+            ],
+            [
+              "1997-09-13",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Kashima Antlers                     8,148",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:723",
+              "Round 12 "
+            ],
+            [
+              "1997-09-13",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Sanfrecce Hiroshima                 8,360",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:711",
+              "Round 12 "
+            ],
+            [
+              "1997-09-13",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Nagoya Grampus Eight                8,077",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:705",
+              "Round 12 "
+            ],
+            [
+              "1997-09-13",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Avispa Fukuoka                      6,752",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:720",
+              "Round 12 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "Bellmare Hiratsuka",
+              "Kashima Antlers                     7,499",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:729",
+              "Round 13 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "Kashiwa Reysol                      7,427",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:736",
+              "Round 13 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Nagoya Grampus Eight               10,459",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:738",
+              "Round 13 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Yokohama Flugels                    4,522",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:734",
+              "Round 13 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Avispa Fukuoka                      6,210",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:742",
+              "Round 13 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Cerezo Osaka                        7,339",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:740",
+              "Round 13 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Jubilo Iwata                       11,230",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:744",
+              "Round 13 "
+            ],
+            [
+              "1997-09-20",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Vissel Kobe                         5,558",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:732",
+              "Round 13 "
+            ],
+            [
+              "1997-09-24",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Urawa Red Diamonds                  7,892",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:752",
+              "Round 14 "
+            ],
+            [
+              "1997-09-24",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Kyoto Purple Sanga                  6,266",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:758",
+              "Round 14 "
+            ],
+            [
+              "1997-09-24",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Bellmare Hiratsuka                  5,178",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:763",
+              "Round 14 "
+            ],
+            [
+              "1997-09-24",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Verdy Kawasaki                     20,119",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:754",
+              "Round 14 "
+            ],
+            [
+              "1997-09-27",
+              "INFERRED_FROM_EDITION",
+              "Cerezo Osaka",
+              "Sanfrecce Hiroshima                 4,553",
+              "91aa2ea5-f373-5892-888e-7129a0d4ecbd",
+              null,
+              "corpus/tablesj/jap97.txt:781",
+              "Round 15 "
+            ],
+            [
+              "1997-09-27",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Kyoto Purple Sanga                 10,034",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:774",
+              "Round 15 "
+            ],
+            [
+              "1997-09-27",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Yokohama Marinos                   16,379",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:770",
+              "Round 15 "
+            ],
+            [
+              "1997-09-27",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Verdy Kawasaki                     10,959",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:772",
+              "Round 15 "
+            ],
+            [
+              "1997-09-27",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Bellmare Hiratsuka                  9,117",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:776",
+              "Round 15 "
+            ],
+            [
+              "1997-09-27",
+              "INFERRED_FROM_EDITION",
+              "Urawa Red Diamonds",
+              "Gamba Osaka                        37,565",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:784",
+              "Round 15 "
+            ],
+            [
+              "1997-09-27",
+              "INFERRED_FROM_EDITION",
+              "Vissel Kobe",
+              "Shimizu S-Pulse                    10,281",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:778",
+              "Round 15 "
+            ],
+            [
+              "1997-10-01",
+              "INFERRED_FROM_EDITION",
+              "Avispa Fukuoka",
+              "Cerezo Osaka                        8,681",
+              "d45706f9-449d-5522-be90-50570a22b860",
+              null,
+              "corpus/tablesj/jap97.txt:806",
+              "Round 16 "
+            ],
+            [
+              "1997-10-01",
+              "INFERRED_FROM_EDITION",
+              "JEF United Ichihara",
+              "Jubilo Iwata                        4,712",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:800",
+              "Round 16 "
+            ],
+            [
+              "1997-10-01",
+              "INFERRED_FROM_EDITION",
+              "Kyoto Purple Sanga",
+              "Kashiwa Reysol                      6,019",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:798",
+              "Round 16 "
+            ],
+            [
+              "1997-10-01",
+              "INFERRED_FROM_EDITION",
+              "Sanfrecce Hiroshima",
+              "Vissel Kobe                         5,396",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:794",
+              "Round 16 "
+            ],
+            [
+              "1997-10-01",
+              "INFERRED_FROM_EDITION",
+              "Shimizu S-Pulse",
+              "Kashima Antlers                    11,418",
+              "466294d1-ad13-551f-ae26-9a788f45ecf6",
+              null,
+              "corpus/tablesj/jap97.txt:796",
+              "Round 16 "
+            ],
+            [
+              "1997-10-01",
+              "INFERRED_FROM_EDITION",
+              "Verdy Kawasaki",
+              "Urawa Red Diamonds                 20,161",
+              "17b6f4bd-e04a-5389-bdda-09279d16d973",
+              null,
+              "corpus/tablesj/jap97.txt:803",
+              "Round 16 "
+            ],
+            [
+              "1997-10-01",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Marinos",
+              "Nagoya Grampus Eight                7,312",
+              "b3d0ea18-08b7-5fd6-8f81-3a2bf63f6149",
+              null,
+              "corpus/tablesj/jap97.txt:792",
+              "Round 16 "
+            ],
+            [
+              "1997-10-04",
+              "INFERRED_FROM_EDITION",
+              "Gamba Osaka",
+              "JEF United Ichihara                 6,844",
+              "81abde7d-2196-50b0-8a38-79941161b55b",
+              null,
+              "corpus/tablesj/jap97.txt:826",
+              "Round 17 "
+            ],
+            [
+              "1997-10-04",
+              "INFERRED_FROM_EDITION",
+              "Jubilo Iwata",
+              "Shimizu S-Pulse                    17,117",
+              "cb664d1a-6657-5cd2-80ad-0a68fcdb0abc",
+              null,
+              "corpus/tablesj/jap97.txt:822",
+              "Round 17 "
+            ],
+            [
+              "1997-10-04",
+              "INFERRED_FROM_EDITION",
+              "Kashima Antlers",
+              "Cerezo Osaka                       15,404",
+              "aa148a0d-ef15-55f5-92f8-113a6c2623a0",
+              null,
+              "corpus/tablesj/jap97.txt:811",
+              "Round 17 "
+            ],
+            [
+              "1997-10-04",
+              "INFERRED_FROM_EDITION",
+              "Kashiwa Reysol",
+              "Yokohama Marinos                    8,968",
+              "a5f1f0bb-e6f6-5cef-bf81-9718de7b9aac",
+              null,
+              "corpus/tablesj/jap97.txt:813",
+              "Round 17 "
+            ],
+            [
+              "1997-10-04",
+              "INFERRED_FROM_EDITION",
+              "Nagoya Grampus Eight",
+              "Avispa Fukuoka                     11,625",
+              null,
+              null,
+              "corpus/tablesj/jap97.txt:824",
+              "Round 17 "
+            ],
+            [
+              "1997-10-04",
+              "INFERRED_FROM_EDITION",
+              "Yokohama Flugels",
+              "Sanfrecce Hiroshima                 4,601",
+              "61cd425e-1f9a-54a5-824e-770c1b6bca4f",
+              null,
+              "corpus/tablesj/jap97.txt:820",
+              "Round 17 "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "japan",
+                "JPN",
+                "1997",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 16,
+                "fixtures": 272,
+                "orientedPairs": 240,
+                "invalid": 0,
+                "clubDayClashes": 26,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  16
+                ]
+              },
+              "mapped": 8
+            },
+            {
+              "sourceGroup": [
+                "parquet/games.parquet",
+                "japan",
+                "JPN",
+                "1996",
+                "CALENDAR_YEAR_BUCKET"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 15,
+                "fixtures": 238,
+                "orientedPairs": 210,
+                "invalid": 0,
+                "clubDayClashes": 28,
+                "inferredDates": 0,
+                "expectedRegularTeams": [
+                  16
+                ]
+              },
+              "mapped": 8
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J-League",
+              "season": "1997",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "232",
+              "rows": "215",
+              "unique_oriented_pairs": "215",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "215",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-04-12",
+              "max_date": "1997-10-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J-League",
+              "season": "1998",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "266",
+              "rows": "248",
+              "unique_oriented_pairs": "248",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "248",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-03-25",
+              "max_date": "1998-11-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J-League 1996",
+              "season": "1996",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "240",
+              "rows": "120",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "120",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-03-16",
+              "max_date": "1996-05-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J-League Division 1",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "215",
+              "rows": "199",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "199",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-03-06",
+              "max_date": "1999-11-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Division 1",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "324",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-03-06",
+              "max_date": "2010-12-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Division 1",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "324",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-03-05",
+              "max_date": "2011-12-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Division 1",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "324",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-03-10",
+              "max_date": "2012-12-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Division 1",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "324",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-03-02",
+              "max_date": "2013-12-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J.League Division 1",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "324",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-03-01",
+              "max_date": "2014-12-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "324",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-02-25",
+              "max_date": "2017-12-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "323",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-02-23",
+              "max_date": "2018-12-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "323",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-22",
+              "max_date": "2019-12-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2020",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "306",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-02-21",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "396",
+              "rows": "379",
+              "unique_oriented_pairs": "379",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "379",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-26",
+              "max_date": "2021-12-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "325",
+              "rows": "307",
+              "unique_oriented_pairs": "307",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "307",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-02-18",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "324",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "306",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-02-17",
+              "max_date": "2023-12-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "400",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "380",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-02-23",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "J1 League",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "41",
+              "unique_oriented_pairs": "41",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "41",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-14",
+              "max_date": "2025-03-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "This club plays in the First Division of Okayama Prefectual League",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-11-22",
+              "max_date": "2009-12-13"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Japan | J1 League 2019",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-22",
+              "max_date": "2019-12-07"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Japan | J1 League 2020",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-02-21",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Japan | J1 League 2025",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-14",
+              "max_date": "2025-12-06"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "J1 League",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "305",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-22",
+              "max_date": "2019-12-07"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "J1 League",
+              "season": "2020",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "305",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-02-21",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "J1 League",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "379",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-26",
+              "max_date": "2021-12-04"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "J1 League",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "305",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-02-18",
+              "max_date": "2022-11-05"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "J1 League",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "305",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-02-17",
+              "max_date": "2023-12-03"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "J1 League",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "378",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-02-23",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "github/openfootball/world",
+              "competition": "J1 League",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "136",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "135",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-14",
+              "max_date": "2025-05-03"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-01-09",
+              "max_date": "2012-12-05"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-02-03",
+              "max_date": "2013-11-30"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-01-03",
+              "max_date": "2014-12-04"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2015-02-05",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2016-01-04",
+              "max_date": "2016-12-03"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-04",
+              "max_date": "2017-11-29"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "309",
+              "unique_oriented_pairs": "309",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-05"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "310",
+              "unique_oriented_pairs": "310",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-03",
+              "max_date": "2019-12-14"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-01-08",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-01-05",
+              "max_date": "2021-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "310",
+              "unique_oriented_pairs": "310",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-04",
+              "max_date": "2022-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-04",
+              "max_date": "2023-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "JAP",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "326",
+              "unique_oriented_pairs": "326",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-03",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-01-09",
+              "max_date": "2012-12-05"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-02-03",
+              "max_date": "2013-11-30"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-01-03",
+              "max_date": "2014-12-04"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2015-02-05",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2016-01-04",
+              "max_date": "2016-12-03"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-04",
+              "max_date": "2017-11-29"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "309",
+              "unique_oriented_pairs": "309",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-05"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "310",
+              "unique_oriented_pairs": "310",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-03",
+              "max_date": "2019-12-14"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-01-08",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-01-05",
+              "max_date": "2021-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "310",
+              "unique_oriented_pairs": "310",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-04",
+              "max_date": "2022-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-04",
+              "max_date": "2023-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "JAP",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "326",
+              "unique_oriented_pairs": "326",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-03",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "238",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "28",
+              "min_date": "1996-03-16",
+              "max_date": "1996-11-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "272",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "32",
+              "min_date": "1997-04-12",
+              "max_date": "1997-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "306",
+              "unique_oriented_pairs": "272",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "1998-03-21",
+              "max_date": "1998-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "242",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "1999-03-06",
+              "max_date": "1999-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "242",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2000-03-11",
+              "max_date": "2000-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "242",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2001-03-11",
+              "max_date": "2001-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "242",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2002-03-10",
+              "max_date": "2002-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "480",
+              "unique_oriented_pairs": "298",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "182",
+              "min_date": "2003-03-02",
+              "max_date": "2003-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "242",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2004-03-13",
+              "max_date": "2004-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-03-05",
+              "max_date": "2005-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "308",
+              "unique_oriented_pairs": "308",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-03-04",
+              "max_date": "2006-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "308",
+              "unique_oriented_pairs": "308",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-03-03",
+              "max_date": "2007-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "308",
+              "unique_oriented_pairs": "308",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-03-08",
+              "max_date": "2008-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-03-07",
+              "max_date": "2009-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-03-06",
+              "max_date": "2010-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-03-05",
+              "max_date": "2011-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-03-10",
+              "max_date": "2012-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-03-02",
+              "max_date": "2013-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-03-01",
+              "max_date": "2014-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2015-03-07",
+              "max_date": "2015-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2016-02-27",
+              "max_date": "2016-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-02-25",
+              "max_date": "2017-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-02-23",
+              "max_date": "2018-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-22",
+              "max_date": "2019-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-02-21",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-26",
+              "max_date": "2021-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-02-18",
+              "max_date": "2022-11-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-02-17",
+              "max_date": "2023-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "381",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-02-23",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "japan",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "301",
+              "unique_oriented_pairs": "300",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2025-02-14",
+              "max_date": "2025-09-20"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2014",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-03-01",
+              "max_date": "2014-12-06"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2015-03-07",
+              "max_date": "2015-12-05"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "309",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2016-02-27",
+              "max_date": "2016-12-03"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-02-25",
+              "max_date": "2017-12-02"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "19",
+              "rows": "307",
+              "unique_oriented_pairs": "307",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-02-23",
+              "max_date": "2018-12-08"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "19",
+              "rows": "307",
+              "unique_oriented_pairs": "307",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-22",
+              "max_date": "2019-12-14"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-02-21",
+              "max_date": "2020-12-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "380",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-26",
+              "max_date": "2021-12-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "J1 League",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-02-18",
+              "max_date": "2022-11-05"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   },
   {
@@ -2389,6 +6968,52 @@
       ],
       "scope": "All pre-cutoff match records across blocks59+92; points computed from actual results; equal-point ranking and native keys not independently reconciled.",
       "nextRoundDate": "1996-07-06"
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {},
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

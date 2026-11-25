@@ -1746,6 +1746,3151 @@
         ]
       },
       "scope": "Archive round listing 1–23; no post-cutoff results. Pair uniqueness and 16 teams per round checked."
+    },
+    "automaticResearch": {
+      "scope": "RESEARCH_ONLY; observations are not runtime definitions or verified results",
+      "status": "I",
+      "fields": {
+        "name": "P",
+        "identity": "P",
+        "participants": "I",
+        "format": "I",
+        "calendar": "I",
+        "regulation": "I",
+        "movement": "I",
+        "qualification": "I",
+        "july1": "I",
+        "evolution": "I"
+      },
+      "gaps": [
+        "participants",
+        "format",
+        "calendar",
+        "regulation",
+        "movement",
+        "qualification",
+        "july1",
+        "evolution"
+      ],
+      "conflicts": [],
+      "reviewRequired": true,
+      "observations": {
+        "3143a887e92d1dec21863cc35b72881614664512b6f00384912df97ff66e7657": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Championnat National Division 1",
+            "country": "ALG",
+            "season": "1996/97",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 24,
+            "fixtures": 239,
+            "orientedPairs": 238,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 239,
+            "expectedRegularTeams": [
+              16
+            ]
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "AS Ain m'lila": {
+              "uuid": "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "file": 42,
+              "ordinal": 0,
+              "league": 0,
+              "name": "A.S.AIN-M'LILA",
+              "path": "data_json\\teams\\ALGERIA.json"
+            },
+            "CA Batna": {
+              "uuid": "905bf415-8d00-592c-a469-7cfa171c4290",
+              "file": 42,
+              "ordinal": 1,
+              "league": 0,
+              "name": "C.A.BATNA",
+              "path": "data_json\\teams\\ALGERIA.json"
+            },
+            "CR Belcourt": {
+              "uuid": "58fd8ff5-1a42-5bdc-8a30-d67ddbeda739",
+              "file": 42,
+              "ordinal": 2,
+              "league": 0,
+              "name": "CR BELCOURT",
+              "path": "data_json\\teams\\ALGERIA.json"
+            },
+            "MC Alger": {
+              "uuid": "029113a3-980f-52af-ac10-e8add44f925f",
+              "file": 42,
+              "ordinal": 7,
+              "league": 0,
+              "name": "MC ALGER",
+              "path": "data_json\\teams\\ALGERIA.json"
+            },
+            "MC Oran": {
+              "uuid": "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "file": 42,
+              "ordinal": 6,
+              "league": 0,
+              "name": "M C ORAN",
+              "path": "data_json\\teams\\ALGERIA.json"
+            },
+            "US Chaouia": {
+              "uuid": "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "file": 42,
+              "ordinal": 9,
+              "league": 0,
+              "name": "U.S.CHAOUIA",
+              "path": "data_json\\teams\\ALGERIA.json"
+            },
+            "WA Tlemcen": {
+              "uuid": "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "file": 42,
+              "ordinal": 15,
+              "league": 0,
+              "name": "W.A.TLEMCEN",
+              "path": "data_json\\teams\\ALGERIA.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "CA Batana",
+              "candidateCount": 0
+            },
+            {
+              "label": "CR Belouizdad",
+              "candidateCount": 0
+            },
+            {
+              "label": "CS Constantine",
+              "candidateCount": 0
+            },
+            {
+              "label": "JS Kabylie",
+              "candidateCount": 0
+            },
+            {
+              "label": "MO Constantine",
+              "candidateCount": 0
+            },
+            {
+              "label": "NA Hussein Dey",
+              "candidateCount": 0
+            },
+            {
+              "label": "NA Hussein-Dey",
+              "candidateCount": 0
+            },
+            {
+              "label": "US Chouia",
+              "candidateCount": 0
+            },
+            {
+              "label": "US Constantine",
+              "candidateCount": 0
+            },
+            {
+              "label": "USM Ain Beida",
+              "candidateCount": 0
+            },
+            {
+              "label": "USM Alger",
+              "candidateCount": 0
+            },
+            {
+              "label": "USM El Harrach",
+              "candidateCount": 0
+            },
+            {
+              "label": "USM El-Harrach",
+              "candidateCount": 0
+            },
+            {
+              "label": "USM Harrach",
+              "candidateCount": 0
+            },
+            {
+              "label": "WA Boufarik",
+              "candidateCount": 0
+            },
+            {
+              "label": "WA Mostaganem",
+              "candidateCount": 0
+            },
+            {
+              "label": "WO Boufarik",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "MC Alger",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:45",
+              "Round 1 "
+            ],
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "MC Oran",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:43",
+              "Round 1 "
+            ],
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:46",
+              "Round 1 "
+            ],
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:40",
+              "Round 1 "
+            ],
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "WA Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:47",
+              "Round 1 "
+            ],
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:41",
+              "Round 1 "
+            ],
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "US Chouia",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:42",
+              "Round 1 "
+            ],
+            [
+              "1996-10-10",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "USM El Harrach",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:44",
+              "Round 1 "
+            ],
+            [
+              "1996-10-14",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "WA Tlemcen",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:55",
+              "Round 2 "
+            ],
+            [
+              "1996-10-14",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "WA Mostaganem",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:53",
+              "Round 2 "
+            ],
+            [
+              "1996-10-14",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:56",
+              "Round 2 "
+            ],
+            [
+              "1996-10-14",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "JS Kabylie",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:52",
+              "Round 2 "
+            ],
+            [
+              "1996-10-14",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:50",
+              "Round 2 "
+            ],
+            [
+              "1996-10-14",
+              "INFERRED_FROM_EDITION",
+              "USM El-Harrach",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:54",
+              "Round 2 "
+            ],
+            [
+              "1996-10-14",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "USM Alger",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:51",
+              "Round 2 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "CR Belouizdad",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:66",
+              "Round 3 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "MC Alger",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:64",
+              "Round 3 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:60",
+              "Round 3 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:62",
+              "Round 3 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein-Dey",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:67",
+              "Round 3 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:61",
+              "Round 3 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:63",
+              "Round 3 "
+            ],
+            [
+              "1996-10-17",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "MO Constantine",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:65",
+              "Round 3 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "NA Hussein-Dey",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:74",
+              "Round 4 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:76",
+              "Round 4 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "WA Mostaganem",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:70",
+              "Round 4 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "USM Alger",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:71",
+              "Round 4 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:75",
+              "Round 4 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "CS Constantine",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:73",
+              "Round 4 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "USM El-Harrach",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:77",
+              "Round 4 "
+            ],
+            [
+              "1996-10-24",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:72",
+              "Round 4 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "CR Belouizdad",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:84",
+              "Round 5 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:82",
+              "Round 5 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:81",
+              "Round 5 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein Dey",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:86",
+              "Round 5 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:87",
+              "Round 5 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:80",
+              "Round 5 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:83",
+              "Round 5 "
+            ],
+            [
+              "1996-10-31",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "AS Ain m'lila",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:85",
+              "Round 5 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "CA Batna",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:96",
+              "Round 6 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:92",
+              "Round 6 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "USM Alger",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:90",
+              "Round 6 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "USM Ain Beida",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:94",
+              "Round 6 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:91",
+              "Round 6 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "WO Boufarik",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:95",
+              "Round 6 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:97",
+              "Round 6 "
+            ],
+            [
+              "1996-11-07",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "NA Hussein-Dey",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:93",
+              "Round 6 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "WA Tlemcen",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:102",
+              "Round 7 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:107",
+              "Round 7 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:100",
+              "Round 7 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein Dey",
+              "US Chouia",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:105",
+              "Round 7 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:103",
+              "Round 7 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:106",
+              "Round 7 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:101",
+              "Round 7 "
+            ],
+            [
+              "1996-11-14",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:104",
+              "Round 7 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "JS Kabylie",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:114",
+              "Round 8 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "NA Hussein-Dey",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:112",
+              "Round 8 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "CR Belcourt",
+              "USM Alger",
+              "58fd8ff5-1a42-5bdc-8a30-d67ddbeda739",
+              null,
+              "corpus/tablesa/alg97.txt:111",
+              "Round 8 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "USM Ain Beida",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:116",
+              "Round 8 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "US Chaouia",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:115",
+              "Round 8 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:110",
+              "Round 8 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "USM El-Harrach",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:113",
+              "Round 8 "
+            ],
+            [
+              "1996-11-18",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "WA Mostaganem",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:117",
+              "Round 8 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:120",
+              "Round 9 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:122",
+              "Round 9 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein Dey",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:124",
+              "Round 9 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "USM El Harrach",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:127",
+              "Round 9 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:125",
+              "Round 9 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:121",
+              "Round 9 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:123",
+              "Round 9 "
+            ],
+            [
+              "1996-11-21",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:126",
+              "Round 9 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "CS Constantine",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:132",
+              "Round 10 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "JS Kabylie",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:135",
+              "Round 10 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:131",
+              "Round 10 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "US Chaouia",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:134",
+              "Round 10 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:130",
+              "Round 10 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "USM El-Harrach",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:137",
+              "Round 10 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:136",
+              "Round 10 "
+            ],
+            [
+              "1996-12-02",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "USM Alger",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:133",
+              "Round 10 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:143",
+              "Round 11 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:146",
+              "Round 11 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "MC Alger",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:144",
+              "Round 11 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein Dey",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:147",
+              "Round 11 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "MO Constantine",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:140",
+              "Round 11 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:142",
+              "Round 11 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:145",
+              "Round 11 "
+            ],
+            [
+              "1996-12-05",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:141",
+              "Round 11 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "WO Boufarik",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:154",
+              "Round 12 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "CS Constantine",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:150",
+              "Round 12 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:155",
+              "Round 12 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:152",
+              "Round 12 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "USM El Harrach",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:157",
+              "Round 12 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:156",
+              "Round 12 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "USM Alger",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:151",
+              "Round 12 "
+            ],
+            [
+              "1996-12-09",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "USM Ain Beida",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:153",
+              "Round 12 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:160",
+              "Round 13 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "CR Belouizdad",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:166",
+              "Round 13 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein Dey",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:162",
+              "Round 13 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "AS Ain m'lila",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:165",
+              "Round 13 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:163",
+              "Round 13 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:161",
+              "Round 13 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:167",
+              "Round 13 "
+            ],
+            [
+              "1996-12-12",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:164",
+              "Round 13 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "MC Oran",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:176",
+              "Round 14 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "WO Boufarik",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:174",
+              "Round 14 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:171",
+              "Round 14 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:170",
+              "Round 14 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:173",
+              "Round 14 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:172",
+              "Round 14 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:175",
+              "Round 14 "
+            ],
+            [
+              "1996-12-19",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "US Chaouia",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:177",
+              "Round 14 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "USM Alger",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:182",
+              "Round 15 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "CR Belouizdad",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:180",
+              "Round 15 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "WA Tlemcen",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:185",
+              "Round 15 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein Dey",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:187",
+              "Round 15 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "US Constantine",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:186",
+              "Round 15 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:183",
+              "Round 15 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:181",
+              "Round 15 "
+            ],
+            [
+              "1996-12-23",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:184",
+              "Round 15 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "AS Ain m'lila",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:195",
+              "Round 16 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "CA Batana",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:193",
+              "Round 16 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:196",
+              "Round 16 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein Dey",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:190",
+              "Round 16 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "WA Mostaganem",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:197",
+              "Round 16 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "USM Alger",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:191",
+              "Round 16 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:194",
+              "Round 16 "
+            ],
+            [
+              "1996-12-30",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:192",
+              "Round 16 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "MO Constantine",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:206",
+              "Round 17 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "USM El Harrach",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:204",
+              "Round 17 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "CR Belcourt",
+              "NA Hussein-Dey",
+              "58fd8ff5-1a42-5bdc-8a30-d67ddbeda739",
+              null,
+              "corpus/tablesa/alg97.txt:207",
+              "Round 17 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:200",
+              "Round 17 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:202",
+              "Round 17 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:201",
+              "Round 17 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:203",
+              "Round 17 "
+            ],
+            [
+              "1997-01-30",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "MC Alger",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:205",
+              "Round 17 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:216",
+              "Round 18 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "CA Batna",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:214",
+              "Round 18 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "JS Kabylie",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:212",
+              "Round 18 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:215",
+              "Round 18 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "USM Alger",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:211",
+              "Round 18 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:217",
+              "Round 18 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:213",
+              "Round 18 "
+            ],
+            [
+              "1997-02-06",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:210",
+              "Round 18 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "MO Constantine",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:225",
+              "Round 19 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:223",
+              "Round 19 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:227",
+              "Round 19 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein-Dey",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:224",
+              "Round 19 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:222",
+              "Round 19 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:221",
+              "Round 19 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:220",
+              "Round 19 "
+            ],
+            [
+              "1997-02-13",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "CR Belouizdad",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:226",
+              "Round 19 "
+            ],
+            [
+              "1997-03-03",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "JS Kabylie",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:231",
+              "Round 20"
+            ],
+            [
+              "1997-03-05",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "WA Tlemcen",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:237",
+              "Round 20"
+            ],
+            [
+              "1997-03-05",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:236",
+              "Round 20"
+            ],
+            [
+              "1997-03-05",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "CS Constantine",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:239",
+              "Round 20"
+            ],
+            [
+              "1997-03-05",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:235",
+              "Round 20"
+            ],
+            [
+              "1997-03-05",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "USM Ain Beida",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:234",
+              "Round 20"
+            ],
+            [
+              "1997-03-05",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:233",
+              "Round 20"
+            ],
+            [
+              "1997-03-05",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:238",
+              "Round 20"
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "AS Ain m'lila",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:248",
+              "Round 21 "
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:249",
+              "Round 21 "
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:243",
+              "Round 21 "
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein-Dey",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:245",
+              "Round 21 "
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:246",
+              "Round 21 "
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:242",
+              "Round 21 "
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:244",
+              "Round 21 "
+            ],
+            [
+              "1997-03-13",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:247",
+              "Round 21 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "WA Mostaganem",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:253",
+              "Round 22 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:252",
+              "Round 22 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "CS Constantine",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:258",
+              "Round 22 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "WO Boufarik",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:256",
+              "Round 22 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "USM Alger",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:259",
+              "Round 22 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "US Constantine",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:257",
+              "Round 22 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "USM Harrach",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:255",
+              "Round 22 "
+            ],
+            [
+              "1997-03-17",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "CA Batna",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:254",
+              "Round 22 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:262",
+              "Round 23 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:266",
+              "Round 23 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein-Dey",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:264",
+              "Round 23 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "MC Oran",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:267",
+              "Round 23 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:268",
+              "Round 23 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:263",
+              "Round 23 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:269",
+              "Round 23 "
+            ],
+            [
+              "1997-04-01",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "USM El Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:265",
+              "Round 23 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "USM Alger",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:273",
+              "Round 24 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "WA Mostaganem",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:275",
+              "Round 24 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:272",
+              "Round 24 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "WO Boufarik",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:278",
+              "Round 24 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "NA Hussein-Dey",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:276",
+              "Round 24 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:277",
+              "Round 24 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:279",
+              "Round 24 "
+            ],
+            [
+              "1997-04-03",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "JS Kabylie",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:274",
+              "Round 24 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:284",
+              "Round 25 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:287",
+              "Round 25 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "USM El Harrach",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:289",
+              "Round 25 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein-Dey",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:288",
+              "Round 25 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "MC Alger",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:286",
+              "Round 25 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:283",
+              "Round 25 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:285",
+              "Round 25 "
+            ],
+            [
+              "1997-04-10",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "MO Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:282",
+              "Round 25 "
+            ],
+            [
+              "1997-04-24",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "USM Ain Beida",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:299",
+              "Round 26"
+            ],
+            [
+              "1997-04-24",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "USM Alger",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:298",
+              "Round 26"
+            ],
+            [
+              "1997-04-24",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:293",
+              "Round 26"
+            ],
+            [
+              "1997-04-24",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "US Chaouia",
+              null,
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:297",
+              "Round 26"
+            ],
+            [
+              "1997-04-24",
+              "INFERRED_FROM_EDITION",
+              "USM El-Harrach",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:296",
+              "Round 26"
+            ],
+            [
+              "1997-04-24",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:295",
+              "Round 26"
+            ],
+            [
+              "1997-04-24",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "CS Constantine",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:294",
+              "Round 26"
+            ],
+            [
+              "1997-05-12",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "MC Oran",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:301",
+              "Round 26"
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:304",
+              "Round 27 "
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "MO Constantine",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              null,
+              "corpus/tablesa/alg97.txt:310",
+              "Round 27 "
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein-Dey",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:306",
+              "Round 27 "
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "CR Belouizdad",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              null,
+              "corpus/tablesa/alg97.txt:309",
+              "Round 27 "
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "WA Tlemcen",
+              null,
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:307",
+              "Round 27 "
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:305",
+              "Round 27 "
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:311",
+              "Round 27 "
+            ],
+            [
+              "1997-05-22",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "AS Ain m'lila",
+              null,
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:308",
+              "Round 27 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "US Chouia",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:319",
+              "Round 28 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "USM Ain Beida",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              null,
+              "corpus/tablesa/alg97.txt:317",
+              "Round 28 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "MC Oran",
+              null,
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:320",
+              "Round 28 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "USM Alger",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:315",
+              "Round 28 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "NA Hussein-Dey",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:316",
+              "Round 28 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "USM Harrach",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:321",
+              "Round 28 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:314",
+              "Round 28 "
+            ],
+            [
+              "1997-06-12",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "WA Boufarik",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              null,
+              "corpus/tablesa/alg97.txt:318",
+              "Round 28 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "CS Constantine",
+              "JS Kabylie",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:325",
+              "Round 29 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "MC Alger",
+              "MO Constantine",
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              null,
+              "corpus/tablesa/alg97.txt:328",
+              "Round 29 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "MC Oran",
+              "AS Ain m'lila",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              "corpus/tablesa/alg97.txt:327",
+              "Round 29 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "NA Hussein-Dey",
+              "USM Alger",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:331",
+              "Round 29 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "US Chaouia",
+              "WA Tlemcen",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "corpus/tablesa/alg97.txt:330",
+              "Round 29 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "USM Ain Beida",
+              "WA Mostaganem",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:324",
+              "Round 29 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "USM El Harrach",
+              "CR Belouizdad",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:326",
+              "Round 29 "
+            ],
+            [
+              "1997-06-16",
+              "INFERRED_FROM_EDITION",
+              "WO Boufarik",
+              "CA Batna",
+              null,
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "corpus/tablesa/alg97.txt:329",
+              "Round 29 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "AS Ain m'lila",
+              "USM El Harrach",
+              "41ea143b-88b8-5cd1-bfdf-b2e646c805ab",
+              null,
+              "corpus/tablesa/alg97.txt:339",
+              "Round 30 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "CA Batna",
+              "US Chaouia",
+              "905bf415-8d00-592c-a469-7cfa171c4290",
+              "76f45597-75b6-5f8f-9411-e078c4276a55",
+              "corpus/tablesa/alg97.txt:337",
+              "Round 30 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "CR Belouizdad",
+              "MC Alger",
+              null,
+              "029113a3-980f-52af-ac10-e8add44f925f",
+              "corpus/tablesa/alg97.txt:340",
+              "Round 30 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "JS Kabylie",
+              "USM Ain Beida",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:335",
+              "Round 30 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "MO Constantine",
+              "NA Hussein-Dey",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:341",
+              "Round 30 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "USM Alger",
+              "CS Constantine",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:334",
+              "Round 30 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "WA Mostaganem",
+              "WO Boufarik",
+              null,
+              null,
+              "corpus/tablesa/alg97.txt:336",
+              "Round 30 "
+            ],
+            [
+              "1997-06-26",
+              "INFERRED_FROM_EDITION",
+              "WA Tlemcen",
+              "MC Oran",
+              "6dc77bc3-180c-516d-b959-cfe2eff72f0a",
+              "3b0245e1-dab0-5dd4-afd3-99163fb1b314",
+              "corpus/tablesa/alg97.txt:338",
+              "Round 30 "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:33 Author: Michel Menard",
+              "excerpt": "14.NA Hussein-Dey  30   9  7 14  38-43  34  Relegated"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:34 Author: Michel Menard",
+              "excerpt": "15.USM Ain-Beida   30  11  4 15  31-37  34  [-3]  Relegated"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:35 Author: Michel Menard",
+              "excerpt": "16.WA Mostaganem   30   8  8 14  46-49  32  Relegated"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:37 Author: Michel Menard",
+              "excerpt": "Promoted: ES Mostaganem (West), ES Sétif (East), USM Blida (Centre)."
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:359 Author: Michel Menard",
+              "excerpt": "14.NA Hussein-Dey  30   9  7 14  38-43  34  Relegated"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:360 Author: Michel Menard",
+              "excerpt": "15.USM Ain-Beida   30  11  4 15  31-37  34  [-3]  Relegated"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:361 Author: Michel Menard",
+              "excerpt": "16.WA Mostaganem   30   8  8 14  46-49  32  Relegated"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "locator": "corpus/tablesa/alg97.txt:363 Author: Michel Menard",
+              "excerpt": "Promoted: ES Mostaganem (West), ES Sétif (East), USM Blida (Centre)."
+            }
+          ],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Championnat National Division 1",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "239",
+              "unique_oriented_pairs": "238",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "239",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1996-10-10",
+              "max_date": "1997-06-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Championnat National Division 1",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-01-09",
+              "max_date": "1998-06-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Championnat National Division 1",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "75",
+              "rows": "113",
+              "unique_oriented_pairs": "113",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "113",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-09-09",
+              "max_date": "1999-05-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Championnat National Division 1",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "138",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "138",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-09-23",
+              "max_date": "2000-04-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Championnat National Division 1",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "468",
+              "unique_oriented_pairs": "468",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "468",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-09-07",
+              "max_date": "2001-05-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Championnat National Division 1",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "239",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "239",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-08-23",
+              "max_date": "2008-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Championnat National Division 1",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "266",
+              "unique_oriented_pairs": "266",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "266",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-07",
+              "max_date": "2009-06-08"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Algeria | Ligue 1 2024/25",
+              "season": "2024-25",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-19",
+              "max_date": "2025-05-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "66",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-10-14",
+              "max_date": "1999-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "185",
+              "unique_oriented_pairs": "158",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "27",
+              "min_date": "2000-03-09",
+              "max_date": "2000-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "226",
+              "unique_oriented_pairs": "172",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "54",
+              "min_date": "2001-01-20",
+              "max_date": "2001-12-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "247",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2002-01-03",
+              "max_date": "2002-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "248",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2003-01-09",
+              "max_date": "2003-12-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "232",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2004-01-08",
+              "max_date": "2004-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2005-01-14",
+              "max_date": "2005-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "237",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2006-01-19",
+              "max_date": "2006-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2007-01-04",
+              "max_date": "2007-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "244",
+              "unique_oriented_pairs": "205",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2008-01-04",
+              "max_date": "2008-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "301",
+              "unique_oriented_pairs": "252",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2009-01-01",
+              "max_date": "2009-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "254",
+              "unique_oriented_pairs": "209",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2010-01-16",
+              "max_date": "2010-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "261",
+              "unique_oriented_pairs": "213",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2011-01-04",
+              "max_date": "2011-12-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2012-01-21",
+              "max_date": "2012-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "209",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2013-01-15",
+              "max_date": "2013-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2014-01-17",
+              "max_date": "2014-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "241",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2015-01-16",
+              "max_date": "2015-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "200",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2016-01-14",
+              "max_date": "2016-12-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "42",
+              "min_date": "2017-01-21",
+              "max_date": "2017-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2018-01-05",
+              "max_date": "2018-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "232",
+              "unique_oriented_pairs": "194",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2019-01-04",
+              "max_date": "2019-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "116",
+              "unique_oriented_pairs": "109",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "7",
+              "min_date": "2020-01-02",
+              "max_date": "2020-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "409",
+              "unique_oriented_pairs": "351",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2021-01-01",
+              "max_date": "2021-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "341",
+              "unique_oriented_pairs": "278",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "63",
+              "min_date": "2022-01-02",
+              "max_date": "2022-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "202",
+              "unique_oriented_pairs": "168",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2023-02-08",
+              "max_date": "2023-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "267",
+              "unique_oriented_pairs": "208",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2024-01-05",
+              "max_date": "2024-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "algeria",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "174",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "24",
+              "min_date": "2025-01-01",
+              "max_date": "2025-09-20"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
+      "assessments": {
+        "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
+          "status": "I",
+          "fields": {
+            "name": "P",
+            "identity": "P",
+            "participants": "I",
+            "format": "I",
+            "calendar": "I",
+            "regulation": "I",
+            "movement": "I",
+            "qualification": "I",
+            "july1": "I",
+            "evolution": "I"
+          }
+        }
+      }
     }
   }
 ]

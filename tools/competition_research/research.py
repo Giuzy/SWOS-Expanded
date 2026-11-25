@@ -6,6 +6,8 @@ import csv
 import datetime as dt
 import hashlib
 import io
+import inspect
+import warnings
 import json
 import os
 from pathlib import Path
@@ -60,7 +62,17 @@ REPOS = [
  ("footballcsv/england","master"),("footballcsv/deutschland","master"),
  ("schochastics/football-data","master"),("withqwerty/open-football","main"),
  ("openfootball/football.json","master"),
- ("xgabora/Club-Football-Match-Data","main"),("openfootball/world","master")]
+ ("xgabora/Club-Football-Match-Data","main"),("openfootball/world","master"),
+ # These are explicitly linked datasets in the supplied footballcsv README.
+ ("footballcsv/espana","master"),("footballcsv/austria","master"),
+ ("footballcsv/belgium","master"),("footballcsv/mexico","master"),
+ ("footballcsv/major-league-soccer","master"),("footballcsv/europe-champions-league","master"),
+ ("openfootball/europe","master"),("openfootball/south-america","master"),
+ ("openfootball/worldcup","master"),("martj42/international_results","master"),
+ ("openfootball/euro","master"),("openfootball/copa-america","master"),
+ ("openfootball/champions-league","master")]
+TEXT_REPOS={"github/openfootball/"+x for x in ("world","europe","south-america","worldcup","euro","copa-america","champions-league")}
+INT_TEXT_REPOS={"github/openfootball/"+x for x in ("worldcup","euro","copa-america","champions-league")}
 RULE = re.compile(r"\b(?:tie.break|away goals?|extra time|penalt(?:y|ies)|promot(?:ed|ion)|relegat(?:ed|ion)|qualif(?:y|ied|ication)|play.off|points? deduction|head.to.head|goal difference|goal average|abolished|renamed|replaced|format|rules?|regulations?|first edition)\b",re.I)
 RESULT = re.compile(r"^([^\d\[\]<>][^<>\[\]]{1,100}?)\s+(\d{1,2})\s*[-:]\s*(\d{1,2})\s+([^\d\[\]<>][^<>\[\]]{1,100}?)(?:\s*\[([^\]]+)\])?\s*$")
 EDITION = re.compile(r"\b((?:19|20)\d{2})(?:\s*[/–-]\s*(\d{2}|\d{4}))?\b")
@@ -74,13 +86,13 @@ def country(value):
     return COUNTRIES.get(s, CODE_ALIAS.get(s, s if s in CODES else ""))
 
 def iso(value, dayfirst=True):
-    s = str(value or "").strip()
+    s = str(value if value is not None else "").strip()
     if not s or s.lower() in ("nan","nat","none","null","<na>"):
         return ""
     if re.match(r"^\d{4}-\d{2}-\d{2}",s):
         s = s[:10]
     for fmt in ("%Y-%m-%d","%Y/%m/%d","%d/%m/%Y","%d/%m/%y","%d.%m.%Y","%d-%m-%Y",
-                "%b %d, %Y","%B %d, %Y","%d %b %Y","%d %B %Y","%a %b %d %Y","%a %b %d, %Y","%a %d %b %Y"):
+                "%b %d, %Y","%B %d, %Y","%d %b %Y","%d %B %Y","%a %b %d %Y","%a %B %d %Y","%a %b %d, %Y","%a %d %b %Y"):
         try:
             d = dt.datetime.strptime(s,fmt).date()
             if 1900 <= d.year <= 2100:
@@ -128,7 +140,7 @@ def structured(row, default_comp="", default_country="", default_season=""):
     date=iso(get(r,"date","matchdate","match_date","game_date"))
     home=str(get(r,"home","home_team","HomeTeam","home_name","team1")).strip()
     away=str(get(r,"away","away_team","AwayTeam","away_name","team2")).strip()
-    comp=str(get(r,"competition","league","division","div","comp","tournament") or default_comp).strip()
+    comp=str(get(r,"competition","competition_name","league","division","div","comp","tournament") or default_comp).strip()
     c=country(get(r,"country","country_name","nation") or default_country)
     if comp.upper() in DIV:
         c,_=DIV[comp.upper()]
@@ -151,14 +163,66 @@ def structured(row, default_comp="", default_country="", default_season=""):
     if scheme=="CALENDAR_YEAR_BUCKET" and comp.upper() in DIV:
         d=dt.date.fromisoformat(date); y=d.year if d.month>=7 else d.year-1
         season=f"{y}/{(y+1)%100:02d}";scheme="JULY_SPLIT_CANDIDATE"
+    # Schochastics codebook: gh/ga can include penalties; its P flag
+    # cannot be interpreted as an ordinary match score. Retain the fixture.
+    if str(get(r,"full_time")).upper()=="P" and "gh" in r and "ga" in r:
+        hg=ag=None
     # No real-world result on/after the 2627 start is written to output.
     if date>=CUTOFF: hg=ag=None
     return (comp,c,season,scheme,date,"EXPLICIT",home,away,hg,ag,str(get(r,"round","stage","matchweek","wk"))[:100])
 
+def r_date_constructor(obj, attrs):
+    """R Date = whole civil days since 1970-01-01, never Unix seconds."""
+    import numpy as np
+    import pandas as pd
+    days=np.ma.asarray(obj,dtype=float).filled(np.nan)
+    days=np.where(np.isfinite(days) & (days==np.floor(days)),days,np.nan)
+    return pd.to_datetime(days,unit="D",origin="unix",errors="coerce").to_numpy()
+
+def r_match_frame(payload):
+    """Convert only Date explicitly; preserve other class warnings in source log."""
+    import pandas as pd
+    import rdata
+    # Use the installed version's public read_rds default constructor mapping.
+    defaults=inspect.signature(rdata.read_rds).parameters["constructor_dict"].default
+    constructors=dict(defaults)
+    constructors["Date"]=r_date_constructor
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always",UserWarning)
+        frame=rdata.read_rds(io.BytesIO(payload),constructor_dict=constructors)
+    notes=collections.Counter(str(w.message) for w in caught)
+    if not isinstance(frame,pd.DataFrame):
+        raise ValueError("RDS is not a dataframe")
+    return frame,notes
+
+def r_match_row(row, default_country=""):
+    r={norm(k):v for k,v in row.items()}
+    gender=str(get(r,"gender")).strip().lower()
+    if gender not in ("m","men","male","mens","men's"):
+        return None,"GENDER_OUT_OF_SCOPE_OR_UNKNOWN"
+    # An R numeric value without its Date class is ambiguous: never guess an epoch.
+    date=get(r,"date")
+    if not iso(date):return None,"INVALID_OR_MISSING_DATE"
+    if not get(r,"competition_name"):return None,"MISSING_COMPETITION_NAME"
+    c=country(get(r,"country") or default_country)
+    # FBref country for multinational competitions may be a confederation;
+    # preserve the name, use INTERNATIONAL only for explicit source region labels.
+    raw_country=str(get(r,"country")).strip().upper()
+    if raw_country in ("INT","INTERNATIONAL","UEFA","CONMEBOL","CONCACAF","CAF","AFC","OFC","FIFA") or (not raw_country and default_country=="INTERNATIONAL"):
+        c="INTERNATIONAL"
+    out=structured(row,"",c)
+    if out is None:return None,"OUTSIDE_DATE_RANGE_OR_INVALID_MATCH"
+    if c=="INTERNATIONAL":
+        out=(out[0],c,*out[2:])
+    end=str(get(r,"season_end_year")).strip()
+    if re.fullmatch(r"(?:19|20)\d{2}(?:\.0+)?",end):
+        out=(out[0],out[1],end[:4],"SOURCE_SEASON_END_YEAR",*out[4:])
+    return out,"ACCEPTED"
+
 class Collector:
     def __init__(self, out):
         self.out=out
-        self.db=sqlite3.connect(out/"evidence.sqlite")
+        self.db=sqlite3.connect(out/"evidence.sqlite",uri=True)
         self.db.executescript("""
           PRAGMA journal_mode=DELETE; PRAGMA synchronous=NORMAL;
           CREATE TABLE fixture(source TEXT, locator TEXT, competition TEXT,country TEXT,season TEXT,
@@ -185,6 +249,21 @@ class Collector:
         for i,row in enumerate(frame.itertuples(index=False,name=None),1):
             self.add(source,locator+":"+str(i),structured(dict(zip(frame.columns,row)),comp,c,season))
         self.note(source,locator,"PARSED",str(self.counts[source]-before)+" candidates; columns "+",".join(map(str,frame.columns)))
+    def r_table(self,frame,source,locator,default_country=""):
+        cols={norm(k) for k in frame.columns}
+        if not {"competitionname","gender","date","home","away"}.issubset(cols):
+            self.note(source,locator,"ERROR_RDS_SCHEMA",list(frame.columns));return
+        counts=collections.Counter()
+        for i,row in enumerate(frame.itertuples(index=False,name=None),1):
+            data,status=r_match_row(dict(zip(frame.columns,row)),default_country)
+            counts[status]+=1
+            self.add(source,locator+":"+str(i),data)
+        status="PARSED" if counts["ACCEPTED"] else "NO_RDS_CANDIDATES"
+        # A completely broken date conversion must be visible as a source error.
+        eligible=sum(v for k,v in counts.items() if k!="GENDER_OUT_OF_SCOPE_OR_UNKNOWN")
+        if eligible and counts["INVALID_OR_MISSING_DATE"]==eligible:
+            status="ERROR_RDS_DATE"
+        self.note(source,locator,status,json.dumps(dict(counts),sort_keys=True))
     def csvfile(self, stream, source, locator, comp="", c="", season=""):
         try:
             raw=io.TextIOWrapper(stream,encoding="utf-8-sig",errors="replace",newline="")
@@ -197,6 +276,9 @@ class Collector:
                 self.note(source,locator,"UNSUPPORTED_SCHEMA",reader.fieldnames);return
             before=self.counts[source]
             for i,row in enumerate(reader,2):
+                if source=="github/martj42/international_results":
+                    # country in this file is the VENUE, not competition jurisdiction.
+                    row=dict(row,country="INTERNATIONAL",level="international")
                 self.add(source,locator+":"+str(i),structured(row,comp,c,season))
             self.note(source,locator,"PARSED",self.counts[source]-before)
         except Exception as exc: self.note(source,locator,"ERROR",exc)
@@ -276,6 +358,86 @@ class Collector:
                     self.rulebuf.append((source,p+":"+str(i)+" "+author,comp,c,season,s))
                 if len(self.rulebuf)>=20000: self.flush()
             if self.counts[source]>before: self.note(source,p,"CANDIDATE_TEXT",self.counts[source]-before)
+    def world_text(self, text, source, locator):
+        # Conservative Football.TXT adapter for the explicitly inspected
+        # OpenFootball World format. Missing year is inferred only within a
+        # uniquely identifying source date range; no shootout score as FT.
+        lines=text.splitlines()
+        title=next((x[1:].split("#",1)[0].strip() for x in lines[:12] if x.startswith("= ")), "")
+        if not title:return
+        em=EDITION.search(title)
+        season_basis="SOURCE_TITLE"
+        if not em:
+            # Only explicitly dated path components, not incidental digits.
+            em=next((EDITION.fullmatch(x) for x in locator.split("/")[:-1] if EDITION.fullmatch(x)),None)
+            season_basis="SOURCE_PATH"
+        if not em:return
+        season=em.group(0)
+        comp=(title.split("|",1)[-1] if "|" in title else title)
+        comp=EDITION.sub("",comp).strip()
+        c=country(title.split("|",1)[0].strip()) if "|" in title else ""
+        if not c:
+            c=next((country(part.replace("-"," ")) for part in locator.split("/")[:-1] if country(part.replace("-"," "))),"")
+        if source in INT_TEXT_REPOS or (not c and re.match(r"^(?:CAF|AFC|OFC|CONCACAF|CONMEBOL|UEFA|FIFA)\b",comp,re.I)):
+            c="INTERNATIONAL"
+        if not comp:return
+        header=next((x for x in lines[:12] if x.startswith("# Date")), "")
+        h=re.search(r"([A-Za-z]{3} [A-Za-z]{3,9} \d{1,2})(?: (\d{4}))?\s*[-–]\s*([A-Za-z]{3} [A-Za-z]{3,9} \d{1,2}) (\d{4})",header)
+        lo,hi="",""
+        if h:
+            start,sy,end,ey=h.groups()
+            if sy or (not em.group(2) and ey==em.group(1)):
+                lo,hi=iso(start+" "+(sy or ey)),iso(end+" "+ey)
+        date="";basis="";stage="";before=self.counts[source];special=0;undated=0
+        for i,line in enumerate(lines,1):
+            s=line.strip()
+            if s.startswith("▪"):
+                stage=s[1:].strip()[:100];date="";basis="";continue
+            dm=re.fullmatch(r"((?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) [A-Za-z]{3,9} \d{1,2})(?: (\d{4}))?",s)
+            if dm:
+                token,year=dm.groups();date="";basis=""
+                if year:
+                    date=iso(token+" "+year);basis="EXPLICIT"
+                elif lo and hi and lo<=hi:
+                    ds=[iso(token+" "+str(y)) for y in range(int(lo[:4]),int(hi[:4])+1) if int(hi[:4])-int(lo[:4])<=2]
+                    ds=[d for d in ds if d and lo<=d<=hi]
+                    if len(ds)==1:date=ds[0];basis="INFERRED_FROM_SOURCE_RANGE"
+                elif not em.group(2):
+                    date=iso(token+" "+em.group(1));basis="INFERRED_FROM_SOURCE_EDITION"
+                if date and dt.date.fromisoformat(date).strftime("%a")!=token[:3]:
+                    date="";basis=""
+                continue
+            # Only parse the oriented teams separated by literal ' v ' and
+            # padded result field; keep unresolved annotations out of FT columns.
+            s=s.split(" @ ",1)[0].rstrip()
+            # Copa América README documents inline date, time and middle FT.
+            # This narrow grammar is not applied to arbitrary prose or squads.
+            if source=="github/openfootball/copa-america":
+                inline=re.fullmatch(r"((?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) [A-Za-z]{3,9} \d{1,2})(?: (\d{4}))?\s+\d{1,2}:\d{2}(?:\s+UTC[+−-]\d{1,2}(?::\d{2})?)?\s+(.+?)\s+(\d{1,2})-(\d{1,2})\s+(.+)",s)
+                if inline:
+                    token,year,h,g,a,v=inline.groups()
+                    day=iso(token+" "+(year or em.group(1))) if year or not em.group(2) else ""
+                    if day and START<=day<="2027-12-31" and dt.date.fromisoformat(day).strftime("%a")==token[:3] and norm(h)!=norm(v):
+                        # Exclude annotated/non-team tails; do not import ambiguous KO scores.
+                        if re.search(r"\b(?:pen\.?|a\.?e\.?t\.?|awarded)\b|\[|\d",h+" "+v,re.I):
+                            special+=1;continue
+                        hg,ag=(int(g),int(a)) if day<CUTOFF else (None,None)
+                        self.add(source,locator+":"+str(i),(comp,c,season,season_basis,day,"EXPLICIT" if year else "INFERRED_FROM_SOURCE_EDITION",h.strip(),v.strip(),hg,ag,stage))
+                    else:undated+=1
+                    continue
+            m=re.fullmatch(r"(?:\d{1,2}:\d{2}(?:\s+UTC[+-]\d{1,2}(?::\d{2})?)?\s+)?(.+?)\s+v\s+(.+?)\s{2,}(\d{1,2}-\d{1,2}.*|[-–]|\?[:?-]*)",s)
+            if not m:continue
+            if not date or not START<=date<="2027-12-31":
+                undated+=1;continue
+            home,away,score=m.groups()
+            if not home.strip() or not away.strip() or norm(home)==norm(away):continue
+            regular=re.fullmatch(r"(\d{1,2})-(\d{1,2})(?:\s+\(\d{1,2}-\d{1,2}\))?",score.strip())
+            hg,ag=(int(regular.group(1)),int(regular.group(2))) if regular else (None,None)
+            if not regular:special+=1
+            if date>=CUTOFF:hg=ag=None
+            self.add(source,locator+":"+str(i),(comp,c,season,season_basis,date,basis,home.strip(),away.strip(),hg,ag,stage))
+        self.note(source,locator,"PARSED_WORLD_TEXT" if self.counts[source]>before else "NO_WORLD_TEXT_CANDIDATES",
+                  json.dumps({"candidates":self.counts[source]-before,"score_annotations_not_imported":special,"undated_skipped":undated}))
     def archive(self,path,source,kind):
         import pandas as pd
         try:
@@ -284,21 +446,39 @@ class Collector:
                 for member in z.infolist():
                     p=member.filename;lo=p.lower()
                     if member.is_dir() or member.file_size>180_000_000: continue
-                    if lo.endswith(".rds") and ("match_result" in lo or "matchresults" in lo):
+                    if kind=="worldfootballR":
+                        if not re.search(r"/data/match_results(?:_cups)?/[^/]+_match_results\.rds$",lo):
+                            continue
                         try:
-                            import rdata
                             payload=z.read(member)
-                            try: frame=rdata.read_rds(io.BytesIO(payload))
-                            except Exception:
+                            try:
+                                frame,notes=r_match_frame(payload)
+                                if notes:self.note(source,p,"RDS_CONVERSION_WARNINGS",dict(notes))
+                            except Exception as primary:
+                                self.note(source,p,"RDS_FALLBACK",primary)
                                 import pyreadr
                                 with tempfile.TemporaryDirectory() as td:
                                     tmp=Path(td)/"data.rds";tmp.write_bytes(payload)
                                     frame=next(iter(pyreadr.read_r(str(tmp)).values()))
-                            if not isinstance(frame,pd.DataFrame): raise ValueError("RDS is not a dataframe")
-                            default=re.sub(r"_?match_?results.*$","",Path(p).stem,flags=re.I) or Path(p).stem
-                            self.table(frame,source,p,default,country(default))
+                            if not isinstance(frame,pd.DataFrame):raise ValueError("RDS is not a dataframe")
+                            default=re.sub(r"_match_results$","",Path(p).stem,flags=re.I)
+                            # Archive README names and exact international cup filenames;
+                            # no international fallback for domestic or unknown cup members.
+                            international_cup = (
+                                default in {"afc_asian_cup","afc_asian_cup_qualification",
+                                    "africa_cup_of_nations","africa_cup_of_nations_qualification",
+                                    "concacaf_gold_cup","copa_america","copa_libertadores_de_america",
+                                    "copa_sudamericana","european_championship","fifa_confederations_cup",
+                                    "fifa_world_cup","international_friendlies_m","ofc_nations_cup",
+                                    "uefa_champions_league","uefa_euro_qualification",
+                                    "uefa_europa_conference_league","uefa_europa_league",
+                                    "uefa_european_football_championship_qualifying","uefa_nations_league"}
+                                or default.startswith("fifa_world_cup_qualification_"))
+                            c="INTERNATIONAL" if "/data/match_results_cups/" in lo and international_cup else country(default)
+                            self.r_table(frame,source,p,c)
                         except Exception as exc:self.note(source,p,"ERROR_RDS",exc)
                     elif lo.endswith((".csv",".tsv")):
+                        if source=="github/martj42/international_results" and Path(p).name!="results.csv":continue
                         with z.open(member) as f: self.csvfile(io.BytesIO(f.read()),source,p,*path_hints(p))
                     elif lo.endswith(".json") and "football" in source and member.file_size<10_000_000:
                         try:
@@ -312,6 +492,8 @@ class Collector:
                                 rows.append({"date":m.get("date"),"home":m.get("team1"),"away":m.get("team2"),"home_goals":ft[0] if isinstance(ft,list) and len(ft)==2 else None,"away_goals":ft[1] if isinstance(ft,list) and len(ft)==2 else None,"round":m.get("round")})
                             self.table(pd.DataFrame(rows),source,p,comp,c,season)
                         except Exception as exc:self.note(source,p,"ERROR_JSON",exc)
+                    elif lo.endswith(".txt") and source in TEXT_REPOS:
+                        self.world_text(z.read(member).decode("utf-8-sig",errors="replace"),source,p)
                     elif lo.endswith((".txt",".md")) and (source.endswith("openfootball/world") or source.endswith("withqwerty/open-football") or "footballcsv.github.io" in source):
                         # Inventory links / document locations, not unverified fixture import.
                         self.note(source,p,"TEXT_INVENTORY",member.file_size)
@@ -490,20 +672,21 @@ def candidates(co,rows,named,native):
     db.execute("CREATE TABLE candidate_group(matrix_row INTEGER,world TEXT,source TEXT,competition TEXT,country TEXT,season TEXT,season_basis TEXT)")
     db.executemany("INSERT INTO candidate_group VALUES (?,?,?,?,?,?,?)",mapped)
     db.create_function("labelkey",1,norm,deterministic=True)
+    db.create_function("sourcefamily",1,source_family,deterministic=True)
     # Compare exact oriented labels and dates, only for candidate initial-edition groups.
     # Source independence, actual competition membership and aliases require human review.
     db.execute("""CREATE TEMP TABLE compared AS SELECT g.matrix_row,g.world,f.date,labelkey(f.home) home,labelkey(f.away) away,f.source,f.hg,f.ag
       FROM candidate_group g JOIN fixture f ON g.source=f.source AND g.competition=f.competition AND g.country=f.country AND g.season=f.season AND g.season_basis=f.season_basis
       WHERE f.date_basis='EXPLICIT' AND ((g.world='9697' AND f.date>='1996-07-01' AND f.date<'1997-07-01') OR (g.world='2627' AND f.date>='2026-01-01'))""")
-    overlaps=db.execute("""SELECT matrix_row,world,date,home,away,count(DISTINCT source),group_concat(DISTINCT source),count(DISTINCT CASE WHEN hg IS NOT NULL AND ag IS NOT NULL THEN printf('%d:%d',hg,ag) END)
-      FROM compared GROUP BY 1,2,3,4,5 HAVING count(DISTINCT source)>1""")
-    csvout(co.out/"cross_source_exact_pairs.csv",["matrix_row","world","date","normalized_home","normalized_away","source_count","sources","known_score_variants"],overlaps)
-    cross_count=db.execute("SELECT count(*) FROM (SELECT 1 FROM compared GROUP BY matrix_row,world,date,home,away HAVING count(DISTINCT source)>1)").fetchone()[0]
+    overlaps=db.execute("""SELECT matrix_row,world,date,home,away,count(DISTINCT sourcefamily(source)),group_concat(DISTINCT source),count(DISTINCT CASE WHEN hg IS NOT NULL AND ag IS NOT NULL THEN printf('%d:%d',hg,ag) END)
+      FROM compared GROUP BY 1,2,3,4,5 HAVING count(DISTINCT sourcefamily(source))>1""")
+    csvout(co.out/"cross_source_exact_pairs.csv",["matrix_row","world","date","normalized_home","normalized_away","source_family_count","sources","known_score_variants"],overlaps)
+    cross_count=db.execute("SELECT count(*) FROM (SELECT 1 FROM compared GROUP BY matrix_row,world,date,home,away HAVING count(DISTINCT sourcefamily(source))>1)").fetchone()[0]
     db.commit()
     proposals=[]
     for rid,r in sorted(rows.items()):
         rr=named.get(rid,{});fs=rr.get("fields",{});states=[fs.get(k,{}).get("status","NOT_AUDITED") for k in FIELDS]
-        hh=rowhits[rid]
+        hh=rowhits.get(rid,[])
         naming=r.get("competitionNaming") or {}
         proposals.append((rid,r.get("world"),r.get("country"),r.get("id"),r.get("detail"),naming.get("officialName") or rr.get("name") or naming.get("candidateName"),*states,rr.get("complete",""),rr.get("applicable",""),rr.get("closed",False),len(hh),sum(x[1] for x in hh),sum(x[2] for x in hh),sum(x[3] for x in hh),"REVIEW_REQUIRED"))
     proposals.sort(key=lambda p:(bool(p[17]),-(p[15] if isinstance(p[15],int) else 0),-p[18],p[0]))
@@ -513,9 +696,150 @@ def candidates(co,rows,named,native):
     csvout(co.out/"same_source_score_conflicts.csv",["source","competition","country","date","home","away","variants"],db.execute("""SELECT source,competition,country,date,home,away,count(DISTINCT printf('%d:%d',hg,ag))
      FROM fixture WHERE hg IS NOT NULL AND ag IS NOT NULL GROUP BY 1,2,3,4,5,6 HAVING count(DISTINCT printf('%d:%d',hg,ag))>1"""))
     csvout(co.out/"rule_candidates.csv",["source","locator","competition","country","season","excerpt"],db.execute("SELECT * FROM rule"))
-    return {"matrix_rows":len(rows),"named_verified_rows":len(named),"source_groups":len(groups),"mapped_matrix_rows":len(rowhits),"initial_join_candidates":len(joins),"observed_changes":len(changes),"observed_membership_changes":len(movement),"cross_source_exact_pairs":cross_count,"july1_candidates":len(cutoff),"rule_candidates":db.execute("SELECT count(*) FROM rule").fetchone()[0],"fixture_candidates":db.execute("SELECT count(*) FROM fixture").fetchone()[0],"verified_upgrades":0,"note":"All generated evidence requires review; no existing closure or game file changed."}
+    return {"matrix_rows":len(rows),"named_verified_rows":len(named),"source_groups":len(groups),"mapped_matrix_rows":sum(bool(v) for v in rowhits.values()),"initial_join_candidates":len(joins),"observed_changes":len(changes),"observed_membership_changes":len(movement),"cross_source_exact_pairs":cross_count,"july1_candidates":len(cutoff),"rule_candidates":db.execute("SELECT count(*) FROM rule").fetchone()[0],"fixture_candidates":db.execute("SELECT count(*) FROM fixture").fetchone()[0],"verified_upgrades":0,"note":"All generated evidence requires review; no existing closure or game file changed."}
+
+def adapter_version(source):
+    if source.startswith("worldfootballR/"):return "rds-v2"
+    if source in TEXT_REPOS:return "world-text-v3"
+    if source.startswith("parquet/"):return "parquet-v2"
+    if source=="github/martj42/international_results":return "national-results-v1"
+    return "v1"
+
+UPLOAD_LIMIT=50_000_000
+
+def split_archive(archive, destination, bundle_name, limit=50_000_000):
+    """Independent standard ZIP containers; reconstruct the inner ZIP in order."""
+    chunk_size=limit-65536
+    if chunk_size<=0:raise ValueError("upload cap too small")
+    size=archive.stat().st_size
+    total=(size+chunk_size-1)//chunk_size
+    full_hash=hashfile(archive)
+    files=[]
+    with archive.open("rb") as f:
+        for number in range(1,total+1):
+            payload=f.read(chunk_size)
+            name=f"{bundle_name}_PARTE_{number:03d}_DI_{total:03d}.zip"
+            part=destination/name
+            meta={"format":"SWOS_RESEARCH_SPLIT_V1","bundle":bundle_name+".zip",
+                  "archive_bytes":size,"archive_sha256":full_hash,
+                  "part":number,"parts":total,"payload_bytes":len(payload),
+                  "payload_sha256":hashlib.sha256(payload).hexdigest()}
+            with zipfile.ZipFile(part,"w",zipfile.ZIP_STORED) as z:
+                z.writestr("part.json",json.dumps(meta,sort_keys=True))
+                z.writestr("payload.bin",payload)
+            if part.stat().st_size>limit:raise RuntimeError("upload ZIP exceeds size cap")
+            files.append(name)
+        if f.read(1):raise RuntimeError("archive grew during split")
+    return {"format":"SWOS_RESEARCH_SPLIT_V1","archive_bytes":size,
+            "archive_sha256":full_hash,"parts":files,"max_zip_bytes":limit}
+
+def pack_results(out,outbase):
+    # Never publish a ZIP larger than the upload limit, or mark an incomplete run reusable.
+    temp=outbase/(out.name+".zip.tmp")
+    with zipfile.ZipFile(temp,"w",zipfile.ZIP_DEFLATED,compresslevel=3) as z:
+        for p in sorted(out.iterdir()):
+            if p.is_file() and p.name!="upload_manifest.json":z.write(p,p.name)
+    if temp.stat().st_size<=UPLOAD_LIMIT:
+        archive=outbase/(out.name+".zip")
+        temp.replace(archive)
+        return [archive]
+    destination=outbase/(out.name+"_UPLOAD")
+    pending=outbase/(out.name+"_UPLOAD_INCOMPLETE")
+    pending.mkdir()
+    manifest=split_archive(temp,pending,out.name,UPLOAD_LIMIT)
+    pending.rename(destination)
+    temp.unlink()
+    manifest["upload_dir"]=destination.name
+    marker=out/"upload_manifest.json.tmp"
+    dump(marker,manifest)
+    marker.replace(out/"upload_manifest.json")
+    return [destination/name for name in manifest["parts"]]
+
+def prior_result(outbase):
+    # Previous successful run directory is already retained by the launcher.
+    # Do not open an incomplete run or silently overwrite the previous archive.
+    for p in sorted(outbase.glob("RICERCA_*"),reverse=True):
+        if not p.is_dir() or not (p.with_suffix(".zip").is_file() or (p/"upload_manifest.json").is_file()):continue
+        try:
+            summary=json.loads((p/"summary.json").read_text(encoding="utf-8"))
+            manifest=json.loads((p/"source_manifest.json").read_text(encoding="utf-8"))
+            log=json.loads((p/"source_log.json").read_text(encoding="utf-8"))
+            if summary.get("cutoff")!=CUTOFF or not (p/"evidence.sqlite").is_file():continue
+            if not isinstance(manifest,list) or not isinstance(log,list):continue
+            return p,summary,{x["source"]:x for x in manifest},log
+        except (OSError,ValueError,KeyError,TypeError):continue
+    return None
+
+def reuse_source(co, prior, entry):
+    if not prior:return False
+    p,summary,old_manifest,old_log=prior
+    source=entry["source"];old=old_manifest.get(source)
+    if not old or old.get("sha256")!=entry.get("sha256"):return False
+    old_version=summary.get("source_adapter_versions",{}).get(source,"v1")
+    if old_version!=adapter_version(source):return False
+    logs=[x for x in old_log if x.get("source")==source and x.get("status")!="REUSED_SOURCE"]
+    if not logs or any("ERROR" in x.get("status","") for x in logs):return False
+    expected=int(summary.get("source_counts",{}).get(source,0))
+    inventory_only=source in {"github/footballcsv/footballcsv.github.io","github/withqwerty/open-football","github/schochastics/football-data"}
+    if not expected and not inventory_only:return False
+    attached=False
+    try:
+        co.flush()
+        co.db.execute("ATTACH DATABASE ? AS previous",((p/"evidence.sqlite").resolve().as_uri()+"?mode=ro",))
+        attached=True
+        # Copy only raw observations, never candidate groups or stale native IDs.
+        for table in ("fixture","rule"):
+            cur=[x[1] for x in co.db.execute("PRAGMA main.table_info("+table+")")]
+            oldcols=[x[1] for x in co.db.execute("PRAGMA previous.table_info("+table+")")]
+            if cur!=oldcols:raise ValueError("prior raw schema mismatch: "+table)
+        if co.db.execute("SELECT count(*) FROM previous.fixture WHERE source=?",(source,)).fetchone()[0]!=expected:
+            raise ValueError("prior source count mismatch")
+        if co.db.execute("SELECT count(*) FROM previous.fixture WHERE source=? AND date>=? AND (hg IS NOT NULL OR ag IS NOT NULL)",(source,CUTOFF)).fetchone()[0]:
+            raise ValueError("prior cutoff violation")
+        co.db.execute("INSERT INTO main.fixture SELECT * FROM previous.fixture WHERE source=?",(source,))
+        co.db.execute("INSERT INTO main.rule SELECT * FROM previous.rule WHERE source=?",(source,))
+        co.db.commit()
+        if expected:co.counts[source]+=expected
+        co.log.extend(logs);co.note(source,p.name,"REUSED_SOURCE","same SHA256 and adapter; "+str(expected)+" raw candidates")
+        entry["reuse_from"]=p.name
+        return True
+    except (sqlite3.Error,ValueError,OSError) as exc:
+        co.db.rollback();co.note(source,p.name,"REUSE_FALLBACK",exc);return False
+    finally:
+        if attached:co.db.execute("DETACH DATABASE previous")
+
+def source_family(source):
+    # These two sets were exactly equal in the first run (238858 each).
+    # Even after a future update, the uploaded Matches.txt derives from xgabora;
+    # count the upstream family once, preserve both provenance occurrences.
+    if source.startswith("matches/") or source=="github/xgabora/Club-Football-Match-Data":
+        return "xgabora-match-data"
+    # FootballCSV explicitly describes its data as exports of football.db.
+    # Count the OpenFootball ecosystem conservatively as one family.
+    if source.startswith(("github/openfootball/","github/footballcsv/")):
+        return "openfootball-ecosystem"
+    return source
 
 def selftest():
+    # Split output regression: real standalone ZIPs, strict limit,
+    # numbered metadata, per-part hash and exact round-trip hash.
+    with tempfile.TemporaryDirectory() as td:
+        root=Path(td);archive=root/"inner.zip"
+        with zipfile.ZipFile(archive,"w",zipfile.ZIP_STORED) as z:
+            z.writestr("synthetic.bin",bytes(range(256))*500)
+        manifest=split_archive(archive,root,"synthetic",100000)
+        assert len(manifest["parts"])>1
+        h=hashlib.sha256();size=0
+        for i,name in enumerate(manifest["parts"],1):
+            part=root/name
+            assert part.stat().st_size<=100000
+            with zipfile.ZipFile(part) as z:
+                m=json.loads(z.read("part.json"));b=z.read("payload.bin")
+                assert m["part"]==i and m["parts"]==len(manifest["parts"])
+                assert m["payload_sha256"]==hashlib.sha256(b).hexdigest()
+                assert m["archive_sha256"]==manifest["archive_sha256"]
+                h.update(b);size+=len(b)
+        assert size==archive.stat().st_size and h.hexdigest()==hashfile(archive)
     assert iso("1996-07-01")=="1996-07-01"
     assert iso("31/02/1996")==""
     assert norm("Atlético Madrid")=="atleticomadrid"
@@ -527,6 +851,40 @@ def selftest():
     assert RESULT.fullmatch("Bologna 1 - 0 Lazio [Sep 7]")
     assert path_hints("E0")[:2]==("E0","ENG")
     assert structured({"Div":"I1","Date":"06/09/96","HomeTeam":"A","AwayTeam":"B","FTHG":2,"FTAG":1}, "I1")[2]=="1996/97"
+    # RDS schema regression; exact Date conversion and cutoff, no gender contamination.
+    import numpy as np
+    dates=r_date_constructor(np.ma.array([0,9678,20634,1.5,0],mask=[0,0,0,0,1]),{})
+    assert iso(dates[0])=="1970-01-01" and iso(dates[1])=="1996-07-01"
+    assert iso(dates[2])=="2026-06-30" and not iso(dates[3]) and not iso(dates[4])
+    rawr={"Competition_Name":"Premier League","Gender":"M","Country":"ENG","Season_End_Year":1997,
+          "Date":dates[1],"Home":"A","Away":"B","HomeGoals":2,"AwayGoals":1}
+    rr,why=r_match_row(rawr)
+    assert why=="ACCEPTED" and rr[:5]==("Premier League","ENG","1997","SOURCE_SEASON_END_YEAR","1996-07-01")
+    assert rr[8:10]==(2,1)
+    assert r_match_row(dict(rawr,Gender="F"))[0] is None
+    assert r_match_row(dict(rawr,Date=9678))[0] is None
+    assert r_match_row(dict(rawr,Date="2026-07-01"))[0][8:10]==(None,None)
+    assert r_match_row(dict(rawr,Country="UEFA"))[0][1]=="INTERNATIONAL"
+    assert r_match_row(dict(rawr,Country=""),"INTERNATIONAL")[0][1]=="INTERNATIONAL"
+    assert source_family("matches/Matches.txt")==source_family("github/xgabora/Club-Football-Match-Data")
+    assert source_family("github/openfootball/world")==source_family("github/footballcsv/espana")
+    assert structured({"competition":"UEFA Cup","date":"2001-06-01","home":"A","away":"B","gh":6,"ga":5,"full_time":"P"})[8:10]==(None,None)
+    assert iso("Thu June 11 2026")=="2026-06-11"
+    with tempfile.TemporaryDirectory() as td:
+        base=Path(td);old=base/"old";new=base/"new";old.mkdir();new.mkdir()
+        a=Collector(old)
+        a.world_text("= Algeria | Ligue 1 2024/25\n# Date Thu Sep 19 2024 - Sat May 31 2025 (254d)\n▪ Matchday 1\n Thu Sep 19 2024\n 18:00 A  v B  1-0 (1-0)\n Fri Sep 20\n C  v D  6-5 pen. (1-0, 0-0)\n","github/openfootball/world","test")
+        a.flush()
+        assert a.db.execute("SELECT date,date_basis,hg,ag FROM fixture ORDER BY date").fetchall()==[("2024-09-19","EXPLICIT",1,0),("2024-09-20","INFERRED_FROM_SOURCE_RANGE",None,None)]
+        a.db.close()
+        entry={"source":"github/openfootball/world","sha256":"synthetic"}
+        prior=(old,{"source_counts":{entry["source"]:2},"source_adapter_versions":{entry["source"]:"world-text-v3"}},{entry["source"]:dict(entry)},a.log)
+        b=Collector(new)
+        assert reuse_source(b,prior,entry)
+        assert b.db.execute("SELECT count(*) FROM fixture").fetchone()[0]==2
+        assert not reuse_source(b,prior,dict(entry,sha256="changed"))
+        assert not reuse_source(b,(old,{"source_counts":{entry["source"]:2}},prior[2],a.log),entry)
+        b.db.close()
     # Synthetic integration: separate source occurrences, exact cross-source pair,
     # native UUID suggestion, and no promotion of matrix closure.
     with tempfile.TemporaryDirectory() as td:
@@ -534,11 +892,11 @@ def selftest():
         raw={"Div":"I1","Date":"06/09/96","HomeTeam":"A","AwayTeam":"B","FTHG":2,"FTAG":1}
         for source in ("s1","s2"):co.add(source,"test",structured(raw))
         co.flush()
-        rows={1:{"row":1,"world":"9697","country":"ITA","detail":"div1","id":"test"}}
+        rows={1:{"row":1,"world":"9697","country":"ITA","detail":"div1","id":"test"},2:{"row":2,"world":"9697","country":"ITA","detail":"div9","id":"unmapped"}}
         native={("9697","ITA","a"):[("9697","ITA","A","uuid-a",20,0,0,"test")]}
         result=candidates(co,rows,{},native)
         assert result["fixture_candidates"]==2 and result["cross_source_exact_pairs"]==1
-        assert result["verified_upgrades"]==0 and result["matrix_rows"]==1
+        assert result["verified_upgrades"]==0 and result["matrix_rows"]==2 and result["mapped_matrix_rows"]==1
         co.db.close()
     print("SELFTEST PASS (normalization, cutoff, SQLite candidate integration; not historical certification)")
 
@@ -547,12 +905,15 @@ def main():
     ap.add_argument("--self-test",action="store_true")
     ap.add_argument("--no-download",action="store_true")
     ap.add_argument("--refresh",action="store_true",help="Fetch fresh remote source ZIPs instead of cached ones")
+    ap.add_argument("--full",action="store_true",help="Reparse all local and cached sources; do not reuse prior evidence")
     ap.add_argument("--max-download-mb",type=int,default=150)
     args=ap.parse_args();selftest()
     if args.self_test:return
     import pandas as pd
     sources=ROOT/"sources";cache=HERE/"cache";outbase=HERE/"output"
     for p in (sources,cache,outbase):p.mkdir(parents=True,exist_ok=True)
+    prior=None if args.full else prior_result(outbase)
+    if prior:print("Reusing unchanged sources from",prior[0].name,flush=True)
     stamp=dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
     out=outbase/("RICERCA_"+stamp);out.mkdir()
     co=Collector(out);manifest=[]
@@ -567,7 +928,9 @@ def main():
         for p in chosen:
             source=kind+"/"+str(p.relative_to(sources)).replace("\\","/")
             print("Reading",source,flush=True)
-            manifest.append({"source":source,"bytes":p.stat().st_size,"sha256":hashfile(p)})
+            entry={"source":source,"bytes":p.stat().st_size,"sha256":hashfile(p)};manifest.append(entry)
+            if reuse_source(co,prior,entry):
+                print("Reused",source,flush=True);continue
             try:
                 if p.suffix.lower()==".zip":co.archive(p,source,kind)
                 elif kind=="parquet":
@@ -595,7 +958,9 @@ def main():
                     old=cache/(repo.replace("/","__")+"-"+branch+".zip")
                     if old.exists(): old.unlink()
                 p,status=download(repo,branch,cache,args.max_download_mb*1024*1024)
-                manifest.append({"source":source,"branch":branch,"status":status,"bytes":p.stat().st_size,"sha256":hashfile(p)})
+                entry={"source":source,"branch":branch,"status":status,"bytes":p.stat().st_size,"sha256":hashfile(p)};manifest.append(entry)
+                if reuse_source(co,None if args.refresh else prior,entry):
+                    print("Reused",source,flush=True);continue
                 co.archive(p,source,"github");co.flush()
             except Exception as exc:co.note(source,branch,"DOWNLOAD_OR_PARSE_ERROR",exc)
     else:co.note("github","","DISABLED_BY_ARGUMENT")
@@ -607,18 +972,21 @@ def main():
     if co.db.execute("SELECT count(*) FROM fixture WHERE date>=? AND (hg IS NOT NULL OR ag IS NOT NULL)",(CUTOFF,)).fetchone()[0]:
         raise RuntimeError("cutoff score leakage")
     summary["source_counts"]=dict(co.counts);summary["cutoff"]=CUTOFF
+    summary["source_adapter_versions"]={x["source"]:adapter_version(x["source"]) for x in manifest}
+    summary["reused_sources"]=[x["source"] for x in manifest if x.get("reuse_from")]
+    summary["cross_source_policy"]="Matches.txt/xgabora and OpenFootball/FootballCSV each grouped conservatively; different source families are not necessarily independent."
     summary["research_index_sha256"]=hashfile(ROOT/"docs/competition_research/INDEX.json")
     summary["collector_sha256"]=hashfile(Path(__file__))
     summary["source_errors"]=sum("ERROR" in x["status"] for x in co.log)
     summary["missing_local_sources"]=sum(x["status"]=="MISSING_LOCAL_SOURCE" for x in co.log)
+    summary["rds_no_candidate_files"]=sum(x["status"]=="NO_RDS_CANDIDATES" for x in co.log)
+    summary["rds_conversion_warning_files"]=sum(x["status"]=="RDS_CONVERSION_WARNINGS" for x in co.log)
     dump(out/"summary.json",summary);dump(out/"source_manifest.json",manifest);dump(out/"source_log.json",co.log)
     co.db.close()
-    archive=outbase/(out.name+".zip")
-    with zipfile.ZipFile(archive,"w",zipfile.ZIP_DEFLATED,compresslevel=3) as z:
-        for p in sorted(out.iterdir()):
-            if p.is_file():z.write(p,p.name)
+    archives=pack_results(out,outbase)
     print(json.dumps(summary,ensure_ascii=False,indent=2),flush=True)
-    print("RESULT ZIP:",archive,flush=True)
+    print("UPLOAD ALL",len(archives),"ZIP(S), EACH <= 50 MB",flush=True)
+    for archive in archives:print("RESULT ZIP:",archive,flush=True)
 
 if __name__=="__main__":
     try:

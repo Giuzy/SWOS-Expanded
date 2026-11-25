@@ -1,0 +1,133 @@
+{
+  "block": 156,
+  "head": "e7d9f259780b7812dc0c6b79519095af2f74428d",
+  "status": "PARTIAL_HISTORICAL_RULE_EVIDENCE",
+  "row": 395,
+  "previous": "closure/POR_LEAGUE_CUP_155.json",
+  "sourcePriority": {
+    "corpus": "Rechecked all 19 seasonal sections and rule mentions; match/archive observations alone cannot establish exact group rule.",
+    "providedStructuredArchives": "Six project attachments now visible, structured results do not establish historical age calculation or legal tie procedure. User running batch importer; no new results ZIP yet.",
+    "web": "Only for precise missing regulation text."
+  },
+  "verifiedVersions": [
+    {
+      "edition": "2012/13",
+      "source": "https://sjogadores.pt/uploads/documentos/20130103104759_regulamentodascompeticoesorganizadaspelalpfp.pdf",
+      "document": "LPFP consolidated regulation with amendments through 28 June 2012",
+      "pages": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "article": "Annex III articles 3, 6, 7",
+      "format": {
+        "firstStage": "All tier-2 first teams excluding B teams; four groups, each top two advances; variable allocation according to 12–22 eligible clubs (22-club table appears to contain a repeated E4, not repaired).",
+        "secondStage": "8 qualifiers + previous top-flight positions 9–14 + two promoted clubs; eight two-leg ties, prior-stage qualifiers home first.",
+        "thirdStage": "8 winners plus previous top-flight positions 1–8; four groups of four, single round robin, group winners advance.",
+        "semifinals": [
+          [
+            "B",
+            "D"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "final": "Neutral venue, nominal host drawn."
+      },
+      "tieBreak": {
+        "group": [
+          "points",
+          "goal_difference_all_phase_matches",
+          "goals_for_all_phase_matches",
+          "lowest_mean_completed_age_used_player_appearances"
+        ],
+        "twoLeg": "Equal aggregate goals directly to penalties; no away-goal criterion in art7.3.",
+        "semifinalFinal": "Direct penalties after 90 minutes.",
+        "age": "Sum full-year ages of players actually used per match, divide by sum of player appearances across phase. Repeat appearances counted again; not whole squad or minutes-weighted. No further equal-age fallback specified in extracted provision."
+      },
+      "evidence": "V text, PDF screenshot requested but cache miss."
+    },
+    {
+      "edition": "2015/16",
+      "source": "https://sjogadores.pt/uploads/documentos/20151110120737regulamentocompeticoes20152016pdf.pdf",
+      "document": "LPFP 2015/16 consolidated competition regulation",
+      "pages": [
+        72,
+        73
+      ],
+      "article": "Annex III arts7–11",
+      "format": {
+        "firstStage": "Tier-2 first teams, pure draw, odd entrant bye.",
+        "secondStage": "Prior stage qualifiers + previous tier-1 ranks 5–16 + two promoted teams; pure draw, odd entrant bye.",
+        "thirdStage": "12 qualifiers + previous tier-1 ranks 1–4; four seeded pots, four groups of four, single round robin; winners advance.",
+        "semifinals": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ],
+        "final": "Neutral or neutralized venue; SF1 winner nominal home."
+      },
+      "tieBreak": {
+        "group": [
+          "points",
+          "goal_difference_all_group_matches",
+          "goals_for_all_group_matches",
+          "lowest_mean_completed_age_used_player_appearances"
+        ],
+        "knockout": "Direct penalties following 90-minute draw.",
+        "age": "Same sum of full years / total used-player appearances."
+      },
+      "evidence": "V text, PDF screenshot cache miss."
+    }
+  ],
+  "additionalEvidence": [
+    {
+      "edition": "2009/10",
+      "source": "https://briosa.blogspot.com/2009/12/sai-outro-remendo.html",
+      "date": "2009-12-31",
+      "status": "CONTEMPORARY_SECONDARY_SNIPPET",
+      "finding": "Reports revised art7.3 published after appeal at end of December 2009, age calculation per match then weighted by total appearances. Original Liga notice unavailable; do not certify exact effective day."
+    },
+    {
+      "edition": "2018/19",
+      "source": "https://pt.wikipedia.org/wiki/Ta%C3%A7a_da_Liga_de_2018%E2%80%9319",
+      "status": "SECONDARY",
+      "finding": "Same group tie order reported."
+    },
+    {
+      "edition": "2021/22",
+      "source": "https://pt.wikipedia.org/wiki/Ta%C3%A7a_da_Liga_de_2021%E2%80%9322",
+      "status": "SECONDARY",
+      "finding": "Same goal difference, goals scored, low average age; direct penalties; linked official document actually labelled 2019/20 and inaccessible, so not a third verified original."
+    },
+    {
+      "edition": "2022/23",
+      "source": "https://pt.wikipedia.org/wiki/Ta%C3%A7a_da_Liga_de_2022%E2%80%9323",
+      "status": "SECONDARY",
+      "finding": "Same age criterion reported; format eight groups six of four and two of five (https://futebol.pt/recordes/taca-da-liga/). Exact original regulation unverified."
+    },
+    {
+      "edition": "2023/24",
+      "source": "https://www.rtp.pt/noticias/futebol-nacional/benfica-e-sporting-a-um-empate-das-meias-da-taca-da-liga_d1538159",
+      "status": "CONTEMPORARY_REPORT",
+      "finding": "Goal difference then goals scored then lowest mean age confirmed; https://www.flashscore.pt/noticias/futebol-taca-da-liga-sorteio-da-taca-da-liga-o-formato-para-2023-24/27YWFnTk/ corroborates."
+    }
+  ],
+  "remaining": "Original rules for all intermediate editions, full equality fallback, exact activation boundary of removal of away goals, complete seeding/entry chronology. No extrapolation between versions. Evolution remains PARTIAL; no new complete field.",
+  "runtime": "No changes. Future age tie reader requires actual player appearances and full-year age at match; no independent result authority.",
+  "tests": {
+    "structure": "ST verify two source versions with distinct semifinal pairings and no unsupported closure",
+    "windowsImporter": "User screenshot shows dependency installation success and SELFTEST PASS, corpus reading started. Full archive run not yet verified.",
+    "gameplay": "NOT_PROVEN"
+  }
+}

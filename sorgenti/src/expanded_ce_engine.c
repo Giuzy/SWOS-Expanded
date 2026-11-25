@@ -104,6 +104,16 @@ static uint64_t def_hash(const ExpCeDef *d)
         for(i=0;i<8u;++i){h^=b[i];h*=UINT64_C(1099511628211);}
         for(i=0;i<8u;++i){h^=(uint8_t)(r>>(8u*i));h*=UINT64_C(1099511628211);}
         for(i=0;i<4u;++i){h^=(uint8_t)(ph->host_nonmember_comp>>(8u*i));h*=UINT64_C(1099511628211);}
+        if(ph->extras.rounds || ph->extras.nrivalries) {
+            uint32_t k,j,z;
+            h^=ph->extras.rounds;h*=UINT64_C(1099511628211);
+            h^=ph->extras.nrivalries;h*=UINT64_C(1099511628211);
+            for(k=0u;k<ph->extras.nrivalries&&k<EXP_PAIR_MAX_RIVALRIES;++k)
+                for(j=0u;j<2u;++j)for(z=0u;z<4u;++z) {
+                    h^=(uint8_t)(ph->extras.rivalries[k][j]>>(8u*z));
+                    h*=UINT64_C(1099511628211);
+                }
+        }
     }
     return h;
 }
@@ -128,6 +138,11 @@ static int def_check(ExpCeDef *d)
             if(!ExpCeRules_ValidateTable(&ph->table,&err)) {
                 snprintf(d->missing,sizeof d->missing,"phase %u %.24s: %.48s",
                          (unsigned)p,err.field,err.reason);return 0;
+            }
+            if((ph->extras.rounds||ph->extras.nrivalries) &&
+               (ph->groups!=1u || !ExpPair_ValidExtras(d->clubs,ph->meetings,&ph->extras))) {
+                snprintf(d->missing,sizeof d->missing,"phase %u: extra round policy invalid",(unsigned)p);
+                return 0;
             }
             if(!ph->groups || ph->groups>EXP_CE_MAX_GROUPS || !ph->meetings ||
                ph->meetings>4u || ph->match.needs_winner) {
@@ -718,7 +733,7 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
         int32_t days[2048];
         if(!form_groups(d,e,phase,ent,n,groups,size,why,whylen))return 0;
         for(gi=0;gi<ph->groups;++gi) {
-            const uint32_t rr=((size[gi]&1u)?size[gi]:size[gi]-1u)*ph->meetings;
+            const uint32_t rr=((size[gi]&1u)?size[gi]:size[gi]-1u)*ph->meetings+ph->extras.rounds;
             if(rr>rounds)rounds=rr;
         }
         if(!rounds || rounds>2048u ||
@@ -734,8 +749,14 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             c.g=&g;c.d=d;c.e=e;c.clubs=groups[gi];c.n=size[gi];
             c.rounds_per_cycle=(size[gi]&1u)?size[gi]:size[gi]-1u;
             c.group=gi+1u;c.phase=phase;c.days=days;
-            if(!ExpandedUniversal_GenerateRoundRobin(size[gi],ph->meetings,
-                                                    rr_emit,&c)) {
+            uint32_t keys[EXP_PAIR_MAX_CLUBS],j;
+            if(ph->extras.rounds) {
+                if(size[gi]>EXP_PAIR_MAX_CLUBS)goto done;
+                for(j=0u;j<size[gi];++j)keys[j]=groups[gi][j].stable_club;
+            }
+            if(!ExpandedUniversal_GenerateLeague(size[gi],ph->meetings,
+                 ph->extras.rounds?keys:NULL,&ph->extras,
+                 ExpPair_Seed(d->id,e->key.start_day),rr_emit,&c)) {
                 snprintf(why,whylen,"phase %u: round robin failed",(unsigned)phase);
                 *block=EXP_CE_BLOCK_CAPACITY;goto done;
             }
@@ -1088,6 +1109,54 @@ static uint32_t league_chain_prefix(const ExpCeDef *d0)
     }
     return len>=2u?len:0u;
 }
+/* Distinct calendar windows and no sporting links: these are independent
+ * divisions sharing a native catalogue record, not one promotion chain.
+ * Preserve the existing family path whenever a movement/link is declared. */
+static int league_family_independent(const ExpCeDef *d)
+{
+    const ExpCeDef *first=NULL;
+    uint32_t i;
+    int different=0;
+    if(!d || d->origin!=EXP_CE_ORIGIN_LEAGUE || d->divisions<2u ||
+       d->divisions>16u)return 0;
+    for(i=0u;i<d->divisions;++i) {
+        const ExpCeDef *x=def_find(ExpCe_LeagueCompetitionId(d->country,d->comp_id,(uint8_t)i));
+        const ExpCeWindow *w,*f;
+        if(!x || x->divisions!=d->divisions || x->promoted || x->relegated ||
+           x->missing[0] || !x->phases[0].has_window)return 0;
+        if(!first){first=x;continue;}
+        w=&x->phases[0].window;f=&first->phases[0].window;
+        if(w->first_m!=f->first_m || w->first_d!=f->first_d ||
+           w->last_m!=f->last_m || w->last_d!=f->last_d ||
+           w->last_year_offset!=f->last_year_offset)different=1;
+    }
+    return different;
+}
+static int league_independent_rollover(ExpandedUniversalRegistry *r,
+    const ExpCeHost *host,const ExpCeDef *d,ExpCeEdition *e)
+{
+    const uint32_t idx=(uint32_t)(e-s_ce.eds);
+    const uint16_t year=(uint16_t)(e->year+1u);
+    ExpCeEdition *n;
+    int32_t start=0;
+    uint32_t i;
+    if(e->successor || e->block || e->year==65535u ||
+       e->nentrants!=d->clubs || e->nentrants>EXP_CE_MAX_ENTRANTS)return 0;
+    for(i=0u;i<s_ce.neds;++i)
+        if(s_ce.eds[i].def_id==d->id && s_ce.eds[i].year==year)return 0;
+    if(!edition_start_day(d,year,&start) || !(n=ed_new(d,year,start)))return 0;
+    e=&s_ce.eds[idx]; /* ed_new may reallocate */
+    e->successor=1u;
+    n->nentrants=e->nentrants;
+    for(i=0u;i<e->nentrants;++i)
+        n->entrants[i]=(ExpCeEntrant){e->entrants[i].club,
+            EXP_CE_SRC_KEPT_NO_MOVEMENT,0u,0u,(uint8_t)(i+1u),0u,
+            d->id,e->key.start_day};
+    n->state=EXP_CE_ED_PARTICIPANTS;
+    ed_log("EDITION_PARTICIPANTS",n,"independent calendar: same clubs, no movement");
+    (void)r;(void)host;
+    return 1;
+}
 /* League family rollover: all divisions of (country, comp_id) completed.
  * 1 created successors, 0 wait, -1 blocked. */
 static int league_family_rollover(ExpandedUniversalRegistry *r,
@@ -1219,7 +1288,8 @@ static int league_family_defer(const ExpCeDef *d,uint16_t year,int32_t today)
         ExpCeEdition *o=&s_ce.eds[i];
         const ExpCeDef *od=def_find(o->def_id);
         if(!od || od->origin!=EXP_CE_ORIGIN_LEAGUE || od->country!=d->country ||
-           od->comp_id!=d->comp_id)continue;
+           od->comp_id!=d->comp_id ||
+           (league_family_independent(d) && od->id!=d->id))continue;
         if(o->year==(uint16_t)(year+1u))return 0;      /* successor exists */
         if(o->year!=year)continue;
         if(o->state!=EXP_CE_ED_PARTICIPANTS || o->block || n>=256u)return 0;
@@ -1346,7 +1416,9 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                     if(d->origin==EXP_CE_ORIGIN_LEAGUE) {
                         const ExpCeDef *d0=def_find(ExpCe_LeagueCompetitionId(
                             d->country,d->comp_id,0u));
-                        if(d0 && league_family_rollover(r,host,d0)!=0)++moved;
+                        if(league_family_independent(d)) {
+                            if(league_independent_rollover(r,host,d,e))++moved;
+                        } else if(d0 && league_family_rollover(r,host,d0)!=0)++moved;
                     } else {
                         int32_t start=0;
                         ExpCeEdition *n;
@@ -1485,7 +1557,7 @@ int ExpCe_BeginWorld(ExpandedUniversalRegistry *r,const ExpCeHost *host,
                  * past_at_start): a round robin with fewer matches than
                  * n(n-1)/2 x meetings is a PARTIAL first edition */
                 uint32_t have=0u;
-                const uint32_t n=d->clubs,expect=n*(n-1u)/2u*d->phases[0].meetings;
+                const uint32_t n=d->clubs,expect=n*(n-1u)/2u*d->phases[0].meetings+n*d->phases[0].extras.rounds/2u;
                 for(k=0;k<r->fixture_count;++k)
                     if(ExpandedEditionKey_Equal(r->fixtures[k].key.edition,e->key))++have;
                 if(have<expect) {
@@ -1782,6 +1854,17 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
              * of its participants (competitions with no OG slot) */
             int vb=0;
             if(mjson_get_bool(c,vl,"$.viewer_button",&vb)>0)d->viewer_button=(uint8_t)(vb!=0);
+            if(mjson_find(c,vl,"$.viewer_native_comp_id",&o,&ol)!=MJSON_TOK_INVALID) {
+                double native_id=0;
+                if(mjson_get_number(c,vl,"$.viewer_native_comp_id",&native_id)>0 &&
+                   native_id>=0.0 && native_id<=255.0 &&
+                   native_id==(double)(unsigned)native_id)
+                    d->viewer_native_id_plus_one=(uint16_t)((unsigned)native_id+1u);
+                else {
+                    d->viewer_button=0u;
+                    fprintf(stderr,"[ce-viewer] invalid native menu alias def=%u\n",(unsigned)d->id);
+                }
+            }
         }
         if(mjson_get_number(c,vl,"$.type",&v)>0 && v>=0 && v<=2)d->type=(uint8_t)v;
         else if(!d->missing[0])snprintf(d->missing,sizeof d->missing,"type 0..2");

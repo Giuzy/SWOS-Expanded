@@ -105,10 +105,12 @@ typedef struct ExpCeWindow {
     uint8_t breaks[EXP_CE_MAX_BREAKS][4]; /* from_m, from_d, to_m, to_d */
 } ExpCeWindow;
 
+#include "expanded_universal_pairings.h"
 typedef struct ExpCePhaseDef {
     uint8_t kind;                 /* ExpCePhaseKind */
     uint8_t groups;               /* TABLE: number of groups (>=1) */
     uint8_t meetings;             /* TABLE: round robin meetings 1..4 */
+    ExpPairExtras extras;
     uint8_t qualify;              /* TABLE: qualifiers per group to next */
     uint8_t pairing;              /* ExpCePairing (KO or group formation) */
     uint8_t byes;                 /* KO: best seeds skip this phase */
@@ -159,7 +161,8 @@ typedef struct ExpCeDef {
     uint32_t id;                  /* stable competition id (CE key) */
     uint16_t world;
     uint8_t country, type, origin;
-    uint8_t viewer_button;        /* v305: own button in WORLD/VIEW COMPETITIONS */
+    uint8_t viewer_button;        /* CE button in WORLD/VIEW COMPETITIONS */
+    uint16_t viewer_native_id_plus_one; /* optional original menu alias, not a sporting ID */
     char name[40];
     /* league family link (origin LEAGUE) */
     uint8_t comp_id, division, divisions, promoted, relegated;

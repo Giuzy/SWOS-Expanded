@@ -6010,6 +6010,17 @@
         "approvalDate": "2026-11-25",
         "approval": "confermati,completa?",
         "scope": "User-approved game rules close operative gaps; source status P for regulation and qualification is retained. Not independently certified official weights or domestic allocation contingencies."
+      },
+      "drawPoolEvidence20261125": {
+        "date": "2026-11-25",
+        "status": "P_CRITERIA_WITNESSED_NOT_EXACT_ALGORITHM",
+        "sources": [
+          "https://aleagues.com.au/news/smithies-explains-how-a-league-draw-created/",
+          "https://aleagues.com.au/news/a-league-2025-26-fixtures-reaction-breakdown-everything-you-need-to-know-tv-schedule-talking-points/",
+          "https://aleagues.com.au/news/aleague-men-2026-27-fixture-guide-season-sydney-derby-fixture-information/"
+        ],
+        "scope": "2020 official description of hybrid 132+24 schedule with software Got Soccer, club/broadcaster preferences, venue/travel/rest; 2025/26 confirms four extras 2H/2A; 2026/27 six rivalries have three meetings: Sydney–WSW, Melbourne City–Victory, Auckland–Wellington, Central Coast–Newcastle, Adelaide–Victory, Sydney–Victory. Not a universal obligation or exact pairing formula.",
+        "proposal": "Generic constrained random draw, data-defined rivalry preferences (soft unless explicit rule), 4 distinct extra opponents, 2H/2A, 24 extra games, 156 regular; rotate advantage in later editions if approved. No actual future pairs or scores hardcoded. Pending user approval."
       }
     }
   },
@@ -8169,6 +8180,17 @@
         "applicableOperationalFields": 11,
         "historyComplete": false,
         "scope": "User approved data sufficiency; remaining P not official certification, runtime not integrated."
+      },
+      "drawPoolEvidence20261125": {
+        "date": "2026-11-25",
+        "status": "P_POOL_POLICY_PENDING",
+        "sources": [
+          "https://footballnsw.com.au/2026/06/15/round-19-review-league-one-mens-5/",
+          "https://footballnsw.com.au/2026/06/29/round-21-review-league-one-mens-5/",
+          "https://footballnsw.com.au/2026/09/12/st-george-fc-rally-from-behind-to-secure-npl-mens-nsw-survival/"
+        ],
+        "scope": "June official lower-tier evidence: Blacktown Spartans and Northern Tigers candidates, no future rank import. 1 direct plus possible second via two-leg promotion/relegation playoff (2026 witness survived; future outcome not imported).",
+        "proposal": "Two pool candidates needed if retaining playoff, one direct entrant and one playoff challenger, 1 or 2 exchanges depending on CE result. Selection/roles and licenses pending; no auto double relegation."
       }
     }
   },
@@ -12398,6 +12420,15 @@
         "historyComplete": false,
         "approvalDate": "2026-11-25",
         "scope": "Research operational closure only. Qualification P accepted by user as provisional common game rule; historical evolution P; no official certification or runtime tests."
+      },
+      "drawPoolEvidence20261125": {
+        "date": "2026-11-25",
+        "status": "P_POOL_POLICY_PENDING",
+        "sources": [
+          "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released"
+        ],
+        "scope": "2026 VPL1 pre-season witness Melbourne Knights, Port Melbourne, Brunswick Juventus all real lower-tier participants. Existing template 3 down, 2 direct + 1 lower-tier playoff winner; three-club pool is simplified representation, not genuine VPL1 playoffs.",
+        "proposal": "3 real club candidates, IDs and eligibility to reconcile. No future promotions imported; approval of simplification needed."
       }
     }
   },
@@ -14012,6 +14043,16 @@
         "applicableOperationalFields": 11,
         "historyComplete": false,
         "scope": "Research data only; qualification P approved by user; runtime not tested"
+      },
+      "drawPoolEvidence20261125": {
+        "date": "2026-11-25",
+        "status": "P_POOL_POLICY_PENDING",
+        "sources": [
+          "https://footballqueensland.com.au/wp-content/uploads/2026/02/FQ-Kit-Register-2026-NPL-FQPL1-FQPL2-Men.pdf",
+          "https://footballqueensland.com.au/fqpl/"
+        ],
+        "scope": "2026 FQPL1 men's official kit register names Brisbane Strikers and Broadbeach United in correct section; text read, screenshot page1 cache miss. 2 up/2 down already researched; names candidates only, not future promotion prediction.",
+        "proposal": "Two candidate real clubs for minimal pool. ID/roster/eligibility verification and user approval pending."
       }
     }
   }

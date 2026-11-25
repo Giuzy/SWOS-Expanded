@@ -3514,18 +3514,29 @@ loc_E2D0:
          * the OG list still has a free row (10 maximum). */
         extern uint32_t ExpCeViewer_WorldButtons(uint8_t,uint32_t *,char (*)[40],uint32_t);
         extern const void *ExpCeViewer_ButtonRecord(uint32_t);
+        extern int ExpCeViewer_MatchesNative(uint32_t,uint8_t,const void *);
         static char ceBtnName[4][40];
         uint32_t ceIds[4],ceN,k;
         if(_chooseCompetitionOnly && _gameType==GAME_TYPE_CAREER &&
            s_groupLevel<0 && d7<80u && _isCountryNumber==0 &&
            (ceN=ExpCeViewer_WorldButtons((uint8_t)d7,ceIds,ceBtnName,4u))>0u) {
-            for(k=0u;k<ceN && d1<10;++k) {
+            for(k=0u;k<ceN;++k) {
+                uint32_t j;
                 const void *rec=ExpCeViewer_ButtonRecord(ceIds[k]);
                 if(!rec)break;
-                *teamNamesPtr++=(void *)ceBtnName[k];
-                *leaguesPtrOut++=(void *)rec;
-                *leagueNumsOut++=0xFFFF;
-                d1++;
+                /* Same row, same layout; never display the same cup twice. */
+                for(j=0u;j<(uint32_t)d1;++j)
+                    if(ExpCeViewer_MatchesNative(ceIds[k],(uint8_t)d7,_leaguesPtrTable[j]))break;
+                if(j<(uint32_t)d1) {
+                    _teamNames[j]=(void *)ceBtnName[k];
+                    _leaguesPtrTable[j]=(void *)rec;
+                    _leagueNumbersTable[j]=0xFFFF;
+                } else if(d1<10) {
+                    *teamNamesPtr++=(void *)ceBtnName[k];
+                    *leaguesPtrOut++=(void *)rec;
+                    *leagueNumsOut++=0xFFFF;
+                    d1++;
+                }
             }
         }
     }

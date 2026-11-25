@@ -148,6 +148,9 @@ static int json_load_calendar(void)
         const char *breaks=NULL;
         int brk_len=0,boff=0,bk,bl,bv,blen,bt;
         long country=0,comp=0,offset=0,rest=0;
+        int division=-1,div_len=0;
+        const char *div_token=NULL;
+        double div_number=0;
         char text[32];
         ExpandedUniversalJsonLeague cal;
         uint32_t i,hit=0u;
@@ -167,6 +170,14 @@ static int json_load_calendar(void)
            !ExpandedUniversalJsonLeagues_ParseWeekdays(
                text,&cal.match_weekdays) || !cal.match_weekdays)
             goto failure;
+        /* Optional zero-based division selector. A legacy family row still
+         * applies to every division; mixing overlapping rows is rejected. */
+        if(mjson_find(entry,vl,"$.division",&div_token,&div_len)!=MJSON_TOK_INVALID) {
+            if(mjson_get_number(entry,vl,"$.division",&div_number)<=0 ||
+               !(div_number>=0.0 && div_number<=15.0) ||
+               div_number!=(double)(int)div_number)goto failure;
+            division=(int)div_number;
+        }
         if(mjson_get_string(entry,vl,"$.extra_weekdays",text,sizeof text)<0 ||
            !ExpandedUniversalJsonLeagues_ParseWeekdays(
                text,&cal.extra_weekdays))
@@ -186,13 +197,40 @@ static int json_load_calendar(void)
                    text,&b->to_month,&b->to_day))goto failure;
         }
         if(boff<0)goto failure;
+        {
+            const char *ra=NULL;int rl=0,ro=0,rk,rkl,rv,rvl,rt,token;
+            long extra=0;
+            token=mjson_find(entry,vl,"$.extra_rounds",&ra,&rl);
+            if(token!=MJSON_TOK_INVALID) {
+                if(!json_long(entry,vl,"$.extra_rounds",0,127,&extra))goto failure;
+                cal.extras.rounds=(uint8_t)extra;
+            }
+            token=mjson_find(entry,vl,"$.rivalries",&ra,&rl);
+            if(token!=MJSON_TOK_INVALID) {
+                if(token!=MJSON_TOK_ARRAY)goto failure;
+                while((ro=mjson_next(ra,rl,ro,&rk,&rkl,&rv,&rvl,&rt))>0) {
+                    long a,b;uint32_t k=cal.extras.nrivalries;
+                    if(rt!=MJSON_TOK_OBJECT || k>=EXP_PAIR_MAX_RIVALRIES ||
+                       !json_long(ra+rv,rvl,"$.a",1,16777215,&a) ||
+                       !json_long(ra+rv,rvl,"$.b",1,16777215,&b))goto failure;
+                    cal.extras.rivalries[k][0]=(uint32_t)a;
+                    cal.extras.rivalries[k][1]=(uint32_t)b;
+                    ++cal.extras.nrivalries;
+                }
+                if(ro<0)goto failure;
+            }
+            if((cal.extras.rounds||cal.extras.nrivalries)&&division<0)goto failure;
+        }
         cal.last_year_offset=(uint8_t)offset;
         cal.min_rest_days=(uint8_t)rest;
         for(i=0;i<s_json.count;++i) {
             ExpandedUniversalJsonLeague *r=&s_json.rows[i];
-            if(r->country!=(uint8_t)country || r->comp_id!=(uint8_t)comp)
+            if(r->country!=(uint8_t)country || r->comp_id!=(uint8_t)comp ||
+               (division>=0 && r->division!=(uint8_t)division))
                 continue;
             if(r->has_calendar)goto failure; /* duplicate calendar row */
+            if(!ExpPair_ValidExtras(r->declared_clubs,r->meetings,&cal.extras))goto failure;
+            r->extras=cal.extras;
             r->has_calendar=1u;
             r->first_month=cal.first_month;r->first_day=cal.first_day;
             r->last_month=cal.last_month;r->last_day=cal.last_day;

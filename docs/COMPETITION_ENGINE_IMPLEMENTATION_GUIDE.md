@@ -1,3 +1,24 @@
+## 25/11/2026 — RG-CE-AUS-HYBRID-306: test kernel isolato
+
+Kernel C11 esatto SHA 24aee015831aa05cb5ca08b020f5bd6d3452aeba, GCC -Wall -Wextra -Werror -O2 locale: 1000 seed, 156 fixture, 13H13A, 4 extra distinti, 6 rivalità, un incontro per club/round, ID cycle/serial unici, riproducibilità identica e negativo ID zero: PASS (solo kernel). Loader/CE integrato, test C repo completo, build Windows, gameplay e CAR NP.
+
+## 25/11/2026 — 306: hybrid round robin generico
+
+RG-CE-AUS-HYBRID-306: league_calendar.json extra_rounds/rivalries, stesso kernel START e generate_phase rinnovo, 22+4 A-League, 26 round equivalenti e 156 gare, 13H13A, sei derby tripli. Seed CE da edizione; fixture persistite, hash cambiato solo per definizioni con extras. Split matchweeks/finali, pool/panchine pendenti; test C/Windows/GP/CAR NP.
+
+## 25/11/2026 — 306: test mirato attesa qualificazioni Australia Cup
+
+RG-CE-305-AUS-VIEW-QUALIFICATION addendum test: witness A-League ottobre, 22 turni sintetici e due pause, MOCK OG; Australia Cup 2027 deve attendere il completamento della classifica, al 30/01 CREATED senza block/entranti/fixture. Assert rinnovo 32/31 e provenance preesistenti. C test NP (DNS container), nessuna nuova modifica runtime. Regolamenti per competizione/fase JSON; match rules da passare a OG, panchina/sostituzioni autentiche da implementare. Percorso UI sorgenti/docs/FONTS.md verificato.
+
+## 25/11/2026 — Accesso universale a tutte le fasi sportive (design approvato)
+
+GAME_DESIGN.md «Tutte le fasi sportive visibili e rivalità autentiche»; RG-CE-PHASE-VISIBILITY. Esporre qualificazioni/preliminari, playoff/playout e spareggi attraverso la stessa definizione/edizione CE nei viewer VIEW WORLD/DEBUG WORLD, VIEW COMPETITIONS e offerte. Accesso dedicato dalla pagina competizione (QUALIFICATION o nome pertinente, layout/nome definitivi da concordare). Calendario manager: mostrare tutte le fixture CE del club incluse fasi condizionali una volta risolte; eventuali informazioni di fase prima della risoluzione chiaramente distinte dalle fixture, niente avversari inventati. Riutilizzare ExpCeViewer_OpenDefinition, WorldButtons/ClubButtons e ViewCompetitionsOnReturn; proiezioni readonly, no scrittura/RNG/avanzamento da UI; preservare identità fase/fixture, ledger, CAR e stop manager. Rivalità: seguire frequenze reali per edizione (row207 sei coppie a tre gare), non uniformità forzata per club; formula esatta APL ignota. Mantiene 22+4, 2H2A extra e 13H13A. Nessun cambio runtime o UI, test pendenti.
+
+## 25/11/2026 — Rettifica approvata pool / A-League / playoff (design)
+
+Vedi GAME_DESIGN.md «Pool di fondo piramide, rivalità equilibrate e spareggi OG» e RG-CE-AUS-DRAW-POOL addendum utente 22:02. Implementazione futura generica: membership e movimenti solo CE, pool solo alla base della catena, scambi fra divisioni giocabili, candidato reale casuale e rose TEST zero in unico file nuovo; non usare test_clubs.json per trasformare questi club reali in sconfitte amministrative. Pairing 22+4 con identico numero di rivalità per club e 13H/13A; cat_make_league e generate_phase devono concordare con planner e ledger; verificare fattibilità, RNG persistito. Spareggio NSW due gare OG, risultato CE vincolante prima del rollover; preservare club non scambiato, no doppia retrocessione automatica. Distinguere rami regionali da divisioni numeriche contigue, A-League chiusa. Nessuna variazione del codice o dello schema, nessun test eseguito.
+
+
 ## 25/11/2026 — Priorità ricerca aggiornata
 
 Applicare GAME_DESIGN.md «Priorità storico 9697 e dati edizioni 2027»: retrospettiva dal 1996 differita per mondo 9697; 2627 chiusura operativa senza retrospettiva, conservare anche riferimenti 2027 già pubblicati e verificati, separati da template e stato iniziale. Non forzare futuri esiti/qualificazioni, non perdere evidenze. Vedi RG-CE-ROUND-TEMPLATE 25/11/2026. Nessun cambiamento runtime.
@@ -1215,3 +1236,27 @@ Specifiche canoniche: GAME_DESIGN.md, sezione omonima (utente 21:25 CET). NON im
 - Livello leghe: esaminare Fame/offerte/contratti; reputazione distinta da divisione e ranking. Proposta, soglie non decise.
 
 RG-CE-NEXT-DESIGN-20261125, RG-012/014/016/019/021, RG-FASE2-CE-UNIVERSAL; RG-T04/05/10/14/16/19/20 più test specifici. Preservare CLASSIC/DIY/SEASON, 9697 e CAR legacy. Nessuna modifica UI oltre richiesta approvata.
+
+
+## 25/11/2026 — v305, verifica Windows della provenienza dati (NON FIX)
+
+Vedi RG-CE-305-AUS-VIEW-QUALIFICATION per log, cause, SHA, test e dipendenze. CE usa nuovi JSON runtime (134 leghe + 4 definizioni esplicite); Australia Cup 2026 31/31 e Supercoppa completate; viewer Supercoppa CE, Australia Cup manca flag viewer_button. Australia Cup 2027 bloccata da A-League partial: finestra condivisa 03-01/11-03, 66/132 fixture prima edizione; latest_closed rifiuta partial. Non aggirare qualifiche. Calendario separato per divisione e formato A-League 22+4/finali, regolamenti Serie A/B e NPL, panchine lunghe restano da integrare. Dati ricerca non automaticamente runtime. Preservare CAR e UI OG; next test vista Australia, rinnovo, CONTINUE anti-replay. GP parziale, build exit0, audit incompleto.
+
+
+## 25/11/2026 — v00.13.306 PREPARATO: finestre divisioni e Australia Cup viewer
+
+Vedi RG-CE-306-DIVISION-WINDOWS-AUS-VIEW per cause, dipendenze, file, limiti e test. league_calendar.json ora supporta division zero-based: 107 righe/134 divisioni, finestre regolari da schede ricerca Serie A 186, AUS 207–210 e pause Serie A/A-League; planner comune. Rinnovo indipendente solo quando tutte le divisioni della famiglia sono senza movimenti dichiarati e con finestre diverse. Catene esistenti invariate. A-League parte ottobre, non marzo, nessuna simulazione del passato; qualificazione coppa attende risultato completo. Australia Cup viewer usa flag e alias originale 157: riuso riga nativa o slot libero, solo lettura CE; nessun secondo torneo. NON certificare integrazione completa: A-League 22+4/finali, tutte NPL snapshot storico al cutoff, finali/movimento/pool, regolamenti autentici panchine, Serie A spareggi/regole e profilo per turno non ancora collegati. Vecchi CAR non riscritti. ST mirror 134/134, test C aggiunti non eseguiti, build Windows/GP/CAR NP.
+
+
+## 25/11/2026 — A-League extra games e pool regionali (proposte, NON implementate)
+
+Fonti/evidenze in row207–210 drawPoolEvidence20261125, RG-CE-AUS-DRAW-POOL. Criteri APL ufficiali documentati: derby, richieste club/TV, stadi, trasferte, riposo; esatta formula non pubblicata. Proposta generica con preferenze rivalità parametrizzate, 4 extra distinti/2H2A, 156 gare regolari; nessun risultato futuro importato. Pool minimo: NSW 2 candidati (1 diretto + 1 playoff, scambio 1 o 2), VIC 3 (semplificazione lower tier 2+1), QLD 2, A-League nessuno. Candidati reali documentati, non automaticamente qualificati o già nel DB. Decisioni ancora da approvare e testare, no nuova lega fittizia.
+
+
+## 25/11/2026 — RG-CE-306-BOTTOM-POOL-ABI / RG-CE-306-OG-BENCH-ABI (source preparation, NOT runtime activation)
+
+Base cf725f52f76f19787dda74033a756ef36b070456, v306 prepared; user approved pool only at bottom, real clubs random, TEST players zero (not administrative club), NSW playoff actual OG, then requested longer benches. Precheck RG-CE-AUS-DRAW-POOL, RG-CE-306-DIVISION-WINDOWS-AUS-VIEW, RG-T04/05/10/14/16/19/20. V: AUSTRALIA.json 79 identities, 44:64 BRUNSWICK JUVENT. already cup placeholder. New distinct Victorian candidates sampled reproducibly from five documented VPLM1 clubs, source Football Victoria fixture release; no result after cutoff imported. Candidate file docs/competition_research/OCEANIA/AUS/2627/POOL_CANDIDATES.json contains 7 names and one zero-skill 16-player template; not runtime data. Generic ExpCePool_Plan plans direct swaps and optional actual winner, rejects missing/duplicate/overlap IDs, waits on undecided tie; caller must certify complete ranking and OG result, commit atomically and preserve roster identity. Test prepared for both playoff outcomes, invalid ID/overlap and 1000 consecutive swaps. V dependency: team_pool.c legacy per-country slot copying is not stable CE membership, Australia regional independent pyramids share country/competition. expanded_world_live_adapter.c::import_file only adds outside-league clubs via ExpCeAdmin_IsTest; cannot reuse that flag for real clubs. world_data.c::World_InstallBaked / World_SecondFile and native slot/cache/manager key need checked allocation; new pool names alone cannot play. expanded_ce_engine.c league_family_rollover/phase_entrants/final_order need explicit pyramid bottom and non-title playout phase; never promote from an incomplete table or treat playout as champion. No runtime pool enabled, no legacy pool mutation.
+
+OG bench V blockers: game_types.h TeamGame players[16], sizeof 1018, TeamFileEx players[16], sizeof 684; game_init.c InitInGameTeamStructure and InitGameSaveTeams fixed 16 and fixed byte snapshot; expanded_universal_native_match.c QUICK/Prepare maximum_substitutes<=5, CalculateViewResult candidate table maxSubs-1; expanded_ce_rules.c validation cap5 and total subs<=bench; bench_subs.c match UI/selection, replay and snapshot ABI. Existing extended career squad is not extended live match sheet. Do not just change cap or truncate regulation; requires explicit match-sheet storage with original ABI preserved, OG selection/candidate mapping and QUICK/50Hz/replay coverage, UI mock and approval before UI change. No bench runtime edit, no claimed build. Next: native stable roster import without TEST club flag; typed pyramid movement transaction, actual playout and historical ranking; then bench extension after ABI audit and UI agreement. C full/Windows/gameplay/CAR NP.
+
+Test RG-CE-306-BOTTOM-POOL-ABI: exact header b956834d9b9853ed00ec45aefe94a5d5a020b2da verified by git hash-object; local GCC C11 -O2 -Wall -Wextra -Werror, extracted test_bottom_pool_plan standalone: PASS, 1000 exchanges, both playoff outcomes, unresolved WAIT, invalid winner/overlap rejected, direct-only plan. Test suite/actual runtime pool/OG/Windows/CAR NP. Not a complete fix of pool or extended benches. Candidate draw fixed seed is game design selection, not historical promotion.

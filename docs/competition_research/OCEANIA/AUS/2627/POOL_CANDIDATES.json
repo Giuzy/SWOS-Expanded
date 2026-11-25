@@ -1,0 +1,163 @@
+{
+  "schema": "CE_BOTTOM_POOL_CANDIDATE_V1",
+  "world": 2627,
+  "country": 44,
+  "status": "CANDIDATES_NOT_RUNTIME_REGISTERED",
+  "scope": "Approved minimal pool, not real future qualifiers. No native IDs assigned until loader/cache integration. Existing cup placeholders untouched.",
+  "rosterTemplate": {
+    "slots": 16,
+    "players": [
+      {
+        "name": "TEST A",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST B",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST C",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST D",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST E",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST F",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST G",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST H",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST I",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST J",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST K",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST L",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST M",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST N",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST O",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      },
+      {
+        "name": "TEST P",
+        "skills": 0,
+        "price": 0,
+        "stats": 0
+      }
+    ],
+    "administrativeTestClub": false
+  },
+  "branches": [
+    {
+      "row": 208,
+      "division": "NPL NSW",
+      "direct": 1,
+      "conditional": 1,
+      "playoffLegs": 2,
+      "candidates": [
+        "Blacktown Spartans",
+        "Northern Tigers"
+      ]
+    },
+    {
+      "row": 209,
+      "division": "NPL Victoria",
+      "direct": 3,
+      "conditional": 0,
+      "candidates": [
+        "North Geelong Warriors",
+        "Melbourne Knights",
+        "Port Melbourne"
+      ],
+      "selection": {
+        "method": "Fisher-Yates xorshift32 seed 20260701, first 3 of 5 confirmed distinct candidates",
+        "eligible": [
+          "Eltham Redbacks",
+          "Melbourne Knights",
+          "North Geelong Warriors",
+          "Northcote City",
+          "Port Melbourne"
+        ],
+        "excludedExisting": "Brunswick Juventus / 44:64 administrative cup placeholder",
+        "source": "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released"
+      }
+    },
+    {
+      "row": 210,
+      "division": "NPL Queensland",
+      "direct": 2,
+      "conditional": 0,
+      "candidates": [
+        "Brisbane Strikers",
+        "Broadbeach United"
+      ]
+    }
+  ],
+  "noPool": [
+    "A-League"
+  ],
+  "limitations": [
+    "Roster template is not a native TeamFileEx; player positions, numbering and stable identity require loader mapping.",
+    "Pool roles resolved by CE at edition closure; candidate order is not a real qualification ranking.",
+    "Do not enable until stable IDs, manager roster binding, membership, OG playoff, and CAR transaction verified."
+  ]
+}

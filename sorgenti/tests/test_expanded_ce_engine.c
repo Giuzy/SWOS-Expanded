@@ -18,6 +18,7 @@
 #include "expanded_ce_engine.h"
 #include "expanded_ce_table.h"
 #include "expanded_universal_pairings.h"
+#include "expanded_ce_pool.h"
 
 /* ---- stubs required by the CAR module ---- */
 static WorldId s_world=WORLD_2627;
@@ -373,8 +374,40 @@ static void check_no_club_twice_a_day(void)
     assert(ExpandedUniversal_ValidateRestore(R()));
 }
 
+static void test_bottom_pool_plan(void)
+{
+    uint32_t ranked[4]={1,2,3,4}, pool[2]={5,6}, n=0, season,i,j,k;
+    ExpCePoolSwap swaps[2];
+    assert(ExpCePool_Plan(ranked,4,pool,2,1,1,0,swaps,2,&n)==EXP_CE_POOL_WAIT && !n);
+    assert(ExpCePool_Plan(ranked,4,pool,2,1,1,99,swaps,2,&n)==EXP_CE_POOL_INVALID && !n);
+    assert(ExpCePool_Plan(ranked,4,pool,2,1,1,3,swaps,2,&n)==EXP_CE_POOL_READY && n==1);
+    assert(swaps[0].relegated==4 && swaps[0].promoted==5);
+    assert(ExpCePool_Plan(ranked,4,pool,2,1,1,6,swaps,2,&n)==EXP_CE_POOL_READY && n==2);
+    assert(swaps[1].relegated==3 && swaps[1].promoted==6);
+    for (season=0;season<1000;++season) {
+        uint32_t winner=(season&1u)?pool[1]:ranked[2];
+        uint32_t mask=0;
+        assert(ExpCePool_Plan(ranked,4,pool,2,1,1,winner,swaps,2,&n)==EXP_CE_POOL_READY);
+        assert(n==1u+(season&1u));
+        for (i=0;i<n;++i) {
+            for (j=0;j<4 && ranked[j]!=swaps[i].relegated;++j) {}
+            for (k=0;k<2 && pool[k]!=swaps[i].promoted;++k) {}
+            assert(j<4 && k<2);
+            ranked[j]=swaps[i].promoted; pool[k]=swaps[i].relegated;
+        }
+        for (j=0;j<4;++j) mask|=1u<<ranked[j];
+        for (k=0;k<2;++k) mask|=1u<<pool[k];
+        assert(mask==126u);
+    }
+    assert(ExpCePool_Plan(ranked,4,pool,2,2,0,0,swaps,2,&n)==EXP_CE_POOL_READY && n==2);
+    pool[0]=ranked[0];
+    assert(ExpCePool_Plan(ranked,4,pool,2,2,0,0,swaps,2,&n)==EXP_CE_POOL_INVALID && !n);
+    puts("BOTTOM_POOL_PLAN_ISOLATED=PASS");
+}
+
 int main(void)
 {
+    test_bottom_pool_plan();
     const uint32_t L160=ExpCe_LeagueCompetitionId(16,1,0),L161=ExpCe_LeagueCompetitionId(16,1,1),
         L162=ExpCe_LeagueCompetitionId(16,1,2),L170=ExpCe_LeagueCompetitionId(17,1,0);
     const ExpCeEdition *e;
@@ -957,6 +990,44 @@ int main(void)
         ne=edition_of(NT,2026);
         assert(ne && ne->block==EXP_CE_BLOCK_ENTRANTS && strstr(ne->why,"mixed"));
         puts("NATIONAL_AND_CLUB_MIXED_EDITION_BLOCKED_LOCALLY=PASS");
+    }
+    /* Independent division windows: one must renew while the other is
+     * still waiting to start; the shared country record is not a sporting
+     * dependency. Original family and late-window tests above remain. */
+    {
+        const uint8_t country=23u;
+        const ExpCeWindow windows[2]={
+            {8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}}},
+            {11,1,2,28,1,1u<<6,1u<<2,3,0,{{0}}}
+        };
+        uint32_t div,k;
+        ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+        s_ran_n=s_et=s_pens=s_dupes=0u;
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+        for(div=0u;div<2u;++div) {
+            ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);
+            ExpandedUniversalFixture fx[12];
+            RrUser u;
+            assert(d && ExpCe_LeagueDefinition(WORLD_2627,country,1u,(uint8_t)div,
+                2u,4u,2u,3u,3u,5u,0u,0u,0u,0u,&windows[div],d));
+            assert(ExpCe_AddDefinition(d));free(d);
+            memset(&u,0,sizeof u);u.out=fx;u.country=country;u.div=(uint8_t)div;
+            u.comp=ExpCe_LeagueCompetitionId(country,1u,(uint8_t)div);
+            u.start=D(2026,div?11:8,1);u.day0=D(2026,div?11:8,2);
+            for(k=0u;k<4u;++k)u.c[k]=C(country,1u+div*4u+k);
+            assert(ExpandedUniversal_GenerateRoundRobin(4u,2u,rr,&u) && u.n==12u);
+            assert(ExpandedUniversal_CarInsertFixtures(fx,u.n));
+        }
+        assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+        run_until(D(2026,9,20));
+        e=edition_of(ExpCe_LeagueCompetitionId(country,1u,0u),2027);
+        assert(e && !e->block && e->nentrants==4u && e->key.start_day==D(2027,8,1));
+        assert(!edition_of(ExpCe_LeagueCompetitionId(country,1u,1u),2027));
+        run_until(D(2027,1,20));
+        e=edition_of(ExpCe_LeagueCompetitionId(country,1u,1u),2027);
+        assert(e && !e->block && e->nentrants==4u && e->key.start_day==D(2027,11,1));
+        assert(!s_dupes && ExpandedUniversal_ValidateRestore(R()));
+        puts("INDEPENDENT_DIVISION_CALENDARS_ROLLOVER=PASS");
     }
     puts("FASE2_CE_ENGINE_ISOLATED=PASS");
     puts("OG_QUICK_50HZ_SUB_WINDOWS_MENUS_WINDOWS_GAMEPLAY=NOT_TESTED");

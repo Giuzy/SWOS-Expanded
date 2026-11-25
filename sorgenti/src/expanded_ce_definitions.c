@@ -74,6 +74,7 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
             row.meetings,row.has_rules?row.points_for_win:0u,row.subs,
             row.bench,row.promoted,row.relegated,row.promoted_po,
             row.relegated_po,row.has_calendar?&w:NULL,d);
+        d->phases[0].extras=row.extras;
         if(!row.has_rules)
             snprintf(d->missing,sizeof d->missing,
                      "leagues.json: points_for_win/substitutes/max_subs");

@@ -368,15 +368,25 @@ static int cat_make_league(const CatalogLeague *l)
             goto rollback;
     p.league=l;p.clubs=clubs;
     p.rounds=(n&1u)?n:n-1u;
-    p.total_rounds=p.rounds*l->legs;
+    p.total_rounds=p.rounds*l->legs+l->rule.extras.rounds;
     if(!p.total_rounds || p.total_rounds>4096u)goto rollback;
     round_days=(int32_t *)malloc((size_t)p.total_rounds*sizeof *round_days);
     if(!round_days ||
        !cat_plan_league_days(l,p.total_rounds,round_days,&first_day))
         goto rollback;
     p.first_day=first_day;p.round_days=round_days;
-    if(!ExpandedUniversal_GenerateRoundRobin(
-        n,l->legs,cat_pair_emit,&p))goto rollback;
+    {
+        uint32_t keys[EXP_PAIR_MAX_CLUBS];
+        const uint32_t id=((uint32_t)(l->country+1u)<<24)|
+            ((uint32_t)l->comp_id<<16)|((uint32_t)(l->division+1u)<<8)|1u;
+        if(l->rule.extras.rounds) {
+            if(n>EXP_PAIR_MAX_CLUBS)goto rollback;
+            for(i=0u;i<n;++i)keys[i]=clubs[i]->key.stable_club;
+        }
+        if(!ExpandedUniversal_GenerateLeague(n,l->legs,
+            l->rule.extras.rounds?keys:NULL,&l->rule.extras,
+            ExpPair_Seed(id,first_day),cat_pair_emit,&p))goto rollback;
+    }
     free(round_days);
     free(clubs);
     return 1;

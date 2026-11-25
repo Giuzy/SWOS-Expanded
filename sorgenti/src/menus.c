@@ -5887,6 +5887,7 @@ static void Expanded_ViewClubBoliviaCup(MenuEntry *entry)
 extern uint8_t _currentMenu[];
 static uint32_t s_ceBtnDef;
 static char s_ceBtnName[1][40];
+static MenuEntryFn s_ceBtnRestore[5];
 static void Expanded_ViewCeButton(MenuEntry *entry)
 {
     extern int ExpCeViewer_OpenDefinition(uint32_t);
@@ -5900,6 +5901,22 @@ static void Expanded_AddCeCompetitionButton(void)
     unsigned vis=0u,h=0u,k,order[6],n=0u;
     if(_gameType!=GAME_TYPE_CAREER ||
        ExpCeViewer_ClubButtons(&id,s_ceBtnName,1u)<1u)return;
+    {   /* Reuse the existing native competition row if it is already visible. */
+        extern int ExpCeViewer_MatchesNative(uint32_t,uint8_t,const void *);
+        const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
+        const void *native[5]={NULL,(const void *)_currentCompetitionPtr,
+            (const void *)_secondaryCompetitionPtr,(const void *)_tertiaryCompetitionPtr,
+            (const void *)_quaternaryCompetitionPtr};
+        for(k=1u;k<=4u;++k)if(!_menuEntries[k].isInvisible &&
+            ExpCeViewer_MatchesNative(id,country,native[k])) {
+            s_ceBtnDef=id;
+            s_ceBtnRestore[k]=_menuEntries[k].onSelect;
+            _menuEntries[k].fg=(uintptr_t)s_ceBtnName[0];
+            _menuEntries[k].onSelect=Expanded_ViewCeButton;
+            fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS reused slot=%u def=%u source=CE\n",k,(unsigned)id);
+            return;
+        }
+    }
     for(k=1u;k<=4u;++k) {
         if(!_menuEntries[k].isInvisible)++vis;
         else h=k;                       /* a hidden OG competition slot */
@@ -5916,6 +5933,7 @@ static void Expanded_AddCeCompetitionButton(void)
     _menuEntries[h].isInvisible=0;
     _menuEntries[h].isDisabled=0;
     _menuEntries[h].fg=(uintptr_t)s_ceBtnName[0];
+    s_ceBtnRestore[h]=_menuEntries[h].onSelect;
     _menuEntries[h].onSelect=Expanded_ViewCeButton;
     /* up/down links follow the visual order */
     for(k=1u;k<=4u;++k)if(!_menuEntries[k].isInvisible)order[n++]=k;
@@ -5945,6 +5963,13 @@ void ViewCompetitionsOnReturn(void)
     _menuEntries[4].fg = (uintptr_t)_euroCupsCompetitionContextBuf.tourn.header.competitionName;
     int boliviaClubCupSlot=0;
 #ifdef SWOS_SDL_BUILD
+    {   unsigned k;
+        for(k=1u;k<=4u;++k) {
+            if(_menuEntries[k].onSelect==Expanded_ViewCeButton && s_ceBtnRestore[k])
+                _menuEntries[k].onSelect=s_ceBtnRestore[k];
+            s_ceBtnRestore[k]=NULL;
+        }
+    }
     if(!s_viewCompFirstSlotCallback)
         s_viewCompFirstSlotCallback=_menuEntries[1].onSelect;
     if(s_viewCompFirstSlotCallback)

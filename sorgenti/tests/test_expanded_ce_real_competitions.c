@@ -152,6 +152,11 @@ static int rr(void *u,uint32_t cycle,uint32_t round,uint32_t serial,uint32_t h,u
     f->home=(ExpandedClubKey){WORLD_2627,((uint32_t)x->country<<16)|(h+1u),EXP_PARTICIPANT_CLUB};
     f->away=(ExpandedClubKey){WORLD_2627,((uint32_t)x->country<<16)|(a+1u),EXP_PARTICIPANT_CLUB};
     f->day_index=x->day0+7*(int32_t)(cycle*(x->clubs-1u)+round);
+    /* Test-only Saturday witness; skip the two A-League break weekends. */
+    if(x->country==44u) {
+        if(f->day_index>=D(2026,11,14))f->day_index+=7;
+        if(f->day_index>=D(2027,3,27))f->day_index+=7;
+    }
     f->key.edition.competition=(ExpandedCompetitionKey){WORLD_2627,x->comp};
     f->key.edition.start_day=x->start;f->key.stage=1u;f->key.tie=serial+1u;
     f->key.leg=(uint16_t)cycle;f->country=x->country;f->slot=0u;
@@ -161,16 +166,20 @@ static int rr(void *u,uint32_t cycle,uint32_t round,uint32_t serial,uint32_t h,u
 static void add_league_first_season(uint8_t country,uint8_t comp_id,uint32_t clubs)
 {
     static const ExpCeWindow LW={8,1,5,31,1, 1u<<6,1u<<2,3,0,{{0}}};
+    static const ExpCeWindow AL={10,16,5,9,1, 1u<<5,(1u<<1)|(1u<<2),3,2,
+        {{11,13,11,15},{3,26,3,28}}};
+    const ExpCeWindow *window=country==44u?&AL:&LW;
     static ExpandedUniversalFixture fx[512];
     ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);
     RrUser u;
     assert(d && ExpCe_LeagueDefinition(WORLD_2627,country,comp_id,0u,1u,(uint16_t)clubs,
-        2u,3u,3u,5u,0u,0u,0u,0u,&LW,d) && ExpCe_AddDefinition(d));
+        2u,3u,3u,5u,0u,0u,0u,0u,window,d) && ExpCe_AddDefinition(d));
     free(d);
     memset(&u,0,sizeof u);
     u.out=fx;u.clubs=clubs;u.country=country;
     u.comp=ExpCe_LeagueCompetitionId(country,comp_id,0u);
-    u.start=D(2026,8,1);u.day0=D(2026,8,2);
+    u.start=country==44u?D(2026,10,16):D(2026,8,1);
+    u.day0=country==44u?D(2026,10,17):D(2026,8,2);
     assert(ExpandedUniversal_GenerateRoundRobin(clubs,2u,rr,&u) && u.n==clubs*(clubs-1u));
     assert(ExpandedUniversal_CarInsertFixtures(fx,u.n));
 }
@@ -197,7 +206,9 @@ int main(void)
     def=ExpCe_Definition(SUPERCOPPA);
     assert(def && !def->missing[0] && def->type==1u && def->country==20u &&
            def->nphases==1u && def->nfirst==2u);
-    assert(def->viewer_button==1u && ExpCe_Definition(2884866u)->viewer_button==0u); /* only the Supercoppa has its own button */
+    assert(def->viewer_button==1u && def->viewer_native_id_plus_one==0u);
+    assert(ExpCe_Definition(2884866u)->viewer_button==1u &&
+           ExpCe_Definition(2884866u)->viewer_native_id_plus_one==158u); /* OG row ID 157 */
     assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
 
     /* ===== Supercoppa Italiana: first competition added only through data */
@@ -285,6 +296,17 @@ int main(void)
         assert(view_count(2884866u," - C",&tot)==31u);          /* every one of the 31 games */
         assert(view_count(2884866u,"WINNER",NULL)>=1u && view_count(2884866u,"PARTICIPANTS",NULL)>=1u);
         puts("CE_VIEWER_MODEL_FINAL_AND_CUP_FROM_CE_LEDGER=PASS");
+    }
+    /* January renewal must wait for a complete October-start league. */
+    run_until(D(2027,1,30));
+    {
+        const ExpCeEdition *al=edition_of(ExpCe_LeagueCompetitionId(44u,88u,0u),2026);
+        const ExpCeEdition *ac=edition_of(2884866u,2027);
+        assert(al && !al->block && !al->partial && al->state<EXP_CE_ED_COMPLETED);
+        assert(ac && !ac->block && ac->state==EXP_CE_ED_CREATED && ac->nentrants==0u);
+        for(i=0;i<R()->fixture_count;++i)
+            assert(!ExpandedEditionKey_Equal(R()->fixtures[i].key.edition,ac->key));
+        puts("AUSTRALIA_CUP_WAITS_FOR_COMPLETE_LEAGUE=PASS");
     }
     /* the edition expires on 21/12/2027 (its own cycle, never 1 July) */
     run_until(D(2027,12,22));

@@ -6,6 +6,7 @@
 #ifndef EXPANDED_UNIVERSAL_JSON_LEAGUES_H
 #define EXPANDED_UNIVERSAL_JSON_LEAGUES_H
 #include <stdint.h>
+#include "expanded_universal_pairings.h"
 #define EXP_JSON_LEAGUE_MAX_BREAKS 8u
 typedef struct ExpandedUniversalJsonLeagueBreak {
     uint8_t from_month, from_day, to_month, to_day;
@@ -25,6 +26,7 @@ typedef struct ExpandedUniversalJsonLeague {
      * division's promotion/relegation counts. has_rules==0 = not declared. */
     uint8_t has_rules, points_for_win, subs, bench;
     uint8_t divisions, promoted, relegated, promoted_po, relegated_po;
+    ExpPairExtras extras;
 } ExpandedUniversalJsonLeague;
 /* i-th division row (Fase 2 definitions builder). */
 int ExpandedUniversalJsonLeagues_At(uint32_t i, ExpandedUniversalJsonLeague *out);

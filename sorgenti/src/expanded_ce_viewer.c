@@ -580,8 +580,19 @@ int ExpCeViewer_OpenRecord(const void *rec)
         }
     return 0;
 }
-/* Competitions of a country that have their own button (JSON flag
- * "viewer_button"): competitions with no OG slot. */
+int ExpCeViewer_MatchesNative(uint32_t def_id,uint8_t country,const void *rec)
+{
+    const ExpCeDef *d=ExpCe_Definition(def_id);
+    const Competition *c=(const Competition *)rec;
+    if(!ExpCeViewer_Active() || !d || !d->viewer_button ||
+       d->world!=(uint16_t)World_Current() || d->country!=country ||
+       !d->viewer_native_id_plus_one || !rec || (uintptr_t)rec<256u ||
+       rec==(const void *)(uintptr_t)-1 || rec==(const void *)(uintptr_t)-2)return 0;
+    return (c->type==1 || c->type==2) &&
+        (uint16_t)((uint8_t)c->compId+1u)==d->viewer_native_id_plus_one;
+}
+/* Competitions of a country with a CE button; replace an original row if
+ * the definition declares its explicit native menu alias, else append. */
 uint32_t ExpCeViewer_WorldButtons(uint8_t country,uint32_t *ids,
                                   char (*names)[40],uint32_t cap)
 {

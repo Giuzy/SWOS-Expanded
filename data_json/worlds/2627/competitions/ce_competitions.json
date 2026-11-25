@@ -301,6 +301,8 @@
       "id": 2884866,
       "name": "AUSTRALIA CUP",
       "country": 44,
+      "viewer_button": true,
+      "viewer_native_comp_id": 157,
       "type": 1,
       "source": "25/11/2026 approved research card row 329: 32 national entrants, 31 single-leg knockout games (32/16/8/4/2), GAME_TEMPLATE_2026 round windows from the published schedule, edition change 29/01. 12 entrants are temporary TEST clubs (44:55..44:66, see test_clubs.json). Real regulation has 5 substitutions in 3 windows plus one extra substitution and window in extra time: the extra-time extras exceed the OG bench cap (5) and are NOT represented; home advantage of a member-federation club against an A-League club is NOT represented (first drawn hosts).",
       "authentic_regulation": {

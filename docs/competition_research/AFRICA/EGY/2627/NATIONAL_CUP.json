@@ -364,6 +364,1606 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "01458e6d3308756df53cb4adbdfc1cd7f12e6f0cb00214066dde9bc40258a963": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "50",
+              "rows": "47",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "47",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-12-27",
+              "max_date": "2010-06-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-12-08",
+              "max_date": "2011-10-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-30",
+              "max_date": "2020-02-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-11",
+              "max_date": "2022-07-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-01",
+              "max_date": "2023-04-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 1996/97",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-05-31",
+              "max_date": "1997-05-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-02-22",
+              "max_date": "1998-06-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 1998/99",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-05-21",
+              "max_date": "1999-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2013",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-05-20",
+              "max_date": "2013-11-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2014",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-05-18",
+              "max_date": "2014-07-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2015",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-11",
+              "max_date": "2015-09-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-03-19",
+              "max_date": "2016-08-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2016/17",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-12",
+              "max_date": "2017-08-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2017/18",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-11-07",
+              "max_date": "2018-05-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2018/19",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-17",
+              "max_date": "2019-09-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2022/23",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-28",
+              "max_date": "2024-03-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2023/24",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-15",
+              "max_date": "2024-06-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Egypt Cup 2024/25",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-01-02",
+              "max_date": "2025-06-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-05-31",
+              "max_date": "1997-05-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-02-18",
+              "max_date": "1998-02-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-05-21",
+              "max_date": "1999-05-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-12-27",
+              "max_date": "2009-12-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-12-08",
+              "max_date": "2011-10-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-05-20",
+              "max_date": "2013-11-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-05-18",
+              "max_date": "2014-07-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-11",
+              "max_date": "2015-09-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-03-19",
+              "max_date": "2016-08-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-12",
+              "max_date": "2017-08-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-11-07",
+              "max_date": "2018-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-17",
+              "max_date": "2019-09-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-30",
+              "max_date": "2020-02-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-11",
+              "max_date": "2022-07-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-01",
+              "max_date": "2023-04-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-28",
+              "max_date": "2024-03-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-15",
+              "max_date": "2024-06-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Egypt Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-01-02",
+              "max_date": "2025-06-05"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 376,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Qanat",
+                  "Baladeya",
+                  "Masrob",
+                  "Nebrwah"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 390,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Mokawloon",
+                  "Al-Zamalek",
+                  "Alsharqia ledokhan",
+                  "Omal Mansoura"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 404,
+                "phase": "Group 3",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Itihad",
+                  "Alrabat wa Alanwar",
+                  "Alsuez",
+                  "Boar Fouad"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 418,
+                "phase": "Group 4",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Maaden",
+                  "Alkrom",
+                  "Ghazl Almahala",
+                  "Itihad Osman"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 432,
+                "phase": "Group 5",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Ismaily",
+                  "Alshams",
+                  "Basion",
+                  "Kahrbet Ismailia"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 446,
+                "phase": "Group 6",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Almasry",
+                  "Alsharq T.",
+                  "Aluminium Safaga",
+                  "Ghazl Alsuez"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 460,
+                "phase": "Group 7",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Almansoura",
+                  "Almarekh",
+                  "Aswan",
+                  "Bani Sweif"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablese/egy98.txt",
+                "edition": "1997/1998",
+                "tableLine": 474,
+                "phase": "Group 8",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Al-Ahly",
+                  "Al-Menya",
+                  "Al-Olimby",
+                  "Iskan Madenet Nasr"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:579 ",
+                "excerpt": "the promotion playoff."
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:581 ",
+                "excerpt": "Promotion Playoff:"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:597 ",
+                "excerpt": "1.Korum                  3   1  2  0   5- 3   5  Promoted"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:598 ",
+                "excerpt": "2.al-Sharqeya            3   1  2  0   3- 1   5  Promoted"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:365",
+                "excerpt": "First Round [Feb 1-9]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 376
+                  },
+                  "team": "Baladeya",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:376"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 376
+                  },
+                  "team": "Al-Qanat",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:377"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 376
+                  },
+                  "team": "Nebrwah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:379"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 0,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 376
+                  },
+                  "team": "Masrob",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:380"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 390
+                  },
+                  "team": "Al-Mokawloon",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:390"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 390
+                  },
+                  "team": "Alsharqia ledokhan",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:391"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 2,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 390
+                  },
+                  "team": "Al-Zamalek",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:393"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 1,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 390
+                  },
+                  "team": "Omal Mansoura",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:394"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 404
+                  },
+                  "team": "Al-Itihad",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:404"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 404
+                  },
+                  "team": "Boar Fouad",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:405"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 404
+                  },
+                  "team": "Alsuez",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:407"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 404
+                  },
+                  "team": "Alrabat wa Alanwar",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:408"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 418
+                  },
+                  "team": "Ghazl Almahala",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:418"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 418
+                  },
+                  "team": "Itihad Osman",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:419"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 418
+                  },
+                  "team": "Al-Maaden",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:421"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 418
+                  },
+                  "team": "Alkrom",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:422"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 432
+                  },
+                  "team": "Al-Ismaily",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:432"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 0,
+                  "gf": 1,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 432
+                  },
+                  "team": "Alshams",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:433"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 432
+                  },
+                  "team": "Basion",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:435"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 432
+                  },
+                  "team": "Kahrbet Ismailia",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:436"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 446
+                  },
+                  "team": "Almasry",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:446"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 446
+                  },
+                  "team": "Ghazl Alsuez",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:447"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 446
+                  },
+                  "team": "Aluminium Safaga",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:449"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 0,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 446
+                  },
+                  "team": "Alsharq T.",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:450"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 460
+                  },
+                  "team": "Almansoura",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:460"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 460
+                  },
+                  "team": "Bani Sweif",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:461"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 460
+                  },
+                  "team": "Almarekh",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:463"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 460
+                  },
+                  "team": "Aswan",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:464"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 474
+                  },
+                  "team": "Al-Ahly",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:474"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 474
+                  },
+                  "team": "Al-Olimby",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:475"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 474
+                  },
+                  "team": "Al-Menya",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:477"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 474
+                  },
+                  "team": "Iskan Madenet Nasr",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:478"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy98.txt:480",
+                "excerpt": "Second Round [Feb 14,15]"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy99.txt:334",
+                "excerpt": "First Round [Jan 1,2]"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy99.txt:352",
+                "excerpt": "Second Round [Jan 9-11]"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/egy2024.txt:627",
+                "excerpt": "NB: Modern Future were renamed Modern Sport on Jul 2"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "mainDrawTeams": 32,
+                  "knockoutBracketObserved": true,
+                  "preliminaryRoundsExist": true,
+                  "entryRules": "previous edition top-tier entered round of 32; confirm 2026/27"
+                },
+                "source": "repository/research",
+                "locator": "AFRICA/EGY/2627/NATIONAL_CUP.json#block55Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

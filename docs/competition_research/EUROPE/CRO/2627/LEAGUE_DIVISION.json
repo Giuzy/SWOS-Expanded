@@ -542,6 +542,4024 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "374fd0053a6fc1a765b937b02c682eae09e1dd3aaaa6158eae212676729ed8b9": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "224",
+              "unique_oriented_pairs": "168",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "1996-02-17",
+              "max_date": "1996-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "220",
+              "unique_oriented_pairs": "184",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "1997-03-02",
+              "max_date": "1997-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "191",
+              "unique_oriented_pairs": "125",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "1998-02-14",
+              "max_date": "1998-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "189",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "1999-02-17",
+              "max_date": "1999-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "209",
+              "unique_oriented_pairs": "144",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "65",
+              "min_date": "2000-02-19",
+              "max_date": "2000-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "229",
+              "unique_oriented_pairs": "173",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2001-02-18",
+              "max_date": "2001-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "198",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "42",
+              "min_date": "2002-02-23",
+              "max_date": "2002-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "140",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2003-02-22",
+              "max_date": "2003-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "198",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2004-02-21",
+              "max_date": "2004-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "191",
+              "unique_oriented_pairs": "141",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2005-02-26",
+              "max_date": "2005-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "193",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2006-02-12",
+              "max_date": "2006-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "204",
+              "unique_oriented_pairs": "144",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2007-02-17",
+              "max_date": "2007-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "192",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "57",
+              "min_date": "2008-02-22",
+              "max_date": "2008-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "226",
+              "unique_oriented_pairs": "168",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2009-02-22",
+              "max_date": "2009-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "248",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2010-02-25",
+              "max_date": "2010-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "232",
+              "unique_oriented_pairs": "187",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2011-02-25",
+              "max_date": "2011-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "217",
+              "unique_oriented_pairs": "166",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2012-02-24",
+              "max_date": "2012-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "184",
+              "unique_oriented_pairs": "125",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2013-02-10",
+              "max_date": "2013-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "176",
+              "unique_oriented_pairs": "106",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "70",
+              "min_date": "2014-02-06",
+              "max_date": "2014-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "190",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "83",
+              "min_date": "2015-02-06",
+              "max_date": "2015-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "175",
+              "unique_oriented_pairs": "105",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "70",
+              "min_date": "2016-02-12",
+              "max_date": "2016-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "180",
+              "unique_oriented_pairs": "106",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "2017-02-17",
+              "max_date": "2017-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "169",
+              "unique_oriented_pairs": "106",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "63",
+              "min_date": "2018-02-09",
+              "max_date": "2018-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "186",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "78",
+              "min_date": "2019-01-30",
+              "max_date": "2019-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "155",
+              "unique_oriented_pairs": "103",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2020-01-31",
+              "max_date": "2020-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "209",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "101",
+              "min_date": "2021-01-19",
+              "max_date": "2021-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "164",
+              "unique_oriented_pairs": "104",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2022-01-28",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "189",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "81",
+              "min_date": "2023-01-18",
+              "max_date": "2023-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "178",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2024-01-23",
+              "max_date": "2024-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "croatia",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "126",
+              "unique_oriented_pairs": "97",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2025-01-24",
+              "max_date": "2025-09-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "CRO DIV1",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "142",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "192",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2003-07-25",
+              "max_date": "2004-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "CRO DIV1",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "193",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "193",
+              "duplicate_pair_occurrences": "55",
+              "min_date": "2004-07-21",
+              "max_date": "2005-06-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "CRO DIV1",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "132",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "132",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-07-20",
+              "max_date": "2006-03-11"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa04.txt",
+                "edition": "2003/2004",
+                "tableLine": 22,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cibalia (Vinkovci)",
+                  "Dinamo (Zagreb)",
+                  "Hajduk (Split)",
+                  "Inker (Zapresic)",
+                  "Kamen Ingrad (Velika)",
+                  "Marsonia Slavonski Brod",
+                  "Osijek",
+                  "Rijeka",
+                  "Slaven Belupo (Koprivnica)",
+                  "Varteks (Varazdin)",
+                  "Zadar",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa04.txt",
+                "edition": "2003/2004",
+                "tableLine": 241,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cibalia (Vinkovci)",
+                  "Dinamo (Zagreb)",
+                  "Hajduk (Split)",
+                  "Inker (Zapresic)",
+                  "Kamen Ingrad (Velika)",
+                  "Marsonia Slavonski Brod",
+                  "Osijek",
+                  "Rijeka",
+                  "Slaven Belupo (Koprivnica)",
+                  "Varteks (Varazdin)",
+                  "Zadar",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa04.txt",
+                "edition": "2003/2004",
+                "tableLine": 260,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Dinamo (Zagreb)",
+                  "Hajduk (Split)",
+                  "Osijek",
+                  "Rijeka",
+                  "Varteks (Varazdin)",
+                  "Zadar"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa04.txt",
+                "edition": "2003/2004",
+                "tableLine": 319,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Dinamo (Zagreb)",
+                  "Hajduk (Split)",
+                  "Osijek",
+                  "Rijeka",
+                  "Varteks (Varazdin)",
+                  "Zadar"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa04.txt",
+                "edition": "2003/2004",
+                "tableLine": 331,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Cibalia (Vinkovci)",
+                  "Inter Zapresic",
+                  "Kamen Ingrad (Velika)",
+                  "Marsonia Slavonski Brod",
+                  "Slaven Belupo (Koprivnica)",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa04.txt",
+                "edition": "2003/2004",
+                "tableLine": 394,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Cibalia (Vinkovci)",
+                  "Inter Zapresic",
+                  "Kamen Ingrad (Velika)",
+                  "Marsonia Slavonski Brod",
+                  "Slaven Belupo (Koprivnica)",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa05.txt",
+                "edition": "2004/2005",
+                "tableLine": 21,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Dinamo (Zagreb)",
+                  "Hajduk (Split)",
+                  "Inter Zaprešic",
+                  "Kamen Ingrad (Velika)",
+                  "Medimurje (Cakovec)",
+                  "Osijek",
+                  "Pula 1856",
+                  "Rijeka",
+                  "Slaven Belupo (Koprivnica)",
+                  "Varteks (Varazdin)",
+                  "Zadar",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa05.txt",
+                "edition": "2004/2005",
+                "tableLine": 377,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Dinamo (Zagreb)",
+                  "Hajduk (Split)",
+                  "Inter Zaprešic",
+                  "Kamen Ingrad (Velika)",
+                  "Medimurje (Cakovec)",
+                  "Osijek",
+                  "Pula 1856",
+                  "Rijeka",
+                  "Slaven Belupo (Koprivnica)",
+                  "Varteks (Varazdin)",
+                  "Zadar",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa05.txt",
+                "edition": "2004/2005",
+                "tableLine": 398,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Hajduk (Split)",
+                  "Inter Zaprešic",
+                  "Rijeka",
+                  "Slaven Belupo (Koprivnica)",
+                  "Varteks (Varazdin)",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa05.txt",
+                "edition": "2004/2005",
+                "tableLine": 494,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Hajduk (Split)",
+                  "Inter Zaprešic",
+                  "Rijeka",
+                  "Slaven Belupo (Koprivnica)",
+                  "Varteks (Varazdin)",
+                  "Zagreb"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa05.txt",
+                "edition": "2004/2005",
+                "tableLine": 506,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Dinamo (Zagreb)",
+                  "Kamen Ingrad (Velika)",
+                  "Medimurje (Cakovec)",
+                  "Osijek",
+                  "Pula 1856",
+                  "Zadar"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa05.txt",
+                "edition": "2004/2005",
+                "tableLine": 599,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Dinamo (Zagreb)",
+                  "Kamen Ingrad (Velika)",
+                  "Medimurje (Cakovec)",
+                  "Osijek",
+                  "Pula 1856",
+                  "Zadar"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa06.txt",
+                "edition": "2005/2006",
+                "tableLine": 21,
+                "phase": "First Phase",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cibalia Vinkovci",
+                  "Dinamo Zagreb",
+                  "Hajduk Split",
+                  "Inter Zaprešic",
+                  "Kamen Ingrad Velika",
+                  "Medimurje Cakovec",
+                  "NK Osijek",
+                  "NK Rijeka",
+                  "NK Zagreb",
+                  "Pula Staro ceško",
+                  "Slaven Belupo Koprivnica",
+                  "Varteks Varaždin"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesk/kroa06.txt",
+                "edition": "2005/2006",
+                "tableLine": 231,
+                "phase": "First Phase",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cibalia Vinkovci",
+                  "Dinamo Zagreb",
+                  "Hajduk Split",
+                  "Inter Zaprešic",
+                  "Kamen Ingrad Velika",
+                  "Medimurje Cakovec",
+                  "NK Osijek",
+                  "NK Rijeka",
+                  "NK Zagreb",
+                  "Pula Staro ceško",
+                  "Slaven Belupo Koprivnica",
+                  "Varteks Varaždin"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 46,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 55,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:24"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 46,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 55,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:243"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 16,
+                  "gf": 47,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:244"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 25,
+                  "gf": 26,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 31,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Rijeka",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:245"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 40,
+                  "gf": 36,
+                  "lost": 9,
+                  "note": "[2 1 1 0 4-2 4]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Osijek",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:246"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 25,
+                  "gf": 21,
+                  "lost": 7,
+                  "note": "[2 0 1 1 2-4 1]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:247"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 44,
+                  "gf": 37,
+                  "lost": 8,
+                  "note": "[2 1 1 0 4-3 4]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Zadar",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:248"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 16,
+                  "gf": 47,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:25"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 27,
+                  "gf": 32,
+                  "lost": 10,
+                  "note": "[2 0 1 1 3-4 1]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:250"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 23,
+                  "gf": 22,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 27,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Inker (Zapresic)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:251"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 27,
+                  "gf": 22,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:252"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 35,
+                  "gf": 25,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 20,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Cibalia (Vinkovci)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:253"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 32,
+                  "gf": 21,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 19,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Zagreb",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:254"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 48,
+                  "gf": 25,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 17,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 241
+                  },
+                  "team": "Marsonia Slavonski Brod",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:255"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:258",
+                "excerpt": "Championship Playoff"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 25,
+                  "gf": 26,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 31,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Rijeka",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:26"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 24,
+                  "gf": 63,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 32,
+                  "points": 78,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 260
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 25
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:262"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 25,
+                  "gf": 77,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 76,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 260
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 23
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:263"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 41,
+                  "gf": 36,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 42,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 260
+                  },
+                  "team": "Rijeka",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:264"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 57,
+                  "gf": 50,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 39,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 260
+                  },
+                  "team": "Osijek",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:265"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 42,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 38,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 260
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:266"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 71,
+                  "gf": 46,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 32,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 260
+                  },
+                  "team": "Zadar",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:267"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 40,
+                  "gf": 36,
+                  "lost": 9,
+                  "note": "[2 1 1 0 4-2 4]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Osijek",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:27"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 25,
+                  "gf": 21,
+                  "lost": 7,
+                  "note": "[2 0 1 1 2-4 1]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:28"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 44,
+                  "gf": 37,
+                  "lost": 8,
+                  "note": "[2 1 1 0 4-3 4]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Zadar",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:29"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 27,
+                  "gf": 32,
+                  "lost": 10,
+                  "note": "[2 0 1 1 3-4 1]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:31"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 23,
+                  "gf": 22,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 27,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Inker (Zapresic)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:32"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 24,
+                  "gf": 63,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 32,
+                  "points": 78,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 319
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 25
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:321"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 25,
+                  "gf": 77,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 76,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 319
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 23
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:322"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 41,
+                  "gf": 36,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 42,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 319
+                  },
+                  "team": "Rijeka",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:323"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 57,
+                  "gf": 50,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 39,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 319
+                  },
+                  "team": "Osijek",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:324"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 42,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 38,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 319
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:325"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 71,
+                  "gf": 46,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 32,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 319
+                  },
+                  "team": "Zadar",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:326"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:329",
+                "excerpt": "Relegation Playoff"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 27,
+                  "gf": 22,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:33"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 36,
+                  "gf": 45,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 46,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 331
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:333"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 38,
+                  "gf": 40,
+                  "lost": 12,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 32,
+                  "points": 42,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 331
+                  },
+                  "team": "Inter Zapresic",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:334"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 39,
+                  "gf": 37,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 40,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 331
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:335"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 41,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 36,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 331
+                  },
+                  "team": "Zagreb",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:336"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 53,
+                  "gf": 39,
+                  "lost": 17,
+                  "note": "Relegation Playoff",
+                  "phase": "",
+                  "played": 32,
+                  "points": 31,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 331
+                  },
+                  "team": "Cibalia (Vinkovci)",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:338"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 35,
+                  "gf": 25,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 20,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Cibalia (Vinkovci)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:34"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 64,
+                  "gf": 32,
+                  "lost": 17,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 32,
+                  "points": 25,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 331
+                  },
+                  "team": "Marsonia Slavonski Brod",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:340"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:342",
+                "excerpt": "[*] INKER (Zapresic) were renamed Inter Zapresic during the winter break."
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 32,
+                  "gf": 21,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 19,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Zagreb",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:35"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 48,
+                  "gf": 25,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 17,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 22
+                  },
+                  "team": "Marsonia Slavonski Brod",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:36"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 36,
+                  "gf": 45,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 46,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 394
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:396"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 38,
+                  "gf": 40,
+                  "lost": 12,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 32,
+                  "points": 42,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 394
+                  },
+                  "team": "Inter Zapresic",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:397"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 39,
+                  "gf": 37,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 40,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 394
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:398"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 41,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 36,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 394
+                  },
+                  "team": "Zagreb",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:399"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 53,
+                  "gf": 39,
+                  "lost": 17,
+                  "note": "Relegation Playoff",
+                  "phase": "",
+                  "played": 32,
+                  "points": 31,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 394
+                  },
+                  "team": "Cibalia (Vinkovci)",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:401"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 64,
+                  "gf": 32,
+                  "lost": 17,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 32,
+                  "points": 25,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 394
+                  },
+                  "team": "Marsonia Slavonski Brod",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:403"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:415",
+                "excerpt": "Cibalia relegated"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa04.txt:417",
+                "excerpt": "Promoted: Pula 1856 and Medimurje Cakovec."
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 23,
+                  "gf": 39,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 42,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:23"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 23,
+                  "gf": 37,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 38,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Rijeka",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:24"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 25,
+                  "gf": 29,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 37,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:25"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 22,
+                  "gf": 25,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 35,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Inter Zaprešic",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:26"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 30,
+                  "gf": 39,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:27"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 24,
+                  "gf": 27,
+                  "lost": 9,
+                  "note": "[2 2 0 0 4-2 6]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 33,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Zagreb",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:28"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "[2 0 0 2 2-4 0]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 33,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:30"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 28,
+                  "gf": 30,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 32,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:31"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 32,
+                  "gf": 29,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 30,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Osijek",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:32"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 23,
+                  "gf": 21,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Pula 1856",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:33"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 55,
+                  "gf": 25,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 16,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Zadar",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:34"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 42,
+                  "gf": 18,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 13,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Medimurje (Cakovec)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:35"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 23,
+                  "gf": 39,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 42,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:379"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 23,
+                  "gf": 37,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 38,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Rijeka",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:380"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 25,
+                  "gf": 29,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 37,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:381"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 22,
+                  "gf": 25,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 35,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Inter Zaprešic",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:382"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 30,
+                  "gf": 39,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:383"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 24,
+                  "gf": 27,
+                  "lost": 9,
+                  "note": "[2 2 0 0 4-2 6]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 33,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Zagreb",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:384"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "[2 0 0 2 2-4 0]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 33,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:386"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 28,
+                  "gf": 30,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 32,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:387"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 32,
+                  "gf": 29,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 30,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Osijek",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:388"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 23,
+                  "gf": 21,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Pula 1856",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:389"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 55,
+                  "gf": 25,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 16,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Zadar",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:390"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 42,
+                  "gf": 18,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 13,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 377
+                  },
+                  "team": "Medimurje (Cakovec)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:391"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:396",
+                "excerpt": "Championship Playoff"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 33,
+                  "gf": 58,
+                  "lost": 8,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 32,
+                  "points": 56,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 398
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:400"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 54,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 398
+                  },
+                  "team": "Inter Zaprešic",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:401"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 42,
+                  "gf": 50,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 50,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 398
+                  },
+                  "team": "Zagreb",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:402"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 40,
+                  "gf": 52,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 47,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 398
+                  },
+                  "team": "Rijeka",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:403"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 50,
+                  "gf": 53,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 45,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 398
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:404"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 41,
+                  "gf": 37,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 45,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 398
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:405"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 33,
+                  "gf": 58,
+                  "lost": 8,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 32,
+                  "points": 56,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 494
+                  },
+                  "team": "Hajduk (Split)",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:496"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 54,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 494
+                  },
+                  "team": "Inter Zaprešic",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:497"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 42,
+                  "gf": 50,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 50,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 494
+                  },
+                  "team": "Zagreb",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:498"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 40,
+                  "gf": 52,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 47,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 494
+                  },
+                  "team": "Rijeka",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:499"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 50,
+                  "gf": 53,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 45,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 494
+                  },
+                  "team": "Varteks (Varazdin)",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:500"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 41,
+                  "gf": 37,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 45,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 494
+                  },
+                  "team": "Slaven Belupo (Koprivnica)",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:501"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:504",
+                "excerpt": "Relegation Playoff"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 37,
+                  "gf": 55,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 47,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 506
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:508"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 39,
+                  "gf": 36,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 41,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 506
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:509"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 45,
+                  "gf": 41,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 41,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 506
+                  },
+                  "team": "Osijek",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:510"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 31,
+                  "gf": 28,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 35,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 506
+                  },
+                  "team": "Pula 1856",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:511"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 52,
+                  "gf": 29,
+                  "lost": 17,
+                  "note": "Relegation Playoff",
+                  "phase": "",
+                  "played": 32,
+                  "points": 33,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 506
+                  },
+                  "team": "Medimurje (Cakovec)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:513"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 70,
+                  "gf": 36,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 32,
+                  "points": 32,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 506
+                  },
+                  "team": "Zadar",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:515"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 37,
+                  "gf": 55,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 47,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 599
+                  },
+                  "team": "Dinamo (Zagreb)",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:601"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 39,
+                  "gf": 36,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 41,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 599
+                  },
+                  "team": "Kamen Ingrad (Velika)",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:602"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 45,
+                  "gf": 41,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 41,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 599
+                  },
+                  "team": "Osijek",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:603"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 31,
+                  "gf": 28,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 32,
+                  "points": 35,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 599
+                  },
+                  "team": "Pula 1856",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:604"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 52,
+                  "gf": 29,
+                  "lost": 17,
+                  "note": "Relegation Playoff",
+                  "phase": "",
+                  "played": 32,
+                  "points": 33,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 599
+                  },
+                  "team": "Medimurje (Cakovec)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:606"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 70,
+                  "gf": 36,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 32,
+                  "points": 32,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 599
+                  },
+                  "team": "Zadar",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:608"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:610",
+                "excerpt": "Promotion/Relegation Playoff"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa05.txt:620",
+                "excerpt": "Promoted: Cibalia Vinkovci"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 61,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 56,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Dinamo Zagreb",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:23"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 61,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 56,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Dinamo Zagreb",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:233"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 28,
+                  "gf": 42,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 45,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "NK Rijeka",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:234"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 32,
+                  "gf": 25,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "NK Osijek",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:235"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 35,
+                  "gf": 34,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 31,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Varteks Varaždin",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:236"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 21,
+                  "gf": 28,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Hajduk Split",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:237"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 30,
+                  "gf": 26,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Kamen Ingrad Velika",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:238"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 28,
+                  "gf": 42,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 45,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "NK Rijeka",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:24"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 26,
+                  "gf": 29,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Pula Staro ceško",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:240"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 27,
+                  "gf": 19,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 27,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "NK Zagreb",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:241"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 35,
+                  "gf": 24,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Cibalia Vinkovci",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:242"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 38,
+                  "gf": 29,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 22,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Slaven Belupo Koprivnica",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:243"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 34,
+                  "gf": 17,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 22,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Inter Zaprešic",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:245"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 43,
+                  "gf": 26,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 21,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 231
+                  },
+                  "team": "Medimurje Cakovec",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:247"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 32,
+                  "gf": 25,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "NK Osijek",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:25"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 35,
+                  "gf": 34,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 31,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Varteks Varaždin",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:26"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 21,
+                  "gf": 28,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Hajduk Split",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:27"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 30,
+                  "gf": 26,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Kamen Ingrad Velika",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:28"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 26,
+                  "gf": 29,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Pula Staro ceško",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:30"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 27,
+                  "gf": 19,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 27,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "NK Zagreb",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:31"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 35,
+                  "gf": 24,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Cibalia Vinkovci",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:32"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 38,
+                  "gf": 29,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 22,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Slaven Belupo Koprivnica",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:33"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 34,
+                  "gf": 17,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 22,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Inter Zaprešic",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:35"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 43,
+                  "gf": 26,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "First Phase",
+                  "played": 22,
+                  "points": 21,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 21
+                  },
+                  "team": "Medimurje Cakovec",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kroa06.txt:37"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 10,
+                  "gamesPerClub": 36,
+                  "meetingsPerOpponent": 4,
+                  "directRelegatedRank": 10,
+                  "directPromotedTier2Rank": 1,
+                  "matchDays": "Fri/Sat/Sun usually; Thursday UEFA participant plays Sunday or requested Monday subject to agreement if away",
+                  "lastRoundSimultaneous": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/CRO/2627/LEAGUE_DIVISION.json#sportRuleEvidence77",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

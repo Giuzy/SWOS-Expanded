@@ -114,7 +114,2424 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "16b28928febd675a091ec3fd69c91a5386c59a885b05608788aebf8ec0584d38": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "NZL DIV1",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-14",
+              "max_date": "2024-09-21"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz-wom2021.txt",
+                "edition": "2021",
+                "tableLine": 12,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Auckland United",
+                  "Eastern Suburbs",
+                  "Ellerslie",
+                  "Hamilton Wanderers",
+                  "Northern Rovers",
+                  "Western Springs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz-wom2021.txt",
+                "edition": "2021",
+                "tableLine": 23,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Canterbury United Pride",
+                  "Capital Football Federation",
+                  "Central Football Federation",
+                  "Southern United"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2021a.txt",
+                "edition": "2021",
+                "tableLine": 23,
+                "phase": "",
+                "heading": "Table at abandonment:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Auckland City",
+                  "Auckland United",
+                  "Bay Olympic",
+                  "Birkenhead United",
+                  "Eastern Suburbs",
+                  "Hamilton Wanderers",
+                  "Manukau United",
+                  "Melville United",
+                  "North Shore United",
+                  "Northern Rovers",
+                  "West Coast Rangers",
+                  "Western Springs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2022.txt",
+                "edition": "2022",
+                "tableLine": 23,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Auckland City",
+                  "Auckland United",
+                  "Bay Olympic",
+                  "Birkenhead United",
+                  "Eastern Suburbs",
+                  "Hamilton Wanderers",
+                  "Manukau United",
+                  "Melville United",
+                  "North Shore United",
+                  "Takapuna",
+                  "Waiheke United",
+                  "Western Springs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2023.txt",
+                "edition": "2023",
+                "tableLine": 23,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Auckland City",
+                  "Auckland United",
+                  "Bay Olympic",
+                  "Birkenhead United",
+                  "Eastern Suburbs",
+                  "Hamilton Wanderers",
+                  "Manukau United",
+                  "Manurewa",
+                  "Melville United",
+                  "Takapuna",
+                  "West Coast Rangers",
+                  "Western Springs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2024.txt",
+                "edition": "2024",
+                "tableLine": 23,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Auckland City",
+                  "Auckland United",
+                  "Bay Olympic",
+                  "Birkenhead United",
+                  "East Coast Bays",
+                  "Eastern Suburbs",
+                  "Hamilton Wanderers",
+                  "Manurewa",
+                  "Melville United",
+                  "Tauranga City",
+                  "West Coast Rangers",
+                  "Western Springs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2025.txt",
+                "edition": "2025",
+                "tableLine": 23,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Auckland City",
+                  "Auckland FC Reserves",
+                  "Auckland United",
+                  "Bay Olympic",
+                  "Birkenhead United",
+                  "East Coast Bays",
+                  "Eastern Suburbs",
+                  "Fencibles United",
+                  "Manurewa",
+                  "Tauranga City",
+                  "West Coast Rangers",
+                  "Western Springs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz96.txt",
+                "edition": "1996",
+                "tableLine": 366,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 11,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Central Utd",
+                  "East Coast Bays",
+                  "Ellerslie",
+                  "Manurewa",
+                  "Melville Utd",
+                  "Metro",
+                  "Mt Maunganui",
+                  "Mt Wellington",
+                  "Onehunga Sports",
+                  "Papatoetoe",
+                  "Waitakere City"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [
+              {
+                "from": "2022",
+                "to": "2023",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 12,
+                "newLabels": [
+                  "Manurewa",
+                  "West Coast Rangers"
+                ],
+                "missingLabels": [
+                  "North Shore United",
+                  "Waiheke United"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2023",
+                "to": "2024",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 12,
+                "newLabels": [
+                  "East Coast Bays",
+                  "Tauranga City"
+                ],
+                "missingLabels": [
+                  "Manukau United",
+                  "Takapuna"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2024",
+                "to": "2025",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 12,
+                "newLabels": [
+                  "Auckland FC Reserves",
+                  "Fencibles United"
+                ],
+                "missingLabels": [
+                  "Hamilton Wanderers",
+                  "Melville United"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              }
+            ],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 12,
+                  "regularOrInitialGamesPerClub": 22,
+                  "pointsWin": 3,
+                  "formatAndMovement": "CORRECTION: OG name _aNorthernRegion, not National Summer Soccer League. 1996 Superclub 12, bottom2 relegated; one additional withdrawal. Renamed Premier Division 1997. National Summer league separate; preserve prior research but detach wrong identity."
+                },
+                "source": "repository/research",
+                "locator": "OCEANIA/NZL/9697/LEAGUE_DIVISION.json#historicalSportData",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 10,
+                  "gf": 64,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 54,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Metro",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:366"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 25,
+                  "gf": 67,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 48,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Mt Wellington",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:367"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 37,
+                  "gf": 69,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Onehunga Sports",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:368"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 38,
+                  "gf": 47,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 36,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Melville Utd",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:369"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 42,
+                  "gf": 59,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 35,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Waitakere City",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:370"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 34,
+                  "gf": 42,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 33,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Ellerslie",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:371"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 52,
+                  "gf": 52,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Central Utd",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:372"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 44,
+                  "gf": 31,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "East Coast Bays",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:373"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 50,
+                  "gf": 41,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 20,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Papatoetoe",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:375"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 65,
+                  "gf": 18,
+                  "lost": 16,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 16,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Manurewa",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:376"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 99,
+                  "gf": 22,
+                  "lost": 17,
+                  "note": "Relegated b",
+                  "phase": "",
+                  "played": 22,
+                  "points": 13,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 366
+                  },
+                  "team": "Mt Maunganui",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:377"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 28,
+                  "gf": 41,
+                  "lost": 4,
+                  "note": "Winners",
+                  "phase": "",
+                  "played": 18,
+                  "points": 38,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 12
+                  },
+                  "team": "Eastern Suburbs",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:14"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 29,
+                  "gf": 36,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 34,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 12
+                  },
+                  "team": "Western Springs",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:15"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 40,
+                  "gf": 42,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 27,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 12
+                  },
+                  "team": "Northern Rovers",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:16"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 31,
+                  "gf": 32,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 12
+                  },
+                  "team": "Hamilton Wanderers",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:17"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 32,
+                  "gf": 28,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 17,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 12
+                  },
+                  "team": "Ellerslie",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:18"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 38,
+                  "gf": 19,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 12,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 12
+                  },
+                  "team": "Auckland United",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:19"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "Winners",
+                  "phase": "",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Southern United",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:25"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 15,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Capital Football Federation",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:26"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 18,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Canterbury United Pride",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:27"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 23,
+                  "gf": 2,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Central Football Federation",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz-wom2021.txt:28"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 19,
+                  "gf": 63,
+                  "lost": 2,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 46,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Auckland City",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:25"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 25,
+                  "gf": 42,
+                  "lost": 4,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 19,
+                  "points": 35,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Auckland United",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:26"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 21,
+                  "gf": 31,
+                  "lost": 5,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 19,
+                  "points": 34,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Eastern Suburbs",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:27"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 33,
+                  "gf": 50,
+                  "lost": 6,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 19,
+                  "points": 33,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Birkenhead United",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:28"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 35,
+                  "gf": 44,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Western Springs",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:30"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 38,
+                  "gf": 26,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 25,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Bay Olympic",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:31"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 35,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 23,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Hamilton Wanderers",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:32"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 35,
+                  "gf": 33,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 19,
+                  "points": 22,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Manukau United",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:33"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 40,
+                  "gf": 35,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 19,
+                  "points": 22,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "North Shore United",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:34"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 40,
+                  "gf": 24,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 19,
+                  "points": 21,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Melville United",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:35"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 41,
+                  "gf": 22,
+                  "lost": 12,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 19,
+                  "points": 11,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "Northern Rovers",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:37"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 52,
+                  "gf": 18,
+                  "lost": 14,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 19,
+                  "points": 11,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table at abandonment:",
+                    "line": 23
+                  },
+                  "team": "West Coast Rangers",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:38"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 68,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 61,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland City",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:25"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 24,
+                  "gf": 56,
+                  "lost": 4,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Birkenhead United",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:26"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 22,
+                  "gf": 60,
+                  "lost": 3,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 49,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland United",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:27"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 22,
+                  "gf": 55,
+                  "lost": 7,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 45,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Melville United",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:28"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 32,
+                  "gf": 46,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Hamilton Wanderers",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:30"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 30,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Western Springs",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:31"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 46,
+                  "gf": 36,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Manukau United",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:32"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 46,
+                  "gf": 34,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 23,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Bay Olympic",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:33"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 43,
+                  "gf": 31,
+                  "lost": 11,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 21,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Takapuna",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:34"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 36,
+                  "gf": 24,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 20,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Eastern Suburbs",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:35"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 63,
+                  "gf": 19,
+                  "lost": 16,
+                  "note": "[P]  Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 8,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Waiheke United",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:37"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 94,
+                  "gf": 18,
+                  "lost": 18,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 8,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "North Shore United",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:38"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 64,
+                  "lost": 0,
+                  "note": "[C]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 60,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland City",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:25"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 51,
+                  "lost": 0,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 56,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Eastern Suburbs",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:26"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 24,
+                  "gf": 50,
+                  "lost": 5,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 43,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland United",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:27"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 37,
+                  "gf": 46,
+                  "lost": 8,
+                  "note": "[P]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 36,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Manurewa",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:28"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 35,
+                  "gf": 39,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 33,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Western Springs",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:30"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 49,
+                  "gf": 39,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 30,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Hamilton Wanderers",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:31"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 49,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "West Coast Rangers",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:32"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 44,
+                  "gf": 46,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 25,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Birkenhead United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:33"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 47,
+                  "gf": 30,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 23,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Melville United",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:34"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 55,
+                  "gf": 33,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 15,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Bay Olympic",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:35"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 50,
+                  "gf": 23,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 15,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Takapuna",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:37"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 64,
+                  "gf": 26,
+                  "lost": 16,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 12,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Manukau United",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:38"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 21,
+                  "gf": 53,
+                  "lost": 3,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 51,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland City",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:25"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 30,
+                  "gf": 52,
+                  "lost": 4,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 46,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Western Springs",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:26"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 20,
+                  "gf": 38,
+                  "lost": 6,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 44,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Eastern Suburbs",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:27"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 31,
+                  "gf": 54,
+                  "lost": 5,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 43,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Birkenhead United",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:28"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 27,
+                  "gf": 39,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland United",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:30"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 42,
+                  "gf": 39,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Bay Olympic",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:31"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 56,
+                  "gf": 38,
+                  "lost": 11,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 25,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Tauranga City",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:32"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 45,
+                  "gf": 28,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 23,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "West Coast Rangers",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:33"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 38,
+                  "gf": 29,
+                  "lost": 10,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 22,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "East Coast Bays",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:34"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 56,
+                  "gf": 41,
+                  "lost": 13,
+                  "note": "‹Relegation Playoff, see §nprorel›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 19,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Manurewa",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:36"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 54,
+                  "gf": 29,
+                  "lost": 16,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 18,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Melville United",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:38"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 48,
+                  "gf": 28,
+                  "lost": 12,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 14,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Hamilton Wanderers",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:39"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:41",
+                "excerpt": "Promotion/Relegation Playoff  ‹§nprorel›"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 44,
+                  "lost": 6,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 42,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Western Springs",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:25"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 33,
+                  "gf": 55,
+                  "lost": 5,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 41,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Birkenhead United",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:26"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 32,
+                  "gf": 47,
+                  "lost": 6,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland United",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:27"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 24,
+                  "gf": 35,
+                  "lost": 6,
+                  "note": "[C]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland City",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:28"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 27,
+                  "gf": 35,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Eastern Suburbs",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:30"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 27,
+                  "gf": 32,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 36,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "East Coast Bays",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:31"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 38,
+                  "gf": 42,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 30,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Tauranga City",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:32"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 36,
+                  "gf": 26,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 24,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Bay Olympic",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:33"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 37,
+                  "gf": 33,
+                  "lost": 11,
+                  "note": "[*]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 22,
+                  "points": 23,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Auckland FC Reserves",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:34"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 49,
+                  "gf": 37,
+                  "lost": 11,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 22,
+                  "points": 21,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Fencibles United",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:35"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 57,
+                  "gf": 24,
+                  "lost": 14,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 16,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "Manurewa",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:37"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 46,
+                  "gf": 26,
+                  "lost": 13,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 22,
+                  "points": 15,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 23
+                  },
+                  "team": "West Coast Rangers",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:38"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:40",
+                "excerpt": "[*] Auckland FC Reserves qualified automatically for the national stage"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",
@@ -223,7 +2640,1914 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "3d025a54040ae206a0fd54e51abf30058cc9aa51057f3f5d231081cac9d92003": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2021a.txt",
+                "edition": "2021",
+                "tableLine": 44,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Lower Hutt City",
+                  "Miramar Rangers",
+                  "Napier City Rovers",
+                  "North Wellington",
+                  "Petone",
+                  "Wainuiomata",
+                  "Wairarapa United",
+                  "Waterside Karori",
+                  "Wellington Olympic",
+                  "Western Suburbs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2022.txt",
+                "edition": "2022",
+                "tableLine": 42,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Havelock North Wanderers",
+                  "Miramar Rangers",
+                  "Napier City Rovers",
+                  "North Wellington",
+                  "Petone",
+                  "Waterside Karori",
+                  "Wellington Olympic",
+                  "Wellington Phoenix Reserves",
+                  "Wellington United",
+                  "Western Suburbs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2023.txt",
+                "edition": "2023",
+                "tableLine": 42,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Miramar Rangers",
+                  "Napier City Rovers",
+                  "North Wellington",
+                  "Petone",
+                  "Stop Out",
+                  "Waterside Karori",
+                  "Wellington Olympic",
+                  "Wellington Phoenix Reserves",
+                  "Western Suburbs",
+                  "Whanganui Athletic"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2024.txt",
+                "edition": "2024",
+                "tableLine": 53,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Island Bay United",
+                  "Miramar Rangers",
+                  "Napier City Rovers",
+                  "North Wellington",
+                  "Petone",
+                  "Stop Out",
+                  "Waterside Karori",
+                  "Wellington Olympic",
+                  "Wellington Phoenix Reserves",
+                  "Western Suburbs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2025.txt",
+                "edition": "2025",
+                "tableLine": 44,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Island Bay United",
+                  "Miramar Rangers",
+                  "Napier City Rovers",
+                  "North Wellington",
+                  "Petone",
+                  "Upper Hutt City",
+                  "Waterside Karori",
+                  "Wellington Olympic",
+                  "Wellington Phoenix Reserves",
+                  "Western Suburbs"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz96.txt",
+                "edition": "1996",
+                "tableLine": 485,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Lower Hutt City",
+                  "Manawatu Utd",
+                  "Miramar Rangers",
+                  "Napier City Rovers",
+                  "Petone",
+                  "Tawa",
+                  "Wainuiomata",
+                  "Wanganui Athletic",
+                  "Wellington Olympic",
+                  "Wellington United"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [
+              {
+                "from": "2021",
+                "to": "2022",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "Havelock North Wanderers",
+                  "Wellington Phoenix Reserves",
+                  "Wellington United"
+                ],
+                "missingLabels": [
+                  "Lower Hutt City",
+                  "Wainuiomata",
+                  "Wairarapa United"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2022",
+                "to": "2023",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "Stop Out",
+                  "Whanganui Athletic"
+                ],
+                "missingLabels": [
+                  "Havelock North Wanderers",
+                  "Wellington United"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2023",
+                "to": "2024",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "Island Bay United"
+                ],
+                "missingLabels": [
+                  "Whanganui Athletic"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2024",
+                "to": "2025",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "Upper Hutt City"
+                ],
+                "missingLabels": [
+                  "Stop Out"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              }
+            ],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 22,
+                  "gf": 66,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 50,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Wanganui Athletic",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:485"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 25,
+                  "gf": 41,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 44,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Petone",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:486"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 33,
+                  "gf": 53,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Wellington Olympic",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:487"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 24,
+                  "gf": 40,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 39,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Manawatu Utd",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:488"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 31,
+                  "gf": 43,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 35,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Lower Hutt City",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:489"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 30,
+                  "gf": 31,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Wainuiomata",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:490"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 46,
+                  "gf": 34,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Miramar Rangers",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:491"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 38,
+                  "gf": 28,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Tawa",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:492"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 47,
+                  "gf": 29,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 22,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Napier City Rovers",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:493"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 44,
+                  "gf": 31,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 22,
+                  "points": 21,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 485
+                  },
+                  "team": "Wellington United",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:494"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 12,
+                  "regularOrInitialGamesPerClub": 22,
+                  "pointsWin": 3,
+                  "formatAndMovement": "Regional top division candidate; bottom2 relegated; 1996 exact membership/fixture at cutoff pending"
+                },
+                "source": "repository/research",
+                "locator": "OCEANIA/NZL/9697/LEAGUE_DIVISION.json#historicalSportData",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement",
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz05.txt:588",
+                "excerpt": "NB: Teams not eligible for promotion to the New Zealand Football Championship."
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "movement",
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz06.txt:822",
+                "excerpt": "NB: Teams not eligible for promotion to the New Zealand Football Championship."
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement",
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz07.txt:555",
+                "excerpt": "NB: Teams not eligible for promotion to the New Zealand Football Championship."
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 59,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 47,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Wellington Olympic",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:46"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 64,
+                  "lost": 2,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 42,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Miramar Rangers",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:47"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 26,
+                  "gf": 70,
+                  "lost": 3,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 41,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Lower Hutt City",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:48"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 25,
+                  "gf": 46,
+                  "lost": 5,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 31,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Western Suburbs",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:50"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 44,
+                  "gf": 37,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Wairarapa United",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:51"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 42,
+                  "gf": 31,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 22,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Waterside Karori",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:52"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 51,
+                  "gf": 37,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 17,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Napier City Rovers",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:53"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 57,
+                  "gf": 46,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 16,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "North Wellington",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:54"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 68,
+                  "gf": 27,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 12,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Petone",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:55"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 86,
+                  "gf": 17,
+                  "lost": 16,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 4,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Wainuiomata",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:57"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:60",
+                "excerpt": "with Wellington Phoenix Reserves, who are qualified automatically but needed a MoU with"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 15,
+                  "gf": 71,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 45,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Wellington Olympic",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:44"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 19,
+                  "gf": 63,
+                  "lost": 2,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 40,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Miramar Rangers",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:45"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 32,
+                  "lost": 5,
+                  "note": "[*]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 33,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Wellington Phoenix Reserves",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:46"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 28,
+                  "gf": 35,
+                  "lost": 6,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Napier City Rovers",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:47"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 29,
+                  "gf": 33,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 26,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Waterside Karori",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:49"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 39,
+                  "gf": 24,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 19,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Petone",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:50"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 44,
+                  "gf": 31,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 18,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "North Wellington",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:51"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 40,
+                  "gf": 22,
+                  "lost": 10,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 18,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Wellington United",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:52"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 66,
+                  "gf": 21,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 14,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Western Suburbs",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:53"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 56,
+                  "gf": 21,
+                  "lost": 12,
+                  "note": "[P]  Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 12,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Havelock North Wanderers",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:55"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "qualification",
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:57",
+                "excerpt": "[*] Wellington Phoenix Reserves replaced Lower Hutt City; they were qualified"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:60",
+                "excerpt": "NB: Wairarapa United withdrew just before the season and were replaced by"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 29,
+                  "gf": 79,
+                  "lost": 2,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 46,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Wellington Olympic",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:44"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 29,
+                  "gf": 47,
+                  "lost": 5,
+                  "note": "[*]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 37,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Wellington Phoenix Reserves",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:45"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 32,
+                  "gf": 50,
+                  "lost": 5,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 33,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Napier City Rovers",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:46"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 33,
+                  "gf": 45,
+                  "lost": 6,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 32,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Petone",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:47"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 34,
+                  "gf": 40,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Western Suburbs",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:49"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 40,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Waterside Karori",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:50"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 43,
+                  "gf": 37,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Miramar Rangers",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:51"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 47,
+                  "gf": 37,
+                  "lost": 8,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Stop Out",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:52"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 63,
+                  "gf": 21,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 7,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "North Wellington",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:53"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 69,
+                  "gf": 19,
+                  "lost": 15,
+                  "note": "[!]  Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 5,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 42
+                  },
+                  "team": "Whanganui Athletic",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:55"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:57",
+                "excerpt": "[*] Wellington Phoenix Reserves qualified automatically for the national stage"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:58",
+                "excerpt": "[!] Whanganui Athletic (second level runners-up 2022) replaced Wellington United, who withdrew"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 16,
+                  "gf": 79,
+                  "lost": 1,
+                  "note": "[C]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 51,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Wellington Olympic",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:55"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 24,
+                  "gf": 54,
+                  "lost": 4,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 40,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Western Suburbs",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:56"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 23,
+                  "gf": 53,
+                  "lost": 4,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 40,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Napier City Rovers",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:57"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 21,
+                  "gf": 61,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 35,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Miramar Rangers",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:59"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 40,
+                  "gf": 34,
+                  "lost": 8,
+                  "note": "[*]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Wellington Phoenix Reserves",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:60"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 48,
+                  "gf": 35,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Waterside Karori",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:61"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 45,
+                  "gf": 28,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Petone",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:62"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 64,
+                  "gf": 25,
+                  "lost": 14,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 12,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Island Bay United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:63"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 63,
+                  "gf": 23,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 9,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "North Wellington",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:64"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 67,
+                  "gf": 19,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 5,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 53
+                  },
+                  "team": "Stop Out",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:66"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:68",
+                "excerpt": "[*] Wellington Phoenix Reserves qualified automatically for the national stage"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 13,
+                  "gf": 57,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 45,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Wellington Olympic",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:46"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 22,
+                  "gf": 53,
+                  "lost": 3,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 39,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Miramar Rangers",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:47"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 24,
+                  "gf": 57,
+                  "lost": 4,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 34,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Western Suburbs",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:48"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 26,
+                  "gf": 44,
+                  "lost": 5,
+                  "note": "[*]  ‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 29,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Wellington Phoenix Reserves",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:50"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 24,
+                  "gf": 45,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Napier City Rovers",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:51"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 44,
+                  "gf": 42,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 19,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Petone",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:52"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 70,
+                  "gf": 29,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 16,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Waterside Karori",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:53"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 50,
+                  "gf": 20,
+                  "lost": 10,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 14,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Upper Hutt City",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:54"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 56,
+                  "gf": 22,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 13,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "Island Bay United",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:55"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 69,
+                  "gf": 29,
+                  "lost": 10,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 12,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 44
+                  },
+                  "team": "North Wellington",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:57"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:59",
+                "excerpt": "[*] Wellington Phoenix Reserves qualified automatically for the national stage"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
           "status": "I",
@@ -332,7 +4656,1536 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "fcb184b15d159d5b6a9ccfcdf5456ec61babe6a0e2761de5d6489c31c2618480": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2022.txt",
+                "edition": "2022",
+                "tableLine": 65,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cashmere Technical",
+                  "Christchurch United",
+                  "Coastal Spirit",
+                  "Dunedin City Royals",
+                  "Ferrymead Bays",
+                  "Green Island",
+                  "Mosgiel",
+                  "Nelson Suburbs",
+                  "Nomads United",
+                  "Selwyn United"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2023.txt",
+                "edition": "2023",
+                "tableLine": 62,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cashmere Technical",
+                  "Christchurch United",
+                  "Coastal Spirit",
+                  "Dunedin City Royals",
+                  "FC Twenty 11",
+                  "Ferrymead Bays",
+                  "Green Island",
+                  "Nelson Suburbs",
+                  "Nomads United",
+                  "Selwyn United"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2024.txt",
+                "edition": "2024",
+                "tableLine": 72,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cashmere Technical",
+                  "Christchurch United",
+                  "Coastal Spirit",
+                  "Dunedin City Royals",
+                  "FC Twenty 11",
+                  "Ferrymead Bays",
+                  "Nelson Suburbs",
+                  "Nomads United",
+                  "Selwyn United",
+                  "University of Canterbury"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz2025.txt",
+                "edition": "2025",
+                "tableLine": 63,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cashmere Technical",
+                  "Christchurch United",
+                  "Coastal Spirit",
+                  "Dunedin City Royals",
+                  "Ferrymead Bays",
+                  "Nelson Suburbs",
+                  "Nomads United",
+                  "Selwyn United",
+                  "University of Canterbury",
+                  "Wanaka"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nz96.txt",
+                "edition": "1996",
+                "tableLine": 586,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Caversham",
+                  "Christchurch Tech",
+                  "Christchurch Utd",
+                  "Dunedin Technical",
+                  "Halswell United",
+                  "New Brighton",
+                  "Nomads United",
+                  "Rangers",
+                  "Southland United",
+                  "Woolston"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [
+              {
+                "from": "2022",
+                "to": "2023",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "FC Twenty 11"
+                ],
+                "missingLabels": [
+                  "Mosgiel"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2023",
+                "to": "2024",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "University of Canterbury"
+                ],
+                "missingLabels": [
+                  "Green Island"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2024",
+                "to": "2025",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "Wanaka"
+                ],
+                "missingLabels": [
+                  "FC Twenty 11"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              }
+            ],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 59,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 49,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Dunedin Technical",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:586"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 25,
+                  "gf": 39,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 35,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Christchurch Utd",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:587"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 25,
+                  "gf": 37,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 35,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Caversham",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:588"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 25,
+                  "gf": 51,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 32,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Christchurch Tech",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:589"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 31,
+                  "gf": 31,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Halswell United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:590"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 28,
+                  "gf": 23,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 21,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Woolston",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:591"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 33,
+                  "gf": 25,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 18,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Rangers",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:592"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 50,
+                  "gf": 24,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 15,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Southland United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:593"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 42,
+                  "gf": 13,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 11,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "New Brighton",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:594"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 60,
+                  "gf": 24,
+                  "lost": 13,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 9,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 586
+                  },
+                  "team": "Nomads United",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:595"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 10,
+                  "regularOrInitialGamesPerClub": 18,
+                  "pointsWin": 3,
+                  "formatAndMovement": "Regional top division candidate; 1996 membership/fixture at cutoff pending"
+                },
+                "source": "repository/research",
+                "locator": "OCEANIA/NZL/9697/LEAGUE_DIVISION.json#historicalSportData",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2021",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2021a.txt:65",
+                "excerpt": "NB: participants qualified through two regional tournaments:"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 74,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 49,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Christchurch United",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:67"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 79,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 49,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Cashmere Technical",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:68"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 35,
+                  "gf": 40,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 33,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Nelson Suburbs",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:70"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 35,
+                  "gf": 46,
+                  "lost": 7,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 31,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Dunedin City Royals",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:71"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 37,
+                  "lost": 6,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 30,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Ferrymead Bays",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:72"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 34,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 16,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Coastal Spirit",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:73"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 57,
+                  "gf": 28,
+                  "lost": 11,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 15,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Nomads United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:74"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 61,
+                  "gf": 27,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 13,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Green Island",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:75"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 48,
+                  "gf": 27,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 11,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Selwyn United",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:76"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 72,
+                  "gf": 21,
+                  "lost": 13,
+                  "note": "[P]  Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 9,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "Mosgiel",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:78"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2022.txt:80",
+                "excerpt": "[*] South City Royals were renamed Dunedin City Royals"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 72,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 49,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Christchurch United",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:64"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 27,
+                  "gf": 66,
+                  "lost": 2,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 42,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Cashmere Technical",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:65"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 36,
+                  "gf": 30,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 31,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Coastal Spirit",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:67"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 29,
+                  "gf": 44,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 29,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Dunedin City Royals",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:68"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 36,
+                  "gf": 35,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 29,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Ferrymead Bays",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:69"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 46,
+                  "gf": 48,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 25,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Nelson Suburbs",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:70"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 35,
+                  "gf": 32,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 23,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Nomads United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:71"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 58,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "Withdrew",
+                  "phase": "",
+                  "played": 18,
+                  "points": 16,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Green Island",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:72"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 53,
+                  "gf": 21,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 10,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "Selwyn United",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:73"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 60,
+                  "gf": 11,
+                  "lost": 16,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 6,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 62
+                  },
+                  "team": "FC Twenty 11",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:75"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2023.txt:78",
+                "excerpt": "FC Twenty 11 were reprieved from relegation"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 90,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 47,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Cashmere Technical",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:74"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 59,
+                  "lost": 1,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 45,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Coastal Spirit",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:75"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 21,
+                  "gf": 64,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 41,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Christchurch United",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:77"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 39,
+                  "gf": 52,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 17,
+                  "points": 29,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Nelson Suburbs",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:78"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 39,
+                  "gf": 39,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 25,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Ferrymead Bays",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:79"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 31,
+                  "gf": 27,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 24,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Nomads United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:80"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 46,
+                  "gf": 27,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 17,
+                  "points": 19,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Dunedin City Royals",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:81"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 68,
+                  "gf": 31,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 14,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "Selwyn United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:82"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 46,
+                  "gf": 21,
+                  "lost": 13,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 11,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "University of Canterbury",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:83"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 93,
+                  "gf": 9,
+                  "lost": 17,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 1,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 72
+                  },
+                  "team": "FC Twenty 11",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2024.txt:85"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 21,
+                  "gf": 56,
+                  "lost": 4,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 42,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Coastal Spirit",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:65"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 13,
+                  "gf": 66,
+                  "lost": 2,
+                  "note": "‹Qualified, see §champ›",
+                  "phase": "",
+                  "played": 18,
+                  "points": 40,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Christchurch United",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:66"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 29,
+                  "gf": 59,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 39,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Cashmere Technical",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:68"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 27,
+                  "gf": 42,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 30,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Nelson Suburbs",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:69"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 35,
+                  "gf": 44,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Nomads United",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:70"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 32,
+                  "gf": 33,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Ferrymead Bays",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:71"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 31,
+                  "gf": 39,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 26,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Dunedin City Royals",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:72"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 58,
+                  "gf": 23,
+                  "lost": 13,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 15,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Wanaka",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:73"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 78,
+                  "gf": 20,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 5,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "University of Canterbury",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:74"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 78,
+                  "gf": 20,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 18,
+                  "points": 3,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 63
+                  },
+                  "team": "Selwyn United",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2025.txt:76"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
           "status": "I",

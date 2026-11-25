@@ -322,6 +322,686 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "cae06403587f2905eaf0f07dbdaf34a021c045470b4ddbbb917d108637b5e298": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "39",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-05",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-04",
+              "max_date": "2014-04-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-03",
+              "max_date": "2015-04-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "37",
+              "unique_oriented_pairs": "37",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-09-02",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "35",
+              "rows": "35",
+              "unique_oriented_pairs": "35",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-09-07",
+              "max_date": "2017-05-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "37",
+              "unique_oriented_pairs": "37",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-09-06",
+              "max_date": "2018-05-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-12",
+              "max_date": "2019-05-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-11",
+              "max_date": "2020-06-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-09",
+              "max_date": "2021-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-08",
+              "max_date": "2022-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "35",
+              "unique_oriented_pairs": "35",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-09-14",
+              "max_date": "2023-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "35",
+              "unique_oriented_pairs": "35",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-09-13",
+              "max_date": "2024-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-10-30",
+              "max_date": "2025-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kup Srbije",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-28",
+              "max_date": "2026-04-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "73",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-02",
+              "max_date": "2010-06-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "110",
+              "rows": "101",
+              "unique_oriented_pairs": "101",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-29",
+              "max_date": "2012-06-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "39",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-05",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-04",
+              "max_date": "2014-04-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-03",
+              "max_date": "2015-04-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "37",
+              "unique_oriented_pairs": "37",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-09-02",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "35",
+              "rows": "35",
+              "unique_oriented_pairs": "35",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-09-07",
+              "max_date": "2017-05-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "37",
+              "unique_oriented_pairs": "37",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-09-06",
+              "max_date": "2018-05-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-12",
+              "max_date": "2019-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-11",
+              "max_date": "2020-06-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-09",
+              "max_date": "2021-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-08",
+              "max_date": "2022-05-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "35",
+              "unique_oriented_pairs": "35",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-09-14",
+              "max_date": "2023-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "35",
+              "unique_oriented_pairs": "35",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-09-13",
+              "max_date": "2024-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-10-30",
+              "max_date": "2025-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Mozzart Bet Kup Srbije",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-28",
+              "max_date": "2026-04-30"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2009/10",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2010.txt:416",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2010.txt:418",
+                "excerpt": "Qualification stage"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2011.txt:50",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2011.txt:52",
+                "excerpt": "Qualification stage"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2012.txt:100",
+                "excerpt": "NB: Radnički (Rudovci) lost in First round, but included in 1/8 finals!?"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2012.txt:102",
+                "excerpt": "Intermediate Round [Mar 30, 2011]"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2012.txt:170",
+                "excerpt": "Second Round [Jun 8]"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2012.txt:45",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2012.txt:47",
+                "excerpt": "Qualification stage"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2012.txt:52",
+                "excerpt": "First Round [Sep 29, 2010]"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2013.txt:420",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2014.txt:425",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2015.txt:441",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2016.txt:620",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2017.txt:602",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2018.txt:607",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2019.txt:622",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2020.txt:446",
+                "excerpt": "NB: no extra time played."
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2023.txt:663",
+                "excerpt": "NB: no extra time played after draws except possibly in final"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2024.txt:638",
+                "excerpt": "NB: no extra time played after draws except possibly in final"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2025.txt:651",
+                "excerpt": "NB: no extra time played after draws except possibly in final"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/serv2026.txt:81",
+                "excerpt": "NB: no extra time played after draws except possibly in final"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "roundOf32Teams": 32,
+                  "pots": [
+                    16,
+                    16
+                  ],
+                  "pot1": "all 16 prior season top-tier clubs",
+                  "pot2": "prior second-tier clubs and preliminary winners",
+                  "preliminaryDraw": "semi-directed",
+                  "preliminaryBye": "Teleoptik"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SRB/2627/NATIONAL_CUP.json#sportRuleEvidence78",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

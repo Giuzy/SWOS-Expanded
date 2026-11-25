@@ -395,6 +395,2732 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "0357cf5681cb42f3e87cc9c3a958f8c145712cb2f3ffd953374bd885ce938f03": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "84",
+              "rows": "88",
+              "unique_oriented_pairs": "88",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "88",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-07-29",
+              "max_date": "2010-05-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-24",
+              "max_date": "2011-05-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-16",
+              "max_date": "2012-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-31",
+              "max_date": "2013-05-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "46",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "51",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-07-23",
+              "max_date": "2014-05-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-12",
+              "max_date": "2015-05-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-18",
+              "max_date": "2016-04-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "67",
+              "unique_oriented_pairs": "67",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "67",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-15",
+              "max_date": "2017-04-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "72",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "72",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-14",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "66",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "66",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-07",
+              "max_date": "2019-04-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-07",
+              "max_date": "2020-05-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "64",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-08",
+              "max_date": "2021-04-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-04",
+              "max_date": "2022-04-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "69",
+              "rows": "66",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "66",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-26",
+              "max_date": "2023-04-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "70",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-02",
+              "max_date": "2024-04-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "70",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-06",
+              "max_date": "2025-04-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "69",
+              "rows": "67",
+              "unique_oriented_pairs": "67",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "67",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-05",
+              "max_date": "2026-04-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "98",
+              "rows": "98",
+              "unique_oriented_pairs": "82",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "98",
+              "duplicate_pair_occurrences": "16",
+              "min_date": "1998-07-24",
+              "max_date": "1998-11-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "80",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "112",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2000-08-09",
+              "max_date": "2000-11-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "48",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "24",
+              "min_date": "2001-10-09",
+              "max_date": "2001-11-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "102",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "102",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2003-07-29",
+              "max_date": "2004-06-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "290",
+              "unique_oriented_pairs": "145",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "290",
+              "duplicate_pair_occurrences": "145",
+              "min_date": "2004-07-24",
+              "max_date": "2005-06-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "180",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "180",
+              "duplicate_pair_occurrences": "90",
+              "min_date": "2005-08-02",
+              "max_date": "2006-05-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "130",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "130",
+              "duplicate_pair_occurrences": "65",
+              "min_date": "2006-08-09",
+              "max_date": "2007-04-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "61",
+              "rows": "128",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "128",
+              "duplicate_pair_occurrences": "64",
+              "min_date": "2007-07-31",
+              "max_date": "2008-04-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "138",
+              "unique_oriented_pairs": "69",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "138",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2008-07-30",
+              "max_date": "2009-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-07-29",
+              "max_date": "2009-08-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-24",
+              "max_date": "2011-05-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-16",
+              "max_date": "2012-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-31",
+              "max_date": "2013-05-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "46",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "51",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-07-23",
+              "max_date": "2014-05-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-12",
+              "max_date": "2015-05-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-18",
+              "max_date": "2016-04-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "67",
+              "unique_oriented_pairs": "67",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "67",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-15",
+              "max_date": "2017-04-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "72",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "72",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-14",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "66",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "66",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-07",
+              "max_date": "2019-04-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-07",
+              "max_date": "2020-05-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "64",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-08",
+              "max_date": "2021-04-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-04",
+              "max_date": "2022-04-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "69",
+              "rows": "66",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "66",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-26",
+              "max_date": "2023-04-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "70",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-02",
+              "max_date": "2024-04-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "70",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-06",
+              "max_date": "2025-04-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Puchar Polski",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "69",
+              "rows": "67",
+              "unique_oriented_pairs": "67",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "67",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-05",
+              "max_date": "2026-04-09"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 1001,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Kujawiak Włocławek",
+                  "Odra Wodzisław Śląski",
+                  "Wisła Płock",
+                  "Łódzki KS"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 1050,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Arka Gdynia",
+                  "Drwęca Nowe Miasto Lubawskie",
+                  "Lech Poznań",
+                  "Stasiak Ostrowiec Świętokrzyski"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 1106,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "GKS Katowice",
+                  "Górnik Zabrze",
+                  "Podbeskidzie Bielsko-Biała",
+                  "Skalnik Gracze"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 1157,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Górnik Łęczna",
+                  "Korona Kielce",
+                  "Polonia Warszawa",
+                  "Stal Mielec"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 795,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Koszarawa Żywiec",
+                  "Szczakowianka Jaworzno",
+                  "Tłoki Gorzyce",
+                  "Wisła Kraków"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 847,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Legia Warszawa",
+                  "Mazowsze Grójec",
+                  "Pogoń Szczecin",
+                  "Świt Nowy Dwór Mazowiecki"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 902,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Amica Wronki",
+                  "Górnik Polkowice",
+                  "Kotwica Kołobrzeg",
+                  "Zagłębie Lubin"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/pol05.txt",
+                "edition": "2004/2005",
+                "tableLine": 952,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Dyskobolia Grodzisk Wielkopolski",
+                  "GKS Bełchatów",
+                  "Olimpia Sztum",
+                  "Piast Gliwice"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 130,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Koszarawa Żywiec",
+                  "Szczakowianka Jaworzno",
+                  "Tłoki Gorzyce",
+                  "Wisła Kraków"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 182,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Legia Warszawa",
+                  "Mazowsze Grójec",
+                  "Pogoń Szczecin",
+                  "Świt Nowy Dwór Mazowiecki"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 237,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Amica Wronki",
+                  "Górnik Polkowice",
+                  "Kotwica Kołobrzeg",
+                  "Zagłębie Lubin"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 287,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Dyskobolia Grodzisk Wielkopolski",
+                  "GKS Bełchatów",
+                  "Olimpia Sztum",
+                  "Piast Gliwice"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 336,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Kujawiak Włocławek",
+                  "Odra Wodzisław Śląski",
+                  "Wisła Płock",
+                  "Łódzki KS"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 385,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Arka Gdynia",
+                  "Drwęca Nowe Miasto Lubawskie",
+                  "Lech Poznań",
+                  "Stasiak Ostrowiec Świętokrzyski"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 441,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "GKS Katowice",
+                  "Górnik Zabrze",
+                  "Podbeskidzie Bielsko-Biała",
+                  "Skalnik Gracze"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/polcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 492,
+                "phase": "GROUP STAGE",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Górnik Łęczna",
+                  "Korona Kielce",
+                  "Polonia Warszawa",
+                  "Stal Mielec"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "preliminary": {
+                    "regionalEntrants": 49,
+                    "playing": 18,
+                    "byes": 31
+                  },
+                  "round1Matches": 20,
+                  "round2Entry": "prior second tier",
+                  "knockoutLegs": 1,
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/POL/9697/NATIONAL_CUP.json#block74Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol01.txt:427",
+                "excerpt": "Qualification Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol01.txt:580",
+                "excerpt": "[Missed penalty: 66' Janus (Slask)]"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol01.txt:625",
+                "excerpt": "[Missed penalty: 90' Bak (Polonia)]"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol01.txt:632",
+                "excerpt": "[Missed penalty: 73' Solnica (Odra)]"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1001
+                  },
+                  "team": "Wisła Płock",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1001"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1001
+                  },
+                  "team": "Odra Wodzisław Śląski",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1002"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1001
+                  },
+                  "team": "Łódzki KS",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1003"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 6,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1001
+                  },
+                  "team": "Kujawiak Włocławek",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1004"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1050
+                  },
+                  "team": "Stasiak Ostrowiec Świętokrzyski",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1050"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1050
+                  },
+                  "team": "Lech Poznań",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1051"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1050
+                  },
+                  "team": "Arka Gdynia",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1052"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1050
+                  },
+                  "team": "Drwęca Nowe Miasto Lubawskie",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1053"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 15,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1106
+                  },
+                  "team": "Górnik Zabrze",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1106"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1106
+                  },
+                  "team": "Podbeskidzie Bielsko-Biała",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1107"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1106
+                  },
+                  "team": "GKS Katowice",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1108"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 22,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1106
+                  },
+                  "team": "Skalnik Gracze",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1109"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1157
+                  },
+                  "team": "Korona Kielce",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1157"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1157
+                  },
+                  "team": "Polonia Warszawa",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1158"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1157
+                  },
+                  "team": "Górnik Łęczna",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1159"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 4,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1157
+                  },
+                  "team": "Stal Mielec",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:1160"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 17,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 795
+                  },
+                  "team": "Wisła Kraków",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:795"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 795
+                  },
+                  "team": "Koszarawa Żywiec",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:796"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 10,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 795
+                  },
+                  "team": "Szczakowianka Jaworzno",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:797"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 19,
+                  "gf": 4,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 795
+                  },
+                  "team": "Tłoki Gorzyce",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:798"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 847
+                  },
+                  "team": "Pogoń Szczecin",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:847"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 847
+                  },
+                  "team": "Legia Warszawa",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:848"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 847
+                  },
+                  "team": "Mazowsze Grójec",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:849"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 847
+                  },
+                  "team": "Świt Nowy Dwór Mazowiecki",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:850"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 902
+                  },
+                  "team": "Amica Wronki",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:902"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 902
+                  },
+                  "team": "Zagłębie Lubin",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:903"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 902
+                  },
+                  "team": "Górnik Polkowice",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:904"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 22,
+                  "gf": 7,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 902
+                  },
+                  "team": "Kotwica Kołobrzeg",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:905"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 952
+                  },
+                  "team": "Dyskobolia Grodzisk Wielkopolski",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:952"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 21,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 952
+                  },
+                  "team": "GKS Bełchatów",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:953"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 23,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 952
+                  },
+                  "team": "Olimpia Sztum",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:954"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 4,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 952
+                  },
+                  "team": "Piast Gliwice",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol05.txt:955"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 17,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 130
+                  },
+                  "team": "Wisła Kraków",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:130"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 130
+                  },
+                  "team": "Koszarawa Żywiec",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:131"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 10,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 130
+                  },
+                  "team": "Szczakowianka Jaworzno",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:132"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 19,
+                  "gf": 4,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 130
+                  },
+                  "team": "Tłoki Gorzyce",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:133"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Pogoń Szczecin",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:182"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Legia Warszawa",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:183"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Mazowsze Grójec",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:184"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Świt Nowy Dwór Mazowiecki",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:185"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 237
+                  },
+                  "team": "Amica Wronki",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:237"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 237
+                  },
+                  "team": "Zagłębie Lubin",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:238"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 237
+                  },
+                  "team": "Górnik Polkowice",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:239"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 22,
+                  "gf": 7,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 237
+                  },
+                  "team": "Kotwica Kołobrzeg",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:240"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 287
+                  },
+                  "team": "Dyskobolia Grodzisk Wielkopolski",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:287"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 21,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 287
+                  },
+                  "team": "GKS Bełchatów",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:288"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 23,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 287
+                  },
+                  "team": "Olimpia Sztum",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:289"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 4,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 287
+                  },
+                  "team": "Piast Gliwice",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:290"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 336
+                  },
+                  "team": "Wisła Płock",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:336"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 336
+                  },
+                  "team": "Odra Wodzisław Śląski",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:337"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 336
+                  },
+                  "team": "Łódzki KS",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:338"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 6,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 336
+                  },
+                  "team": "Kujawiak Włocławek",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:339"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 385
+                  },
+                  "team": "Stasiak Ostrowiec Świętokrzyski",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:385"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 385
+                  },
+                  "team": "Lech Poznań",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:386"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 385
+                  },
+                  "team": "Arka Gdynia",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:387"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 385
+                  },
+                  "team": "Drwęca Nowe Miasto Lubawskie",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:388"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 15,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "Górnik Zabrze",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:441"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "Podbeskidzie Bielsko-Biała",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:442"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "GKS Katowice",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:443"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 22,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "Skalnik Gracze",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:444"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 492
+                  },
+                  "team": "Korona Kielce",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:492"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 492
+                  },
+                  "team": "Polonia Warszawa",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:493"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 492
+                  },
+                  "team": "Górnik Łęczna",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:494"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 4,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "GROUP STAGE",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 492
+                  },
+                  "team": "Stal Mielec",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/polcup05.txt:495"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol06.txt:698",
+                "excerpt": "Qualifying Round [Aug 2]"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol06.txt:716",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol06.txt:757",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol07.txt:597",
+                "excerpt": "1st Qualifying Round [Aug 9]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol07.txt:606",
+                "excerpt": "2nd Qualifying Round [Aug 15]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol07.txt:753",
+                "excerpt": "Arka Gdynia                awd Wisła Płock            [awarded 0-3; Arka suspended"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol08.txt:462",
+                "excerpt": "Pre-Preliminary Round [Aug 1]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol09.txt:456",
+                "excerpt": "Pre-Preliminary Round [Jul 30]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol2010.txt:482",
+                "excerpt": "Qualifying Round"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/pol2023.txt:653",
+                "excerpt": "[Nov 10]                                                                 during penalty shootout (match 2-2 aet)]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

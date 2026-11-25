@@ -626,7 +626,48 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "63d19121e49179417cd84de24570b579bc63a9a27312807f08787e5b207b519c": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 16,
+                  "groups": 4,
+                  "clubsPerGroup": 4,
+                  "doubleRoundRobin": true,
+                  "gamesPerClub": 6,
+                  "groupWinnersToSF": true,
+                  "semifinalLegs": 2,
+                  "semifinalPairing": "2025 league rank among group winners: best vs worst, second vs third; promoted clubs rank15/16; better rank home second leg",
+                  "continentalAccess": "winner Libertadores Chile3 and Supercopa 2027"
+                },
+                "source": "repository/research",
+                "locator": "SOUTH_AMERICA/CHI/2627/LEAGUE_CUP.json#block110Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
           "status": "I",

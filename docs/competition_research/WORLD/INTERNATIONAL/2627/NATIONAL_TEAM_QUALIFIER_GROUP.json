@@ -4621,7 +4621,61 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "f2ac084013c25cfd10a440092f32bf7270cf90d92d4cd51a68325ed7e3af9fe6": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_QUALIFIER_GROUP",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026",
+                "categories": [],
+                "values": {
+                  "direct": {
+                    "AFC": 8,
+                    "CAF": 9,
+                    "CONCACAF": 6,
+                    "CONMEBOL": 6,
+                    "OFC": 1,
+                    "UEFA": 16
+                  },
+                  "playoff": {
+                    "entrants": 6,
+                    "qualify": 2,
+                    "seeded": 2
+                  },
+                  "UEFA": {
+                    "entrants": 54,
+                    "groups": 12,
+                    "groupSizes": [
+                      4,
+                      5
+                    ],
+                    "direct": 12,
+                    "playoffEntrants": 16,
+                    "playoffQualify": 4
+                  },
+                  "hostsWithinQuota": true
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_QUALIFIER_GROUP.json#sportRuleEvidence51",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",
@@ -4722,7 +4776,48 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "12bd3c1358786f4d29fb00f09a2b906c97eaf1ffa9c3552cdbbf7a6fc13869bd": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_QUALIFIER_GROUP",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2028",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "groups": 12,
+                  "groupSizes": [
+                    4,
+                    5
+                  ],
+                  "groupWinnersDirect": 12,
+                  "bestRunnersUpDirect": 8,
+                  "hostReservedMax": 2,
+                  "nationsLeaguePlayoffAccess": true
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_QUALIFIER_GROUP.json#sportRuleEvidence49",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

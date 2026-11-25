@@ -118,7 +118,86 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "8dc6ea619b5bce239838d8d391e2865712b98d719ae16fc35f1de8ef2ea8793a": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+          "phaseQueue": "PARENT_PHASE_LINK",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "name": "MLS Cup Playoffs",
+                  "entrants": 18,
+                  "perConference": 9,
+                  "directSeeds": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "wildCardSeeds": [
+                    8,
+                    9
+                  ],
+                  "wildCard": {
+                    "legs": 1,
+                    "extraTime": false,
+                    "penalties": true
+                  },
+                  "roundOne": {
+                    "winsRequired": 2,
+                    "maxGames": 3,
+                    "homeOrder": "higher-lower-higher",
+                    "extraTime": false,
+                    "penalties": true
+                  },
+                  "laterRounds": {
+                    "legs": 1,
+                    "extraTimeMinutes": 30,
+                    "penalties": true
+                  },
+                  "finalHost": "higher Supporters Shield rank",
+                  "tieBreakers": [
+                    "wins",
+                    "goal difference",
+                    "goals scored",
+                    "intraconference head-to-head points then goal difference",
+                    "fewest disciplinary points",
+                    "away goal difference",
+                    "away goals",
+                    "home goal difference",
+                    "home goals",
+                    "coin toss or draw"
+                  ],
+                  "cancellation": "points per game if full 34-match schedule cannot be completed"
+                },
+                "source": "repository/research",
+                "locator": "NORTH_AMERICA/USA/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json#block52Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

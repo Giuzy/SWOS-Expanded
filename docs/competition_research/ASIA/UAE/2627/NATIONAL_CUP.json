@@ -383,6 +383,4764 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "7e735eb29c24a5c314d66024e2364a85053701da25e9f1aac6ad3c3fb55847d7": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "365",
+              "unique_oriented_pairs": "339",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "365",
+              "duplicate_pair_occurrences": "26",
+              "min_date": "2001-09-12",
+              "max_date": "2002-06-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "35",
+              "unique_oriented_pairs": "34",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2005-09-12",
+              "max_date": "2006-04-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "265",
+              "unique_oriented_pairs": "259",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "265",
+              "duplicate_pair_occurrences": "6",
+              "min_date": "2006-09-14",
+              "max_date": "2007-05-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Presidents Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-10-30",
+              "max_date": "2009-04-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-27",
+              "max_date": "2010-04-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-20",
+              "max_date": "2011-04-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-12-17",
+              "max_date": "2012-04-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-12-09",
+              "max_date": "2014-05-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-05-14",
+              "max_date": "2015-06-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-02-26",
+              "max_date": "2016-05-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-12-26",
+              "max_date": "2017-05-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-15",
+              "max_date": "2018-05-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-12-07",
+              "max_date": "2019-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-12-23",
+              "max_date": "2020-03-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-12-05",
+              "max_date": "2021-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-10-01",
+              "max_date": "2022-02-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-12-04",
+              "max_date": "2023-04-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-09-02",
+              "max_date": "2024-05-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-10-17",
+              "max_date": "2025-05-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "UAE Presidents Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-24",
+              "max_date": "2026-05-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "96",
+              "unique_oriented_pairs": "96",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "96",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-01-02",
+              "max_date": "2002-06-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "35",
+              "unique_oriented_pairs": "34",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "35",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2005-09-12",
+              "max_date": "2006-04-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-09-14",
+              "max_date": "2007-04-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-10-30",
+              "max_date": "2009-04-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-27",
+              "max_date": "2010-04-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-20",
+              "max_date": "2011-04-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-12-17",
+              "max_date": "2012-04-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-12-09",
+              "max_date": "2014-05-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-05-14",
+              "max_date": "2015-06-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-02-26",
+              "max_date": "2016-05-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-12-26",
+              "max_date": "2017-05-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-15",
+              "max_date": "2018-05-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-12-07",
+              "max_date": "2019-04-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-12-23",
+              "max_date": "2020-03-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-12-05",
+              "max_date": "2021-05-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-10-01",
+              "max_date": "2022-02-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-12-04",
+              "max_date": "2023-04-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-09-02",
+              "max_date": "2024-05-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-10-17",
+              "max_date": "2025-05-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "President's Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-24",
+              "max_date": "2026-05-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae02.txt",
+                "edition": "2001/2002",
+                "tableLine": 1076,
+                "phase": "Group 4",
+                "heading": "Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Ahli Fujeira",
+                  "Al-Ain",
+                  "Al-Khaleej",
+                  "Al-Sha'ab",
+                  "Al-Urooba",
+                  "Dibba",
+                  "Hamra Island"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae02.txt",
+                "edition": "2001/2002",
+                "tableLine": 786,
+                "phase": "Group 1",
+                "heading": "Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Ajman",
+                  "Al-Ahli",
+                  "Al-Ittihad",
+                  "Al-Nasr",
+                  "Dibba Al-Hisn",
+                  "Dubai",
+                  "Ramms"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae02.txt",
+                "edition": "2001/2002",
+                "tableLine": 888,
+                "phase": "Group 2",
+                "heading": "Table:",
+                "date": null,
+                "rows": 8,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Al-Jazeera",
+                  "Al-Wasl",
+                  "Dhafra",
+                  "Hatta",
+                  "Masafi",
+                  "Ras Al-Khaima",
+                  "Sharjah"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae02.txt",
+                "edition": "2001/2002",
+                "tableLine": 982,
+                "phase": "Group 3",
+                "heading": "Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Shabab",
+                  "Al-Wahda",
+                  "Bani Yas",
+                  "Emirates",
+                  "Himriya",
+                  "Masfoot",
+                  "Thaid"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae06.txt",
+                "edition": "2005/2006",
+                "tableLine": 375,
+                "phase": "Group A",
+                "heading": "Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Jazeera",
+                  "Al-Nasr",
+                  "Al-Shabab",
+                  "Al-Wahda"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae06.txt",
+                "edition": "2005/2006",
+                "tableLine": 396,
+                "phase": "Group B",
+                "heading": "Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Ain",
+                  "Al-Wasl",
+                  "Dubai",
+                  "Sharjah"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 322,
+                "phase": "Group A",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Al-Urooba",
+                  "Dubai",
+                  "Ramms"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 356,
+                "phase": "Group B",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Jazira Al-Hamra",
+                  "Al-Sha'ab",
+                  "Dibba Al-Hisn",
+                  "Masafi"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 392,
+                "phase": "Group C",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Ittihad",
+                  "Dibba",
+                  "Fujeira",
+                  "Ras Al-Khaima"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 420,
+                "phase": "Group D",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Khaleej",
+                  "Hatta",
+                  "Thaid"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2017.txt",
+                "edition": "2016/2017",
+                "tableLine": 369,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Al-Hamriyah",
+                  "Al-Khaleej",
+                  "Al-Sha'ab",
+                  "Al-Urooba",
+                  "Fujeira"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2017.txt",
+                "edition": "2016/2017",
+                "tableLine": 377,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Ajman",
+                  "Dibba Al-Hisn",
+                  "Dubai",
+                  "Masfut",
+                  "Ras Al-Khaima",
+                  "Thaid"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2018.txt",
+                "edition": "2017/2018",
+                "tableLine": 314,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Hamriyah",
+                  "Al-Urooba",
+                  "Fujeira",
+                  "Masafi",
+                  "Masfut",
+                  "Thaid"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2018.txt",
+                "edition": "2017/2018",
+                "tableLine": 322,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Al-Ittihad (Kalba)",
+                  "Bani Yas",
+                  "Dibba Al-Hisn",
+                  "Khor Fakkan",
+                  "Ras Al-Khaima"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2019.txt",
+                "edition": "2018/2019",
+                "tableLine": 363,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Al-Hamriyah",
+                  "Dibba Al-Hisn",
+                  "Khor Fakkan",
+                  "Masafi"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2019.txt",
+                "edition": "2018/2019",
+                "tableLine": 370,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Taawun",
+                  "Al-Urooba",
+                  "Hatta",
+                  "Masfut",
+                  "Thaid"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2020.txt",
+                "edition": "2019/2020",
+                "tableLine": 300,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Taawun",
+                  "Al-Urooba",
+                  "Dibba",
+                  "Dibba Al-Hisn",
+                  "Masfut",
+                  "Thaid"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2020.txt",
+                "edition": "2019/2020",
+                "tableLine": 308,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Al-Bataeh",
+                  "Al-Hamriyah",
+                  "Emirates",
+                  "Masafi"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2021.txt",
+                "edition": "2020/2021",
+                "tableLine": 367,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Al-Bataeh",
+                  "Al-Hamriyah",
+                  "Al-Taawun",
+                  "Dibba Al-Hisn",
+                  "Emirates"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2021.txt",
+                "edition": "2020/2021",
+                "tableLine": 375,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Urooba",
+                  "Dibba",
+                  "Masafi",
+                  "Masfut",
+                  "Thaid"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2022.txt",
+                "edition": "2021/2022",
+                "tableLine": 380,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Bataeh",
+                  "Al-Taawun",
+                  "City FC",
+                  "Masafi"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2022.txt",
+                "edition": "2021/2022",
+                "tableLine": 386,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Hamriyah",
+                  "Al-Jazira Al-Hamra",
+                  "Al-Khaleej",
+                  "Dibba"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2022.txt",
+                "edition": "2021/2022",
+                "tableLine": 392,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Dibba Al-Hisn",
+                  "Hatta",
+                  "Masfut",
+                  "Ramms"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/uae2022.txt",
+                "edition": "2021/2022",
+                "tableLine": 398,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Arabi",
+                  "Fujeira",
+                  "Thaid"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995/96",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae96.txt:158",
+                "excerpt": "[ Bani Yas won 4-3 on penalties]"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae96.txt:161",
+                "excerpt": "[After extra time, match ended 2-2 in real time]"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae96.txt:169",
+                "excerpt": "[After extra time]"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae96.txt:172",
+                "excerpt": "[Bani Yas won 3-1 on penalties]"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1078 Author: Mohammed Qayed",
+                "excerpt": "1.Al-Ain           6  6  0  0  27- 1  18  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1079 Author: Mohammed Qayed",
+                "excerpt": "2.Al-Khaleej       6  4  1  1  12- 7  13  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1080 Author: Mohammed Qayed",
+                "excerpt": "3.Al-Sha'ab        6  3  0  3  14-14   9  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1081 Author: Mohammed Qayed",
+                "excerpt": "4.Al-Ahli Fujeira  6  2  1  3  13-13   7  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1144 Author: Mohammed Qayed",
+                "excerpt": "1.Dubai              32 23  4  5 100- 44  73  Promoted  [Aweer - Dubai]"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1145 Author: Mohammed Qayed",
+                "excerpt": "2.Dhafra             32 22  7  3  79- 32  73  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:788 Author: Mohammed Qayed",
+                "excerpt": "1.Al-Nasr          6  5  1  0  23- 6  16  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:789 Author: Mohammed Qayed",
+                "excerpt": "2.Al-Ittihad       6  4  1  1  16- 6  13  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:790 Author: Mohammed Qayed",
+                "excerpt": "3.Al-Ahli          6  4  1  1  20-12  13  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:791 Author: Mohammed Qayed",
+                "excerpt": "4.Dubai            6  2  2  2  10-11   8  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:890 Author: Mohammed Qayed",
+                "excerpt": "1.Sharjah          7  6  1  0  25- 4  19  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:891 Author: Mohammed Qayed",
+                "excerpt": "2.Al-Jazeera       7  5  1  1  19- 5  16  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:892 Author: Mohammed Qayed",
+                "excerpt": "3.Hatta            7  4  1  2  16- 9  13  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:893 Author: Mohammed Qayed",
+                "excerpt": "4.Dhafra           7  3  3  1  13- 7  12  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:984 Author: Mohammed Qayed",
+                "excerpt": "1.Al-Wahda         6  4  1  1  12- 7  13  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:985 Author: Mohammed Qayed",
+                "excerpt": "2.Bani Yas         6  3  2  1  14- 8  11  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:986 Author: Mohammed Qayed",
+                "excerpt": "3.Al-Shabab        6  3  1  2  17- 8  10  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:987 Author: Mohammed Qayed",
+                "excerpt": "4.Emirates         6  3  1  2  13-11  10  Qualified"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 27,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1076
+                  },
+                  "team": "Al-Ain",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1078"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1076
+                  },
+                  "team": "Al-Khaleej",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1079"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1076
+                  },
+                  "team": "Al-Sha'ab",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1080"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 13,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1076
+                  },
+                  "team": "Al-Ahli Fujeira",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1081"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1076
+                  },
+                  "team": "Al-Urooba",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1083"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1076
+                  },
+                  "team": "Dibba",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1084"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 24,
+                  "gf": 7,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1076
+                  },
+                  "team": "Hamra Island",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:1085"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 23,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 786
+                  },
+                  "team": "Al-Nasr",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:788"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 786
+                  },
+                  "team": "Al-Ittihad",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:789"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 20,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 786
+                  },
+                  "team": "Al-Ahli",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:790"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 786
+                  },
+                  "team": "Dubai",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:791"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 786
+                  },
+                  "team": "Ajman",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:793"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 24,
+                  "gf": 13,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 786
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:794"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 28,
+                  "gf": 6,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 786
+                  },
+                  "team": "Ramms",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:795"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 25,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 19,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Sharjah",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:890"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 19,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 16,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Al-Jazeera",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:891"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Hatta",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:892"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 7,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 12,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Dhafra",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:893"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 14,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 9,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Ras Al-Khaima",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:895"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 13,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 8,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Al-Arabi",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:896"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 40,
+                  "gf": 5,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Masafi",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:897"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 0,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 0,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 888
+                  },
+                  "team": "Al-Wasl",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:898"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 982
+                  },
+                  "team": "Al-Wahda",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:984"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 982
+                  },
+                  "team": "Bani Yas",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:985"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 982
+                  },
+                  "team": "Al-Shabab",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:986"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 13,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 982
+                  },
+                  "team": "Emirates",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:987"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 982
+                  },
+                  "team": "Himriya",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:989"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 982
+                  },
+                  "team": "Thaid",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:990"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 982
+                  },
+                  "team": "Masfoot",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae02.txt:991"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "[Abu Dhabi]",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 375
+                  },
+                  "team": "Al-Wahda",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:377"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "[Dubai]",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 375
+                  },
+                  "team": "Al-Nasr",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:378"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "[Dubai]",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 375
+                  },
+                  "team": "Al-Shabab",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:379"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "[Abu Dhabi]",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 375
+                  },
+                  "team": "Al-Jazeera",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:380"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 396
+                  },
+                  "team": "Al-Ain",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:398"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 396
+                  },
+                  "team": "Sharjah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:399"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 396
+                  },
+                  "team": "Dubai",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:400"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 0,
+                  "lost": 3,
+                  "note": "[Dubai]",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 396
+                  },
+                  "team": "Al-Wasl",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae06.txt:401"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae07.txt:262 Author: Zaid Benjamin",
+                "excerpt": "Round 1 [some results may include penalty shoot-outs]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae07.txt:310 Author: Zaid Benjamin",
+                "excerpt": "1.Dhafra          30 20  6  4  67-22  66  Promoted"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae07.txt:311 Author: Zaid Benjamin",
+                "excerpt": "2.Hatta           30 20  5  5  77-36  65  Promoted"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:324 Author: Zaid Benjamin",
+                "excerpt": "1.Al-Urooba           6  4  1  1  18- 7  13  Qualified  [Mirbih]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:358 Author: Zaid Benjamin",
+                "excerpt": "1.Al-Sha'ab           6  5  1  0  27- 4  16  Qualified  [Sharjah]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:394 Author: Zaid Benjamin",
+                "excerpt": "1.Al-Ittihad          6  4  2  0  18- 7  14  Qualified  [Kalba]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:422 Author: Zaid Benjamin",
+                "excerpt": "1.Al-Khaleej          4  4  0  0  12- 3  12  Qualified  [Khor Fakkan]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 18,
+                  "lost": 1,
+                  "note": "Qualified  [Mirbih]",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 322
+                  },
+                  "team": "Al-Urooba",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:324"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 20,
+                  "lost": 1,
+                  "note": "[Umm Al-Qiwain]",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 322
+                  },
+                  "team": "Al-Arabi",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:326"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 18,
+                  "lost": 2,
+                  "note": "[Aweer - Dubai]",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 322
+                  },
+                  "team": "Dubai",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:327"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 32,
+                  "gf": 1,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 322
+                  },
+                  "team": "Ramms",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:328"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 27,
+                  "lost": 0,
+                  "note": "Qualified  [Sharjah]",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 356
+                  },
+                  "team": "Al-Sha'ab",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:358"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 356
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:360"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 20,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 356
+                  },
+                  "team": "Masafi",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:361"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 23,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "[aka Hamra Island]",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 356
+                  },
+                  "team": "Al-Jazira Al-Hamra",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:362"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 18,
+                  "lost": 0,
+                  "note": "Qualified  [Kalba]",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 392
+                  },
+                  "team": "Al-Ittihad",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:394"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 392
+                  },
+                  "team": "Ras Al-Khaima",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:396"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 392
+                  },
+                  "team": "Fujeira",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:397"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 392
+                  },
+                  "team": "Dibba",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:398"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "Qualified  [Khor Fakkan]",
+                  "phase": "Group D",
+                  "played": 4,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 420
+                  },
+                  "team": "Al-Khaleej",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:422"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 4,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 420
+                  },
+                  "team": "Hatta",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:424"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 4,
+                  "points": 1,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 420
+                  },
+                  "team": "Thaid",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2010.txt:425"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:369 Author: Karel Stokkermans",
+                "excerpt": "1.Al-Urooba               5   5  0  0  10- 2  15  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:377 Author: Karel Stokkermans",
+                "excerpt": "1.Dubai                   5   3  1  1  12- 6  10  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 369
+                  },
+                  "team": "Al-Urooba",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:369"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 369
+                  },
+                  "team": "Fujeira",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:370"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 369
+                  },
+                  "team": "Al-Hamriyah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:371"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 369
+                  },
+                  "team": "Al-Sha'ab",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:372"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 369
+                  },
+                  "team": "Al-Khaleej",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:373"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 15,
+                  "gf": 4,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 369
+                  },
+                  "team": "Al-Arabi",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:374"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 377
+                  },
+                  "team": "Dubai",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:377"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 377
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:378"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 377
+                  },
+                  "team": "Ajman",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:379"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 377
+                  },
+                  "team": "Masfut",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:380"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 377
+                  },
+                  "team": "Thaid",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:381"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 17,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 377
+                  },
+                  "team": "Ras Al-Khaima",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2017.txt:382"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:314 Author: Karel Stokkermans",
+                "excerpt": "1.Fujeira                 5   3  1  1   8- 3  10  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:315 Author: Karel Stokkermans",
+                "excerpt": "2.Al-Urooba               5   3  1  1  11- 7  10  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:322 Author: Karel Stokkermans",
+                "excerpt": "1.Al-Ittihad (Kalba)      5   4  0  1  12- 5  12  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:323 Author: Karel Stokkermans",
+                "excerpt": "2.Bani Yas                5   3  1  1   9- 5  10  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 314
+                  },
+                  "team": "Fujeira",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:314"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 314
+                  },
+                  "team": "Al-Urooba",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:315"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 314
+                  },
+                  "team": "Thaid",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:316"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 314
+                  },
+                  "team": "Al-Hamriyah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:317"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 5,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 314
+                  },
+                  "team": "Masfut",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:318"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 314
+                  },
+                  "team": "Masafi",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:319"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 322
+                  },
+                  "team": "Al-Ittihad (Kalba)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:322"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 322
+                  },
+                  "team": "Bani Yas",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:323"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 322
+                  },
+                  "team": "Khor Fakkan",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:324"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 322
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:325"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 322
+                  },
+                  "team": "Ras Al-Khaima",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:326"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 5,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 322
+                  },
+                  "team": "Al-Arabi",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2018.txt:327"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:363 Author: Karel Stokkermans",
+                "excerpt": "1.Dibba Al-Hisn           4   3  0  1   7- 3   9  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:370 Author: Karel Stokkermans",
+                "excerpt": "1.Hatta                   4   2  2  0   9- 5   8  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 4,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 363
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:363"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 4,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 363
+                  },
+                  "team": "Al-Hamriyah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:364"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 363
+                  },
+                  "team": "Masafi",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:365"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 4,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 363
+                  },
+                  "team": "Khor Fakkan",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:366"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 4,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 363
+                  },
+                  "team": "Al-Arabi",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:367"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 9,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 8,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 370
+                  },
+                  "team": "Hatta",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:370"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 370
+                  },
+                  "team": "Al-Urooba",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:371"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 370
+                  },
+                  "team": "Masfut",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:372"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 370
+                  },
+                  "team": "Al-Taawun",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:373"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 2,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 370
+                  },
+                  "team": "Thaid",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2019.txt:374"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:300 Author: Karel Stokkermans",
+                "excerpt": "1.Dibba Al-Hisn           5   3  2  0  14- 7  11  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:308 Author: Karel Stokkermans",
+                "excerpt": "1.Al-Bataeh               4   4  0  0   9- 2  12  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 14,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 300
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:300"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 300
+                  },
+                  "team": "Masfut",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:301"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 300
+                  },
+                  "team": "Thaid",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:302"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 300
+                  },
+                  "team": "Dibba",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:303"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 300
+                  },
+                  "team": "Al-Urooba",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:304"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 300
+                  },
+                  "team": "Al-Taawun",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:305"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 9,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 308
+                  },
+                  "team": "Al-Bataeh",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:308"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 308
+                  },
+                  "team": "Al-Hamriyah",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:309"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 308
+                  },
+                  "team": "Al-Arabi",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:310"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 308
+                  },
+                  "team": "Emirates",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:311"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 308
+                  },
+                  "team": "Masafi",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:312"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2020.txt:341",
+                "excerpt": "NB: competition suspended due to Covid-19 pandemic and abandoned on Jun 18"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:367 Author: Karel Stokkermans",
+                "excerpt": "1.Emirates                5   3  2  0  15- 6  11  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:375 Author: Karel Stokkermans",
+                "excerpt": "1.Al-Urooba               4   2  2  0   8- 3   8  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 367
+                  },
+                  "team": "Emirates",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:367"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 367
+                  },
+                  "team": "Al-Hamriyah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:368"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 367
+                  },
+                  "team": "Al-Bataeh",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:369"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 367
+                  },
+                  "team": "Al-Arabi",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:370"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 367
+                  },
+                  "team": "Al-Taawun",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:371"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 367
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:372"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 8,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 375
+                  },
+                  "team": "Al-Urooba",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:375"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 375
+                  },
+                  "team": "Dibba",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:376"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 375
+                  },
+                  "team": "Masfut",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:377"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 375
+                  },
+                  "team": "Thaid",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:378"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 4,
+                  "points": 1,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 375
+                  },
+                  "team": "Masafi",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2021.txt:379"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:380 ",
+                "excerpt": "1.Al-Taawun               3   2  1  0   4- 1   7  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:381 ",
+                "excerpt": "2.Al-Bataeh               3   1  2  0   7- 2   5  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:386 ",
+                "excerpt": "1.Dibba                   3   3  0  0  12- 0   9  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:387 ",
+                "excerpt": "2.Al-Hamriyah             3   2  0  1   4- 3   6  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:392 ",
+                "excerpt": "1.Hatta                   3   2  1  0   7- 3   7  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:393 ",
+                "excerpt": "2.Dibba Al-Hisn           3   2  0  1   9- 5   6  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:398 ",
+                "excerpt": "1.Al-Arabi                2   2  0  0   6- 0   6  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:399 ",
+                "excerpt": "2.Thaid                   2   1  0  1   1- 3   3  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "Al-Taawun",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:380"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "Al-Bataeh",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:381"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "Masafi",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:382"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 1,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "City FC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:383"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 386
+                  },
+                  "team": "Dibba",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:386"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 386
+                  },
+                  "team": "Al-Hamriyah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:387"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 386
+                  },
+                  "team": "Al-Khaleej",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:388"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 16,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 386
+                  },
+                  "team": "Al-Jazira Al-Hamra",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:389"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 392
+                  },
+                  "team": "Hatta",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:392"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 392
+                  },
+                  "team": "Dibba Al-Hisn",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:393"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 392
+                  },
+                  "team": "Ramms",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:394"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 392
+                  },
+                  "team": "Masfut",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:395"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Al-Arabi",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:398"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Thaid",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:399"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Fujeira",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:400"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2022.txt:404",
+                "excerpt": "NB: in this round Dibba Al-Hisn, Al-Hamriyah, Al-Taawun and Thaid were eliminated"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2024.txt:370",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2024.txt:382",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/uae2024.txt:390",
+                "excerpt": "Qualifying Round 3 [Dec 3]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

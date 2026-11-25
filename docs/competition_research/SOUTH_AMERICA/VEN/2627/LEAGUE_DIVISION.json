@@ -960,6 +960,3311 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "6ae3c3f20f3dc5cb90b9e6575b3a61b871d5141c7f2f956017f115a30613177e": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "129",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "1996-08-11",
+              "max_date": "1996-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "217",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "127",
+              "min_date": "1997-01-18",
+              "max_date": "1997-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "258",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "120",
+              "min_date": "1998-01-17",
+              "max_date": "1998-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "90",
+              "unique_oriented_pairs": "69",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "21",
+              "min_date": "1999-02-07",
+              "max_date": "1999-06-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-20",
+              "max_date": "2000-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "180",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2001-01-21",
+              "max_date": "2001-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "172",
+              "unique_oriented_pairs": "121",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2002-01-27",
+              "max_date": "2002-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "173",
+              "unique_oriented_pairs": "91",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2003-01-19",
+              "max_date": "2003-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "180",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2004-01-18",
+              "max_date": "2004-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "180",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2005-01-09",
+              "max_date": "2005-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "182",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2006-01-08",
+              "max_date": "2006-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "245",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2007-01-07",
+              "max_date": "2007-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "308",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2008-01-20",
+              "max_date": "2008-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "308",
+              "unique_oriented_pairs": "268",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2009-01-17",
+              "max_date": "2009-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "308",
+              "unique_oriented_pairs": "245",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "63",
+              "min_date": "2010-01-17",
+              "max_date": "2010-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "319",
+              "unique_oriented_pairs": "248",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2011-01-16",
+              "max_date": "2011-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "318",
+              "unique_oriented_pairs": "245",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "73",
+              "min_date": "2012-01-14",
+              "max_date": "2012-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "320",
+              "unique_oriented_pairs": "253",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "67",
+              "min_date": "2013-01-19",
+              "max_date": "2013-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "320",
+              "unique_oriented_pairs": "252",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "68",
+              "min_date": "2014-01-11",
+              "max_date": "2014-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "371",
+              "unique_oriented_pairs": "268",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "103",
+              "min_date": "2015-01-10",
+              "max_date": "2015-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "410",
+              "unique_oriented_pairs": "380",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2016-01-29",
+              "max_date": "2016-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "336",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2017-01-28",
+              "max_date": "2017-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "336",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2018-01-27",
+              "max_date": "2018-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "391",
+              "unique_oriented_pairs": "361",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2019-01-26",
+              "max_date": "2019-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "130",
+              "unique_oriented_pairs": "130",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-10-14",
+              "max_date": "2020-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "303",
+              "unique_oriented_pairs": "166",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "137",
+              "min_date": "2021-04-12",
+              "max_date": "2021-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "277",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "2022-02-24",
+              "max_date": "2022-10-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "195",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2023-02-03",
+              "max_date": "2023-11-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "201",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2024-02-02",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "venezuela",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "180",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "24",
+              "min_date": "2025-01-24",
+              "max_date": "2025-09-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "VEN DIV1",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-24",
+              "max_date": "2012-09-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "VEN DIV1",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "79",
+              "unique_oriented_pairs": "77",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "79",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2014-05-03",
+              "max_date": "2014-10-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "VEN DIV1",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-04-19",
+              "max_date": "2015-09-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "VEN DIV1",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-09-03",
+              "max_date": "2016-12-17"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez-wom2013.txt",
+                "edition": "2012/2013",
+                "tableLine": 101,
+                "phase": "Torneo Clausura",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Atlético Yara",
+                  "CDF Potros de Barinas",
+                  "Cachimbo A",
+                  "Caracas FC",
+                  "Estudiantes de Guárico",
+                  "Ingenieros FC",
+                  "Mickey Sport",
+                  "Trujillanas FC",
+                  "UCV FC",
+                  "Valencia Sport Club"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez-wom2013.txt",
+                "edition": "2012/2013",
+                "tableLine": 150,
+                "phase": "Torneo Clausura",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ASO Zulia",
+                  "Academía FF San Diego",
+                  "Atlético SC",
+                  "FUCEVA",
+                  "Independiente La Fría",
+                  "Instituto Pedagógico",
+                  "Máximo Viloria",
+                  "OD Cachimbos B",
+                  "UPTAEB Lara",
+                  "Ureña SC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez-wom2014.txt",
+                "edition": "2014",
+                "tableLine": 104,
+                "phase": "Torneo Clausura",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Atlético SC",
+                  "Instituto Pedagógico",
+                  "UCV Caracas",
+                  "Unión Atlético Lechería"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez-wom2014.txt",
+                "edition": "2014",
+                "tableLine": 132,
+                "phase": "Torneo Clausura",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Caracas FC",
+                  "Deportivo Anzoátegui",
+                  "FUFEM Aragua",
+                  "OD Cachimbos A"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez-wom2014.txt",
+                "edition": "2014",
+                "tableLine": 163,
+                "phase": "Torneo Clausura",
+                "heading": "Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Academia FF San Diego",
+                  "Atlético Yara",
+                  "CS Madeirense",
+                  "José Antonio Páez"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez-wom2014.txt",
+                "edition": "2014",
+                "tableLine": 193,
+                "phase": "Torneo Clausura",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "CFFF Máximo Viloria",
+                  "Casa Portuguesa de Aragua",
+                  "Estudiantes de Guárico",
+                  "Valencia SC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez-wom2014.txt",
+                "edition": "2014",
+                "tableLine": 223,
+                "phase": "Torneo Clausura",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Independiente La Fría",
+                  "Ingenieros FC",
+                  "Trujillanos FC",
+                  "Ureña SC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez96.txt",
+                "edition": "1995/1996",
+                "tableLine": 125,
+                "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 18,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Anzoategui",
+                  "Atletico Zamora",
+                  "Caracas FC",
+                  "Deportivo Italia",
+                  "Deportivo Tuy",
+                  "El Vigia",
+                  "Estudiantes",
+                  "Lara",
+                  "Llaneros FC",
+                  "Marinos de Sucre",
+                  "Mineros de Guayana",
+                  "Minerven",
+                  "Monagas SC",
+                  "Trujillanos",
+                  "UA Tachira",
+                  "Unicol FC",
+                  "Universidad Los Andes",
+                  "Valencia FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez96.txt",
+                "edition": "1995/1996",
+                "tableLine": 15,
+                "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 18,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Anzoategui",
+                  "Atletico Zamora",
+                  "Caracas FC",
+                  "Deportivo Italia",
+                  "Deportivo Tuy",
+                  "El Vigia",
+                  "Estudiantes",
+                  "Lara",
+                  "Llaneros FC",
+                  "Marinos de Sucre",
+                  "Mineros de Guayana",
+                  "Minerven",
+                  "Monagas SC",
+                  "Trujillanos",
+                  "UA Tachira",
+                  "Unicol FC",
+                  "Universidad Los Andes",
+                  "Valencia FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez96.txt",
+                "edition": "1995/1996",
+                "tableLine": 184,
+                "phase": "Torneo Clausura / Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Anzoategui (Puerto la Cruz)",
+                  "Caracas (Caracas)",
+                  "Estudiantes (Merida)",
+                  "Mineros (Puerto Ordaz)",
+                  "Trujillanos (Valera)",
+                  "Unicol (Lagunillas)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez96.txt",
+                "edition": "1995/1996",
+                "tableLine": 221,
+                "phase": "Torneo Clausura / Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Deportivo Italia (Caracas)",
+                  "El Vigia (El Vigia)",
+                  "Minerven (El Callao)",
+                  "Union Tachira (San Cristobal)",
+                  "Universidad Los Andes (Merida)",
+                  "Valencia (Valencia)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez96.txt",
+                "edition": "1995/1996",
+                "tableLine": 259,
+                "phase": "Torneo Clausura / Final Phase",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Caracas (Caracas)",
+                  "Deportivo Italia (Caracas)",
+                  "Mineros (Puerto Ordaz)",
+                  "Minerven (El Callao)",
+                  "Trujillanos (Valera)",
+                  "Union Tachira (San Cristobal)"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 13,
+                  "gf": 42,
+                  "lost": 2,
+                  "note": "Final",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 36,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Caracas FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:125"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 11,
+                  "gf": 21,
+                  "lost": 3,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 31,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Deportivo Italia",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:126"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 30,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 25,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Minerven",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:127"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 24,
+                  "gf": 20,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 23,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Anzoategui",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:128"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 24,
+                  "gf": 24,
+                  "lost": 4,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 22,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Valencia FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:129"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 18,
+                  "gf": 21,
+                  "lost": 6,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 20,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Mineros de Guayana",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:130"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 20,
+                  "gf": 16,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 16,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Monagas SC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:131"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 12,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 12,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Marinos de Sucre",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:132"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 53,
+                  "gf": 24,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 10,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Deportivo Tuy",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:133"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 23,
+                  "gf": 31,
+                  "lost": 3,
+                  "note": "Final",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 27,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Universidad Los Andes",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:136"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 20,
+                  "gf": 26,
+                  "lost": 6,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 26,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Unicol FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:137"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 19,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 26,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Trujillanos",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:138"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 15,
+                  "gf": 24,
+                  "lost": 3,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 25,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "UA Tachira",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:139"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 19,
+                  "gf": 26,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 23,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Estudiantes",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:140"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 23,
+                  "gf": 20,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 23,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "El Vigia",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:141"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 30,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Llaneros FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:142"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 26,
+                  "gf": 16,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 12,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Lara",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:143"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 28,
+                  "gf": 11,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 11,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Atletico Zamora",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:144"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 13,
+                  "gf": 42,
+                  "lost": 2,
+                  "note": "Final",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 36,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Caracas FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:15"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 11,
+                  "gf": 21,
+                  "lost": 3,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 31,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Deportivo Italia",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:16"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 30,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 25,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Minerven",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:17"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 24,
+                  "gf": 20,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 23,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Anzoategui",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:18"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 12,
+                  "gf": 21,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group A",
+                  "played": 10,
+                  "points": 20,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 184
+                  },
+                  "team": "Mineros (Puerto Ordaz)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:184"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 17,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group A",
+                  "played": 10,
+                  "points": 19,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 184
+                  },
+                  "team": "Trujillanos (Valera)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:185"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 14,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group A",
+                  "played": 10,
+                  "points": 14,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 184
+                  },
+                  "team": "Caracas (Caracas)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:186"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "[*]",
+                  "phase": "Torneo Clausura / Group A",
+                  "played": 10,
+                  "points": 13,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 184
+                  },
+                  "team": "Estudiantes (Merida)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:187"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 14,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group A",
+                  "played": 10,
+                  "points": 8,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 184
+                  },
+                  "team": "Unicol (Lagunillas)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:188"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 21,
+                  "gf": 8,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group A",
+                  "played": 10,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 184
+                  },
+                  "team": "Anzoategui (Puerto la Cruz)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:189"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 24,
+                  "gf": 24,
+                  "lost": 4,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 22,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Valencia FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:19"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 18,
+                  "gf": 21,
+                  "lost": 6,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 20,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Mineros de Guayana",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:20"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 20,
+                  "gf": 16,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 16,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Monagas SC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:21"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 12,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 12,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Marinos de Sucre",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:22"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 10,
+                  "gf": 18,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group B",
+                  "played": 10,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 221
+                  },
+                  "team": "Minerven (El Callao)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:221"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 11,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group B",
+                  "played": 10,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 221
+                  },
+                  "team": "Deportivo Italia (Caracas)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:222"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group B",
+                  "played": 10,
+                  "points": 14,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 221
+                  },
+                  "team": "Union Tachira (San Cristobal)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:223"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 12,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group B",
+                  "played": 10,
+                  "points": 11,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 221
+                  },
+                  "team": "El Vigia (El Vigia)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:224"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 13,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "[*]",
+                  "phase": "Torneo Clausura / Group B",
+                  "played": 10,
+                  "points": 10,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 221
+                  },
+                  "team": "Valencia (Valencia)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:225"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 13,
+                  "gf": 12,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Torneo Clausura / Group B",
+                  "played": 10,
+                  "points": 9,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 221
+                  },
+                  "team": "Universidad Los Andes (Merida)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:226"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 53,
+                  "gf": 24,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 10,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Deportivo Tuy",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:23"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 20,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura / Final Phase",
+                  "played": 10,
+                  "points": 22,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 259
+                  },
+                  "team": "Minerven (El Callao)",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:259"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 23,
+                  "gf": 31,
+                  "lost": 3,
+                  "note": "Final",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 27,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Universidad Los Andes",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:26"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 12,
+                  "gf": 21,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura / Final Phase",
+                  "played": 10,
+                  "points": 20,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 259
+                  },
+                  "team": "Mineros (Puerto Ordaz)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:260"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 20,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura / Final Phase",
+                  "played": 10,
+                  "points": 19,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 259
+                  },
+                  "team": "Caracas (Caracas)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:261"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura / Final Phase",
+                  "played": 10,
+                  "points": 15,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 259
+                  },
+                  "team": "Union Tachira (San Cristobal)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:262"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 27,
+                  "gf": 11,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Torneo Clausura / Final Phase",
+                  "played": 10,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 259
+                  },
+                  "team": "Deportivo Italia (Caracas)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:263"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 24,
+                  "gf": 12,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Torneo Clausura / Final Phase",
+                  "played": 10,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 259
+                  },
+                  "team": "Trujillanos (Valera)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:264"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:266",
+                "excerpt": "Minerven champions, Mineros also qualified for Copa Libertadores."
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:268",
+                "excerpt": "At the end of the season, Unicol FC (Lagunillas) were relocated and renamed"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 20,
+                  "gf": 26,
+                  "lost": 6,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 26,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Unicol FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:27"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 19,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 26,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Trujillanos",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:28"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 15,
+                  "gf": 24,
+                  "lost": 3,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 25,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "UA Tachira",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:29"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 19,
+                  "gf": 26,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 23,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Estudiantes",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:30"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 23,
+                  "gf": 20,
+                  "lost": 5,
+                  "note": "Clausura",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 23,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "El Vigia",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:31"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 30,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Llaneros FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:32"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 26,
+                  "gf": 16,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 12,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Lara",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:33"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 28,
+                  "gf": 11,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Torneo Apertura (Copa de Venezuela) / Group Oriental",
+                  "played": 16,
+                  "points": 11,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Atletico Zamora",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez96.txt:34"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:10",
+                "excerpt": "NB: played in 2 groups of 6; final Dec 15"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 19,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Caracas FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:101"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Mickey Sport",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:102"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Estudiantes de Guárico",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:103"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 21,
+                  "gf": 3,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Cachimbo A",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:104"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "UCV FC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:105"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Trujillanas FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:109"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 1,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "CDF Potros de Barinas",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:110"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 0,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 0,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Valencia Sport Club",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:111"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 1,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Atlético Yara",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:112"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 101
+                  },
+                  "team": "Ingenieros FC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:113"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 24,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 19,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "Máximo Viloria",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:150"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 16,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "Ureña SC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:151"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 19,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "Independiente La Fría",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:152"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 12,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "UPTAEB Lara",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:153"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 16,
+                  "gf": 5,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "ASO Zulia",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:154"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:155",
+                "excerpt": "NB: total goal difference +1"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "Academía FF San Diego",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:158"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 1,
+                  "gf": 19,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "FUCEVA",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:159"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 16,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "Instituto Pedagógico",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:160"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 10,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 10,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "Atlético SC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:161"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 32,
+                  "gf": 2,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 8,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 150
+                  },
+                  "team": "OD Cachimbos B",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2013.txt:162"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "Atlético SC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:106"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "Instituto Pedagógico",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:107"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 15,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "UCV Caracas",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:108"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 2,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "Unión Atlético Lechería",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:109"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 17,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 132
+                  },
+                  "team": "Deportivo Anzoátegui",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:134"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 22,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 132
+                  },
+                  "team": "Caracas FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:135"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 132
+                  },
+                  "team": "OD Cachimbos A",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:136"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 28,
+                  "gf": 2,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 132
+                  },
+                  "team": "FUFEM Aragua",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:137"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 20,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 163
+                  },
+                  "team": "José Antonio Páez",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:165"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 5,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 163
+                  },
+                  "team": "Academia FF San Diego",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:166"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 7,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 163
+                  },
+                  "team": "Atlético Yara",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:167"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "[replaced SC Guaraní]",
+                  "phase": "Torneo Clausura",
+                  "played": 5,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 163
+                  },
+                  "team": "CS Madeirense",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:168"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 26,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 193
+                  },
+                  "team": "Estudiantes de Guárico",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:195"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 193
+                  },
+                  "team": "CFFF Máximo Viloria",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:196"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 193
+                  },
+                  "team": "Valencia SC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:197"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 31,
+                  "gf": 3,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 193
+                  },
+                  "team": "Casa Portuguesa de Aragua",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:198"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 24,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 223
+                  },
+                  "team": "Independiente La Fría",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:225"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 223
+                  },
+                  "team": "Ureña SC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:226"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 223
+                  },
+                  "team": "Trujillanos FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:227"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 24,
+                  "gf": 3,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Torneo Clausura",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 223
+                  },
+                  "team": "Ingenieros FC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:228"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:254",
+                "excerpt": "NB: AFF San Diego qualified as best losers"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:268",
+                "excerpt": "NB: Máximo Viloria qualified as best losers"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:288",
+                "excerpt": "NB: Estudiantes de Guárico winners Clausura, qualify for ‹Final Absoluta, see §abs›"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez-wom2014.txt:76",
+                "excerpt": "NB: Caracas FC winners Apertura, qualify for ‹Final Absoluta, see §abs›"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "movement",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 14,
+                  "phases": [
+                    "Apertura",
+                    "Clausura"
+                  ],
+                  "regularGamesPerPhase": 13,
+                  "advanceTop": 8,
+                  "quadrangularGroups": [
+                    4,
+                    4
+                  ],
+                  "quadrangularGames": 6,
+                  "groupWinnersFinal": true,
+                  "shortTournamentFinalLegs": 1,
+                  "finalHost": "better regular-season rank",
+                  "annualTable": "only regular phases",
+                  "annualFinalLegs": 1,
+                  "sameWinnerDirectChampion": true,
+                  "relegationAnnualLast": 1,
+                  "libertadores": "absolute champion/runner-up and two best remaining annual ranks",
+                  "sudamericana": "short tournament runners-up and next two annual ranks not in Libertadores"
+                },
+                "source": "repository/research",
+                "locator": "SOUTH_AMERICA/VEN/2627/LEAGUE_DIVISION.json#block103Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

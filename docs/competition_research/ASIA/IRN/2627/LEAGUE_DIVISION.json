@@ -826,6 +826,3061 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "78a472d13adf9e15e34b1f42fdeebf42cbaebeaca0d3b0a206e0b94a806a5349": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "5",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-06-06",
+              "max_date": "2004-06-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Iran First Division",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-06-10",
+              "max_date": "2007-06-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Iran First Division",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-05-29",
+              "max_date": "2008-06-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-11-02",
+              "max_date": "2001-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "196",
+              "unique_oriented_pairs": "158",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2002-01-03",
+              "max_date": "2002-12-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "224",
+              "unique_oriented_pairs": "173",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2003-01-02",
+              "max_date": "2003-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "196",
+              "unique_oriented_pairs": "161",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "35",
+              "min_date": "2004-01-06",
+              "max_date": "2004-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "249",
+              "unique_oriented_pairs": "196",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "2005-01-04",
+              "max_date": "2005-12-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "223",
+              "unique_oriented_pairs": "187",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "2006-01-05",
+              "max_date": "2006-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "287",
+              "unique_oriented_pairs": "229",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2007-01-04",
+              "max_date": "2007-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "331",
+              "unique_oriented_pairs": "261",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "70",
+              "min_date": "2008-01-22",
+              "max_date": "2008-12-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "316",
+              "unique_oriented_pairs": "265",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2009-01-03",
+              "max_date": "2009-12-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "295",
+              "unique_oriented_pairs": "252",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2010-01-09",
+              "max_date": "2010-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "282",
+              "unique_oriented_pairs": "237",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2011-01-31",
+              "max_date": "2011-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "324",
+              "unique_oriented_pairs": "265",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2012-01-05",
+              "max_date": "2012-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "295",
+              "unique_oriented_pairs": "238",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "57",
+              "min_date": "2013-01-04",
+              "max_date": "2013-12-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "216",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "23",
+              "min_date": "2014-01-03",
+              "max_date": "2014-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "236",
+              "unique_oriented_pairs": "190",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2015-01-29",
+              "max_date": "2015-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "227",
+              "unique_oriented_pairs": "190",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "2016-01-01",
+              "max_date": "2016-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "257",
+              "unique_oriented_pairs": "212",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2017-01-08",
+              "max_date": "2017-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "224",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "33",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "248",
+              "unique_oriented_pairs": "195",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "2019-02-04",
+              "max_date": "2019-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "179",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "24",
+              "min_date": "2020-01-17",
+              "max_date": "2020-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "269",
+              "unique_oriented_pairs": "219",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2021-01-04",
+              "max_date": "2021-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "255",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2022-01-03",
+              "max_date": "2022-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "245",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "54",
+              "min_date": "2023-01-04",
+              "max_date": "2023-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "236",
+              "unique_oriented_pairs": "192",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2024-01-01",
+              "max_date": "2024-12-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "iran",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "168",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "20",
+              "min_date": "2025-01-01",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-07-31",
+              "max_date": "2015-05-15"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-30",
+              "max_date": "2016-05-13"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-25",
+              "max_date": "2017-05-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-27",
+              "max_date": "2018-04-27"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-26",
+              "max_date": "2019-05-16"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-22",
+              "max_date": "2020-08-20"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-11-06",
+              "max_date": "2021-07-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-10-19",
+              "max_date": "2022-06-02"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Persian Gulf Pro League",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "96",
+              "unique_oriented_pairs": "96",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-08-12",
+              "max_date": "2022-11-04"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/iran03.txt",
+                "edition": "2002/2003",
+                "tableLine": 399,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Barq Tehran",
+                  "Fajr-e Sepah",
+                  "Ground Force Tehran",
+                  "HOMA Tehran",
+                  "MachinSazi Tabriz",
+                  "Nassaji Mazandaran",
+                  "Oqab Tehran",
+                  "Payam-e Paykan Khorasan",
+                  "Pegah Gilan",
+                  "Rah Ahan Tehran",
+                  "Saba Battery Tehran",
+                  "San'at-e Mes Kerman",
+                  "Shahab Zanjan",
+                  "Shamoushak Noshahr",
+                  "Tarbiat Khorasan",
+                  "TractorSazi Tabriz"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/iran04.txt",
+                "edition": "2003/2004",
+                "tableLine": 618,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 15,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Bargh (Tehran)",
+                  "Ghandi (Yazd)",
+                  "Homa (Tehran)",
+                  "MachinSazi (Tabriz)",
+                  "Malavan (Anzali)",
+                  "Naft (Abadan)",
+                  "Nasaji (Qaemshahr)",
+                  "Nirou mohareke (Qazvin)",
+                  "Oqab (Tehran)",
+                  "Payam (Mashhad)",
+                  "Rah Ahan (Tehran)",
+                  "Saba batry (Tehran)",
+                  "Shahab (Zanjan)",
+                  "Snaye (Arak)",
+                  "Teraktorsazi (Tabriz)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/iran07.txt",
+                "edition": "2006/2007",
+                "tableLine": 520,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Ekbatan Tehran",
+                  "Esteghlal Dezfoul",
+                  "Etka Tehran",
+                  "Homa Tehran",
+                  "Kesht-o-Sanat Shushtar",
+                  "Mashin-Sazi Tabriz",
+                  "Moghavemate Mersad Shiraz",
+                  "Pegah Gilan Rasht",
+                  "Shahin Bushehr",
+                  "Shahrdari Tabriz",
+                  "Shamoushak Noshahr",
+                  "Shirin-Faraz Kermanshah"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/iran07.txt",
+                "edition": "2006/2007",
+                "tableLine": 544,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 11,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Dayhim Ahvaz",
+                  "Kousar Tehran",
+                  "Nassaji Qaemshahr",
+                  "Niroye Zamini Tehran",
+                  "Payam Khorasan Mashhad",
+                  "Sanaye Arak",
+                  "Shahrdari Bandar Abbas",
+                  "Sorkh-Pushan Delvar Afzar Tehran",
+                  "Tarbyat Yazd",
+                  "Teraktor-Sazi Tabriz",
+                  "Toseyeh Rouy Zanjan"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/iran08.txt",
+                "edition": "2007/2008",
+                "tableLine": 939,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Damash Iranian Tehran",
+                  "Gol Gohar Sirjan",
+                  "Kaveh Zanjan",
+                  "Mersad Shiraz",
+                  "Niroye Zamini Tehran",
+                  "Payam Khorasan Mashhad",
+                  "Shahin Ahvaz",
+                  "Shahrdari Bandar Abbas",
+                  "Shamoushak Noshahr",
+                  "Sorkh-Pushan Delvar Afzar Tehran",
+                  "Steel Azin Tehran",
+                  "Teraktor-Sazi Tabriz"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/iran08.txt",
+                "edition": "2007/2008",
+                "tableLine": 960,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Etka Tehran",
+                  "Foolad Khuzestan Ahvaz",
+                  "Foolad Sepahan Novin Esfahan",
+                  "Homa Tehran",
+                  "Kousar Tehran",
+                  "Mashin-Sazi Tabriz",
+                  "Mes Rafsanjan",
+                  "Nassaji Mazandaran Qaemshahr",
+                  "Sanaye Arak",
+                  "Shahin Bushehr",
+                  "Shahrdari Tabriz",
+                  "Tarbyat Badani Yazd"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 19,
+                  "gf": 36,
+                  "lost": 3,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 30,
+                  "points": 57,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Shamoushak Noshahr",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:401"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 22,
+                  "gf": 37,
+                  "lost": 7,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Pegah Gilan",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:402"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 26,
+                  "gf": 32,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 50,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "TractorSazi Tabriz",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:403"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 15,
+                  "ga": 17,
+                  "gf": 29,
+                  "lost": 3,
+                  "note": "[51?]",
+                  "phase": "",
+                  "played": 30,
+                  "points": 49,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Payam-e Paykan Khorasan",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:404"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 28,
+                  "gf": 39,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Oqab Tehran",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:405"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 25,
+                  "gf": 32,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Saba Battery Tehran",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:406"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 25,
+                  "gf": 30,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Shahab Zanjan",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:407"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 26,
+                  "gf": 26,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "HOMA Tehran",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:408"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 39,
+                  "gf": 40,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "MachinSazi Tabriz",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:409"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 32,
+                  "gf": 29,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Barq Tehran",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:410"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 29,
+                  "gf": 21,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 36,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Rah Ahan Tehran",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:411"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 38,
+                  "gf": 26,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 31,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Tarbiat Khorasan",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:412"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 27,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 31,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Nassaji Mazandaran",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:413"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 28,
+                  "gf": 23,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 30,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "San'at-e Mes Kerman",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:414"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 40,
+                  "gf": 30,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 29,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Fajr-e Sepah",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:415"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 39,
+                  "gf": 19,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 22,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 399
+                  },
+                  "team": "Ground Force Tehran",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran03.txt:416"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:620 ",
+                "excerpt": "1.Saba batry (Tehran)      30 18  9  3  54-28  63  Promoted"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:621 ",
+                "excerpt": "2.Malavan (Anzali)         30 15 10  5  46-21  55  Promoted"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:623 ",
+                "excerpt": "3.Ghandi (Yazd)            30 14  7  9  46-31  49  Promotion Playoff"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:624 ",
+                "excerpt": "4.Naft (Abadan)            30 13  8  9  36-26  47  Promotion Playoff"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:637 ",
+                "excerpt": "15.Nirou mohareke (Qazvin)  30  5 10 15  21-43  25  Relegated"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:638 ",
+                "excerpt": "16.Nasaji (Qaemshahr)       30  5  9 16  13-43  24  Relegated"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:650 ",
+                "excerpt": "Promotion/Relegation Playoff"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 28,
+                  "gf": 54,
+                  "lost": 3,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 30,
+                  "points": 63,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Saba batry (Tehran)",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:620"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 21,
+                  "gf": 46,
+                  "lost": 5,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 30,
+                  "points": 55,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Malavan (Anzali)",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:621"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 31,
+                  "gf": 46,
+                  "lost": 9,
+                  "note": "Promotion Playoff",
+                  "phase": "",
+                  "played": 30,
+                  "points": 49,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Ghandi (Yazd)",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:623"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 26,
+                  "gf": 36,
+                  "lost": 9,
+                  "note": "Promotion Playoff",
+                  "phase": "",
+                  "played": 30,
+                  "points": 47,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Naft (Abadan)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:624"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 18,
+                  "gf": 29,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Bargh (Tehran)",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:626"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 30,
+                  "gf": 32,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Payam (Mashhad)",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:627"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 41,
+                  "gf": 35,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 41,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "MachinSazi (Tabriz)",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:628"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 32,
+                  "gf": 34,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Teraktorsazi (Tabriz)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:629"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 37,
+                  "gf": 42,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Homa (Tehran)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:630"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 39,
+                  "gf": 29,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Shahab (Zanjan)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:631"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 41,
+                  "gf": 30,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 35,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Rah Ahan (Tehran)",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:632"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 34,
+                  "gf": 31,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Oqab (Tehran)",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:633"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 30,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 32,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Snaye (Arak)",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:635"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 43,
+                  "gf": 21,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 25,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Nirou mohareke (Qazvin)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:637"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 43,
+                  "gf": 13,
+                  "lost": 16,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 24,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 618
+                  },
+                  "team": "Nasaji (Qaemshahr)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:638"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:640",
+                "excerpt": "NB: total goal difference -5"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:644",
+                "excerpt": "NB: as first level is expanded to 16 teams, the second level is"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:645",
+                "excerpt": "extended to 2 groups of 12; while 2 teams go down, the top-5"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran04.txt:646",
+                "excerpt": "teams of the Second Division are promoted together with 7"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:533 ",
+                "excerpt": "12.Kesht-o-Sanat Shushtar           22  3  7 12  10-30  16  Relegated"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:556 ",
+                "excerpt": "11.Dayhim Ahvaz                     20  3  5 12  15-41  14  Relegated"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:571 ",
+                "excerpt": "Promoted:"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:577 ",
+                "excerpt": "To Promotion Playoff:"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:583 ",
+                "excerpt": "Promotion/Relegation Playoffs"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 6,
+                  "gf": 23,
+                  "lost": 4,
+                  "note": "Playoff",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 42,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Pegah Gilan Rasht",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:520"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 11,
+                  "gf": 30,
+                  "lost": 4,
+                  "note": "[*1]  Playoff",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Shirin-Faraz Kermanshah",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:521"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 27,
+                  "gf": 34,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 38,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Etka Tehran",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:523"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 16,
+                  "gf": 23,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 33,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Moghavemate Mersad Shiraz",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:524"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 17,
+                  "gf": 18,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 30,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Homa Tehran",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:525"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 21,
+                  "gf": 19,
+                  "lost": 7,
+                  "note": "[*2]",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 27,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Esteghlal Dezfoul",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:526"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 15,
+                  "gf": 12,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Mashin-Sazi Tabriz",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:527"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 21,
+                  "gf": 14,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 25,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Shahrdari Tabriz",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:528"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 24,
+                  "gf": 13,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 25,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Ekbatan Tehran",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:529"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 22,
+                  "gf": 18,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 24,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Shahin Bushehr",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:530"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 20,
+                  "gf": 15,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 23,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Shamoushak Noshahr",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:531"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 30,
+                  "gf": 10,
+                  "lost": 12,
+                  "note": "Relegated",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 16,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 520
+                  },
+                  "team": "Kesht-o-Sanat Shushtar",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:533"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:534",
+                "excerpt": "NB: total goal difference -1"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 16,
+                  "gf": 21,
+                  "lost": 4,
+                  "note": "Playoff",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 38,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Teraktor-Sazi Tabriz",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:544"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 14,
+                  "gf": 27,
+                  "lost": 4,
+                  "note": "[*4]  Playoff",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 34,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Shahrdari Bandar Abbas",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:545"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 17,
+                  "gf": 33,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 33,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Sorkh-Pushan Delvar Afzar Tehran",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:547"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 21,
+                  "gf": 29,
+                  "lost": 4,
+                  "note": "[*1]",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 32,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Tarbyat Yazd",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:548"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 17,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "[*2]",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 27,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Toseyeh Rouy Zanjan",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:549"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 26,
+                  "gf": 26,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 27,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Nassaji Qaemshahr",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:550"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 24,
+                  "gf": 20,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 24,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Niroye Zamini Tehran",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:551"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 28,
+                  "gf": 26,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 23,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Sanaye Arak",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:552"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 24,
+                  "gf": 19,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 23,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Payam Khorasan Mashhad",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:553"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 25,
+                  "gf": 23,
+                  "lost": 10,
+                  "note": "[*3]",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 22,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Kousar Tehran",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:554"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 41,
+                  "gf": 15,
+                  "lost": 12,
+                  "note": "Relegated",
+                  "phase": "Group B",
+                  "played": 20,
+                  "points": 14,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 544
+                  },
+                  "team": "Dayhim Ahvaz",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:556"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:557",
+                "excerpt": "-.Sanat-Naft Abadan                exempted and automatically promoted because of"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "regulation",
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran07.txt:558",
+                "excerpt": "NB: total goal difference +6        promotion playoff controversy 2004/05"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:1000 ",
+                "excerpt": "Promoted: Payam Khorasan Mashhad and Foolad Sepahan Novin"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:1002 ",
+                "excerpt": "NB: eventually Foolad Khuzestan Ahvaz were promoted instead of"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:1034 ",
+                "excerpt": "Promoted: Mehrkam Pars Tehran, Moghavemat Mersad, Foolad Hormozgan"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:1035 ",
+                "excerpt": "(renamed Aluminium Hormozgan)"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:1054 ",
+                "excerpt": "Promoted: Petroshimi Tabriz, Payam Mokhaberat Shiraz, Deihim Ahvaz"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:939 ",
+                "excerpt": "1.Steel Azin Tehran                22 11  5  6  41-28  38  [*1]  Promotion Playoff"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:940 ",
+                "excerpt": "2.Payam Khorasan Mashhad           22 11  5  6  29-21  38  Promotion Playoff"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:960 ",
+                "excerpt": "1.Foolad Khuzestan Ahvaz           22 13  5  4  33-15  44  Promotion Playoff"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:961 ",
+                "excerpt": "2.Foolad Sepahan Novin Esfahan     22 11  7  4  28-18  40  Promotion Playoff"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:979 ",
+                "excerpt": "Promotion Playoffs"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 28,
+                  "gf": 41,
+                  "lost": 6,
+                  "note": "[*1]  Promotion Playoff",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 38,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Steel Azin Tehran",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:939"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 21,
+                  "gf": 29,
+                  "lost": 6,
+                  "note": "Promotion Playoff",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 38,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Payam Khorasan Mashhad",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:940"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 19,
+                  "gf": 26,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 37,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Niroye Zamini Tehran",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:942"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 19,
+                  "gf": 23,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 31,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Teraktor-Sazi Tabriz",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:943"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 24,
+                  "gf": 26,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 31,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Gol Gohar Sirjan",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:944"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 20,
+                  "gf": 19,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 31,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Sorkh-Pushan Delvar Afzar Tehran",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:945"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 21,
+                  "gf": 26,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 29,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Shahrdari Bandar Abbas",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:946"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 26,
+                  "gf": 24,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Damash Iranian Tehran",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:947"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 25,
+                  "gf": 23,
+                  "lost": 8,
+                  "note": "[*3]",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 28,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Mersad Shiraz",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:948"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 18,
+                  "gf": 18,
+                  "lost": 8,
+                  "note": "[*2]",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Kaveh Zanjan",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:949"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 28,
+                  "gf": 19,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 25,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Shamoushak Noshahr",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:951"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 45,
+                  "gf": 20,
+                  "lost": 16,
+                  "note": "[*4]",
+                  "phase": "Group A",
+                  "played": 22,
+                  "points": 14,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 939
+                  },
+                  "team": "Shahin Ahvaz",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:952"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:954",
+                "excerpt": "[*1] Ekbatan Tehran were renamed Steel Azin Tehran"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:955",
+                "excerpt": "[*2] Toseyeh Rouy Zanjan were renamed Kaveh Zanjan"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 15,
+                  "gf": 33,
+                  "lost": 4,
+                  "note": "Promotion Playoff",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 44,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Foolad Khuzestan Ahvaz",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:960"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 18,
+                  "gf": 28,
+                  "lost": 4,
+                  "note": "Promotion Playoff",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 40,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Foolad Sepahan Novin Esfahan",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:961"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 29,
+                  "gf": 36,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 37,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Tarbyat Badani Yazd",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:963"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 26,
+                  "gf": 34,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Mes Rafsanjan",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:964"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 30,
+                  "gf": 27,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 34,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Nassaji Mazandaran Qaemshahr",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:965"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 23,
+                  "gf": 20,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 27,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Shahrdari Tabriz",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:966"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 34,
+                  "gf": 28,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 26,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Etka Tehran",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:967"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 24,
+                  "gf": 22,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 25,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Shahin Bushehr",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:968"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 25,
+                  "gf": 21,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 25,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Kousar Tehran",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:969"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 24,
+                  "gf": 19,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 23,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Sanaye Arak",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:970"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 25,
+                  "gf": 15,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 21,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Mashin-Sazi Tabriz",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:972"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 27,
+                  "gf": 17,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 22,
+                  "points": 19,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 960
+                  },
+                  "team": "Homa Tehran",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:973"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/iran08.txt:975",
+                "excerpt": "NB: bottom-2 were to be relegated from both groups but eventually"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

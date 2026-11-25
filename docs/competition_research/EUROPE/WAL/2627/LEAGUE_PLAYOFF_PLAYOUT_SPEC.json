@@ -122,7 +122,61 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "7de1dadc891430085ce0643b389d35a80788bdd151e5e5b85f2c2e67cf8ce42e": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+          "phaseQueue": "PARENT_PHASE_LINK",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "movement"
+                ],
+                "values": {
+                  "parentRow": 319,
+                  "europe": {
+                    "eligible": "highest-ranked non-qualified Championship Conference teams and rank7",
+                    "participantsRange": [
+                      4,
+                      6
+                    ],
+                    "leagueChampion": "UCL",
+                    "cupWinner": "UECL",
+                    "playoffWinner": "UECL",
+                    "ifFourthUEFASlot": "rank2 qualifies directly",
+                    "doubleWinner": "next highest eligible league finisher"
+                  },
+                  "relegation": {
+                    "directRelegated": [
+                      15,
+                      16
+                    ],
+                    "playoffTier1Rank": 14,
+                    "opponent": "winner of Cymru North rank2 vs Cymru South rank2",
+                    "tier2PlayoffLegs": 2
+                  }
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/WAL/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json#sportRuleEvidence82",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

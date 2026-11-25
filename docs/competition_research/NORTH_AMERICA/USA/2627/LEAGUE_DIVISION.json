@@ -2289,6 +2289,4893 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "d1144faa5cdaf93e4fdb84154497c3f456b4599c55ec63998d875177d63da62d": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Major League Soccer",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "195",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "195",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2007-04-07",
+              "max_date": "2007-10-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Major League Soccer",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "210",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "210",
+              "duplicate_pair_occurrences": "28",
+              "min_date": "2008-03-29",
+              "max_date": "2008-10-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Major League Soccer",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "225",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "225",
+              "duplicate_pair_occurrences": "15",
+              "min_date": "2009-03-19",
+              "max_date": "2009-10-25"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Major League Soccer 2025",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "30",
+              "rows": "510",
+              "unique_oriented_pairs": "510",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-22",
+              "max_date": "2025-10-18"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "253",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2012-01-04",
+              "max_date": "2012-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "253",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2013-01-06",
+              "max_date": "2013-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "252",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "86",
+              "min_date": "2014-01-06",
+              "max_date": "2014-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "357",
+              "unique_oriented_pairs": "280",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2015-01-06",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "357",
+              "unique_oriented_pairs": "280",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2016-01-05",
+              "max_date": "2016-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "391",
+              "unique_oriented_pairs": "343",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-10"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "23",
+              "rows": "408",
+              "unique_oriented_pairs": "374",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "421",
+              "unique_oriented_pairs": "408",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2019-01-04",
+              "max_date": "2019-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "26",
+              "rows": "324",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2020-01-03",
+              "max_date": "2020-12-13"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "27",
+              "rows": "472",
+              "unique_oriented_pairs": "367",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "105",
+              "min_date": "2021-01-05",
+              "max_date": "2021-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "28",
+              "rows": "489",
+              "unique_oriented_pairs": "476",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2022-01-05",
+              "max_date": "2022-12-06"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "29",
+              "rows": "521",
+              "unique_oriented_pairs": "483",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2023-01-05",
+              "max_date": "2023-12-06"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "USA",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "29",
+              "rows": "479",
+              "unique_oriented_pairs": "469",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "10",
+              "min_date": "2024-01-05",
+              "max_date": "2024-12-05"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "253",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2012-01-04",
+              "max_date": "2012-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "253",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2013-01-06",
+              "max_date": "2013-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "252",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "86",
+              "min_date": "2014-01-06",
+              "max_date": "2014-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "357",
+              "unique_oriented_pairs": "280",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2015-01-06",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "357",
+              "unique_oriented_pairs": "280",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2016-01-05",
+              "max_date": "2016-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "391",
+              "unique_oriented_pairs": "343",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-10"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "23",
+              "rows": "408",
+              "unique_oriented_pairs": "374",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "421",
+              "unique_oriented_pairs": "408",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2019-01-04",
+              "max_date": "2019-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "26",
+              "rows": "324",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2020-01-03",
+              "max_date": "2020-12-13"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "27",
+              "rows": "472",
+              "unique_oriented_pairs": "367",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "105",
+              "min_date": "2021-01-05",
+              "max_date": "2021-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "28",
+              "rows": "489",
+              "unique_oriented_pairs": "476",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2022-01-05",
+              "max_date": "2022-12-06"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "29",
+              "rows": "521",
+              "unique_oriented_pairs": "483",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2023-01-05",
+              "max_date": "2023-12-06"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "USA",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "29",
+              "rows": "479",
+              "unique_oriented_pairs": "469",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "10",
+              "min_date": "2024-01-05",
+              "max_date": "2024-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "177",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "87",
+              "min_date": "1996-04-06",
+              "max_date": "1996-10-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "173",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "83",
+              "min_date": "1997-03-22",
+              "max_date": "1997-10-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "206",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "1998-03-15",
+              "max_date": "1998-10-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "208",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "76",
+              "min_date": "1999-03-20",
+              "max_date": "1999-11-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "192",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2000-03-18",
+              "max_date": "2000-09-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "158",
+              "unique_oriented_pairs": "129",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2001-04-07",
+              "max_date": "2001-09-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "140",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2002-03-23",
+              "max_date": "2002-09-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "150",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2003-04-05",
+              "max_date": "2003-10-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "161",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2004-04-03",
+              "max_date": "2004-11-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "203",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2005-04-02",
+              "max_date": "2005-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "203",
+              "unique_oriented_pairs": "131",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2006-04-01",
+              "max_date": "2006-11-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "206",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2007-04-07",
+              "max_date": "2007-11-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "221",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2008-03-29",
+              "max_date": "2008-11-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "236",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "26",
+              "min_date": "2009-03-20",
+              "max_date": "2009-11-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "251",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "11",
+              "min_date": "2010-03-26",
+              "max_date": "2010-11-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "317",
+              "unique_oriented_pairs": "304",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2011-03-16",
+              "max_date": "2011-11-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "333",
+              "unique_oriented_pairs": "249",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "84",
+              "min_date": "2012-03-11",
+              "max_date": "2012-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "333",
+              "unique_oriented_pairs": "249",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "84",
+              "min_date": "2013-03-02",
+              "max_date": "2013-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "334",
+              "unique_oriented_pairs": "248",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "86",
+              "min_date": "2014-03-08",
+              "max_date": "2014-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "351",
+              "unique_oriented_pairs": "276",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "75",
+              "min_date": "2015-03-07",
+              "max_date": "2015-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "350",
+              "unique_oriented_pairs": "276",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "2016-03-06",
+              "max_date": "2016-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "386",
+              "unique_oriented_pairs": "339",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2017-03-04",
+              "max_date": "2017-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "23",
+              "rows": "403",
+              "unique_oriented_pairs": "370",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "33",
+              "min_date": "2018-03-03",
+              "max_date": "2018-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "417",
+              "unique_oriented_pairs": "404",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2019-03-02",
+              "max_date": "2019-11-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "26",
+              "rows": "314",
+              "unique_oriented_pairs": "236",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "78",
+              "min_date": "2020-02-29",
+              "max_date": "2020-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "27",
+              "rows": "467",
+              "unique_oriented_pairs": "363",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "104",
+              "min_date": "2021-04-17",
+              "max_date": "2021-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "28",
+              "rows": "485",
+              "unique_oriented_pairs": "472",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2022-02-26",
+              "max_date": "2022-11-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "29",
+              "rows": "517",
+              "unique_oriented_pairs": "479",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2023-02-25",
+              "max_date": "2023-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "29",
+              "rows": "519",
+              "unique_oriented_pairs": "479",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2024-02-22",
+              "max_date": "2024-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "30",
+              "rows": "452",
+              "unique_oriented_pairs": "446",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "6",
+              "min_date": "2025-02-22",
+              "max_date": "2025-09-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-03-19",
+              "max_date": "2011-06-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "5",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2012-03-11",
+              "max_date": "2012-10-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "5",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-03-03",
+              "max_date": "2013-10-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-06-26",
+              "max_date": "2014-10-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "6",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2015-03-08",
+              "max_date": "2015-10-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "7",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2016-03-06",
+              "max_date": "2016-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "5",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2017-03-18",
+              "max_date": "2017-10-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "5",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2018-03-05",
+              "max_date": "2018-10-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-06-01",
+              "max_date": "2019-08-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "10",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "2020-07-17",
+              "max_date": "2020-09-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "5",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2021-04-17",
+              "max_date": "2021-10-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-04-16",
+              "max_date": "2022-09-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-02",
+              "max_date": "2023-09-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-07",
+              "max_date": "2024-07-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "united-states",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-03-09",
+              "max_date": "2025-08-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "USA DIV1",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "205",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "205",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2007-04-07",
+              "max_date": "2007-11-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "USA DIV1",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "22",
+              "rows": "230",
+              "unique_oriented_pairs": "192",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "230",
+              "duplicate_pair_occurrences": "38",
+              "min_date": "2008-03-29",
+              "max_date": "2008-11-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "USA DIV1",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "235",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "235",
+              "duplicate_pair_occurrences": "25",
+              "min_date": "2009-03-19",
+              "max_date": "2009-11-14"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "1996",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "177",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "87",
+              "min_date": "1996-04-06",
+              "max_date": "1996-10-20"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "1997",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "173",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "83",
+              "min_date": "1997-03-22",
+              "max_date": "1997-10-26"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "1998",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "206",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "1998-03-15",
+              "max_date": "1998-10-25"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "1999",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "208",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "76",
+              "min_date": "1999-03-20",
+              "max_date": "1999-11-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2000",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "209",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2000-03-18",
+              "max_date": "2000-10-15"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2001",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "176",
+              "unique_oriented_pairs": "130",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2001-04-07",
+              "max_date": "2001-10-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2002",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "157",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "67",
+              "min_date": "2002-03-23",
+              "max_date": "2002-10-20"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2003",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "161",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2003-04-05",
+              "max_date": "2003-11-23"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2004",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "10",
+              "rows": "161",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2004-04-03",
+              "max_date": "2004-11-14"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2005",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "203",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2005-04-02",
+              "max_date": "2005-11-13"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2006",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "203",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2006-04-01",
+              "max_date": "2006-11-12"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2007",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "13",
+              "rows": "206",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2007-04-07",
+              "max_date": "2007-11-18"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2008",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "14",
+              "rows": "221",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2008-03-29",
+              "max_date": "2008-11-23"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2009",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "15",
+              "rows": "236",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "26",
+              "min_date": "2009-03-19",
+              "max_date": "2009-11-22"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2010",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "251",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "11",
+              "min_date": "2010-03-25",
+              "max_date": "2010-11-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2011",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "319",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2011-03-15",
+              "max_date": "2011-11-20"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2012",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "253",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2012-03-10",
+              "max_date": "2012-12-01"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2013",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "253",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2013-03-02",
+              "max_date": "2013-12-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2014",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "252",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "86",
+              "min_date": "2014-03-08",
+              "max_date": "2014-12-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "357",
+              "unique_oriented_pairs": "280",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2015-03-06",
+              "max_date": "2015-12-06"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "357",
+              "unique_oriented_pairs": "280",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2016-03-06",
+              "max_date": "2016-12-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "22",
+              "rows": "391",
+              "unique_oriented_pairs": "343",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2017-03-03",
+              "max_date": "2017-12-09"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "23",
+              "rows": "408",
+              "unique_oriented_pairs": "374",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2018-03-03",
+              "max_date": "2018-12-08"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "24",
+              "rows": "421",
+              "unique_oriented_pairs": "408",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "13",
+              "min_date": "2019-03-02",
+              "max_date": "2019-11-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "26",
+              "rows": "325",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "83",
+              "min_date": "2020-02-29",
+              "max_date": "2020-12-12"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "27",
+              "rows": "472",
+              "unique_oriented_pairs": "367",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "105",
+              "min_date": "2021-04-16",
+              "max_date": "2021-12-11"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Major League Soccer",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "28",
+              "rows": "486",
+              "unique_oriented_pairs": "476",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "10",
+              "min_date": "2022-02-26",
+              "max_date": "2022-10-23"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa07.txt",
+                "edition": "2007",
+                "tableLine": 17,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 13,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Chicago Fire",
+                  "Chivas USA",
+                  "Colorado Rapids",
+                  "Columbus Crew",
+                  "D.C. United",
+                  "FC Dallas",
+                  "Houston Dynamo",
+                  "Kansas City Wizards",
+                  "Los Angeles Galaxy",
+                  "New England Revolution",
+                  "New York Red Bulls",
+                  "Real Salt Lake",
+                  "Toronto FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa07.txt",
+                "edition": "2007",
+                "tableLine": 391,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 13,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Chicago Fire",
+                  "Chivas USA",
+                  "Colorado Rapids",
+                  "Columbus Crew",
+                  "D.C. United",
+                  "FC Dallas",
+                  "Houston Dynamo",
+                  "Kansas City Wizards",
+                  "Los Angeles Galaxy",
+                  "New England Revolution",
+                  "New York Red Bulls",
+                  "Real Salt Lake",
+                  "Toronto FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa08.txt",
+                "edition": "2008",
+                "tableLine": 15,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 14,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Chicago Fire",
+                  "Chivas USA",
+                  "Colorado Rapids",
+                  "Columbus Crew",
+                  "D.C. United",
+                  "FC Dallas",
+                  "Houston Dynamo",
+                  "Kansas City Wizards",
+                  "Los Angeles Galaxy",
+                  "New England Revolution",
+                  "New York Red Bulls",
+                  "Real Salt Lake",
+                  "San Jose Earthquakes",
+                  "Toronto FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa08.txt",
+                "edition": "2008",
+                "tableLine": 424,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 14,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Chicago Fire",
+                  "Chivas USA",
+                  "Colorado Rapids",
+                  "Columbus Crew",
+                  "D.C. United",
+                  "FC Dallas",
+                  "Houston Dynamo",
+                  "Kansas City Wizards",
+                  "Los Angeles Galaxy",
+                  "New England Revolution",
+                  "New York Red Bulls",
+                  "Real Salt Lake",
+                  "San Jose Earthquakes",
+                  "Toronto FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa08.txt",
+                "edition": "2008",
+                "tableLine": 483,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 11,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Atlanta Silverbacks",
+                  "Carolina RailHawks",
+                  "Charleston Battery",
+                  "Miami FC Blues",
+                  "Minnesota Thunder",
+                  "Montreal Impact",
+                  "Portland Timbers",
+                  "Puerto Rico Islanders",
+                  "Rochester Rhinos",
+                  "Seattle Sounders",
+                  "Vancouver Whitecaps"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa09.txt",
+                "edition": "2009",
+                "tableLine": 15,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 15,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Chicago Fire",
+                  "Chivas USA",
+                  "Colorado Rapids",
+                  "Columbus Crew",
+                  "D.C. United",
+                  "FC Dallas",
+                  "Houston Dynamo",
+                  "Kansas City Wizards",
+                  "Los Angeles Galaxy",
+                  "New England Revolution",
+                  "New York Red Bulls",
+                  "Real Salt Lake",
+                  "San Jose Earthquakes",
+                  "Seattle Sounders",
+                  "Toronto FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa09.txt",
+                "edition": "2009",
+                "tableLine": 398,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 15,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Chicago Fire",
+                  "Chivas USA",
+                  "Colorado Rapids",
+                  "Columbus Crew",
+                  "D.C. United",
+                  "FC Dallas",
+                  "Houston Dynamo",
+                  "Kansas City Wizards",
+                  "Los Angeles Galaxy",
+                  "New England Revolution",
+                  "New York Red Bulls",
+                  "Real Salt Lake",
+                  "San Jose Earthquakes",
+                  "Seattle Sounders",
+                  "Toronto FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesu/usa09.txt",
+                "edition": "2009",
+                "tableLine": 554,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 11,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Austin Aztex",
+                  "Carolina RailHawks",
+                  "Charleston Battery",
+                  "Cleveland City Stars",
+                  "Miami FC Blues",
+                  "Minnesota Thunder",
+                  "Montreal Impact",
+                  "Portland Timbers",
+                  "Puerto Rico Islanders",
+                  "Rochester Rhinos",
+                  "Vancouver Whitecaps"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [
+              {
+                "from": "2008",
+                "to": "2009",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 11,
+                "newTeamCount": 11,
+                "newLabels": [
+                  "Austin Aztex",
+                  "Cleveland City Stars"
+                ],
+                "missingLabels": [
+                  "Atlanta Silverbacks",
+                  "Seattle Sounders"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              }
+            ],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2001",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa-wom01.txt:13",
+                "excerpt": "women's league in the United States.  There is no relegation from the WUSA"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa06.txt:406",
+                "excerpt": "First Round:    Puerto Rico defeated Charleston 2-2, 1-0"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:17 Author: David A. Litterer",
+                "excerpt": "1.D.C. United                30  16  7  7  56-34  55  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:18 Author: David A. Litterer",
+                "excerpt": "2.New England Revolution     30  14  8  8  51-43  50  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:20 Author: David A. Litterer",
+                "excerpt": "3.New York Red Bulls         30  12  7 11  47-45  43  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:21 Author: David A. Litterer",
+                "excerpt": "4.Kansas City Wizards        30  11  7 12  45-45  40  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:22 Author: David A. Litterer",
+                "excerpt": "5.Chicago Fire               30  10 10 10  31-36  40  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:27 Author: David A. Litterer",
+                "excerpt": "1.Chivas USA                 30  15  8  7  46-28  53  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:28 Author: David A. Litterer",
+                "excerpt": "2.Houston Dynamo             30  15  7  8  43-23  52  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:30 Author: David A. Litterer",
+                "excerpt": "3.FC Dallas                  30  13  5 12  37-44  44  Qualified"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 34,
+                  "gf": 56,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 55,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "D.C. United",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:17"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 51,
+                  "lost": 8,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "New England Revolution",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:18"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 47,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "New York Red Bulls",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:20"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 45,
+                  "lost": 12,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Kansas City Wizards",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:21"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 36,
+                  "gf": 31,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Chicago Fire",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:22"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 44,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Columbus Crew",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:23"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 49,
+                  "gf": 25,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 25,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Toronto FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:24"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 28,
+                  "gf": 46,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Chivas USA",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:27"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 23,
+                  "gf": 43,
+                  "lost": 8,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 52,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Houston Dynamo",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:28"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 37,
+                  "lost": 12,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "FC Dallas",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:30"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 34,
+                  "gf": 29,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 35,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Colorado Rapids",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:31"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 48,
+                  "gf": 38,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Los Angeles Galaxy",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:32"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 45,
+                  "gf": 31,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 27,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 17
+                  },
+                  "team": "Real Salt Lake",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:33"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:35",
+                "excerpt": "NB: top-2 of both conferences qualify for playoffs together"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 34,
+                  "gf": 56,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 55,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "D.C. United",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:391"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 51,
+                  "lost": 8,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "New England Revolution",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:392"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 47,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "New York Red Bulls",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:394"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 45,
+                  "lost": 12,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Kansas City Wizards",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:395"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 36,
+                  "gf": 31,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Chicago Fire",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:396"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 44,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Columbus Crew",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:397"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 49,
+                  "gf": 25,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 25,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Toronto FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:398"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 28,
+                  "gf": 46,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Chivas USA",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:401"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 23,
+                  "gf": 43,
+                  "lost": 8,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 52,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Houston Dynamo",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:402"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 37,
+                  "lost": 12,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "FC Dallas",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:404"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 34,
+                  "gf": 29,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 35,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Colorado Rapids",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:405"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 48,
+                  "gf": 38,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Los Angeles Galaxy",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:406"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 45,
+                  "gf": 31,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 27,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 391
+                  },
+                  "team": "Real Salt Lake",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:407"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:412",
+                "excerpt": "MLS Cup Playoff"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:416",
+                "excerpt": "Conference in the playoffs"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:15 Author: David A. Litterer",
+                "excerpt": "1.Columbus Crew              30  17  6  7  50-36  57  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:16 Author: David A. Litterer",
+                "excerpt": "2.Chicago Fire               30  13  7 10  44-33  46  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:18 Author: David A. Litterer",
+                "excerpt": "3.New England Revolution     30  12  7 11  40-43  43  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:19 Author: David A. Litterer",
+                "excerpt": "4.Kansas City Wizards        30  11  9 10  37-39  42  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:20 Author: David A. Litterer",
+                "excerpt": "5.New York Red Bulls         30  10  9 11  42-48  39  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:25 Author: David A. Litterer",
+                "excerpt": "1.Houston Dynamo             30  13 12  5  45-32  51  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:26 Author: David A. Litterer",
+                "excerpt": "2.Chivas USA                 30  12  7 11  40-41  43  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:28 Author: David A. Litterer",
+                "excerpt": "3.Real Salt Lake             30  10 10 10  40-39  40  Qualified"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 36,
+                  "gf": 50,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 57,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Columbus Crew",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:15"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 33,
+                  "gf": 44,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Chicago Fire",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:16"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 40,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "New England Revolution",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:18"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 37,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 42,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Kansas City Wizards",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:19"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 48,
+                  "gf": 42,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "New York Red Bulls",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:20"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 51,
+                  "gf": 43,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "D.C. United",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:21"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 34,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 35,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Toronto FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:22"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 32,
+                  "gf": 45,
+                  "lost": 5,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 51,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Houston Dynamo",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:25"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 41,
+                  "gf": 40,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Chivas USA",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:26"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 39,
+                  "gf": 40,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Real Salt Lake",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:28"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 45,
+                  "gf": 44,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 38,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Colorado Rapids",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:29"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 41,
+                  "gf": 45,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 36,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "FC Dallas",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:30"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 38,
+                  "gf": 32,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "San Jose Earthquakes",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:31"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 62,
+                  "gf": 55,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Los Angeles Galaxy",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:32"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:36",
+                "excerpt": "NB: top-2 of both conferences qualify for playoffs together"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:38",
+                "excerpt": "first tie-breaker: head-to-head record"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 36,
+                  "gf": 50,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 57,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Columbus Crew",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:424"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 33,
+                  "gf": 44,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Chicago Fire",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:425"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 40,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "New England Revolution",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:427"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 37,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 42,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Kansas City Wizards",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:428"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 48,
+                  "gf": 42,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "New York Red Bulls",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:429"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 51,
+                  "gf": 43,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "D.C. United",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:430"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 34,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 35,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Toronto FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:431"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 32,
+                  "gf": 45,
+                  "lost": 5,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 51,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Houston Dynamo",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:434"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 41,
+                  "gf": 40,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Chivas USA",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:435"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 39,
+                  "gf": 40,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Real Salt Lake",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:437"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 45,
+                  "gf": 44,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 38,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Colorado Rapids",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:438"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 41,
+                  "gf": 45,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 36,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "FC Dallas",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:439"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 38,
+                  "gf": 32,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "San Jose Earthquakes",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:440"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 62,
+                  "gf": 55,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Los Angeles Galaxy",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:441"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:449",
+                "excerpt": "Championship Playoffs"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 23,
+                  "gf": 43,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 54,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Puerto Rico Islanders",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:485"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 28,
+                  "gf": 34,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Vancouver Whitecaps",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:487"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 28,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 42,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Montreal Impact",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:488"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 32,
+                  "gf": 35,
+                  "lost": 10,
+                  "note": "[-1]",
+                  "phase": "",
+                  "played": 30,
+                  "points": 41,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Rochester Rhinos",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:489"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 36,
+                  "gf": 34,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Charleston Battery",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:490"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 36,
+                  "gf": 37,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Seattle Sounders",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:491"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 38,
+                  "gf": 40,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Minnesota Thunder",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:492"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 43,
+                  "gf": 34,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Carolina RailHawks",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:494"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 34,
+                  "gf": 28,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Miami FC Blues",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:495"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 50,
+                  "gf": 37,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Atlanta Silverbacks",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:496"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 33,
+                  "gf": 26,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 31,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 483
+                  },
+                  "team": "Portland Timbers",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:497"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:15 Author: David A. Litterer",
+                "excerpt": "1.Columbus Crew              30  13 10  7  41-31  49  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:16 Author: David A. Litterer",
+                "excerpt": "2.Chicago Fire               30  11 12  7  39-34  45  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:17 Author: David A. Litterer",
+                "excerpt": "3.New England Revolution     30  11  9 10  33-37  42  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:24 Author: David A. Litterer",
+                "excerpt": "1.Los Angeles Galaxy         30  12 12  6  36-31  48  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:25 Author: David A. Litterer",
+                "excerpt": "2.Houston Dynamo             30  13  9  8  39-29  48  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:26 Author: David A. Litterer",
+                "excerpt": "3.Seattle Sounders           30  12 11  7  38-29  47  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:27 Author: David A. Litterer",
+                "excerpt": "4.Chivas USA                 30  13  6 11  34-31  45  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:28 Author: David A. Litterer",
+                "excerpt": "5.Real Salt Lake             30  11  7 12  43-35  40  Qualified"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 31,
+                  "gf": 41,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 49,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Columbus Crew",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:15"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 34,
+                  "gf": 39,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 45,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Chicago Fire",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:16"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 37,
+                  "gf": 33,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 42,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "New England Revolution",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:17"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 44,
+                  "gf": 43,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "D.C. United",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:18"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 46,
+                  "gf": 37,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Toronto FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:19"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 42,
+                  "gf": 33,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Kansas City Wizards",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:20"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 27,
+                  "lost": 19,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "New York Red Bulls",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:21"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 31,
+                  "gf": 36,
+                  "lost": 6,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 48,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Los Angeles Galaxy",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:24"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 29,
+                  "gf": 39,
+                  "lost": 8,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 48,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Houston Dynamo",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:25"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 29,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 47,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Seattle Sounders",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:26"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 31,
+                  "gf": 34,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 45,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Chivas USA",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:27"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 35,
+                  "gf": 43,
+                  "lost": 12,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Real Salt Lake",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:28"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 38,
+                  "gf": 42,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "Colorado Rapids",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:29"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 50,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "FC Dallas",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:30"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 50,
+                  "gf": 36,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 30,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 15
+                  },
+                  "team": "San Jose Earthquakes",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:31"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 31,
+                  "gf": 41,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 49,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Columbus Crew",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:398"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 34,
+                  "gf": 39,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 45,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Chicago Fire",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:399"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 37,
+                  "gf": 33,
+                  "lost": 10,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 42,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "New England Revolution",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:400"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 44,
+                  "gf": 43,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "D.C. United",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:401"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 46,
+                  "gf": 37,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Toronto FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:402"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 42,
+                  "gf": 33,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Kansas City Wizards",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:403"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 27,
+                  "lost": 19,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "New York Red Bulls",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:404"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 31,
+                  "gf": 36,
+                  "lost": 6,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 48,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Los Angeles Galaxy",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:407"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 29,
+                  "gf": 39,
+                  "lost": 8,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 48,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Houston Dynamo",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:408"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 29,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 47,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Seattle Sounders",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:409"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 31,
+                  "gf": 34,
+                  "lost": 11,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 45,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Chivas USA",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:410"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 35,
+                  "gf": 43,
+                  "lost": 12,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Real Salt Lake",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:411"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 38,
+                  "gf": 42,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "Colorado Rapids",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:412"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 50,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "FC Dallas",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:413"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 50,
+                  "gf": 36,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 30,
+                  "points": 30,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 398
+                  },
+                  "team": "San Jose Earthquakes",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:414"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:418",
+                "excerpt": "Championship Playoff"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:434",
+                "excerpt": "NB: Real Salt Lake added to Eastern semifinals as worst qualifiers"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 19,
+                  "gf": 45,
+                  "lost": 4,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 30,
+                  "points": 58,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Portland Timbers",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:556"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 19,
+                  "gf": 43,
+                  "lost": 7,
+                  "note": "Quarterfinals",
+                  "phase": "",
+                  "played": 30,
+                  "points": 55,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Carolina RailHawks",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:558"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 31,
+                  "gf": 44,
+                  "lost": 7,
+                  "note": "Quarterfinals",
+                  "phase": "",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Puerto Rico Islanders",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:559"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 21,
+                  "gf": 33,
+                  "lost": 5,
+                  "note": "Quarterfinals",
+                  "phase": "",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Charleston Battery",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:560"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 31,
+                  "gf": 32,
+                  "lost": 11,
+                  "note": "Quarterfinals",
+                  "phase": "",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Montreal Impact",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:561"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 32,
+                  "gf": 34,
+                  "lost": 9,
+                  "note": "Quarterfinals",
+                  "phase": "",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Rochester Rhinos",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:562"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 36,
+                  "gf": 42,
+                  "lost": 10,
+                  "note": "Quarterfinals",
+                  "phase": "",
+                  "played": 30,
+                  "points": 42,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Vancouver Whitecaps",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:563"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 44,
+                  "gf": 39,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 31,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Minnesota Thunder",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:565"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 52,
+                  "gf": 26,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 29,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Miami FC Blues",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:566"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 51,
+                  "gf": 28,
+                  "lost": 17,
+                  "note": "[-2]",
+                  "phase": "",
+                  "played": 30,
+                  "points": 21,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Austin Aztex",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:567"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 52,
+                  "gf": 22,
+                  "lost": 19,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 19,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 554
+                  },
+                  "team": "Cleveland City Stars",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa09.txt:568"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 30,
+                  "conferences": 2,
+                  "gamesPerClub": 34,
+                  "home": 17,
+                  "away": 17,
+                  "points": [
+                    3,
+                    1,
+                    0
+                  ],
+                  "playoffs": {
+                    "entrants": 18,
+                    "perConference": 9,
+                    "directSeeds": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7
+                    ],
+                    "wildCardSeeds": [
+                      8,
+                      9
+                    ],
+                    "wildCard": {
+                      "legs": 1,
+                      "extraTime": false,
+                      "penalties": true
+                    },
+                    "roundOne": {
+                      "winsRequired": 2,
+                      "maxGames": 3,
+                      "homeOrder": "higher-lower-higher",
+                      "extraTime": false,
+                      "penalties": true
+                    },
+                    "laterRounds": {
+                      "legs": 1,
+                      "extraTimeMinutes": 30,
+                      "penalties": true
+                    },
+                    "finalHost": "higher Supporters Shield rank",
+                    "tieBreakers": [
+                      "wins",
+                      "goal difference",
+                      "goals scored",
+                      "intraconference head-to-head points then goal difference",
+                      "fewest disciplinary points",
+                      "away goal difference",
+                      "away goals",
+                      "home goal difference",
+                      "home goals",
+                      "coin toss or draw"
+                    ],
+                    "cancellation": "points per game if full 34-match schedule cannot be completed"
+                  }
+                },
+                "source": "repository/research",
+                "locator": "NORTH_AMERICA/USA/2627/LEAGUE_DIVISION.json#block52Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

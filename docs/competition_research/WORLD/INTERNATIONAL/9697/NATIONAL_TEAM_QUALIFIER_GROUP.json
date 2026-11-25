@@ -926,7 +926,120 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "5da77de157c9ef08488ad16b349944e5f79b888f52a654c430eacc36f51e9e42": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_QUALIFIER_GROUP",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "preliminaryGroups": [
+                    {
+                      "name": "Melanesian",
+                      "teams": [
+                        "Papua New Guinea",
+                        "Solomon Islands",
+                        "Vanuatu"
+                      ],
+                      "dates": [
+                        "1996-09-16",
+                        "1996-09-18",
+                        "1996-09-20"
+                      ]
+                    },
+                    {
+                      "name": "Polynesian",
+                      "teams": [
+                        "Tonga",
+                        "Cook Islands",
+                        "Western Samoa"
+                      ],
+                      "dates": [
+                        "1996-11-11",
+                        "1996-11-13",
+                        "1996-11-15"
+                      ]
+                    }
+                  ],
+                  "qualification": "Melanesian winner plus winner of two-leg playoff between Melanesian runner-up and Polynesian winner; join four seeded byes in two groups of three double RR; group winners two-leg final; OFC winner AFC playoff.",
+                  "playoffDates": [
+                    "1997-02-15",
+                    "1997-03-01"
+                  ],
+                  "group1Dates": [
+                    "1997-06-11",
+                    "1997-06-13",
+                    "1997-06-15",
+                    "1997-06-17",
+                    "1997-06-19",
+                    "1997-06-21"
+                  ],
+                  "group2Dates": [
+                    "1997-05-31",
+                    "1997-06-07",
+                    "1997-06-11",
+                    "1997-06-15",
+                    "1997-06-18",
+                    "1997-06-21"
+                  ],
+                  "finalDates": [
+                    "1997-06-28",
+                    "1997-07-05"
+                  ],
+                  "intercontinentalDates": [
+                    "1997-11-22",
+                    "1997-11-29"
+                  ],
+                  "firstObservedDate": "1996-09-16"
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_QUALIFIER_GROUP.json#block106Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "entries": 10,
+                  "byes": [
+                    "Australia",
+                    "Fiji",
+                    "New Zealand",
+                    "Tahiti"
+                  ],
+                  "firstStageGroups": 2,
+                  "secondStageGroups": 2,
+                  "secondStageSize": 3,
+                  "finalWinnersTo": "AFC intercontinental playoff",
+                  "firstObservedDate": "1996-09-16"
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_QUALIFIER_GROUP.json#sportRuleEvidence50",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "7a1c07ae1b2239098af67d41e6fa378f727c21b237aad5f9350f57b82ee097c7": {
           "status": "I",

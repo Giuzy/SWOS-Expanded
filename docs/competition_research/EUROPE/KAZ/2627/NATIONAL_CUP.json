@@ -433,6 +433,230 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "bcd3b126854457fd96a19f45bfef38fded26cf590ac98184f77e69b6afb51a93": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kazakhstan Cup 2004",
+              "season": "2004",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "54",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "54",
+              "duplicate_pair_occurrences": "27",
+              "min_date": "2004-05-16",
+              "max_date": "2004-11-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kazakhstan Cup 2005",
+              "season": "2005",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "60",
+              "rows": "177",
+              "unique_oriented_pairs": "159",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "177",
+              "duplicate_pair_occurrences": "18",
+              "min_date": "2005-04-15",
+              "max_date": "2005-11-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kazakhstan Cup 2006",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-04-17",
+              "max_date": "2006-11-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Olimpbet QFL Qazaqstan Kubogy",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-04-08",
+              "max_date": "2026-04-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Olimpbet QFL Qazaqstan Kubogy",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-04-17",
+              "max_date": "2006-11-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Olimpbet QFL Qazaqstan Kubogy",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-04-08",
+              "max_date": "2026-04-30"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1999",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kaz99.txt:214",
+                "excerpt": "Round of 16"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kaz01.txt:525",
+                "excerpt": "NB: Access GoldenGrain renamed into Yesil Bogatyr."
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kaz02.txt:636",
+                "excerpt": "First Round (only Supreme League clubs) [May 1, 9]"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kaz02.txt:647",
+                "excerpt": "Round of 16"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kaz02.txt:698",
+                "excerpt": "[result of first leg (1-0) cancelled due to Zhetysu's"
+              },
+              {
+                "season": "2005",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesk/kaz05.txt:1085 Author: Theodore Dreiman",
+                "excerpt": "NB: Winners of both Conferences are directly promoted."
+              },
+              {
+                "season": "2005",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesk/kaz05.txt:1337 Author: Theodore Dreiman",
+                "excerpt": "1.Energetik Pavlodar           24  21  3  0  109- 7  66  Promoted"
+              },
+              {
+                "season": "2005",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesk/kaz05.txt:1593 Author: Theodore Dreiman",
+                "excerpt": "1.Qaysar Qyzylorda           22  17  4  1  51-10  55  [-] Promoted"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kazcup06.txt:24",
+                "excerpt": "First Round [Apr 26]"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kazcup06.txt:67",
+                "excerpt": "Second Round [May 10]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kaz2026.txt:674",
+                "excerpt": "First Round [Total Att: 28,500; Average: 1,900]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesk/kaz2026.txt:717",
+                "excerpt": "Second Round [Total Att: 42,548; Average: 5,319]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -290,6 +290,684 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "9362addfa474f229adce28c7b3d15d7452ad487e20088821c0c41f87071481cb": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "9",
+              "unique_oriented_pairs": "9",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-10-01",
+              "max_date": "2009-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2009/10",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "5",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-05-28",
+              "max_date": "2010-05-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2010/11",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "76",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-11",
+              "max_date": "2011-06-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2011/12",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-03",
+              "max_date": "2012-06-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2012/13",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "58",
+              "unique_oriented_pairs": "58",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "58",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-08",
+              "max_date": "2013-06-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2013/14",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "37",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-08-31",
+              "max_date": "2014-04-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2014/15",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "52",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-02",
+              "max_date": "2015-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2015/16",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-11",
+              "max_date": "2016-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-05-07",
+              "max_date": "2016-09-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2017",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-04-27",
+              "max_date": "2017-09-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-04-25",
+              "max_date": "2018-09-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2019",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-24",
+              "max_date": "2019-09-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2020",
+              "season": "2020",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-06-16",
+              "max_date": "2020-10-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2021",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-05-22",
+              "max_date": "2021-09-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "LFF Taurė 2026",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "81",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-03-11",
+              "max_date": "2026-06-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-08-28",
+              "max_date": "2008-06-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-04-16",
+              "max_date": "2008-11-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "18",
+              "unique_oriented_pairs": "9",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "9",
+              "min_date": "2008-10-01",
+              "max_date": "2009-05-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "5",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-05-28",
+              "max_date": "2010-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "76",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-11",
+              "max_date": "2011-06-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-03",
+              "max_date": "2012-06-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "58",
+              "unique_oriented_pairs": "58",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "58",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-08",
+              "max_date": "2013-06-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "37",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-08-31",
+              "max_date": "2014-04-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "52",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-02",
+              "max_date": "2015-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-11",
+              "max_date": "2016-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-05-07",
+              "max_date": "2016-09-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-04-27",
+              "max_date": "2017-09-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-04-25",
+              "max_date": "2018-09-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-24",
+              "max_date": "2019-09-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2020",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-06-16",
+              "max_date": "2020-10-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-05-22",
+              "max_date": "2021-09-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "LFF Taurė",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "81",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-03-11",
+              "max_date": "2026-06-24"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [],
+                "values": {
+                  "finalObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/LTU/9697/NATIONAL_CUP.json#sportRuleEvidence85",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/litocup08.txt:12",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/litocup08.txt:42",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/litocup08.txt:53",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/litocup08.txt:64",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/litocup08.txt:75",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito08.txt:237",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito08.txt:267",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito08.txt:278",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito08.txt:289",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito08.txt:300",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito09.txt:237",
+                "excerpt": "First Round [May 7-11]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito09.txt:258",
+                "excerpt": "Second Round [Jun 1-6]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito09.txt:272",
+                "excerpt": "Third Round [Jul 2-9]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito09.txt:282",
+                "excerpt": "Fourth Round [Aug 20-27]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito09.txt:292",
+                "excerpt": "Fifth Round [Sep 12-17]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito2010.txt:446",
+                "excerpt": "NB: FBK Kaunas promoted from 3rd to 2nd level after 2009 league season"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito2019.txt:399",
+                "excerpt": "NB: the 8 top level clubs join the 24 winners of round 2 in round 3"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito2026.txt:560",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito2026.txt:622",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/lito2026.txt:663",
+                "excerpt": "Third Round"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

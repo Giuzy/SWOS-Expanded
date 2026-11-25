@@ -1407,6 +1407,4423 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "f5b6cb347b6e40098a21da783d58258408fb0ad2477389f0fc9f38f7864a2987": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "119",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2012-01-09",
+              "max_date": "2012-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "187",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2013-01-03",
+              "max_date": "2013-12-08"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2014-01-03",
+              "max_date": "2014-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "203",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2015-01-03",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "238",
+              "unique_oriented_pairs": "177",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2016-01-04",
+              "max_date": "2016-12-12"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "241",
+              "unique_oriented_pairs": "175",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-08"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "262",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2018-01-03",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "251",
+              "unique_oriented_pairs": "184",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "67",
+              "min_date": "2019-01-03",
+              "max_date": "2019-12-16"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "181",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2020-01-03",
+              "max_date": "2020-12-21"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "217",
+              "unique_oriented_pairs": "143",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "2021-01-03",
+              "max_date": "2021-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2022-01-04",
+              "max_date": "2022-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2023-01-05",
+              "max_date": "2023-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "DEN",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "157",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2024-01-03",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "119",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2012-01-09",
+              "max_date": "2012-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "187",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2013-01-03",
+              "max_date": "2013-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2014-01-03",
+              "max_date": "2014-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "203",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2015-01-03",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "238",
+              "unique_oriented_pairs": "177",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2016-01-04",
+              "max_date": "2016-12-12"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "241",
+              "unique_oriented_pairs": "175",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "262",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2018-01-03",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "251",
+              "unique_oriented_pairs": "184",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "67",
+              "min_date": "2019-01-03",
+              "max_date": "2019-12-16"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "181",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2020-01-03",
+              "max_date": "2020-12-21"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "217",
+              "unique_oriented_pairs": "143",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "2021-01-03",
+              "max_date": "2021-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2022-01-04",
+              "max_date": "2022-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2023-01-05",
+              "max_date": "2023-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "DEN",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "157",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2024-01-03",
+              "max_date": "2024-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "187",
+              "unique_oriented_pairs": "122",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "65",
+              "min_date": "1996-03-24",
+              "max_date": "1996-11-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "198",
+              "unique_oriented_pairs": "145",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "1997-03-14",
+              "max_date": "1997-11-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "187",
+              "unique_oriented_pairs": "131",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "1998-03-13",
+              "max_date": "1998-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "208",
+              "unique_oriented_pairs": "139",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "1999-03-07",
+              "max_date": "1999-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "199",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2000-03-12",
+              "max_date": "2000-11-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "204",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2001-03-11",
+              "max_date": "2001-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "139",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "2002-03-03",
+              "max_date": "2002-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "210",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2003-03-15",
+              "max_date": "2003-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "186",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2004-03-13",
+              "max_date": "2004-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "210",
+              "unique_oriented_pairs": "139",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2005-03-12",
+              "max_date": "2005-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "186",
+              "unique_oriented_pairs": "127",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2006-03-11",
+              "max_date": "2006-11-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "198",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2007-03-10",
+              "max_date": "2007-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "57",
+              "min_date": "2008-03-15",
+              "max_date": "2008-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "204",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2009-02-28",
+              "max_date": "2009-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "203",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "65",
+              "min_date": "2010-03-06",
+              "max_date": "2010-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2011-03-05",
+              "max_date": "2011-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "209",
+              "unique_oriented_pairs": "139",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "70",
+              "min_date": "2012-03-03",
+              "max_date": "2012-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "187",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2013-03-01",
+              "max_date": "2013-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "192",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2014-02-21",
+              "max_date": "2014-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "203",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2015-02-20",
+              "max_date": "2015-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "238",
+              "unique_oriented_pairs": "177",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2016-02-26",
+              "max_date": "2016-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "229",
+              "unique_oriented_pairs": "167",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2017-02-17",
+              "max_date": "2017-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "250",
+              "unique_oriented_pairs": "187",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "63",
+              "min_date": "2018-02-09",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "243",
+              "unique_oriented_pairs": "177",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2019-02-08",
+              "max_date": "2019-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "181",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2020-02-14",
+              "max_date": "2020-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "217",
+              "unique_oriented_pairs": "143",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "2021-02-02",
+              "max_date": "2021-11-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2022-02-18",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2023-02-17",
+              "max_date": "2023-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "131",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2024-02-16",
+              "max_date": "2024-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "denmark",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "138",
+              "unique_oriented_pairs": "102",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "2025-02-14",
+              "max_date": "2025-09-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DEN DIV1",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "82",
+              "unique_oriented_pairs": "67",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "82",
+              "duplicate_pair_occurrences": "15",
+              "min_date": "1997-07-27",
+              "max_date": "1998-06-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DEN DIV1",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "198",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2005-07-19",
+              "max_date": "2006-05-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DEN DIV1",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "198",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2014-07-18",
+              "max_date": "2015-06-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DEN DIV1",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "197",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "197",
+              "duplicate_pair_occurrences": "65",
+              "min_date": "2015-07-17",
+              "max_date": "2016-05-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2014-07-18",
+              "max_date": "2015-06-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2015-07-17",
+              "max_date": "2016-05-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "14",
+              "rows": "243",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2016-07-15",
+              "max_date": "2017-06-01"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "14",
+              "rows": "251",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2017-07-14",
+              "max_date": "2018-05-25"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "251",
+              "unique_oriented_pairs": "186",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "65",
+              "min_date": "2018-07-13",
+              "max_date": "2019-06-02"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "14",
+              "rows": "243",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2019-07-12",
+              "max_date": "2020-07-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "193",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2020-09-11",
+              "max_date": "2021-05-28"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "193",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2021-07-16",
+              "max_date": "2022-05-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Superliga",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "12",
+              "rows": "132",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-15",
+              "max_date": "2023-03-19"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den06.txt",
+                "edition": "2005/2006",
+                "tableLine": 566,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Horsens",
+                  "AGF",
+                  "AaB",
+                  "Brøndby IF",
+                  "Esbjerg fB",
+                  "FC København",
+                  "FC Midtjylland",
+                  "FC Nordsjælland",
+                  "OB",
+                  "Silkeborg IF",
+                  "SønderjyskE",
+                  "Viborg FF"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den06.txt",
+                "edition": "2005/2006",
+                "tableLine": 8,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Horsens",
+                  "AGF",
+                  "AaB",
+                  "Brøndby IF",
+                  "Esbjerg fB",
+                  "FC København",
+                  "FC Midtjylland",
+                  "FC Nordsjælland",
+                  "OB",
+                  "Silkeborg IF",
+                  "SønderjyskE",
+                  "Viborg FF"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den2015.txt",
+                "edition": "2014/2015",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AaB",
+                  "Brøndby IF",
+                  "Esbjerg fB",
+                  "FC København",
+                  "FC Midtjylland",
+                  "FC Nordsjælland",
+                  "FC Vestsjælland",
+                  "Hobro IK",
+                  "OB",
+                  "Randers FC",
+                  "Silkeborg IF",
+                  "SønderjyskE"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den2015.txt",
+                "edition": "2014/2015",
+                "tableLine": 410,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AaB",
+                  "Brøndby IF",
+                  "Esbjerg fB",
+                  "FC København",
+                  "FC Midtjylland",
+                  "FC Nordsjælland",
+                  "FC Vestsjælland",
+                  "Hobro IK",
+                  "OB",
+                  "Randers FC",
+                  "Silkeborg IF",
+                  "SønderjyskE"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den2016.txt",
+                "edition": "2015/2016",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AGF",
+                  "AaB",
+                  "Brøndby IF",
+                  "Esbjerg fB",
+                  "FC København",
+                  "FC Midtjylland",
+                  "FC Nordsjælland",
+                  "Hobro IK",
+                  "OB",
+                  "Randers FC",
+                  "SønderjyskE",
+                  "Viborg FF"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den2016.txt",
+                "edition": "2015/2016",
+                "tableLine": 412,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AGF",
+                  "AaB",
+                  "Brøndby IF",
+                  "Esbjerg fB",
+                  "FC København",
+                  "FC Midtjylland",
+                  "FC Nordsjælland",
+                  "Hobro IK",
+                  "OB",
+                  "Randers FC",
+                  "SønderjyskE",
+                  "Viborg FF"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den96.txt",
+                "edition": "1995/1996",
+                "tableLine": 8,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AGF",
+                  "AaB",
+                  "Brøndby",
+                  "Herfølge",
+                  "Ikast",
+                  "København",
+                  "Lyngby",
+                  "Næstved",
+                  "OB",
+                  "Silkeborg",
+                  "Vejle",
+                  "Viborg"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den97.txt",
+                "edition": "1996/1997",
+                "tableLine": 8,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AB",
+                  "AGF",
+                  "AaB",
+                  "Brøndby",
+                  "FC København",
+                  "Herfølge",
+                  "Hvidovre",
+                  "Lyngby",
+                  "OB",
+                  "Silkeborg",
+                  "Vejle",
+                  "Viborg"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den98.txt",
+                "edition": "1997/1998",
+                "tableLine": 288,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AB",
+                  "AGF",
+                  "AaB",
+                  "Aarhus Fremad",
+                  "Brøndby IF",
+                  "FC København",
+                  "Herfølge BK",
+                  "Ikast fS",
+                  "Lyngby FC",
+                  "OB",
+                  "Silkeborg IF",
+                  "Vejle B"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesd/den98.txt",
+                "edition": "1997/1998",
+                "tableLine": 8,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AB",
+                  "AGF",
+                  "AaB",
+                  "Aarhus Fremad",
+                  "Brøndby IF",
+                  "FC København",
+                  "Herfølge BK",
+                  "Ikast fS",
+                  "Lyngby FC",
+                  "OB",
+                  "Silkeborg IF",
+                  "Vejle B"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [
+              {
+                "from": "2014/2015",
+                "to": "2015/2016",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 12,
+                "newLabels": [
+                  "AGF",
+                  "Viborg FF"
+                ],
+                "missingLabels": [
+                  "FC Vestsjælland",
+                  "Silkeborg IF"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              }
+            ],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 33,
+                  "gf": 57,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 60,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "OB",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:10"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 35,
+                  "gf": 61,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 53,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Lyngby",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:11"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 38,
+                  "gf": 57,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 51,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "AaB",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:12"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 44,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 49,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Silkeborg",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:13"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 49,
+                  "gf": 48,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "København",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:14"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 67,
+                  "gf": 48,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Viborg",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:15"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 50,
+                  "gf": 34,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 33,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Vejle",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:16"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 62,
+                  "gf": 41,
+                  "lost": 18,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 27,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Herfølge",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:17"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 63,
+                  "gf": 28,
+                  "lost": 18,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 25,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Ikast",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:19"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 80,
+                  "gf": 29,
+                  "lost": 20,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 23,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Næstved",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:20"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 32,
+                  "gf": 71,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 67,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Brøndby",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:8"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 28,
+                  "gf": 61,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 66,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "AGF",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den96.txt:9"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 51,
+                  "gf": 75,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 52,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "AGF",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:10"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 46,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 52,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Herfølge",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:11"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 40,
+                  "gf": 46,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 47,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "AaB",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:12"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 15,
+                  "ga": 55,
+                  "gf": 51,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 45,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Silkeborg",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:13"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 61,
+                  "gf": 59,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "OB",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:14"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 43,
+                  "gf": 35,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "FC København",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:15"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 61,
+                  "gf": 50,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Lyngby",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:16"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 62,
+                  "gf": 56,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 36,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "AB",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:17"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 58,
+                  "gf": 31,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 29,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Viborg",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:19"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 59,
+                  "gf": 39,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 26,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Hvidovre",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:20"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 39,
+                  "gf": 64,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 68,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Brøndby",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:8"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 38,
+                  "gf": 57,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 54,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 8
+                  },
+                  "team": "Vejle",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:9"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 33,
+                  "gf": 81,
+                  "lost": 5,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 33,
+                  "points": 76,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "Brøndby IF",
+                  "won": 24
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:10"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 31,
+                  "gf": 55,
+                  "lost": 4,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 33,
+                  "points": 63,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "Silkeborg IF",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:11"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 48,
+                  "gf": 66,
+                  "lost": 8,
+                  "note": "CWC",
+                  "phase": "",
+                  "played": 33,
+                  "points": 61,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC København",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:12"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 51,
+                  "gf": 53,
+                  "lost": 13,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 33,
+                  "points": 52,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "Vejle B",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:13"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 52,
+                  "gf": 61,
+                  "lost": 12,
+                  "note": "UIC",
+                  "phase": "",
+                  "played": 33,
+                  "points": 47,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "AB",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:14"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 62,
+                  "gf": 53,
+                  "lost": 14,
+                  "note": "UIC",
+                  "phase": "",
+                  "played": 33,
+                  "points": 45,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "Lyngby FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:15"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 48,
+                  "gf": 54,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 44,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "AaB",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:16"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 52,
+                  "gf": 53,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 43,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "AGF",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:17"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 69,
+                  "gf": 44,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 34,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "Herfølge BK",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:18"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 73,
+                  "gf": 51,
+                  "lost": 18,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 33,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "Aarhus Fremad",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:19"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 86,
+                  "gf": 51,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 29,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "Ikast fS",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:21"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 57,
+                  "gf": 40,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 25,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "OB",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:22"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 33,
+                  "gf": 81,
+                  "lost": 5,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 33,
+                  "points": 76,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "Brøndby IF",
+                  "won": 24
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:290"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 31,
+                  "gf": 55,
+                  "lost": 4,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 33,
+                  "points": 63,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "Silkeborg IF",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:291"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 48,
+                  "gf": 66,
+                  "lost": 8,
+                  "note": "CWC",
+                  "phase": "",
+                  "played": 33,
+                  "points": 61,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "FC København",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:292"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 51,
+                  "gf": 53,
+                  "lost": 13,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 33,
+                  "points": 52,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "Vejle B",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:293"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 52,
+                  "gf": 61,
+                  "lost": 12,
+                  "note": "UIC",
+                  "phase": "",
+                  "played": 33,
+                  "points": 47,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "AB",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:294"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 62,
+                  "gf": 53,
+                  "lost": 14,
+                  "note": "UIC",
+                  "phase": "",
+                  "played": 33,
+                  "points": 45,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "Lyngby FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:295"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 48,
+                  "gf": 54,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 44,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "AaB",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:296"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 52,
+                  "gf": 53,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 43,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "AGF",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:297"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 69,
+                  "gf": 44,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 34,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "Herfølge BK",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:298"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 73,
+                  "gf": 51,
+                  "lost": 18,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 33,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "Aarhus Fremad",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:299"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 86,
+                  "gf": 51,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 29,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "Ikast fS",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:301"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 57,
+                  "gf": 40,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 25,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 288
+                  },
+                  "team": "OB",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:302"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den98.txt:304",
+                "excerpt": "Promoted: Viborg FF and B 93"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 27,
+                  "gf": 62,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 33,
+                  "points": 73,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "FC København",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:10"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 34,
+                  "gf": 60,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 67,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Brøndby IF",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:11"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 28,
+                  "gf": 49,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 58,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "OB",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:12"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 43,
+                  "gf": 62,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 54,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Viborg FF",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:13"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 44,
+                  "gf": 48,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 45,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "AaB",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:14"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 45,
+                  "gf": 43,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 42,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Esbjerg fB",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:15"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 52,
+                  "gf": 42,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "FC Midtjylland",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:16"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 50,
+                  "gf": 33,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 39,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Silkeborg IF",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:17"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 55,
+                  "gf": 49,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "FC Nordsjælland",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:18"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 41,
+                  "gf": 29,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "AC Horsens",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:19"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 72,
+                  "gf": 41,
+                  "lost": 19,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 26,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "SønderjyskE",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:21"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 63,
+                  "gf": 36,
+                  "lost": 19,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 22,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "AGF",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:22"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 27,
+                  "gf": 62,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 33,
+                  "points": 73,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "FC København",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:568"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 34,
+                  "gf": 60,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 67,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "Brøndby IF",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:569"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 28,
+                  "gf": 49,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 58,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "OB",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:570"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 43,
+                  "gf": 62,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 54,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "Viborg FF",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:571"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 44,
+                  "gf": 48,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 45,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "AaB",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:572"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 45,
+                  "gf": 43,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 42,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "Esbjerg fB",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:573"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 52,
+                  "gf": 42,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "FC Midtjylland",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:574"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 50,
+                  "gf": 33,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 39,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "Silkeborg IF",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:575"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 55,
+                  "gf": 49,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "FC Nordsjælland",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:576"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 41,
+                  "gf": 29,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "AC Horsens",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:577"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 72,
+                  "gf": 41,
+                  "lost": 19,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 26,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "SønderjyskE",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:579"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 63,
+                  "gf": 36,
+                  "lost": 19,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 22,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 566
+                  },
+                  "team": "AGF",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den06.txt:580"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 34,
+                  "gf": 64,
+                  "lost": 6,
+                  "note": "Champions  [Herning]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 71,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC Midtjylland",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:18"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 22,
+                  "gf": 40,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 67,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC København",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:19"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 29,
+                  "gf": 43,
+                  "lost": 10,
+                  "note": "[København]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 55,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Brøndby IF",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:20"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 28,
+                  "gf": 39,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 52,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Randers FC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:21"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 31,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "[Aalborg]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "AaB",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:22"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 39,
+                  "lost": 15,
+                  "note": "[Farum]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 44,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC Nordsjælland",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:23"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 47,
+                  "gf": 40,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 43,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Hobro IK",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:24"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 45,
+                  "gf": 47,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Esbjerg fB",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:25"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 35,
+                  "lost": 15,
+                  "note": "[Odense]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "OB",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:26"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 16,
+                  "ga": 44,
+                  "gf": 35,
+                  "lost": 10,
+                  "note": "[Haderslev]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "SønderjyskE",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:27"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 52,
+                  "gf": 31,
+                  "lost": 18,
+                  "note": "Relegated  [Slagelse]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 33,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC Vestsjælland",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:29"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 59,
+                  "gf": 26,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 14,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Silkeborg IF",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:30"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 34,
+                  "gf": 64,
+                  "lost": 6,
+                  "note": "Champions  [Herning]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 71,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "FC Midtjylland",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:412"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 22,
+                  "gf": 40,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 67,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "FC København",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:413"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 29,
+                  "gf": 43,
+                  "lost": 10,
+                  "note": "[København]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 55,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "Brøndby IF",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:414"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 28,
+                  "gf": 39,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 52,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "Randers FC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:415"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 31,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "[Aalborg]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "AaB",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:416"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 39,
+                  "lost": 15,
+                  "note": "[Farum]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 44,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "FC Nordsjælland",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:417"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 47,
+                  "gf": 40,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 43,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "Hobro IK",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:418"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 45,
+                  "gf": 47,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "Esbjerg fB",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:419"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 35,
+                  "lost": 15,
+                  "note": "[Odense]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "OB",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:420"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 16,
+                  "ga": 44,
+                  "gf": 35,
+                  "lost": 10,
+                  "note": "[Haderslev]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "SønderjyskE",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:421"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 52,
+                  "gf": 31,
+                  "lost": 18,
+                  "note": "Relegated  [Slagelse]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 33,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "FC Vestsjælland",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:423"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 59,
+                  "gf": 26,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 14,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 410
+                  },
+                  "team": "Silkeborg IF",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2015.txt:424"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 28,
+                  "gf": 62,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 33,
+                  "points": 71,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC København",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:18"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 36,
+                  "gf": 56,
+                  "lost": 9,
+                  "note": "[Haderslev]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 62,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "SønderjyskE",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:19"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 33,
+                  "gf": 57,
+                  "lost": 8,
+                  "note": "[C]             [Herning]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 59,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC Midtjylland",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:20"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 37,
+                  "gf": 43,
+                  "lost": 11,
+                  "note": "[København]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 54,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Brøndby IF",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:21"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 56,
+                  "lost": 13,
+                  "note": "[Aalborg]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 50,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "AaB",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:22"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 45,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 47,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Randers FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:23"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 52,
+                  "gf": 50,
+                  "lost": 15,
+                  "note": "[Odense]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "OB",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:24"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 34,
+                  "lost": 15,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Viborg FF",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:25"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 51,
+                  "gf": 35,
+                  "lost": 17,
+                  "note": "[Farum]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC Nordsjælland",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:26"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 49,
+                  "gf": 47,
+                  "lost": 12,
+                  "note": "[P]             [Aarhus]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "AGF",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:27"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 64,
+                  "gf": 38,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 30,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Esbjerg fB",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:28"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 70,
+                  "gf": 26,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 18,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Hobro IK",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:30"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 28,
+                  "gf": 62,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 33,
+                  "points": 71,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "FC København",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:414"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 36,
+                  "gf": 56,
+                  "lost": 9,
+                  "note": "[Haderslev]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 62,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "SønderjyskE",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:415"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 33,
+                  "gf": 57,
+                  "lost": 8,
+                  "note": "[C]             [Herning]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 59,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "FC Midtjylland",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:416"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 37,
+                  "gf": 43,
+                  "lost": 11,
+                  "note": "[København]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 54,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "Brøndby IF",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:417"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 56,
+                  "lost": 13,
+                  "note": "[Aalborg]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 50,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "AaB",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:418"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 45,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 47,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "Randers FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:419"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 52,
+                  "gf": 50,
+                  "lost": 15,
+                  "note": "[Odense]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "OB",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:420"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 34,
+                  "lost": 15,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "Viborg FF",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:421"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 51,
+                  "gf": 35,
+                  "lost": 17,
+                  "note": "[Farum]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "FC Nordsjælland",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:422"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 49,
+                  "gf": 47,
+                  "lost": 12,
+                  "note": "[P]             [Aarhus]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "AGF",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:423"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 64,
+                  "gf": 38,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 30,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "Esbjerg fB",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:424"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 70,
+                  "gf": 26,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 18,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 412
+                  },
+                  "team": "Hobro IK",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:426"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den2016.txt:428",
+                "excerpt": "NB: only 1 club relegated as top level is extended to 14 clubs for 2016/17"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 12,
+                  "regularRounds": 2,
+                  "regularGamesPerClub": 22,
+                  "split": [
+                    6,
+                    6
+                  ],
+                  "splitRounds": 2,
+                  "gamesPerClub": 32,
+                  "pointsCarried": "full"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/DEN/2627/LEAGUE_DIVISION.json#block74Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

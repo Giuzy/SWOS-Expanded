@@ -155,6 +155,82 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "f6fe0bf496701e0cac223b82259622fc38b135b3ae0d51459ea1afe0c6297018": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Czech Cup 1996/97",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-08-28",
+              "max_date": "1996-08-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Raab Karcher Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "133",
+              "rows": "240",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "240",
+              "duplicate_pair_occurrences": "120",
+              "min_date": "2008-07-20",
+              "max_date": "2009-05-13"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "format": "knockout",
+                  "round1Matches": 42,
+                  "round1Regions": {
+                    "Bohemia": {
+                      "groups": 3,
+                      "teamsPerGroup": 16
+                    },
+                    "Moravia": {
+                      "groups": 2,
+                      "teamsPerGroup": 18
+                    }
+                  },
+                  "round1NoTier2Pair": true,
+                  "round1Home": "lower tier or first drawn if same tier",
+                  "placementPlayoffWinnerEntry": "round2",
+                  "round1DefendingCupWinnerEntry": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/CZE/2627/NATIONAL_CUP.json#block75Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

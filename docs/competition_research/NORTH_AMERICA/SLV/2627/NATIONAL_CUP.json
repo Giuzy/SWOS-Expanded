@@ -855,7 +855,106 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "fc627021b2e18df3231abd2c37f99d4990199fc4daa00a36c5f5b6ee387d08e7": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Presidente GanaPlay",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-05-10",
+              "max_date": "2000-06-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Presidente GanaPlay",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "53",
+              "rows": "62",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2005-09-14",
+              "max_date": "2005-11-23"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/elsal00.txt:470",
+                "excerpt": "NB: first edition"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/elsal06.txt:644",
+                "excerpt": "Qualified for knock-out stage:"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/elsal06.txt:685",
+                "excerpt": "NB: Isidro-Metapán also qualified as best losers"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/elsal06.txt:690",
+                "excerpt": "NB: San Salvador also qualified as best losers"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/elsal06.txt:695",
+                "excerpt": "NB: Águila also qualified as best losers"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
           "status": "I",

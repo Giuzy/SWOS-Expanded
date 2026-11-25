@@ -79,7 +79,39 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "f451cbc9ca04bb918dfc33f0aae2cf8933956cd0c93c8c2f72ed9c2edf336a34": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "teams": 16
+                },
+                "source": "repository/research",
+                "locator": "OCEANIA/AUS/9697/NATIONAL_CUP.json#historicalSportData",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
           "status": "I",

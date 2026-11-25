@@ -163,6 +163,62 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "4c476b09ff30a32aacd3ecf03252a332f930965d87667851968969cf86c81990": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cup (Bob Save Super Bowl)",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "5",
+              "unique_oriented_pairs": "5",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "5",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-04-03",
+              "max_date": "1999-05-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup (Bob Save Super Bowl)",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-04-05",
+              "max_date": "2000-05-13"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [],
+                "values": {},
+                "source": "repository/research",
+                "locator": "AFRICA/RSA/9697/NATIONAL_CUP.json#historicalSportData",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -139,6 +139,150 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "2cadd8e82ecb7902f41def647d688a9385c6c0ebf3341451d61bdb19b5e58afb": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Australia Cup 1996/97",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "22",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-09-04",
+              "max_date": "1996-10-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Australia Cup 2022",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-21",
+              "max_date": "2022-09-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Australia Cup 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-04",
+              "max_date": "2023-09-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Australia Cup",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "22",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-09-04",
+              "max_date": "1996-10-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Australia Cup",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-21",
+              "max_date": "2022-09-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Australia Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-04",
+              "max_date": "2023-09-24"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2022",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/aus2022.txt:495",
+                "excerpt": "Preliminary Rounds: Feb 11-Jul 2, 2022; competition changed name to Australia Cup"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/aus2023.txt:379",
+                "excerpt": "Preliminary Rounds: Feb 9-Jul 18, 2023"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "round32Teams": 32,
+                  "qualificationRoundALeagueRemoved": true,
+                  "excluded": [
+                    "Auckland FC",
+                    "Wellington Phoenix FC"
+                  ],
+                  "directEntry": "2025 Australian Championship winner South Melbourne FC",
+                  "winnerAccess": "ACL Two 2027/28 direct"
+                },
+                "source": "repository/research",
+                "locator": "OCEANIA/AUS/2627/NATIONAL_CUP.json#block54Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

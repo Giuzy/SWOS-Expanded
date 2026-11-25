@@ -760,6 +760,4345 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "3f5480260906ac9c6f51f0cfe08110de062ffd9079e85830f6d9ea43f6ad5604": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Misli Premyer Liqası",
+            "country": "AZE",
+            "season": "2026/27",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 12,
+            "fixtures": 16,
+            "orientedPairs": 16,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 16,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Kapaz": {
+              "uuid": "bc690c23-eead-5ebb-80a0-ddb6bd8ffc2c",
+              "file": 53,
+              "ordinal": 9,
+              "league": 0,
+              "name": "KAPAZ",
+              "path": "data_json\\worlds\\2627\\teams\\AZERBAIJAN.json"
+            },
+            "Qarabag": {
+              "uuid": "18073248-92d3-5091-aef2-5a2c20945bb3",
+              "file": 53,
+              "ordinal": 1,
+              "league": 0,
+              "name": "QARABAG",
+              "path": "data_json\\worlds\\2627\\teams\\AZERBAIJAN.json"
+            },
+            "Sabah": {
+              "uuid": "aebedf37-a2f2-5933-b1f6-b3c6d2d6cf8b",
+              "file": 53,
+              "ordinal": 0,
+              "league": 0,
+              "name": "SABAH",
+              "path": "data_json\\worlds\\2627\\teams\\AZERBAIJAN.json"
+            },
+            "Zira": {
+              "uuid": "d8e41755-d248-580b-b88a-f29eabc521a3",
+              "file": 53,
+              "ordinal": 4,
+              "league": 0,
+              "name": "ZIRA",
+              "path": "data_json\\worlds\\2627\\teams\\AZERBAIJAN.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Araz",
+              "candidateCount": 0
+            },
+            {
+              "label": "Imisli",
+              "candidateCount": 0
+            },
+            {
+              "label": "Neftci",
+              "candidateCount": 0
+            },
+            {
+              "label": "Qabala",
+              "candidateCount": 0
+            },
+            {
+              "label": "Safa",
+              "candidateCount": 0
+            },
+            {
+              "label": "Samaxi",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sumqayit",
+              "candidateCount": 0
+            },
+            {
+              "label": "Turan",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-08-14",
+              "INFERRED_FROM_EDITION",
+              "Turan",
+              "Qabala",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:38",
+              "Round 1 "
+            ],
+            [
+              "2026-08-15",
+              "INFERRED_FROM_EDITION",
+              "Araz",
+              "Imisli",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:43",
+              "Round 1 "
+            ],
+            [
+              "2026-08-15",
+              "INFERRED_FROM_EDITION",
+              "Sabah",
+              "Kapaz",
+              "aebedf37-a2f2-5933-b1f6-b3c6d2d6cf8b",
+              "bc690c23-eead-5ebb-80a0-ddb6bd8ffc2c",
+              "corpus/tablesa/azer2027.txt:41",
+              "Round 1 "
+            ],
+            [
+              "2026-08-16",
+              "INFERRED_FROM_EDITION",
+              "Sumqayit",
+              "Neftci",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:46",
+              "Round 1 "
+            ],
+            [
+              "2026-08-16",
+              "INFERRED_FROM_EDITION",
+              "Zira",
+              "Safa",
+              "d8e41755-d248-580b-b88a-f29eabc521a3",
+              null,
+              "corpus/tablesa/azer2027.txt:48",
+              "Round 1 "
+            ],
+            [
+              "2026-08-17",
+              "INFERRED_FROM_EDITION",
+              "Qarabag",
+              "Samaxi",
+              "18073248-92d3-5091-aef2-5a2c20945bb3",
+              null,
+              "corpus/tablesa/azer2027.txt:51",
+              "Round 1 "
+            ],
+            [
+              "2026-08-22",
+              "INFERRED_FROM_EDITION",
+              "Qabala",
+              "Safa",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:59",
+              "Round 2"
+            ],
+            [
+              "2026-08-22",
+              "INFERRED_FROM_EDITION",
+              "Zira",
+              "Imisli",
+              "d8e41755-d248-580b-b88a-f29eabc521a3",
+              null,
+              "corpus/tablesa/azer2027.txt:57",
+              "Round 2"
+            ],
+            [
+              "2026-08-23",
+              "INFERRED_FROM_EDITION",
+              "Neftci",
+              "Araz",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:62",
+              "Round 2"
+            ],
+            [
+              "2026-08-23",
+              "INFERRED_FROM_EDITION",
+              "Turan",
+              "Samaxi",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:64",
+              "Round 2"
+            ],
+            [
+              "2026-08-29",
+              "INFERRED_FROM_EDITION",
+              "Qabala",
+              "Samaxi",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:74",
+              "Round 3 "
+            ],
+            [
+              "2026-08-29",
+              "INFERRED_FROM_EDITION",
+              "Safa",
+              "Imisli",
+              null,
+              null,
+              "corpus/tablesa/azer2027.txt:72",
+              "Round 3 "
+            ],
+            [
+              "2026-08-30",
+              "INFERRED_FROM_EDITION",
+              "Kapaz",
+              "Turan",
+              "bc690c23-eead-5ebb-80a0-ddb6bd8ffc2c",
+              null,
+              "corpus/tablesa/azer2027.txt:79",
+              "Round 3 "
+            ],
+            [
+              "2026-08-30",
+              "INFERRED_FROM_EDITION",
+              "Zira",
+              "Neftci",
+              "d8e41755-d248-580b-b88a-f29eabc521a3",
+              null,
+              "corpus/tablesa/azer2027.txt:77",
+              "Round 3 "
+            ],
+            [
+              "2026-08-31",
+              "INFERRED_FROM_EDITION",
+              "Araz",
+              "Sabah",
+              null,
+              "aebedf37-a2f2-5933-b1f6-b3c6d2d6cf8b",
+              "corpus/tablesa/azer2027.txt:84",
+              "Round 3 "
+            ],
+            [
+              "2026-08-31",
+              "INFERRED_FROM_EDITION",
+              "Sumqayit",
+              "Qarabag",
+              null,
+              "18073248-92d3-5091-aef2-5a2c20945bb3",
+              "corpus/tablesa/azer2027.txt:82",
+              "Round 3 "
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "rsssf-deep/corpus.zip",
+                "AZE DIV1",
+                "AZE",
+                "2026/27",
+                "SOURCE_TITLE"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 12,
+                "fixtures": 16,
+                "orientedPairs": 16,
+                "invalid": 0,
+                "clubDayClashes": 0,
+                "inferredDates": 16,
+                "expectedRegularTeams": []
+              },
+              "mapped": 4
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Misli Premyer Liqası",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "198",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2025-08-15",
+              "max_date": "2026-05-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Misli Premyer Liqası",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-08-14",
+              "max_date": "2026-08-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "196",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2000-03-03",
+              "max_date": "2000-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-02-16",
+              "max_date": "2001-12-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-02-23",
+              "max_date": "2002-03-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "144",
+              "unique_oriented_pairs": "144",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-05-17",
+              "max_date": "2003-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "191",
+              "unique_oriented_pairs": "183",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "8",
+              "min_date": "2004-03-13",
+              "max_date": "2004-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "245",
+              "unique_oriented_pairs": "211",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2005-02-12",
+              "max_date": "2005-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "169",
+              "unique_oriented_pairs": "147",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "22",
+              "min_date": "2006-02-11",
+              "max_date": "2006-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "169",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2007-02-11",
+              "max_date": "2007-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "182",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "33",
+              "min_date": "2008-02-16",
+              "max_date": "2008-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "193",
+              "unique_oriented_pairs": "146",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2009-02-14",
+              "max_date": "2009-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "204",
+              "unique_oriented_pairs": "146",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2010-02-02",
+              "max_date": "2010-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "186",
+              "unique_oriented_pairs": "137",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2011-02-12",
+              "max_date": "2011-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "190",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "70",
+              "min_date": "2012-02-15",
+              "max_date": "2012-12-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "176",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "64",
+              "min_date": "2013-02-09",
+              "max_date": "2013-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "161",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2014-02-01",
+              "max_date": "2014-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "163",
+              "unique_oriented_pairs": "119",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2015-01-30",
+              "max_date": "2015-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "146",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2016-01-30",
+              "max_date": "2016-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "112",
+              "unique_oriented_pairs": "69",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2017-01-28",
+              "max_date": "2017-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "112",
+              "unique_oriented_pairs": "69",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2018-02-10",
+              "max_date": "2018-12-09"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "112",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2019-02-02",
+              "max_date": "2019-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "75",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "23",
+              "min_date": "2020-02-01",
+              "max_date": "2020-12-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "117",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2021-01-21",
+              "max_date": "2021-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "146",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "56",
+              "min_date": "2022-02-07",
+              "max_date": "2022-12-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "180",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2023-01-24",
+              "max_date": "2023-12-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "180",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2024-01-21",
+              "max_date": "2024-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "azerbaijan",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "117",
+              "unique_oriented_pairs": "98",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2025-01-17",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "AZE DIV1",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "198",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "198",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2025-08-15",
+              "max_date": "2026-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "AZE DIV1",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-08-14",
+              "max_date": "2026-08-31"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [
+              {
+                "edition": "2026/2027",
+                "activeAtStartCandidate": false,
+                "groups": [
+                  [
+                    "corpus/corpus.zip",
+                    "Misli Premyer Liqası",
+                    "AZE",
+                    "2026/27",
+                    "SOURCE_TITLE"
+                  ],
+                  [
+                    "rsssf-deep/corpus.zip",
+                    "AZE DIV1",
+                    "AZE",
+                    "2026/27",
+                    "SOURCE_TITLE"
+                  ]
+                ],
+                "events": [
+                  {
+                    "date": "2026-08-14",
+                    "home": "Turan",
+                    "away": "Qabala",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1",
+                      "Round 1 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:38"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:38"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-15",
+                    "home": "Sabah",
+                    "away": "Kapaz",
+                    "homeUUID": "aebedf37-a2f2-5933-b1f6-b3c6d2d6cf8b",
+                    "awayUUID": "bc690c23-eead-5ebb-80a0-ddb6bd8ffc2c",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1",
+                      "Round 1 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:41"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:41"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-15",
+                    "home": "Araz",
+                    "away": "Imisli",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1",
+                      "Round 1 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:43"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:43"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-16",
+                    "home": "Zira",
+                    "away": "Safa",
+                    "homeUUID": "d8e41755-d248-580b-b88a-f29eabc521a3",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1",
+                      "Round 1 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:48"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:48"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-16",
+                    "home": "Sumqayit",
+                    "away": "Neftci",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1",
+                      "Round 1 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:46"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:46"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-17",
+                    "home": "Qarabag",
+                    "away": "Samaxi",
+                    "homeUUID": "18073248-92d3-5091-aef2-5a2c20945bb3",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1",
+                      "Round 1 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:51"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:51"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-22",
+                    "home": "Zira",
+                    "away": "Imisli",
+                    "homeUUID": "d8e41755-d248-580b-b88a-f29eabc521a3",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:57"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:57"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-22",
+                    "home": "Qabala",
+                    "away": "Safa",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:59"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:59"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-23",
+                    "home": "Neftci",
+                    "away": "Araz",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:62"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:62"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-23",
+                    "home": "Turan",
+                    "away": "Samaxi",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:64"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:64"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-29",
+                    "home": "Qabala",
+                    "away": "Samaxi",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 3",
+                      "Round 3 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:74"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:74"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-29",
+                    "home": "Safa",
+                    "away": "Imisli",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 3",
+                      "Round 3 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:72"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:72"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-30",
+                    "home": "Kapaz",
+                    "away": "Turan",
+                    "homeUUID": "bc690c23-eead-5ebb-80a0-ddb6bd8ffc2c",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 3",
+                      "Round 3 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:79"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:79"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-30",
+                    "home": "Zira",
+                    "away": "Neftci",
+                    "homeUUID": "d8e41755-d248-580b-b88a-f29eabc521a3",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 3",
+                      "Round 3 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:77"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:77"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-31",
+                    "home": "Araz",
+                    "away": "Sabah",
+                    "homeUUID": null,
+                    "awayUUID": "aebedf37-a2f2-5933-b1f6-b3c6d2d6cf8b",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 3",
+                      "Round 3 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:84"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:84"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-31",
+                    "home": "Sumqayit",
+                    "away": "Qarabag",
+                    "homeUUID": null,
+                    "awayUUID": "18073248-92d3-5091-aef2-5a2c20945bb3",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 3",
+                      "Round 3 "
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesa/azer2027.txt:82"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesa/azer2027.txt:82"
+                      ]
+                    ],
+                    "preStartScores": []
+                  }
+                ],
+                "explicitEvents": 0,
+                "conflicts": [],
+                "nativeRoster": [
+                  "18073248-92d3-5091-aef2-5a2c20945bb3",
+                  "aebedf37-a2f2-5933-b1f6-b3c6d2d6cf8b",
+                  "bc690c23-eead-5ebb-80a0-ddb6bd8ffc2c",
+                  "d8e41755-d248-580b-b88a-f29eabc521a3"
+                ],
+                "completeReviewedRegularComponent": false,
+                "observedStageCounts": [
+                  {
+                    "stage": "Round 1",
+                    "events": 6,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-08-14",
+                    "lastDate": "2026-08-17",
+                    "teamLabels": 12
+                  },
+                  {
+                    "stage": "Round 1 ",
+                    "events": 6,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-08-14",
+                    "lastDate": "2026-08-17",
+                    "teamLabels": 12
+                  },
+                  {
+                    "stage": "Round 2",
+                    "events": 4,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-08-22",
+                    "lastDate": "2026-08-23",
+                    "teamLabels": 8
+                  },
+                  {
+                    "stage": "Round 3",
+                    "events": 6,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-08-29",
+                    "lastDate": "2026-08-31",
+                    "teamLabels": 12
+                  },
+                  {
+                    "stage": "Round 3 ",
+                    "events": 6,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-08-29",
+                    "lastDate": "2026-08-31",
+                    "teamLabels": 12
+                  }
+                ],
+                "july1Arithmetic": null
+              }
+            ],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer2026.txt",
+                "edition": "2025/2026",
+                "tableLine": 17,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Araz (Naxçıvan)",
+                  "FC Qäbälä",
+                  "FC Sumqayıt",
+                  "FC Zirä",
+                  "FC İmişli",
+                  "FC Şamaxı",
+                  "Karvan (Yevlax)",
+                  "Käpäz (Gäncä)",
+                  "Neftçi (Bakı)",
+                  "Qarabağ (Ağdam)",
+                  "Sabah (Bakı)",
+                  "Turan (Tovuz)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer2026.txt",
+                "edition": "2025/2026",
+                "tableLine": 634,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Araz (Naxçıvan)",
+                  "FC Qäbälä",
+                  "FC Sumqayıt",
+                  "FC Zirä",
+                  "FC İmişli",
+                  "FC Şamaxı",
+                  "Karvan (Yevlax)",
+                  "Käpäz (Gäncä)",
+                  "Neftçi (Bakı)",
+                  "Qarabağ (Ağdam)",
+                  "Sabah (Bakı)",
+                  "Turan (Tovuz)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer2027.txt",
+                "edition": "2026/2027",
+                "tableLine": 14,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Araz (Naxçıvan)",
+                  "FC Qäbälä",
+                  "FC Sumqayıt",
+                  "FC Zirä",
+                  "FC İmişli",
+                  "FC Şamaxı",
+                  "Käpäz (Gäncä)",
+                  "Neftçi (Bakı)",
+                  "Qarabağ (Ağdam)",
+                  "Sabah (Bakı)",
+                  "Turan (Tovuz)",
+                  "Şäfa (Bakı)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer2027.txt",
+                "edition": "2026/2027",
+                "tableLine": 87,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Araz (Naxçıvan)",
+                  "FC Qäbälä",
+                  "FC Sumqayıt",
+                  "FC Zirä",
+                  "FC İmişli",
+                  "FC Şamaxı",
+                  "Käpäz (Gäncä)",
+                  "Neftçi (Bakı)",
+                  "Qarabağ (Ağdam)",
+                  "Sabah (Bakı)",
+                  "Turan (Tovuz)",
+                  "Şäfa (Bakı)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 12,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 11,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Baky Fehlesi",
+                  "Garabag Agdam",
+                  "Kepez Ganca",
+                  "Khazri Buzovna",
+                  "Kur-Nur Mingechaur",
+                  "Neftchi Baku",
+                  "OIK Baku",
+                  "Pambygchi Neftchala",
+                  "Shamkir",
+                  "Turan Tovuz",
+                  "Vilyash Masally"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 140,
+                "phase": "Playoff",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Garabag Agdam",
+                  "Kepez Ganca",
+                  "Khazri Buzovna",
+                  "Kur-Nur Mingechaur",
+                  "Neftchi Baku",
+                  "Turan Tovuz"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 147,
+                "phase": "Playoff",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 11,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Baky Fehlesi",
+                  "Garabag Agdam",
+                  "Kepez Ganca",
+                  "Khazri Buzovna",
+                  "Kur-Nur Mingechaur",
+                  "Neftchi Baku",
+                  "OIK Baku",
+                  "Pambygchi Neftchala",
+                  "Shamkir",
+                  "Turan Tovuz",
+                  "Vilyash Masally"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 178,
+                "phase": "Playoff",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Baky Fehlesi",
+                  "OIK Baku",
+                  "Pambygchi Neftchala",
+                  "Shamkir",
+                  "Vilyash Masally"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 184,
+                "phase": "Playoff",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Baky Fehlesi",
+                  "OIK Baku",
+                  "Pambygchi Neftchala",
+                  "Shamkir",
+                  "Vilyash Masally"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 49,
+                "phase": "playoff, in which their head-to-head results during the first",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Garabag Agdam",
+                  "Kepez Ganca",
+                  "Khazri Buzovna",
+                  "Kur-Nur Mingechaur",
+                  "Neftchi Baku",
+                  "Turan Tovuz"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 60,
+                "phase": "playoff, in which their head-to-head results during the first",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Garabag Agdam",
+                  "Kepez Ganca",
+                  "Khazri Buzovna",
+                  "Kur-Nur Mingechaur",
+                  "Neftchi Baku",
+                  "Turan Tovuz"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/azer96.txt",
+                "edition": "1995/1996",
+                "tableLine": 71,
+                "phase": "Playoff",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Garabag Agdam",
+                  "Kepez Ganca",
+                  "Khazri Buzovna",
+                  "Kur-Nur Mingechaur",
+                  "Neftchi Baku",
+                  "Turan Tovuz"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 7,
+                  "gf": 31,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 47,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Khazri Buzovna",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:12"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 20,
+                  "gf": 74,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 43,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Kepez Ganca",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:13"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 24,
+                  "gf": 41,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 41,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Turan Tovuz",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:14"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 12,
+                  "gf": 18,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 20,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Neftchi Baku",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:140"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 9,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 16,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Khazri Buzovna",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:141"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 11,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 16,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Turan Tovuz",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:142"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 10,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 14,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Kepez Ganca",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:143"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 15,
+                  "gf": 13,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 8,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Garabag Agdam",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:144"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 17,
+                  "gf": 7,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Kur-Nur Mingechaur",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:145"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 20,
+                  "gf": 32,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 20,
+                  "points": 36,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Neftchi Baku",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:149"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 15,
+                  "gf": 38,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 40,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Garabag Agdam",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:15"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 14,
+                  "gf": 22,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 20,
+                  "points": 33,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Khazri Buzovna",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:150"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 21,
+                  "gf": 34,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 20,
+                  "points": 32,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Kepez Ganca",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:151"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 26,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 20,
+                  "points": 30,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Turan Tovuz",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:152"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 26,
+                  "gf": 25,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 20,
+                  "points": 21,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Garabag Agdam",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:153"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 46,
+                  "gf": 12,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 20,
+                  "points": 7,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Kur-Nur Mingechaur",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:154"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:157",
+                "excerpt": "Relegation playoff"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 17,
+                  "gf": 42,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 39,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Neftchi Baku",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:16"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 18,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Vilyash Masally",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:162"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Baky Fehlesi",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:163"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 12,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Shamkir",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:164"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 7,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "Pambygchi Neftchala",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:165"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 7,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 147
+                  },
+                  "team": "OIK Baku",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:166"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 41,
+                  "gf": 35,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 25,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Kur-Nur Mingechaur",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:17"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "Baky Fehlesi",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:178"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 20,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "Shamkir",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:179"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "OIK Baku",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:180"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 19,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 10,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "Vilyash Masally",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:181"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 25,
+                  "gf": 13,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 8,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "Pambygchi Neftchala",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:182"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 26,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 16,
+                  "points": 29,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 184
+                  },
+                  "team": "Baky Fehlesi",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:186"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 29,
+                  "gf": 26,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 16,
+                  "points": 28,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 184
+                  },
+                  "team": "Vilyash Masally",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:187"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 18,
+                  "gf": 31,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 16,
+                  "points": 25,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 184
+                  },
+                  "team": "Shamkir",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:188"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 35,
+                  "gf": 20,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Baky Fehlesi",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:19"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 16,
+                  "gf": 14,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 16,
+                  "points": 20,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 184
+                  },
+                  "team": "OIK Baku",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:190"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 34,
+                  "gf": 18,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 16,
+                  "points": 13,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 184
+                  },
+                  "team": "Pambygchi Neftchala",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:191"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 46,
+                  "gf": 22,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 19,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Vilyash Masally",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:20"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:201",
+                "excerpt": "It would appear that OIK and Pambygchi were not relegated after all,"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 43,
+                  "gf": 16,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 16,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "OIK Baku",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:21"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 39,
+                  "gf": 15,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 13,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Shamkir",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:22"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 63,
+                  "gf": 16,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 8,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 12
+                  },
+                  "team": "Pambygchi Neftchala",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:23"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:25",
+                "excerpt": "[It would appear that Pambygchi Barda was also relegated at the end"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:43",
+                "excerpt": "After the fall season, six teams qualified for the championship"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:47",
+                "excerpt": "Head-to-head First Half:"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 12,
+                  "gf": 24,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 10,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 49
+                  },
+                  "team": "Kepez Ganca",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:49"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 10,
+                  "points": 17,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 49
+                  },
+                  "team": "Khazri Buzovna",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:50"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 8,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 10,
+                  "points": 16,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 49
+                  },
+                  "team": "Neftchi Baku",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:51"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 17,
+                  "gf": 15,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 10,
+                  "points": 14,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 49
+                  },
+                  "team": "Turan Tovuz",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:52"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 11,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 10,
+                  "points": 13,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 49
+                  },
+                  "team": "Garabag Agdam",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:53"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 29,
+                  "gf": 5,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 10,
+                  "points": 2,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 49
+                  },
+                  "team": "Kur-Nur Mingechaur",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:54"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:57",
+                "excerpt": "Championship Playoff."
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 20,
+                  "gf": 32,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 20,
+                  "points": 36,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 60
+                  },
+                  "team": "Neftchi Baku",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:62"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 14,
+                  "gf": 22,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 20,
+                  "points": 33,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 60
+                  },
+                  "team": "Khazri Buzovna",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:63"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 21,
+                  "gf": 34,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 20,
+                  "points": 32,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 60
+                  },
+                  "team": "Kepez Ganca",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:64"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 26,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 20,
+                  "points": 30,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 60
+                  },
+                  "team": "Turan Tovuz",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:65"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 26,
+                  "gf": 25,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 20,
+                  "points": 21,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 60
+                  },
+                  "team": "Garabag Agdam",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:66"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 46,
+                  "gf": 12,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "playoff, in which their head-to-head results during the first",
+                  "played": 20,
+                  "points": 7,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 60
+                  },
+                  "team": "Kur-Nur Mingechaur",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:67"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 12,
+                  "gf": 18,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 20,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 71
+                  },
+                  "team": "Neftchi Baku",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:71"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 9,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 16,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 71
+                  },
+                  "team": "Khazri Buzovna",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:72"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 11,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 16,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 71
+                  },
+                  "team": "Turan Tovuz",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:73"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 10,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 14,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 71
+                  },
+                  "team": "Kepez Ganca",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:74"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 15,
+                  "gf": 13,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 8,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 71
+                  },
+                  "team": "Garabag Agdam",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:75"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 17,
+                  "gf": 7,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Playoff",
+                  "played": 10,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 71
+                  },
+                  "team": "Kur-Nur Mingechaur",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer96.txt:76"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:30 Author: Theodore Dreiman",
+                "excerpt": "11.FC Qäbälä             33   7  6 20  32-49  27  [P] ‹Relegation Playoff, see §prorel›"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:32 Author: Theodore Dreiman",
+                "excerpt": "12.Karvan (Yevlax)       33   3  6 24  23-66  15  [P] Relegated"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 25,
+                  "gf": 75,
+                  "lost": 3,
+                  "note": "Champions & Cup Winners --> Champions League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 78,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "Sabah (Bakı)",
+                  "won": 24
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:19"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 27,
+                  "gf": 71,
+                  "lost": 6,
+                  "note": "[C]           --> Europa League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 69,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "Qarabağ (Ağdam)",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:20"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 27,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "--> Conference League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 59,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "Turan (Tovuz)",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:21"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 32,
+                  "gf": 57,
+                  "lost": 6,
+                  "note": "--> Conference League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 59,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "Neftçi (Bakı)",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:22"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 36,
+                  "gf": 43,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 53,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "FC Zirä",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:23"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 58,
+                  "gf": 44,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "Araz (Naxçıvan)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:24"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 49,
+                  "gf": 45,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "FC Sumqayıt",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:25"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 40,
+                  "gf": 31,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "FC Şamaxı",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:26"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 43,
+                  "gf": 23,
+                  "lost": 13,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 34,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "FC İmişli",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:27"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 61,
+                  "gf": 25,
+                  "lost": 22,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 27,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "Käpäz (Gäncä)",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:28"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 49,
+                  "gf": 32,
+                  "lost": 20,
+                  "note": "[P] ‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 33,
+                  "points": 27,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "FC Qäbälä",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:30"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 66,
+                  "gf": 23,
+                  "lost": 24,
+                  "note": "[P] Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 15,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 17
+                  },
+                  "team": "Karvan (Yevlax)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:32"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:35",
+                "excerpt": "Since Round 4, İmişli play home games in Quba."
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:36",
+                "excerpt": "Until Round 12, Käpäz played home games in Qäbälä, then moved to Yevlax."
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:37",
+                "excerpt": "Until Round 12, Karvan played home games in Şamaxı."
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 25,
+                  "gf": 75,
+                  "lost": 3,
+                  "note": "Champions & Cup Winners --> Champions League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 78,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "Sabah (Bakı)",
+                  "won": 24
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:636"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 27,
+                  "gf": 71,
+                  "lost": 6,
+                  "note": "[C]           --> Europa League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 69,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "Qarabağ (Ağdam)",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:637"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 27,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "--> Conference League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 59,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "Turan (Tovuz)",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:638"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 32,
+                  "gf": 57,
+                  "lost": 6,
+                  "note": "--> Conference League 26/27",
+                  "phase": "",
+                  "played": 33,
+                  "points": 59,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "Neftçi (Bakı)",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:639"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 36,
+                  "gf": 43,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 53,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "FC Zirä",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:640"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 58,
+                  "gf": 44,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "Araz (Naxçıvan)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:641"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 49,
+                  "gf": 45,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "FC Sumqayıt",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:642"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 40,
+                  "gf": 31,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "FC Şamaxı",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:643"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 43,
+                  "gf": 23,
+                  "lost": 13,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 33,
+                  "points": 34,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "FC İmişli",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:644"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 61,
+                  "gf": 25,
+                  "lost": 22,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 27,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "Käpäz (Gäncä)",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:645"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 49,
+                  "gf": 32,
+                  "lost": 20,
+                  "note": "[P] ‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 33,
+                  "points": 27,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "FC Qäbälä",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:647"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 66,
+                  "gf": 23,
+                  "lost": 24,
+                  "note": "[P] Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 15,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 634
+                  },
+                  "team": "Karvan (Yevlax)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2026.txt:649"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "Araz (Naxçıvan)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:100"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "FC Sumqayıt",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:102"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "FC Zirä",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:16"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "Neftçi (Bakı)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:17"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "Qarabağ (Ağdam)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:18"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "[C]",
+                  "phase": "",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "Sabah (Bakı)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:19"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "Turan (Tovuz)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:20"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "FC İmişli",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:21"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "Käpäz (Gäncä)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:22"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "Şäfa (Bakı)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:23"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "FC Şamaxı",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:24"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "FC Qäbälä",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:25"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "Araz (Naxçıvan)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:27"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 14
+                  },
+                  "team": "FC Sumqayıt",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:29"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "FC Zirä",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:89"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "Neftçi (Bakı)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:90"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "Qarabağ (Ağdam)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:91"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "[C]",
+                  "phase": "",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "Sabah (Bakı)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:92"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "Turan (Tovuz)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:93"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "FC İmişli",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:94"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "Käpäz (Gäncä)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:95"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "Şäfa (Bakı)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:96"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "FC Şamaxı",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:97"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 87
+                  },
+                  "team": "FC Qäbälä",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/azer2027.txt:98"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

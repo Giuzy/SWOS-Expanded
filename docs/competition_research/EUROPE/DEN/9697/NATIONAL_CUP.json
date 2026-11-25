@@ -116,7 +116,124 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "d2c53c9a5a925cc79ac3600a484ea73111b9867c221ac6321b07769dba373673": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "rounds": 8,
+                  "observedMatchCount": 93,
+                  "round1Matches": 32,
+                  "round2Matches": 20,
+                  "round3Matches": 14,
+                  "round4Matches": 10,
+                  "round5Matches": 8,
+                  "quarterfinalMatches": 4,
+                  "semifinalLegs": 2,
+                  "finalLegs": 1,
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/DEN/9697/NATIONAL_CUP.json#block74Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "finalDate": "1997-05-08",
+                  "finalLegsObserved": 1
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/DEN/9697/NATIONAL_CUP.json#sportRuleEvidence48",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:25",
+                "excerpt": "Fourth round (mostly 25/9)"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:31",
+                "excerpt": "Kolding-Ølstykke                    1-1 (Ølstykke wins on penalties)"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:33",
+                "excerpt": "B 93-Vejgaard                       2-2 (B 93 wins on penalties)"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:37",
+                "excerpt": "Fifth round (mostly 23/10)"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:47",
+                "excerpt": "Sixth round (mostly 13/11)"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/den97.txt:48",
+                "excerpt": "Herfølge-Silkeborg                  4-4 (Silkeborg wins on penalties)"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

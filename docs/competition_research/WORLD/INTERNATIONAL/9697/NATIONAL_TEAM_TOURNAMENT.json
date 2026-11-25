@@ -435,6 +435,386 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "6824ffbac5048ecc004834025107c96cd51c9633acee618290d16bd262ba3c6e": {
+          "sourceGroup": {
+            "source": "github/martj42/international_results",
+            "competition": "Oceania Nations Cup",
+            "country": "INTERNATIONAL",
+            "season": "1996",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 3,
+            "fixtures": 3,
+            "orientedPairs": 3,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Australia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Solomon Islands",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tahiti",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-05-11",
+              "EXPLICIT",
+              "Tahiti",
+              "Solomon Islands",
+              null,
+              null,
+              "international_results-master/results.csv:20999",
+              ""
+            ],
+            [
+              "1996-10-27",
+              "EXPLICIT",
+              "Tahiti",
+              "Australia",
+              null,
+              null,
+              "international_results-master/results.csv:21455",
+              ""
+            ],
+            [
+              "1996-11-01",
+              "EXPLICIT",
+              "Australia",
+              "Tahiti",
+              null,
+              null,
+              "international_results-master/results.csv:21462",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 1,
+            "status": "REVIEW_REQUIRED",
+            "scores": [
+              [
+                "1996-05-11",
+                "Tahiti",
+                "Solomon Islands",
+                2,
+                1,
+                "international_results-master/results.csv:20999"
+              ]
+            ]
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "3",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-05-11",
+              "max_date": "1996-11-01"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "6",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-09-25",
+              "max_date": "1998-10-04"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "6",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-06-19",
+              "max_date": "2000-06-28"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-07-05",
+              "max_date": "2002-07-14"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "6",
+              "rows": "17",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2004-05-29",
+              "max_date": "2004-10-12"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "4",
+              "rows": "5",
+              "unique_oriented_pairs": "5",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-10-17",
+              "max_date": "2007-11-21"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "4",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-06-14",
+              "max_date": "2008-11-19"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "16",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2012-06-01",
+              "max_date": "2012-06-10"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-05-28",
+              "max_date": "2016-06-11"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Oceania Nations Cup",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "7",
+              "rows": "13",
+              "unique_oriented_pairs": "12",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-06-15",
+              "max_date": "2024-06-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "OFC Nations Cup",
+              "season": "2008",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "8",
+              "rows": "12",
+              "unique_oriented_pairs": "12",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-10-17",
+              "max_date": "2008-11-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "OFC Nations Cup",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "5",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-06-08",
+              "max_date": "2016-06-11"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [
+              {
+                "group": [
+                  "github/martj42/international_results",
+                  "Oceania Nations Cup",
+                  "INTERNATIONAL",
+                  "1996",
+                  "CALENDAR_YEAR_BUCKET"
+                ],
+                "fixtureColumns": [
+                  "date",
+                  "dateBasis",
+                  "home",
+                  "away",
+                  "homeUUID",
+                  "awayUUID",
+                  "locator",
+                  "stage"
+                ],
+                "fixtures": [
+                  [
+                    "1996-05-11",
+                    "EXPLICIT",
+                    "Tahiti",
+                    "Solomon Islands",
+                    null,
+                    null,
+                    "international_results-master/results.csv:20999",
+                    ""
+                  ],
+                  [
+                    "1996-10-27",
+                    "EXPLICIT",
+                    "Tahiti",
+                    "Australia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21455",
+                    ""
+                  ],
+                  [
+                    "1996-11-01",
+                    "EXPLICIT",
+                    "Australia",
+                    "Tahiti",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21462",
+                    ""
+                  ]
+                ]
+              }
+            ],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "firstRoundLegs": 2,
+                  "finalLegs": 2
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#block100Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": [
+                    "New Zealand",
+                    "Australia",
+                    "Solomon Islands",
+                    "Tahiti"
+                  ],
+                  "firstRoundLegs": 2,
+                  "finalLegs": 2,
+                  "finalDates": [
+                    "1996-10-26",
+                    "1996-11-01"
+                  ],
+                  "historicalCutoff": {
+                    "finalists": [
+                      "Australia",
+                      "Tahiti"
+                    ],
+                    "priorRoundsCompleted": true
+                  },
+                  "access": [
+                    "Melanesia Cup winner",
+                    "Polynesia Cup winner"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence49",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {
@@ -4024,7 +4404,54 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "4bf8057fc54298ae043f46ca2c95bd54bd4356a1a1991fc3ec2400d4faddaf81": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 32,
+                  "groups": 8,
+                  "groupSize": 4,
+                  "points": [
+                    3,
+                    1,
+                    0
+                  ],
+                  "top2Advance": true,
+                  "knockout": "round of 16, quarterfinals, semifinals, third-place and final",
+                  "hostsAndHoldersExempt": [
+                    "France",
+                    "Brazil"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#block100Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "2b85baae712177d76252e5c74a1ac82f53864304abb8152d5d46a10ce79b57a7": {
           "status": "I",
@@ -4394,7 +4821,47 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "d62ad994415f70c522366fc6bbc1520fa700f30e190f562c74f167e7191d8bbb": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "regionalPreliminaries": true,
+                  "semifinalGroups": 3,
+                  "groupSize": 4,
+                  "finalGroupSize": 6,
+                  "finalRounds": 2,
+                  "qualify": 3,
+                  "finalStart": "1997-03-02",
+                  "cutoff": "Regional preliminary matches through 1996-06-30"
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence50",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "db3938aad6089854c7ac52a21e946b5678fb4edad7b56fa538f3400cf9908b02": {
           "status": "I",
@@ -4568,7 +5035,102 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "2a3b90d3f9ba7e539f59b7ede9f56733f8b316cf4039b79875c86a908aabc6b0": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 9,
+                  "rounds": 2,
+                  "gamesPerTeam": 16,
+                  "qualify": 4,
+                  "holderExempt": "Brazil",
+                  "cutoffMatches": [
+                    [
+                      "1996-04-24",
+                      "Argentina",
+                      "Bolivia",
+                      3,
+                      1
+                    ],
+                    [
+                      "1996-04-24",
+                      "Venezuela",
+                      "Uruguay",
+                      0,
+                      2
+                    ],
+                    [
+                      "1996-04-24",
+                      "Colombia",
+                      "Paraguay",
+                      1,
+                      0
+                    ],
+                    [
+                      "1996-04-24",
+                      "Ecuador",
+                      "Peru",
+                      4,
+                      1
+                    ],
+                    [
+                      "1996-06-02",
+                      "Ecuador",
+                      "Argentina",
+                      2,
+                      0
+                    ],
+                    [
+                      "1996-06-02",
+                      "Uruguay",
+                      "Paraguay",
+                      0,
+                      2
+                    ],
+                    [
+                      "1996-06-02",
+                      "Venezuela",
+                      "Chile",
+                      1,
+                      1
+                    ],
+                    [
+                      "1996-06-02",
+                      "Peru",
+                      "Colombia",
+                      1,
+                      1
+                    ]
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence50",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "db3938aad6089854c7ac52a21e946b5678fb4edad7b56fa538f3400cf9908b02": {
           "status": "I",
@@ -4923,7 +5485,51 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "92961c618f2cf2198cdbcf6dde692c09d348835c19210549cda236dc45454d10": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "seededByes": [
+                    "Cameroon",
+                    "Egypt",
+                    "Morocco",
+                    "Nigeria"
+                  ],
+                  "firstRoundPairs": 16,
+                  "firstRoundLegs": 2,
+                  "finalGroups": 5,
+                  "groupSize": 4,
+                  "qualifyGroupWinners": true,
+                  "cutoff": "First round played May–June 1996; withdrawal substitution timing requires verification"
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence50",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "db3938aad6089854c7ac52a21e946b5678fb4edad7b56fa538f3400cf9908b02": {
           "status": "I",
@@ -5031,7 +5637,44 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "19dbb5a1906d316f224a75313067f5add7e83e5f6dacdc50baea544c7f44d852": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "firstRoundGroups": 10,
+                  "secondRoundGroups": 2,
+                  "secondRoundGroupSize": 5,
+                  "directGroupWinners": true,
+                  "runnerUpPlayoff": true,
+                  "loserToOFCPlayoff": true
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence50",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",
@@ -6618,7 +7261,58 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "f3e58ff1fd5449ccda35823a02cdf9ea46b78084800ca3a0d5c355d9fa1fd279": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2000",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 16,
+                  "groups": 4,
+                  "groupSize": 4,
+                  "top2Advance": true,
+                  "points": [
+                    3,
+                    1,
+                    0
+                  ],
+                  "knockout": [
+                    "quarterfinals",
+                    "semifinals",
+                    "final"
+                  ],
+                  "automaticHosts": [
+                    "Belgium",
+                    "Netherlands"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#block100Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "2b85baae712177d76252e5c74a1ac82f53864304abb8152d5d46a10ce79b57a7": {
           "status": "I",
@@ -7450,6 +8144,901 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "f8fd4d5f2564dffe734eb072726c9130598286df7e00c3d870a894a8d72545ac": {
+          "sourceGroup": {
+            "source": "github/martj42/international_results",
+            "competition": "Copa América",
+            "country": "INTERNATIONAL",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 12,
+            "fixtures": 26,
+            "orientedPairs": 26,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Argentina",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bolivia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Brazil",
+              "candidateCount": 0
+            },
+            {
+              "label": "Chile",
+              "candidateCount": 0
+            },
+            {
+              "label": "Colombia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Costa Rica",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ecuador",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mexico",
+              "candidateCount": 0
+            },
+            {
+              "label": "Paraguay",
+              "candidateCount": 0
+            },
+            {
+              "label": "Peru",
+              "candidateCount": 0
+            },
+            {
+              "label": "Uruguay",
+              "candidateCount": 0
+            },
+            {
+              "label": "Venezuela",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1997-06-11",
+              "EXPLICIT",
+              "Argentina",
+              "Ecuador",
+              null,
+              null,
+              "international_results-master/results.csv:22034",
+              ""
+            ],
+            [
+              "1997-06-11",
+              "EXPLICIT",
+              "Chile",
+              "Paraguay",
+              null,
+              null,
+              "international_results-master/results.csv:22036",
+              ""
+            ],
+            [
+              "1997-06-12",
+              "EXPLICIT",
+              "Bolivia",
+              "Venezuela",
+              null,
+              null,
+              "international_results-master/results.csv:22043",
+              ""
+            ],
+            [
+              "1997-06-12",
+              "EXPLICIT",
+              "Peru",
+              "Uruguay",
+              null,
+              null,
+              "international_results-master/results.csv:22047",
+              ""
+            ],
+            [
+              "1997-06-13",
+              "EXPLICIT",
+              "Brazil",
+              "Costa Rica",
+              null,
+              null,
+              "international_results-master/results.csv:22049",
+              ""
+            ],
+            [
+              "1997-06-13",
+              "EXPLICIT",
+              "Mexico",
+              "Colombia",
+              null,
+              null,
+              "international_results-master/results.csv:22052",
+              ""
+            ],
+            [
+              "1997-06-14",
+              "EXPLICIT",
+              "Argentina",
+              "Chile",
+              null,
+              null,
+              "international_results-master/results.csv:22054",
+              ""
+            ],
+            [
+              "1997-06-14",
+              "EXPLICIT",
+              "Paraguay",
+              "Ecuador",
+              null,
+              null,
+              "international_results-master/results.csv:22057",
+              ""
+            ],
+            [
+              "1997-06-15",
+              "EXPLICIT",
+              "Bolivia",
+              "Peru",
+              null,
+              null,
+              "international_results-master/results.csv:22059",
+              ""
+            ],
+            [
+              "1997-06-15",
+              "EXPLICIT",
+              "Uruguay",
+              "Venezuela",
+              null,
+              null,
+              "international_results-master/results.csv:22064",
+              ""
+            ],
+            [
+              "1997-06-16",
+              "EXPLICIT",
+              "Brazil",
+              "Mexico",
+              null,
+              null,
+              "international_results-master/results.csv:22065",
+              ""
+            ],
+            [
+              "1997-06-16",
+              "EXPLICIT",
+              "Colombia",
+              "Costa Rica",
+              null,
+              null,
+              "international_results-master/results.csv:22066",
+              ""
+            ],
+            [
+              "1997-06-17",
+              "EXPLICIT",
+              "Argentina",
+              "Paraguay",
+              null,
+              null,
+              "international_results-master/results.csv:22069",
+              ""
+            ],
+            [
+              "1997-06-17",
+              "EXPLICIT",
+              "Chile",
+              "Ecuador",
+              null,
+              null,
+              "international_results-master/results.csv:22071",
+              ""
+            ],
+            [
+              "1997-06-18",
+              "EXPLICIT",
+              "Bolivia",
+              "Uruguay",
+              null,
+              null,
+              "international_results-master/results.csv:22073",
+              ""
+            ],
+            [
+              "1997-06-18",
+              "EXPLICIT",
+              "Peru",
+              "Venezuela",
+              null,
+              null,
+              "international_results-master/results.csv:22075",
+              ""
+            ],
+            [
+              "1997-06-19",
+              "EXPLICIT",
+              "Brazil",
+              "Colombia",
+              null,
+              null,
+              "international_results-master/results.csv:22077",
+              ""
+            ],
+            [
+              "1997-06-19",
+              "EXPLICIT",
+              "Mexico",
+              "Costa Rica",
+              null,
+              null,
+              "international_results-master/results.csv:22078",
+              ""
+            ],
+            [
+              "1997-06-21",
+              "EXPLICIT",
+              "Bolivia",
+              "Colombia",
+              null,
+              null,
+              "international_results-master/results.csv:22082",
+              ""
+            ],
+            [
+              "1997-06-21",
+              "EXPLICIT",
+              "Peru",
+              "Argentina",
+              null,
+              null,
+              "international_results-master/results.csv:22086",
+              ""
+            ],
+            [
+              "1997-06-22",
+              "EXPLICIT",
+              "Brazil",
+              "Paraguay",
+              null,
+              null,
+              "international_results-master/results.csv:22090",
+              ""
+            ],
+            [
+              "1997-06-22",
+              "EXPLICIT",
+              "Ecuador",
+              "Mexico",
+              null,
+              null,
+              "international_results-master/results.csv:22093",
+              ""
+            ],
+            [
+              "1997-06-25",
+              "EXPLICIT",
+              "Bolivia",
+              "Mexico",
+              null,
+              null,
+              "international_results-master/results.csv:22105",
+              ""
+            ],
+            [
+              "1997-06-26",
+              "EXPLICIT",
+              "Brazil",
+              "Peru",
+              null,
+              null,
+              "international_results-master/results.csv:22109",
+              ""
+            ],
+            [
+              "1997-06-28",
+              "EXPLICIT",
+              "Mexico",
+              "Peru",
+              null,
+              null,
+              "international_results-master/results.csv:22113",
+              ""
+            ],
+            [
+              "1997-06-29",
+              "EXPLICIT",
+              "Bolivia",
+              "Brazil",
+              null,
+              null,
+              "international_results-master/results.csv:22116",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-06-11",
+              "max_date": "1997-06-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1999-06-29",
+              "max_date": "1999-07-18"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2001-07-11",
+              "max_date": "2001-07-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-06",
+              "max_date": "2004-07-25"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2007-06-26",
+              "max_date": "2007-07-15"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2011-07-01",
+              "max_date": "2011-07-24"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2015-06-11",
+              "max_date": "2015-07-04"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2016-06-03",
+              "max_date": "2016-06-26"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2019-06-14",
+              "max_date": "2019-07-07"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "28",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2021-06-13",
+              "max_date": "2021-07-10"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "Copa América",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-06-20",
+              "max_date": "2024-07-14"
+            },
+            {
+              "source": "github/openfootball/copa-america",
+              "competition": "Copa América",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "27",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-06-20",
+              "max_date": "2024-07-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2015-06-11",
+              "max_date": "2015-07-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "26",
+              "rows": "32",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2016-06-03",
+              "max_date": "2016-06-26"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "24",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-06-14",
+              "max_date": "2019-07-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa America",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "28",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2021-06-13",
+              "max_date": "2021-07-10"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [
+              {
+                "group": [
+                  "github/martj42/international_results",
+                  "Copa América",
+                  "INTERNATIONAL",
+                  "1997",
+                  "CALENDAR_YEAR_BUCKET"
+                ],
+                "fixtureColumns": [
+                  "date",
+                  "dateBasis",
+                  "home",
+                  "away",
+                  "homeUUID",
+                  "awayUUID",
+                  "locator",
+                  "stage"
+                ],
+                "fixtures": [
+                  [
+                    "1997-06-11",
+                    "EXPLICIT",
+                    "Argentina",
+                    "Ecuador",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22034",
+                    ""
+                  ],
+                  [
+                    "1997-06-11",
+                    "EXPLICIT",
+                    "Chile",
+                    "Paraguay",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22036",
+                    ""
+                  ],
+                  [
+                    "1997-06-12",
+                    "EXPLICIT",
+                    "Bolivia",
+                    "Venezuela",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22043",
+                    ""
+                  ],
+                  [
+                    "1997-06-12",
+                    "EXPLICIT",
+                    "Peru",
+                    "Uruguay",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22047",
+                    ""
+                  ],
+                  [
+                    "1997-06-13",
+                    "EXPLICIT",
+                    "Brazil",
+                    "Costa Rica",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22049",
+                    ""
+                  ],
+                  [
+                    "1997-06-13",
+                    "EXPLICIT",
+                    "Mexico",
+                    "Colombia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22052",
+                    ""
+                  ],
+                  [
+                    "1997-06-14",
+                    "EXPLICIT",
+                    "Argentina",
+                    "Chile",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22054",
+                    ""
+                  ],
+                  [
+                    "1997-06-14",
+                    "EXPLICIT",
+                    "Paraguay",
+                    "Ecuador",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22057",
+                    ""
+                  ],
+                  [
+                    "1997-06-15",
+                    "EXPLICIT",
+                    "Bolivia",
+                    "Peru",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22059",
+                    ""
+                  ],
+                  [
+                    "1997-06-15",
+                    "EXPLICIT",
+                    "Uruguay",
+                    "Venezuela",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22064",
+                    ""
+                  ],
+                  [
+                    "1997-06-16",
+                    "EXPLICIT",
+                    "Brazil",
+                    "Mexico",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22065",
+                    ""
+                  ],
+                  [
+                    "1997-06-16",
+                    "EXPLICIT",
+                    "Colombia",
+                    "Costa Rica",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22066",
+                    ""
+                  ],
+                  [
+                    "1997-06-17",
+                    "EXPLICIT",
+                    "Argentina",
+                    "Paraguay",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22069",
+                    ""
+                  ],
+                  [
+                    "1997-06-17",
+                    "EXPLICIT",
+                    "Chile",
+                    "Ecuador",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22071",
+                    ""
+                  ],
+                  [
+                    "1997-06-18",
+                    "EXPLICIT",
+                    "Bolivia",
+                    "Uruguay",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22073",
+                    ""
+                  ],
+                  [
+                    "1997-06-18",
+                    "EXPLICIT",
+                    "Peru",
+                    "Venezuela",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22075",
+                    ""
+                  ],
+                  [
+                    "1997-06-19",
+                    "EXPLICIT",
+                    "Brazil",
+                    "Colombia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22077",
+                    ""
+                  ],
+                  [
+                    "1997-06-19",
+                    "EXPLICIT",
+                    "Mexico",
+                    "Costa Rica",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22078",
+                    ""
+                  ],
+                  [
+                    "1997-06-21",
+                    "EXPLICIT",
+                    "Bolivia",
+                    "Colombia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22082",
+                    ""
+                  ],
+                  [
+                    "1997-06-21",
+                    "EXPLICIT",
+                    "Peru",
+                    "Argentina",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22086",
+                    ""
+                  ],
+                  [
+                    "1997-06-22",
+                    "EXPLICIT",
+                    "Brazil",
+                    "Paraguay",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22090",
+                    ""
+                  ],
+                  [
+                    "1997-06-22",
+                    "EXPLICIT",
+                    "Ecuador",
+                    "Mexico",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22093",
+                    ""
+                  ],
+                  [
+                    "1997-06-25",
+                    "EXPLICIT",
+                    "Bolivia",
+                    "Mexico",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22105",
+                    ""
+                  ],
+                  [
+                    "1997-06-26",
+                    "EXPLICIT",
+                    "Brazil",
+                    "Peru",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22109",
+                    ""
+                  ],
+                  [
+                    "1997-06-28",
+                    "EXPLICIT",
+                    "Mexico",
+                    "Peru",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22113",
+                    ""
+                  ],
+                  [
+                    "1997-06-29",
+                    "EXPLICIT",
+                    "Bolivia",
+                    "Brazil",
+                    null,
+                    null,
+                    "international_results-master/results.csv:22116",
+                    ""
+                  ]
+                ]
+              }
+            ],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1997",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "start": "1997-06-11",
+                  "end": "1997-06-29",
+                  "groupA": [
+                    "Chile",
+                    "Paraguay",
+                    "Argentina",
+                    "Ecuador"
+                  ],
+                  "groupAGamesPerTeam": 3
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence49",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {
@@ -7834,6 +9423,1581 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "3481bcb5d27b2f2f233ba9beff36716228b9447898b3646e5e88a935279e962f": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "African Nations Cup",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "132",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "132",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-03-24",
+              "max_date": "2008-10-13"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2010",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "27",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-01-10",
+              "max_date": "2010-01-31"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2012",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "28",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2012-01-21",
+              "max_date": "2012-02-12"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2013",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-01-19",
+              "max_date": "2013-02-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-17",
+              "max_date": "2015-02-08"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-14",
+              "max_date": "2017-02-05"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "48",
+              "rows": "52",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2019-06-21",
+              "max_date": "2019-07-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Africa Cup of Nations",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "48",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-09",
+              "max_date": "2022-02-06"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 139,
+                "phase": "Group 4  ‹§grp4›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Mauritius",
+                  "SUDAN",
+                  "Seychelles",
+                  "TUNISIA"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 178,
+                "phase": "Group 5  ‹§grp5›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "CAMEROON",
+                  "Eq. Guinea",
+                  "Liberia",
+                  "Rwanda"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 222,
+                "phase": "Group 6  ‹§grp6›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "ANGOLA",
+                  "Eritrea",
+                  "Kenya",
+                  "Swaziland"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 266,
+                "phase": "Group 7  ‹§grp7›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Burkina Faso",
+                  "Mozambique",
+                  "SENEGAL",
+                  "Tanzania"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 306,
+                "phase": "Group 8  ‹§grp8›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Algeria",
+                  "Cape Verde",
+                  "GUINEA",
+                  "Gambia"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 31,
+                "phase": "Group 1  ‹§grp1›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Gabon",
+                  "IVORY COAST",
+                  "Madagascar"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 342,
+                "phase": "Group 9  ‹§grp9›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "BENIN",
+                  "MALI",
+                  "Sierra Leone",
+                  "Togo"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 380,
+                "phase": "Group 10  ‹§grp10›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Congo-Kinsh.",
+                  "Ethiopia",
+                  "Libya",
+                  "NAMIBIA"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 424,
+                "phase": "Group 11  ‹§grp11›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Chad",
+                  "Congo-Brazz.",
+                  "SOUTH AFRICA",
+                  "ZAMBIA"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 469,
+                "phase": "Group 12  ‹§grp12›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "MOROCCO",
+                  "Malawi",
+                  "Zimbabwe"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 60,
+                "phase": "Group 2  ‹§grp2›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Botswana",
+                  "Burundi",
+                  "EGYPT",
+                  "Mauritania"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tables/08a.txt",
+                "edition": "2008",
+                "tableLine": 99,
+                "phase": "Group 3  ‹§grp3›",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Lesotho",
+                  "NIGERIA",
+                  "Niger",
+                  "Uganda"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996",
+                "categories": [],
+                "values": {
+                  "start": "1996-01-13",
+                  "end": "1996-02-03",
+                  "host": "South Africa",
+                  "finishedBeforeCutoff": true,
+                  "quarterfinalObserved": true
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence49",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 3  ‹§grp3›",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "Uganda",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:100"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "[2 1 0 1 3-3 3; 1 ag]",
+                  "phase": "Group 3  ‹§grp3›",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "Niger",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:101"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "[2 1 0 1 3-3 3; 0 ag]",
+                  "phase": "Group 3  ‹§grp3›",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "Lesotho",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:102"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:133",
+                "excerpt": "Round [Sep 8]"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4  ‹§grp4›",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 139
+                  },
+                  "team": "SUDAN",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:139"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4  ‹§grp4›",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 139
+                  },
+                  "team": "TUNISIA",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:140"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 4  ‹§grp4›",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 139
+                  },
+                  "team": "Seychelles",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:141"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 4  ‹§grp4›",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 139
+                  },
+                  "team": "Mauritius",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:142"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 5  ‹§grp5›",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "CAMEROON",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:178"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 5  ‹§grp5›",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "Eq. Guinea",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:179"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 10,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 5  ‹§grp5›",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "Rwanda",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:180"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 5  ‹§grp5›",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 178
+                  },
+                  "team": "Liberia",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:181"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6  ‹§grp6›",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 222
+                  },
+                  "team": "ANGOLA",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:222"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6  ‹§grp6›",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 222
+                  },
+                  "team": "Eritrea",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:223"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 6  ‹§grp6›",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 222
+                  },
+                  "team": "Kenya",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:224"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 7,
+                  "gf": 0,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 6  ‹§grp6›",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 222
+                  },
+                  "team": "Swaziland",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:225"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:26",
+                "excerpt": "NB: all group winners qualify; also the 3 best runners-up from groups 2-11"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7  ‹§grp7›",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 266
+                  },
+                  "team": "SENEGAL",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:266"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7  ‹§grp7›",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 266
+                  },
+                  "team": "Mozambique",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:267"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 7  ‹§grp7›",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 266
+                  },
+                  "team": "Tanzania",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:268"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 7  ‹§grp7›",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 266
+                  },
+                  "team": "Burkina Faso",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:269"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:27",
+                "excerpt": "qualify"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 8  ‹§grp8›",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 306
+                  },
+                  "team": "GUINEA",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:306"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "[2 1 0 1 2-2 3; 1 ag]",
+                  "phase": "Group 8  ‹§grp8›",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 306
+                  },
+                  "team": "Algeria",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:307"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "[2 1 0 1 2-2 3; 0 ag]",
+                  "phase": "Group 8  ‹§grp8›",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 306
+                  },
+                  "team": "Gambia",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:308"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 8  ‹§grp8›",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 306
+                  },
+                  "team": "Cape Verde",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:309"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 0,
+                  "gf": 13,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 1  ‹§grp1›",
+                  "played": 4,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 31
+                  },
+                  "team": "IVORY COAST",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:31"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1  ‹§grp1›",
+                  "played": 4,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 31
+                  },
+                  "team": "Gabon",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:32"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 0,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 1  ‹§grp1›",
+                  "played": 4,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 31
+                  },
+                  "team": "Madagascar",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:33"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 1,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 9  ‹§grp9›",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 342
+                  },
+                  "team": "MALI",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:342"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 9  ‹§grp9›",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 342
+                  },
+                  "team": "BENIN",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:343"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 9  ‹§grp9›",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 342
+                  },
+                  "team": "Togo",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:344"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 1,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 9  ‹§grp9›",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 342
+                  },
+                  "team": "Sierra Leone",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:345"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 10  ‹§grp10›",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "NAMIBIA",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:380"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 10  ‹§grp10›",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "Congo-Kinsh.",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:381"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 10  ‹§grp10›",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "Libya",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:382"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 10  ‹§grp10›",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 380
+                  },
+                  "team": "Ethiopia",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:383"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "[2 1 0 1 3-2 3]",
+                  "phase": "Group 11  ‹§grp11›",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "ZAMBIA",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:424"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "[2 1 0 1 2-3 3]",
+                  "phase": "Group 11  ‹§grp11›",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "SOUTH AFRICA",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:425"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 11  ‹§grp11›",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Congo-Brazz.",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:426"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 11  ‹§grp11›",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 424
+                  },
+                  "team": "Chad",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:427"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 12  ‹§grp12›",
+                  "played": 4,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 469
+                  },
+                  "team": "MOROCCO",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:469"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 12  ‹§grp12›",
+                  "played": 4,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 469
+                  },
+                  "team": "Zimbabwe",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:470"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 12  ‹§grp12›",
+                  "played": 4,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 469
+                  },
+                  "team": "Malawi",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:471"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 2,
+                  "gf": 9,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 2  ‹§grp2›",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 60
+                  },
+                  "team": "EGYPT",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:60"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "[4 2 0 2 8-6 6]",
+                  "phase": "Group 2  ‹§grp2›",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 60
+                  },
+                  "team": "Mauritania",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:61"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "[4 2 0 2 5-4 6]",
+                  "phase": "Group 2  ‹§grp2›",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 60
+                  },
+                  "team": "Burundi",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:62"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "[4 2 0 2 3-6 6]",
+                  "phase": "Group 2  ‹§grp2›",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 60
+                  },
+                  "team": "Botswana",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:63"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 3  ‹§grp3›",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "NIGERIA",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tables/08a.txt:99"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {
@@ -8118,6 +11282,109 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "1d0ddc35f50fdfec93fa0ac88c8d75ea8073c0e020370a9ee503309c722ec3c3": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "24",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-07",
+              "max_date": "2015-07-26"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "23",
+              "rows": "25",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2017-07-07",
+              "max_date": "2017-07-26"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-06-15",
+              "max_date": "2019-07-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "CONCACAF Gold Cup",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-10",
+              "max_date": "2021-08-01"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 10,
+                  "groups": [
+                    4,
+                    3,
+                    3
+                  ],
+                  "advance": "Group A top two; B/C winners",
+                  "semifinals": 2,
+                  "thirdPlace": true,
+                  "finalLegs": 1,
+                  "guest": "Brazil",
+                  "withdrawalReplacement": {
+                    "withdrawn": "Canada",
+                    "replacement": "Jamaica"
+                  }
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#block100Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {
@@ -9576,6 +12843,904 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "a660f77a3119e766267af10054f72cfaee5e0942950424d8a3dbc156e5e92ee4": {
+          "sourceGroup": {
+            "source": "github/martj42/international_results",
+            "competition": "AFC Asian Cup",
+            "country": "INTERNATIONAL",
+            "season": "1996",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 12,
+            "fixtures": 26,
+            "orientedPairs": 25,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "China",
+              "candidateCount": 0
+            },
+            {
+              "label": "Indonesia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Iran",
+              "candidateCount": 0
+            },
+            {
+              "label": "Iraq",
+              "candidateCount": 0
+            },
+            {
+              "label": "Japan",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kuwait",
+              "candidateCount": 0
+            },
+            {
+              "label": "Saudi Arabia",
+              "candidateCount": 0
+            },
+            {
+              "label": "South Korea",
+              "candidateCount": 0
+            },
+            {
+              "label": "Syria",
+              "candidateCount": 0
+            },
+            {
+              "label": "Thailand",
+              "candidateCount": 0
+            },
+            {
+              "label": "United Arab Emirates",
+              "candidateCount": 0
+            },
+            {
+              "label": "Uzbekistan",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-12-04",
+              "EXPLICIT",
+              "Indonesia",
+              "Kuwait",
+              null,
+              null,
+              "international_results-master/results.csv:21551",
+              ""
+            ],
+            [
+              "1996-12-04",
+              "EXPLICIT",
+              "United Arab Emirates",
+              "South Korea",
+              null,
+              null,
+              "international_results-master/results.csv:21552",
+              ""
+            ],
+            [
+              "1996-12-05",
+              "EXPLICIT",
+              "Iran",
+              "Iraq",
+              null,
+              null,
+              "international_results-master/results.csv:21553",
+              ""
+            ],
+            [
+              "1996-12-05",
+              "EXPLICIT",
+              "Saudi Arabia",
+              "Thailand",
+              null,
+              null,
+              "international_results-master/results.csv:21555",
+              ""
+            ],
+            [
+              "1996-12-06",
+              "EXPLICIT",
+              "China",
+              "Uzbekistan",
+              null,
+              null,
+              "international_results-master/results.csv:21556",
+              ""
+            ],
+            [
+              "1996-12-06",
+              "EXPLICIT",
+              "Japan",
+              "Syria",
+              null,
+              null,
+              "international_results-master/results.csv:21557",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "South Korea",
+              "Indonesia",
+              null,
+              null,
+              "international_results-master/results.csv:21558",
+              ""
+            ],
+            [
+              "1996-12-07",
+              "EXPLICIT",
+              "United Arab Emirates",
+              "Kuwait",
+              null,
+              null,
+              "international_results-master/results.csv:21559",
+              ""
+            ],
+            [
+              "1996-12-08",
+              "EXPLICIT",
+              "Saudi Arabia",
+              "Iraq",
+              null,
+              null,
+              "international_results-master/results.csv:21562",
+              ""
+            ],
+            [
+              "1996-12-08",
+              "EXPLICIT",
+              "Thailand",
+              "Iran",
+              null,
+              null,
+              "international_results-master/results.csv:21563",
+              ""
+            ],
+            [
+              "1996-12-09",
+              "EXPLICIT",
+              "Japan",
+              "Uzbekistan",
+              null,
+              null,
+              "international_results-master/results.csv:21564",
+              ""
+            ],
+            [
+              "1996-12-09",
+              "EXPLICIT",
+              "Syria",
+              "China",
+              null,
+              null,
+              "international_results-master/results.csv:21565",
+              ""
+            ],
+            [
+              "1996-12-10",
+              "EXPLICIT",
+              "Kuwait",
+              "South Korea",
+              null,
+              null,
+              "international_results-master/results.csv:21566",
+              ""
+            ],
+            [
+              "1996-12-10",
+              "EXPLICIT",
+              "United Arab Emirates",
+              "Indonesia",
+              null,
+              null,
+              "international_results-master/results.csv:21567",
+              ""
+            ],
+            [
+              "1996-12-11",
+              "EXPLICIT",
+              "Iraq",
+              "Thailand",
+              null,
+              null,
+              "international_results-master/results.csv:21569",
+              ""
+            ],
+            [
+              "1996-12-11",
+              "EXPLICIT",
+              "Saudi Arabia",
+              "Iran",
+              null,
+              null,
+              "international_results-master/results.csv:21571",
+              ""
+            ],
+            [
+              "1996-12-12",
+              "EXPLICIT",
+              "Japan",
+              "China",
+              null,
+              null,
+              "international_results-master/results.csv:21573",
+              ""
+            ],
+            [
+              "1996-12-12",
+              "EXPLICIT",
+              "Uzbekistan",
+              "Syria",
+              null,
+              null,
+              "international_results-master/results.csv:21575",
+              ""
+            ],
+            [
+              "1996-12-15",
+              "EXPLICIT",
+              "Kuwait",
+              "Japan",
+              null,
+              null,
+              "international_results-master/results.csv:21590",
+              ""
+            ],
+            [
+              "1996-12-15",
+              "EXPLICIT",
+              "United Arab Emirates",
+              "Iraq",
+              null,
+              null,
+              "international_results-master/results.csv:21592",
+              ""
+            ],
+            [
+              "1996-12-16",
+              "EXPLICIT",
+              "Saudi Arabia",
+              "China",
+              null,
+              null,
+              "international_results-master/results.csv:21596",
+              ""
+            ],
+            [
+              "1996-12-16",
+              "EXPLICIT",
+              "South Korea",
+              "Iran",
+              null,
+              null,
+              "international_results-master/results.csv:21595",
+              ""
+            ],
+            [
+              "1996-12-19",
+              "EXPLICIT",
+              "Iran",
+              "Saudi Arabia",
+              null,
+              null,
+              "international_results-master/results.csv:21599",
+              ""
+            ],
+            [
+              "1996-12-19",
+              "EXPLICIT",
+              "United Arab Emirates",
+              "Kuwait",
+              null,
+              null,
+              "international_results-master/results.csv:21600",
+              ""
+            ],
+            [
+              "1996-12-21",
+              "EXPLICIT",
+              "Iran",
+              "Kuwait",
+              null,
+              null,
+              "international_results-master/results.csv:21604",
+              ""
+            ],
+            [
+              "1996-12-21",
+              "EXPLICIT",
+              "United Arab Emirates",
+              "Saudi Arabia",
+              null,
+              null,
+              "international_results-master/results.csv:21605",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_TEAM_TOURNAMENT",
+          "phaseQueue": "COMPOSITE_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1996-12-04",
+              "max_date": "1996-12-21"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-10-12",
+              "max_date": "2000-10-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-17",
+              "max_date": "2004-08-07"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-07-07",
+              "max_date": "2007-07-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-01-07",
+              "max_date": "2011-01-29"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "32",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2015-01-09",
+              "max_date": "2015-01-31"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-05",
+              "max_date": "2019-02-01"
+            },
+            {
+              "source": "github/martj42/international_results",
+              "competition": "AFC Asian Cup",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "24",
+              "rows": "51",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2024-01-12",
+              "max_date": "2024-02-10"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2000",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "20",
+              "rows": "26",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2000-10-12",
+              "max_date": "2000-10-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2004",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-17",
+              "max_date": "2004-08-07"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2007",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-07-07",
+              "max_date": "2007-07-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2011",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-01-07",
+              "max_date": "2011-01-29"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-09",
+              "max_date": "2015-01-31"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "AFC Asian Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "48",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-05",
+              "max_date": "2019-02-01"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [
+              {
+                "group": [
+                  "github/martj42/international_results",
+                  "AFC Asian Cup",
+                  "INTERNATIONAL",
+                  "1996",
+                  "CALENDAR_YEAR_BUCKET"
+                ],
+                "fixtureColumns": [
+                  "date",
+                  "dateBasis",
+                  "home",
+                  "away",
+                  "homeUUID",
+                  "awayUUID",
+                  "locator",
+                  "stage"
+                ],
+                "fixtures": [
+                  [
+                    "1996-12-04",
+                    "EXPLICIT",
+                    "Indonesia",
+                    "Kuwait",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21551",
+                    ""
+                  ],
+                  [
+                    "1996-12-04",
+                    "EXPLICIT",
+                    "United Arab Emirates",
+                    "South Korea",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21552",
+                    ""
+                  ],
+                  [
+                    "1996-12-05",
+                    "EXPLICIT",
+                    "Iran",
+                    "Iraq",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21553",
+                    ""
+                  ],
+                  [
+                    "1996-12-05",
+                    "EXPLICIT",
+                    "Saudi Arabia",
+                    "Thailand",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21555",
+                    ""
+                  ],
+                  [
+                    "1996-12-06",
+                    "EXPLICIT",
+                    "China",
+                    "Uzbekistan",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21556",
+                    ""
+                  ],
+                  [
+                    "1996-12-06",
+                    "EXPLICIT",
+                    "Japan",
+                    "Syria",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21557",
+                    ""
+                  ],
+                  [
+                    "1996-12-07",
+                    "EXPLICIT",
+                    "South Korea",
+                    "Indonesia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21558",
+                    ""
+                  ],
+                  [
+                    "1996-12-07",
+                    "EXPLICIT",
+                    "United Arab Emirates",
+                    "Kuwait",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21559",
+                    ""
+                  ],
+                  [
+                    "1996-12-08",
+                    "EXPLICIT",
+                    "Saudi Arabia",
+                    "Iraq",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21562",
+                    ""
+                  ],
+                  [
+                    "1996-12-08",
+                    "EXPLICIT",
+                    "Thailand",
+                    "Iran",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21563",
+                    ""
+                  ],
+                  [
+                    "1996-12-09",
+                    "EXPLICIT",
+                    "Japan",
+                    "Uzbekistan",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21564",
+                    ""
+                  ],
+                  [
+                    "1996-12-09",
+                    "EXPLICIT",
+                    "Syria",
+                    "China",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21565",
+                    ""
+                  ],
+                  [
+                    "1996-12-10",
+                    "EXPLICIT",
+                    "Kuwait",
+                    "South Korea",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21566",
+                    ""
+                  ],
+                  [
+                    "1996-12-10",
+                    "EXPLICIT",
+                    "United Arab Emirates",
+                    "Indonesia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21567",
+                    ""
+                  ],
+                  [
+                    "1996-12-11",
+                    "EXPLICIT",
+                    "Iraq",
+                    "Thailand",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21569",
+                    ""
+                  ],
+                  [
+                    "1996-12-11",
+                    "EXPLICIT",
+                    "Saudi Arabia",
+                    "Iran",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21571",
+                    ""
+                  ],
+                  [
+                    "1996-12-12",
+                    "EXPLICIT",
+                    "Japan",
+                    "China",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21573",
+                    ""
+                  ],
+                  [
+                    "1996-12-12",
+                    "EXPLICIT",
+                    "Uzbekistan",
+                    "Syria",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21575",
+                    ""
+                  ],
+                  [
+                    "1996-12-15",
+                    "EXPLICIT",
+                    "Kuwait",
+                    "Japan",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21590",
+                    ""
+                  ],
+                  [
+                    "1996-12-15",
+                    "EXPLICIT",
+                    "United Arab Emirates",
+                    "Iraq",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21592",
+                    ""
+                  ],
+                  [
+                    "1996-12-16",
+                    "EXPLICIT",
+                    "Saudi Arabia",
+                    "China",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21596",
+                    ""
+                  ],
+                  [
+                    "1996-12-16",
+                    "EXPLICIT",
+                    "South Korea",
+                    "Iran",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21595",
+                    ""
+                  ],
+                  [
+                    "1996-12-19",
+                    "EXPLICIT",
+                    "Iran",
+                    "Saudi Arabia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21599",
+                    ""
+                  ],
+                  [
+                    "1996-12-19",
+                    "EXPLICIT",
+                    "United Arab Emirates",
+                    "Kuwait",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21600",
+                    ""
+                  ],
+                  [
+                    "1996-12-21",
+                    "EXPLICIT",
+                    "Iran",
+                    "Kuwait",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21604",
+                    ""
+                  ],
+                  [
+                    "1996-12-21",
+                    "EXPLICIT",
+                    "United Arab Emirates",
+                    "Saudi Arabia",
+                    null,
+                    null,
+                    "international_results-master/results.csv:21605",
+                    ""
+                  ]
+                ]
+              }
+            ],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 12,
+                  "groups": 3,
+                  "groupSize": 4,
+                  "top2Advance": true,
+                  "bestThird": 2,
+                  "qualifyingGroups": 10,
+                  "qualifyingGroupWinners": 10,
+                  "automatic": [
+                    "UAE",
+                    "Japan"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#block100Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "host": "UAE",
+                  "holder": "Japan",
+                  "automaticQualifiers": [
+                    "UAE",
+                    "Japan"
+                  ],
+                  "qualifierGroup1": [
+                    "Vietnam",
+                    "Taiwan",
+                    "South Korea",
+                    "Guam"
+                  ],
+                  "group1Dates": [
+                    "1996-08-04",
+                    "1996-08-11"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json#sportRuleEvidence49",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -1346,6 +1346,4555 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "ddfdadee5c5fcd83b062aab973ed27d9c9400b9458cc683a491f655b0a97cf57": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "ÖFB Cup",
+            "country": "AUT",
+            "season": "2026/27",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 68,
+            "fixtures": 48,
+            "orientedPairs": 48,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 48,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "LASK": {
+              "uuid": "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+              "file": 1,
+              "ordinal": 0,
+              "league": 0,
+              "name": "LASK",
+              "path": "data_json\\worlds\\2627\\teams\\AUSTRIA.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "ASK Voitsberg",
+              "candidateCount": 0
+            },
+            {
+              "label": "ATUS Velden",
+              "candidateCount": 0
+            },
+            {
+              "label": "DSV Leoben",
+              "candidateCount": 0
+            },
+            {
+              "label": "Deutschlandsberger SC",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Admira Wacker Mödling",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Blau-Weiß Linz",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Dornbirn 1913",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Hertha Wels",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Kitzbühel",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Lauterach",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Lustenau 07",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Red Bull Salzburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Wacker Innsbruck",
+              "candidateCount": 0
+            },
+            {
+              "label": "FCM Traiskirchen",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Austria Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "First Vienna FC 1894",
+              "candidateCount": 0
+            },
+            {
+              "label": "Floridsdorfer AC Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "GAK 1902",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kapfenberger SV 1919",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kremser SC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Mattersburger SV 2020",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Austria Lustenau",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Imst",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Kalsdorf",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Rheindorf Altach",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Schwarz-Weiß Bregenz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Schwaz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Wiener Viktoria",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC Wieselburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "SC-ESV Parndorf 1919",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Austria Klagenfur4t",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Austria Klagenfurt",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Bischofshofen",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Bischofshofen 1933",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Rapid Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Sturm Graz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Treibach",
+              "candidateCount": 0
+            },
+            {
+              "label": "SK Vorwärts Steyr",
+              "candidateCount": 0
+            },
+            {
+              "label": "SKN St. Pölten",
+              "candidateCount": 0
+            },
+            {
+              "label": "SKU Amstetten",
+              "candidateCount": 0
+            },
+            {
+              "label": "SPG SV Wallern/St. Marienkirchen",
+              "candidateCount": 0
+            },
+            {
+              "label": "SPG SV Wallern/St. Marienkirchen an der Polsenz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SR Donaufeld Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "SU Bad Leonfelden",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Austria Salzburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Horn",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Kuchl",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Lafnitz",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Leithaprodersdorf",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Leobendorf",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Oberwart",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Ried",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Seekirchen 1945",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Tilmitsch",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Wals-Grünau",
+              "candidateCount": 0
+            },
+            {
+              "label": "SV Wienerberg Wien",
+              "candidateCount": 0
+            },
+            {
+              "label": "SVG Bleiburg",
+              "candidateCount": 0
+            },
+            {
+              "label": "SVG Reichenau-Innsbruck",
+              "candidateCount": 0
+            },
+            {
+              "label": "TSV Hartberg",
+              "candidateCount": 0
+            },
+            {
+              "label": "TSV Harterg",
+              "candidateCount": 0
+            },
+            {
+              "label": "USV Scheiblingkirchen-Warth",
+              "candidateCount": 0
+            },
+            {
+              "label": "Union Dietach",
+              "candidateCount": 0
+            },
+            {
+              "label": "Union Gurten",
+              "candidateCount": 0
+            },
+            {
+              "label": "VfB Hohenems",
+              "candidateCount": 0
+            },
+            {
+              "label": "Wattener SG Tirol",
+              "candidateCount": 0
+            },
+            {
+              "label": "Wiener Sport-Club",
+              "candidateCount": 0
+            },
+            {
+              "label": "Wolfsberger AC",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "ATUS Velden",
+              "SK Austria Klagenfur4t",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:127",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "DSV Leoben",
+              "ASK Voitsberg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:136",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "Deutschlandsberger SC",
+              "SKU Amstetten",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:129",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "FC Dornbirn 1913",
+              "SV Ried",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:125",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "FC Lauterach",
+              "Wolfsberger AC",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:128",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "FCM Traiskirchen",
+              "SVG Bleiburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:134",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SC Wieselburg",
+              "Wattener SG Tirol",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:126",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Horn",
+              "Floridsdorfer AC Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:133",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Lafnitz",
+              "USV Scheiblingkirchen-Warth",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:131",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Leobendorf",
+              "SC Rheindorf Altach",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:130",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Seekirchen 1945",
+              "SK Sturm Graz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:137",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "SV Tilmitsch",
+              "SKN St. Pölten",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:132",
+              "Round 1"
+            ],
+            [
+              "2026-07-24",
+              "INFERRED_FROM_EDITION",
+              "Union Gurten",
+              "FC Blau-Weiß Linz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:135",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "FC Lustenau 07",
+              "FC Kitzbühel",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:141",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "FC Wacker Innsbruck",
+              "SVG Reichenau-Innsbruck",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:144",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "Kremser SC",
+              "SC Austria Lustenau",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:149",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "Mattersburger SV 2020",
+              "First Vienna FC 1894",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:151",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SC Kalsdorf",
+              "LASK",
+              null,
+              "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+              "corpus/tableso/oost2027.txt:145",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SC Wiener Viktoria",
+              "SC-ESV Parndorf 1919",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:148",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SK Treibach",
+              "Kapfenberger SV 1919",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:150",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SK Vorwärts Steyr",
+              "SV Kuchl",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:152",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SR Donaufeld Wien",
+              "GAK 1902",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:140",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SU Bad Leonfelden",
+              "SC Schwarz-Weiß Bregenz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:143",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SV Oberwart",
+              "FC Red Bull Salzburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:146",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "SV Wals-Grünau",
+              "SV Austria Salzburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:139",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "Union Dietach",
+              "SK Bischofshofen",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:142",
+              "Round 1"
+            ],
+            [
+              "2026-07-25",
+              "INFERRED_FROM_EDITION",
+              "VfB Hohenems",
+              "FC Hertha Wels",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:147",
+              "Round 1"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "Floridsdorfer AC Wien",
+              "SC Schwarz-Weiß Bregenz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:165",
+              "Round 2"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "Kapfenberger SV 1919",
+              "FC Hertha Wels",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:163",
+              "Round 2"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "SC Rheindorf Altach",
+              "SK Bischofshofen 1933",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:162",
+              "Round 2"
+            ],
+            [
+              "2026-09-04",
+              "INFERRED_FROM_EDITION",
+              "SPG SV Wallern/St. Marienkirchen",
+              "SV Ried",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:164",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "ASK Voitsberg",
+              "SK Sturm Graz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:170",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "Deutschlandsberger SC",
+              "LASK",
+              null,
+              "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+              "corpus/tableso/oost2027.txt:168",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "FC Blau-Weiß Linz",
+              "FC Wacker Innsbruck",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:169",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "FCM Traiskirchen",
+              "FK Austria Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:173",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SK Austria Klagenfurt",
+              "SK Rapid Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:174",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SV Austria Salzburg",
+              "First Vienna FC 1894",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:171",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SV Lafnitz",
+              "SC Austria Lustenau",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:167",
+              "Round 2"
+            ],
+            [
+              "2026-09-05",
+              "INFERRED_FROM_EDITION",
+              "SV Leithaprodersdorf",
+              "Wattener SG Tirol",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:172",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "FC Kitzbühel",
+              "GAK 1902",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:176",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "SC-ESV Parndorf 1919",
+              "Wolfsberger AC",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:177",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "SK Vorwärts Steyr",
+              "TSV Hartberg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:178",
+              "Round 2"
+            ],
+            [
+              "2026-09-06",
+              "INFERRED_FROM_EDITION",
+              "SKN St. Pölten",
+              "FC Red Bull Salzburg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:179",
+              "Round 2"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SC Imst",
+              "TSV Harterg",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:155",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SC Schwaz",
+              "SPG SV Wallern/St. Marienkirchen an der Polsenz",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:154",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SV Leithaprodersdorf",
+              "FC Admira Wacker Mödling",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:156",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "SV Wienerberg Wien",
+              "SK Rapid Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:158",
+              "Round 1"
+            ],
+            [
+              "2027-06-26",
+              "INFERRED_FROM_EDITION",
+              "Wiener Sport-Club",
+              "FK Austria Wien",
+              null,
+              null,
+              "corpus/tableso/oost2027.txt:157",
+              "Round 1"
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "rsssf-deep/corpus.zip",
+                "ÖFB Cup",
+                "AUT",
+                "2026/27",
+                "SOURCE_TITLE"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 68,
+                "fixtures": 48,
+                "orientedPairs": 48,
+                "invalid": 0,
+                "clubDayClashes": 0,
+                "inferredDates": 48,
+                "expectedRegularTeams": []
+              },
+              "mapped": 1
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 1998/99",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-09-04",
+              "max_date": "1999-05-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 1999/2000",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "112",
+              "rows": "174",
+              "unique_oriented_pairs": "87",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "174",
+              "duplicate_pair_occurrences": "87",
+              "min_date": "1999-08-06",
+              "max_date": "2000-05-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "128",
+              "rows": "194",
+              "unique_oriented_pairs": "97",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "194",
+              "duplicate_pair_occurrences": "97",
+              "min_date": "2000-08-01",
+              "max_date": "2001-05-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "100",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "100",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2001-08-21",
+              "max_date": "2002-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Austria Cup (ÖFB Cup) 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "59",
+              "rows": "102",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "102",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2002-08-27",
+              "max_date": "2003-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-14",
+              "max_date": "2010-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "111",
+              "rows": "92",
+              "unique_oriented_pairs": "92",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "92",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-23",
+              "max_date": "2011-05-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "109",
+              "rows": "93",
+              "unique_oriented_pairs": "93",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "93",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-15",
+              "max_date": "2012-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-12",
+              "max_date": "2013-05-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-07-13",
+              "max_date": "2014-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-07-11",
+              "max_date": "2015-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-17",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-08",
+              "max_date": "2017-04-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-14",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-20",
+              "max_date": "2019-04-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-19",
+              "max_date": "2020-03-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-28",
+              "max_date": "2021-03-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-16",
+              "max_date": "2022-03-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-15",
+              "max_date": "2023-04-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "74",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-20",
+              "max_date": "2024-04-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-26",
+              "max_date": "2025-04-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-07-25",
+              "max_date": "2026-03-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-07-24",
+              "max_date": "2027-06-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "197",
+              "rows": "155",
+              "unique_oriented_pairs": "151",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "155",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "1997-09-02",
+              "max_date": "1998-06-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB Cup 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "112",
+              "rows": "164",
+              "unique_oriented_pairs": "82",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "164",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2003-07-26",
+              "max_date": "2004-05-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 1999/00",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "22",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-09-04",
+              "max_date": "2000-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-28",
+              "max_date": "2001-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-09-22",
+              "max_date": "2002-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "ÖFB-Cup 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-03",
+              "max_date": "2003-05-01"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "ÖFB Cup 2018/19",
+              "season": "2018-19",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-20",
+              "max_date": "2019-05-01"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "ÖFB Cup 2019/20",
+              "season": "2019-20",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-19",
+              "max_date": "2020-05-29"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "ÖFB Cup 2020/21",
+              "season": "2020-21",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "63",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-28",
+              "max_date": "2021-05-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "74",
+              "unique_oriented_pairs": "74",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "74",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-09-02",
+              "max_date": "1998-05-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "22",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-09-04",
+              "max_date": "2000-05-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-28",
+              "max_date": "2001-05-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-09-22",
+              "max_date": "2002-04-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-03",
+              "max_date": "2003-05-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "112",
+              "rows": "164",
+              "unique_oriented_pairs": "82",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "164",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2003-07-26",
+              "max_date": "2004-05-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-14",
+              "max_date": "2010-04-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "111",
+              "rows": "92",
+              "unique_oriented_pairs": "92",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "92",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-23",
+              "max_date": "2011-05-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "109",
+              "rows": "93",
+              "unique_oriented_pairs": "93",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "93",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-15",
+              "max_date": "2012-05-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-12",
+              "max_date": "2013-05-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-07-13",
+              "max_date": "2014-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-07-11",
+              "max_date": "2015-04-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-07-17",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-08",
+              "max_date": "2017-04-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-14",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-20",
+              "max_date": "2019-04-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-19",
+              "max_date": "2020-03-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-28",
+              "max_date": "2021-03-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-16",
+              "max_date": "2022-03-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-15",
+              "max_date": "2023-04-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "74",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-20",
+              "max_date": "2024-04-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-26",
+              "max_date": "2025-04-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-07-25",
+              "max_date": "2026-03-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "ÖFB Cup",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-07-24",
+              "max_date": "2027-06-26"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [
+              {
+                "edition": "2026/2027",
+                "activeAtStartCandidate": false,
+                "groups": [
+                  [
+                    "corpus/corpus.zip",
+                    "ÖFB Cup",
+                    "AUT",
+                    "2026/27",
+                    "SOURCE_TITLE"
+                  ],
+                  [
+                    "rsssf-deep/corpus.zip",
+                    "ÖFB Cup",
+                    "AUT",
+                    "2026/27",
+                    "SOURCE_TITLE"
+                  ]
+                ],
+                "events": [
+                  {
+                    "date": "2026-07-24",
+                    "home": "ATUS Velden",
+                    "away": "SK Austria Klagenfur4t",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:127"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:127"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "Deutschlandsberger SC",
+                    "away": "SKU Amstetten",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:129"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:129"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "DSV Leoben",
+                    "away": "ASK Voitsberg",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:136"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:136"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "FC Dornbirn 1913",
+                    "away": "SV Ried",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:125"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:125"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "FC Lauterach",
+                    "away": "Wolfsberger AC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:128"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:128"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "FCM Traiskirchen",
+                    "away": "SVG Bleiburg",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:134"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:134"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "SC Wieselburg",
+                    "away": "Wattener SG Tirol",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:126"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:126"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "SV Horn",
+                    "away": "Floridsdorfer AC Wien",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:133"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:133"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "SV Lafnitz",
+                    "away": "USV Scheiblingkirchen-Warth",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:131"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:131"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "SV Leobendorf",
+                    "away": "SC Rheindorf Altach",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:130"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:130"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "SV Seekirchen 1945",
+                    "away": "SK Sturm Graz",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:137"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:137"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "SV Tilmitsch",
+                    "away": "SKN St. Pölten",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:132"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:132"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-24",
+                    "home": "Union Gurten",
+                    "away": "FC Blau-Weiß Linz",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:135"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:135"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "FC Lustenau 07",
+                    "away": "FC Kitzbühel",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:141"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:141"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "FC Wacker Innsbruck",
+                    "away": "SVG Reichenau-Innsbruck",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:144"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:144"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "Kremser SC",
+                    "away": "SC Austria Lustenau",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:149"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:149"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "Mattersburger SV 2020",
+                    "away": "First Vienna FC 1894",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:151"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:151"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SC Kalsdorf",
+                    "away": "LASK",
+                    "homeUUID": null,
+                    "awayUUID": "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:145"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:145"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SC Wiener Viktoria",
+                    "away": "SC-ESV Parndorf 1919",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:148"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:148"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SK Treibach",
+                    "away": "Kapfenberger SV 1919",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:150"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:150"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SK Vorwärts Steyr",
+                    "away": "SV Kuchl",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:152"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:152"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SR Donaufeld Wien",
+                    "away": "GAK 1902",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:140"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:140"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SU Bad Leonfelden",
+                    "away": "SC Schwarz-Weiß Bregenz",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:143"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:143"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SV Oberwart",
+                    "away": "FC Red Bull Salzburg",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:146"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:146"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "SV Wals-Grünau",
+                    "away": "SV Austria Salzburg",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:139"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:139"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "Union Dietach",
+                    "away": "SK Bischofshofen",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:142"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:142"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-25",
+                    "home": "VfB Hohenems",
+                    "away": "FC Hertha Wels",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:147"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:147"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-04",
+                    "home": "Floridsdorfer AC Wien",
+                    "away": "SC Schwarz-Weiß Bregenz",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:165"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:165"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-04",
+                    "home": "Kapfenberger SV 1919",
+                    "away": "FC Hertha Wels",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:163"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:163"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-04",
+                    "home": "SC Rheindorf Altach",
+                    "away": "SK Bischofshofen 1933",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:162"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:162"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-04",
+                    "home": "SPG SV Wallern/St. Marienkirchen",
+                    "away": "SV Ried",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:164"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:164"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "ASK Voitsberg",
+                    "away": "SK Sturm Graz",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:170"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:170"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "Deutschlandsberger SC",
+                    "away": "LASK",
+                    "homeUUID": null,
+                    "awayUUID": "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:168"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:168"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "FC Blau-Weiß Linz",
+                    "away": "FC Wacker Innsbruck",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:169"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:169"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "FCM Traiskirchen",
+                    "away": "FK Austria Wien",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:173"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:173"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "SK Austria Klagenfurt",
+                    "away": "SK Rapid Wien",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:174"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:174"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "SV Austria Salzburg",
+                    "away": "First Vienna FC 1894",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:171"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:171"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "SV Lafnitz",
+                    "away": "SC Austria Lustenau",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:167"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:167"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-05",
+                    "home": "SV Leithaprodersdorf",
+                    "away": "Wattener SG Tirol",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:172"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:172"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-06",
+                    "home": "FC Kitzbühel",
+                    "away": "GAK 1902",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:176"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:176"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-06",
+                    "home": "SC-ESV Parndorf 1919",
+                    "away": "Wolfsberger AC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:177"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:177"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-06",
+                    "home": "SKN St. Pölten",
+                    "away": "FC Red Bull Salzburg",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:179"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:179"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-06",
+                    "home": "SK Vorwärts Steyr",
+                    "away": "TSV Hartberg",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:178"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:178"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2027-06-26",
+                    "home": "SC Imst",
+                    "away": "TSV Harterg",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:155"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:155"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2027-06-26",
+                    "home": "SC Schwaz",
+                    "away": "SPG SV Wallern/St. Marienkirchen an der Polsenz",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:154"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:154"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2027-06-26",
+                    "home": "SV Leithaprodersdorf",
+                    "away": "FC Admira Wacker Mödling",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:156"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:156"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2027-06-26",
+                    "home": "SV Wienerberg Wien",
+                    "away": "SK Rapid Wien",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:158"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:158"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2027-06-26",
+                    "home": "Wiener Sport-Club",
+                    "away": "FK Austria Wien",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tableso/oost2027.txt:157"
+                      ],
+                      [
+                        1,
+                        "corpus/tableso/oost2027.txt:157"
+                      ]
+                    ],
+                    "preStartScores": []
+                  }
+                ],
+                "explicitEvents": 0,
+                "conflicts": [],
+                "nativeRoster": [
+                  "fdcfece4-19a0-5b2e-99a7-7b72ef0b646a"
+                ],
+                "completeReviewedRegularComponent": false,
+                "observedStageCounts": [
+                  {
+                    "stage": "Round 1",
+                    "events": 32,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-07-24",
+                    "lastDate": "2027-06-26",
+                    "teamLabels": 64
+                  },
+                  {
+                    "stage": "Round 2",
+                    "events": 16,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-09-04",
+                    "lastDate": "2026-09-06",
+                    "teamLabels": 32
+                  }
+                ],
+                "july1Arithmetic": null
+              }
+            ],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tableso/oost98.txt",
+                "edition": "1997/1998",
+                "tableLine": 1004,
+                "phase": "Final",
+                "heading": "Table:",
+                "date": null,
+                "rows": 14,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ASK Kottingbrunn",
+                  "DSV Leoben",
+                  "FC Kufstein",
+                  "First Vienna FC",
+                  "SC Rheindorf Altach",
+                  "SC Spittal/Drau",
+                  "SK Vorwärts Steyr",
+                  "SV Braunau",
+                  "SV Gerasdorf",
+                  "SV Stockerau",
+                  "Schwarz-Weiß Bregenz",
+                  "TSV Hartberg",
+                  "VSE Sankt Pölten",
+                  "WSG Wattens"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tableso/oost98.txt",
+                "edition": "1997/1998",
+                "tableLine": 679,
+                "phase": "Final",
+                "heading": "Table:",
+                "date": null,
+                "rows": 14,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ASK Kottingbrunn",
+                  "DSV Leoben",
+                  "FC Kufstein",
+                  "First Vienna FC",
+                  "SC Rheindorf Altach",
+                  "SC Spittal/Drau",
+                  "SK Vorwärts Steyr",
+                  "SV Braunau",
+                  "SV Gerasdorf",
+                  "SV Stockerau",
+                  "Schwarz-Weiß Bregenz",
+                  "TSV Hartberg",
+                  "VSE Sankt Pölten",
+                  "WSG Wattens"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1016 Author: RSSSF",
+                "excerpt": "9.VSE Sankt Pölten             28 11  6 11 32-40  39  Relegation Playoff  [+]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1018 Author: RSSSF",
+                "excerpt": "10.SC Rheindorf Altach          28 10  8 10 30-31  38  Relegated  [*]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1032 Author: RSSSF",
+                "excerpt": "10-team first division and relegated Spittal again to the"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1039 Author: RSSSF",
+                "excerpt": "Promotion/Relegation Playoff"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1078 Author: RSSSF",
+                "excerpt": "1.Untersiebenbrunn             30 15  8  5 51-26  53  Promotion Playoff"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1091 Author: RSSSF",
+                "excerpt": "12.Neuberg                      30 10  6 14 33-40  36  Relegated [+]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1092 Author: RSSSF",
+                "excerpt": "13.SG FavAC/Simmering           30  7  9 14 35-53  30  Relegated [*]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1093 Author: RSSSF",
+                "excerpt": "14.SV Oberwart                  30  6 11 13 31-49  29  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1094 Author: RSSSF",
+                "excerpt": "15.Wiener Sport-Club            30  6  5 19 36-71  23  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1095 Author: RSSSF",
+                "excerpt": "16.1. Wiener Neustädter SC      30  6  4 20 40-74  21  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1099 Author: RSSSF",
+                "excerpt": "(relegated to Regionalliga Ost), Neuberg may retain its place."
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1122 Author: RSSSF",
+                "excerpt": "1.SG Austria Klagenfurt/VSV    26 14 11  1 47-15  53  Promotion Playoff"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1134 Author: RSSSF",
+                "excerpt": "11.TSV Pöllau                   26  7  5 14 24-38  26  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1135 Author: RSSSF",
+                "excerpt": "12.USV Zeltweg                  26  6  6 14 23-42  24  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1136 Author: RSSSF",
+                "excerpt": "13.Flavia Solva Wagna           26  5  7 14 20-45  22  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1137 Author: RSSSF",
+                "excerpt": "14.Union Rohrbach/Berg          26  4  3 19 16-64  15  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1161 Author: RSSSF",
+                "excerpt": "1.SV Wörgl                     30 24  5  1 88-25  77  Promotion Playoff"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1174 Author: RSSSF",
+                "excerpt": "12.FC Dornbirn                  30  9  8 13 36-51  35  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1175 Author: RSSSF",
+                "excerpt": "13.FC Zell/See                  30  9  7 14 36-48  34  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1176 Author: RSSSF",
+                "excerpt": "14.SV Kirchbichl                30  8 10 12 42-60  34  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1177 Author: RSSSF",
+                "excerpt": "15.SV Seekirchen                30  5  9 16 39-71  24  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1178 Author: RSSSF",
+                "excerpt": "16.ESV Saalfelden               30  4  4 22 24-79  16  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1223 Author: RSSSF",
+                "excerpt": "1.ASKÖ Pasching                30 20  6  4 71-24  66  Promoted"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1239 Author: RSSSF",
+                "excerpt": "15.ATSV Lenzing                 30  7  4 19 32-80  25  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1240 Author: RSSSF",
+                "excerpt": "16.SK Altheim                   30  3  8 19 31-60  17  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1242 Author: RSSSF",
+                "excerpt": "[*] Austria Tabak renamed to Blau-Weiß FC Linz."
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1264 Author: RSSSF",
+                "excerpt": "1.USK Anif                     26 17  6  3 72-32  57  Promoted"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1276 Author: RSSSF",
+                "excerpt": "11.ASK Salzburg                 26  9  6 11 44-55  33  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1277 Author: RSSSF",
+                "excerpt": "12.PSV Schwarz-Weiß             26  9  5 12 52-49  32  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1278 Author: RSSSF",
+                "excerpt": "13.ATSV Trimmelkam              26  3  2 21 38-88  11  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1279 Author: RSSSF",
+                "excerpt": "14.SK Bischofshofen             26  0  1 25 10-175  1  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1281 Author: RSSSF",
+                "excerpt": "Promoted to Landesliga: Hallwang, Sankt Michael"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1307 Author: RSSSF",
+                "excerpt": "1.SV Reichenau                 30 18  6  6 74-25  60  Promoted"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1325 Author: RSSSF",
+                "excerpt": "Relegated from Regionalliga: SV Kirchbichl"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1326 Author: RSSSF",
+                "excerpt": "Promoted: SV Reichenau (to Regionalliga West)"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1327 Author: RSSSF",
+                "excerpt": "Relegated: FC Wacker Innsbruck (they start voluntarily again in the"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1329 Author: RSSSF",
+                "excerpt": "Promoted to Tiroler Liga: FC Vomp, SC Steinach"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1336 Author: RSSSF",
+                "excerpt": "1.SC Göfis                     28 19  4  5 59-28  61  Promoted"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1345 Author: RSSSF",
+                "excerpt": "8.Viktoria Bregenz             28  6  5 17 31-78  23  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1369 Author: RSSSF",
+                "excerpt": "1.Prater SV                    30 22  4  4 96-33  70  Promoted"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1384 Author: RSSSF",
+                "excerpt": "14.SG Simmering/FavAC           30  8  6 16 35-73  30  Relegated  [*]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1385 Author: RSSSF",
+                "excerpt": "15.Breitensee/WAT 16            30  7  6 17 45-82  27  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1386 Author: RSSSF",
+                "excerpt": "16.Gaswerk/Straßenbahn          30  3  4 23 25-85  13  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1436 Author: RSSSF",
+                "excerpt": "Relegated from Tiroler Liga: SK Zell am Ziller (Ost)"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1437 Author: RSSSF",
+                "excerpt": "Promoted: FC Vomp (Champion Kufstein is not allowed to be promoted due"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1438 Author: RSSSF",
+                "excerpt": "to relegation of their first team to Regionalliga), SC Steinach"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1439 Author: RSSSF",
+                "excerpt": "Relegated: SV Brixen im Thale"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1440 Author: RSSSF",
+                "excerpt": "Promoted to Landesliga: SV Wörgl Amateure (Ost), SV Absam (West)"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1475 Author: RSSSF",
+                "excerpt": "Relegated from Landesliga: SV Brixen im Thale (Ost)"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1476 Author: RSSSF",
+                "excerpt": "Promoted: SV Wörgl II, SV Absam"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1477 Author: RSSSF",
+                "excerpt": "Relegated: SV Kirchdorf, SK Rietz"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1478 Author: RSSSF",
+                "excerpt": "Promoted to Gebietsliga: FC Söll, SV Weerberg (Ost), FC Fließ (West)"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1530 Author: RSSSF",
+                "excerpt": "Relegated from Gebietsliga: SV Kirchdorf(Ost), SK Rietz (West)"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1531 Author: RSSSF",
+                "excerpt": "Promoted: FC Söll, SV Weerberg, FC Flie_"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1532 Author: RSSSF",
+                "excerpt": "Relegated: SV Bad Häring, FC Lechaschau"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1533 Author: RSSSF",
+                "excerpt": "Promoted to 1.Klasse: SV Radfeld (Ost), FC Ellbögen/Patsch (Mitte), SV"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1580 Author: RSSSF",
+                "excerpt": "Relegated from 1.Klasse: SV Bad Häring (Ost), FC Lechaschau (West)"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1581 Author: RSSSF",
+                "excerpt": "Promoted: SV Radfeld, FC Ellbögen/Patsch, SV Ried im Oberinntal"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1585 Author: RSSSF",
+                "excerpt": "No relegation, lowest class"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:681 Author: RSSSF",
+                "excerpt": "1.SK Vorwärts Steyr            28 16  6  6 59-30  54  Promoted [*]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:691 Author: RSSSF",
+                "excerpt": "9.VSE Sankt Pölten             28 11  6 11 32-40  39  Relegation Playoff"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:693 Author: RSSSF",
+                "excerpt": "10.SC Rheindorf Altach          28 10  8 10 30-31  38  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:694 Author: RSSSF",
+                "excerpt": "11.TSV Hartberg                 28  9  8 11 35-39  35  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:695 Author: RSSSF",
+                "excerpt": "12.WSG Wattens                  28  8 10 10 32-36  34  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:696 Author: RSSSF",
+                "excerpt": "13.FC Kufstein                  28  5 13 10 22-37  28  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:697 Author: RSSSF",
+                "excerpt": "14.ASK Kottingbrunn             28  4  7 17 28-60  19  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 59,
+                  "lost": 6,
+                  "note": "Promoted [*]",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 54,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "SK Vorwärts Steyr",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1006"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 52,
+                  "lost": 6,
+                  "note": "[*]",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "SC Spittal/Drau",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1008"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 26,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 46,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "First Vienna FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1009"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 27,
+                  "gf": 42,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 46,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "SV Braunau",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1010"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 31,
+                  "gf": 44,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 45,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "Schwarz-Weiß Bregenz",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1011"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 43,
+                  "gf": 40,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 41,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "DSV Leoben",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1012"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 44,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 40,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "SV Stockerau",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1013"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 47,
+                  "gf": 49,
+                  "lost": 9,
+                  "note": "[+]",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 39,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "SV Gerasdorf",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1014"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 40,
+                  "gf": 32,
+                  "lost": 11,
+                  "note": "Relegation Playoff  [+]",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 39,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "VSE Sankt Pölten",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1016"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 31,
+                  "gf": 30,
+                  "lost": 10,
+                  "note": "Relegated  [*]",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 38,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "SC Rheindorf Altach",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1018"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 39,
+                  "gf": 35,
+                  "lost": 11,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 35,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "TSV Hartberg",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1019"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 36,
+                  "gf": 32,
+                  "lost": 10,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 34,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "WSG Wattens",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1020"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 37,
+                  "gf": 22,
+                  "lost": 10,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 28,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "FC Kufstein",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1021"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 60,
+                  "gf": 28,
+                  "lost": 17,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 19,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 1004
+                  },
+                  "team": "ASK Kottingbrunn",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:1022"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:596",
+                "excerpt": "Second Round [Aug 25-30]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:620",
+                "excerpt": "Third Round [Sep 27]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:638",
+                "excerpt": "Fourth Round [Oct 30-Nov 1]"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 59,
+                  "lost": 6,
+                  "note": "Promoted [*]",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 54,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "SK Vorwärts Steyr",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:681"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 52,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "SC Spittal/Drau",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:683"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 26,
+                  "gf": 44,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 46,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "First Vienna FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:684"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 27,
+                  "gf": 42,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 46,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "SV Braunau",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:685"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 31,
+                  "gf": 44,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 45,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "Schwarz-Weiß Bregenz",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:686"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 43,
+                  "gf": 40,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 41,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "DSV Leoben",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:687"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 44,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 40,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "SV Stockerau",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:688"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 47,
+                  "gf": 49,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 39,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "SV Gerasdorf",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:689"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 40,
+                  "gf": 32,
+                  "lost": 11,
+                  "note": "Relegation Playoff",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 39,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "VSE Sankt Pölten",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:691"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 31,
+                  "gf": 30,
+                  "lost": 10,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 38,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "SC Rheindorf Altach",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:693"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 39,
+                  "gf": 35,
+                  "lost": 11,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 35,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "TSV Hartberg",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:694"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 36,
+                  "gf": 32,
+                  "lost": 10,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 34,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "WSG Wattens",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:695"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 37,
+                  "gf": 22,
+                  "lost": 10,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 28,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "FC Kufstein",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:696"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 60,
+                  "gf": 28,
+                  "lost": 17,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 28,
+                  "points": 19,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 679
+                  },
+                  "team": "ASK Kottingbrunn",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:697"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost98.txt:698",
+                "excerpt": "15.SK Eintracht Wels            28  4  6 17 24-55  18  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oostcup99.txt:133 Author: RSSSF",
+                "excerpt": "penalty shootout:"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost04.txt:700",
+                "excerpt": "[penalties: Muratovic 1-0, Verlaat 1-1; Standfest 2-1, Flögel 2-2;"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tableso/oost2013.txt:469",
+                "excerpt": "to win the Austrian cup; in the last three rounds, they eliminated the national"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "format": "single elimination",
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/AUT/2627/NATIONAL_CUP.json#block72Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

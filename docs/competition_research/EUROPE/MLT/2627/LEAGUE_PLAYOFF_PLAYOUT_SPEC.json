@@ -83,7 +83,55 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "10d8ca8ffdd5242edf2214f01a516131067fe469cc30a156cd0f63c1acc64c61": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+          "phaseQueue": "PARENT_PHASE_LINK",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "movement"
+                ],
+                "values": {
+                  "parentRow": 273,
+                  "titleScenarios": {
+                    "sameWinnerBoth": "champion directly",
+                    "sameWinnerAndSameRunnerUp": "runner-up directly; repeated third/fourth directly ranked if prior positions settled",
+                    "swappedWinnersAndRunnersUp": "single Finalissima",
+                    "fourDistinctTopTwo": "Final Four",
+                    "threeDistinctRepeatedWinnerRunnerUp": "that club bye to final; other two play semifinal",
+                    "threeDistinctRepeatedRunnerUp": "repeated runner-up third; winners play Finalissima"
+                  },
+                  "relegationScenarios": {
+                    "bothBottomTwoIdentical": "both relegated",
+                    "oneRepeated": "one direct; other two play single decider",
+                    "fourDistinct": "Opening bottom-group rank5 vs Closing rank6, and Opening rank6 vs Closing rank5; losers relegated",
+                    "exception": "bottom-two club also top-two in either round exempt from one-overlap playoff; opponent relegated"
+                  },
+                  "aggregateScope": "include Top6 for comparison if both clubs played Top6 in both rounds, otherwise only 11-match league phases"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/MLT/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json#sportRuleEvidence81",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

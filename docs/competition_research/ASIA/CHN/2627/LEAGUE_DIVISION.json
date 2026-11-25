@@ -2411,6 +2411,1219 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "c6473e69be0997cbf12b7dbbe57d284b85a6ab23b4c55da00af59ba2747c8576": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "CSL (Chinese Super League)",
+              "season": "2005",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "182",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "182",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-04-02",
+              "max_date": "2005-11-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "CSL (Chinese Super League)",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "210",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "210",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-03-11",
+              "max_date": "2006-10-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "CSL (Chinese Super League)",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "210",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "210",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-03-03",
+              "max_date": "2007-11-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "CSL (Chinese Super League)",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "229",
+              "unique_oriented_pairs": "229",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "229",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-03-29",
+              "max_date": "2008-11-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "CSL (Chinese Super League)",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "240",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-03-21",
+              "max_date": "2009-10-31"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "China | Super League 2019",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-03-01",
+              "max_date": "2019-12-01"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "China | Super League 2020",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "160",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2020-07-25",
+              "max_date": "2020-11-12"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "China | Super League 2025",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-22",
+              "max_date": "2025-11-22"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-02-08",
+              "max_date": "2014-12-04"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-05",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-01-04",
+              "max_date": "2016-12-08"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-08"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-08"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-03",
+              "max_date": "2019-12-07"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "162",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2020-01-08",
+              "max_date": "2020-12-11"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "164",
+              "unique_oriented_pairs": "164",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-05",
+              "max_date": "2021-12-31"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "322",
+              "unique_oriented_pairs": "310",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2022-01-01",
+              "max_date": "2022-12-31"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-05",
+              "max_date": "2023-12-08"
+            },
+            {
+              "source": "github/xgabora/Club-Football-Match-Data",
+              "competition": "CHN",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "216",
+              "unique_oriented_pairs": "216",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-03",
+              "max_date": "2024-12-07"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-02-08",
+              "max_date": "2014-12-04"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-05",
+              "max_date": "2015-12-09"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-01-04",
+              "max_date": "2016-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-04",
+              "max_date": "2017-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-04",
+              "max_date": "2018-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-03",
+              "max_date": "2019-12-07"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "162",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2020-01-08",
+              "max_date": "2020-12-11"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "164",
+              "unique_oriented_pairs": "164",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-05",
+              "max_date": "2021-12-31"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "322",
+              "unique_oriented_pairs": "310",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2022-01-01",
+              "max_date": "2022-12-31"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-05",
+              "max_date": "2023-12-08"
+            },
+            {
+              "source": "matches/Matches.txt",
+              "competition": "CHN",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "216",
+              "unique_oriented_pairs": "216",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-03",
+              "max_date": "2024-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "132",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-04-14",
+              "max_date": "1996-10-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "132",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-03-16",
+              "max_date": "1997-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "182",
+              "unique_oriented_pairs": "180",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "1998-03-22",
+              "max_date": "1998-10-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "182",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-03-21",
+              "max_date": "1999-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "182",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-03-19",
+              "max_date": "2000-10-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "182",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-03-11",
+              "max_date": "2001-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "210",
+              "unique_oriented_pairs": "209",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2002-03-09",
+              "max_date": "2002-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "210",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-03-15",
+              "max_date": "2003-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "132",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-05-15",
+              "max_date": "2004-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "182",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-04-02",
+              "max_date": "2005-11-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "210",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-03-11",
+              "max_date": "2006-10-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "210",
+              "unique_oriented_pairs": "210",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-03-03",
+              "max_date": "2007-11-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "239",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2008-03-29",
+              "max_date": "2008-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-03-21",
+              "max_date": "2009-10-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-03-27",
+              "max_date": "2010-11-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-04-01",
+              "max_date": "2011-11-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-03-10",
+              "max_date": "2012-11-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-03-08",
+              "max_date": "2013-11-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-03-07",
+              "max_date": "2014-11-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-03-07",
+              "max_date": "2015-10-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-03-04",
+              "max_date": "2016-10-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-03-03",
+              "max_date": "2017-11-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-03-02",
+              "max_date": "2018-11-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-03-01",
+              "max_date": "2019-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "160",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2020-07-25",
+              "max_date": "2020-11-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "164",
+              "unique_oriented_pairs": "164",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-04-20",
+              "max_date": "2021-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "318",
+              "unique_oriented_pairs": "308",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "10",
+              "min_date": "2022-01-01",
+              "max_date": "2022-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-15",
+              "max_date": "2023-11-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-03-01",
+              "max_date": "2024-11-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "china-pr",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "201",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "3",
+              "min_date": "2025-02-22",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2014",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "239",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2014-03-07",
+              "max_date": "2014-11-02"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-03-07",
+              "max_date": "2015-10-31"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-03-04",
+              "max_date": "2016-10-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-03-03",
+              "max_date": "2017-11-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-03-02",
+              "max_date": "2018-11-11"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "16",
+              "rows": "240",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-03-01",
+              "max_date": "2019-12-01"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "17",
+              "rows": "162",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2020-07-25",
+              "max_date": "2020-11-22"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Chinese Super League",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "18",
+              "rows": "90",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-06-03",
+              "max_date": "2022-07-12"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2005",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china05.txt:26 Author: Tom Lewis",
+                "excerpt": "Liaoning Zhongyu lost sponsors and are renamed Liaoning;"
+              },
+              {
+                "season": "2005",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china05.txt:29 Author: Tom Lewis",
+                "excerpt": "Zhuhai Zhongbang moved to Shanghai and are renamed Shanghai Zobon"
+              },
+              {
+                "season": "2005",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china05.txt:509 Author: Tom Lewis",
+                "excerpt": "NB: no relegation"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china06.txt:25 Author: Tom Lewis",
+                "excerpt": "15.Chongqing Lifan              28   3  7 18  20-51  16  Relegated"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china06.txt:29 Author: Tom Lewis",
+                "excerpt": "Shanghai International moved to Xi'an and were renamed Xi'an Chanba;"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china06.txt:32 Author: Tom Lewis",
+                "excerpt": "Shenzhen Jianlibao were renamed Shenzhen Kingway"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china06.txt:33 Author: Tom Lewis",
+                "excerpt": "Wuhan Huanghelou were renamed Wuhan Guanggu"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china07.txt:25 ",
+                "excerpt": "15.Xiamen Lanshi                28   4  8 16  22-46  20  Relegated"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:25 Author: Tom Lewis",
+                "excerpt": "15.Liaoning Hunyong             30   6  9 15  34-47  27  [*3]  Relegated"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:26 Author: Tom Lewis",
+                "excerpt": "16.Wuhan Guanggu                30   0  0 30   0-90   0  Relegated"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:31 Author: Tom Lewis",
+                "excerpt": "[*1] Dalian Shide were renamed Dalian Haichang"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:32 Author: Tom Lewis",
+                "excerpt": "[*2] Henan Jianye were renamed Henan Siwu"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:33 Author: Tom Lewis",
+                "excerpt": "[*3] Liaoning FC (aka Liaoning Xiyang) were renamed Liaoning Yuandong"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:36 Author: Tom Lewis",
+                "excerpt": "[*4] Qingdao Zhongneng were renamed Qingdao Jonoon"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:37 Author: Tom Lewis",
+                "excerpt": "[*5] Shaanxi Baorong were renamed Shaanxi Zhongxin; play in Baoji and Xi'an"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china08.txt:38 Author: Tom Lewis",
+                "excerpt": "[*6] Shenzhen Shangqingyin were renamed Shenzhen Xiangxue"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china09.txt:29 Author: Tom Lewis",
+                "excerpt": "Hangzhou and Chonqing escaped relegation due to the forced"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china09.txt:32 Author: Tom Lewis",
+                "excerpt": "[*1] Henan Siwu were renamed Henan Jianye"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china09.txt:33 Author: Tom Lewis",
+                "excerpt": "[*2] Zhejiang Lucheng were renamed Hangzhou Lucheng"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china09.txt:34 Author: Tom Lewis",
+                "excerpt": "[*3] Shenzhen Xiangxue were renamed Shenzhen"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china09.txt:35 Author: Tom Lewis",
+                "excerpt": "[*4] Jiangsu Shuntian were renamed Jiangsu Sainty"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/china09.txt:36 Author: Tom Lewis",
+                "excerpt": "[*5] Dalian Haichang were renamed Dalian Shide"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 16,
+                  "rounds": 30,
+                  "continentalAccess2026_27": {
+                    "sourceSeason": 2025,
+                    "leagueChampion": "ACLE direct",
+                    "cupChampion": "ACLE direct",
+                    "leagueRunnerUp": "ACL Two direct",
+                    "additionalConditions": "pending"
+                  }
+                },
+                "source": "repository/research",
+                "locator": "ASIA/CHN/2627/LEAGUE_DIVISION.json#block53Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

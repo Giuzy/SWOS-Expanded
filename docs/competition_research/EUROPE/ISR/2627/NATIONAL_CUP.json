@@ -102,6 +102,56 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "de6d2893a8b2943812fb0e9bce4e4db371021f10a619d87e58cc5d294a15552f": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "github/openfootball/world",
+              "competition": "Israel State Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-12-26",
+              "max_date": "2025-04-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "round8Entrants": 32,
+                  "topTierEntrants": 14,
+                  "secondTierEntrants": 14,
+                  "thirdTierEntrants": 4
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ISR/2627/NATIONAL_CUP.json#sportRuleEvidence79",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -339,6 +339,1226 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "79a7fd6f230adb86eb0ad1341f04d588fe18812ca1a50e90c3e93d3760ee220d": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "21",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "21",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-01-17",
+              "max_date": "2010-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "8",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-01-15",
+              "max_date": "2011-01-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-01-15",
+              "max_date": "2012-05-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-01-13",
+              "max_date": "2013-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "23",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-01-11",
+              "max_date": "2014-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-02-21",
+              "max_date": "2015-05-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-02-21",
+              "max_date": "2016-05-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-02-07",
+              "max_date": "2017-05-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-21",
+              "max_date": "2018-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-20",
+              "max_date": "2019-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-26",
+              "max_date": "2020-02-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-17",
+              "max_date": "2021-05-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-16",
+              "max_date": "2022-05-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-15",
+              "max_date": "2023-05-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-14",
+              "max_date": "2024-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "12",
+              "unique_oriented_pairs": "12",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "12",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-01-11",
+              "max_date": "2025-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-01-11",
+              "max_date": "2026-05-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-11-14",
+              "max_date": "2000-04-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-05-31",
+              "max_date": "2001-06-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-05-12",
+              "max_date": "2002-06-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "12",
+              "unique_oriented_pairs": "12",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "12",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-01-22",
+              "max_date": "2006-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-01-21",
+              "max_date": "2007-05-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "22",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "22",
+              "duplicate_pair_occurrences": "11",
+              "min_date": "2008-01-17",
+              "max_date": "2008-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "40",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "40",
+              "duplicate_pair_occurrences": "20",
+              "min_date": "2009-01-18",
+              "max_date": "2009-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "21",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "21",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-01-17",
+              "max_date": "2010-05-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "8",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-01-15",
+              "max_date": "2011-01-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-01-15",
+              "max_date": "2012-05-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-01-13",
+              "max_date": "2013-05-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "23",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-01-11",
+              "max_date": "2014-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-02-21",
+              "max_date": "2015-05-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-02-21",
+              "max_date": "2016-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-02-07",
+              "max_date": "2017-05-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-21",
+              "max_date": "2018-05-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-20",
+              "max_date": "2019-05-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-26",
+              "max_date": "2020-02-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-17",
+              "max_date": "2021-05-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-16",
+              "max_date": "2022-05-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-15",
+              "max_date": "2023-05-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-14",
+              "max_date": "2024-05-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "12",
+              "unique_oriented_pairs": "12",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "12",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-01-11",
+              "max_date": "2025-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Constitució",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-01-11",
+              "max_date": "2026-05-23"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/ando00.txt",
+                "edition": "1999/2000",
+                "tableLine": 186,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "CE Principat",
+                  "FC Lusitanos",
+                  "Incasana Santa Coloma \"B\"",
+                  "Sporting d'Escaldes"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/ando00.txt",
+                "edition": "1999/2000",
+                "tableLine": 205,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Arids andorrans Sant Julià",
+                  "CE Benito",
+                  "Construccions Modernes",
+                  "Frankfurt Cerni"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/ando00.txt",
+                "edition": "1999/2000",
+                "tableLine": 224,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Don Pernil Santa Coloma",
+                  "Matecosa UE Sant Julià",
+                  "Ranger's Venecia",
+                  "Sporting d'Escaldes \"B\""
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/ando00.txt",
+                "edition": "1999/2000",
+                "tableLine": 243,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "CE Principat \"B\"",
+                  "Constel-lació Esportiva",
+                  "FC Encamp Dicoansa",
+                  "Formo S.A.Bingo Cristal"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 9,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 186
+                  },
+                  "team": "FC Lusitanos",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:186"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 186
+                  },
+                  "team": "Sporting d'Escaldes",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:187"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 186
+                  },
+                  "team": "Incasana Santa Coloma \"B\"",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:188"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "Qualified?",
+                  "phase": "Group A",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 186
+                  },
+                  "team": "CE Principat",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:189"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 205
+                  },
+                  "team": "Construccions Modernes",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:205"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 205
+                  },
+                  "team": "Arids andorrans Sant Julià",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:206"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 205
+                  },
+                  "team": "Frankfurt Cerni",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:207"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 205
+                  },
+                  "team": "CE Benito",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:208"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 21,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "Don Pernil Santa Coloma",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:224"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "Matecosa UE Sant Julià",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:225"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "Ranger's Venecia",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:226"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 22,
+                  "gf": 1,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "Sporting d'Escaldes \"B\"",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:227"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 35,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 243
+                  },
+                  "team": "Constel-lació Esportiva",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:243"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 243
+                  },
+                  "team": "FC Encamp Dicoansa",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:244"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 243
+                  },
+                  "team": "Formo S.A.Bingo Cristal",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:245"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 35,
+                  "gf": 0,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 243
+                  },
+                  "team": "CE Principat \"B\"",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:246"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando00.txt:292",
+                "excerpt": "Promoted: FC Lusitans and Dep. La Massana"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando01.txt:256",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando06.txt:233",
+                "excerpt": "First Elimination Round [Jan 22]"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando06.txt:238",
+                "excerpt": "Second Elimination Round [Feb 5]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando07.txt:308",
+                "excerpt": "NB: results of first 3 rounds (may) include penalty shootouts"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando07.txt:310",
+                "excerpt": "First Elimination Round [Jan 21]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando07.txt:316",
+                "excerpt": "Second Elimination Round [Jan 28]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando07.txt:336",
+                "excerpt": "[penalties: Santa Coloma: Jandro, Ayala, Víctor,"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando08.txt:261",
+                "excerpt": "Qualifying Match [Jan 17]"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando08.txt:264",
+                "excerpt": "First Elimination Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando08.txt:273",
+                "excerpt": "Second Elimination Round [Jan 27]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando09.txt:225",
+                "excerpt": "First Elimination Round [Jan 18]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando09.txt:231",
+                "excerpt": "Second Elimination Round"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/ando2011.txt:297",
+                "excerpt": "UE Sant Julià wins 4-1 on penalties"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

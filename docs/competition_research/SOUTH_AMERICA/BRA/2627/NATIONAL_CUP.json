@@ -1722,6 +1722,1076 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "e2a2be42dcd270fe14809146797bf8421246a260bbff208c97730cfdd1495a78": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa do Brasil",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "91",
+              "rows": "120",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "120",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-05",
+              "max_date": "2019-09-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa do Brasil 2020/21",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "91",
+              "rows": "120",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "118",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-25",
+              "max_date": "2021-03-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa do Brasil 2021",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-27",
+              "max_date": "2021-12-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa do Brasil 2022",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-06-22",
+              "max_date": "2022-10-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa do Brasil 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-17",
+              "max_date": "2023-09-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa do Brasil 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-30",
+              "max_date": "2024-11-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa do Brasil 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-27",
+              "max_date": "2025-12-21"
+            },
+            {
+              "source": "github/openfootball/south-america",
+              "competition": "Copa do Brasil",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "92",
+              "rows": "92",
+              "unique_oriented_pairs": "92",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "90",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-18",
+              "max_date": "2025-05-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Betano do Brasil",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "91",
+              "rows": "120",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "120",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-05",
+              "max_date": "2019-09-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Betano do Brasil",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "91",
+              "rows": "120",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "118",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-25",
+              "max_date": "2021-03-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Betano do Brasil",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-27",
+              "max_date": "2021-12-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Betano do Brasil",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-06-22",
+              "max_date": "2022-10-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Betano do Brasil",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-17",
+              "max_date": "2023-09-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Betano do Brasil",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-30",
+              "max_date": "2024-11-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Betano do Brasil",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-27",
+              "max_date": "2025-12-21"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1001",
+                "excerpt": "PARANÁ (3 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1006",
+                "excerpt": "PERNAMBUCO (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1010",
+                "excerpt": "BAHIA (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1014",
+                "excerpt": "GOIÁS (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1018",
+                "excerpt": "SANTA CATARINA (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1022",
+                "excerpt": "CEARÁ (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1026",
+                "excerpt": "PARÁ (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1030",
+                "excerpt": "RIO GRANDE DO NORTE (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1034",
+                "excerpt": "ALAGOAS (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1038",
+                "excerpt": "DISTRITO FEDERAL (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1042",
+                "excerpt": "ESPÍRITO SANTO (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1046",
+                "excerpt": "MARANHÃO (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1050",
+                "excerpt": "PARAÍBA (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1054",
+                "excerpt": "AMAZONAS (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1058",
+                "excerpt": "MATO GROSSO DO SUL (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1062",
+                "excerpt": "SERGIPE (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1066",
+                "excerpt": "PIAUÍ (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1070",
+                "excerpt": "MATO GROSSO (2 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1074",
+                "excerpt": "ACRE (1 berth):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1077",
+                "excerpt": "RONDÔNIA (1 berth):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1080",
+                "excerpt": "TOCANTINS (1 berth):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1083",
+                "excerpt": "AMAPÁ (1 berth):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:1086",
+                "excerpt": "RORAIMA (1 berth):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:981",
+                "excerpt": "SÃO PAULO (3 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:986",
+                "excerpt": "RIO DE JANEIRO (3 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:991",
+                "excerpt": "RIO GRANDE DO SUL (3 berths):"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2010.txt:996",
+                "excerpt": "MINAS GERAIS (3 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1001",
+                "excerpt": "RIO GRANDE DO SUL (3 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1006",
+                "excerpt": "MINAS GERAIS (3 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1011",
+                "excerpt": "PARANÁ (3 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1016",
+                "excerpt": "PERNAMBUCO (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1020",
+                "excerpt": "GOIÁS (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1024",
+                "excerpt": "BAHIA (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1028",
+                "excerpt": "SANTA CATARINA (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1032",
+                "excerpt": "CEARÁ (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1036",
+                "excerpt": "PARÁ (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1040",
+                "excerpt": "RIO GRANDE DO NORTE (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1044",
+                "excerpt": "ALAGOAS (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1048",
+                "excerpt": "DISTRITO FEDERAL (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1052",
+                "excerpt": "ESPÍRITO SANTO (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1056",
+                "excerpt": "PARAÍBA (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1060",
+                "excerpt": "MARANHÃO (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1064",
+                "excerpt": "AMAZONAS (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1068",
+                "excerpt": "MATO GROSSO DO SUL (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1072",
+                "excerpt": "SERGIPE (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1076",
+                "excerpt": "PIAUÍ (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1080",
+                "excerpt": "MATO GROSSO (2 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1084",
+                "excerpt": "ACRE (1 berth):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1087",
+                "excerpt": "TOCANTINS (1 berth):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1090",
+                "excerpt": "RONDÔNIA (1 berth):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1093",
+                "excerpt": "AMAPÁ (1 berth):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:1096",
+                "excerpt": "RORAIMA (1 berth):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:991",
+                "excerpt": "SÃO PAULO (3 berths):"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2011.txt:996",
+                "excerpt": "RIO DE JANEIRO (3 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1001",
+                "excerpt": "GOIÁS (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1005",
+                "excerpt": "SANTA CATARINA (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1009",
+                "excerpt": "CEARÁ (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1013",
+                "excerpt": "PARÁ (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1017",
+                "excerpt": "RIO GRANDE DO NORTE (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1021",
+                "excerpt": "ALAGOAS (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1025",
+                "excerpt": "DISTRITO FEDERAL (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1029",
+                "excerpt": "ESPÍRITO SANTO (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1033",
+                "excerpt": "PARAÍBA (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1037",
+                "excerpt": "MARANHÃO (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1041",
+                "excerpt": "AMAZONAS (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1045",
+                "excerpt": "MATO GROSSO DO SUL (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1049",
+                "excerpt": "SERGIPE (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1053",
+                "excerpt": "PIAUÍ (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1057",
+                "excerpt": "MATO GROSSO (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1061",
+                "excerpt": "ACRE (1 berth):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1064",
+                "excerpt": "TOCANTINS (1 berth):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1067",
+                "excerpt": "RONDÔNIA (1 berth):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1070",
+                "excerpt": "AMAPÁ (1 berth):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:1073",
+                "excerpt": "RORAIMA (1 berth):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:968",
+                "excerpt": "SÃO PAULO (3 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:973",
+                "excerpt": "RIO DE JANEIRO (3 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:978",
+                "excerpt": "RIO GRANDE DO SUL (3 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:983",
+                "excerpt": "MINAS GERAIS (3 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:988",
+                "excerpt": "PARANÁ (3 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:993",
+                "excerpt": "PERNAMBUCO (2 berths):"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2012.txt:997",
+                "excerpt": "BAHIA (2 berths):"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2019.txt:745",
+                "excerpt": "Single Leg"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2019.txt:780",
+                "excerpt": "Aparecidense/GO       1-0  Ponte Preta/SP [Cancelled]  (Jogo foi anulado pelo STJD por influência externa em um gol anulado pela Ponte Preta)"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/braz2020.txt:733",
+                "excerpt": "Single Leg"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

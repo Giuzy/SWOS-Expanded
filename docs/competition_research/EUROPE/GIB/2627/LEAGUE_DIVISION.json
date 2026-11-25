@@ -717,6 +717,5703 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "6c389ffcae050e80db2c93f34b1e891d78ada247d1f6f313d7922ba1f8d32d2d": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "5",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-01-13",
+              "max_date": "2007-04-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "7",
+              "rows": "43",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "22",
+              "min_date": "2007-10-06",
+              "max_date": "2008-05-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "7",
+              "rows": "40",
+              "unique_oriented_pairs": "40",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "40",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-01-31",
+              "max_date": "2009-05-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "61",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2009-10-05",
+              "max_date": "2010-04-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "7",
+              "rows": "60",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2010-10-09",
+              "max_date": "2011-05-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "60",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2011-10-08",
+              "max_date": "2012-05-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "103",
+              "unique_oriented_pairs": "103",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "103",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-01-03",
+              "max_date": "2013-12-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "134",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "134",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2015-09-25",
+              "max_date": "2016-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "131",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "131",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2016-09-21",
+              "max_date": "2017-05-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "135",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "135",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2017-09-25",
+              "max_date": "2018-06-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "132",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "132",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2018-08-13",
+              "max_date": "2019-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division Cup",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-01-28",
+              "max_date": "2012-01-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division Cup 2006",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-04-22",
+              "max_date": "2006-04-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "7",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-10-14",
+              "max_date": "2000-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "7",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-02-24",
+              "max_date": "2001-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "95",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "2002-01-06",
+              "max_date": "2002-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "64",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "15",
+              "min_date": "2003-01-12",
+              "max_date": "2003-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "6",
+              "rows": "54",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "24",
+              "min_date": "2004-01-04",
+              "max_date": "2004-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "7",
+              "rows": "42",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "10",
+              "min_date": "2005-01-10",
+              "max_date": "2005-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "6",
+              "rows": "38",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2006-01-15",
+              "max_date": "2006-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "5",
+              "rows": "39",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2007-01-21",
+              "max_date": "2007-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "5",
+              "rows": "40",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "20",
+              "min_date": "2008-02-10",
+              "max_date": "2008-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "97",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2009-01-12",
+              "max_date": "2009-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "54",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "12",
+              "min_date": "2010-01-09",
+              "max_date": "2010-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "62",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "14",
+              "min_date": "2011-01-08",
+              "max_date": "2011-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "7",
+              "rows": "36",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "2012-01-30",
+              "max_date": "2012-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "8",
+              "rows": "64",
+              "unique_oriented_pairs": "41",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "23",
+              "min_date": "2013-01-05",
+              "max_date": "2013-12-14"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "9",
+              "rows": "67",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "14",
+              "min_date": "2014-01-18",
+              "max_date": "2014-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "10",
+              "rows": "107",
+              "unique_oriented_pairs": "76",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2015-01-09",
+              "max_date": "2015-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "131",
+              "unique_oriented_pairs": "102",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2016-01-02",
+              "max_date": "2016-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "125",
+              "unique_oriented_pairs": "93",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "32",
+              "min_date": "2017-01-06",
+              "max_date": "2017-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "150",
+              "unique_oriented_pairs": "102",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2018-02-03",
+              "max_date": "2018-12-18"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "141",
+              "unique_oriented_pairs": "118",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "23",
+              "min_date": "2019-01-03",
+              "max_date": "2019-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "81",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "15",
+              "min_date": "2020-01-14",
+              "max_date": "2020-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "102",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2021-02-22",
+              "max_date": "2021-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "120",
+              "unique_oriented_pairs": "87",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "33",
+              "min_date": "2022-01-07",
+              "max_date": "2022-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "107",
+              "unique_oriented_pairs": "81",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "26",
+              "min_date": "2023-01-06",
+              "max_date": "2023-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "147",
+              "unique_oriented_pairs": "97",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2024-01-08",
+              "max_date": "2024-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "gibraltar",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "67",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "16",
+              "min_date": "2025-01-08",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "5",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-01-13",
+              "max_date": "2007-04-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "7",
+              "rows": "43",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "22",
+              "min_date": "2007-10-06",
+              "max_date": "2008-05-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "7",
+              "rows": "40",
+              "unique_oriented_pairs": "40",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "40",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-01-31",
+              "max_date": "2009-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "61",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2009-10-05",
+              "max_date": "2010-04-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "7",
+              "rows": "60",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2010-10-09",
+              "max_date": "2011-05-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "60",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2011-10-08",
+              "max_date": "2012-05-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "103",
+              "unique_oriented_pairs": "103",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "103",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-01-03",
+              "max_date": "2013-12-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "134",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "134",
+              "duplicate_pair_occurrences": "44",
+              "min_date": "2015-09-25",
+              "max_date": "2016-05-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "131",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "131",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2016-09-21",
+              "max_date": "2017-05-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "135",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "135",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2017-09-25",
+              "max_date": "2018-06-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "GIB DIV1",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "132",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "132",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2018-08-13",
+              "max_date": "2019-05-20"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib08.txt",
+                "edition": "2007/2008",
+                "tableLine": 156,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Manchester United FC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib08.txt",
+                "edition": "2007/2008",
+                "tableLine": 8,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Manchester United FC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib09.txt",
+                "edition": "2008/2009",
+                "tableLine": 140,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Manchester United FC",
+                  "PwC Laguna",
+                  "Saint Joseph's FC",
+                  "Shamrock 101"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib09.txt",
+                "edition": "2008/2009",
+                "tableLine": 8,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Manchester United FC",
+                  "PwC Laguna",
+                  "Saint Joseph's FC",
+                  "Shamrock 101"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "College Cosmos",
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Manchester United FC",
+                  "PWC Laguna",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 211,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "College Cosmos",
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Manchester United FC",
+                  "PWC Laguna",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2011.txt",
+                "edition": "2010/2011",
+                "tableLine": 153,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Lynx FC",
+                  "Manchester United FC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2011.txt",
+                "edition": "2010/2011",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lincoln FC",
+                  "Lynx FC",
+                  "Manchester United FC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Glacis FC",
+                  "Lincoln FC",
+                  "Lions Gibraltar",
+                  "Manchester United FC",
+                  "SJ Athletic Corinthians",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 173,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Glacis FC",
+                  "Lincoln FC",
+                  "Lions Gibraltar",
+                  "Manchester United FC",
+                  "SJ Athletic Corinthians",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2013.txt",
+                "edition": "2013",
+                "tableLine": 206,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Boca Juniors",
+                  "Britannia FC",
+                  "Cannons FC",
+                  "College Cosmos",
+                  "FC Hound Dogs",
+                  "Gib Phoenix",
+                  "Leo Parrilla FC",
+                  "Lions Pilots",
+                  "Pegasus FC",
+                  "Sporting FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2013.txt",
+                "edition": "2013",
+                "tableLine": 413,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Boca Juniors",
+                  "Britannia FC",
+                  "Cannons FC",
+                  "College Cosmos",
+                  "FC Hound Dogs",
+                  "Gib Phoenix",
+                  "Leo Parrilla FC",
+                  "Lions Pilots",
+                  "Pegasus FC",
+                  "Sporting FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2016.txt",
+                "edition": "2015/2016",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Angels FC",
+                  "Europa FC",
+                  "FC Britannia XI",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Manchester 62 FC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2016.txt",
+                "edition": "2015/2016",
+                "tableLine": 329,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Angels FC",
+                  "Europa FC",
+                  "FC Britannia XI",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Manchester 62 FC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2017.txt",
+                "edition": "2016/2017",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Europa FC",
+                  "Europa Point FC",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Manchester 62 FC",
+                  "Mons Calpe SC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2017.txt",
+                "edition": "2016/2017",
+                "tableLine": 328,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Europa FC",
+                  "Europa Point FC",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Manchester 62 FC",
+                  "Mons Calpe SC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2018.txt",
+                "edition": "2017/2018",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Europa FC",
+                  "Gibraltar Phoenix FC",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Manchester 62 FC",
+                  "Mons Calpe SC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2018.txt",
+                "edition": "2017/2018",
+                "tableLine": 327,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Europa FC",
+                  "Gibraltar Phoenix FC",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Manchester 62 FC",
+                  "Mons Calpe SC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2019.txt",
+                "edition": "2018/2019",
+                "tableLine": 16,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Europa FC",
+                  "FC Boca Juniors",
+                  "Gibraltar Phoenix FC",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Mons Calpe SC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib2019.txt",
+                "edition": "2018/2019",
+                "tableLine": 336,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Europa FC",
+                  "FC Boca Juniors",
+                  "Gibraltar Phoenix FC",
+                  "Gibraltar United FC",
+                  "Glacis United",
+                  "Lincoln FC",
+                  "Lions Gibraltar FC",
+                  "Lynx FC",
+                  "Mons Calpe SC",
+                  "Saint Joseph's FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesg/gib99.txt",
+                "edition": "1998/1999",
+                "tableLine": 9,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Combined Services",
+                  "Glacis United",
+                  "Manchester United",
+                  "St Joseph's",
+                  "St Theresas"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [
+              {
+                "from": "2007/2008",
+                "to": "2008/2009",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 5,
+                "newTeamCount": 7,
+                "newLabels": [
+                  "PwC Laguna",
+                  "Shamrock 101"
+                ],
+                "missingLabels": [],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2010/2011",
+                "to": "2011/2012",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 6,
+                "newTeamCount": 6,
+                "newLabels": [
+                  "Glacis FC",
+                  "Lions Gibraltar",
+                  "SJ Athletic Corinthians"
+                ],
+                "missingLabels": [
+                  "Gibraltar United FC",
+                  "Glacis United FC",
+                  "Lynx FC"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2015/2016",
+                "to": "2016/2017",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "Europa Point FC",
+                  "Mons Calpe SC"
+                ],
+                "missingLabels": [
+                  "Angels FC",
+                  "FC Britannia XI"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2016/2017",
+                "to": "2017/2018",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "Gibraltar Phoenix FC"
+                ],
+                "missingLabels": [
+                  "Europa Point FC"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2017/2018",
+                "to": "2018/2019",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "FC Boca Juniors"
+                ],
+                "missingLabels": [
+                  "Manchester 62 FC"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              }
+            ],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1998/99",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 49,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 29,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "Manchester United",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib99.txt:10"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 17,
+                  "gf": 38,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 11,
+                  "points": 25,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "Glacis United",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib99.txt:11"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 31,
+                  "gf": 41,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 11,
+                  "points": 16,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "St Joseph's",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib99.txt:13"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 35,
+                  "gf": 20,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 10,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "Combined Services",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib99.txt:14"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 79,
+                  "gf": 6,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 11,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "St Theresas",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib99.txt:15"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib07.txt:178",
+                "excerpt": "Pre-Round [Jan 13]"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 48,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 16,
+                  "points": 38,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Lincoln FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:10"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 21,
+                  "gf": 23,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 22,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:11"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 29,
+                  "gf": 20,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 18,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Glacis United FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:12"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 34,
+                  "gf": 18,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 15,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:13"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 28,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 13,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Manchester United FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:14"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 48,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 16,
+                  "points": 38,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 156
+                  },
+                  "team": "Lincoln FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:158"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 21,
+                  "gf": 23,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 22,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 156
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:159"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 29,
+                  "gf": 20,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 18,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 156
+                  },
+                  "team": "Glacis United FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:160"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 34,
+                  "gf": 18,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 15,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 156
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:161"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 28,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 16,
+                  "points": 13,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 156
+                  },
+                  "team": "Manchester United FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib08.txt:162"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 41,
+                  "lost": 1,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 12,
+                  "points": 31,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Lincoln FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:10"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 24,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 23,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Shamrock 101",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:11"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 22,
+                  "gf": 27,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 19,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Glacis United FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:12"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 22,
+                  "gf": 25,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 19,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:13"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 23,
+                  "gf": 22,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 13,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "PwC Laguna",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:14"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 41,
+                  "lost": 1,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 12,
+                  "points": 31,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 140
+                  },
+                  "team": "Lincoln FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:142"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 24,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 23,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 140
+                  },
+                  "team": "Shamrock 101",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:143"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 22,
+                  "gf": 27,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 19,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 140
+                  },
+                  "team": "Glacis United FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:144"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 22,
+                  "gf": 25,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 19,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 140
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:145"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 23,
+                  "gf": 22,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 13,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 140
+                  },
+                  "team": "PwC Laguna",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:146"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 28,
+                  "gf": 13,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 8,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 140
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:147"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 33,
+                  "gf": 11,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 7,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 140
+                  },
+                  "team": "Manchester United FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:148"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 28,
+                  "gf": 13,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 8,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:15"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 33,
+                  "gf": 11,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 12,
+                  "points": 7,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 8
+                  },
+                  "team": "Manchester United FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib09.txt:16"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 67,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 18,
+                  "points": 52,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 16
+                  },
+                  "team": "Lincoln FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:18"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 31,
+                  "gf": 37,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 29,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 16
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:19"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 32,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 27,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:20"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 30,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 17,
+                  "points": 21,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 16
+                  },
+                  "team": "Glacis United FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:21"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 67,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 18,
+                  "points": 52,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 211
+                  },
+                  "team": "Lincoln FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:213"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 31,
+                  "gf": 37,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 29,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 211
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:214"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 32,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 27,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 211
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:215"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 30,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 17,
+                  "points": 21,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 211
+                  },
+                  "team": "Glacis United FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:216"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 39,
+                  "gf": 28,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 19,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 211
+                  },
+                  "team": "Manchester United FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:217"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 32,
+                  "gf": 21,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 17,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 211
+                  },
+                  "team": "PWC Laguna",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:218"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 39,
+                  "gf": 12,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 17,
+                  "points": 5,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 211
+                  },
+                  "team": "College Cosmos",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:219"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 39,
+                  "gf": 28,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 19,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 16
+                  },
+                  "team": "Manchester United FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:22"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 32,
+                  "gf": 21,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 18,
+                  "points": 17,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 16
+                  },
+                  "team": "PWC Laguna",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:23"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 39,
+                  "gf": 12,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 17,
+                  "points": 5,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 16
+                  },
+                  "team": "College Cosmos",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2010.txt:24"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 22,
+                  "gf": 72,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 20,
+                  "points": 52,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 153
+                  },
+                  "team": "Lincoln FC",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:155"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 32,
+                  "gf": 36,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 36,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 153
+                  },
+                  "team": "Glacis United FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:156"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 31,
+                  "gf": 34,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 27,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 153
+                  },
+                  "team": "Manchester United FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:157"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 40,
+                  "gf": 31,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 23,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 153
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:158"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 43,
+                  "gf": 27,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 22,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 153
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:159"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 50,
+                  "gf": 18,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 10,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 153
+                  },
+                  "team": "Lynx FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:160"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 22,
+                  "gf": 72,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 20,
+                  "points": 52,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lincoln FC",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:18"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 32,
+                  "gf": 36,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 36,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Glacis United FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:19"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 31,
+                  "gf": 34,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 27,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Manchester United FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:20"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 40,
+                  "gf": 31,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 23,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:21"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 43,
+                  "gf": 27,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 22,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:22"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 50,
+                  "gf": 18,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 10,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lynx FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2011.txt:23"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 18,
+                  "gf": 82,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 20,
+                  "points": 54,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 173
+                  },
+                  "team": "Lincoln FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:175"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 23,
+                  "gf": 54,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 38,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 173
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:176"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 31,
+                  "gf": 35,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 31,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 173
+                  },
+                  "team": "Manchester United FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:177"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 43,
+                  "gf": 43,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 25,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 173
+                  },
+                  "team": "Glacis FC",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:178"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 40,
+                  "gf": 28,
+                  "lost": 10,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 20,
+                  "points": 18,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 173
+                  },
+                  "team": "Lions Gibraltar",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:179"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 18,
+                  "gf": 82,
+                  "lost": 0,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 20,
+                  "points": 54,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lincoln FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:18"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 102,
+                  "gf": 15,
+                  "lost": 19,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 173
+                  },
+                  "team": "SJ Athletic Corinthians",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:180"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 23,
+                  "gf": 54,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 38,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:19"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 31,
+                  "gf": 35,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 31,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Manchester United FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:20"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 43,
+                  "gf": 43,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 25,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Glacis FC",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:21"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 40,
+                  "gf": 28,
+                  "lost": 10,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 20,
+                  "points": 18,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lions Gibraltar",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:22"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 102,
+                  "gf": 15,
+                  "lost": 19,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "SJ Athletic Corinthians",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2012.txt:23"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:208 Author: Hans Schöggl",
+                "excerpt": "1.College Cosmos             18  13  4  1  51-24   43  [3-1]       Promoted"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:209 Author: Hans Schöggl",
+                "excerpt": "2.Gib Phoenix                18  11  3  4  53-26   36  [5-2, 6-2]  Promoted"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 24,
+                  "gf": 51,
+                  "lost": 1,
+                  "note": "[3-1]       Promoted",
+                  "phase": "",
+                  "played": 18,
+                  "points": 43,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "College Cosmos",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:208"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 26,
+                  "gf": 53,
+                  "lost": 4,
+                  "note": "[5-2, 6-2]  Promoted",
+                  "phase": "",
+                  "played": 18,
+                  "points": 36,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Gib Phoenix",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:209"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 29,
+                  "gf": 48,
+                  "lost": 4,
+                  "note": "[4-1]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 32,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Britannia FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:211"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 22,
+                  "gf": 26,
+                  "lost": 4,
+                  "note": "[0-0]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 30,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "FC Hound Dogs",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:212"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 28,
+                  "gf": 51,
+                  "lost": 6,
+                  "note": "[4-0, 4-1]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Lions Pilots",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:213"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 22,
+                  "gf": 35,
+                  "lost": 7,
+                  "note": "[2-0]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 27,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Sporting FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:214"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 30,
+                  "gf": 24,
+                  "lost": 8,
+                  "note": "[2-1]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 22,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Boca Juniors",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:215"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 47,
+                  "gf": 25,
+                  "lost": 10,
+                  "note": "[5-0, 0-2]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 16,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Leo Parrilla FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:216"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 50,
+                  "gf": 24,
+                  "lost": 12,
+                  "note": "[2-2]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 12,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Pegasus FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:217"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 73,
+                  "gf": 14,
+                  "lost": 15,
+                  "note": "[2-2]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 5,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 206
+                  },
+                  "team": "Cannons FC",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:218"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 24,
+                  "gf": 51,
+                  "lost": 1,
+                  "note": "[3-1]       Promoted",
+                  "phase": "",
+                  "played": 18,
+                  "points": 43,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "College Cosmos",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:415"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 26,
+                  "gf": 53,
+                  "lost": 4,
+                  "note": "[5-2, 6-2]  Promoted",
+                  "phase": "",
+                  "played": 18,
+                  "points": 36,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Gib Phoenix",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:416"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 29,
+                  "gf": 48,
+                  "lost": 4,
+                  "note": "[4-1]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 32,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Britannia FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:418"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 22,
+                  "gf": 26,
+                  "lost": 4,
+                  "note": "[0-0]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 30,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "FC Hound Dogs",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:419"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 28,
+                  "gf": 51,
+                  "lost": 6,
+                  "note": "[4-0, 4-1]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 28,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Lions Pilots",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:420"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 22,
+                  "gf": 35,
+                  "lost": 7,
+                  "note": "[2-0]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 27,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Sporting FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:421"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 30,
+                  "gf": 24,
+                  "lost": 8,
+                  "note": "[2-1]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 22,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Boca Juniors",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:422"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 47,
+                  "gf": 25,
+                  "lost": 10,
+                  "note": "[5-0, 0-2]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 16,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Leo Parrilla FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:423"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 50,
+                  "gf": 24,
+                  "lost": 12,
+                  "note": "[2-2]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 12,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Pegasus FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:424"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 73,
+                  "gf": 14,
+                  "lost": 15,
+                  "note": "[2-2]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 5,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 413
+                  },
+                  "team": "Cannons FC",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2013.txt:425"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:27 Author: Hans Schöggl",
+                "excerpt": "9.FC Britannia XI            27   8  2 17  35-84  26  ‹Relegation Playoff, see §prorel›"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:29 Author: Hans Schöggl",
+                "excerpt": "10.Angels FC                  27   3  0 24  20-107  9  Relegated  [P]"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 130,
+                  "lost": 1,
+                  "note": "Champions  [C]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 76,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lincoln FC",
+                  "won": 25
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:18"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 82,
+                  "lost": 4,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 65,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Europa FC",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:19"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 37,
+                  "gf": 50,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 45,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:20"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 44,
+                  "gf": 49,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 45,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:21"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 40,
+                  "gf": 37,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 35,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lynx FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:22"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 49,
+                  "gf": 41,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 32,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Manchester 62 FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:23"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 67,
+                  "gf": 40,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 32,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Glacis United",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:24"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 57,
+                  "gf": 28,
+                  "lost": 16,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 29,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:25"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 84,
+                  "gf": 35,
+                  "lost": 17,
+                  "note": "‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 27,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC Britannia XI",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:27"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 107,
+                  "gf": 20,
+                  "lost": 24,
+                  "note": "Relegated  [P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 9,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Angels FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:29"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:31",
+                "excerpt": "[*] College Europa apparently renamed Europa FC"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 130,
+                  "lost": 1,
+                  "note": "Champions  [C]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 76,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Lincoln FC",
+                  "won": 25
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:331"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 82,
+                  "lost": 4,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 65,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Europa FC",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:332"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 37,
+                  "gf": 50,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 45,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:333"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 44,
+                  "gf": 49,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 45,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:334"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 40,
+                  "gf": 37,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 35,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Lynx FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:335"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 49,
+                  "gf": 41,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 32,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Manchester 62 FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:336"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 67,
+                  "gf": 40,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 32,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Glacis United",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:337"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 57,
+                  "gf": 28,
+                  "lost": 16,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 29,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:338"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 84,
+                  "gf": 35,
+                  "lost": 17,
+                  "note": "‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 27,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "FC Britannia XI",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:340"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 107,
+                  "gf": 20,
+                  "lost": 24,
+                  "note": "Relegated  [P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 9,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 329
+                  },
+                  "team": "Angels FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2016.txt:342"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:27 Author: Karel Stokkermans",
+                "excerpt": "9.Manchester 62 FC           27   4  5 18  27-60  17       ‹Relegation Playoff, see §prorel›"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:29 Author: Karel Stokkermans",
+                "excerpt": "10.Europa Point FC            27   2  2 23  13-120  8  [P]  Relegated"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 93,
+                  "lost": 2,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 27,
+                  "points": 73,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Europa FC",
+                  "won": 24
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:18"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 16,
+                  "gf": 100,
+                  "lost": 1,
+                  "note": "[C]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 72,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lincoln FC",
+                  "won": 23
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:19"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 18,
+                  "gf": 53,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 54,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:20"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 34,
+                  "gf": 42,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 44,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Glacis United",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:21"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 35,
+                  "gf": 44,
+                  "lost": 11,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 42,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Mons Calpe SC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:22"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 45,
+                  "gf": 34,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 28,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lynx FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:23"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 43,
+                  "gf": 20,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:24"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 54,
+                  "gf": 17,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 21,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:25"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 60,
+                  "gf": 27,
+                  "lost": 18,
+                  "note": "‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 27,
+                  "points": 17,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Manchester 62 FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:27"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 120,
+                  "gf": 13,
+                  "lost": 23,
+                  "note": "[P]  Relegated",
+                  "phase": "",
+                  "played": 27,
+                  "points": 8,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Europa Point FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:29"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 93,
+                  "lost": 2,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 27,
+                  "points": 73,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Europa FC",
+                  "won": 24
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:330"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 16,
+                  "gf": 100,
+                  "lost": 1,
+                  "note": "[C]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 72,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Lincoln FC",
+                  "won": 23
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:331"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 18,
+                  "gf": 53,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 54,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:332"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 34,
+                  "gf": 42,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 44,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Glacis United",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:333"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 35,
+                  "gf": 44,
+                  "lost": 11,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 42,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Mons Calpe SC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:334"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 45,
+                  "gf": 34,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 28,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Lynx FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:335"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 43,
+                  "gf": 20,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:336"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 54,
+                  "gf": 17,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 21,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:337"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 60,
+                  "gf": 27,
+                  "lost": 18,
+                  "note": "‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 27,
+                  "points": 17,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Manchester 62 FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:339"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 120,
+                  "gf": 13,
+                  "lost": 23,
+                  "note": "[P]  Relegated",
+                  "phase": "",
+                  "played": 27,
+                  "points": 8,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 328
+                  },
+                  "team": "Europa Point FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2017.txt:341"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:27 Author: Karel Stokkermans",
+                "excerpt": "9.Lynx FC                    27   6  4 17  22-48  22       ‹Relegation Playoff, see §prorel›"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:29 Author: Karel Stokkermans",
+                "excerpt": "10.Manchester 62 FC           27   0  7 20  20-88   7       Relegated"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 71,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 27,
+                  "points": 65,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lincoln FC",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:18"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 20,
+                  "gf": 67,
+                  "lost": 5,
+                  "note": "[C]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 60,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Europa FC",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:19"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 53,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 54,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:20"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 27,
+                  "gf": 45,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 53,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:21"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 35,
+                  "gf": 48,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 44,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Mons Calpe SC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:22"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 34,
+                  "lost": 13,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 30,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar Phoenix FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:23"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 34,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 26,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Glacis United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:24"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 63,
+                  "gf": 27,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 23,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:25"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 48,
+                  "gf": 22,
+                  "lost": 17,
+                  "note": "‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 27,
+                  "points": 22,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lynx FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:27"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 88,
+                  "gf": 20,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 27,
+                  "points": 7,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Manchester 62 FC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:29"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 71,
+                  "lost": 4,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 27,
+                  "points": 65,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Lincoln FC",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:329"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 20,
+                  "gf": 67,
+                  "lost": 5,
+                  "note": "[C]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 60,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Europa FC",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:330"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 53,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 54,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:331"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 27,
+                  "gf": 45,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 53,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:332"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 35,
+                  "gf": 48,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 44,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Mons Calpe SC",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:333"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 34,
+                  "lost": 13,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 30,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Gibraltar Phoenix FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:334"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 44,
+                  "gf": 34,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 26,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Glacis United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:335"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 63,
+                  "gf": 27,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 23,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:336"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 48,
+                  "gf": 22,
+                  "lost": 17,
+                  "note": "‹Relegation Playoff, see §prorel›",
+                  "phase": "",
+                  "played": 27,
+                  "points": 22,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Lynx FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:338"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 88,
+                  "gf": 20,
+                  "lost": 20,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 27,
+                  "points": 7,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 327
+                  },
+                  "team": "Manchester 62 FC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2018.txt:340"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 19,
+                  "gf": 84,
+                  "lost": 3,
+                  "note": "[C]  Champions",
+                  "phase": "",
+                  "played": 27,
+                  "points": 66,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lincoln FC",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:18"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 20,
+                  "gf": 84,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 64,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Europa FC",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:19"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 29,
+                  "gf": 69,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 55,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:20"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 29,
+                  "gf": 63,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 49,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Mons Calpe SC",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:21"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 34,
+                  "gf": 42,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 43,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar Phoenix FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:22"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 37,
+                  "gf": 48,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 39,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:23"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 29,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 31,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lynx FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:24"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 58,
+                  "gf": 28,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 24,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Glacis United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:25"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 77,
+                  "gf": 17,
+                  "lost": 24,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 9,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:27"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 129,
+                  "gf": 13,
+                  "lost": 24,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 7,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 16
+                  },
+                  "team": "FC Boca Juniors",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:29"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:31",
+                "excerpt": "NB: eventually no clubs were relegated as the two divisions merged"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 19,
+                  "gf": 84,
+                  "lost": 3,
+                  "note": "[C]  Champions",
+                  "phase": "",
+                  "played": 27,
+                  "points": 66,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Lincoln FC",
+                  "won": 21
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:338"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 20,
+                  "gf": 84,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 64,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Europa FC",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:339"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 29,
+                  "gf": 69,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 55,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Saint Joseph's FC",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:340"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 29,
+                  "gf": 63,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 49,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Mons Calpe SC",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:341"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 34,
+                  "gf": 42,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 43,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Gibraltar Phoenix FC",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:342"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 37,
+                  "gf": 48,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 39,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Gibraltar United FC",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:343"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 45,
+                  "gf": 29,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 31,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Lynx FC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:344"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 58,
+                  "gf": 28,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 24,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Glacis United",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:345"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 77,
+                  "gf": 17,
+                  "lost": 24,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 9,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "Lions Gibraltar FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:347"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 129,
+                  "gf": 13,
+                  "lost": 24,
+                  "note": "[P]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 7,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 336
+                  },
+                  "team": "FC Boca Juniors",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesg/gib2019.txt:349"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

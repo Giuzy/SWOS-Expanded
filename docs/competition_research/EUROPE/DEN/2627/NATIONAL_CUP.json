@@ -129,7 +129,62 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "1f0c37b34bfb4192e0e5b50709296eca2c6ac155dad1650fba91c60f9b0486bd": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "format": "knockout",
+                  "topTierEntry": {
+                    "round2": [
+                      "Sønderjyske",
+                      "OB",
+                      "Randers FC",
+                      "Silkeborg IF",
+                      "Lyngby BK",
+                      "AC Horsens"
+                    ],
+                    "round3": [
+                      "FC Midtjylland",
+                      "FC København",
+                      "AGF",
+                      "Viborg FF",
+                      "FC Nordsjælland",
+                      "Brøndby IF"
+                    ]
+                  },
+                  "round1to4Legs": 1,
+                  "quarterfinalLegs": 2,
+                  "semifinalLegs": 2,
+                  "finalLegs": 1
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/DEN/2627/NATIONAL_CUP.json#block74Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

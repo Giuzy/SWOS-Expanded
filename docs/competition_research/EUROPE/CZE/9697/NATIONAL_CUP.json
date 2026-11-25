@@ -578,6 +578,1093 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "45da8f76d4c89e5e0be1cf472d934c50281cbfeb054917f52f5200e17d55d81a": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Czech Cup 1996/97",
+            "country": "CZE",
+            "season": "1996/97",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 32,
+            "fixtures": 23,
+            "orientedPairs": 23,
+            "invalid": 0,
+            "clubDayClashes": 14,
+            "inferredDates": 23,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Banik Ostrava": {
+              "uuid": "92f797db-877a-522e-82fc-8b202b0f065a",
+              "file": 6,
+              "ordinal": 0,
+              "league": 0,
+              "name": "BANIK OSTRAVA",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Banik ostrava": {
+              "uuid": "92f797db-877a-522e-82fc-8b202b0f065a",
+              "file": 6,
+              "ordinal": 0,
+              "league": 0,
+              "name": "BANIK OSTRAVA",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Boby Brno": {
+              "uuid": "22726806-5dc9-5158-b83f-25d4ea2593d3",
+              "file": 6,
+              "ordinal": 1,
+              "league": 0,
+              "name": "BOBY BRNO",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Ceske Budejovice": {
+              "uuid": "f85756a8-5046-5182-80ee-af55ad0b1227",
+              "file": 6,
+              "ordinal": 2,
+              "league": 0,
+              "name": "CESKE BUDEJOVICE",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Kaucuk Opava": {
+              "uuid": "27cf6154-7e3a-581a-a57a-86e3ccab86ff",
+              "file": 6,
+              "ordinal": 5,
+              "league": 0,
+              "name": "KAUCUK OPAVA",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Petra Drnovice": {
+              "uuid": "274f356a-3c48-5026-a067-da397f2bc5f3",
+              "file": 6,
+              "ordinal": 6,
+              "league": 0,
+              "name": "PETRA DRNOVICE",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Sigma Olomouc": {
+              "uuid": "a48d536d-ba52-5ace-bbd5-05e93d4046c5",
+              "file": 6,
+              "ordinal": 7,
+              "league": 0,
+              "name": "SIGMA OLOMOUC",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Slovan Liberec": {
+              "uuid": "04af15b7-e9ba-5f98-991d-1deda5ea5c65",
+              "file": 6,
+              "ordinal": 9,
+              "league": 0,
+              "name": "SLOVAN LIBEREC",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Viktoria Plzen": {
+              "uuid": "3335fb41-0db0-5f8c-9964-ed51da4fbc24",
+              "file": 6,
+              "ordinal": 14,
+              "league": 0,
+              "name": "VIKTORIA PLZEN",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            },
+            "Viktoria Zizkov": {
+              "uuid": "40d4a9b3-d886-5a48-8c78-af98d6320e8c",
+              "file": 6,
+              "ordinal": 15,
+              "league": 0,
+              "name": "VIKTORIA ZIZKOV",
+              "path": "data_json\\teams\\CZECH_REPUBLIC.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "Bohemians Praha",
+              "candidateCount": 0
+            },
+            {
+              "label": "Brummer Ceska Lipa",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cesky Brod",
+              "candidateCount": 0
+            },
+            {
+              "label": "Dukla Hranice",
+              "candidateCount": 0
+            },
+            {
+              "label": "Dukla Praha",
+              "candidateCount": 0
+            },
+            {
+              "label": "FK Jablonec",
+              "candidateCount": 0
+            },
+            {
+              "label": "GGS Arma Usti",
+              "candidateCount": 0
+            },
+            {
+              "label": "Horni Pocernice",
+              "candidateCount": 0
+            },
+            {
+              "label": "Karvina",
+              "candidateCount": 0
+            },
+            {
+              "label": "Lazne Bohdanec",
+              "candidateCount": 0
+            },
+            {
+              "label": "LeRK Prostejov",
+              "candidateCount": 0
+            },
+            {
+              "label": "Let Kunovice",
+              "candidateCount": 0
+            },
+            {
+              "label": "Pelikan Decin",
+              "candidateCount": 0
+            },
+            {
+              "label": "Prerov",
+              "candidateCount": 0
+            },
+            {
+              "label": "Rakovnik",
+              "candidateCount": 0
+            },
+            {
+              "label": "Slavia Praha",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sparta Praha",
+              "candidateCount": 0
+            },
+            {
+              "label": "Spartak Rychnov",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sumperk",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tatran Postrona",
+              "candidateCount": 0
+            },
+            {
+              "label": "Teplice",
+              "candidateCount": 0
+            },
+            {
+              "label": "Zelezarny Trinec",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Boby Brno",
+              "Viktoria Zizkov",
+              "22726806-5dc9-5158-b83f-25d4ea2593d3",
+              "40d4a9b3-d886-5a48-8c78-af98d6320e8c",
+              "corpus/tablest/tsje97.txt:603",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Brummer Ceska Lipa",
+              "Slovan Liberec",
+              null,
+              "04af15b7-e9ba-5f98-991d-1deda5ea5c65",
+              "corpus/tablest/tsje97.txt:590",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Cesky Brod",
+              "FK Jablonec",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:601",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Dukla Hranice",
+              "Kaucuk Opava",
+              null,
+              "27cf6154-7e3a-581a-a57a-86e3ccab86ff",
+              "corpus/tablest/tsje97.txt:586",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Dukla Praha",
+              "Ceske Budejovice",
+              null,
+              "f85756a8-5046-5182-80ee-af55ad0b1227",
+              "corpus/tablest/tsje97.txt:585",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Dukla Praha",
+              "Kaucuk Opava",
+              null,
+              "27cf6154-7e3a-581a-a57a-86e3ccab86ff",
+              "corpus/tablest/tsje97.txt:600",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "FK Jablonec",
+              "Bohemians Praha",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:594",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "GGS Arma Usti",
+              "Slavia Praha",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:583",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Horni Pocernice",
+              "Cesky Brod",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:593",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Lazne Bohdanec",
+              "Sparta Praha",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:607",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "LeRK Prostejov",
+              "Sigma Olomouc",
+              null,
+              "a48d536d-ba52-5ace-bbd5-05e93d4046c5",
+              "corpus/tablest/tsje97.txt:592",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Let Kunovice",
+              "Petra Drnovice",
+              null,
+              "274f356a-3c48-5026-a067-da397f2bc5f3",
+              "corpus/tablest/tsje97.txt:588",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Pelikan Decin",
+              "Slavia Praha",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:602",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Pelikan Decin",
+              "Teplice",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:582",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Petra Drnovice",
+              "Banik ostrava",
+              "274f356a-3c48-5026-a067-da397f2bc5f3",
+              "92f797db-877a-522e-82fc-8b202b0f065a",
+              "corpus/tablest/tsje97.txt:604",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Prerov",
+              "Banik Ostrava",
+              null,
+              "92f797db-877a-522e-82fc-8b202b0f065a",
+              "corpus/tablest/tsje97.txt:589",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Rakovnik",
+              "Viktoria Zizkov",
+              null,
+              "40d4a9b3-d886-5a48-8c78-af98d6320e8c",
+              "corpus/tablest/tsje97.txt:584",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Spartak Rychnov",
+              "Sparta Praha",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:596",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Sumperk",
+              "Lazne Bohdanec",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:587",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Tatran Postrona",
+              "Boby Brno",
+              null,
+              "22726806-5dc9-5158-b83f-25d4ea2593d3",
+              "corpus/tablest/tsje97.txt:595",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Viktoria Plzen",
+              "Slovan Liberec",
+              "3335fb41-0db0-5f8c-9964-ed51da4fbc24",
+              "04af15b7-e9ba-5f98-991d-1deda5ea5c65",
+              "corpus/tablest/tsje97.txt:605",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Zelezarny Trinec",
+              "Karvina",
+              null,
+              null,
+              "corpus/tablest/tsje97.txt:591",
+              ""
+            ],
+            [
+              "1996-08-28",
+              "INFERRED_FROM_EDITION",
+              "Zelezarny Trinec",
+              "Sigma Olomouc",
+              null,
+              "a48d536d-ba52-5ace-bbd5-05e93d4046c5",
+              "corpus/tablest/tsje97.txt:606",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Czech Cup 1996/97",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-08-28",
+              "max_date": "1996-08-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Czech Republic Cup 2001/02  (Pohar CMFS)",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-10-06",
+              "max_date": "2002-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Raab Karcher Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "133",
+              "rows": "240",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "240",
+              "duplicate_pair_occurrences": "120",
+              "min_date": "2008-07-20",
+              "max_date": "2009-05-13"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [
+              {
+                "edition": "1996/1997",
+                "activeAtStartCandidate": false,
+                "groups": [
+                  [
+                    "corpus/corpus.zip",
+                    "Czech Cup 1996/97",
+                    "CZE",
+                    "1996/97",
+                    "SOURCE_TITLE"
+                  ]
+                ],
+                "events": [
+                  {
+                    "date": "1996-08-28",
+                    "home": "Boby Brno",
+                    "away": "Viktoria Zizkov",
+                    "homeUUID": "22726806-5dc9-5158-b83f-25d4ea2593d3",
+                    "awayUUID": "40d4a9b3-d886-5a48-8c78-af98d6320e8c",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:603"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Petra Drnovice",
+                    "away": "Banik ostrava",
+                    "homeUUID": "274f356a-3c48-5026-a067-da397f2bc5f3",
+                    "awayUUID": "92f797db-877a-522e-82fc-8b202b0f065a",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:604"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Viktoria Plzen",
+                    "away": "Slovan Liberec",
+                    "homeUUID": "3335fb41-0db0-5f8c-9964-ed51da4fbc24",
+                    "awayUUID": "04af15b7-e9ba-5f98-991d-1deda5ea5c65",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:605"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Brummer Ceska Lipa",
+                    "away": "Slovan Liberec",
+                    "homeUUID": null,
+                    "awayUUID": "04af15b7-e9ba-5f98-991d-1deda5ea5c65",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:590"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Cesky Brod",
+                    "away": "FK Jablonec",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:601"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Dukla Hranice",
+                    "away": "Kaucuk Opava",
+                    "homeUUID": null,
+                    "awayUUID": "27cf6154-7e3a-581a-a57a-86e3ccab86ff",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:586"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Dukla Praha",
+                    "away": "Kaucuk Opava",
+                    "homeUUID": null,
+                    "awayUUID": "27cf6154-7e3a-581a-a57a-86e3ccab86ff",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:600"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Dukla Praha",
+                    "away": "Ceske Budejovice",
+                    "homeUUID": null,
+                    "awayUUID": "f85756a8-5046-5182-80ee-af55ad0b1227",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:585"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "FK Jablonec",
+                    "away": "Bohemians Praha",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:594"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "GGS Arma Usti",
+                    "away": "Slavia Praha",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:583"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Horni Pocernice",
+                    "away": "Cesky Brod",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:593"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Lazne Bohdanec",
+                    "away": "Sparta Praha",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:607"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "LeRK Prostejov",
+                    "away": "Sigma Olomouc",
+                    "homeUUID": null,
+                    "awayUUID": "a48d536d-ba52-5ace-bbd5-05e93d4046c5",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:592"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Let Kunovice",
+                    "away": "Petra Drnovice",
+                    "homeUUID": null,
+                    "awayUUID": "274f356a-3c48-5026-a067-da397f2bc5f3",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:588"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Pelikan Decin",
+                    "away": "Slavia Praha",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:602"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Pelikan Decin",
+                    "away": "Teplice",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:582"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Prerov",
+                    "away": "Banik Ostrava",
+                    "homeUUID": null,
+                    "awayUUID": "92f797db-877a-522e-82fc-8b202b0f065a",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:589"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Rakovnik",
+                    "away": "Viktoria Zizkov",
+                    "homeUUID": null,
+                    "awayUUID": "40d4a9b3-d886-5a48-8c78-af98d6320e8c",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:584"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Spartak Rychnov",
+                    "away": "Sparta Praha",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:596"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Sumperk",
+                    "away": "Lazne Bohdanec",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:587"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Tatran Postrona",
+                    "away": "Boby Brno",
+                    "homeUUID": null,
+                    "awayUUID": "22726806-5dc9-5158-b83f-25d4ea2593d3",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:595"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Zelezarny Trinec",
+                    "away": "Sigma Olomouc",
+                    "homeUUID": null,
+                    "awayUUID": "a48d536d-ba52-5ace-bbd5-05e93d4046c5",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:606"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-08-28",
+                    "home": "Zelezarny Trinec",
+                    "away": "Karvina",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablest/tsje97.txt:591"
+                      ]
+                    ],
+                    "preStartScores": []
+                  }
+                ],
+                "explicitEvents": 0,
+                "conflicts": [],
+                "nativeRoster": [
+                  "04af15b7-e9ba-5f98-991d-1deda5ea5c65",
+                  "22726806-5dc9-5158-b83f-25d4ea2593d3",
+                  "274f356a-3c48-5026-a067-da397f2bc5f3",
+                  "27cf6154-7e3a-581a-a57a-86e3ccab86ff",
+                  "3335fb41-0db0-5f8c-9964-ed51da4fbc24",
+                  "40d4a9b3-d886-5a48-8c78-af98d6320e8c",
+                  "92f797db-877a-522e-82fc-8b202b0f065a",
+                  "a48d536d-ba52-5ace-bbd5-05e93d4046c5",
+                  "f85756a8-5046-5182-80ee-af55ad0b1227"
+                ],
+                "completeReviewedRegularComponent": false,
+                "observedStageCounts": [],
+                "july1Arithmetic": null
+              }
+            ],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "format": "knockout",
+                  "thirdRoundMatches": 16,
+                  "fourthRoundMatches": 8,
+                  "quarterfinalMatches": 4,
+                  "semifinalMatches": 2,
+                  "finalLegs": 1,
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/CZE/9697/NATIONAL_CUP.json#block75Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tsje02.txt:659 ",
+                "excerpt": "Qualification"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tsje02.txt:837 ",
+                "excerpt": "1.SK Ceske Budejovice          30 20  6  4  58-20 66  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tsje02.txt:838 ",
+                "excerpt": "2.FK Svit Zlin                 30 18 10  2  56-24 64  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tsje02.txt:851 ",
+                "excerpt": "15.Banik Ratiskovice            30  7  3 20  21-53 24  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tsje02.txt:852 ",
+                "excerpt": "16.FK Mogul Kolin               30  5  6 19  22-55 21  Relegated"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

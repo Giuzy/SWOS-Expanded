@@ -85,7 +85,50 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "a5c39afb9b17f18291097f845a44e021a36d1359548919f4e87c91e10d0de086": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+          "phaseQueue": "PARENT_PHASE_LINK",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "movement"
+                ],
+                "values": {
+                  "name": "J1 Promotion Play-Offs",
+                  "format": "single-match knockout",
+                  "entrantsRanks": [
+                    3,
+                    4,
+                    5,
+                    6
+                  ],
+                  "licenseRequired": true,
+                  "noReplacementBelow6": true,
+                  "relatedJ2PromotionPlayoffs": "separate phase; mapping not confirmed"
+                },
+                "source": "repository/research",
+                "locator": "ASIA/JPN/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json#block52Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

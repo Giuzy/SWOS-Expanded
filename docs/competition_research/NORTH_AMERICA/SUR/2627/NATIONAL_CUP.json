@@ -103,7 +103,224 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "d9ddfac8336d637d13283a9d02f93d9f6931965cf019af14a09ad7dcea9513d1": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-02-11",
+              "max_date": "2006-02-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "26",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-01-07",
+              "max_date": "2017-05-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-01-06",
+              "max_date": "2018-04-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "9",
+              "unique_oriented_pairs": "9",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-01-05",
+              "max_date": "2019-01-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2020",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "22",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-01-04",
+              "max_date": "2020-01-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-02",
+              "max_date": "2023-06-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-17",
+              "max_date": "2024-05-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-26",
+              "max_date": "2025-06-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Beker van Suriname",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-06-05",
+              "max_date": "2026-06-14"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/suri2018.txt:409",
+                "excerpt": "Qualifying Round [Jan 12]"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/suri2019.txt:559",
+                "excerpt": "NB: 13 winners and best losers (Real Mursie) qualify for round 2,"
+              },
+              {
+                "season": "2020",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/suri2020.txt:244",
+                "excerpt": "NB: the 14 top level clubs, Papatam, Botopasi and Junior are exempt from round 1"
+              },
+              {
+                "season": "2020",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/suri2020.txt:262",
+                "excerpt": "NB: winners and 2 best losers were to qualify for round 3"
+              },
+              {
+                "season": "2025/2026",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "observedQuarterFinalEntrants": 8,
+                  "quarterFinalLegs": 1,
+                  "semiFinalLegs": 1,
+                  "finalLegs": 1,
+                  "penaltiesObserved": true,
+                  "participants": [
+                    "Broki",
+                    "Flora",
+                    "Transvaal",
+                    "Inter Moengotapoe",
+                    "Robinhood",
+                    "Voorwaarts",
+                    "Sea Boys",
+                    "Leo Victor"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "NORTH_AMERICA/SUR/2627/NATIONAL_CUP.json#block111Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
           "status": "I",

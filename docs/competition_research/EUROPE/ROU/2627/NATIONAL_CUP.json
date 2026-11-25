@@ -512,6 +512,3268 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "454f16a321292c547de7023309d6e0e4ba3602607d1eb866512923d04e7bbcf6": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "35",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-22",
+              "max_date": "2010-04-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-21",
+              "max_date": "2011-05-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-20",
+              "max_date": "2012-04-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-25",
+              "max_date": "2013-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-24",
+              "max_date": "2014-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-23",
+              "max_date": "2015-04-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-09-22",
+              "max_date": "2016-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-10-25",
+              "max_date": "2017-05-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-10-24",
+              "max_date": "2018-05-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-25",
+              "max_date": "2019-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-08",
+              "max_date": "2020-06-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-09",
+              "max_date": "2021-05-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "31",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2021-09-21",
+              "max_date": "2022-05-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-04",
+              "max_date": "2023-04-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-02",
+              "max_date": "2024-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "9",
+              "unique_oriented_pairs": "9",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-23",
+              "max_date": "2025-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-03-03",
+              "max_date": "2026-04-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "1995/96",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-03-13",
+              "max_date": "1996-04-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "46",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-22",
+              "max_date": "2010-05-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "33",
+              "unique_oriented_pairs": "33",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "33",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-21",
+              "max_date": "2011-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "41",
+              "rows": "40",
+              "unique_oriented_pairs": "40",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "40",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-20",
+              "max_date": "2012-05-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-25",
+              "max_date": "2013-06-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-24",
+              "max_date": "2014-06-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-23",
+              "max_date": "2015-06-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-09-22",
+              "max_date": "2016-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "41",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-10-25",
+              "max_date": "2017-05-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-10-24",
+              "max_date": "2018-05-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-25",
+              "max_date": "2019-05-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-08",
+              "max_date": "2020-06-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-02-09",
+              "max_date": "2021-06-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "46",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2021-09-21",
+              "max_date": "2022-06-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "23",
+              "rows": "21",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "21",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-03-11",
+              "max_date": "2023-06-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "9",
+              "unique_oriented_pairs": "9",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-02",
+              "max_date": "2024-06-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-23",
+              "max_date": "2025-06-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa României",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-03-03",
+              "max_date": "2026-04-23"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesr/roem2023.txt",
+                "edition": "2022/2023",
+                "tableLine": 769,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 24,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ACS Campionii FC Argeș",
+                  "ACS Petrolul 52 Ploiești",
+                  "ACS Suporter C. Oțelul Galați",
+                  "AFC Chindia Târgoviște",
+                  "AFC Hermannstadt (Sibiu)",
+                  "AFC UTA Arad",
+                  "AFC Unirea 04 Slobozia",
+                  "AS FC Universitatea Cluj",
+                  "CFR 1907 Cluj",
+                  "CS Minaur Baia Mare",
+                  "CS Mioveni",
+                  "CS Ocna Mureș",
+                  "CS Universitatea Craiova",
+                  "CSC Dumbrăvița",
+                  "CSM Alexandria",
+                  "FC Botoșani",
+                  "FCSB",
+                  "Farul Constanța",
+                  "Fotbal Club Rapid",
+                  "Gloria Buzău",
+                  "SC Dinamo 1948 SA (București)",
+                  "SC FC Voluntari SA",
+                  "Sepsi OSK Sfântu Gheorghe",
+                  "U Craiova 1948 SA"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesr/roem2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 768,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 24,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ACS Petrolul 52 Ploiești",
+                  "ACS Progresul Pecica",
+                  "ACS Suporter C. Oțelul Galați",
+                  "AFC Chindia Târgoviște",
+                  "AFC Hermannstadt (Sibiu)",
+                  "AFC UTA Arad",
+                  "AS FC Universitatea Cluj",
+                  "CFR 1907 Cluj",
+                  "CS Corvinul 1921 Hunedoara",
+                  "CS Tunari",
+                  "CS Universitatea Craiova",
+                  "CSA Steaua București",
+                  "CSM Alexandria",
+                  "FC Bihor Oradea",
+                  "FC Botoșani",
+                  "FCSB",
+                  "Farul Constanța",
+                  "Fotbal Club Rapid",
+                  "Gloria Buzău",
+                  "SC Dinamo 1948 SA (București)",
+                  "SC FC Voluntari SA",
+                  "SCM Zalău",
+                  "Sepsi OSK Sfântu Gheorghe",
+                  "U Craiova 1948 SA"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesr/roem2025.txt",
+                "edition": "2024/2025",
+                "tableLine": 765,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ACS Campionii FC Argeș",
+                  "ACS Petrolul 52 Ploiești",
+                  "ACSM Ceahlăul Piatra Neamț",
+                  "ACSM Politehnica Iași",
+                  "AFC Metalul Buzău",
+                  "AFC UTA Arad",
+                  "AS FC Agricola Borcea",
+                  "CFR 1907 Cluj",
+                  "CS Afumați",
+                  "CS Sănătatea Servicii Publice",
+                  "CS Universitatea Craiova",
+                  "FC Botoșani",
+                  "FCSB",
+                  "Farul Constanța",
+                  "Fotbal Club Rapid",
+                  "SC Dinamo 1948 SA (București)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesr/roem2025.txt",
+                "edition": "2024/2025",
+                "tableLine": 793,
+                "phase": "Playoff for 2nd Place",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ACS Suporter C. Oțelul Galați",
+                  "AFK Csíkszereda (Mierc. Ciuc)",
+                  "CS Muncitoresc Reșița",
+                  "SCM Râmnicu Vâlcea",
+                  "Sepsi OSK Sfântu Gheorghe"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesr/roem2026.txt",
+                "edition": "2025/2026",
+                "tableLine": 120,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 24,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ACS Campionii FC Argeș",
+                  "ACS Petrolul 52 Ploiești",
+                  "ACS Suporter C. Oțelul Galați",
+                  "AFC Hermannstadt (Sibiu)",
+                  "AFC Metalul Buzău",
+                  "AFC UTA Arad",
+                  "AFK Csíkszereda (Mierc. Ciuc)",
+                  "AS FC Universitatea Cluj",
+                  "CFR 1907 Cluj",
+                  "CS Concordia Chiajna",
+                  "CS Dinamo București",
+                  "CS Gloria 2018 Bistrița",
+                  "CS Universitatea Craiova",
+                  "CSC Dumbrăvița",
+                  "CSM Slatina",
+                  "FC Botoșani",
+                  "FC Metaloglobus București",
+                  "FCSB",
+                  "Farul Constanța",
+                  "Fotbal Club Rapid",
+                  "SC Dinamo 1948 SA (București)",
+                  "Sepsi OSK Sfântu Gheorghe",
+                  "Sporting Liești",
+                  "Sănătatea Cluj"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem-wom2012.txt:52",
+                "excerpt": "Round ?"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "Sepsi OSK Sfântu Gheorghe",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:769"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 0,
+                  "gf": 2,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "U Craiova 1948 SA",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:770"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "SC FC Voluntari SA",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:771"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "SC Dinamo 1948 SA (București)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:772"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "AFC Unirea 04 Slobozia",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:773"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "ACS Petrolul 52 Ploiești",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:774"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "AFC UTA Arad",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:777"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "CS Mioveni",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:778"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "FCSB",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:779"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "FC Botoșani",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:780"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "Gloria Buzău",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:781"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "ACS Suporter C. Oțelul Galați",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:782"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "CFR 1907 Cluj",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:785"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "AS FC Universitatea Cluj",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:786"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "Farul Constanța",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:787"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "Fotbal Club Rapid",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:788"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "CSC Dumbrăvița",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:789"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "CSM Alexandria",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:790"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "AFC Hermannstadt (Sibiu)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:793"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "ACS Campionii FC Argeș",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:794"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "CS Minaur Baia Mare",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:795"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "CS Universitatea Craiova",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:796"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "CS Ocna Mureș",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:797"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 769
+                  },
+                  "team": "AFC Chindia Târgoviște",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2023.txt:798"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 9,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "CS Corvinul 1921 Hunedoara",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:768"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "AFC Hermannstadt (Sibiu)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:769"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "ACS Petrolul 52 Ploiești",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:770"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "Sepsi OSK Sfântu Gheorghe",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:771"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 0,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "AFC Chindia Târgoviște",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:772"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 1,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "ACS Progresul Pecica",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:773"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "AS FC Universitatea Cluj",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:776"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "CFR 1907 Cluj",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:777"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "Fotbal Club Rapid",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:778"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "CSA Steaua București",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:779"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "CSM Alexandria",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:780"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "FC Botoșani",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:781"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "U Craiova 1948 SA",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:784"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "ACS Suporter C. Oțelul Galați",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:785"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "FCSB",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:786"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "SC Dinamo 1948 SA (București)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:787"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "SCM Zalău",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:788"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "FC Bihor Oradea",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:789"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "CS Universitatea Craiova",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:792"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "SC FC Voluntari SA",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:793"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "AFC UTA Arad",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:794"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "Gloria Buzău",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:795"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "CS Tunari",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:796"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 0,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 768
+                  },
+                  "team": "Farul Constanța",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2024.txt:797"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "CFR 1907 Cluj",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:765"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "Fotbal Club Rapid",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:766"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "FC Botoșani",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:767"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "CS Afumați",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:768"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "ACSM Ceahlăul Piatra Neamț",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:769"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "ACS Campionii FC Argeș",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:770"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 0,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "AFC Metalul Buzău",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:773"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "CS Universitatea Craiova",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:774"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "FCSB",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:775"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "ACS Petrolul 52 Ploiești",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:776"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 0,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "SC Dinamo 1948 SA (București)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:777"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 1,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "AS FC Agricola Borcea",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:778"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "Farul Constanța",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:781"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "Playoff for 2nd Place",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "ACSM Politehnica Iași",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:782"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:783",
+                "excerpt": "AFC Hermannstadt (Sibiu)       3   1  2  0   3- 2   5  Playoff for 2nd Place"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "CS Sănătatea Servicii Publice",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:784"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 765
+                  },
+                  "team": "AFC UTA Arad",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:786"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:790",
+                "excerpt": "NB: AFC Hermannstadt qualified for quarterfinals"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Playoff for 1st Place",
+                  "phase": "Playoff for 2nd Place",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 793
+                  },
+                  "team": "CS Muncitoresc Reșița",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:793"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:794",
+                "excerpt": "CSM Unirea Alba Iulia          3   2  1  0   4- 1   7  Playoff for 1st Place"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 2,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Playoff for 2nd Place",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 793
+                  },
+                  "team": "AFK Csíkszereda (Mierc. Ciuc)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:795"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Playoff for 2nd Place",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 793
+                  },
+                  "team": "ACS Suporter C. Oțelul Galați",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:796"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Playoff for 2nd Place",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 793
+                  },
+                  "team": "Sepsi OSK Sfântu Gheorghe",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:797"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Playoff for 2nd Place",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 793
+                  },
+                  "team": "SCM Râmnicu Vâlcea",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:798"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2025.txt:802",
+                "excerpt": "NB: both qualified for quarterfinals"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "ACS Campionii FC Argeș",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:120"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "CFR 1907 Cluj",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:121"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "Fotbal Club Rapid",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:122"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "CSC Dumbrăvița",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:123"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "FC Metaloglobus București",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:124"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "CSM Slatina",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:125"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "CS Universitatea Craiova",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:128"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "CS Gloria 2018 Bistrița",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:129"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "AFC UTA Arad",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:130"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "ACS Petrolul 52 Ploiești",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:131"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "FCSB",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:132"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "Sănătatea Cluj",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:133"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "AS FC Universitatea Cluj",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:136"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "AFC Metalul Buzău",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:137"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "ACS Suporter C. Oțelul Galați",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:138"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "AFK Csíkszereda (Mierc. Ciuc)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:139"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "Sepsi OSK Sfântu Gheorghe",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:140"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "Sporting Liești",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:141"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "SC Dinamo 1948 SA (București)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:144"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "Quarterfinals",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "AFC Hermannstadt (Sibiu)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:145"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "Farul Constanța",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:146"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "FC Botoșani",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:147"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "CS Concordia Chiajna",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:148"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 1,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "CS Dinamo București",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesr/roem2026.txt:149"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "regional": {
+                    "zones": 7,
+                    "groupsPerZone": 2,
+                    "teamsPerGroup": 3,
+                    "gamesPerClub": 2,
+                    "zoneFinalLegs": 1,
+                    "qualifiers": 7
+                  },
+                  "nationalRound1": {
+                    "entrants": 72,
+                    "priorTier3": 65,
+                    "regionalWinners": 7,
+                    "matches": 36
+                  },
+                  "groupStage": {
+                    "teams": 24,
+                    "groups": 4,
+                    "teamsPerGroup": 6,
+                    "pots": 3,
+                    "gamesPerClub": 3,
+                    "directTopTierPreviousRanks": [
+                      1,
+                      8
+                    ],
+                    "playoffWinners": 16,
+                    "minimumHomeGames": 1,
+                    "oneOpponentEachPot": true,
+                    "pot1Pot2HomeAwayBalance": true,
+                    "atLeastOnePot1VsPot1MatchAcrossGroupsEachRound": true,
+                    "pot3Pairing": "geographic pairs before group draw",
+                    "rankSlotSchedule": {
+                      "A": [
+                        [
+                          "3B-1A",
+                          "3A-1B",
+                          "2B-2A"
+                        ],
+                        [
+                          "2A-1A",
+                          "1B-2B",
+                          "3A-3B"
+                        ],
+                        [
+                          "1A-1B",
+                          "3B-2A",
+                          "3A-2B"
+                        ]
+                      ],
+                      "B": [
+                        [
+                          "2A-1A",
+                          "1B-2B",
+                          "3A-3B"
+                        ],
+                        [
+                          "1A-1B",
+                          "3B-2A",
+                          "3A-2B"
+                        ],
+                        [
+                          "3B-1A",
+                          "3A-1B",
+                          "2B-2A"
+                        ]
+                      ],
+                      "C": [
+                        [
+                          "1A-1B",
+                          "3B-2A",
+                          "3A-2B"
+                        ],
+                        [
+                          "3B-1A",
+                          "3A-1B",
+                          "2B-2A"
+                        ],
+                        [
+                          "2A-1A",
+                          "1B-2B",
+                          "3A-3B"
+                        ]
+                      ],
+                      "D": [
+                        [
+                          "3B-1A",
+                          "3A-1B",
+                          "2B-2A"
+                        ],
+                        [
+                          "2A-1A",
+                          "1B-2B",
+                          "3A-3B"
+                        ],
+                        [
+                          "1A-1B",
+                          "3B-2A",
+                          "3A-2B"
+                        ]
+                      ]
+                    },
+                    "rankSlotEncoding": "first slot is host; pot3-involved matches use lower tier or worse previous rank hosting per article 4.8"
+                  },
+                  "knockoutLegs": 1,
+                  "nationalRound2ObservedWinners": 25,
+                  "nationalRound3ObservedWinners": 24,
+                  "playoff": {
+                    "entrants": 32,
+                    "fromRound3": 24,
+                    "newCurrentTier1": 8,
+                    "winners": 16
+                  },
+                  "preGroupHost": "lower tier; if equal tier worse previous league ranking",
+                  "knockoutTieResolutionObserved": "extra time then penalties"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ROU/2627/NATIONAL_CUP.json#block76Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

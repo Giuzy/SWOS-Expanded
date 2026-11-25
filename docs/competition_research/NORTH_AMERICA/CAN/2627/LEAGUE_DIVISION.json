@@ -585,6 +585,92 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "a98c889148194194baf1c4de60956ad663f5e54943ffad95568469d7e7d48621": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Canadian Premier League",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "7",
+              "rows": "100",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2019-04-27",
+              "max_date": "2019-11-02"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Canadian Premier League",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "8",
+              "rows": "35",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "5",
+              "min_date": "2020-08-13",
+              "max_date": "2020-09-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Canadian Premier League",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "8",
+              "rows": "115",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2021-06-26",
+              "max_date": "2021-12-05"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Canadian Premier League",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "8",
+              "rows": "116",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2022-04-07",
+              "max_date": "2022-10-23"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2019",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2019.txt:82",
+                "excerpt": "played as a spring and a fall season with winners of each qualifying for the"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -599,6 +599,3493 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "f8d46ba2bbf4a0406333100650511105c7f27759ee703d0976e27d24832d7526": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "I. Liga",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "197",
+              "unique_oriented_pairs": "133",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "197",
+              "duplicate_pair_occurrences": "64",
+              "min_date": "2008-07-19",
+              "max_date": "2009-06-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "I. Liga",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "157",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "157",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2009-07-11",
+              "max_date": "2010-05-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "I. Liga",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "102",
+              "unique_oriented_pairs": "102",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "102",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-17",
+              "max_date": "2010-11-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "120",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-07-24",
+              "max_date": "1999-11-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "210",
+              "unique_oriented_pairs": "174",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "2000-03-10",
+              "max_date": "2000-11-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "179",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2001-02-24",
+              "max_date": "2001-11-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "180",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "72",
+              "min_date": "2002-02-23",
+              "max_date": "2002-11-24"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "177",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "70",
+              "min_date": "2003-03-01",
+              "max_date": "2003-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "183",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "75",
+              "min_date": "2004-02-21",
+              "max_date": "2004-11-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "11",
+              "rows": "190",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2005-03-15",
+              "max_date": "2005-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "212",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "64",
+              "min_date": "2006-03-04",
+              "max_date": "2006-11-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "220",
+              "unique_oriented_pairs": "168",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "52",
+              "min_date": "2007-03-02",
+              "max_date": "2007-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "198",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2008-02-29",
+              "max_date": "2008-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "204",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2009-03-07",
+              "max_date": "2009-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "192",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "57",
+              "min_date": "2010-02-27",
+              "max_date": "2010-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "198",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2011-02-25",
+              "max_date": "2011-11-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "204",
+              "unique_oriented_pairs": "141",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "63",
+              "min_date": "2012-03-03",
+              "max_date": "2012-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "198",
+              "unique_oriented_pairs": "140",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2013-03-01",
+              "max_date": "2013-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "196",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "58",
+              "min_date": "2014-03-01",
+              "max_date": "2014-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "199",
+              "unique_oriented_pairs": "146",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "2015-02-27",
+              "max_date": "2015-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "197",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2016-02-26",
+              "max_date": "2016-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "185",
+              "unique_oriented_pairs": "126",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2017-02-18",
+              "max_date": "2017-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "189",
+              "unique_oriented_pairs": "127",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2018-02-17",
+              "max_date": "2018-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "192",
+              "unique_oriented_pairs": "133",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "59",
+              "min_date": "2019-02-16",
+              "max_date": "2019-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "162",
+              "unique_oriented_pairs": "113",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "49",
+              "min_date": "2020-02-15",
+              "max_date": "2020-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "204",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "69",
+              "min_date": "2021-02-06",
+              "max_date": "2021-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "189",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2022-02-11",
+              "max_date": "2022-11-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "195",
+              "unique_oriented_pairs": "134",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "61",
+              "min_date": "2023-02-10",
+              "max_date": "2023-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "192",
+              "unique_oriented_pairs": "132",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "60",
+              "min_date": "2024-02-09",
+              "max_date": "2024-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "slovakia",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "13",
+              "rows": "132",
+              "unique_oriented_pairs": "101",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2025-02-08",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "SVK DIV1",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "157",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "157",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2009-07-11",
+              "max_date": "2010-05-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "SVK DIV1",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "101",
+              "unique_oriented_pairs": "101",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "101",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-17",
+              "max_date": "2010-11-21"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow-wom00.txt",
+                "edition": "1999/2000",
+                "tableLine": 9,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Beluša",
+                  "FC Campri Nitra",
+                  "Holíč",
+                  "Slovan Bratislava",
+                  "Spoje Bratislava",
+                  "Trnava"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow09.txt",
+                "edition": "2008/2009",
+                "tableLine": 644,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AS Trenčín",
+                  "DAC Dunajská Streda B",
+                  "FC Rimavská Sobota",
+                  "HFC Humenné",
+                  "HFK Prievidza",
+                  "Inter Bratislava",
+                  "LAFC Lučenec",
+                  "MFK Košice B",
+                  "MFK Ružomberok B",
+                  "MFK Zemplín Michalovce",
+                  "Slovan Duslo Šaľa",
+                  "ŽP Šport Podbrezová"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 515,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AS Trenčín",
+                  "FC ViOn Zlaté Moravce",
+                  "FK Púchov",
+                  "LAFC Lučenec",
+                  "MFK Dolný Kubín",
+                  "MFK Ružomberok B",
+                  "MFK Tatran AOS Liptovský Mikuláš",
+                  "MFK Zemplín Michalovce",
+                  "MSK Rimavská Sobota",
+                  "Slovan Duslo Šaľa"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow2010.txt",
+                "edition": "2009/2010",
+                "tableLine": 824,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AS Trenčín",
+                  "FC ViOn Zlaté Moravce",
+                  "FK Púchov",
+                  "LAFC Lučenec",
+                  "MFK Dolný Kubín",
+                  "MFK Ružomberok B",
+                  "MFK Tatran AOS Liptovský Mikuláš",
+                  "MFK Zemplín Michalovce",
+                  "MSK Rimavská Sobota",
+                  "Slovan Duslo Šaľa"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow2011.txt",
+                "edition": "2010/2011",
+                "tableLine": 276,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AS Trenčín",
+                  "FC Petržalka 1898",
+                  "FK Bodva Moldava nad Bodvou",
+                  "FK Púchov",
+                  "LAFC Lučenec",
+                  "MFK Dolný Kubín",
+                  "MFK Ružomberok B",
+                  "MFK Tatran AOS Liptovský Mikuláš",
+                  "MFK Zemplín Michalovce",
+                  "MŠK Rimavská Sobota",
+                  "Slovan Duslo Šaľa",
+                  "ŠK SFM Senec"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow2011.txt",
+                "edition": "2010/2011",
+                "tableLine": 90,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AS Trenčín",
+                  "FC Petržalka 1898",
+                  "FK Bodva Moldava nad Bodvou",
+                  "FK Púchov",
+                  "LAFC Lučenec",
+                  "MFK Dolný Kubín",
+                  "MFK Ružomberok B",
+                  "MFK Tatran AOS Liptovský Mikuláš",
+                  "MFK Zemplín Michalovce",
+                  "MŠK Rimavská Sobota",
+                  "Slovan Duslo Šaľa",
+                  "ŠK SFM Senec"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 94,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Petržalka 1898",
+                  "FK Bodva Moldava nad Bodvou",
+                  "FO ŽP Šport Podbrezová",
+                  "LAFC Lučenec",
+                  "MFK Dolný Kubín",
+                  "MFK Dubnica",
+                  "MFK Ružomberok B",
+                  "MFK Zemplín Michalovce",
+                  "MŠK Rimavská Sobota",
+                  "TJ Spartak Myjava",
+                  "Tatran Liptovský Mikuláš",
+                  "ŠK SFM Senec"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow2013.txt",
+                "edition": "2012/2013",
+                "tableLine": 443,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC ŠTK 1914 Šamorin",
+                  "FK DAC Dunajská Streda",
+                  "FK Slovan Duslo Šaľa",
+                  "MFK Dolný Kubín",
+                  "MFK Dubnica nad Váhom",
+                  "MFK Tatran Liptovský Mikuláš",
+                  "MFK Zemplin Michalovce",
+                  "MŠK Rimavská Sobota",
+                  "Partizán Bardejov",
+                  "TJ Banik Ružiná",
+                  "ŠK SFM Senec",
+                  "ŽP Šport Podbrezová"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/slow2014.txt",
+                "edition": "2013/2014",
+                "tableLine": 438,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  ".1. FC Tatran Prešov",
+                  "FC Spartak Trnava B",
+                  "FC ŠTK 1914 Šamorin",
+                  "FK Slovan Duslo Šaľa",
+                  "FKP Žiar nad Hronom Dolná Ždaňa",
+                  "MFK Dubnica nad Váhom",
+                  "MFK Tatran Liptovský Mikuláš",
+                  "MFK Zemplín Michalovce",
+                  "MŠK Rimavská Sobota",
+                  "Partizán Bardejov",
+                  "ŠK SFM Senec",
+                  "ŽP Šport Podbrezová"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [
+              {
+                "from": "2008/2009",
+                "to": "2009/2010",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 10,
+                "newLabels": [
+                  "FC ViOn Zlaté Moravce",
+                  "FK Púchov",
+                  "MFK Dolný Kubín",
+                  "MFK Tatran AOS Liptovský Mikuláš",
+                  "MSK Rimavská Sobota"
+                ],
+                "missingLabels": [
+                  "DAC Dunajská Streda B",
+                  "FC Rimavská Sobota",
+                  "HFC Humenné",
+                  "HFK Prievidza",
+                  "Inter Bratislava",
+                  "MFK Košice B",
+                  "ŽP Šport Podbrezová"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2009/2010",
+                "to": "2010/2011",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 10,
+                "newTeamCount": 12,
+                "newLabels": [
+                  "FC Petržalka 1898",
+                  "FK Bodva Moldava nad Bodvou",
+                  "ŠK SFM Senec"
+                ],
+                "missingLabels": [
+                  "FC ViOn Zlaté Moravce"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2010/2011",
+                "to": "2011/2012",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 12,
+                "newLabels": [
+                  "FO ŽP Šport Podbrezová",
+                  "MFK Dubnica",
+                  "TJ Spartak Myjava",
+                  "Tatran Liptovský Mikuláš"
+                ],
+                "missingLabels": [
+                  "AS Trenčín",
+                  "FK Púchov",
+                  "MFK Tatran AOS Liptovský Mikuláš",
+                  "Slovan Duslo Šaľa"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2011/2012",
+                "to": "2012/2013",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 12,
+                "newLabels": [
+                  "FC ŠTK 1914 Šamorin",
+                  "FK DAC Dunajská Streda",
+                  "FK Slovan Duslo Šaľa",
+                  "MFK Dubnica nad Váhom",
+                  "MFK Tatran Liptovský Mikuláš",
+                  "Partizán Bardejov",
+                  "TJ Banik Ružiná",
+                  "ŽP Šport Podbrezová"
+                ],
+                "missingLabels": [
+                  "FC Petržalka 1898",
+                  "FK Bodva Moldava nad Bodvou",
+                  "FO ŽP Šport Podbrezová",
+                  "LAFC Lučenec",
+                  "MFK Dubnica",
+                  "MFK Ružomberok B",
+                  "TJ Spartak Myjava",
+                  "Tatran Liptovský Mikuláš"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              },
+              {
+                "from": "2012/2013",
+                "to": "2013/2014",
+                "source": "rsssf-deep/corpus.zip",
+                "phase": "",
+                "oldTeamCount": 12,
+                "newTeamCount": 12,
+                "newLabels": [
+                  ".1. FC Tatran Prešov",
+                  "FC Spartak Trnava B",
+                  "FKP Žiar nad Hronom Dolná Ždaňa"
+                ],
+                "missingLabels": [
+                  "FK DAC Dunajská Streda",
+                  "MFK Dolný Kubín",
+                  "TJ Banik Ružiná"
+                ],
+                "status": "OBSERVED_MEMBERSHIP_NOT_PROOF_OF_PROMOTION_RELEGATION_OR_RENAME"
+              }
+            ],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1999/00",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 98,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 56,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 9
+                  },
+                  "team": "Slovan Bratislava",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow-wom00.txt:11"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 22,
+                  "gf": 55,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 35,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 9
+                  },
+                  "team": "FC Campri Nitra",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow-wom00.txt:12"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 24,
+                  "gf": 53,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 33,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 9
+                  },
+                  "team": "Spoje Bratislava",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow-wom00.txt:13"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 42,
+                  "gf": 24,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 24,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 9
+                  },
+                  "team": "Trnava",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow-wom00.txt:14"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 83,
+                  "gf": 13,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 12,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 9
+                  },
+                  "team": "Beluša",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow-wom00.txt:15"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 77,
+                  "gf": 13,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 20,
+                  "points": 9,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 9
+                  },
+                  "team": "Holíč",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow-wom00.txt:16"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:646 Author: Miroslav Samák",
+                "excerpt": "1.Inter Bratislava         33 19 10  4  64-27  67  Promoted"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:658 Author: Miroslav Samák",
+                "excerpt": "11.MFK Košice B             33  6  8 19  32-57  26  Relegated"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:659 Author: Miroslav Samák",
+                "excerpt": "12.DAC Dunajská Streda B    33  2  4 27  18-92  10  [*]  Relegated"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 27,
+                  "gf": 64,
+                  "lost": 4,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 33,
+                  "points": 67,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "Inter Bratislava",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:646"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 27,
+                  "gf": 74,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 66,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "AS Trenčín",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:648"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 24,
+                  "gf": 51,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 65,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "ŽP Šport Podbrezová",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:649"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 44,
+                  "gf": 54,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 55,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "LAFC Lučenec",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:650"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 29,
+                  "gf": 37,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 49,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "FC Rimavská Sobota",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:651"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 40,
+                  "gf": 43,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "HFK Prievidza",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:652"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 43,
+                  "gf": 35,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 45,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "Slovan Duslo Šaľa",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:653"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 52,
+                  "gf": 49,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 43,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "MFK Ružomberok B",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:654"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 48,
+                  "gf": 42,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "MFK Zemplín Michalovce",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:655"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 51,
+                  "gf": 35,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 39,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "HFC Humenné",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:656"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 57,
+                  "gf": 32,
+                  "lost": 19,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 26,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "MFK Košice B",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:658"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 92,
+                  "gf": 18,
+                  "lost": 27,
+                  "note": "[*]  Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 10,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 644
+                  },
+                  "team": "DAC Dunajská Streda B",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow09.txt:659"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:517 Author: Miroslav Samák",
+                "excerpt": "1.FC ViOn Zlaté Moravce            27 18  5  4 54-21  59  Promoted"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 21,
+                  "gf": 54,
+                  "lost": 4,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 27,
+                  "points": 59,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "FC ViOn Zlaté Moravce",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:517"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 21,
+                  "gf": 53,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "AS Trenčín",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:519"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 31,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 50,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "FK Púchov",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:520"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 28,
+                  "gf": 36,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 38,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "LAFC Lučenec",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:521"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 31,
+                  "gf": 39,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 37,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "MFK Dolný Kubín",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:522"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 33,
+                  "gf": 23,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 30,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "MFK Zemplín Michalovce",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:523"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 45,
+                  "gf": 23,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 29,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "MFK Ružomberok B",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:524"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 36,
+                  "gf": 21,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 28,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "MSK Rimavská Sobota",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:525"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 42,
+                  "gf": 27,
+                  "lost": 15,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "MFK Tatran AOS Liptovský Mikuláš",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:526"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 41,
+                  "gf": 15,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 23,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 515
+                  },
+                  "team": "Slovan Duslo Šaľa",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:527"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:534",
+                "excerpt": "[*] HFC Humenné withdrew from 2nd level and were replaced by"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:581",
+                "excerpt": "NB: Podbrezová withdrew after 5 rounds; their results were"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 21,
+                  "gf": 54,
+                  "lost": 4,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 27,
+                  "points": 59,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "FC ViOn Zlaté Moravce",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:826"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 21,
+                  "gf": 53,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 50,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "AS Trenčín",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:828"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 31,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 50,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "FK Púchov",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:829"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 28,
+                  "gf": 36,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 38,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "LAFC Lučenec",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:830"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 31,
+                  "gf": 39,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 37,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "MFK Dolný Kubín",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:831"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 33,
+                  "gf": 23,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 30,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "MFK Zemplín Michalovce",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:832"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 45,
+                  "gf": 23,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 29,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "MFK Ružomberok B",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:833"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 36,
+                  "gf": 21,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 28,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "MSK Rimavská Sobota",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:834"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 42,
+                  "gf": 27,
+                  "lost": 15,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 27,
+                  "points": 26,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "MFK Tatran AOS Liptovský Mikuláš",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:835"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 41,
+                  "gf": 15,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 27,
+                  "points": 23,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 824
+                  },
+                  "team": "Slovan Duslo Šaľa",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2010.txt:836"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:104 ",
+                "excerpt": "11.Slovan Duslo Šaľa                33   9  6 18  24-44  33  Relegated"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:105 ",
+                "excerpt": "12.FK Púchov                        33   6  4 23  24-77  22  Relegated"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:92 ",
+                "excerpt": "1.AS Trenčín                       33  22  6  5  77-30  72  Promoted"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 38,
+                  "gf": 45,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "MFK Dolný Kubín",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:100"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 48,
+                  "gf": 41,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "LAFC Lučenec",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:101"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 44,
+                  "gf": 37,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "MFK Ružomberok B",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:102"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 44,
+                  "gf": 24,
+                  "lost": 18,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 33,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "Slovan Duslo Šaľa",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:104"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 77,
+                  "gf": 24,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 22,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "FK Púchov",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:105"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 77,
+                  "lost": 5,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 33,
+                  "points": 72,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "AS Trenčín",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:278"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 35,
+                  "gf": 41,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 54,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "MŠK Rimavská Sobota",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:280"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 36,
+                  "gf": 55,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 51,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "FC Petržalka 1898",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:281"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 48,
+                  "gf": 51,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 51,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "MFK Zemplín Michalovce",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:282"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "ŠK SFM Senec",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:283"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 44,
+                  "gf": 43,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "MFK Tatran AOS Liptovský Mikuláš",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:284"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 40,
+                  "gf": 46,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 47,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "FK Bodva Moldava nad Bodvou",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:285"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 38,
+                  "gf": 45,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "MFK Dolný Kubín",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:286"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 48,
+                  "gf": 41,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "LAFC Lučenec",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:287"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 44,
+                  "gf": 37,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "MFK Ružomberok B",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:288"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 44,
+                  "gf": 24,
+                  "lost": 18,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 33,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "Slovan Duslo Šaľa",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:290"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 77,
+                  "gf": 24,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 22,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 276
+                  },
+                  "team": "FK Púchov",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:291"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 30,
+                  "gf": 77,
+                  "lost": 5,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 33,
+                  "points": 72,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "AS Trenčín",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:92"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 35,
+                  "gf": 41,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 54,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "MŠK Rimavská Sobota",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:94"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 36,
+                  "gf": 55,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 51,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "FC Petržalka 1898",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:95"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 48,
+                  "gf": 51,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 51,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "MFK Zemplín Michalovce",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:96"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "ŠK SFM Senec",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:97"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 44,
+                  "gf": 43,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "MFK Tatran AOS Liptovský Mikuláš",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:98"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 40,
+                  "gf": 46,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 47,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 90
+                  },
+                  "team": "FK Bodva Moldava nad Bodvou",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2011.txt:99"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 33,
+                  "gf": 41,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 50,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "ŠK SFM Senec",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:100"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 42,
+                  "gf": 42,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 48,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "MŠK Rimavská Sobota",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:101"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 46,
+                  "gf": 41,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "MFK Zemplín Michalovce",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:102"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 42,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 45,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "MFK Ružomberok B",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:103"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 31,
+                  "gf": 32,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 43,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "MFK Dubnica",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:104"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 15,
+                  "ga": 35,
+                  "gf": 30,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 42,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "FK Bodva Moldava nad Bodvou",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:105"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 48,
+                  "gf": 34,
+                  "lost": 18,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 35,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "Tatran Liptovský Mikuláš",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:106"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 65,
+                  "gf": 26,
+                  "lost": 21,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 24,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "LAFC Lučenec",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:108"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 54,
+                  "gf": 22,
+                  "lost": 22,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 19,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "FC Petržalka 1898",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:109"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 16,
+                  "gf": 64,
+                  "lost": 2,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 33,
+                  "points": 71,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "TJ Spartak Myjava",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:96"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 19,
+                  "gf": 53,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 65,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "FO ŽP Šport Podbrezová",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:98"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 42,
+                  "gf": 43,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 51,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 94
+                  },
+                  "team": "MFK Dolný Kubín",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2012.txt:99"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 26,
+                  "gf": 41,
+                  "lost": 6,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 33,
+                  "points": 65,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "FK DAC Dunajská Streda",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:445"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 20,
+                  "gf": 45,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 61,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "ŽP Šport Podbrezová",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:447"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 32,
+                  "gf": 48,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 57,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "ŠK SFM Senec",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:448"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 36,
+                  "gf": 41,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 53,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "Partizán Bardejov",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:449"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 41,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 43,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "MFK Zemplin Michalovce",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:450"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 32,
+                  "gf": 29,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "FC ŠTK 1914 Šamorin",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:451"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 45,
+                  "gf": 41,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "FK Slovan Duslo Šaľa",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:452"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 38,
+                  "gf": 31,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 41,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "MFK Dubnica nad Váhom",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:453"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 47,
+                  "gf": 39,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 40,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "MŠK Rimavská Sobota",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:454"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 39,
+                  "gf": 26,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 36,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "MFK Tatran Liptovský Mikuláš",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:455"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 42,
+                  "gf": 34,
+                  "lost": 13,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 34,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "MFK Dolný Kubín",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:457"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 54,
+                  "gf": 38,
+                  "lost": 17,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 33,
+                  "points": 30,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 443
+                  },
+                  "team": "TJ Banik Ružiná",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:458"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2013.txt:460",
+                "excerpt": "Promoted: FK Žiar nad Hronom, FC Spartak Trnava B"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 16,
+                  "gf": 64,
+                  "lost": 3,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 33,
+                  "points": 82,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "ŽP Šport Podbrezová",
+                  "won": 26
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:440"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 25,
+                  "gf": 49,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 61,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "Partizán Bardejov",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:442"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 28,
+                  "gf": 55,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 61,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "MFK Zemplín Michalovce",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:443"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 28,
+                  "gf": 56,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 60,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": ".1. FC Tatran Prešov",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:444"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 32,
+                  "gf": 39,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 49,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "ŠK SFM Senec",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:445"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 64,
+                  "gf": 57,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 39,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "FC Spartak Trnava B",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:446"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 39,
+                  "gf": 32,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 38,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "MŠK Rimavská Sobota",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:447"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 64,
+                  "gf": 30,
+                  "lost": 18,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 35,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "MFK Dubnica nad Váhom",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:448"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 60,
+                  "gf": 38,
+                  "lost": 19,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 34,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "FKP Žiar nad Hronom Dolná Ždaňa",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:449"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 45,
+                  "gf": 30,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 32,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "FK Slovan Duslo Šaľa",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:450"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 55,
+                  "gf": 33,
+                  "lost": 18,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 31,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "FC ŠTK 1914 Šamorin",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:451"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 52,
+                  "gf": 25,
+                  "lost": 19,
+                  "note": "",
+                  "phase": "",
+                  "played": 33,
+                  "points": 28,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 438
+                  },
+                  "team": "MFK Tatran Liptovský Mikuláš",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:452"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slow2014.txt:454",
+                "excerpt": "NB: no relegation as second level was extended to 24 clubs"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 12,
+                  "regularRounds": 2,
+                  "regularGamesPerClub": 22,
+                  "split": [
+                    6,
+                    6
+                  ],
+                  "splitRounds": 2,
+                  "gamesPerClub": 32,
+                  "pointsCarried": "full",
+                  "relegatedDirect": [
+                    12
+                  ],
+                  "relegationPlayoff": {
+                    "rank": 11,
+                    "opponentTier": 2,
+                    "opponentRank": 2,
+                    "legs": 2,
+                    "firstHome": "tier2"
+                  }
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SVK/2627/LEAGUE_DIVISION.json#block75Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

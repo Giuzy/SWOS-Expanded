@@ -141,6 +141,3863 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "3c21cf27e23f5cf0f30faae17ca76280a8c7156250c5bb0252e44cfae4fec652": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liiga Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-03-10",
+              "max_date": "2015-03-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liigacup",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-04-10",
+              "max_date": "2010-04-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liigacup 2006",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-02-04",
+              "max_date": "2006-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Liigacup",
+              "season": "2006",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "86",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "86",
+              "duplicate_pair_occurrences": "43",
+              "min_date": "2006-02-04",
+              "max_date": "2006-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Liigacup",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "98",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "98",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2007-02-02",
+              "max_date": "2007-04-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Liigacup",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-01-25",
+              "max_date": "2008-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Liigacup",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-03-21",
+              "max_date": "2009-04-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Liigacup",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-04-10",
+              "max_date": "2010-04-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Liigacup",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-03-10",
+              "max_date": "2015-03-18"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin06.txt",
+                "edition": "2006",
+                "tableLine": 1041,
+                "phase": "Group I",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "FC KooTeePee (Kotka)",
+                  "FC Lahti",
+                  "HJK (Helsinki)",
+                  "IFK Mariehamn",
+                  "MyPa-47 (Anjalankoski)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin06.txt",
+                "edition": "2006",
+                "tableLine": 1055,
+                "phase": "Group II",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Haka (Valkeakoski)",
+                  "FC Inter Turku",
+                  "FF Jaro (Pietarsaari)",
+                  "KuPS (Kuopio)",
+                  "TPS (Turku)",
+                  "Tampere United",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin06.txt",
+                "edition": "2006",
+                "tableLine": 1122,
+                "phase": "Group II",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Haka (Valkeakoski)",
+                  "FC Inter Turku",
+                  "FF Jaro (Pietarsaari)",
+                  "KuPS (Kuopio)",
+                  "TPS (Turku)",
+                  "Tampere United",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin06.txt",
+                "edition": "2006",
+                "tableLine": 986,
+                "phase": "Group I",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "FC KooTeePee (Kotka)",
+                  "FC Lahti",
+                  "HJK (Helsinki)",
+                  "IFK Mariehamn",
+                  "MyPa-47 (Anjalankoski)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin07.txt",
+                "edition": "2007",
+                "tableLine": 485,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "FC KooTeePee (Kotka)",
+                  "FC Lahti",
+                  "FC Viikingit (Helsinki)",
+                  "HJK (Helsinki)",
+                  "IFK Mariehamn",
+                  "MyPa-47 (Anjalankoski)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin07.txt",
+                "edition": "2007",
+                "tableLine": 533,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Oulu",
+                  "FC Haka (Valkeakoski)",
+                  "FC Inter (Turku)",
+                  "FF Jaro (Pietarsaari)",
+                  "TPS (Turku)",
+                  "TamU (Tampere)",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin2010.txt",
+                "edition": "2010",
+                "tableLine": 521,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "FC Inter (Turku)",
+                  "FC Lahti",
+                  "HJK (Helsinki)",
+                  "IFK Mariehamn",
+                  "MyPa-47 (Anjalankoski)",
+                  "TPS (Turku)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/fin2010.txt",
+                "edition": "2010",
+                "tableLine": 555,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Oulu",
+                  "FC Haka (Valkeakoski)",
+                  "FF Jaro (Pietarsaari)",
+                  "JJK Jyväskylä",
+                  "KuPS (Kuopio)",
+                  "Tampere United",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup06.txt",
+                "edition": "2006",
+                "tableLine": 10,
+                "phase": "Group I",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "FC KooTeePee (Kotka)",
+                  "FC Lahti",
+                  "HJK (Helsinki)",
+                  "IFK Mariehamn",
+                  "MyPa-47 (Anjalankoski)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup06.txt",
+                "edition": "2006",
+                "tableLine": 146,
+                "phase": "Group II",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Haka (Valkeakoski)",
+                  "FC Inter Turku",
+                  "FF Jaro (Pietarsaari)",
+                  "KuPS (Kuopio)",
+                  "TPS (Turku)",
+                  "Tampere United",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup06.txt",
+                "edition": "2006",
+                "tableLine": 65,
+                "phase": "Group I",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "FC KooTeePee (Kotka)",
+                  "FC Lahti",
+                  "HJK (Helsinki)",
+                  "IFK Mariehamn",
+                  "MyPa-47 (Anjalankoski)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup06.txt",
+                "edition": "2006",
+                "tableLine": 79,
+                "phase": "Group II",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Haka (Valkeakoski)",
+                  "FC Inter Turku",
+                  "FF Jaro (Pietarsaari)",
+                  "KuPS (Kuopio)",
+                  "TPS (Turku)",
+                  "Tampere United",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup07.txt",
+                "edition": "2007",
+                "tableLine": 47,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "FC KooTeePee (Kotka)",
+                  "FC Lahti",
+                  "FC Viikingit (Helsinki)",
+                  "HJK (Helsinki)",
+                  "IFK Mariehamn",
+                  "MyPa-47 (Anjalankoski)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup07.txt",
+                "edition": "2007",
+                "tableLine": 95,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Oulu",
+                  "FC Haka (Valkeakoski)",
+                  "FC Inter (Turku)",
+                  "FF Jaro (Pietarsaari)",
+                  "TPS (Turku)",
+                  "TamU (Tampere)",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup08.txt",
+                "edition": "2008",
+                "tableLine": 104,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Haka (Valkeakoski)",
+                  "FC Inter (Turku)",
+                  "FC KooTeePee (Kotka)",
+                  "FC Lahti",
+                  "FF Jaro (Pietarsaari)",
+                  "IFK Mariehamn",
+                  "VPS (Vaasa)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup08.txt",
+                "edition": "2008",
+                "tableLine": 51,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Honka (Espoo)",
+                  "HJK (Helsinki)",
+                  "KuPS (Kuopio)",
+                  "MyPa-47 (Anjalankoski)",
+                  "RoPS (Rovaniemi)",
+                  "TPS (Turku)",
+                  "TamU (Tampere)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup09.txt",
+                "edition": "2009",
+                "tableLine": 32,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "FC Lahti",
+                  "IFK Mariehamn",
+                  "Inter (Turku)",
+                  "JJK (Jyväskylä)",
+                  "RoPS (Rovaniemi)",
+                  "TPS (Turku)",
+                  "Tampere United"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesf/finleagcup09.txt",
+                "edition": "2009",
+                "tableLine": 67,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 7,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "FC Haka (Valkeakoski)",
+                  "FC Honka",
+                  "FF Jaro (Pietarsaari)",
+                  "HJK (Helsinki)",
+                  "KuPS (Kuopio)",
+                  "MyPa-47 (Anjalankoski)",
+                  "VPS (Vaasa)"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1057 Author: Ville Virkkala",
+                "excerpt": "1. Tampere United                6  4  1  1   11- 4   13  Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1058 Author: Ville Virkkala",
+                "excerpt": "2. FC Haka (Valkeakoski)         6  4  0  2    8- 7   12  Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1059 Author: Ville Virkkala",
+                "excerpt": "3. FF Jaro (Pietarsaari)         6  3  1  2   12- 9   10  Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1060 Author: Ville Virkkala",
+                "excerpt": "4. KuPS (Kuopio)                 6  2  2  2    8- 8    8  Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:988 Author: Ville Virkkala",
+                "excerpt": "1. FC Lahti                      5  3  1  1   10- 5   10  [1 1 0 0 1-0 3] Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:989 Author: Ville Virkkala",
+                "excerpt": "2. FC Honka (Espoo)              5  3  1  1    7- 3   10  [1 0 0 1 0-1 0] Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:990 Author: Ville Virkkala",
+                "excerpt": "3. MyPa-47 (Anjalankoski)        5  2  1  2    3- 5    7  Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:991 Author: Ville Virkkala",
+                "excerpt": "4. FC KooTeePee (Kotka)          5  2  0  3    7- 9    6  [1 1 0 0 2-1 3] Qualified"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "[1 1 0 0 1-0 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1041
+                  },
+                  "team": "FC Lahti",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1043"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "[1 0 0 1 0-1 0] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1041
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1044"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1041
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1045"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "[1 1 0 0 2-1 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1041
+                  },
+                  "team": "FC KooTeePee (Kotka)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1046"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "[1 0 0 1 1-2 0]",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1041
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1048"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1041
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1049"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1055
+                  },
+                  "team": "Tampere United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1057"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1055
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1058"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1055
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1059"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1055
+                  },
+                  "team": "KuPS (Kuopio)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1060"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1055
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1062"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1055
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1063"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1055
+                  },
+                  "team": "FC Inter Turku",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1064"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1122
+                  },
+                  "team": "Tampere United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1124"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1122
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1125"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1122
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1126"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1122
+                  },
+                  "team": "KuPS (Kuopio)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1127"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1122
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1129"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1122
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1130"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1122
+                  },
+                  "team": "FC Inter Turku",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:1131"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "[1 1 0 0 1-0 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 986
+                  },
+                  "team": "FC Lahti",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:988"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "[1 0 0 1 0-1 0] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 986
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:989"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 986
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:990"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "[1 1 0 0 2-1 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 986
+                  },
+                  "team": "FC KooTeePee (Kotka)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:991"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "[1 0 0 1 1-2 0]",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 986
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:993"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 986
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin06.txt:994"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "[1 1 0 0 1-0 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 10
+                  },
+                  "team": "FC Lahti",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:12"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "[1 0 0 1 0-1 0] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 10
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:13"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 10
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:14"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 146
+                  },
+                  "team": "Tampere United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:148"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 146
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:149"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "[1 1 0 0 2-1 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 10
+                  },
+                  "team": "FC KooTeePee (Kotka)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:15"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 146
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:150"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 146
+                  },
+                  "team": "KuPS (Kuopio)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:151"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 146
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:153"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 146
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:154"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 146
+                  },
+                  "team": "FC Inter Turku",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:155"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "[1 0 0 1 1-2 0]",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 10
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:17"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 10
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:18"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "[1 1 0 0 1-0 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "FC Lahti",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:67"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "[1 0 0 1 0-1 0] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:68"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:69"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "[1 1 0 0 2-1 3] Qualified",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "FC KooTeePee (Kotka)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:70"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "[1 0 0 1 1-2 0]",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:72"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group I",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 65
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:73"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 79
+                  },
+                  "team": "Tampere United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:81"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 79
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:82"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 79
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:83"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 79
+                  },
+                  "team": "KuPS (Kuopio)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:84"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 79
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:86"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 79
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:87"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group II",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 79
+                  },
+                  "team": "FC Inter Turku",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup06.txt:88"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 485
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:487"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 485
+                  },
+                  "team": "FC Viikingit (Helsinki)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:488"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 485
+                  },
+                  "team": "FC Lahti",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:489"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 485
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:490"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 485
+                  },
+                  "team": "FC KooTeePee (Kotka)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:491"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 485
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:492"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 485
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:493"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 533
+                  },
+                  "team": "TamU (Tampere)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:535"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 533
+                  },
+                  "team": "FC Inter (Turku)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:536"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 533
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:537"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 533
+                  },
+                  "team": "AC Oulu",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:538"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 533
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:539"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 533
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:540"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 533
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin07.txt:541"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 95
+                  },
+                  "team": "AC Oulu",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:100"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 95
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:101"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 95
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:102"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 95
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:103"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 47
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:49"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 47
+                  },
+                  "team": "FC Viikingit (Helsinki)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:50"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 47
+                  },
+                  "team": "FC Lahti",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:51"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 47
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:52"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 47
+                  },
+                  "team": "FC KooTeePee (Kotka)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:53"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 47
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:54"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 47
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:55"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 95
+                  },
+                  "team": "TamU (Tampere)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:97"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 95
+                  },
+                  "team": "FC Inter (Turku)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:98"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 95
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup07.txt:99"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 18,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "FC Lahti",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:106"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "FC Inter (Turku)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:107"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:108"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:109"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:111"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 7,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "FC KooTeePee (Kotka)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:112"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 104
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:113"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 51
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:53"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 51
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:54"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 51
+                  },
+                  "team": "TamU (Tampere)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:55"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 7,
+                  "gf": 9,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 51
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:56"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 51
+                  },
+                  "team": "KuPS (Kuopio)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:58"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 51
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:59"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 2,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 51
+                  },
+                  "team": "RoPS (Rovaniemi)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup08.txt:60"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 17,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 32
+                  },
+                  "team": "Tampere United",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:34"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 14,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 32
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:35"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 32
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:36"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 10,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 32
+                  },
+                  "team": "FC Lahti",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:37"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 32
+                  },
+                  "team": "Inter (Turku)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:39"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 32
+                  },
+                  "team": "JJK (Jyväskylä)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:40"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 2,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 32
+                  },
+                  "team": "RoPS (Rovaniemi)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:41"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 14,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 67
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:69"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 15,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 67
+                  },
+                  "team": "FC Honka",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:70"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 67
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:71"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 67
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:72"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 7,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 67
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:74"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 67
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:75"
+              },
+              {
+                "season": "2009",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 21,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 67
+                  },
+                  "team": "KuPS (Kuopio)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/finleagcup09.txt:76"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:523 ",
+                "excerpt": "1.HJK (Helsinki)                 6  3  2  1  11- 9  11  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:524 ",
+                "excerpt": "2.FC Inter (Turku)               6  3  2  1   5- 4  11  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:525 ",
+                "excerpt": "3.TPS (Turku)                    6  3  0  3   8- 5   9  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:526 ",
+                "excerpt": "4.FC Honka (Espoo)               6  2  3  1  10- 7   9  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:557 ",
+                "excerpt": "1.AC Oulu                        6  4  1  1  11- 4  13  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:558 ",
+                "excerpt": "2.JJK Jyväskylä                  6  3  1  2   8- 6  10  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:559 ",
+                "excerpt": "3.VPS (Vaasa)                    6  3  1  2   5- 4  10  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:560 ",
+                "excerpt": "4.FF Jaro (Pietarsaari)          6  2  2  2   6- 6   8  Qualified"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 521
+                  },
+                  "team": "HJK (Helsinki)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:523"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 521
+                  },
+                  "team": "FC Inter (Turku)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:524"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 521
+                  },
+                  "team": "TPS (Turku)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:525"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 7,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 521
+                  },
+                  "team": "FC Honka (Espoo)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:526"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 521
+                  },
+                  "team": "MyPa-47 (Anjalankoski)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:527"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 521
+                  },
+                  "team": "IFK Mariehamn",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:528"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 6,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 521
+                  },
+                  "team": "FC Lahti",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:529"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 555
+                  },
+                  "team": "AC Oulu",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:557"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 555
+                  },
+                  "team": "JJK Jyväskylä",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:558"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 555
+                  },
+                  "team": "VPS (Vaasa)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:559"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 555
+                  },
+                  "team": "FF Jaro (Pietarsaari)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:560"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 555
+                  },
+                  "team": "KuPS (Kuopio)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:561"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 555
+                  },
+                  "team": "Tampere United",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:562"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 555
+                  },
+                  "team": "FC Haka (Valkeakoski)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesf/fin2010.txt:563"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "teams": 12,
+                  "groups": [
+                    6,
+                    6
+                  ],
+                  "groupGamesPerClub": 5,
+                  "topPerGroupToSF": 2,
+                  "geographicGroups": true,
+                  "top3PreviousLeagueRankPerGroupHomeGames": 3,
+                  "semifinalLegs": 1,
+                  "finalLegs": 1
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/FIN/2627/LEAGUE_CUP.json#sportRuleEvidence83",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

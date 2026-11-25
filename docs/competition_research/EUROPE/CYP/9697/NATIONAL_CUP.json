@@ -114,7 +114,3055 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "035ab46063b337a9f9ca6e38d312eaada51352a5579c7aa914544d702c2a0aca": {
+          "sourceGroup": {
+            "source": "rsssf-deep/corpus.zip",
+            "competition": "Cyprus Cup",
+            "country": "CYP",
+            "season": "1996/97",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 32,
+            "fixtures": 16,
+            "orientedPairs": 16,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 16,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "A.E.K.          ACHIRONAS",
+              "candidateCount": 0
+            },
+            {
+              "label": "A.E.K. Kak.     A.E.L.",
+              "candidateCount": 0
+            },
+            {
+              "label": "A.P.O.E.L.      P.A.E.E.K.",
+              "candidateCount": 0
+            },
+            {
+              "label": "ALKI            AKRITAS Xl.",
+              "candidateCount": 0
+            },
+            {
+              "label": "AMEK            ARIS",
+              "candidateCount": 0
+            },
+            {
+              "label": "ANAGENNISI Ger. E.N.P.",
+              "candidateCount": 0
+            },
+            {
+              "label": "APEP Pel.       A.P.O.P.",
+              "candidateCount": 0
+            },
+            {
+              "label": "APOLLON         ERAKLIS",
+              "candidateCount": 0
+            },
+            {
+              "label": "APOLLON L.      ACHILLEAS Ag. Th.",
+              "candidateCount": 0
+            },
+            {
+              "label": "ASIL            OLYMPIAKOS",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ammochostos Stadium",
+              "candidateCount": 0
+            },
+            {
+              "label": "Aradippou",
+              "candidateCount": 0
+            },
+            {
+              "label": "CHALKANORAS     ANAGENNISI",
+              "candidateCount": 0
+            },
+            {
+              "label": "DIGENIS M.      ETHNIKOS",
+              "candidateCount": 0
+            },
+            {
+              "label": "Dali",
+              "candidateCount": 0
+            },
+            {
+              "label": "EVAGORAS        A.P.E.P.",
+              "candidateCount": 0
+            },
+            {
+              "label": "G.S.P. Stadium",
+              "candidateCount": 0
+            },
+            {
+              "label": "G.S.Zenon",
+              "candidateCount": 0
+            },
+            {
+              "label": "GSZ",
+              "candidateCount": 0
+            },
+            {
+              "label": "Germasogia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Giolou",
+              "candidateCount": 0
+            },
+            {
+              "label": "Grigoris Avksentiou",
+              "candidateCount": 0
+            },
+            {
+              "label": "K. Polemidia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Kakopetria",
+              "candidateCount": 0
+            },
+            {
+              "label": "Lympia",
+              "candidateCount": 0
+            },
+            {
+              "label": "Makario Stadium",
+              "candidateCount": 0
+            },
+            {
+              "label": "NEA SALAMIS     ROTSIDES",
+              "candidateCount": 0
+            },
+            {
+              "label": "OMONIA          OTHELOS",
+              "candidateCount": 0
+            },
+            {
+              "label": "POSIDONAS       ANORTHOSIS",
+              "candidateCount": 0
+            },
+            {
+              "label": "Pafiako Stadium",
+              "candidateCount": 0
+            },
+            {
+              "label": "Pelentri",
+              "candidateCount": 0
+            },
+            {
+              "label": "Tsirion Stadium",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "1996-11-26",
+              "INFERRED_FROM_EDITION",
+              "APOLLON         ERAKLIS",
+              "Tsirion Stadium",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:9",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "A.E.K. Kak.     A.E.L.",
+              "Kakopetria",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:23",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "A.P.O.E.L.      P.A.E.E.K.",
+              "Makario Stadium",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:17",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "ALKI            AKRITAS Xl.",
+              "G.S.Zenon",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:11",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "AMEK            ARIS",
+              "K. Polemidia",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:21",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "ANAGENNISI Ger. E.N.P.",
+              "Germasogia",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:13",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "APEP Pel.       A.P.O.P.",
+              "Pelentri",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:14",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "APOLLON L.      ACHILLEAS Ag. Th.",
+              "Lympia",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:24",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "ASIL            OLYMPIAKOS",
+              "Grigoris Avksentiou",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:20",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "CHALKANORAS     ANAGENNISI",
+              "Dali",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:18",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "DIGENIS M.      ETHNIKOS",
+              "G.S.P. Stadium",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:22",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "EVAGORAS        A.P.E.P.",
+              "Pafiako Stadium",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:15",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "NEA SALAMIS     ROTSIDES",
+              "Ammochostos Stadium",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:19",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "OMONIA          OTHELOS",
+              "Aradippou",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:16",
+              ""
+            ],
+            [
+              "1996-11-27",
+              "INFERRED_FROM_EDITION",
+              "POSIDONAS       ANORTHOSIS",
+              "Giolou",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:12",
+              ""
+            ],
+            [
+              "1996-12-04",
+              "INFERRED_FROM_EDITION",
+              "A.E.K.          ACHIRONAS",
+              "GSZ",
+              null,
+              null,
+              "corpus/tablesc/cypcup97.txt:26",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "locator": "corpus/tablesc/cypcup97.txt:6",
+              "excerpt": "Qualifying Round 1"
+            }
+          ],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [],
+          "historyObservations": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "1996/97",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-11-26",
+              "max_date": "1996-12-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-05-15",
+              "max_date": "1998-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-12-02",
+              "max_date": "1999-05-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-05-13",
+              "max_date": "2000-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-11-29",
+              "max_date": "2000-12-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "33",
+              "unique_oriented_pairs": "33",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "33",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-11-07",
+              "max_date": "2002-05-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-05-17",
+              "max_date": "2003-05-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "67",
+              "unique_oriented_pairs": "67",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "67",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-09-13",
+              "max_date": "2004-05-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "57",
+              "rows": "105",
+              "unique_oriented_pairs": "105",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "105",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-09-11",
+              "max_date": "2005-05-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "25",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-10-05",
+              "max_date": "2023-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "26",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-10-25",
+              "max_date": "2024-04-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-25",
+              "max_date": "2025-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cyprus Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-01",
+              "max_date": "2026-04-29"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [
+              {
+                "edition": "1996/1997",
+                "activeAtStartCandidate": false,
+                "groups": [
+                  [
+                    "rsssf-deep/corpus.zip",
+                    "Cyprus Cup",
+                    "CYP",
+                    "1996/97",
+                    "SOURCE_TITLE"
+                  ]
+                ],
+                "events": [
+                  {
+                    "date": "1996-11-26",
+                    "home": "APOLLON         ERAKLIS",
+                    "away": "Tsirion Stadium",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:9"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "A.E.K. Kak.     A.E.L.",
+                    "away": "Kakopetria",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:23"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "ALKI            AKRITAS Xl.",
+                    "away": "G.S.Zenon",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:11"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "AMEK            ARIS",
+                    "away": "K. Polemidia",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:21"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "ANAGENNISI Ger. E.N.P.",
+                    "away": "Germasogia",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:13"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "APEP Pel.       A.P.O.P.",
+                    "away": "Pelentri",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:14"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "A.P.O.E.L.      P.A.E.E.K.",
+                    "away": "Makario Stadium",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:17"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "APOLLON L.      ACHILLEAS Ag. Th.",
+                    "away": "Lympia",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:24"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "ASIL            OLYMPIAKOS",
+                    "away": "Grigoris Avksentiou",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:20"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "CHALKANORAS     ANAGENNISI",
+                    "away": "Dali",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:18"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "DIGENIS M.      ETHNIKOS",
+                    "away": "G.S.P. Stadium",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:22"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "EVAGORAS        A.P.E.P.",
+                    "away": "Pafiako Stadium",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:15"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "NEA SALAMIS     ROTSIDES",
+                    "away": "Ammochostos Stadium",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:19"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "OMONIA          OTHELOS",
+                    "away": "Aradippou",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:16"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-11-27",
+                    "home": "POSIDONAS       ANORTHOSIS",
+                    "away": "Giolou",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:12"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "1996-12-04",
+                    "home": "A.E.K.          ACHIRONAS",
+                    "away": "GSZ",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesc/cypcup97.txt:26"
+                      ]
+                    ],
+                    "preStartScores": []
+                  }
+                ],
+                "explicitEvents": 0,
+                "conflicts": [],
+                "nativeRoster": [],
+                "completeReviewedRegularComponent": false,
+                "observedStageCounts": [],
+                "july1Arithmetic": null
+              }
+            ],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 106,
+                "phase": "Group 3",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.L.",
+                  "E.N. Th.O.I.",
+                  "E.N.P.",
+                  "P.A.E.E.K."
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 125,
+                "phase": "Group 4",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Digenis",
+                  "Nea Salamina",
+                  "Olympiakos",
+                  "Omonia"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 66,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.K.",
+                  "A.P.O.E.L.",
+                  "Apollonas",
+                  "Aris"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 87,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Alki",
+                  "Anorthosis",
+                  "Ethnikos Achnas",
+                  "Ethnikos Assias"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 213,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.L.",
+                  "Anagennisi Derynias",
+                  "Anorthosis",
+                  "Nea Salamina"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 219,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E. Pafos",
+                  "A.P.O.E.L.",
+                  "Apollonas",
+                  "E.N. Paralimniou"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 225,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.S.I.L.",
+                  "Alki",
+                  "Ethnikos Achnas",
+                  "Omonia"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 231,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.K.",
+                  "Ermis Aradippou",
+                  "Olympiakos",
+                  "Onisilos Sotiras"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 76,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.L.",
+                  "Anagennisi Derynias",
+                  "Anorthosis",
+                  "Nea Salamina"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 82,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E. Pafos",
+                  "A.P.O.E.L.",
+                  "Apollonas",
+                  "E.N. Paralimniou"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 88,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.S.I.L.",
+                  "Alki",
+                  "Ethnikos Achnas",
+                  "Omonia"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup04.txt",
+                "edition": "2003/2004",
+                "tableLine": 94,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.K.",
+                  "Ermis Aradippou",
+                  "Olympiakos",
+                  "Onisilos Sotiras"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 103,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "A.P.E.P.",
+                  "E.N.P.",
+                  "P.A.E.E.K."
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 142,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.K.",
+                  "A.P.O.P/Kinyras",
+                  "Anorthosis",
+                  "Apollon"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 182,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Digenis",
+                  "Ethnikos",
+                  "Olympiakos",
+                  "Omonia"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/cypcup05.txt",
+                "edition": "2004/2005",
+                "tableLine": 224,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "A.E.L.",
+                  "A.E.P.",
+                  "Aris",
+                  "ENAD Polis"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "entrants": 50,
+                  "preliminaryEntrants": 36,
+                  "preliminaryDate": "1996-11-09",
+                  "firstRoundAdds": 14,
+                  "topTierSeparateDraw": true,
+                  "preliminaryAndFirstRound": "single match, extra time, replay away venue, extra time and penalties if still tied",
+                  "semifinalLegs": 2,
+                  "finalDate": "1997-05-17",
+                  "finalLegs": 1
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/CYP/9697/NATIONAL_CUP.json#sportRuleEvidence47",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "entrantsByTier": [
+                    14,
+                    14,
+                    13,
+                    9
+                  ],
+                  "tier4Selection": "top nine on draw date",
+                  "preliminaryEntrants": 36,
+                  "preliminaryWinners": 18,
+                  "R32AddsTier1": 14,
+                  "R32DrawNoTier1Pair": true,
+                  "preliminaryAndR32": {
+                    "legs": 1,
+                    "extraTime": true,
+                    "replayAtOppositeVenue": true,
+                    "replayExtraTime": true,
+                    "replayPenalties": true
+                  },
+                  "R16QFSF": {
+                    "legs": 2,
+                    "awayGoals": true,
+                    "awayGoalsInExtraTime": true,
+                    "extraTime": true,
+                    "penalties": true
+                  },
+                  "finalLegs": 1
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/CYP/9697/NATIONAL_CUP.json#sportRuleEvidence80",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup97.txt:6",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup99.txt:25",
+                "excerpt": "Second Round [Jan 6 - Jan 20]"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup99.txt:7",
+                "excerpt": "First Round [Dec 2]"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup02.txt:13",
+                "excerpt": "Anayennisi Derynias    1-1 1-2 Onisilos Sotiras  [replay Nov 14]"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup02.txt:26",
+                "excerpt": "Akritas Chloraka       1-1 1-4 M.E.A.P. Nisou    [replay Nov 14]"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup02.txt:28",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup02.txt:6",
+                "excerpt": "Qualifying Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 18,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 106
+                  },
+                  "team": "A.E.L.",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:106"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 106
+                  },
+                  "team": "E.N.P.",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:107"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 23,
+                  "gf": 11,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 106
+                  },
+                  "team": "P.A.E.E.K.",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:108"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 17,
+                  "gf": 8,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 106
+                  },
+                  "team": "E.N. Th.O.I.",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:109"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Omonia",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:125"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Olympiakos",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:126"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Digenis",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:127"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 24,
+                  "gf": 5,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Nea Salamina",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:128"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:28",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:40",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:6",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 19,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 66
+                  },
+                  "team": "A.P.O.E.L.",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:66"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 17,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 66
+                  },
+                  "team": "A.E.K.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:67"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 66
+                  },
+                  "team": "Apollonas",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:68"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 26,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 66
+                  },
+                  "team": "Aris",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:69"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "regulation",
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:71",
+                "excerpt": "NB: A.E.K. apparently qualified on away goals in head-to-head"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 16,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 87
+                  },
+                  "team": "Anorthosis",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:87"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 87
+                  },
+                  "team": "Ethnikos Achnas",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:88"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 87
+                  },
+                  "team": "Alki",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:89"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 19,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 87
+                  },
+                  "team": "Ethnikos Assias",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup03.txt:90"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 213
+                  },
+                  "team": "A.E.L.",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:213"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 213
+                  },
+                  "team": "Anorthosis",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:214"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 213
+                  },
+                  "team": "Nea Salamina",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:215"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 17,
+                  "gf": 8,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 213
+                  },
+                  "team": "Anagennisi Derynias",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:216"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 219
+                  },
+                  "team": "A.P.O.E.L.",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:219"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 219
+                  },
+                  "team": "Apollonas",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:220"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 219
+                  },
+                  "team": "E.N. Paralimniou",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:221"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 219
+                  },
+                  "team": "A.E. Pafos",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:222"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 20,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 225
+                  },
+                  "team": "Omonia",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:225"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 13,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 225
+                  },
+                  "team": "Ethnikos Achnas",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:226"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 15,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 225
+                  },
+                  "team": "A.S.I.L.",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:227"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 19,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 225
+                  },
+                  "team": "Alki",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:228"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 16,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 231
+                  },
+                  "team": "Olympiakos",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:231"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 231
+                  },
+                  "team": "A.E.K.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:232"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 231
+                  },
+                  "team": "Onisilos Sotiras",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:233"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 7,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 231
+                  },
+                  "team": "Ermis Aradippou",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:234"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:31",
+                "excerpt": "Second Round [Oct 14,15]"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:43",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:6",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:65",
+                "excerpt": "The 8 winners from round 3 join 8 seeded clubs (A.E.L., Anorthosis,"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:71",
+                "excerpt": "The top two from each group qualify for the quarterfinals"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 76
+                  },
+                  "team": "A.E.L.",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:76"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 76
+                  },
+                  "team": "Anorthosis",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:77"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 76
+                  },
+                  "team": "Nea Salamina",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:78"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 17,
+                  "gf": 8,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 76
+                  },
+                  "team": "Anagennisi Derynias",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:79"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 82
+                  },
+                  "team": "A.P.O.E.L.",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:82"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 82
+                  },
+                  "team": "Apollonas",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:83"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 82
+                  },
+                  "team": "E.N. Paralimniou",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:84"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 82
+                  },
+                  "team": "A.E. Pafos",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:85"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 20,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 88
+                  },
+                  "team": "Omonia",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:88"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 13,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 88
+                  },
+                  "team": "Ethnikos Achnas",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:89"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 15,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 88
+                  },
+                  "team": "A.S.I.L.",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:90"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 19,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 88
+                  },
+                  "team": "Alki",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:91"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 16,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 94
+                  },
+                  "team": "Olympiakos",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:94"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 94
+                  },
+                  "team": "A.E.K.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:95"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 94
+                  },
+                  "team": "Onisilos Sotiras",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:96"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 7,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 94
+                  },
+                  "team": "Ermis Aradippou",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup04.txt:97"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 18,
+                  "lost": 1,
+                  "note": "[Paralimni]",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 103
+                  },
+                  "team": "E.N.P.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:103"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "[Kyperounda]",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 103
+                  },
+                  "team": "A.P.E.P.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:104"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 28,
+                  "gf": 3,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 103
+                  },
+                  "team": "P.A.E.E.K.",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:105"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 18,
+                  "lost": 2,
+                  "note": "[Lemesos]",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 142
+                  },
+                  "team": "Apollon",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:142"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "[Larnaka]",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 142
+                  },
+                  "team": "A.E.K.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:143"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 13,
+                  "lost": 2,
+                  "note": "[Ammochostos]",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 142
+                  },
+                  "team": "Anorthosis",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:144"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 16,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 142
+                  },
+                  "team": "A.P.O.P/Kinyras",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:145"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 16,
+                  "lost": 0,
+                  "note": "[Lefkosia]",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Omonia",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:182"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "[Morfou]",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Digenis",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:183"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "[Lefkosia]",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Olympiakos",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:184"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 15,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "[Achna]",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 182
+                  },
+                  "team": "Ethnikos",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:185"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 18,
+                  "lost": 0,
+                  "note": "[Lemesos]",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "A.E.L.",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:224"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "[Lemesos]",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "Aris",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:225"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "[Pafos]",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "A.E.P.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:226"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 33,
+                  "gf": 5,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 224
+                  },
+                  "team": "ENAD Polis",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:227"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:30",
+                "excerpt": "Second Round [Oct 6]"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/cypcup05.txt:42",
+                "excerpt": "Third Round"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "7a1c07ae1b2239098af67d41e6fa378f727c21b237aad5f9350f57b82ee097c7": {
           "status": "I",

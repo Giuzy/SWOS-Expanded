@@ -975,6 +975,2438 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "9ee46fc6f4260735b78dcf04aac69559a8f15f8f3ddc1156998342d1bbc9641a": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-08-26",
+              "max_date": "1998-06-03"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Czech Republic First League 2018/19",
+              "season": "2018-19",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "16",
+              "rows": "277",
+              "unique_oriented_pairs": "240",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "2018-07-20",
+              "max_date": "2019-06-01"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "Czech Republic First League 2020/21",
+              "season": "2020-21",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "18",
+              "rows": "306",
+              "unique_oriented_pairs": "306",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-21",
+              "max_date": "2021-05-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "1996",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "200",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "1996-02-18",
+              "max_date": "1996-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "1997",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "1997-02-23",
+              "max_date": "1997-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "1998",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "203",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "37",
+              "min_date": "1998-02-22",
+              "max_date": "1998-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "1999",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "248",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "1999-02-21",
+              "max_date": "1999-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "197",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "42",
+              "min_date": "2000-02-18",
+              "max_date": "2000-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "241",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2001-02-16",
+              "max_date": "2001-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "232",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2002-02-08",
+              "max_date": "2002-11-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "248",
+              "unique_oriented_pairs": "200",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2003-02-15",
+              "max_date": "2003-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2004-02-14",
+              "max_date": "2004-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "198",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2005-02-26",
+              "max_date": "2005-12-12"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "249",
+              "unique_oriented_pairs": "204",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2006-02-18",
+              "max_date": "2006-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "232",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2007-03-10",
+              "max_date": "2007-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2008-02-16",
+              "max_date": "2008-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "239",
+              "unique_oriented_pairs": "189",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2009-02-22",
+              "max_date": "2009-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "249",
+              "unique_oriented_pairs": "209",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2010-02-27",
+              "max_date": "2010-11-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "232",
+              "unique_oriented_pairs": "187",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2011-02-25",
+              "max_date": "2011-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "193",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2012-02-17",
+              "max_date": "2012-11-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "194",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2013-02-22",
+              "max_date": "2013-12-02"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "201",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2014-02-21",
+              "max_date": "2014-11-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "192",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2015-02-20",
+              "max_date": "2015-12-06"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "238",
+              "unique_oriented_pairs": "190",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "48",
+              "min_date": "2016-02-12",
+              "max_date": "2016-12-04"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "242",
+              "unique_oriented_pairs": "192",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2017-02-18",
+              "max_date": "2017-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "264",
+              "unique_oriented_pairs": "200",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "64",
+              "min_date": "2018-02-17",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "285",
+              "unique_oriented_pairs": "204",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "81",
+              "min_date": "2019-02-08",
+              "max_date": "2019-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "231",
+              "unique_oriented_pairs": "186",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2020-02-14",
+              "max_date": "2020-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "338",
+              "unique_oriented_pairs": "260",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "78",
+              "min_date": "2021-01-15",
+              "max_date": "2021-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "252",
+              "unique_oriented_pairs": "186",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "66",
+              "min_date": "2022-02-05",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "296",
+              "unique_oriented_pairs": "205",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "91",
+              "min_date": "2023-01-28",
+              "max_date": "2023-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "281",
+              "unique_oriented_pairs": "204",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "77",
+              "min_date": "2024-02-10",
+              "max_date": "2024-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "czech-republic",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "195",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2025-02-01",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "CZE DIV1",
+              "season": "1995/96",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "9",
+              "unique_oriented_pairs": "9",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "9",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-02-18",
+              "max_date": "1996-05-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "CZE DIV1",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-08-26",
+              "max_date": "1998-06-03"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablest/tsje96.txt",
+                "edition": "1995/1996",
+                "tableLine": 646,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Sparta Praha",
+                  "FC Banik Ostrava",
+                  "FC Boby Brno",
+                  "FC JOKO Uherske Hradiste",
+                  "FC Petra Drnovice",
+                  "FC Sigma Olomouc MZ",
+                  "FC Slovan WSK Liberec",
+                  "FC Svit Zlin",
+                  "FC Union Cheb",
+                  "FC Viktoria Plzen",
+                  "FK Jablonec nad Nisou",
+                  "FK Viktoria Zizkov",
+                  "KC Kaucuk Opava",
+                  "SK Ceske Budejovice",
+                  "SK Hradec Kralove",
+                  "SK Slavia Praha"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablest/tsje96.txt",
+                "edition": "1995/1996",
+                "tableLine": 8,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Sparta Praha",
+                  "FC Banik Ostrava",
+                  "FC Boby Brno",
+                  "FC JOKO Uherske Hradiste",
+                  "FC Petra Drnovice",
+                  "FC Sigma Olomouc MZ",
+                  "FC Slovan WSK Liberec",
+                  "FC Svit Zlin",
+                  "FC Union Cheb",
+                  "FC Viktoria Plzen",
+                  "FK Jablonec nad Nisou",
+                  "FK Viktoria Zizkov",
+                  "KC Kaucuk Opava",
+                  "SK Ceske Budejovice",
+                  "SK Hradec Kralove",
+                  "SK Slavia Praha"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablest/tsje98.txt",
+                "edition": "1997/1998",
+                "tableLine": 357,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Sparta Praha",
+                  "AFK Atlantik Lázne Bohdanec",
+                  "FC Baník Ostrava",
+                  "FC Boby Brno",
+                  "FC Dukla",
+                  "FC Petra Drnovice",
+                  "FC Sigma Olomouc MZ",
+                  "FC Slovan WSK Liberec",
+                  "FC Viktoria Plzen",
+                  "FK Jablonec nad Nisou",
+                  "FK Teplice",
+                  "FK Viktoria Zizkov",
+                  "KC Kaucuk Opava",
+                  "SK Ceské Budejovice",
+                  "SK Hradec Králové",
+                  "SK Slavia Praha"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablest/tsje98.txt",
+                "edition": "1997/1998",
+                "tableLine": 9,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "AC Sparta Praha",
+                  "AFK Atlantik Lázne Bohdanec",
+                  "FC Baník Ostrava",
+                  "FC Boby Brno",
+                  "FC Dukla",
+                  "FC Petra Drnovice",
+                  "FC Sigma Olomouc MZ",
+                  "FC Slovan WSK Liberec",
+                  "FC Viktoria Plzen",
+                  "FK Jablonec nad Nisou",
+                  "FK Teplice",
+                  "FK Viktoria Zizkov",
+                  "KC Kaucuk Opava",
+                  "SK Ceské Budejovice",
+                  "SK Hradec Králové",
+                  "SK Slavia Praha"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 28,
+                  "gf": 68,
+                  "lost": 6,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 30,
+                  "points": 70,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "SK Slavia Praha",
+                  "won": 23
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:10"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 33,
+                  "gf": 54,
+                  "lost": 7,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 61,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Sigma Olomouc MZ",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:11"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 26,
+                  "gf": 45,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FK Jablonec nad Nisou",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:12"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 35,
+                  "gf": 56,
+                  "lost": 9,
+                  "note": "CWC",
+                  "phase": "",
+                  "played": 30,
+                  "points": 49,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "AC Sparta Praha",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:13"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 40,
+                  "gf": 53,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 48,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Petra Drnovice",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:14"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 34,
+                  "gf": 40,
+                  "lost": 10,
+                  "note": "Intertoto Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "KC Kaucuk Opava",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:15"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 34,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Slovan WSK Liberec",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:16"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Boby Brno",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:17"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 34,
+                  "gf": 33,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Viktoria Plzen",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:18"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 43,
+                  "gf": 38,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FK Viktoria Zizkov",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:19"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 47,
+                  "gf": 35,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "SK Ceske Budejovice",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:20"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 46,
+                  "gf": 40,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 35,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Banik Ostrava",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:21"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 47,
+                  "gf": 35,
+                  "lost": 13,
+                  "note": "Resigned",
+                  "phase": "",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Union Cheb",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:22"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 46,
+                  "gf": 28,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 29,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "SK Hradec Kralove",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:23"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 38,
+                  "gf": 17,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 27,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC Svit Zlin",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:24"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 65,
+                  "gf": 19,
+                  "lost": 19,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 17,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 8
+                  },
+                  "team": "FC JOKO Uherske Hradiste",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:25"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:27",
+                "excerpt": "Promoted: Karvina, Teplice, and after Union's resignation, Bohemians Praha"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 28,
+                  "gf": 68,
+                  "lost": 6,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 30,
+                  "points": 70,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "SK Slavia Praha",
+                  "won": 23
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:648"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 33,
+                  "gf": 54,
+                  "lost": 7,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 61,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Sigma Olomouc MZ",
+                  "won": 19
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:649"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 26,
+                  "gf": 45,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 53,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FK Jablonec nad Nisou",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:650"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 35,
+                  "gf": 56,
+                  "lost": 9,
+                  "note": "CWC",
+                  "phase": "",
+                  "played": 30,
+                  "points": 49,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "AC Sparta Praha",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:651"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 40,
+                  "gf": 53,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 48,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Petra Drnovice",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:652"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 34,
+                  "gf": 40,
+                  "lost": 10,
+                  "note": "Intertoto Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "KC Kaucuk Opava",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:653"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 34,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Slovan WSK Liberec",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:654"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 39,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Boby Brno",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:655"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 34,
+                  "gf": 33,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Viktoria Plzen",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:656"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 43,
+                  "gf": 38,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FK Viktoria Zizkov",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:657"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 47,
+                  "gf": 35,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "SK Ceske Budejovice",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:658"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 46,
+                  "gf": 40,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 35,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Banik Ostrava",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:659"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 47,
+                  "gf": 35,
+                  "lost": 13,
+                  "note": "Resigned",
+                  "phase": "",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Union Cheb",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:660"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 46,
+                  "gf": 28,
+                  "lost": 17,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 29,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "SK Hradec Kralove",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:661"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 38,
+                  "gf": 17,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 27,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC Svit Zlin",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:662"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 65,
+                  "gf": 19,
+                  "lost": 19,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 17,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 646
+                  },
+                  "team": "FC JOKO Uherske Hradiste",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:663"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje96.txt:665",
+                "excerpt": "[Promoted: Karvina, Teplice, and after Union's resignation, Bohemians"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:28 ",
+                "excerpt": "15.SK Ceské Budejovice          30  8  7 15  26-43 31  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:29 ",
+                "excerpt": "16.AFK Atlantik Lázne Bohdanec  30  2  5 23  18-61 11  Relegated"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 19,
+                  "gf": 53,
+                  "lost": 3,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 30,
+                  "points": 71,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "AC Sparta Praha",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:11"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 22,
+                  "gf": 42,
+                  "lost": 5,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 59,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "SK Slavia Praha",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:13"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 21,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 55,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FC Sigma Olomouc MZ",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:14"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 35,
+                  "gf": 51,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 50,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FC Baník Ostrava",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:16"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 32,
+                  "gf": 39,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 47,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FC Slovan WSK Liberec",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:17"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 33,
+                  "gf": 47,
+                  "lost": 8,
+                  "note": "CWC",
+                  "phase": "",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FK Jablonec nad Nisou",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:18"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 30,
+                  "gf": 36,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FK Teplice",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:19"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 34,
+                  "gf": 26,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FK Viktoria Zizkov",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:20"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 35,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FC Petra Drnovice",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:21"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 42,
+                  "lost": 13,
+                  "note": "Intertoto Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FC Boby Brno",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:22"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 37,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "KC Kaucuk Opava",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:23"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 36,
+                  "gf": 25,
+                  "lost": 12,
+                  "note": "Intertoto Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "SK Hradec Králové",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:24"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 37,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FC Viktoria Plzen",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:25"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 50,
+                  "gf": 37,
+                  "lost": 15,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "FC Dukla",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:26"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 26,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 31,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "SK Ceské Budejovice",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:28"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 61,
+                  "gf": 18,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 11,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 9
+                  },
+                  "team": "AFK Atlantik Lázne Bohdanec",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:29"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 19,
+                  "gf": 53,
+                  "lost": 3,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 30,
+                  "points": 71,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "AC Sparta Praha",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:359"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 22,
+                  "gf": 42,
+                  "lost": 5,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 59,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "SK Slavia Praha",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:361"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 21,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "UEFA Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 55,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FC Sigma Olomouc MZ",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:362"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 35,
+                  "gf": 51,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 50,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FC Baník Ostrava",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:364"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 32,
+                  "gf": 39,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 47,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FC Slovan WSK Liberec",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:365"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 33,
+                  "gf": 47,
+                  "lost": 8,
+                  "note": "CWC",
+                  "phase": "",
+                  "played": 30,
+                  "points": 46,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FK Jablonec nad Nisou",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:366"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 30,
+                  "gf": 36,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 40,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FK Teplice",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:367"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 34,
+                  "gf": 26,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FK Viktoria Zizkov",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:368"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 43,
+                  "gf": 35,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 38,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FC Petra Drnovice",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:369"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 42,
+                  "gf": 42,
+                  "lost": 13,
+                  "note": "Intertoto Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 37,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FC Boby Brno",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:370"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 37,
+                  "gf": 33,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "KC Kaucuk Opava",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:371"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 36,
+                  "gf": 25,
+                  "lost": 12,
+                  "note": "Intertoto Cup",
+                  "phase": "",
+                  "played": 30,
+                  "points": 34,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "SK Hradec Králové",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:372"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 47,
+                  "gf": 37,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FC Viktoria Plzen",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:373"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 50,
+                  "gf": 37,
+                  "lost": 15,
+                  "note": "[*]",
+                  "phase": "",
+                  "played": 30,
+                  "points": 33,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "FC Dukla",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:374"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 43,
+                  "gf": 26,
+                  "lost": 15,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 31,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "SK Ceské Budejovice",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:376"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 61,
+                  "gf": 18,
+                  "lost": 23,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 11,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 357
+                  },
+                  "team": "AFK Atlantik Lázne Bohdanec",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsje98.txt:377"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsjsl2hist.txt:1514",
+                "excerpt": "Relegated Div.1: Dynamo Ceske Budejovice and Slezsky FC Opava"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsjsl2hist.txt:1515",
+                "excerpt": "Promoted  Div.3: SC Xaverov Horni Pocernice and 1. HFK Olomouc"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tsjsl2hist.txt:1517",
+                "excerpt": "Slezsky FC Opava did not enter for the next season, will be replaced by FC Hlucin"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 16,
+                  "regularRounds": 2,
+                  "regularGamesPerClub": 30,
+                  "split": {
+                    "championshipRanks": [
+                      1,
+                      6
+                    ],
+                    "placementRanks": [
+                      7,
+                      10
+                    ],
+                    "relegationRanks": [
+                      11,
+                      16
+                    ]
+                  },
+                  "pointsCarried": "full in championship and relegation groups",
+                  "championshipGamesPerClub": 5,
+                  "relegationGamesPerClub": 5,
+                  "placement": {
+                    "semifinalPairs": [
+                      [
+                        10,
+                        7
+                      ],
+                      [
+                        9,
+                        8
+                      ]
+                    ],
+                    "legs": 2,
+                    "finalLegs": 2,
+                    "firstHome": "lower regular rank",
+                    "reward": "next cup round2 bye"
+                  },
+                  "relegatedDirect": [
+                    16
+                  ],
+                  "relegationPlayoff": {
+                    "pairs": [
+                      [
+                        "tier1 rank15",
+                        "tier2 rank2"
+                      ],
+                      [
+                        "tier2 rank3",
+                        "tier1 rank14"
+                      ]
+                    ],
+                    "legs": 2,
+                    "firstHome": [
+                      "tier1 rank15",
+                      "tier2 rank3"
+                    ],
+                    "extraTimeMinutes": 30,
+                    "penalties": true
+                  }
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/CZE/2627/LEAGUE_DIVISION.json#block75Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

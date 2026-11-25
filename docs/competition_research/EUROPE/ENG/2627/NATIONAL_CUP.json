@@ -850,6 +850,1816 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "a1c377064c60151d195b7be690817747a62b2cf8d439137d8b1e6b49e45d5b51": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "117",
+              "rows": "110",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "110",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-10-26",
+              "max_date": "2004-03-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-01-27",
+              "max_date": "2008-03-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-03-09",
+              "max_date": "2009-05-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "157",
+              "rows": "188",
+              "unique_oriented_pairs": "188",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "188",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-10-24",
+              "max_date": "2010-03-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "147",
+              "unique_oriented_pairs": "147",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "147",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-11-05",
+              "max_date": "2011-03-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "148",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "148",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-11-11",
+              "max_date": "2012-03-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "153",
+              "unique_oriented_pairs": "153",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "153",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-11-02",
+              "max_date": "2013-04-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "125",
+              "rows": "149",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "149",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-11-08",
+              "max_date": "2014-05-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "152",
+              "unique_oriented_pairs": "152",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "152",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-11-07",
+              "max_date": "2015-04-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "148",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "148",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-11-06",
+              "max_date": "2016-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "155",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "155",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-11-04",
+              "max_date": "2017-04-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "148",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "148",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-11-03",
+              "max_date": "2018-04-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "149",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "149",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-11-09",
+              "max_date": "2019-04-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "123",
+              "rows": "153",
+              "unique_oriented_pairs": "153",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "153",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-11-08",
+              "max_date": "2020-06-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "120",
+              "unique_oriented_pairs": "120",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "120",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-11-06",
+              "max_date": "2021-03-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "136",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "136",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-11-05",
+              "max_date": "2022-05-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "144",
+              "unique_oriented_pairs": "144",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "144",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-11-04",
+              "max_date": "2023-06-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "150",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "150",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2023-11-03",
+              "max_date": "2024-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "123",
+              "unique_oriented_pairs": "123",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "123",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-11-01",
+              "max_date": "2025-05-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "123",
+              "unique_oriented_pairs": "123",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "123",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-31",
+              "max_date": "2026-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 1999/2000",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "100",
+              "rows": "102",
+              "unique_oriented_pairs": "102",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "102",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-11-19",
+              "max_date": "2000-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "132",
+              "rows": "150",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "150",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-11-17",
+              "max_date": "2001-04-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2005/06",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "142",
+              "rows": "148",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "148",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-11-04",
+              "max_date": "2006-04-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2006/07",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "128",
+              "rows": "165",
+              "unique_oriented_pairs": "164",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "165",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2006-11-10",
+              "max_date": "2007-05-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2007/08",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "158",
+              "rows": "149",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "149",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-11-09",
+              "max_date": "2008-03-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "156",
+              "rows": "160",
+              "unique_oriented_pairs": "160",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "160",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-11-07",
+              "max_date": "2009-03-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2010/11",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-03-13",
+              "max_date": "2011-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2011/12",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-03-11",
+              "max_date": "2012-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2012/13",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-03-17",
+              "max_date": "2013-05-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2013/14",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-05-11",
+              "max_date": "2014-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2014/15",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-01",
+              "max_date": "2015-05-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2015/16",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-03-19",
+              "max_date": "2016-05-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2016/17",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-03-19",
+              "max_date": "2017-05-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2017/18",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-02-18",
+              "max_date": "2018-05-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2018/19",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-02-17",
+              "max_date": "2019-05-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2019/20",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-26",
+              "max_date": "2020-02-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2020/21",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-29",
+              "max_date": "2021-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2021/22",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-02-26",
+              "max_date": "2022-05-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2022/23",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-29",
+              "max_date": "2023-05-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2023/24",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-13",
+              "max_date": "2024-05-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2024/25",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-02-08",
+              "max_date": "2025-05-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup 2025/26",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-02-21",
+              "max_date": "2026-05-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "100",
+              "rows": "102",
+              "unique_oriented_pairs": "102",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "102",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-11-19",
+              "max_date": "2000-05-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "132",
+              "rows": "150",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "150",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-11-17",
+              "max_date": "2001-04-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "142",
+              "rows": "148",
+              "unique_oriented_pairs": "148",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "148",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-11-04",
+              "max_date": "2006-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "128",
+              "rows": "165",
+              "unique_oriented_pairs": "164",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "165",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2006-11-10",
+              "max_date": "2007-05-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "164",
+              "rows": "159",
+              "unique_oriented_pairs": "159",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "159",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-11-09",
+              "max_date": "2008-03-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "156",
+              "rows": "163",
+              "unique_oriented_pairs": "163",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "163",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-11-07",
+              "max_date": "2009-05-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "157",
+              "rows": "188",
+              "unique_oriented_pairs": "188",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "188",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-10-24",
+              "max_date": "2010-03-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "130",
+              "rows": "162",
+              "unique_oriented_pairs": "162",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "162",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-11-05",
+              "max_date": "2011-05-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "130",
+              "rows": "163",
+              "unique_oriented_pairs": "162",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "163",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2011-11-11",
+              "max_date": "2012-05-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "130",
+              "rows": "168",
+              "unique_oriented_pairs": "168",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "168",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-11-02",
+              "max_date": "2013-05-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "125",
+              "rows": "152",
+              "unique_oriented_pairs": "151",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "152",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-11-08",
+              "max_date": "2014-06-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "124",
+              "rows": "155",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "155",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-01",
+              "max_date": "2015-05-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "129",
+              "rows": "163",
+              "unique_oriented_pairs": "161",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "163",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2015-11-06",
+              "max_date": "2016-05-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "126",
+              "rows": "170",
+              "unique_oriented_pairs": "170",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "170",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-11-04",
+              "max_date": "2017-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "130",
+              "rows": "163",
+              "unique_oriented_pairs": "163",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "163",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-11-03",
+              "max_date": "2018-05-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "127",
+              "rows": "164",
+              "unique_oriented_pairs": "164",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "164",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-11-09",
+              "max_date": "2019-05-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "125",
+              "rows": "168",
+              "unique_oriented_pairs": "167",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "168",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2019-09-26",
+              "max_date": "2020-06-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "125",
+              "rows": "135",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "135",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-29",
+              "max_date": "2021-05-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "127",
+              "rows": "151",
+              "unique_oriented_pairs": "151",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "151",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-11-05",
+              "max_date": "2022-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "131",
+              "rows": "175",
+              "unique_oriented_pairs": "173",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "175",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2022-11-04",
+              "max_date": "2023-06-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "127",
+              "rows": "181",
+              "unique_oriented_pairs": "177",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "181",
+              "duplicate_pair_occurrences": "4",
+              "min_date": "2023-11-03",
+              "max_date": "2024-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "126",
+              "rows": "138",
+              "unique_oriented_pairs": "138",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "138",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-11-01",
+              "max_date": "2025-05-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "FA Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "126",
+              "rows": "138",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "138",
+              "duplicate_pair_occurrences": "2",
+              "min_date": "2025-10-31",
+              "max_date": "2026-05-31"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "124",
+              "rows": "154",
+              "unique_oriented_pairs": "153",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2014-11-07",
+              "max_date": "2015-05-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "124",
+              "rows": "149",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-11-06",
+              "max_date": "2016-05-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "124",
+              "rows": "156",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-11-04",
+              "max_date": "2017-05-27"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "124",
+              "rows": "149",
+              "unique_oriented_pairs": "149",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-11-03",
+              "max_date": "2018-05-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "124",
+              "rows": "150",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-11-09",
+              "max_date": "2019-05-18"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "123",
+              "rows": "156",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-11-08",
+              "max_date": "2020-08-01"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "124",
+              "rows": "123",
+              "unique_oriented_pairs": "123",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-11-06",
+              "max_date": "2021-05-15"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "124",
+              "rows": "136",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-11-05",
+              "max_date": "2022-05-14"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "FA Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "80",
+              "rows": "40",
+              "unique_oriented_pairs": "40",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-11-05",
+              "max_date": "2022-11-05"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng97.txt:798",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng97.txt:852",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng97.txt:880",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng97.txt:925",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng97.txt:943",
+                "excerpt": "Replay"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng97.txt:946",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1032",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1056",
+                "excerpt": "[*] Darlington qualified as lucky losers (due to withdrawal Manchester United)"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1058",
+                "excerpt": "Second Round Replays"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1070",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1137",
+                "excerpt": "Third Round Replays"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1162",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1200",
+                "excerpt": "Fourth Round Replays"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng00.txt:1206",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1034",
+                "excerpt": "First Round Replays"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1046",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1072",
+                "excerpt": "Second Round Replays"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1082",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1119",
+                "excerpt": "Third Round Replays"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1134",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1156",
+                "excerpt": "Fourth Round Replays"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1163",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:1181",
+                "excerpt": "Fifth Round Replays"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng01.txt:988",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1087",
+                "excerpt": "1st Qualifying Round Replays"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1111",
+                "excerpt": "2nd Qualifying Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1197",
+                "excerpt": "2nd Qualifying Round Replays"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1222",
+                "excerpt": "3rd Qualifying Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1310",
+                "excerpt": "3rd Qualifying Round Replays"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1322",
+                "excerpt": "4th Qualifying Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "regulation",
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1356",
+                "excerpt": "4th Qualifying Round replay"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1364",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1448",
+                "excerpt": "First Round Replays"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1477",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1519",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1587",
+                "excerpt": "Third Round Replays"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1609",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1646",
+                "excerpt": "Fourth Round Replays"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1658",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:1677",
+                "excerpt": "Fifth Round Replays"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng06.txt:959",
+                "excerpt": "1st Qualifying Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:1026",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:1062",
+                "excerpt": "Fourth Round Replays"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:1072",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:1091",
+                "excerpt": "Fifth Round Replays"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:795",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:876",
+                "excerpt": "First Round Replays"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:897",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:939",
+                "excerpt": "Second Round Replays [Dec 12]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:955",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng07.txt:997",
+                "excerpt": "Third Round Replays"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng08.txt:613",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng08.txt:658",
+                "excerpt": "First Round Replays"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng08.txt:685",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng08.txt:715",
+                "excerpt": "Second Round Replays"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng08.txt:730",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng08.txt:766",
+                "excerpt": "Third Round Replays"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng08.txt:852",
+                "excerpt": "1/8 Final Replay [Feb 27]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1011",
+                "excerpt": "First Round Replays"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1048",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1095",
+                "excerpt": "Second Round Replays"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1111",
+                "excerpt": "[Droylsden subsequently disqualified for using a suspended player"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1112",
+                "excerpt": "and Chesterfield reinstated]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1114",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1181",
+                "excerpt": "Third Round Replays"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1204",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:1238",
+                "excerpt": "Fourth Round Replays"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng09.txt:932",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng2010.txt:769",
+                "excerpt": "Fourth Qualifying Round"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng2010.txt:805",
+                "excerpt": "Fourth Qualifying Round Replays [Oct 27]"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng2016.txt:847",
+                "excerpt": "1/8 Final Replay [Mar 8]"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/eng2017.txt:860",
+                "excerpt": "1/8 Final Replay [Mar 1]"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "acceptedClubs": 743,
+                  "qualifyingRounds": 6,
+                  "qualifiersToProper": 32,
+                  "proper1Entrants": 80,
+                  "proper3Entrants": 64,
+                  "proper3NewEntrants": 44,
+                  "replaysInQualifying": true,
+                  "replaysFromProper1": false,
+                  "extraTimeMinutes": 30,
+                  "penalties": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ENG/2627/NATIONAL_CUP.json#block67Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

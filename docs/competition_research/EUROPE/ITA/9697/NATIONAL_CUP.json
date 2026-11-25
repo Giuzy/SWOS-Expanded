@@ -443,6 +443,3020 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "3879df96f643f348d9e84276c8ea8e80014b8f60f0614661af0d1fe78be582dd": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-02",
+              "max_date": "2010-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-08",
+              "max_date": "2011-05-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-06",
+              "max_date": "2012-03-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-04",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-03",
+              "max_date": "2014-02-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-10",
+              "max_date": "2015-04-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-02",
+              "max_date": "2016-03-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-29",
+              "max_date": "2017-04-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-29",
+              "max_date": "2018-02-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-28",
+              "max_date": "2019-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-03",
+              "max_date": "2020-06-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-22",
+              "max_date": "2021-02-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-07",
+              "max_date": "2022-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-30",
+              "max_date": "2023-04-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-05",
+              "max_date": "2024-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-03",
+              "max_date": "2025-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-09",
+              "max_date": "2026-04-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "52",
+              "rows": "141",
+              "unique_oriented_pairs": "141",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "141",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-08-15",
+              "max_date": "2000-05-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-25",
+              "max_date": "2003-05-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-02",
+              "max_date": "2010-04-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-08",
+              "max_date": "2011-05-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-06",
+              "max_date": "2012-03-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-04",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-03",
+              "max_date": "2014-02-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-10",
+              "max_date": "2015-04-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-02",
+              "max_date": "2016-03-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-29",
+              "max_date": "2017-04-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-29",
+              "max_date": "2018-02-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-28",
+              "max_date": "2019-04-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "79",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-03",
+              "max_date": "2020-06-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "78",
+              "unique_oriented_pairs": "78",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "78",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-22",
+              "max_date": "2021-02-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-07",
+              "max_date": "2022-04-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-30",
+              "max_date": "2023-04-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-05",
+              "max_date": "2024-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "44",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-03",
+              "max_date": "2025-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coppa Italia",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-09",
+              "max_date": "2026-04-22"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "78",
+              "rows": "79",
+              "unique_oriented_pairs": "79",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-10",
+              "max_date": "2015-05-20"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "78",
+              "rows": "79",
+              "unique_oriented_pairs": "79",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-02",
+              "max_date": "2016-05-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "78",
+              "rows": "79",
+              "unique_oriented_pairs": "79",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-29",
+              "max_date": "2017-05-17"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "78",
+              "rows": "79",
+              "unique_oriented_pairs": "79",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-29",
+              "max_date": "2018-05-09"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "78",
+              "rows": "79",
+              "unique_oriented_pairs": "79",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-28",
+              "max_date": "2019-05-15"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "78",
+              "rows": "79",
+              "unique_oriented_pairs": "79",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-03",
+              "max_date": "2020-06-17"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "78",
+              "rows": "79",
+              "unique_oriented_pairs": "79",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-22",
+              "max_date": "2021-05-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "44",
+              "rows": "45",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-07",
+              "max_date": "2022-05-11"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Coppa Italia",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "36",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-30",
+              "max_date": "2022-10-20"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 1003,
+                "phase": "Group 7",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Brescia",
+                  "Juve Stabia",
+                  "Pescara",
+                  "Reggiana"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 1028,
+                "phase": "Group 8",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Alzano",
+                  "Ravenna",
+                  "Spal",
+                  "Vicenza"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 853,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Fidelis Andria",
+                  "Lecce",
+                  "Lucchese",
+                  "Ternana"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 878,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Cesena",
+                  "Palermo",
+                  "Sampdoria",
+                  "Savoia"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 903,
+                "phase": "Group 3",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Empoli",
+                  "Genoa",
+                  "Lumezzane",
+                  "Monza"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 928,
+                "phase": "Group 4",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Atalanta",
+                  "Chievo",
+                  "Cremonese",
+                  "Pistoiese"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 953,
+                "phase": "Group 5",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cosenza",
+                  "Gualdo",
+                  "Reggina",
+                  "Treviso"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital00.txt",
+                "edition": "1999/2000",
+                "tableLine": 978,
+                "phase": "Group 6",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Como",
+                  "Fermana",
+                  "Napoli",
+                  "Salernitana"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 839,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Genoa",
+                  "Lucchese",
+                  "Sampdoria",
+                  "Siena"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 852,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Albinoleffe",
+                  "Spezia",
+                  "Venezia",
+                  "Vicenza"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 865,
+                "phase": "Group 3",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cittadella",
+                  "Treviso",
+                  "Triestina",
+                  "Verona"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 878,
+                "phase": "Group 4",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Cagliari",
+                  "Empoli",
+                  "Livorno",
+                  "Pistoiese"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 891,
+                "phase": "Group 5",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Ancona",
+                  "Ascoli",
+                  "Lecce",
+                  "Pescara"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 904,
+                "phase": "Group 6",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Lanciano",
+                  "Napoli",
+                  "Salernitana",
+                  "Ternana"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 917,
+                "phase": "Group 7",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Bari",
+                  "Catania",
+                  "Cosenza",
+                  "Crotone"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/ital03.txt",
+                "edition": "2002/2003",
+                "tableLine": 930,
+                "phase": "Group 8",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Messina",
+                  "Palermo",
+                  "Reggina",
+                  "Taranto"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 48,
+                  "firstRoundTeams": 32,
+                  "secondRoundTeams": 32,
+                  "roundOf16Teams": 16,
+                  "quarterfinalLegs": 2,
+                  "semifinalLegs": 2,
+                  "finalLegs": 2,
+                  "replaysObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ITA/9697/NATIONAL_CUP.json#block68Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 18,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 7",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1003
+                  },
+                  "team": "Pescara",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1003"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1003
+                  },
+                  "team": "Brescia",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1004"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1003
+                  },
+                  "team": "Reggiana",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1005"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1003
+                  },
+                  "team": "Juve Stabia",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1006"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 8",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1028
+                  },
+                  "team": "Ravenna",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1028"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1028
+                  },
+                  "team": "Vicenza",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1029"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1028
+                  },
+                  "team": "Spal",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1030"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 1028
+                  },
+                  "team": "Alzano",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1031"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1034",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:1076",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:828",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:830",
+                "excerpt": "(8 groups of four, winners to Second Round; all teams from Serie A"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 853
+                  },
+                  "team": "Ternana",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:853"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 853
+                  },
+                  "team": "Lecce",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:854"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 7,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 853
+                  },
+                  "team": "Lucchese",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:855"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 853
+                  },
+                  "team": "Fidelis Andria",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:856"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Sampdoria",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:878"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Cesena",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:879"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Palermo",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:880"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Savoia",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:881"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 903
+                  },
+                  "team": "Genoa",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:903"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 903
+                  },
+                  "team": "Empoli",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:904"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 903
+                  },
+                  "team": "Monza",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:905"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 903
+                  },
+                  "team": "Lumezzane",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:906"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 928
+                  },
+                  "team": "Atalanta",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:928"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 928
+                  },
+                  "team": "Chievo",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:929"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 928
+                  },
+                  "team": "Pistoiese",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:930"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 928
+                  },
+                  "team": "Cremonese",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:931"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 0,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 5",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 953
+                  },
+                  "team": "Reggina",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:953"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "[hth 2 0 2 0 0-0 2; gd for Reggina]",
+                  "phase": "Group 5",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 953
+                  },
+                  "team": "Treviso",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:954"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 953
+                  },
+                  "team": "Cosenza",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:955"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 2,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 953
+                  },
+                  "team": "Gualdo",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:956"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 6",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 978
+                  },
+                  "team": "Napoli",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:978"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "[hth 2 1 0 1 2-3 3]",
+                  "phase": "Group 6",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 978
+                  },
+                  "team": "Salernitana",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:979"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 978
+                  },
+                  "team": "Como",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:980"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 19,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 978
+                  },
+                  "team": "Fermana",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital00.txt:981"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:829",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 839
+                  },
+                  "team": "Sampdoria",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:839"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 839
+                  },
+                  "team": "Genoa",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:840"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 839
+                  },
+                  "team": "Lucchese",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:841"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 839
+                  },
+                  "team": "Siena",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:842"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 852
+                  },
+                  "team": "Vicenza",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:852"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 852
+                  },
+                  "team": "Albinoleffe",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:853"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 852
+                  },
+                  "team": "Venezia",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:854"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 852
+                  },
+                  "team": "Spezia",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:855"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 865
+                  },
+                  "team": "Triestina",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:865"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 865
+                  },
+                  "team": "Cittadella",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:866"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 865
+                  },
+                  "team": "Verona",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:867"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 865
+                  },
+                  "team": "Treviso",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:868"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Empoli",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:878"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Livorno",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:879"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Pistoiese",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:880"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 878
+                  },
+                  "team": "Cagliari",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:881"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 891
+                  },
+                  "team": "Ancona",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:891"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 891
+                  },
+                  "team": "Ascoli",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:892"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 891
+                  },
+                  "team": "Lecce",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:893"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 891
+                  },
+                  "team": "Pescara",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:894"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 904
+                  },
+                  "team": "Ternana",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:904"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 904
+                  },
+                  "team": "Napoli",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:905"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 904
+                  },
+                  "team": "Lanciano",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:906"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 904
+                  },
+                  "team": "Salernitana",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:907"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 9,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 917
+                  },
+                  "team": "Bari",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:917"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 917
+                  },
+                  "team": "Cosenza",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:918"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 917
+                  },
+                  "team": "Crotone",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:919"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 3,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 917
+                  },
+                  "team": "Catania",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:920"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 0,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 930
+                  },
+                  "team": "Reggina",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:930"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 930
+                  },
+                  "team": "Palermo",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:931"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 930
+                  },
+                  "team": "Taranto",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:932"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 8",
+                  "played": 3,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 930
+                  },
+                  "team": "Messina",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:933"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:935",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital03.txt:961",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2010.txt:1116",
+                "excerpt": "NB: Serie B clubs enter in round 2"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2010.txt:1163",
+                "excerpt": "NB: 12 of the 20 Serie A clubs enter in round 3"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2010.txt:1225",
+                "excerpt": "NB: the 7 clubs who qualified for European club cups 2009/10"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2010.txt:1227",
+                "excerpt": "the Serie A 2008/09 not so qualified (Udinese)"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2011.txt:1052",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2011.txt:1091",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2011.txt:1136",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2011.txt:1174",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2011.txt:1196",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2012.txt:110",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2012.txt:154",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2012.txt:191",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2012.txt:213",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2012.txt:70",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2013.txt:618",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2013.txt:660",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2013.txt:705",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2013.txt:741",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2013.txt:763",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2014.txt:627",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2014.txt:668",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2014.txt:712",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2014.txt:748",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2014.txt:769",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/ital2020.txt:845",
+                "excerpt": "Penalty Kicks: Dyabala (missed), Insigne, Danilo (missed), Politano,"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2025.txt:674 ",
+                "excerpt": "Round 1 (no extra time)"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2025.txt:710 ",
+                "excerpt": "Round 2 (no extra time)"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2025.txt:731 ",
+                "excerpt": "Round 3 (no extra time)"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2025.txt:757 ",
+                "excerpt": "Quarterfinals (no extra time)"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2026.txt:114 ",
+                "excerpt": "Round 3 (no extra time)"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2026.txt:137 ",
+                "excerpt": "Quarterfinals (no extra time)"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2026.txt:58 ",
+                "excerpt": "Round 1 (no extra time)"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/ital2026.txt:94 ",
+                "excerpt": "Round 2 (no extra time)"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

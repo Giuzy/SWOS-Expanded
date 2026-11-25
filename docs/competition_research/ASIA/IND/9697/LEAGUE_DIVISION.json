@@ -233,6 +233,1591 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "7e5c03bbd92c59c97d6786e6cba0b5ad220f9c67658d20b3459237de7b577d29": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "87",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "87",
+              "duplicate_pair_occurrences": "15",
+              "min_date": "1997-12-19",
+              "max_date": "1998-03-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "I League",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "182",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "182",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-10-01",
+              "max_date": "2010-05-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "I League",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "181",
+              "unique_oriented_pairs": "181",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "181",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-10-06",
+              "max_date": "2013-05-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "I League",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "156",
+              "unique_oriented_pairs": "156",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "156",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-21",
+              "max_date": "2014-04-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "I League",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "110",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "110",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-17",
+              "max_date": "2015-05-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "IND DIV1",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "87",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "87",
+              "duplicate_pair_occurrences": "15",
+              "min_date": "1997-12-19",
+              "max_date": "1998-03-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/india-reg06.txt",
+                "edition": "2006",
+                "tableLine": 637,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 8,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Benny XI Sports Club",
+                  "Goa Police Sports Club",
+                  "Goa Velha Sports Club",
+                  "Marmagao Port Trust SC",
+                  "Raitura Sports Club",
+                  "Sesa Football Academy",
+                  "Young Boys of Tonca",
+                  "Young Strikers Club"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/india04.txt",
+                "edition": "2003/2004",
+                "tableLine": 470,
+                "phase": "Group A (in Bangalore)",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Assam State Electricity Board",
+                  "FC Kochin",
+                  "Hindustan Aeronautics Limited SC",
+                  "Hindustan Club",
+                  "Jammu&Kashmir Bank"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/india04.txt",
+                "edition": "2003/2004",
+                "tableLine": 491,
+                "phase": "Group B (in Shillong)",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Border Security Force",
+                  "EverReady Association",
+                  "Indian Telephone Industries",
+                  "Manipur Police Sports Club"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/india04.txt",
+                "edition": "2003/2004",
+                "tableLine": 519,
+                "phase": "Group C (in Kochi)",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Air-India",
+                  "Fransa FC",
+                  "Punjab Police",
+                  "State Bank of Travancore",
+                  "Titanium XI"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/india04.txt",
+                "edition": "2003/2004",
+                "tableLine": 568,
+                "phase": "Final Phase (in Bangalore)",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Border Security Force",
+                  "EverReady Association",
+                  "FC Kochin",
+                  "Fransa FC",
+                  "Hindustan Aeronautics Limited SC",
+                  "State Bank of Travancore"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/india98.txt",
+                "edition": "1997/1998",
+                "tableLine": 251,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 9,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Air India",
+                  "Churchill Brothers",
+                  "Dempo SC",
+                  "East Bengal",
+                  "FC Kochin",
+                  "Indian Bank",
+                  "JCT Mills",
+                  "Mahindra&Mahindra",
+                  "Salgaocar SC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesi/india98.txt",
+                "edition": "1997/1998",
+                "tableLine": 35,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 9,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Air India",
+                  "Churchill Brothers",
+                  "Dempo SC",
+                  "East Bengal",
+                  "FC Kochin",
+                  "Indian Bank",
+                  "JCT Mills",
+                  "Mahindra&Mahindra",
+                  "Salgaocar SC"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 12,
+                  "regularOrInitialGamesPerClub": 5,
+                  "pointsWin": 3,
+                  "formatAndMovement": "2 groups of6 single RR, top4 each to group8 double RR 14 games, first edition starts Dec17 1996; no carry from stage1"
+                },
+                "source": "repository/research",
+                "locator": "ASIA/IND/9697/LEAGUE_DIVISION.json#historicalSportData",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 10,
+                  "gf": 18,
+                  "lost": 3,
+                  "note": "[Calcutta]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 31,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "East Bengal",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:254"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 13,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "[Goa]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 30,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "Salgaocar SC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:255"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 20,
+                  "gf": 26,
+                  "lost": 5,
+                  "note": "[Kochi]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 29,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "FC Kochin",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:256"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 16,
+                  "gf": 18,
+                  "lost": 4,
+                  "note": "[Mumbai]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 26,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "Air India",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:257"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 22,
+                  "gf": 20,
+                  "lost": 6,
+                  "note": "[Goa]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 22,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "Dempo SC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:258"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 15,
+                  "gf": 19,
+                  "lost": 5,
+                  "note": "[Phagwara]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "JCT Mills",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:259"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 23,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "[Chennai]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 21,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "Indian Bank",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:260"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 26,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "[Goa]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 19,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "Churchill Brothers",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:261"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 30,
+                  "gf": 5,
+                  "lost": 15,
+                  "note": "[Mumbai]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 5,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 251
+                  },
+                  "team": "Mahindra&Mahindra",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:262"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:268",
+                "excerpt": "Promoted: Tollygunge Agragami (Calcutta) and ITI (Bangalore)."
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:269",
+                "excerpt": "Relegated: no teams were relegated."
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 10,
+                  "gf": 18,
+                  "lost": 3,
+                  "note": "[Calcutta]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 31,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "East Bengal",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:38"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 13,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "[Goa]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 30,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "Salgaocar SC",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:39"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 20,
+                  "gf": 26,
+                  "lost": 5,
+                  "note": "[Kochi]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 29,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "FC Kochin",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:40"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 16,
+                  "gf": 18,
+                  "lost": 4,
+                  "note": "[Mumbai]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 26,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "Air India",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:41"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 22,
+                  "gf": 20,
+                  "lost": 6,
+                  "note": "[Goa]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 22,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "Dempo SC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:42"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 15,
+                  "gf": 19,
+                  "lost": 5,
+                  "note": "[Phagwara]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 21,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "JCT Mills",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:43"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 23,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "[Chennai]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 21,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "Indian Bank",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:44"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 26,
+                  "gf": 20,
+                  "lost": 7,
+                  "note": "[Goa]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 19,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "Churchill Brothers",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:45"
+              },
+              {
+                "season": "1997/98",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 30,
+                  "gf": 5,
+                  "lost": 15,
+                  "note": "[Mumbai]",
+                  "phase": "",
+                  "played": 18,
+                  "points": 5,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 35
+                  },
+                  "team": "Mahindra&Mahindra",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india98.txt:46"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:446",
+                "excerpt": "NB: top-2 of each group qualify for Final Phase"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "(Bangalore) [Karnataka]",
+                  "phase": "Group A (in Bangalore)",
+                  "played": 4,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 470
+                  },
+                  "team": "Hindustan Aeronautics Limited SC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:472"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "(Kochi) [Kerala]",
+                  "phase": "Group A (in Bangalore)",
+                  "played": 4,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 470
+                  },
+                  "team": "FC Kochin",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:473"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "(Guwahati) [Assam]",
+                  "phase": "Group A (in Bangalore)",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 470
+                  },
+                  "team": "Assam State Electricity Board",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:474"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "(New Delhi) [Delhi]",
+                  "phase": "Group A (in Bangalore)",
+                  "played": 4,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 470
+                  },
+                  "team": "Hindustan Club",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:475"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 1,
+                  "lost": 4,
+                  "note": "(Srinagar) [Jammu and Kashmir]",
+                  "phase": "Group A (in Bangalore)",
+                  "played": 4,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 470
+                  },
+                  "team": "Jammu&Kashmir Bank",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:476"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 0,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "(Calcutta) [West Bengal]",
+                  "phase": "Group B (in Shillong)",
+                  "played": 3,
+                  "points": 7,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 491
+                  },
+                  "team": "EverReady Association",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:493"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "(Jalandhar) [Punjab]",
+                  "phase": "Group B (in Shillong)",
+                  "played": 3,
+                  "points": 5,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 491
+                  },
+                  "team": "Border Security Force",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:494"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "(Bangalore) [Karnataka]",
+                  "phase": "Group B (in Shillong)",
+                  "played": 3,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 491
+                  },
+                  "team": "Indian Telephone Industries",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:495"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 1,
+                  "lost": 3,
+                  "note": "(Imphal) [Manipur]",
+                  "phase": "Group B (in Shillong)",
+                  "played": 3,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 491
+                  },
+                  "team": "Manipur Police Sports Club",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:496"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 13,
+                  "lost": 0,
+                  "note": "(Thiruvananthapuram) [Kerala]",
+                  "phase": "Group C (in Kochi)",
+                  "played": 4,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 519
+                  },
+                  "team": "State Bank of Travancore",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:521"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 1,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "(Goa) [Goa]",
+                  "phase": "Group C (in Kochi)",
+                  "played": 4,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 519
+                  },
+                  "team": "Fransa FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:522"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "(Mumbai) [Maharashtra]",
+                  "phase": "Group C (in Kochi)",
+                  "played": 4,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 519
+                  },
+                  "team": "Air-India",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:523"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "(Jalandhar) [Punjab]",
+                  "phase": "Group C (in Kochi)",
+                  "played": 4,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 519
+                  },
+                  "team": "Punjab Police",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:524"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "(Thiruvananthapuram) [Kerala]",
+                  "phase": "Group C (in Kochi)",
+                  "played": 4,
+                  "points": 1,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 519
+                  },
+                  "team": "Titanium XI",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:525"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "(Thiruvananthapuram) [Kerala]",
+                  "phase": "Final Phase (in Bangalore)",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 568
+                  },
+                  "team": "State Bank of Travancore",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:570"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "(Goa) [Goa]",
+                  "phase": "Final Phase (in Bangalore)",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 568
+                  },
+                  "team": "Fransa FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:571"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "(Bangalore) [Karnataka]",
+                  "phase": "Final Phase (in Bangalore)",
+                  "played": 5,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 568
+                  },
+                  "team": "Hindustan Aeronautics Limited SC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:572"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "(Calcutta) [West Bengal]",
+                  "phase": "Final Phase (in Bangalore)",
+                  "played": 5,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 568
+                  },
+                  "team": "EverReady Association",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:573"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "(Kochi) [Kerala]",
+                  "phase": "Final Phase (in Bangalore)",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 568
+                  },
+                  "team": "FC Kochin",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:574"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "(Jalandhar) [Punjab]",
+                  "phase": "Final Phase (in Bangalore)",
+                  "played": 5,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 568
+                  },
+                  "team": "Border Security Force",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:575"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india04.txt:577",
+                "excerpt": "Promoted: State Bank of Travancore and Fransa FC"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 24,
+                  "lost": 2,
+                  "note": "Promoted",
+                  "phase": "",
+                  "played": 14,
+                  "points": 30,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Marmagao Port Trust SC",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:639"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 9,
+                  "gf": 26,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 28,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Goa Velha Sports Club",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:640"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 20,
+                  "gf": 28,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 21,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Young Boys of Tonca",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:641"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 24,
+                  "gf": 22,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 18,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Benny XI Sports Club",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:642"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 19,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 17,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Sesa Football Academy",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:643"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 16,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 15,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Young Strikers Club",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:644"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 35,
+                  "gf": 24,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 14,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Goa Police Sports Club",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:645"
+              },
+              {
+                "season": "2006",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 14,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 9,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 637
+                  },
+                  "team": "Raitura Sports Club",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesi/india-reg06.txt:646"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2010.txt:393 ",
+                "excerpt": "NB: Mahindra United withdrew at the end of the season; they were replaced by"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2013.txt:35 ",
+                "excerpt": "13.Air India FC                  26   4  7 15  28-63  19  Relegated  [Mumbai]"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2013.txt:36 ",
+                "excerpt": "14.United Sikkim FC              26   2  9 15  23-63  15  Relegated  [Gangtok]"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2014.txt:35 ",
+                "excerpt": "13.Mohammedan Sporting           24   6  6 12  27-35  24  Relegated  [Calcutta]"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2014.txt:379 ",
+                "excerpt": "Promoted: Royal Wahingdoh"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2014.txt:39 ",
+                "excerpt": "Prayag United were renamed United SC;"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2015.txt:291 ",
+                "excerpt": "NB: Dempo were relegated; Pune FC and Bharat FC were refused a license for 2016;"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2015.txt:294 ",
+                "excerpt": "Promoted: Aizawl FC (Aizawl)"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2015.txt:32 ",
+                "excerpt": "10.Dempo SC                      20   3 10  7  15-26  19  Relegated  [Goa]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

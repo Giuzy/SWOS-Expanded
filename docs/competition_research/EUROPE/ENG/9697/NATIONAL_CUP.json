@@ -122,7 +122,48 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "277c9aa9bb9716de57f16c47f96975d65b4d04786465405140b39e41db2432a2": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "format": "single elimination with replays",
+                  "qualifyingRounds": 5,
+                  "qualifiersToProper": 28,
+                  "proper1Entrants": 80,
+                  "proper3Entrants": 64,
+                  "proper3NewEntrants": 44,
+                  "semifinalReplayObserved": true,
+                  "neutralSemifinal": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ENG/9697/NATIONAL_CUP.json#block67Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "2b85baae712177d76252e5c74a1ac82f53864304abb8152d5d46a10ce79b57a7": {
           "status": "I",

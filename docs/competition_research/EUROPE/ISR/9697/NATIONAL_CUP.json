@@ -121,6 +121,85 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "6cec3d63e66853041c0bc02fca205e5e34e228f90dd36a8ed183b23e12ff3f23": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "github/openfootball/world",
+              "competition": "Israel State Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-12-26",
+              "max_date": "2025-04-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Israel Cup",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-02-21",
+              "max_date": "2006-04-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "round8Date": "1997-01-25",
+                  "round8SingleLegObserved": true,
+                  "extraTimeObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ISR/9697/NATIONAL_CUP.json#sportRuleEvidence47",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "mainRound8Entrants": 32,
+                  "legsFromRound8": 1,
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ISR/9697/NATIONAL_CUP.json#sportRuleEvidence79",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

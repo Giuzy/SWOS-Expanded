@@ -121,7 +121,70 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "b5a7d4bfc47cf48e67fa9dbe90920c97c4e171259a2d51e3d29508239261aff2": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "participants": 92,
+                  "round1": {
+                    "entrants": 66,
+                    "ties": 33,
+                    "legs": 2,
+                    "seededByPreviousLeagueRank": true
+                  },
+                  "round2": {
+                    "entrants": 54,
+                    "fromR1": 33,
+                    "premierNonEurope": 15,
+                    "previousSecondTierNonPromotedPlayoffTeams": 3,
+                    "previousPremierRelegated": 3,
+                    "legs": 2
+                  },
+                  "round3": {
+                    "entrants": 32,
+                    "fromR2": 27,
+                    "europeanDirect": 5,
+                    "legs": 1
+                  },
+                  "round4Legs": 1,
+                  "quarterFinalLegs": 1,
+                  "semiFinalLegs": 2,
+                  "finalLegs": 1,
+                  "observedReplays": [
+                    "R3",
+                    "R4",
+                    "QF",
+                    "Final"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ENG/9697/LEAGUE_CUP.json#block109Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "2b85baae712177d76252e5c74a1ac82f53864304abb8152d5d46a10ce79b57a7": {
           "status": "I",

@@ -93,7 +93,60 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "60ed709da33ab35b5243cf9cba84d729463f3b6eb5e3bbe0a5eeff7848deaa13": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+          "phaseQueue": "PARENT_PHASE_LINK",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 6,
+                  "legsByRound": [
+                    1,
+                    2,
+                    1
+                  ],
+                  "games": 7,
+                  "eliminationPairs": [
+                    [
+                      3,
+                      6
+                    ],
+                    [
+                      4,
+                      5
+                    ]
+                  ],
+                  "semifinals": "1 vs lowest surviving rank, 2 vs highest",
+                  "awayGoals": false,
+                  "tied": "30 minutes extra time then penalties",
+                  "editionCaveat": "detailed rules from 2025/26 full page; 2026/27 search snippet confirms six teams and seven games; exact bracket reconfirm pending"
+                },
+                "source": "repository/research",
+                "locator": "OCEANIA/AUS/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json#block54Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

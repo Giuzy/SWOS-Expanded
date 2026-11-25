@@ -279,6 +279,317 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "06cb1444614683bbd060af8f45c8b98f1ef4921490142cfe02441c18f09814d2": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Canadian Championship 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-06-06",
+              "max_date": "2018-08-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Canadian Championship 2019",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-05-15",
+              "max_date": "2019-09-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Canadian Championship 2021",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-15",
+              "max_date": "2021-11-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Canadian Championship 2022",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-05-10",
+              "max_date": "2022-06-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Canadian Championship 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-18",
+              "max_date": "2023-06-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Canadian Championship 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-23",
+              "max_date": "2024-08-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Canadian Championship 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-04-29",
+              "max_date": "2025-08-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "TELUS Canadian Championship",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-06-06",
+              "max_date": "2018-08-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "TELUS Canadian Championship",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "23",
+              "unique_oriented_pairs": "23",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "23",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-05-15",
+              "max_date": "2019-09-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "TELUS Canadian Championship",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-15",
+              "max_date": "2021-11-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "TELUS Canadian Championship",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-05-10",
+              "max_date": "2022-06-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "TELUS Canadian Championship",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-18",
+              "max_date": "2023-06-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "TELUS Canadian Championship",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-23",
+              "max_date": "2024-08-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "TELUS Canadian Championship",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-04-29",
+              "max_date": "2025-08-18"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2018.txt:16",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2018.txt:24",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2019.txt:16",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2019.txt:28",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2019.txt:44",
+                "excerpt": "Qualifying Round 3"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2022.txt:16",
+                "excerpt": "NB: no extra time played after draw"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2023.txt:17",
+                "excerpt": "NB: no extra time played after draw"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2024.txt:17",
+                "excerpt": "NB: no extra time played after draw"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/can2025.txt:16",
+                "excerpt": "NB: no extra time played after draw"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

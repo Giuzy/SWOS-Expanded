@@ -136,6 +136,68 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "586e1bf0a209bb626a43dbb4c5549d25e4425e52be8ef25beed9722762e7fdd4": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "FA Cup (Nedbank Cup) 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "37",
+              "unique_oriented_pairs": "37",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-12-16",
+              "max_date": "2009-04-26"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "mainDrawTeams": 32,
+                  "entryPools": [
+                    16,
+                    8,
+                    8
+                  ],
+                  "entryPoolNames": [
+                    "Premier Division",
+                    "National First Division",
+                    "SAFA regional leagues"
+                  ],
+                  "regionalQualifying": true,
+                  "previousEditionDraw": {
+                    "seeded": false,
+                    "firstDrawnHome": true
+                  }
+                },
+                "source": "repository/research",
+                "locator": "AFRICA/RSA/2627/NATIONAL_CUP.json#block55Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -398,6 +398,821 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "245da81a6975b5b607327b5df904e7228bb7b1115e8ac64c7c72d52b0f02f3f0": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "96",
+              "unique_oriented_pairs": "96",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-08-04",
+              "max_date": "2006-12-03"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "200",
+              "unique_oriented_pairs": "150",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "50",
+              "min_date": "2007-02-17",
+              "max_date": "2007-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "203",
+              "unique_oriented_pairs": "152",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "51",
+              "min_date": "2008-03-01",
+              "max_date": "2008-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "17",
+              "rows": "216",
+              "unique_oriented_pairs": "162",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "54",
+              "min_date": "2009-02-28",
+              "max_date": "2009-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "41",
+              "min_date": "2010-02-27",
+              "max_date": "2010-12-05"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "204",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "2011-03-05",
+              "max_date": "2011-12-11"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "194",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2012-03-03",
+              "max_date": "2012-12-01"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "240",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "34",
+              "min_date": "2013-02-27",
+              "max_date": "2013-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "240",
+              "unique_oriented_pairs": "194",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "46",
+              "min_date": "2014-02-22",
+              "max_date": "2014-12-10"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "296",
+              "unique_oriented_pairs": "242",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "54",
+              "min_date": "2015-02-21",
+              "max_date": "2015-12-16"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "288",
+              "unique_oriented_pairs": "223",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "65",
+              "min_date": "2016-02-19",
+              "max_date": "2016-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "304",
+              "unique_oriented_pairs": "222",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "82",
+              "min_date": "2017-02-17",
+              "max_date": "2017-12-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "288",
+              "unique_oriented_pairs": "221",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "67",
+              "min_date": "2018-02-16",
+              "max_date": "2018-12-17"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "288",
+              "unique_oriented_pairs": "225",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "63",
+              "min_date": "2019-02-15",
+              "max_date": "2019-12-15"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "270",
+              "unique_oriented_pairs": "217",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "2020-02-15",
+              "max_date": "2020-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "22",
+              "rows": "358",
+              "unique_oriented_pairs": "295",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "63",
+              "min_date": "2021-02-05",
+              "max_date": "2021-12-19"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "280",
+              "unique_oriented_pairs": "206",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "2022-02-12",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "296",
+              "unique_oriented_pairs": "222",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "74",
+              "min_date": "2023-02-03",
+              "max_date": "2023-12-22"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "304",
+              "unique_oriented_pairs": "233",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "71",
+              "min_date": "2024-02-09",
+              "max_date": "2024-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "serbia",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "18",
+              "rows": "204",
+              "unique_oriented_pairs": "165",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2025-01-31",
+              "max_date": "2025-09-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "SRB DIV1",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "239",
+              "unique_oriented_pairs": "239",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "239",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-08-05",
+              "max_date": "2006-05-06"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesj/joeg06.txt",
+                "edition": "2005/2006",
+                "tableLine": 380,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Borac Cacak",
+                  "Budućnost Banatski Dvor",
+                  "Budućnost Podgorica",
+                  "FC Smederevo",
+                  "FK Crvena zvezda Beograd",
+                  "FK Hajduk Rodić-MB Kula",
+                  "FK Obilić Beograd",
+                  "FK Partizan Beograd",
+                  "FK Vojvodina Novi Sad",
+                  "FK Zemun",
+                  "FK Zeta Golubovci",
+                  "Habitfarm Ivanjica",
+                  "Jedinstvo Bijelo Polje",
+                  "OFK Beograd",
+                  "Rad Beograd",
+                  "Vozdovac Beograd"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2005/06",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:34",
+                "excerpt": "[*2] Javor Ivanjica were renamed Habitfarm Ivanjica"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 23,
+                  "gf": 73,
+                  "lost": 2,
+                  "note": "Champions",
+                  "phase": "",
+                  "played": 30,
+                  "points": 78,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FK Crvena zvezda Beograd",
+                  "won": 25
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:382"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 53,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 71,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FK Partizan Beograd",
+                  "won": 22
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:383"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 38,
+                  "gf": 52,
+                  "lost": 9,
+                  "note": "[*1]",
+                  "phase": "",
+                  "played": 30,
+                  "points": 51,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "Vozdovac Beograd",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:384"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 26,
+                  "gf": 41,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 50,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FK Hajduk Rodić-MB Kula",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:385"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 36,
+                  "gf": 42,
+                  "lost": 11,
+                  "note": "[to Montenegro]",
+                  "phase": "",
+                  "played": 30,
+                  "points": 47,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FK Zeta Golubovci",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:386"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 29,
+                  "gf": 35,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "OFK Beograd",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:387"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 27,
+                  "gf": 32,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "Borac Cacak",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:388"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 31,
+                  "gf": 34,
+                  "lost": 12,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 44,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "Budućnost Banatski Dvor",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:389"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 27,
+                  "gf": 28,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 43,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FK Vojvodina Novi Sad",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:390"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 39,
+                  "gf": 34,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 41,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FK Zemun",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:391"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 37,
+                  "gf": 30,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "",
+                  "played": 30,
+                  "points": 39,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FC Smederevo",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:392"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 35,
+                  "gf": 22,
+                  "lost": 14,
+                  "note": "[*2]  Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 32,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "Habitfarm Ivanjica",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:394"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 35,
+                  "gf": 27,
+                  "lost": 17,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 31,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "Rad Beograd",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:395"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 43,
+                  "gf": 24,
+                  "lost": 14,
+                  "note": "[-3]  Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 25,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "Budućnost Podgorica",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:396"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 53,
+                  "gf": 23,
+                  "lost": 21,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 15,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "FK Obilić Beograd",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:397"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 72,
+                  "gf": 18,
+                  "lost": 25,
+                  "note": "Relegated",
+                  "phase": "",
+                  "played": 30,
+                  "points": 11,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 380
+                  },
+                  "team": "Jedinstvo Bijelo Polje",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:398"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesj/joeg06.txt:400",
+                "excerpt": "NB: Budućnost Podgorica 3 points deducted for walking off in round 21"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 14,
+                  "regularGames": 26,
+                  "groups": [
+                    6,
+                    8
+                  ],
+                  "extraGames": [
+                    5,
+                    7
+                  ],
+                  "totalGamesPerClub": [
+                    31,
+                    33
+                  ],
+                  "directRelegated": [
+                    11,
+                    12,
+                    13,
+                    14
+                  ],
+                  "expectedDirectPromotedTier2": 2,
+                  "nextEditionTeams": 12
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SRB/2627/LEAGUE_DIVISION.json#sportRuleEvidence78",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

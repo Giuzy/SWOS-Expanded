@@ -100,7 +100,44 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "37cdd62f2406e177300fd7e539a73183fdb82deed2c1a270b3a808e7a862ba3e": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1997",
+                "categories": [
+                  "format",
+                  "movement",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 8,
+                  "regularOrInitialGamesPerClub": 14,
+                  "pointsWin": 3,
+                  "formatAndMovement": "1997 table, not proof 1996 composition; 1996 champion archive available; exact cutoff and 1996 format remain unknown"
+                },
+                "source": "repository/research",
+                "locator": "ASIA/TPE/9697/LEAGUE_DIVISION.json#historicalSportData",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "f6f201fbddda8a95a6e5dd9253ac2bd1bd0290330faee8775d401b2c520ea368": {
           "status": "I",

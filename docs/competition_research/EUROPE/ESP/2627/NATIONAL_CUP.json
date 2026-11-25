@@ -532,6 +532,1557 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "610754f341e5bab6121f5862f17a08422644a95c562e4b09714172f322377b46": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "84",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-22",
+              "max_date": "2010-02-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "89",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "89",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-21",
+              "max_date": "2011-02-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "84",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "112",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-31",
+              "max_date": "2012-02-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-29",
+              "max_date": "2013-02-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "110",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "110",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-04",
+              "max_date": "2014-02-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-03",
+              "max_date": "2015-03-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "82",
+              "rows": "107",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "107",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-27",
+              "max_date": "2016-02-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "110",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "110",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-31",
+              "max_date": "2017-02-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-30",
+              "max_date": "2018-02-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-05",
+              "max_date": "2019-02-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "125",
+              "rows": "125",
+              "unique_oriented_pairs": "125",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "125",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-11-13",
+              "max_date": "2020-03-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-01-26",
+              "max_date": "2021-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-15",
+              "max_date": "2022-03-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-17",
+              "max_date": "2023-04-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-16",
+              "max_date": "2024-02-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-01-14",
+              "max_date": "2025-04-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-01-13",
+              "max_date": "2026-03-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "16",
+              "min_date": "1999-09-01",
+              "max_date": "1999-09-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "94",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "94",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2000-12-12",
+              "max_date": "2001-01-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "92",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-10-09",
+              "max_date": "2001-11-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-08",
+              "max_date": "2003-06-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "132",
+              "rows": "220",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "220",
+              "duplicate_pair_occurrences": "110",
+              "min_date": "2005-08-11",
+              "max_date": "2006-03-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "96",
+              "rows": "222",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "222",
+              "duplicate_pair_occurrences": "111",
+              "min_date": "2006-08-30",
+              "max_date": "2007-05-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "82",
+              "rows": "220",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "220",
+              "duplicate_pair_occurrences": "110",
+              "min_date": "2007-08-29",
+              "max_date": "2008-03-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "86",
+              "rows": "222",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "222",
+              "duplicate_pair_occurrences": "111",
+              "min_date": "2008-08-23",
+              "max_date": "2009-03-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "84",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-22",
+              "max_date": "2010-02-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "78",
+              "rows": "89",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "89",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-21",
+              "max_date": "2011-02-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "84",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "112",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-31",
+              "max_date": "2012-02-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-29",
+              "max_date": "2013-02-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "110",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "110",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-04",
+              "max_date": "2014-02-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-03",
+              "max_date": "2015-03-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "82",
+              "rows": "107",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "107",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-27",
+              "max_date": "2016-02-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "110",
+              "unique_oriented_pairs": "110",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "110",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-31",
+              "max_date": "2017-02-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-30",
+              "max_date": "2018-02-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "111",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "111",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-05",
+              "max_date": "2019-02-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "125",
+              "rows": "125",
+              "unique_oriented_pairs": "125",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "125",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-11-13",
+              "max_date": "2020-03-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-01-26",
+              "max_date": "2021-04-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-01-15",
+              "max_date": "2022-03-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-01-17",
+              "max_date": "2023-04-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-01-16",
+              "max_date": "2024-02-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-01-14",
+              "max_date": "2025-04-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa del Rey",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-01-13",
+              "max_date": "2026-03-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "83",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-09-03",
+              "max_date": "2015-05-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "83",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-27",
+              "max_date": "2016-05-22"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "83",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-31",
+              "max_date": "2017-05-27"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "83",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-30",
+              "max_date": "2018-04-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "83",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-05",
+              "max_date": "2019-05-25"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "125",
+              "rows": "126",
+              "unique_oriented_pairs": "126",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-11-13",
+              "max_date": "2021-04-03"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "126",
+              "rows": "127",
+              "unique_oriented_pairs": "127",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-11-11",
+              "max_date": "2021-04-17"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "Copa del Rey",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "126",
+              "rows": "127",
+              "unique_oriented_pairs": "127",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-11-17",
+              "max_date": "2022-04-23"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/span00.txt",
+                "edition": "1999/2000",
+                "tableLine": 1134,
+                "phase": "Final",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 22,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Albacete",
+                  "Atlético B (Madrid)",
+                  "Badajoz",
+                  "Compostela",
+                  "Córdoba",
+                  "Eibar",
+                  "Elche",
+                  "Extremadura",
+                  "Getafe",
+                  "Las Palmas",
+                  "Leganés",
+                  "Levante",
+                  "Lleida",
+                  "Logroñés",
+                  "Mérida",
+                  "Osasuna (Pamplona)",
+                  "Recreativo Huelva",
+                  "Salamanca",
+                  "Sporting (Gijón)",
+                  "Tenerife (Santa Cruz)",
+                  "Toledo",
+                  "Villarreal"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1008",
+                "excerpt": "First Round [Nov 10 and Dec 1]"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1034",
+                "excerpt": "Second Round [Dec 15 and Jan 12]"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1077",
+                "excerpt": "Third Round [Jan 19 and Feb 2]"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 41,
+                  "gf": 60,
+                  "lost": 10,
+                  "note": "Champions, Promoted",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 72,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Las Palmas",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1136"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 36,
+                  "gf": 50,
+                  "lost": 15,
+                  "note": "Promoted",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 67,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Osasuna (Pamplona)",
+                  "won": 20
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1137"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 46,
+                  "gf": 61,
+                  "lost": 12,
+                  "note": "[2 1 1 0 2-0 4]  Promoted",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 66,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Villarreal",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1138"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 43,
+                  "gf": 54,
+                  "lost": 12,
+                  "note": "[2 0 1 1 0-2 1]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 66,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Salamanca",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1140"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 52,
+                  "gf": 66,
+                  "lost": 15,
+                  "note": "[2 0 2 0 0-0 2]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 63,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Lleida",
+                  "won": 18
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1141"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 15,
+                  "ga": 34,
+                  "gf": 41,
+                  "lost": 11,
+                  "note": "[2 0 2 0 0-0 2]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 63,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Mérida",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1142"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 52,
+                  "gf": 55,
+                  "lost": 13,
+                  "note": "[2 0 2 0 2-2 2]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 61,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Levante",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1143"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 47,
+                  "gf": 49,
+                  "lost": 13,
+                  "note": "[2 0 2 0 2-2 2]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 61,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Extremadura",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1144"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 48,
+                  "gf": 54,
+                  "lost": 16,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 60,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Sporting (Gijón)",
+                  "won": 17
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1145"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 53,
+                  "gf": 51,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 59,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Albacete",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1146"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 15,
+                  "ga": 49,
+                  "gf": 48,
+                  "lost": 13,
+                  "note": "[2 0 2 0 2-2 2]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 57,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Eibar",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1147"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 49,
+                  "gf": 46,
+                  "lost": 15,
+                  "note": "[2 0 2 0 2-2 2]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 57,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Córdoba",
+                  "won": 15
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1148"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 14,
+                  "ga": 47,
+                  "gf": 39,
+                  "lost": 14,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 56,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Leganés",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1149"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 48,
+                  "gf": 50,
+                  "lost": 15,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 55,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Tenerife (Santa Cruz)",
+                  "won": 14
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1150"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 17,
+                  "ga": 58,
+                  "gf": 48,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 53,
+                  "rank": 15,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Elche",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1151"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 24,
+                  "ga": 39,
+                  "gf": 38,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 51,
+                  "rank": 16,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Badajoz",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1152"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 11,
+                  "ga": 57,
+                  "gf": 43,
+                  "lost": 18,
+                  "note": "Relegated [*]",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 50,
+                  "rank": 17,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Atlético B (Madrid)",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1153"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 19,
+                  "ga": 53,
+                  "gf": 50,
+                  "lost": 13,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 49,
+                  "rank": 18,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Compostela",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1154"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 51,
+                  "gf": 39,
+                  "lost": 20,
+                  "note": "",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 48,
+                  "rank": 19,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Getafe",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1155"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 13,
+                  "ga": 56,
+                  "gf": 52,
+                  "lost": 18,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 46,
+                  "rank": 20,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Logroñés",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1157"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 54,
+                  "gf": 40,
+                  "lost": 21,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 45,
+                  "rank": 21,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Recreativo Huelva",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1158"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 55,
+                  "gf": 34,
+                  "lost": 22,
+                  "note": "Relegated",
+                  "phase": "Final",
+                  "played": 42,
+                  "points": 40,
+                  "rank": 22,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1134
+                  },
+                  "team": "Toledo",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1159"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span00.txt:1161",
+                "excerpt": "[*] Atlético B to be relegated due to the relegation of the first team"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span01.txt:1008",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span01.txt:1044",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span02.txt:614",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span02.txt:654",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span03.txt:1009",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span03.txt:964",
+                "excerpt": "Alondras              0-1 0-3 Corralejo              Cd.Murcia fielded suspended"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span03.txt:970",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span09.txt:593",
+                "excerpt": "First Elimination Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span09.txt:620",
+                "excerpt": "Second Elimination Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span09.txt:647",
+                "excerpt": "Third Elimination Round"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/span2016.txt:678",
+                "excerpt": "Córdoba CF                0-1 CD Lugo                    fielded suspended player]"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "mainEntrants": 116,
+                  "territorialPreliminary": {
+                    "entrants": 20,
+                    "winners": 10,
+                    "legs": 2
+                  },
+                  "stages": [
+                    {
+                      "name": "first national round",
+                      "entrants": 112,
+                      "legs": 1
+                    },
+                    {
+                      "name": "second national round",
+                      "entrants": 56,
+                      "legs": 1
+                    },
+                    {
+                      "name": "R32",
+                      "entrants": 32,
+                      "newEntrants": 4,
+                      "legs": 1
+                    },
+                    {
+                      "name": "R16",
+                      "entrants": 16,
+                      "legs": 1
+                    },
+                    {
+                      "name": "QF",
+                      "entrants": 8,
+                      "legs": 1
+                    },
+                    {
+                      "name": "SF",
+                      "entrants": 4,
+                      "legs": 2
+                    },
+                    {
+                      "name": "final",
+                      "entrants": 2,
+                      "legs": 1
+                    }
+                  ],
+                  "supercupExemptUntilR32": [
+                    "FC Barcelona",
+                    "Real Sociedad",
+                    "Real Madrid CF",
+                    "Atlético de Madrid"
+                  ],
+                  "drawAndHome": {
+                    "firstTwoNationalRoundsRef": {
+                      "historyIndex": 449
+                    },
+                    "firstRoundPots": 4,
+                    "firstRoundGeographicGroups": 4,
+                    "secondRoundGeographicGroups": 2,
+                    "pairingPriority": "Lower tier versus higher tier when feasible",
+                    "host": "Lower-tier club if stadium compliant; if same tier first drawn hosts (round2 expressly confirmed)",
+                    "finalVenue": "Estadio La Cartuja, Sevilla",
+                    "scope": "2026/27 first two national-round draw announcements; do not generalize number of geographic groups to future seasons"
+                  }
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ESP/2627/NATIONAL_CUP.json#block69Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -460,6 +460,448 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "9053b4477f44ed69730888455f0eeb3cda458d0d250192d3dc0bbc5722bde2e9": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-06-24",
+              "max_date": "2018-12-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "53",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-05-28",
+              "max_date": "2019-12-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Paraguay 2021",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "52",
+              "rows": "47",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "47",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-27",
+              "max_date": "2021-12-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Paraguay 2022",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-06-28",
+              "max_date": "2022-11-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Paraguay 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-11",
+              "max_date": "2023-12-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Paraguay 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-10-01",
+              "max_date": "2024-12-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Paraguay 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-24",
+              "max_date": "2025-11-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-06-24",
+              "max_date": "2018-12-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "53",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-05-28",
+              "max_date": "2019-12-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "52",
+              "rows": "47",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "47",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-27",
+              "max_date": "2021-12-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-06-28",
+              "max_date": "2022-11-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-11",
+              "max_date": "2023-12-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-10-01",
+              "max_date": "2024-12-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Paraguay",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "10",
+              "unique_oriented_pairs": "10",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "10",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-24",
+              "max_date": "2025-11-14"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesp/para2022.txt",
+                "edition": "2022",
+                "tableLine": 895,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Deportivo Alto Paraguay",
+                  "Deportivo Obrero",
+                  "Fulgencio Yegros",
+                  "Nacional (Yby Yaú)",
+                  "Olimpia (Ita)",
+                  "Sportivo Limpeño"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2022",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:895 ",
+                "excerpt": "1.Olimpia (Ita)           2   1  1  0   5- 3   4  Qualified"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:896 ",
+                "excerpt": "2.Fulgencio Yegros        2   0  2  0   3- 3   2  Qualified"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:900 ",
+                "excerpt": "1.Nacional (Yby Yaú)      2   2  0  0   7- 1   6  Qualified"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:901 ",
+                "excerpt": "2.Deportivo Obrero        2   1  0  1   1- 1   3  Qualified"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 895
+                  },
+                  "team": "Olimpia (Ita)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:895"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 2,
+                  "points": 2,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 895
+                  },
+                  "team": "Fulgencio Yegros",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:896"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 0,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 2,
+                  "points": 1,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 895
+                  },
+                  "team": "Sportivo Limpeño",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:897"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 895
+                  },
+                  "team": "Nacional (Yby Yaú)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:900"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 895
+                  },
+                  "team": "Deportivo Obrero",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:901"
+              },
+              {
+                "season": "2022",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 895
+                  },
+                  "team": "Deportivo Alto Paraguay",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/para2022.txt:902"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/para2023.txt:968",
+                "excerpt": "Third Place Playoff [Nov 19]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

@@ -505,6 +505,2600 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "5fefc754425fa33bc1f4ba556f18e00f87b6a3553376a7fa7e7ac20045f35f3f": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_DIVISION",
+          "phaseQueue": "LEAGUE_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "182",
+              "unique_oriented_pairs": "181",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "182",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2004-11-18",
+              "max_date": "2005-05-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division 2023/24",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-03-10",
+              "max_date": "2024-03-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division Section",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "26",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-09-01",
+              "max_date": "1999-09-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "First Division 2022/23",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-12-30",
+              "max_date": "2023-02-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2000",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "12",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-11-02",
+              "max_date": "2000-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2001",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "152",
+              "unique_oriented_pairs": "126",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "26",
+              "min_date": "2001-01-04",
+              "max_date": "2001-12-28"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2002",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "15",
+              "rows": "112",
+              "unique_oriented_pairs": "101",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "11",
+              "min_date": "2002-01-02",
+              "max_date": "2002-12-27"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2003",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "155",
+              "unique_oriented_pairs": "126",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "29",
+              "min_date": "2003-01-01",
+              "max_date": "2003-12-08"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2004",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "128",
+              "unique_oriented_pairs": "111",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "17",
+              "min_date": "2004-01-15",
+              "max_date": "2004-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2005",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "128",
+              "unique_oriented_pairs": "109",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2005-01-05",
+              "max_date": "2005-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2006",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "148",
+              "unique_oriented_pairs": "116",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "32",
+              "min_date": "2006-01-06",
+              "max_date": "2006-12-26"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2007",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "133",
+              "unique_oriented_pairs": "114",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2007-01-03",
+              "max_date": "2007-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2008",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "141",
+              "unique_oriented_pairs": "114",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "27",
+              "min_date": "2008-01-02",
+              "max_date": "2008-12-20"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2009",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "132",
+              "unique_oriented_pairs": "113",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2009-01-19",
+              "max_date": "2009-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2010",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "14",
+              "rows": "161",
+              "unique_oriented_pairs": "131",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2010-01-01",
+              "max_date": "2010-12-23"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2011",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "171",
+              "unique_oriented_pairs": "146",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "25",
+              "min_date": "2011-02-06",
+              "max_date": "2011-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2012",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "195",
+              "unique_oriented_pairs": "160",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "35",
+              "min_date": "2012-01-04",
+              "max_date": "2012-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2013",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "177",
+              "unique_oriented_pairs": "145",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "32",
+              "min_date": "2013-01-21",
+              "max_date": "2013-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2014",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "167",
+              "unique_oriented_pairs": "135",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "32",
+              "min_date": "2014-01-02",
+              "max_date": "2014-12-21"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2015",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "183",
+              "unique_oriented_pairs": "162",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "21",
+              "min_date": "2015-01-28",
+              "max_date": "2015-12-25"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2016",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "194",
+              "unique_oriented_pairs": "155",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "39",
+              "min_date": "2016-01-27",
+              "max_date": "2016-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2017",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "188",
+              "unique_oriented_pairs": "157",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "31",
+              "min_date": "2017-01-01",
+              "max_date": "2017-12-29"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2018",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "16",
+              "rows": "193",
+              "unique_oriented_pairs": "157",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "36",
+              "min_date": "2018-01-01",
+              "max_date": "2018-12-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2019",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "222",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "40",
+              "min_date": "2019-01-10",
+              "max_date": "2019-12-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2020",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "221",
+              "unique_oriented_pairs": "186",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "35",
+              "min_date": "2020-01-07",
+              "max_date": "2020-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2021",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "271",
+              "unique_oriented_pairs": "226",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "45",
+              "min_date": "2021-01-01",
+              "max_date": "2021-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2022",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "19",
+              "rows": "212",
+              "unique_oriented_pairs": "182",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "30",
+              "min_date": "2022-01-01",
+              "max_date": "2022-12-31"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2023",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "324",
+              "unique_oriented_pairs": "262",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "62",
+              "min_date": "2023-01-05",
+              "max_date": "2023-12-30"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2024",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "21",
+              "rows": "253",
+              "unique_oriented_pairs": "218",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "35",
+              "min_date": "2024-02-07",
+              "max_date": "2024-12-07"
+            },
+            {
+              "source": "parquet/games.parquet",
+              "competition": "saudi-arabia",
+              "season": "2025",
+              "season_basis": "CALENDAR_YEAR_BUCKET",
+              "teams": "20",
+              "rows": "218",
+              "unique_oriented_pairs": "202",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "16",
+              "min_date": "2025-01-09",
+              "max_date": "2025-09-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KSA DIV1",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "15",
+              "rows": "182",
+              "unique_oriented_pairs": "181",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "182",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2004-11-18",
+              "max_date": "2005-05-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KSA DIV1",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-03-10",
+              "max_date": "2024-03-13"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 110,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Anka",
+                  "Al-Trgee",
+                  "United Eagles"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 115,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al Hmmah FC",
+                  "Al-Shulla",
+                  "Al-Taqadum"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 120,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Amal",
+                  "Jeddah SC",
+                  "NEOM"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 125,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Abha",
+                  "Al-Bayraq",
+                  "Al-Ula"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 70,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Bayraq",
+                  "Al-Hmmah FC",
+                  "Al-Orobah",
+                  "Al-Shulla",
+                  "Al-Watani",
+                  "Golden Eagles"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 78,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Taqadum",
+                  "Al-Ula",
+                  "Al-Wehda",
+                  "Manjam",
+                  "Ohod"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 85,
+                "phase": "Group 3",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Fateh",
+                  "Al-Nahdah",
+                  "Al-Trgee",
+                  "Ras Tanura",
+                  "United Eagles"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 92,
+                "phase": "Group 4",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Abha",
+                  "Al-Ain",
+                  "Al-Amal",
+                  "Al-Anka",
+                  "Al-Hejaz"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau-wom2024.txt",
+                "edition": "2023/2024",
+                "tableLine": 99,
+                "phase": "Group 5",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Al-Nors FC",
+                  "Jeddah SC",
+                  "NEOM",
+                  "Najmat Jeddah",
+                  "Saham"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau05.txt",
+                "edition": "2004/2005",
+                "tableLine": 525,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 14,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Abha",
+                  "Al-Fat'h",
+                  "Al-Faysali",
+                  "Al-Hazm",
+                  "Al-Jabalain",
+                  "Al-Khaleej",
+                  "Al-Najma",
+                  "Al-Ra'ed",
+                  "Al-Sho'ala",
+                  "Al-Taawun",
+                  "Faiha'a",
+                  "Hajr",
+                  "Hamada",
+                  "Najran"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tabless/sau05.txt",
+                "edition": "2004/2005",
+                "tableLine": 794,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 14,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Abha",
+                  "Al-Fat'h",
+                  "Al-Faysali",
+                  "Al-Hazm",
+                  "Al-Jabalain",
+                  "Al-Khaleej",
+                  "Al-Najma",
+                  "Al-Ra'ed",
+                  "Al-Sho'ala",
+                  "Al-Taawun",
+                  "Faiha'a",
+                  "Hajr",
+                  "Hamada",
+                  "Najran"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:527 ",
+                "excerpt": "1.Al-Hazm         26 16  7  3  46-20  55  Promoted  [Rass]"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:528 ",
+                "excerpt": "2.Abha            26 13  8  5  54-31  47  Promoted  [Abha]"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:541 ",
+                "excerpt": "13.Hamada          26  6  6 14  31-54  24  Relegated  [Ghat]"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:542 ",
+                "excerpt": "14.Al-Najma        26  3  4 19  20-62  13  Relegated  [Onayzah]"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 20,
+                  "gf": 46,
+                  "lost": 3,
+                  "note": "Promoted  [Rass]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 55,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Hazm",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:527"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 31,
+                  "gf": 54,
+                  "lost": 5,
+                  "note": "Promoted  [Abha]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 47,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Abha",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:528"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "[Beraida]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 41,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Ra'ed",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:530"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 30,
+                  "lost": 7,
+                  "note": "[Ihsa'a]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 41,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Hajr",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:531"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 33,
+                  "gf": 45,
+                  "lost": 8,
+                  "note": "[Beraida]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Taawun",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:532"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 38,
+                  "lost": 11,
+                  "note": "[Karj]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 39,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Sho'ala",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:533"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 16,
+                  "gf": 28,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 38,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Faysali",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:534"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 33,
+                  "gf": 27,
+                  "lost": 8,
+                  "note": "[Saihat]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 36,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Khaleej",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:535"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 27,
+                  "gf": 29,
+                  "lost": 9,
+                  "note": "[Ha'el]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 33,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Jabalain",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:536"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 30,
+                  "gf": 32,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 31,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Fat'h",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:537"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 31,
+                  "gf": 21,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 27,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Faiha'a",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:538"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 37,
+                  "gf": 25,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 27,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Najran",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:539"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 54,
+                  "gf": 31,
+                  "lost": 14,
+                  "note": "Relegated  [Ghat]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 24,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Hamada",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:541"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 62,
+                  "gf": 20,
+                  "lost": 19,
+                  "note": "Relegated  [Onayzah]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 13,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 525
+                  },
+                  "team": "Al-Najma",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:542"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 20,
+                  "gf": 46,
+                  "lost": 3,
+                  "note": "Promoted  [Rass]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 55,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Hazm",
+                  "won": 16
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:796"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 31,
+                  "gf": 54,
+                  "lost": 5,
+                  "note": "Promoted  [Abha]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 47,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Abha",
+                  "won": 13
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:797"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 38,
+                  "lost": 7,
+                  "note": "[Beraida]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 41,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Ra'ed",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:799"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 30,
+                  "gf": 30,
+                  "lost": 7,
+                  "note": "[Ihsa'a]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 41,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Hajr",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:800"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 7,
+                  "ga": 33,
+                  "gf": 45,
+                  "lost": 8,
+                  "note": "[Beraida]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 40,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Taawun",
+                  "won": 11
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:801"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 38,
+                  "lost": 11,
+                  "note": "[Karj]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 39,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Sho'ala",
+                  "won": 12
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:802"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 8,
+                  "ga": 16,
+                  "gf": 28,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 38,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Faysali",
+                  "won": 10
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:803"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 33,
+                  "gf": 27,
+                  "lost": 8,
+                  "note": "[Saihat]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 36,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Khaleej",
+                  "won": 9
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:804"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 27,
+                  "gf": 29,
+                  "lost": 9,
+                  "note": "[Ha'el]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 33,
+                  "rank": 9,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Jabalain",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:805"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 10,
+                  "ga": 30,
+                  "gf": 32,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 31,
+                  "rank": 10,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Fat'h",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:806"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 9,
+                  "ga": 31,
+                  "gf": 21,
+                  "lost": 11,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 27,
+                  "rank": 11,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Faiha'a",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:807"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 12,
+                  "ga": 37,
+                  "gf": 25,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 26,
+                  "points": 27,
+                  "rank": 12,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Najran",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:808"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 54,
+                  "gf": 31,
+                  "lost": 14,
+                  "note": "Relegated  [Ghat]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 24,
+                  "rank": 13,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Hamada",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:810"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 62,
+                  "gf": 20,
+                  "lost": 19,
+                  "note": "Relegated  [Onayzah]",
+                  "phase": "",
+                  "played": 26,
+                  "points": 13,
+                  "rank": 14,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 794
+                  },
+                  "team": "Al-Najma",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau05.txt:811"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:100 Author: Hans Schöggl",
+                "excerpt": "2.NEOM                     6   4  1  1  24-10  13       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:110 Author: Hans Schöggl",
+                "excerpt": "1.Al-Trgee                 2   2  0  0  11- 4   6       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:115 Author: Hans Schöggl",
+                "excerpt": "1.Al-Taqadum               2   2  0  0   3- 0   6       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:120 Author: Hans Schöggl",
+                "excerpt": "1.Al-Amal                  2   2  0  0  12- 3   6       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:125 Author: Hans Schöggl",
+                "excerpt": "1.Al-Ula                   2   1  1  0   6- 1   4       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:70 Author: Hans Schöggl",
+                "excerpt": "1.Al-Hmmah FC              7   7  0  0  62- 2  21       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:72 Author: Hans Schöggl",
+                "excerpt": "3.Al-Bayraq                7   4  1  2  60-12  13       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:73 Author: Hans Schöggl",
+                "excerpt": "4.Al-Shulla                8   4  0  4  50-17  12       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:78 Author: Hans Schöggl",
+                "excerpt": "1.Al-Ula                   7   6  1  0  48- 1  19       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:79 Author: Hans Schöggl",
+                "excerpt": "2.Al-Taqadum               6   3  2  1  16- 5  11       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:85 Author: Hans Schöggl",
+                "excerpt": "1.Al-Trgee                 6   6  0  0  70- 1  18       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:86 Author: Hans Schöggl",
+                "excerpt": "2.United Eagles            6   4  0  2  38- 7  12       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:92 Author: Hans Schöggl",
+                "excerpt": "1.Al-Amal                  6   5  0  1  59- 7  15       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:93 Author: Hans Schöggl",
+                "excerpt": "2.Abha                     5   5  0  0  41- 4  15       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:94 Author: Hans Schöggl",
+                "excerpt": "3.Al-Anka                  6   2  1  3  43-19   7       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:99 Author: Hans Schöggl",
+                "excerpt": "1.Jeddah SC                6   5  0  1  18- 7  15       Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 24,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 5",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "NEOM",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:100"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 7,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "Al-Nors FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:101"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 29,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 7,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "Najmat Jeddah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:102"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 52,
+                  "gf": 1,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "Saham",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:103"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 11,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 110
+                  },
+                  "team": "Al-Trgee",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:110"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 110
+                  },
+                  "team": "Al-Anka",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:111"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 110
+                  },
+                  "team": "United Eagles",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:112"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 115
+                  },
+                  "team": "Al-Taqadum",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:115"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 115
+                  },
+                  "team": "Al Hmmah FC",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:116"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 115
+                  },
+                  "team": "Al-Shulla",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:117"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "Al-Amal",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:120"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 2,
+                  "points": 1,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "Jeddah SC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:121"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 2,
+                  "points": 1,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 120
+                  },
+                  "team": "NEOM",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:122"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Al-Ula",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:125"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Abha",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:126"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 125
+                  },
+                  "team": "Al-Bayraq",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:127"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 62,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 7,
+                  "points": 21,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 70
+                  },
+                  "team": "Al-Hmmah FC",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:70"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 62,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 8,
+                  "points": 16,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 70
+                  },
+                  "team": "Golden Eagles",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:71"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 60,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 7,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 70
+                  },
+                  "team": "Al-Bayraq",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:72"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 17,
+                  "gf": 50,
+                  "lost": 4,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 8,
+                  "points": 12,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 70
+                  },
+                  "team": "Al-Shulla",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:73"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 62,
+                  "gf": 9,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 8,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 70
+                  },
+                  "team": "Al-Orobah",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:74"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 132,
+                  "gf": 0,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 8,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 70
+                  },
+                  "team": "Al-Watani",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:75"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 48,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 19,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 78
+                  },
+                  "team": "Al-Ula",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:78"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 78
+                  },
+                  "team": "Al-Taqadum",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:79"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 26,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 7,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 78
+                  },
+                  "team": "Al-Wehda",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:80"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 48,
+                  "gf": 12,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 78
+                  },
+                  "team": "Manjam",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:81"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 39,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 78
+                  },
+                  "team": "Ohod",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:82"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 70,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 85
+                  },
+                  "team": "Al-Trgee",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:85"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 38,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 85
+                  },
+                  "team": "United Eagles",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:86"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 85
+                  },
+                  "team": "Al-Nahdah",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:87"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 52,
+                  "gf": 3,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 7,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 85
+                  },
+                  "team": "Ras Tanura",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:88"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 60,
+                  "gf": 1,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 7,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 85
+                  },
+                  "team": "Al-Fateh",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:89"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 59,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 92
+                  },
+                  "team": "Al-Amal",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:92"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 41,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 5,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 92
+                  },
+                  "team": "Abha",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:93"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 19,
+                  "gf": 43,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 92
+                  },
+                  "team": "Al-Anka",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:94"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 30,
+                  "gf": 20,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 92
+                  },
+                  "team": "Al-Ain",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:95"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 106,
+                  "gf": 3,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 7,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 92
+                  },
+                  "team": "Al-Hejaz",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:96"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 18,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 5",
+                  "played": 6,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 99
+                  },
+                  "team": "Jeddah SC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/sau-wom2024.txt:99"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

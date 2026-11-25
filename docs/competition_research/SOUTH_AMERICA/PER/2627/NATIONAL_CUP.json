@@ -1678,6 +1678,2865 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "87f28f985b6113ceac40dfc0f02e3d8da2e829001a6238e879537ba1b236eb91": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Copa de la Liga",
+            "country": "PER",
+            "season": "2026",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 36,
+            "fixtures": 54,
+            "orientedPairs": 54,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 54,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {
+            "Alianza Lima": {
+              "uuid": "29023c21-6acd-53bf-a1ff-106326484751",
+              "file": 65,
+              "ordinal": 1,
+              "league": 0,
+              "name": "ALIANZA LIMA",
+              "path": "data_json\\worlds\\2627\\teams\\PERU.json"
+            },
+            "Atlético Grau": {
+              "uuid": "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+              "file": 65,
+              "ordinal": 11,
+              "league": 0,
+              "name": "ATLETICO GRAU",
+              "path": "data_json\\worlds\\2627\\teams\\PERU.json"
+            },
+            "Cienciano": {
+              "uuid": "73faa396-6025-5981-b9b6-dc2113ceed31",
+              "file": 65,
+              "ordinal": 9,
+              "league": 0,
+              "name": "CIENCIANO",
+              "path": "data_json\\worlds\\2627\\teams\\PERU.json"
+            },
+            "Juan Pablo II": {
+              "uuid": "246e9e7b-cb6d-5a85-9379-4c6e34c2d3fa",
+              "file": 65,
+              "ordinal": 13,
+              "league": 0,
+              "name": "JUAN PABLO II",
+              "path": "data_json\\worlds\\2627\\teams\\PERU.json"
+            },
+            "Sporting Cristal": {
+              "uuid": "9882c2fc-477d-54e9-9ba4-212902356765",
+              "file": 65,
+              "ordinal": 4,
+              "league": 0,
+              "name": "SPORTING CRISTAL",
+              "path": "data_json\\worlds\\2627\\teams\\PERU.json"
+            },
+            "U.T.C.": {
+              "uuid": "32b59db5-badf-505c-b0e7-c16c558935be",
+              "file": 65,
+              "ordinal": 14,
+              "league": 0,
+              "name": "UTC",
+              "path": "data_json\\worlds\\2627\\teams\\PERU.json"
+            },
+            "Universitario": {
+              "uuid": "d6f886a7-9507-53f7-833c-f03f8db95d20",
+              "file": 65,
+              "ordinal": 0,
+              "league": 0,
+              "name": "UNIVERSITARIO",
+              "path": "data_json\\worlds\\2627\\teams\\PERU.json"
+            }
+          },
+          "unmappedOrAmbiguous": [
+            {
+              "label": "A.D.A. Jaen",
+              "candidateCount": 0
+            },
+            {
+              "label": "A.D.T.",
+              "candidateCount": 0
+            },
+            {
+              "label": "Academia Cantolao",
+              "candidateCount": 0
+            },
+            {
+              "label": "Alianza Atletico",
+              "candidateCount": 0
+            },
+            {
+              "label": "Alianza Atlético",
+              "candidateCount": 0
+            },
+            {
+              "label": "Alianza Universidad",
+              "candidateCount": 0
+            },
+            {
+              "label": "Ayacucho FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bentin Tacna Heroica",
+              "candidateCount": 0
+            },
+            {
+              "label": "Bentín Tacna Heroica",
+              "candidateCount": 0
+            },
+            {
+              "label": "Carlos A. Mannucci",
+              "candidateCount": 0
+            },
+            {
+              "label": "Comerciantes FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Comerciantes Unidos",
+              "candidateCount": 0
+            },
+            {
+              "label": "Cusco FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Dep. Llacuabamba",
+              "candidateCount": 0
+            },
+            {
+              "label": "Dep. Los Chankas",
+              "candidateCount": 0
+            },
+            {
+              "label": "Deportivo Garcilaso",
+              "candidateCount": 0
+            },
+            {
+              "label": "Deportivo Moquegua",
+              "candidateCount": 0
+            },
+            {
+              "label": "EMD Binacional",
+              "candidateCount": 0
+            },
+            {
+              "label": "Estudiantes CNI",
+              "candidateCount": 0
+            },
+            {
+              "label": "FBC Melgar",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Cajamarca",
+              "candidateCount": 0
+            },
+            {
+              "label": "Pirata FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Santos FC",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sport Boys",
+              "candidateCount": 0
+            },
+            {
+              "label": "Sport Huancayo",
+              "candidateCount": 0
+            },
+            {
+              "label": "Union Comercio",
+              "candidateCount": 0
+            },
+            {
+              "label": "Univ. Cesar Vallejo",
+              "candidateCount": 0
+            },
+            {
+              "label": "Univ. San Martin de P.",
+              "candidateCount": 0
+            },
+            {
+              "label": "Unión Minas",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-06-11",
+              "INFERRED_FROM_EDITION",
+              "A.D.A. Jaen",
+              "Comerciantes Unidos",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:882",
+              "Round 1"
+            ],
+            [
+              "2026-06-12",
+              "INFERRED_FROM_EDITION",
+              "Bentin Tacna Heroica",
+              "FBC Melgar",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1003",
+              "Round 1"
+            ],
+            [
+              "2026-06-12",
+              "INFERRED_FROM_EDITION",
+              "Pirata FC",
+              "Universitario",
+              null,
+              "d6f886a7-9507-53f7-833c-f03f8db95d20",
+              "corpus/tablesp/peru2026.txt:918",
+              "Round 1"
+            ],
+            [
+              "2026-06-12",
+              "INFERRED_FROM_EDITION",
+              "Unión Minas",
+              "A.D.T.",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:937",
+              "Round 1"
+            ],
+            [
+              "2026-06-13",
+              "INFERRED_FROM_EDITION",
+              "Carlos A. Mannucci",
+              "Alianza Atletico",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:859",
+              "Round 1"
+            ],
+            [
+              "2026-06-13",
+              "INFERRED_FROM_EDITION",
+              "Comerciantes FC",
+              "Sporting Cristal",
+              null,
+              "9882c2fc-477d-54e9-9ba4-212902356765",
+              "corpus/tablesp/peru2026.txt:1040",
+              "Round 1"
+            ],
+            [
+              "2026-06-13",
+              "INFERRED_FROM_EDITION",
+              "EMD Binacional",
+              "Cienciano",
+              null,
+              "73faa396-6025-5981-b9b6-dc2113ceed31",
+              "corpus/tablesp/peru2026.txt:961",
+              "Round 1"
+            ],
+            [
+              "2026-06-13",
+              "INFERRED_FROM_EDITION",
+              "Univ. San Martin de P.",
+              "Sport Boys",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1021",
+              "Round 1"
+            ],
+            [
+              "2026-06-14",
+              "INFERRED_FROM_EDITION",
+              "Alianza Universidad",
+              "Sport Huancayo",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:939",
+              "Round 1"
+            ],
+            [
+              "2026-06-14",
+              "INFERRED_FROM_EDITION",
+              "Ayacucho FC",
+              "Dep. Los Chankas",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:985",
+              "Round 1"
+            ],
+            [
+              "2026-06-14",
+              "INFERRED_FROM_EDITION",
+              "Deportivo Garcilaso",
+              "Cusco FC",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:963",
+              "Round 1"
+            ],
+            [
+              "2026-06-14",
+              "INFERRED_FROM_EDITION",
+              "Univ. Cesar Vallejo",
+              "Alianza Lima",
+              null,
+              "29023c21-6acd-53bf-a1ff-106326484751",
+              "corpus/tablesp/peru2026.txt:861",
+              "Round 1"
+            ],
+            [
+              "2026-06-15",
+              "INFERRED_FROM_EDITION",
+              "Dep. Llacuabamba",
+              "U.T.C.",
+              null,
+              "32b59db5-badf-505c-b0e7-c16c558935be",
+              "corpus/tablesp/peru2026.txt:900",
+              "Round 1"
+            ],
+            [
+              "2026-06-15",
+              "INFERRED_FROM_EDITION",
+              "Estudiantes CNI",
+              "Union Comercio",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1042",
+              "Round 1"
+            ],
+            [
+              "2026-06-19",
+              "INFERRED_FROM_EDITION",
+              "A.D.T.",
+              "Alianza Universidad",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:943",
+              "Round 2"
+            ],
+            [
+              "2026-06-19",
+              "INFERRED_FROM_EDITION",
+              "Alianza Atletico",
+              "Univ. Cesar Vallejo",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:865",
+              "Round 2"
+            ],
+            [
+              "2026-06-20",
+              "INFERRED_FROM_EDITION",
+              "Academia Cantolao",
+              "Univ. San Martin de P.",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1025",
+              "Round 2"
+            ],
+            [
+              "2026-06-20",
+              "INFERRED_FROM_EDITION",
+              "Carlos A. Mannucci",
+              "Alianza Lima",
+              null,
+              "29023c21-6acd-53bf-a1ff-106326484751",
+              "corpus/tablesp/peru2026.txt:867",
+              "Round 2"
+            ],
+            [
+              "2026-06-20",
+              "INFERRED_FROM_EDITION",
+              "FC Cajamarca",
+              "Dep. Llacuabamba",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:904",
+              "Round 2"
+            ],
+            [
+              "2026-06-20",
+              "INFERRED_FROM_EDITION",
+              "Juan Pablo II",
+              "A.D.A. Jaen",
+              "246e9e7b-cb6d-5a85-9379-4c6e34c2d3fa",
+              null,
+              "corpus/tablesp/peru2026.txt:886",
+              "Round 2"
+            ],
+            [
+              "2026-06-20",
+              "INFERRED_FROM_EDITION",
+              "Union Comercio",
+              "Comerciantes FC",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1046",
+              "Round 2"
+            ],
+            [
+              "2026-06-21",
+              "INFERRED_FROM_EDITION",
+              "Cienciano",
+              "Deportivo Garcilaso",
+              "73faa396-6025-5981-b9b6-dc2113ceed31",
+              null,
+              "corpus/tablesp/peru2026.txt:967",
+              "Round 2"
+            ],
+            [
+              "2026-06-21",
+              "INFERRED_FROM_EDITION",
+              "Deportivo Moquegua",
+              "Bentin Tacna Heroica",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1007",
+              "Round 2"
+            ],
+            [
+              "2026-06-21",
+              "INFERRED_FROM_EDITION",
+              "Estudiantes CNI",
+              "Sporting Cristal",
+              null,
+              "9882c2fc-477d-54e9-9ba4-212902356765",
+              "corpus/tablesp/peru2026.txt:1048",
+              "Round 2"
+            ],
+            [
+              "2026-06-21",
+              "INFERRED_FROM_EDITION",
+              "Santos FC",
+              "Ayacucho FC",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:989",
+              "Round 2"
+            ],
+            [
+              "2026-06-21",
+              "INFERRED_FROM_EDITION",
+              "Unión Minas",
+              "Sport Huancayo",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:945",
+              "Round 2"
+            ],
+            [
+              "2026-06-22",
+              "INFERRED_FROM_EDITION",
+              "Atlético Grau",
+              "Pirata FC",
+              "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+              null,
+              "corpus/tablesp/peru2026.txt:922",
+              "Round 2"
+            ],
+            [
+              "2026-06-22",
+              "INFERRED_FROM_EDITION",
+              "EMD Binacional",
+              "Cusco FC",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:969",
+              "Round 2"
+            ],
+            [
+              "2026-06-26",
+              "INFERRED_FROM_EDITION",
+              "Alianza Universidad",
+              "Unión Minas",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:949",
+              "Round 3"
+            ],
+            [
+              "2026-06-26",
+              "INFERRED_FROM_EDITION",
+              "Sport Huancayo",
+              "A.D.T.",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:950",
+              "Round 3"
+            ],
+            [
+              "2026-06-26",
+              "INFERRED_FROM_EDITION",
+              "U.T.C.",
+              "FC Cajamarca",
+              "32b59db5-badf-505c-b0e7-c16c558935be",
+              null,
+              "corpus/tablesp/peru2026.txt:908",
+              "Round 3"
+            ],
+            [
+              "2026-06-26",
+              "INFERRED_FROM_EDITION",
+              "Universitario",
+              "Atlético Grau",
+              "d6f886a7-9507-53f7-833c-f03f8db95d20",
+              "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+              "corpus/tablesp/peru2026.txt:926",
+              "Round 3"
+            ],
+            [
+              "2026-06-27",
+              "INFERRED_FROM_EDITION",
+              "Comerciantes FC",
+              "Estudiantes CNI",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1052",
+              "Round 3"
+            ],
+            [
+              "2026-06-27",
+              "INFERRED_FROM_EDITION",
+              "Comerciantes Unidos",
+              "Juan Pablo II",
+              null,
+              "246e9e7b-cb6d-5a85-9379-4c6e34c2d3fa",
+              "corpus/tablesp/peru2026.txt:890",
+              "Round 3"
+            ],
+            [
+              "2026-06-27",
+              "INFERRED_FROM_EDITION",
+              "Sport Boys",
+              "Academia Cantolao",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1029",
+              "Round 3"
+            ],
+            [
+              "2026-06-27",
+              "INFERRED_FROM_EDITION",
+              "Sporting Cristal",
+              "Union Comercio",
+              "9882c2fc-477d-54e9-9ba4-212902356765",
+              null,
+              "corpus/tablesp/peru2026.txt:1053",
+              "Round 3"
+            ],
+            [
+              "2026-06-28",
+              "INFERRED_FROM_EDITION",
+              "Alianza Lima",
+              "Alianza Atletico",
+              "29023c21-6acd-53bf-a1ff-106326484751",
+              null,
+              "corpus/tablesp/peru2026.txt:872",
+              "Round 3"
+            ],
+            [
+              "2026-06-28",
+              "INFERRED_FROM_EDITION",
+              "Cusco FC",
+              "Cienciano",
+              null,
+              "73faa396-6025-5981-b9b6-dc2113ceed31",
+              "corpus/tablesp/peru2026.txt:973",
+              "Round 3"
+            ],
+            [
+              "2026-06-28",
+              "INFERRED_FROM_EDITION",
+              "Dep. Los Chankas",
+              "Santos FC",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:993",
+              "Round 3"
+            ],
+            [
+              "2026-06-28",
+              "INFERRED_FROM_EDITION",
+              "Univ. Cesar Vallejo",
+              "Carlos A. Mannucci",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:871",
+              "Round 3"
+            ],
+            [
+              "2026-06-29",
+              "INFERRED_FROM_EDITION",
+              "Deportivo Garcilaso",
+              "EMD Binacional",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:975",
+              "Round 3"
+            ],
+            [
+              "2026-06-29",
+              "INFERRED_FROM_EDITION",
+              "FBC Melgar",
+              "Deportivo Moquegua",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1011",
+              "Round 3"
+            ],
+            [
+              "2026-07-09",
+              "INFERRED_FROM_EDITION",
+              "Atlético Grau",
+              "Carlos A. Mannucci",
+              "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+              null,
+              "corpus/tablesp/peru2026.txt:1061",
+              "Round 3"
+            ],
+            [
+              "2026-07-10",
+              "INFERRED_FROM_EDITION",
+              "Alianza Atlético",
+              "Pirata FC",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1064",
+              "Round 3"
+            ],
+            [
+              "2026-07-10",
+              "INFERRED_FROM_EDITION",
+              "Cienciano",
+              "A.D.T.",
+              "73faa396-6025-5981-b9b6-dc2113ceed31",
+              null,
+              "corpus/tablesp/peru2026.txt:1063",
+              "Round 3"
+            ],
+            [
+              "2026-07-10",
+              "INFERRED_FROM_EDITION",
+              "Sport Boys",
+              "Comerciantes FC",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1065",
+              "Round 3"
+            ],
+            [
+              "2026-07-11",
+              "INFERRED_FROM_EDITION",
+              "Sport Huancayo",
+              "Dep. Los Chankas",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1067",
+              "Round 3"
+            ],
+            [
+              "2026-07-11",
+              "INFERRED_FROM_EDITION",
+              "Sporting Cristal",
+              "Bentín Tacna Heroica",
+              "9882c2fc-477d-54e9-9ba4-212902356765",
+              null,
+              "corpus/tablesp/peru2026.txt:1068",
+              "Round 3"
+            ],
+            [
+              "2026-07-12",
+              "INFERRED_FROM_EDITION",
+              "Deportivo Moquegua",
+              "Deportivo Garcilaso",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1070",
+              "Round 3"
+            ],
+            [
+              "2026-07-12",
+              "INFERRED_FROM_EDITION",
+              "U.T.C.",
+              "A.D.A. Jaen",
+              "32b59db5-badf-505c-b0e7-c16c558935be",
+              null,
+              "corpus/tablesp/peru2026.txt:1071",
+              "Round 3"
+            ],
+            [
+              "2026-08-25",
+              "INFERRED_FROM_EDITION",
+              "Alianza Atlético",
+              "U.T.C.",
+              null,
+              "32b59db5-badf-505c-b0e7-c16c558935be",
+              "corpus/tablesp/peru2026.txt:1076",
+              "Round 3"
+            ],
+            [
+              "2026-08-26",
+              "INFERRED_FROM_EDITION",
+              "Atlético Grau",
+              "Sport Boys",
+              "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+              null,
+              "corpus/tablesp/peru2026.txt:1078",
+              "Round 3"
+            ],
+            [
+              "2026-08-26",
+              "INFERRED_FROM_EDITION",
+              "Sporting Cristal",
+              "Sport Huancayo",
+              "9882c2fc-477d-54e9-9ba4-212902356765",
+              null,
+              "corpus/tablesp/peru2026.txt:1079",
+              "Round 3"
+            ],
+            [
+              "2026-08-27",
+              "INFERRED_FROM_EDITION",
+              "A.D.T.",
+              "Deportivo Moquegua",
+              null,
+              null,
+              "corpus/tablesp/peru2026.txt:1081",
+              "Round 3"
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 42,
+            "status": "REVIEW_REQUIRED",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "rsssf-deep/corpus.zip",
+                "Copa Caliente de la Liga",
+                "PER",
+                "2026",
+                "SOURCE_TITLE"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 36,
+                "fixtures": 54,
+                "orientedPairs": 54,
+                "invalid": 0,
+                "clubDayClashes": 0,
+                "inferredDates": 54,
+                "expectedRegularTeams": []
+              },
+              "mapped": 7
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa de la Liga",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "54",
+              "unique_oriented_pairs": "54",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "54",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-06-11",
+              "max_date": "2026-08-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Caliente de la Liga",
+              "season": "2026",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "54",
+              "unique_oriented_pairs": "54",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "54",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-06-11",
+              "max_date": "2026-08-27"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [
+              {
+                "edition": "2026",
+                "activeAtStartCandidate": false,
+                "groups": [
+                  [
+                    "corpus/corpus.zip",
+                    "Copa de la Liga",
+                    "PER",
+                    "2026",
+                    "SOURCE_TITLE"
+                  ],
+                  [
+                    "rsssf-deep/corpus.zip",
+                    "Copa Caliente de la Liga",
+                    "PER",
+                    "2026",
+                    "SOURCE_TITLE"
+                  ]
+                ],
+                "events": [
+                  {
+                    "date": "2026-06-11",
+                    "home": "A.D.A. Jaen",
+                    "away": "Comerciantes Unidos",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group B / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:882"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:882"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-12",
+                    "home": "Bentin Tacna Heroica",
+                    "away": "FBC Melgar",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group H / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1003"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1003"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-12",
+                    "home": "Pirata FC",
+                    "away": "Universitario",
+                    "homeUUID": null,
+                    "awayUUID": "d6f886a7-9507-53f7-833c-f03f8db95d20",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group D / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:918"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:918"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-12",
+                    "home": "Unión Minas",
+                    "away": "A.D.T.",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group E / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:937"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:937"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-13",
+                    "home": "Carlos A. Mannucci",
+                    "away": "Alianza Atletico",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group A / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:859"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:859"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-13",
+                    "home": "Comerciantes FC",
+                    "away": "Sporting Cristal",
+                    "homeUUID": null,
+                    "awayUUID": "9882c2fc-477d-54e9-9ba4-212902356765",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group J / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1040"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1040"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-13",
+                    "home": "EMD Binacional",
+                    "away": "Cienciano",
+                    "homeUUID": null,
+                    "awayUUID": "73faa396-6025-5981-b9b6-dc2113ceed31",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group F / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:961"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:961"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-13",
+                    "home": "Univ. San Martin de P.",
+                    "away": "Sport Boys",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group I / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1021"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1021"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-14",
+                    "home": "Alianza Universidad",
+                    "away": "Sport Huancayo",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group E / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:939"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:939"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-14",
+                    "home": "Ayacucho FC",
+                    "away": "Dep. Los Chankas",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group G / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:985"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:985"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-14",
+                    "home": "Deportivo Garcilaso",
+                    "away": "Cusco FC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group F / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:963"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:963"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-14",
+                    "home": "Univ. Cesar Vallejo",
+                    "away": "Alianza Lima",
+                    "homeUUID": null,
+                    "awayUUID": "29023c21-6acd-53bf-a1ff-106326484751",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group A / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:861"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:861"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-15",
+                    "home": "Dep. Llacuabamba",
+                    "away": "U.T.C.",
+                    "homeUUID": null,
+                    "awayUUID": "32b59db5-badf-505c-b0e7-c16c558935be",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group C / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:900"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:900"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-15",
+                    "home": "Estudiantes CNI",
+                    "away": "Union Comercio",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group J / Round 1",
+                      "Round 1"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1042"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1042"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-19",
+                    "home": "A.D.T.",
+                    "away": "Alianza Universidad",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group E / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:943"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:943"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-19",
+                    "home": "Alianza Atletico",
+                    "away": "Univ. Cesar Vallejo",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group A / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:865"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:865"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-20",
+                    "home": "Juan Pablo II",
+                    "away": "A.D.A. Jaen",
+                    "homeUUID": "246e9e7b-cb6d-5a85-9379-4c6e34c2d3fa",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group B / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:886"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:886"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-20",
+                    "home": "Academia Cantolao",
+                    "away": "Univ. San Martin de P.",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group I / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1025"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1025"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-20",
+                    "home": "Carlos A. Mannucci",
+                    "away": "Alianza Lima",
+                    "homeUUID": null,
+                    "awayUUID": "29023c21-6acd-53bf-a1ff-106326484751",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group A / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:867"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:867"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-20",
+                    "home": "FC Cajamarca",
+                    "away": "Dep. Llacuabamba",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group C / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:904"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:904"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-20",
+                    "home": "Union Comercio",
+                    "away": "Comerciantes FC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group J / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1046"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1046"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-21",
+                    "home": "Cienciano",
+                    "away": "Deportivo Garcilaso",
+                    "homeUUID": "73faa396-6025-5981-b9b6-dc2113ceed31",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group F / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:967"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:967"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-21",
+                    "home": "Deportivo Moquegua",
+                    "away": "Bentin Tacna Heroica",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group H / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1007"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1007"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-21",
+                    "home": "Estudiantes CNI",
+                    "away": "Sporting Cristal",
+                    "homeUUID": null,
+                    "awayUUID": "9882c2fc-477d-54e9-9ba4-212902356765",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group J / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1048"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1048"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-21",
+                    "home": "Santos FC",
+                    "away": "Ayacucho FC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group G / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:989"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:989"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-21",
+                    "home": "Unión Minas",
+                    "away": "Sport Huancayo",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group E / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:945"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:945"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-22",
+                    "home": "Atlético Grau",
+                    "away": "Pirata FC",
+                    "homeUUID": "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group D / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:922"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:922"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-22",
+                    "home": "EMD Binacional",
+                    "away": "Cusco FC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group F / Round 2",
+                      "Round 2"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:969"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:969"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-26",
+                    "home": "U.T.C.",
+                    "away": "FC Cajamarca",
+                    "homeUUID": "32b59db5-badf-505c-b0e7-c16c558935be",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group C / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:908"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:908"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-26",
+                    "home": "Universitario",
+                    "away": "Atlético Grau",
+                    "homeUUID": "d6f886a7-9507-53f7-833c-f03f8db95d20",
+                    "awayUUID": "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group D / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:926"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:926"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-26",
+                    "home": "Alianza Universidad",
+                    "away": "Unión Minas",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group E / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:949"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:949"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-26",
+                    "home": "Sport Huancayo",
+                    "away": "A.D.T.",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group E / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:950"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:950"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-27",
+                    "home": "Sporting Cristal",
+                    "away": "Union Comercio",
+                    "homeUUID": "9882c2fc-477d-54e9-9ba4-212902356765",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group J / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1053"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1053"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-27",
+                    "home": "Comerciantes FC",
+                    "away": "Estudiantes CNI",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group J / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1052"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1052"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-27",
+                    "home": "Comerciantes Unidos",
+                    "away": "Juan Pablo II",
+                    "homeUUID": null,
+                    "awayUUID": "246e9e7b-cb6d-5a85-9379-4c6e34c2d3fa",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group B / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:890"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:890"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-27",
+                    "home": "Sport Boys",
+                    "away": "Academia Cantolao",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group I / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1029"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1029"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-28",
+                    "home": "Alianza Lima",
+                    "away": "Alianza Atletico",
+                    "homeUUID": "29023c21-6acd-53bf-a1ff-106326484751",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group A / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:872"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:872"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-28",
+                    "home": "Cusco FC",
+                    "away": "Cienciano",
+                    "homeUUID": null,
+                    "awayUUID": "73faa396-6025-5981-b9b6-dc2113ceed31",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group F / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:973"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:973"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-28",
+                    "home": "Dep. Los Chankas",
+                    "away": "Santos FC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group G / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:993"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:993"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-28",
+                    "home": "Univ. Cesar Vallejo",
+                    "away": "Carlos A. Mannucci",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group A / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:871"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:871"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-29",
+                    "home": "Deportivo Garcilaso",
+                    "away": "EMD Binacional",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group F / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:975"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:975"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-06-29",
+                    "home": "FBC Melgar",
+                    "away": "Deportivo Moquegua",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Group H / Round 3",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1011"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1011"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-09",
+                    "home": "Atlético Grau",
+                    "away": "Carlos A. Mannucci",
+                    "homeUUID": "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1061"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1061"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-10",
+                    "home": "Cienciano",
+                    "away": "A.D.T.",
+                    "homeUUID": "73faa396-6025-5981-b9b6-dc2113ceed31",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1063"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1063"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-10",
+                    "home": "Alianza Atlético",
+                    "away": "Pirata FC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1064"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1064"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-10",
+                    "home": "Sport Boys",
+                    "away": "Comerciantes FC",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1065"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1065"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-11",
+                    "home": "Sporting Cristal",
+                    "away": "Bentín Tacna Heroica",
+                    "homeUUID": "9882c2fc-477d-54e9-9ba4-212902356765",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1068"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1068"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-11",
+                    "home": "Sport Huancayo",
+                    "away": "Dep. Los Chankas",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1067"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1067"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-12",
+                    "home": "U.T.C.",
+                    "away": "A.D.A. Jaen",
+                    "homeUUID": "32b59db5-badf-505c-b0e7-c16c558935be",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1071"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1071"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-07-12",
+                    "home": "Deportivo Moquegua",
+                    "away": "Deportivo Garcilaso",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1070"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1070"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-25",
+                    "home": "Alianza Atlético",
+                    "away": "U.T.C.",
+                    "homeUUID": null,
+                    "awayUUID": "32b59db5-badf-505c-b0e7-c16c558935be",
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1076"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1076"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-26",
+                    "home": "Atlético Grau",
+                    "away": "Sport Boys",
+                    "homeUUID": "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1078"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1078"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-26",
+                    "home": "Sporting Cristal",
+                    "away": "Sport Huancayo",
+                    "homeUUID": "9882c2fc-477d-54e9-9ba4-212902356765",
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1079"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1079"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-08-27",
+                    "home": "A.D.T.",
+                    "away": "Deportivo Moquegua",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [
+                      "Playoffs",
+                      "Round 3"
+                    ],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesp/peru2026.txt:1081"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesp/peru2026.txt:1081"
+                      ]
+                    ],
+                    "preStartScores": []
+                  }
+                ],
+                "explicitEvents": 0,
+                "conflicts": [],
+                "nativeRoster": [
+                  "246e9e7b-cb6d-5a85-9379-4c6e34c2d3fa",
+                  "29023c21-6acd-53bf-a1ff-106326484751",
+                  "32b59db5-badf-505c-b0e7-c16c558935be",
+                  "35d6d13c-5369-5acf-8e06-84b8092a4f0d",
+                  "73faa396-6025-5981-b9b6-dc2113ceed31",
+                  "9882c2fc-477d-54e9-9ba4-212902356765",
+                  "d6f886a7-9507-53f7-833c-f03f8db95d20"
+                ],
+                "completeReviewedRegularComponent": false,
+                "observedStageCounts": [
+                  {
+                    "stage": "Group A / Round 1",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-13",
+                    "lastDate": "2026-06-14",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group A / Round 2",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-19",
+                    "lastDate": "2026-06-20",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group A / Round 3",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-28",
+                    "lastDate": "2026-06-28",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group B / Round 1",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-11",
+                    "lastDate": "2026-06-11",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group B / Round 2",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-20",
+                    "lastDate": "2026-06-20",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group B / Round 3",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-27",
+                    "lastDate": "2026-06-27",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group C / Round 1",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-15",
+                    "lastDate": "2026-06-15",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group C / Round 2",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-20",
+                    "lastDate": "2026-06-20",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group C / Round 3",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-26",
+                    "lastDate": "2026-06-26",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group D / Round 1",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-12",
+                    "lastDate": "2026-06-12",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group D / Round 2",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-22",
+                    "lastDate": "2026-06-22",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group D / Round 3",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-26",
+                    "lastDate": "2026-06-26",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group E / Round 1",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-12",
+                    "lastDate": "2026-06-14",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group E / Round 2",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-19",
+                    "lastDate": "2026-06-21",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group E / Round 3",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-26",
+                    "lastDate": "2026-06-26",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group F / Round 1",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-13",
+                    "lastDate": "2026-06-14",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group F / Round 2",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-21",
+                    "lastDate": "2026-06-22",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group F / Round 3",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-28",
+                    "lastDate": "2026-06-29",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group G / Round 1",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-14",
+                    "lastDate": "2026-06-14",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group G / Round 2",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-21",
+                    "lastDate": "2026-06-21",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group G / Round 3",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-28",
+                    "lastDate": "2026-06-28",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group H / Round 1",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-12",
+                    "lastDate": "2026-06-12",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group H / Round 2",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-21",
+                    "lastDate": "2026-06-21",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group H / Round 3",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-29",
+                    "lastDate": "2026-06-29",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group I / Round 1",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-13",
+                    "lastDate": "2026-06-13",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group I / Round 2",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-20",
+                    "lastDate": "2026-06-20",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group I / Round 3",
+                    "events": 1,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-27",
+                    "lastDate": "2026-06-27",
+                    "teamLabels": 2
+                  },
+                  {
+                    "stage": "Group J / Round 1",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-13",
+                    "lastDate": "2026-06-15",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group J / Round 2",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-20",
+                    "lastDate": "2026-06-21",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Group J / Round 3",
+                    "events": 2,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-27",
+                    "lastDate": "2026-06-27",
+                    "teamLabels": 4
+                  },
+                  {
+                    "stage": "Playoffs",
+                    "events": 12,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-07-09",
+                    "lastDate": "2026-08-27",
+                    "teamLabels": 16
+                  },
+                  {
+                    "stage": "Round 1",
+                    "events": 14,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-11",
+                    "lastDate": "2026-06-15",
+                    "teamLabels": 28
+                  },
+                  {
+                    "stage": "Round 2",
+                    "events": 14,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-19",
+                    "lastDate": "2026-06-22",
+                    "teamLabels": 28
+                  },
+                  {
+                    "stage": "Round 3",
+                    "events": 26,
+                    "explicitEvents": 0,
+                    "firstDate": "2026-06-26",
+                    "lastDate": "2026-08-27",
+                    "teamLabels": 31
+                  }
+                ],
+                "july1Arithmetic": null
+              }
+            ],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:1015",
+                "excerpt": "1. Sport Boys (Callao)                 2 -  1 -  1 -  0 -  5 -  2 -   4  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:1033",
+                "excerpt": "1. Sporting Cristal (Lima)             3 -  2 -  1 -  0 -  5 -  2 -   7  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:1034",
+                "excerpt": "2. Comerciantes FC (Iquitos)           3 -  1 -  2 -  0 -  2 -  1 -   5  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:852",
+                "excerpt": "1. Alianza Atlético Sullana            3 -  3 -  0 -  0 -  5 -  1 -   9  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:853",
+                "excerpt": "2. Carlos A. Manucci (Trujillo)        3 -  2 -  0 -  1 -  6 -  4 -   6  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:876",
+                "excerpt": "1. Asoc. Dep. Agropecuaria (Jaen)      2 -  1 -  1 -  0 -  2 -  0 -   4  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:894",
+                "excerpt": "1. Univ. Tecnica de Cajamarca          2 -  1 -  1 -  0 -  5 -  3 -   4  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:912",
+                "excerpt": "1. Atlético Grau (Piura)               2 -  1 -  1 -  0 -  4 -  3 -   4  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:913",
+                "excerpt": "2. Pirata FC (Lambayeque)              2 -  1 -  0 -  1 -  4 -  3 -   3  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:930",
+                "excerpt": "1. Sport Huancayo                      3 -  2 -  1 -  0 -  4 -  2 -   7  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:931",
+                "excerpt": "2. Asociación Deportiva Tarma          3 -  1 -  1 -  1 -  3 -  2 -   4  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:954",
+                "excerpt": "1. Cienciano (Cusco)                   3 -  3 -  0 -  0 -  6 -  2 -   9  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:955",
+                "excerpt": "2. Deportivo Garcilaso (Cusco)         3 -  1 -  1 -  1 -  5 -  3 -   4  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:979",
+                "excerpt": "1. Dep. Los Chankas (Andahuaylas)      2 -  2 -  0 -  0 -  4 -  0 -   6  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:997",
+                "excerpt": "1. Deportivo Moquegua                  2 -  1 -  1 -  0 -  3 -  2 -   4  [To playoffs]"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesp/peru2026.txt:998",
+                "excerpt": "2. Bentin Tacna Heroica                2 -  1 -  0 -  1 -  5 -  5 -   3  [To playoffs]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

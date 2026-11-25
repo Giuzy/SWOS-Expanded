@@ -265,6 +265,162 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "87ceabeba82dd6ccbf811fdb05c05e0bfd46f671671bb31a874c6650054fc297": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "150",
+              "rows": "93",
+              "unique_oriented_pairs": "93",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "93",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-08-24",
+              "max_date": "2004-06-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2004/05",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "130",
+              "rows": "80",
+              "unique_oriented_pairs": "80",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "80",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-02",
+              "max_date": "2005-06-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2005/06",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "107",
+              "rows": "67",
+              "unique_oriented_pairs": "67",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "67",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-04-17",
+              "max_date": "2006-06-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2006/07",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "114",
+              "rows": "71",
+              "unique_oriented_pairs": "71",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "71",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-04-13",
+              "max_date": "2007-06-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-05-29",
+              "max_date": "2016-10-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2017",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-05-20",
+              "max_date": "2017-08-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "35",
+              "rows": "19",
+              "unique_oriented_pairs": "19",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "19",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-05-19",
+              "max_date": "2018-06-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "RUSSIAN CUP 2019",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-05-24",
+              "max_date": "2019-06-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Russian Cup 1998/99",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "217",
+              "rows": "144",
+              "unique_oriented_pairs": "144",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "144",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-04-06",
+              "max_date": "1999-11-10"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesr/ruscup05.txt:324 Author:",
+                "excerpt": "and relegated to the amateur level, and therefore expelled from the Cup."
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

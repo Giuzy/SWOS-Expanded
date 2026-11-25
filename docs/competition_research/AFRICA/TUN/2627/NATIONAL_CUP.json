@@ -359,6 +359,601 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "483f432e70828ee1b55748706ed372a6e76cd191d173c1439fd8625b67597925": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-11-07",
+              "max_date": "2010-05-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-21",
+              "max_date": "2011-06-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-11",
+              "max_date": "2012-06-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-06-09",
+              "max_date": "2013-06-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-04-18",
+              "max_date": "2014-06-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "95",
+              "rows": "87",
+              "unique_oriented_pairs": "87",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "87",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-04",
+              "max_date": "2015-02-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "96",
+              "rows": "92",
+              "unique_oriented_pairs": "92",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "92",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-16",
+              "max_date": "2016-02-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "89",
+              "rows": "69",
+              "unique_oriented_pairs": "69",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "69",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-10-08",
+              "max_date": "2016-11-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "113",
+              "rows": "108",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "108",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-10-01",
+              "max_date": "2018-04-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-03-22",
+              "max_date": "2019-06-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-16",
+              "max_date": "2020-03-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "40",
+              "unique_oriented_pairs": "40",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "40",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-05-22",
+              "max_date": "2021-06-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "60",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-02",
+              "max_date": "2022-06-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "35",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-02-12",
+              "max_date": "2023-05-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-02-25",
+              "max_date": "2024-06-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-04-03",
+              "max_date": "2025-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-04-18",
+              "max_date": "2026-05-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "73",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-09-10",
+              "max_date": "2000-04-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-11-07",
+              "max_date": "2010-05-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-21",
+              "max_date": "2011-06-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-11",
+              "max_date": "2012-06-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-06-09",
+              "max_date": "2013-06-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-04-18",
+              "max_date": "2014-06-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "113",
+              "rows": "108",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "108",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-10-01",
+              "max_date": "2018-04-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-03-22",
+              "max_date": "2019-06-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-16",
+              "max_date": "2020-03-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "60",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-02",
+              "max_date": "2022-06-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "35",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-02-12",
+              "max_date": "2023-05-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-02-25",
+              "max_date": "2024-06-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-04-03",
+              "max_date": "2025-06-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe de Tunisie",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-04-18",
+              "max_date": "2026-05-31"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tun00.txt:244",
+                "excerpt": "First Round [Nov 14]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tun2011.txt:543",
+                "excerpt": "Second Preliminary Round [Oct 16]"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tun2015.txt:495 Author: José Batalha",
+                "excerpt": "LPS Tozeur                      n/p AS Oued Ellil                       [AS Oued Ellil qualified; LPS Tozeur withdrew]"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tun2015.txt:499 Author: José Batalha",
+                "excerpt": "NB: rd 1 teams winners and amateur leagues teams qualified enter"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tun2015.txt:529 Author: José Batalha",
+                "excerpt": "NB: rd 2 teams winners and amateur leagues teams qualified enter."
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tun2017.txt:569 Author: José Batalha",
+                "excerpt": "NB: preliminary round 1 winners and regional teams qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tun2018.txt:406",
+                "excerpt": "AS Mohammedia                   n/p JS Omrane                   [cancelled]"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tun2021.txt:397 Author: José Batalha",
+                "excerpt": "6 teams - Play-off phase in Ligue 2 (EGS Gafsa, ES Djerba [withdrew], Olympique Médenine [withdrew],"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tun2021.txt:399 Author: José Batalha",
+                "excerpt": "7 teams - Play-off phase in Ligue 3 Level 1 (CS Tabarka, BBS Sidi Amor Bou Hajla, AS Ariana, CO Transports,"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablest/tun2021.txt:401 Author: José Batalha",
+                "excerpt": "7 teams - Ligue 3 Level 2 promoted Ligue 3 Level 1 (US Jedaida [withdrew], US Borj Cedria, Ennfidha Sport,"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tun2022.txt:464",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tun2022.txt:480",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablest/tun2023.txt:552",
+                "excerpt": "NB: Olympique Béja won four consecutive penalty shootouts to reach the final"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [],
+                "values": {
+                  "observedStage": 32
+                },
+                "source": "repository/research",
+                "locator": "AFRICA/TUN/2627/NATIONAL_CUP.json#block56Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

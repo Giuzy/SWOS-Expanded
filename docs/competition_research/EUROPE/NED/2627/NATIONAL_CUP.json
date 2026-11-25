@@ -354,6 +354,896 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "fed30de914e1a99ea5a4747e17821ee350515b77dd2010320a82a936c39b29fc": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "88",
+              "rows": "88",
+              "unique_oriented_pairs": "88",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "88",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-29",
+              "max_date": "2010-05-06"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "93",
+              "rows": "91",
+              "unique_oriented_pairs": "91",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "91",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-18",
+              "max_date": "2011-03-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "93",
+              "rows": "90",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "90",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-23",
+              "max_date": "2012-03-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "92",
+              "rows": "90",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "90",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-21",
+              "max_date": "2013-02-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "82",
+              "rows": "80",
+              "unique_oriented_pairs": "80",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "80",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-28",
+              "max_date": "2014-03-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "85",
+              "rows": "77",
+              "unique_oriented_pairs": "77",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "77",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-26",
+              "max_date": "2015-01-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "85",
+              "rows": "84",
+              "unique_oriented_pairs": "84",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "84",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-26",
+              "max_date": "2016-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "103",
+              "rows": "101",
+              "unique_oriented_pairs": "101",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "101",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-16",
+              "max_date": "2017-03-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "105",
+              "rows": "103",
+              "unique_oriented_pairs": "103",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "103",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-19",
+              "max_date": "2018-02-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "107",
+              "rows": "105",
+              "unique_oriented_pairs": "105",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "105",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-18",
+              "max_date": "2019-02-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "106",
+              "rows": "104",
+              "unique_oriented_pairs": "104",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "104",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-17",
+              "max_date": "2020-03-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "106",
+              "rows": "82",
+              "unique_oriented_pairs": "82",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "82",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-29",
+              "max_date": "2021-03-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "90",
+              "rows": "88",
+              "unique_oriented_pairs": "88",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "88",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-14",
+              "max_date": "2022-03-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "86",
+              "rows": "84",
+              "unique_oriented_pairs": "84",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "84",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-08-13",
+              "max_date": "2023-04-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "109",
+              "rows": "108",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "108",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-12",
+              "max_date": "2024-02-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "108",
+              "rows": "107",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "107",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-03",
+              "max_date": "2025-02-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "111",
+              "rows": "108",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "108",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-02",
+              "max_date": "2026-03-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "88",
+              "rows": "170",
+              "unique_oriented_pairs": "85",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "170",
+              "duplicate_pair_occurrences": "85",
+              "min_date": "2006-08-26",
+              "max_date": "2007-04-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "87",
+              "rows": "166",
+              "unique_oriented_pairs": "83",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "166",
+              "duplicate_pair_occurrences": "83",
+              "min_date": "2007-08-25",
+              "max_date": "2008-03-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "90",
+              "rows": "172",
+              "unique_oriented_pairs": "86",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "172",
+              "duplicate_pair_occurrences": "86",
+              "min_date": "2008-08-30",
+              "max_date": "2009-04-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "88",
+              "rows": "88",
+              "unique_oriented_pairs": "88",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "88",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-29",
+              "max_date": "2010-05-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "93",
+              "rows": "91",
+              "unique_oriented_pairs": "91",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "91",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-18",
+              "max_date": "2011-03-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "93",
+              "rows": "90",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "90",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-23",
+              "max_date": "2012-03-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "92",
+              "rows": "90",
+              "unique_oriented_pairs": "90",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "90",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-21",
+              "max_date": "2013-02-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "82",
+              "rows": "80",
+              "unique_oriented_pairs": "80",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "80",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-28",
+              "max_date": "2014-03-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "85",
+              "rows": "77",
+              "unique_oriented_pairs": "77",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "77",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-26",
+              "max_date": "2015-01-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "85",
+              "rows": "84",
+              "unique_oriented_pairs": "84",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "84",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-26",
+              "max_date": "2016-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "103",
+              "rows": "101",
+              "unique_oriented_pairs": "101",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "101",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-16",
+              "max_date": "2017-03-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "105",
+              "rows": "103",
+              "unique_oriented_pairs": "103",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "103",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-19",
+              "max_date": "2018-02-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "107",
+              "rows": "105",
+              "unique_oriented_pairs": "105",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "105",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-18",
+              "max_date": "2019-02-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "106",
+              "rows": "104",
+              "unique_oriented_pairs": "104",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "104",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-17",
+              "max_date": "2020-03-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "72",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-29",
+              "max_date": "2020-10-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "90",
+              "rows": "88",
+              "unique_oriented_pairs": "88",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "88",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-14",
+              "max_date": "2022-03-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "86",
+              "rows": "84",
+              "unique_oriented_pairs": "84",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "84",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-08-13",
+              "max_date": "2023-04-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "109",
+              "rows": "108",
+              "unique_oriented_pairs": "108",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "108",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-12",
+              "max_date": "2024-02-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "108",
+              "rows": "107",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "107",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-03",
+              "max_date": "2025-02-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "KNVB Beker",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "109",
+              "rows": "107",
+              "unique_oriented_pairs": "107",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "107",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-02",
+              "max_date": "2026-03-04"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2007/08",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned08.txt:721",
+                "excerpt": "Jong Stormvogels/Telstar 1-2 NAC Breda               PSV fielded suspended player]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2010.txt:634",
+                "excerpt": "NB: professional clubs (and both qualified youth teams) enter"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2010.txt:635",
+                "excerpt": "in round 2"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2010.txt:723",
+                "excerpt": "decided to play it over two legs"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2015.txt:728",
+                "excerpt": "NB: none of the traditional top-3 (Ajax, PSV, Feyenoord) qualify for the quarterfinals;"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2017.txt:631",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2017.txt:653",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2018.txt:604",
+                "excerpt": "Qualifying Round 1 [Aug 19]"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2018.txt:620",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2019.txt:630",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2019.txt:650",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2020.txt:479",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2020.txt:511",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2020.txt:623",
+                "excerpt": "NB: cancelled due to Covid-19 pandemic"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2021.txt:584",
+                "excerpt": "NB: amateur club AFC (Amsterdam) entered with both \"saturday\" (in qualifying round 1)"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2021.txt:585",
+                "excerpt": "and \"sunday\" section (in qualification round 2)"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2021.txt:587",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2021.txt:621",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2021.txt:647",
+                "excerpt": "NB: the winners of qualifying round 2 join 34 professional clubs and"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2022.txt:624",
+                "excerpt": "Qualifying Round 1 [Aug 14]"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2022.txt:632",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2023.txt:605",
+                "excerpt": "Qualifying Round 1 [Aug 13]"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2023.txt:613",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2024.txt:622",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2024.txt:656",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2025.txt:597",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2025.txt:633",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2026.txt:630",
+                "excerpt": "Qualifying Round 1"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/ned2026.txt:666",
+                "excerpt": "Qualifying Round 2"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "qualificationRounds": 2,
+                  "firstQualificationGames": 32,
+                  "firstQualificationByes": 8,
+                  "secondQualificationGames": 20,
+                  "europeanEntrantsExemptFirstMainRound": true,
+                  "finalVenue": "De Kuip, Rotterdam",
+                  "qualification1MaxEntrants": 64,
+                  "qualification1MaxTier3": 4,
+                  "qualification1MaxTier4": 36,
+                  "qualification1MaxDistrictCupQualifiers": 24,
+                  "qualification2MaxEntrants": 40,
+                  "qualification2MaxTier3Byes": 8,
+                  "qualificationDrawRegional": false,
+                  "qualificationHost": "draw",
+                  "mainRound1MaxEntrants": 52,
+                  "mainRound1MaxQualifiers": 20,
+                  "mainRound1DirectTier3": "previous season champion and three period champions or replacements",
+                  "mainRound1MaxNonEuropeanProfessional": 28,
+                  "mainRound1AmateurHostAgainstProfessional": true,
+                  "mainRound2Entrants": 32,
+                  "professionalNonparticipation": "draw additional professional byes if fewer than 34 enter",
+                  "tieResolution": "all rounds 90 minutes then 2x15 extra time then penalties",
+                  "finalNominalHome": "winner of first drawn semifinal",
+                  "europeanAccess": "cup winner; if also UCL or cup stopped early, highest league club not in UCL subject to UEFA rules",
+                  "supercupAccess": "cup winner vs champion; if same club league runner-up replaces cup winner",
+                  "ineligiblePlayer": "exclude club; if found before next cup match invalidate previous match and advance opponent, otherwise last opponent advances; no replay"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/NED/2627/NATIONAL_CUP.json#block70Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

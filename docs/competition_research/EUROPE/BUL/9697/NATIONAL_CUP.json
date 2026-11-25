@@ -117,6 +117,90 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "3bc1dfc2b6fe7fcc293b3522b644437a1ef76bd6add50047c669c14dd45dcf74": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Bulgarian Cup 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-10-21",
+              "max_date": "2003-10-21"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "quarterfinalLegs": 2,
+                  "semifinalLegs": 2,
+                  "quarterfinalDates": [
+                    "1997-03-05",
+                    "1997-03-19"
+                  ],
+                  "semifinalDates": [
+                    "1997-04-09",
+                    "1997-04-23"
+                  ],
+                  "finalDate": "1997-05-28",
+                  "finalLegs": 1
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/BUL/9697/NATIONAL_CUP.json#sportRuleEvidence47",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "quarterfinalLegs": 2,
+                  "semifinalLegs": 2,
+                  "finalLegs": 1,
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/BUL/9697/NATIONAL_CUP.json#sportRuleEvidence77",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bulg04.txt:650 Author: Iordan Tsirov",
+                "excerpt": "[penalty shootout:"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

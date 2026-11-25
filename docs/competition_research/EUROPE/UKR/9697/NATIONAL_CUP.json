@@ -305,6 +305,335 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "89654c3d8b3f6200d197293be12617ec50791ae82a573374dc7e196e10fd097b": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "70",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-07-16",
+              "max_date": "2009-05-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "70",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-07-16",
+              "max_date": "2009-05-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2009/10",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "6",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-07-18",
+              "max_date": "2009-07-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2010/11",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "45",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "45",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-07-27",
+              "max_date": "2011-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2011/12",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-16",
+              "max_date": "2011-07-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2012/13",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "39",
+              "rows": "22",
+              "unique_oriented_pairs": "22",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "22",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-07-25",
+              "max_date": "2012-08-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2013/14",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "60",
+              "rows": "47",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "47",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-07-24",
+              "max_date": "2014-05-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2014/15",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "53",
+              "rows": "61",
+              "unique_oriented_pairs": "55",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "6",
+              "min_date": "2014-08-06",
+              "max_date": "2015-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2015/16",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "60",
+              "rows": "71",
+              "unique_oriented_pairs": "66",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "71",
+              "duplicate_pair_occurrences": "5",
+              "min_date": "2015-07-22",
+              "max_date": "2016-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2016/17",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "37",
+              "unique_oriented_pairs": "37",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "37",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-07-20",
+              "max_date": "2017-04-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2017/18",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-09",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2018/19",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-17",
+              "max_date": "2019-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2019/20",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-20",
+              "max_date": "2020-06-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2020/21",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "50",
+              "unique_oriented_pairs": "50",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "50",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-26",
+              "max_date": "2021-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Ukrainian Cup 2021/22",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "52",
+              "unique_oriented_pairs": "52",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-04",
+              "max_date": "2021-12-01"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "R32Legs": 1,
+                  "R16Legs": 1,
+                  "QFLegs": 2,
+                  "SFLegs": 2,
+                  "finalLegs": 1,
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/UKR/9697/NATIONAL_CUP.json#sportRuleEvidence79",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr09.txt:933 Author: Fedya Fussball",
+                "excerpt": "PFC Oleksandrija advances on penalty kicks 6-5"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr2011.txt:821 Author: Fedya Fussball",
+                "excerpt": "Olkom advances on penalties 7-6"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr2011.txt:872 Author: Fedya Fussball",
+                "excerpt": "Feniks-Illichivets advances on penalties 5-6"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr2011.txt:928 Author: Fedya Fussball",
+                "excerpt": "Dnipro advances on penalties 5-4."
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr2015.txt:809 Author: Fedya Fussball",
+                "excerpt": "3-3 on aggregate. Metalist won on away goals."
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr2015.txt:872 Author: Fedya Fussball",
+                "excerpt": "[Penalties: (DK) Veloso missed, Dragovic scored, Antunes missed, Husiev scored,"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr2015.txt:874 Author: Fedya Fussball",
+                "excerpt": "(SD) Penalty  Srna scored, Adriano scored, Costa scored, Taison missed,"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tableso/oekr2021.txt:712 Author: Fedya Fussball",
+                "excerpt": "ended in 1-1 draw after extra time and 8-7 on penalty kicks to Podillya]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

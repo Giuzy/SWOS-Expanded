@@ -163,6 +163,93 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "2739787d4cba8fd6c5cffb99f6c12653550db9585a588ec20cce0ef40d4b3904": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Belgian Cup 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-10-16",
+              "max_date": "1998-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Belgian Cup 1998/99",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-10-14",
+              "max_date": "1999-05-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "firstRoundEntrants": 116,
+                  "firstRoundTeamsFrom": "provincial leagues",
+                  "firstRoundExtraTime": false,
+                  "firstRoundPenalties": true,
+                  "secondTierEntry": "R64",
+                  "topTierEntry": "R32",
+                  "topTierProtectedDraw": true,
+                  "semifinalLegs": 2,
+                  "u23ProfessionalTeamsExcluded": true,
+                  "firstTeamLeagueEligiblePlayersOnly": true,
+                  "round1Through3TieResolution": "direct penalties",
+                  "round4ThroughQuarterfinalTieResolution": "extra time then penalties",
+                  "semifinalTieResolution": "aggregate goals then extra time in leg2 then penalties; no away goals",
+                  "finalTieResolution": "extra time then penalties",
+                  "defaultFinalVenue": "King Baudouin Stadium unless federation selects another",
+                  "amateurHostAgainstProfessionalRounds": [
+                    "6",
+                    "R32",
+                    "R16"
+                  ],
+                  "amateurHostConditional": "local permission and stadium qualification; otherwise professional hosts",
+                  "amateurHostMinimumCapacity": 1500,
+                  "amateurHostMinimumSeats": 300,
+                  "amateurHostMinimumLuxR32R16": 300,
+                  "sharedGroundConflict": "through R6 move second drawn home match by agreement, default 24h earlier if no agreement by 14 days before match; later scheduler separates matches",
+                  "europeanAccessLateFinal": "if final after UEFA entry deadline, league final ranking determines reserved cup ticket"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/BEL/2627/NATIONAL_CUP.json#block71Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

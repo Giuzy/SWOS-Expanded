@@ -79,7 +79,40 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "9fcbf509dd907a539004bc988cc3d38e94ccd0e9ce172ffce9caa7b08fe1b77e": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [],
+                "values": {
+                  "namedCompetition": "Nathaniel MG Cup",
+                  "calendarStatus": "REMOVED_2026_27",
+                  "separateRemovedCompetition": "Welsh Blood Service League Cup",
+                  "laterEditions": "UNKNOWN"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/WAL/2627/LEAGUE_CUP.json#sportRuleEvidence82",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "7a1c07ae1b2239098af67d41e6fa378f727c21b237aad5f9350f57b82ee097c7": {
           "status": "I",

@@ -805,6 +805,1308 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "f381a36adda8d7fd5e346b4c7609c6f2c7aedb95a6adc328f0e108e2b8f538af": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 1998",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "135",
+              "rows": "122",
+              "unique_oriented_pairs": "122",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "122",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-08-16",
+              "max_date": "1998-06-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 1999",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-08-15",
+              "max_date": "1999-09-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2001",
+              "season": "2001",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "140",
+              "rows": "95",
+              "unique_oriented_pairs": "94",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "95",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2001-04-16",
+              "max_date": "2001-09-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2005",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "202",
+              "rows": "180",
+              "unique_oriented_pairs": "180",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "180",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-02",
+              "max_date": "2005-06-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2006",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "100",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-07-01",
+              "max_date": "2006-06-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2007",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-04-25",
+              "max_date": "2007-06-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2008",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-07-19",
+              "max_date": "2007-08-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2009",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "132",
+              "rows": "124",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "124",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-30",
+              "max_date": "2009-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2012",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-06-04",
+              "max_date": "2012-08-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2013",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-15",
+              "max_date": "2013-09-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2014",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "128",
+              "rows": "124",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "124",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-04-21",
+              "max_date": "2014-09-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2015",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "129",
+              "rows": "122",
+              "unique_oriented_pairs": "122",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "122",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-04-25",
+              "max_date": "2015-09-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-06-05",
+              "max_date": "2016-09-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2017",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "127",
+              "rows": "126",
+              "unique_oriented_pairs": "126",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "126",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-04-22",
+              "max_date": "2017-09-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "140",
+              "rows": "136",
+              "unique_oriented_pairs": "136",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "136",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-04-25",
+              "max_date": "2018-09-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2019",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "136",
+              "rows": "129",
+              "unique_oriented_pairs": "129",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "129",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-20",
+              "max_date": "2019-08-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2021/22",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "136",
+              "rows": "124",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "124",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-10",
+              "max_date": "2022-06-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2022",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "142",
+              "rows": "127",
+              "unique_oriented_pairs": "127",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "127",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-04-25",
+              "max_date": "2022-09-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "144",
+              "rows": "123",
+              "unique_oriented_pairs": "123",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "123",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-22",
+              "max_date": "2023-09-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-05",
+              "max_date": "2024-08-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-07-04",
+              "max_date": "2025-08-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Chatham Cup.",
+              "season": "2003",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "138",
+              "rows": "123",
+              "unique_oriented_pairs": "123",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "123",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-05-02",
+              "max_date": "2003-08-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "135",
+              "rows": "122",
+              "unique_oriented_pairs": "122",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "122",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-08-16",
+              "max_date": "1998-06-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-08-15",
+              "max_date": "1999-09-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2001",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "140",
+              "rows": "95",
+              "unique_oriented_pairs": "94",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "95",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2001-04-16",
+              "max_date": "2001-09-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2003",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "138",
+              "rows": "123",
+              "unique_oriented_pairs": "123",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "123",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-05-02",
+              "max_date": "2003-08-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "59",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-07-02",
+              "max_date": "2005-06-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "95",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-07-01",
+              "max_date": "2006-06-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "75",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-04-25",
+              "max_date": "2007-06-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "9",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-07-19",
+              "max_date": "2007-08-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "132",
+              "rows": "124",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "124",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-30",
+              "max_date": "2009-06-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-06-04",
+              "max_date": "2012-08-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-15",
+              "max_date": "2013-09-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "128",
+              "rows": "124",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "124",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-04-21",
+              "max_date": "2014-09-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "129",
+              "rows": "122",
+              "unique_oriented_pairs": "122",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "122",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-04-25",
+              "max_date": "2015-09-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-06-05",
+              "max_date": "2016-09-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "136",
+              "rows": "129",
+              "unique_oriented_pairs": "129",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "129",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-20",
+              "max_date": "2019-08-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "136",
+              "rows": "124",
+              "unique_oriented_pairs": "124",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "124",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-07-10",
+              "max_date": "2022-06-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "142",
+              "rows": "127",
+              "unique_oriented_pairs": "127",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "127",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-04-25",
+              "max_date": "2022-09-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "144",
+              "rows": "123",
+              "unique_oriented_pairs": "123",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "123",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-22",
+              "max_date": "2023-09-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-05",
+              "max_date": "2024-08-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Delivereasy Chatham Cup",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-07-04",
+              "max_date": "2025-08-16"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz95.txt:208",
+                "excerpt": "Rounds 1, 2, 3 and 4"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz96.txt:307",
+                "excerpt": "Rounds 1, 2, 3 and 4"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz97.txt:441",
+                "excerpt": "Rounds 1, 2, 3 and 4"
+              },
+              {
+                "season": "1999",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz99.txt:443",
+                "excerpt": "Qualifying Round"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz01.txt:634",
+                "excerpt": "the penalty but moved prior to the kick being taken), missed - Greenhalgh"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz02.txt:376",
+                "excerpt": "The National League clubs will enter in the third round on May 19."
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement",
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nz05.txt:588 Author: Andre Zlotkowski",
+                "excerpt": "NB: Teams not eligible for promotion to the New Zealand Football Championship."
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nz05.txt:609 Author: Andre Zlotkowski",
+                "excerpt": "11.Papakura                     22  4  5 13 33-67  17 Relegated"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nz05.txt:610 Author: Andre Zlotkowski",
+                "excerpt": "12.Ellerslie                    22  1  4 17 15-65   7 Relegated"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "movement",
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nz06.txt:822 Author: Andre Zlotkowski",
+                "excerpt": "NB: Teams not eligible for promotion to the New Zealand Football Championship."
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz06.txt:597",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "movement",
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nz07.txt:555 Author: Andre Zlotkowski",
+                "excerpt": "NB: Teams not eligible for promotion to the New Zealand Football Championship."
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz07.txt:322",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz08.txt:231",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz08.txt:233",
+                "excerpt": "Second Round [May 31-Jun 2]"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz08.txt:270",
+                "excerpt": "Third Round [Jun 14,15]"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz08.txt:291",
+                "excerpt": "Fourth Round [Jun 28,29]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz09.txt:168",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz09.txt:174",
+                "excerpt": "Round One [Apr 25,26]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz09.txt:197",
+                "excerpt": "Round Two [May 16-23]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz09.txt:263",
+                "excerpt": "Round Three [Jun 1]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz09.txt:298",
+                "excerpt": "Round Four [Jun 13-20]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz09.txt:316",
+                "excerpt": "Round Five [Jun 28-Jul 5]"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2010.txt:171",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2010.txt:180",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2010.txt:229",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2010.txt:296",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2010.txt:331",
+                "excerpt": "Round Four"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2010.txt:350",
+                "excerpt": "Round Five"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2011.txt:151",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2011.txt:186",
+                "excerpt": "Round Four"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2011.txt:205",
+                "excerpt": "Round Five"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2011.txt:56",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2011.txt:63",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2011.txt:89",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2012.txt:140",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2012.txt:177",
+                "excerpt": "Round Four"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2012.txt:198",
+                "excerpt": "Round Five"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2012.txt:52",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2012.txt:54",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2012.txt:72",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2013.txt:166",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2013.txt:168",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2013.txt:189",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2013.txt:256",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2013.txt:290",
+                "excerpt": "in the previous round; FC Twenty not allowed to replace Canterbury University because they"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2013.txt:293",
+                "excerpt": "Round Four"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2013.txt:312",
+                "excerpt": "Round Five"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2014.txt:177",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2014.txt:179",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2014.txt:194",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2014.txt:247",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2014.txt:282",
+                "excerpt": "Round Four"
+              },
+              {
+                "season": "2014",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2014.txt:301",
+                "excerpt": "Round Five"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2015.txt:239",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2015.txt:241",
+                "excerpt": "Preliminary Rounds"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2015.txt:260",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2015.txt:313",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2015.txt:350",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2015.txt:370",
+                "excerpt": "Round Four"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2016.txt:182",
+                "excerpt": "NZFC (First Level) teams are not eligible to take part."
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2016.txt:183",
+                "excerpt": "Extra time indicated where known."
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2016.txt:185",
+                "excerpt": "Preliminary Rounds"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2016.txt:208",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2016.txt:259",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2016.txt:295",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nz2016.txt:316",
+                "excerpt": "Round Four"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nz2017.txt:232 ",
+                "excerpt": "Extra time indicated where known."
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nz2018.txt:227 ",
+                "excerpt": "Extra time indicated where known."
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

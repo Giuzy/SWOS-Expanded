@@ -157,7 +157,79 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "6bba3bac9da1127c73795b133233c74e05cb07c48f6d7537e9dfaae4c66e25c9": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "participants": 45,
+                  "groupStage": {
+                    "entrants": 40,
+                    "domesticNonEurope": 37,
+                    "nonLeagueInvites": 3,
+                    "groups": 8,
+                    "clubsPerGroup": 5,
+                    "gamesPerClub": 4,
+                    "home": 2,
+                    "away": 2,
+                    "totalMatches": 80,
+                    "regionalised": false,
+                    "points": {
+                      "win": 3,
+                      "shootoutWin": 2,
+                      "shootoutLoss": 1,
+                      "loss": 0
+                    },
+                    "drawAfter90": "penalties",
+                    "ranking": [
+                      "goal difference",
+                      "goals scored",
+                      "away goals scored",
+                      "wins",
+                      "away wins",
+                      "head-to-head",
+                      "drawing of lots"
+                    ],
+                    "groupWinners": 8,
+                    "bestRunnersUp": 3
+                  },
+                  "last16": {
+                    "groupQualifiers": 11,
+                    "europeanDirect": 5,
+                    "seededEuropean": 5,
+                    "seededBestGroupWinners": 3
+                  },
+                  "knockout": {
+                    "singleLeg": true,
+                    "drawAfter90": "extra time then penalties"
+                  }
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SCO/2627/LEAGUE_CUP.json#block109Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "e670db019766d84ce8f03273bcea23fbadc19dc4cc4b68086bdffbcec5a25b5c": {
           "status": "I",

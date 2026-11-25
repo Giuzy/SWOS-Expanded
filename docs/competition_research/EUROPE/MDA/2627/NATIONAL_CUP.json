@@ -396,6 +396,1035 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "da1fac27e9f04ab4ebcc936dbade4db8d5e98a6aa9e0a79b5f655d6b67289c2c": {
+          "sourceGroup": {
+            "source": "corpus/corpus.zip",
+            "competition": "Cupa Orange 2026/27",
+            "country": "MDA",
+            "season": "2026/27",
+            "season_basis": "SOURCE_TITLE"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 14,
+            "fixtures": 7,
+            "orientedPairs": 7,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 7,
+            "expectedRegularTeams": []
+          },
+          "fullUniqueIdentityCandidate": false,
+          "completeRegularStructureCandidate": false,
+          "fullNativeRosterCandidate": false,
+          "identityCandidates": {},
+          "unmappedOrAmbiguous": [
+            {
+              "label": "FC CHIŞINĂU",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC CONGAZ",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Fălești",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Stăuceni",
+              "candidateCount": 0
+            },
+            {
+              "label": "FC Țarigrad",
+              "candidateCount": 0
+            },
+            {
+              "label": "FCM UNGHENI",
+              "candidateCount": 0
+            },
+            {
+              "label": "ISKRA (Rîbnița)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Național (Ialoveni)",
+              "candidateCount": 0
+            },
+            {
+              "label": "OGUZ (Comrat)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Olimp (Comrat)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Spartanii S. (Chișinău)",
+              "candidateCount": 0
+            },
+            {
+              "label": "UNIVER (Comrat)",
+              "candidateCount": 0
+            },
+            {
+              "label": "VICTORIA (Chișinău)",
+              "candidateCount": 0
+            },
+            {
+              "label": "Vulturii C. (Sîngerei)",
+              "candidateCount": 0
+            }
+          ],
+          "fixtureColumns": [
+            "date",
+            "dateBasis",
+            "homeLabel",
+            "awayLabel",
+            "homeUUID",
+            "awayUUID",
+            "locator",
+            "stage"
+          ],
+          "fixtures": [
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "OGUZ (Comrat)",
+              "Vulturii C. (Sîngerei)",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:320",
+              ""
+            ],
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "Spartanii S. (Chișinău)",
+              "UNIVER (Comrat)",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:322",
+              ""
+            ],
+            [
+              "2026-09-01",
+              "INFERRED_FROM_EDITION",
+              "VICTORIA (Chișinău)",
+              "FC Fălești",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:324",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "FC Stăuceni",
+              "FC CHIŞINĂU",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:331",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "FCM UNGHENI",
+              "Olimp (Comrat)",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:333",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "ISKRA (Rîbnița)",
+              "FC Țarigrad",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:328",
+              ""
+            ],
+            [
+              "2026-09-02",
+              "INFERRED_FROM_EDITION",
+              "Național (Ialoveni)",
+              "FC CONGAZ",
+              null,
+              null,
+              "corpus/tablesm/mold2027.txt:336",
+              ""
+            ]
+          ],
+          "july1Candidate": {
+            "preCutoffOccurrences": 0,
+            "status": "NO_PRIOR_MATCH_IN_SELECTED_GROUP_NOT_PROOF_OF_NA",
+            "scores": []
+          },
+          "ruleExcerpts": [],
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "alternatives": [
+            {
+              "sourceGroup": [
+                "rsssf-deep/corpus.zip",
+                "Cupa Orange",
+                "MDA",
+                "2026/27",
+                "SOURCE_TITLE"
+              ],
+              "shape": {
+                "family": "OTHER_PHASES_OR_PARTIAL",
+                "teams": 14,
+                "fixtures": 7,
+                "orientedPairs": 7,
+                "invalid": 0,
+                "clubDayClashes": 0,
+                "inferredDates": 7,
+                "expectedRegularTeams": []
+              },
+              "mapped": 0
+            }
+          ],
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-16",
+              "max_date": "2010-05-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-04",
+              "max_date": "2011-05-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "51",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-14",
+              "max_date": "2012-05-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-25",
+              "max_date": "2013-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "46",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-24",
+              "max_date": "2014-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-23",
+              "max_date": "2015-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-09-13",
+              "max_date": "2016-05-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Moldovei",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-20",
+              "max_date": "2017-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Orange 2025/26",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-30",
+              "max_date": "2025-10-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Cupa Orange 2026/27",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-09-01",
+              "max_date": "2026-09-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-16",
+              "max_date": "2010-05-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-04",
+              "max_date": "2011-05-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "51",
+              "unique_oriented_pairs": "51",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "51",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-14",
+              "max_date": "2012-05-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "48",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-25",
+              "max_date": "2013-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "46",
+              "rows": "45",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "45",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-24",
+              "max_date": "2014-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "44",
+              "unique_oriented_pairs": "44",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "44",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-23",
+              "max_date": "2015-04-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-09-13",
+              "max_date": "2016-05-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-20",
+              "max_date": "2017-05-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "49",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-07-22",
+              "max_date": "2018-05-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "58",
+              "unique_oriented_pairs": "58",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "58",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-05",
+              "max_date": "2019-06-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "49",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "52",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-04-20",
+              "max_date": "2020-06-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-10-27",
+              "max_date": "2021-05-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-17",
+              "max_date": "2022-04-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-30",
+              "max_date": "2025-10-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Cupa Orange",
+              "season": "2026/27",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-09-01",
+              "max_date": "2026-09-02"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [
+              {
+                "edition": "2026/2027",
+                "activeAtStartCandidate": false,
+                "groups": [
+                  [
+                    "corpus/corpus.zip",
+                    "Cupa Orange 2026/27",
+                    "MDA",
+                    "2026/27",
+                    "SOURCE_TITLE"
+                  ],
+                  [
+                    "rsssf-deep/corpus.zip",
+                    "Cupa Orange",
+                    "MDA",
+                    "2026/27",
+                    "SOURCE_TITLE"
+                  ]
+                ],
+                "events": [
+                  {
+                    "date": "2026-09-01",
+                    "home": "OGUZ (Comrat)",
+                    "away": "Vulturii C. (Sîngerei)",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesm/mold2027.txt:320"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesm/mold2027.txt:320"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-01",
+                    "home": "Spartanii S. (Chișinău)",
+                    "away": "UNIVER (Comrat)",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesm/mold2027.txt:322"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesm/mold2027.txt:322"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-01",
+                    "home": "VICTORIA (Chișinău)",
+                    "away": "FC Fălești",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesm/mold2027.txt:324"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesm/mold2027.txt:324"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-02",
+                    "home": "FCM UNGHENI",
+                    "away": "Olimp (Comrat)",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesm/mold2027.txt:333"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesm/mold2027.txt:333"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-02",
+                    "home": "FC Stăuceni",
+                    "away": "FC CHIŞINĂU",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesm/mold2027.txt:331"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesm/mold2027.txt:331"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-02",
+                    "home": "ISKRA (Rîbnița)",
+                    "away": "FC Țarigrad",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesm/mold2027.txt:328"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesm/mold2027.txt:328"
+                      ]
+                    ],
+                    "preStartScores": []
+                  },
+                  {
+                    "date": "2026-09-02",
+                    "home": "Național (Ialoveni)",
+                    "away": "FC CONGAZ",
+                    "homeUUID": null,
+                    "awayUUID": null,
+                    "dateBases": [
+                      "INFERRED_FROM_EDITION"
+                    ],
+                    "stages": [],
+                    "groups": [
+                      0,
+                      1
+                    ],
+                    "locations": [
+                      [
+                        0,
+                        "corpus/tablesm/mold2027.txt:336"
+                      ],
+                      [
+                        1,
+                        "corpus/tablesm/mold2027.txt:336"
+                      ]
+                    ],
+                    "preStartScores": []
+                  }
+                ],
+                "explicitEvents": 0,
+                "conflicts": [],
+                "nativeRoster": [],
+                "completeReviewedRegularComponent": false,
+                "observedStageCounts": [],
+                "july1Arithmetic": null
+              }
+            ],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2011.txt:44",
+                "excerpt": "First Preliminary Round [Aug 28,29]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2011.txt:59",
+                "excerpt": "Second Preliminary Round [Sep 4]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2011.txt:67",
+                "excerpt": "First Intermediate Round  [Sep 15]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2011.txt:79",
+                "excerpt": "Second Intermediate Round [Sep 22]"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2012.txt:332",
+                "excerpt": "1st Preliminary round [Sep 14]"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2012.txt:349",
+                "excerpt": "2nd Preliminary round [Sep 28]"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2013.txt:392",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2013.txt:409",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2013.txt:418",
+                "excerpt": "First Intermediate Round"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2013.txt:432",
+                "excerpt": "Second Intermediate Round [Sep 26]"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2014.txt:390",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2014.txt:407",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2014.txt:418",
+                "excerpt": "First Intermediate Round"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2014.txt:430",
+                "excerpt": "Second Intermediate Round"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2015.txt:416",
+                "excerpt": "Intermediate Round 1 [Sep 7]"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2015.txt:425",
+                "excerpt": "Intermediate Round 2"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2026.txt:646",
+                "excerpt": "First Preliminary Round [Sep 3. Total Att: 750; Average: 125]"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2026.txt:666",
+                "excerpt": "Second Preliminary Round [Sep 17. Total Att: 530; Average: 106]"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2026.txt:684",
+                "excerpt": "Third Preliminary Round [Total Att: 1,150; Average: 144]"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2026.txt:712",
+                "excerpt": "Round of 16 [Total Att: 2,268; Average: 284]"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2027.txt:284",
+                "excerpt": "First Preliminary Round [Aug 5. Total Att: 855; Average: 171]"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2027.txt:300",
+                "excerpt": "NB: CF Edineț proceed right to the Round of 16 due to withdrawal of their Second and"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2027.txt:301",
+                "excerpt": "Third Preliminary Rounds opponents, Real Succes (Chișinău) and FC Florești."
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2027.txt:303",
+                "excerpt": "Second Preliminary Round [Aug 19. Total Att: 450; Average: 150]"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2027.txt:317",
+                "excerpt": "Third Preliminary Round [Total Att: 950; Average: 136]"
+              },
+              {
+                "season": "2026/27",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesm/mold2027.txt:339",
+                "excerpt": "Round of 16 [Oct 27-28]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

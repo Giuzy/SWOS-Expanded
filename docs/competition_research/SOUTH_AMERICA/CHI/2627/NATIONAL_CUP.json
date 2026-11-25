@@ -318,6 +318,3643 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "bbe8478459c61195daf4a9b9654cc713dc403e36ecd5aba2972c3952b23b2b12": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2008",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-07-05",
+              "max_date": "2008-10-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2009",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "40",
+              "unique_oriented_pairs": "40",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "40",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-05",
+              "max_date": "2009-11-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2011",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-05-11",
+              "max_date": "2011-05-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2012/13",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "100",
+              "unique_oriented_pairs": "100",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "100",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-08",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2014/15",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-14",
+              "max_date": "2015-01-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2015",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "5",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-11-04",
+              "max_date": "2015-11-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-11-23",
+              "max_date": "2016-11-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2017",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-10-18",
+              "max_date": "2017-10-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-08",
+              "max_date": "2018-11-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2019/20",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "74",
+              "unique_oriented_pairs": "74",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "72",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-06",
+              "max_date": "2020-06-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2021",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "24",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "24",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-06-15",
+              "max_date": "2021-09-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2022",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-09-23",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-07-27",
+              "max_date": "2023-12-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "87",
+              "rows": "106",
+              "unique_oriented_pairs": "106",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "106",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-27",
+              "max_date": "2024-11-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Chile 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-06-06",
+              "max_date": "2025-12-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-05-11",
+              "max_date": "2011-05-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-01-14",
+              "max_date": "2015-01-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "5",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-11-04",
+              "max_date": "2015-11-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-11-23",
+              "max_date": "2016-11-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-10-18",
+              "max_date": "2017-10-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-08",
+              "max_date": "2018-11-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "74",
+              "unique_oriented_pairs": "74",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "72",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-06",
+              "max_date": "2020-06-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2021",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "29",
+              "rows": "24",
+              "unique_oriented_pairs": "24",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "24",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-06-15",
+              "max_date": "2021-09-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "13",
+              "unique_oriented_pairs": "13",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "13",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-09-23",
+              "max_date": "2022-11-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "5",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-04-27",
+              "max_date": "2024-05-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Chile",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-06-06",
+              "max_date": "2025-12-10"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/chile2014.txt",
+                "edition": "2013/2014",
+                "tableLine": 609,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 32,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Audax Italiano",
+                  "Barnechea",
+                  "Cobreloa",
+                  "Cobresal",
+                  "Colo-Colo",
+                  "Coquimbo Unido",
+                  "Curicó Unido",
+                  "Deportes Antofagasta",
+                  "Deportes Concepción",
+                  "Deportes Copiapó",
+                  "Deportes Iquique",
+                  "Deportes La Serena",
+                  "Deportes Temuco",
+                  "Everton",
+                  "Huachipato",
+                  "Lota Schwager",
+                  "Magallanes",
+                  "Naval",
+                  "O'Higgins",
+                  "Palestino",
+                  "Rangers",
+                  "San Luis",
+                  "San Marcos de Arica",
+                  "Santiago Morning",
+                  "Santiago Wanderers",
+                  "Universidad Católica",
+                  "Universidad de Chile",
+                  "Universidad de Concepción",
+                  "Unión Española",
+                  "Unión La Calera",
+                  "Unión San Felipe",
+                  "Ñublense"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/chile2015.txt",
+                "edition": "2014/2015",
+                "tableLine": 653,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 32,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Audax Italiano",
+                  "Barnechea",
+                  "Cobreloa",
+                  "Cobresal",
+                  "Colo-Colo",
+                  "Coquimbo Unido",
+                  "Curicó Unido",
+                  "Deportes Antofagasta",
+                  "Deportes Concepción",
+                  "Deportes Copiapó",
+                  "Deportes Iquique",
+                  "Deportes La Serena",
+                  "Deportes Temuco",
+                  "Everton",
+                  "Huachipato",
+                  "Iberia",
+                  "Lota Schwager",
+                  "Magallanes",
+                  "O'Higgins",
+                  "Palestino",
+                  "Rangers",
+                  "San Luis",
+                  "San Marcos de Arica",
+                  "Santiago Morning",
+                  "Santiago Wanderers",
+                  "Universidad Católica",
+                  "Universidad de Chile",
+                  "Universidad de Concepción",
+                  "Unión Española",
+                  "Unión La Calera",
+                  "Unión San Felipe",
+                  "Ñublense"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/chile2016.txt",
+                "edition": "2015",
+                "tableLine": 575,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 32,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Audax Italiano",
+                  "Barnechea",
+                  "Cobreloa",
+                  "Cobresal",
+                  "Colo-Colo",
+                  "Coquimbo Unido",
+                  "Curicó Unido",
+                  "Deportes Antofagasta",
+                  "Deportes Concepción",
+                  "Deportes Copiapó",
+                  "Deportes Iquique",
+                  "Deportes La Serena",
+                  "Deportes Puerto Montt",
+                  "Deportes Temuco",
+                  "Everton",
+                  "Huachipato",
+                  "Iberia",
+                  "Magallanes",
+                  "O'Higgins",
+                  "Palestino",
+                  "Rangers",
+                  "San Luis de Quillota",
+                  "San Marcos de Arica",
+                  "Santiago Morning",
+                  "Santiago Wanderers",
+                  "Universidad Católica",
+                  "Universidad de Chile",
+                  "Universidad de Concepción",
+                  "Unión Española",
+                  "Unión La Calera",
+                  "Unión San Felipe",
+                  "Ñublense"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesc/chile2024.txt",
+                "edition": "2024",
+                "tableLine": 508,
+                "phase": "",
+                "heading": "Table:",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Alas Portuarias",
+                  "Colo Colo Chico",
+                  "Deportivo Halcones"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2009",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile09.txt:1442 Author: Juan Pablo Andrés",
+                "excerpt": "NB: Unión San Felipe qualify to Copa Sudamericana 2009"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:401 Author: Juan Pablo Andrés",
+                "excerpt": "1.Unión Temuco                         6   3  2  1  14- 8  11  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:402 Author: Juan Pablo Andrés",
+                "excerpt": "2.Universidad de Concepción            6   3  2  1  10- 7  11  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:438 Author: Juan Pablo Andrés",
+                "excerpt": "1.Huachipato (Talcahuano)              6   5  0  1  15- 2  15  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:439 Author: Juan Pablo Andrés",
+                "excerpt": "2.Lota Schwager                        6   2  2  2   5- 7   8  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:474 Author: Juan Pablo Andrés",
+                "excerpt": "1.O'Higgins (Rancagua)                 6   4  1  1  15- 4  13  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:475 Author: Juan Pablo Andrés",
+                "excerpt": "2.Rangers (Talca)                      6   3  1  2   8- 7  10  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:515 Author: Juan Pablo Andrés",
+                "excerpt": "1.Unión Española (Santiago)            6   5  1  0  19- 4  16  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:516 Author: Juan Pablo Andrés",
+                "excerpt": "2.Universidad Católica (Santiago)      6   3  0  3  12-12   9  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:553 Author: Juan Pablo Andrés",
+                "excerpt": "1.Colo Colo (Santiago)                 6   3  1  2  17- 8  10  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:554 Author: Juan Pablo Andrés",
+                "excerpt": "2.Palestino (Santiago)                 6   3  1  2  11-12  10  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:591 Author: Juan Pablo Andrés",
+                "excerpt": "1.Santiago Morning                     6   3  2  1  10-11  11  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:592 Author: Juan Pablo Andrés",
+                "excerpt": "2.Universidad de Chile (Santiago)      6   2  3  1  15- 8   9  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:630 Author: Juan Pablo Andrés",
+                "excerpt": "1.Trasandino                           6   4  1  1   9- 7  13  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:631 Author: Juan Pablo Andrés",
+                "excerpt": "2.Coquimbo Unido                       6   2  2  2   8- 9   8  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:668 Author: Juan Pablo Andrés",
+                "excerpt": "1.Cobreloa (Calama)                    6   3  2  1  10- 5  11  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:669 Author: Juan Pablo Andrés",
+                "excerpt": "2.CD San Marcos de Arica               6   3  2  1  14-11  11  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2013.txt:745 Author: Juan Pablo Andrés",
+                "excerpt": "Universidad de Chile qualify to Copa Sudamericana 2013"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 6,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Deportes Concepción",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:609"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Deportes Temuco",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:610"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 14,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Ñublense",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:611"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Universidad de Chile",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:612"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 3,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Universidad de Concepción",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:615"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 3,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Huachipato",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:616"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Lota Schwager",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:617"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Naval",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:618"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "O'Higgins",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:621"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Curicó Unido",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:622"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Audax Italiano",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:623"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Magallanes",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:624"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Universidad Católica",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:627"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Palestino",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:628"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 13,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Unión Española",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:629"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Barnechea",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:630"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Colo-Colo",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:633"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Unión San Felipe",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:634"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Santiago Morning",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:635"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Rangers",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:636"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Everton",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:639"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "San Luis",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:640"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Santiago Wanderers",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:641"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 3,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Unión La Calera",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:642"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Coquimbo Unido",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:645"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Cobresal",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:646"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Deportes Copiapó",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:647"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Deportes La Serena",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:648"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Cobreloa",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:651"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Deportes Iquique",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:652"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "Deportes Antofagasta",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:653"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 609
+                  },
+                  "team": "San Marcos de Arica",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2014.txt:654"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:653 ",
+                "excerpt": "1.Magallanes                           6   4  1  1  14- 6  13  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:654 ",
+                "excerpt": "2.Audax Italiano                       6   4  1  1  11- 7  13  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:659 ",
+                "excerpt": "1.Coquimbo Unido                       6   3  2  1   7- 7  11  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:660 ",
+                "excerpt": "2.Cobresal                             6   3  0  3  10- 7   9  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:665 ",
+                "excerpt": "1.Deportes Antofagasta                 6   2  4  0  11- 5  10  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:666 ",
+                "excerpt": "2.San Marcos de Arica                  6   3  1  2   8- 9  10  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:671 ",
+                "excerpt": "1.Unión Española                       6   3  1  2   9- 6  10  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:672 ",
+                "excerpt": "2.Unión San Felipe                     6   3  1  2  12-10  10  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:677 ",
+                "excerpt": "1.Universidad de Concepción            6   4  1  1  10- 6  13  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:678 ",
+                "excerpt": "2.Palestino                            6   3  0  3   6- 4   9  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:683 ",
+                "excerpt": "1.Lota Schwager                        6   4  2  0   8- 2  14  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:684 ",
+                "excerpt": "2.Deportes Temuco                      6   2  3  1   7- 5   9  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:689 ",
+                "excerpt": "1.Santiago Wanderers                   6   4  1  1  17- 8  13  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:690 ",
+                "excerpt": "2.San Luis                             6   3  1  2   9-10  10  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:695 ",
+                "excerpt": "1.Ñublense                             6   4  1  1  11- 9  13  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:696 ",
+                "excerpt": "2.Curicó Unido                         6   3  1  2  10- 8  10  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Magallanes",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:653"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Audax Italiano",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:654"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Universidad de Chile",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:655"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 21,
+                  "gf": 5,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Santiago Morning",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:656"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Coquimbo Unido",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:659"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Cobresal",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:660"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Deportes La Serena",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:661"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 13,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Deportes Copiapó",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:662"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 5,
+                  "gf": 11,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Deportes Antofagasta",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:665"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "San Marcos de Arica",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:666"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Cobreloa",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:667"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 12,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Deportes Iquique",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:668"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Unión Española",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:671"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Unión San Felipe",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:672"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Everton",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:673"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Unión La Calera",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:674"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Universidad de Concepción",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:677"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Palestino",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:678"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Colo-Colo",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:679"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Rangers",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:680"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Lota Schwager",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:683"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Deportes Temuco",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:684"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 8,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Huachipato",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:685"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 8,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Deportes Concepción",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:686"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 17,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Santiago Wanderers",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:689"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "San Luis",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:690"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "O'Higgins",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:691"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 7,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Barnechea",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:692"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Ñublense",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:695"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Curicó Unido",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:696"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Universidad Católica",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:697"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 653
+                  },
+                  "team": "Iberia",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2015.txt:698"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:575 ",
+                "excerpt": "1.Deportes Iquique                     6   3  1  2   7- 6  10  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:576 ",
+                "excerpt": "2.Cobreloa                             6   3  0  3   6- 5   9  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:581 ",
+                "excerpt": "1.Coquimbo Unido                       6   4  2  0  10- 6  14  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:582 ",
+                "excerpt": "2.Deportes Copiapó                     6   3  1  2   9- 6  10  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:587 ",
+                "excerpt": "1.San Luis de Quillota                 6   2  4  0   8- 4  10  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:588 ",
+                "excerpt": "2.Everton                              6   2  3  1  10- 8   9  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:593 ",
+                "excerpt": "1.Audax Italiano                       6   4  1  1  12- 3  13  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:594 ",
+                "excerpt": "2.Universidad Católica                 6   4  0  2  16- 9  12  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:599 ",
+                "excerpt": "1.Unión Española                       6   4  2  0  13- 6  14  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:600 ",
+                "excerpt": "2.Santiago Morning                     6   3  1  2  16-10  10  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:605 ",
+                "excerpt": "1.Universidad de Chile                 6   4  2  0  15- 9  14  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:606 ",
+                "excerpt": "2.O'Higgins                            6   2  1  3  11-12   7  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:611 ",
+                "excerpt": "1.Colo-Colo                            6   4  1  1  16- 6  13  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:612 ",
+                "excerpt": "2.Huachipato                           6   4  1  1   8- 4  13  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:617 ",
+                "excerpt": "1.Deportes Puerto Montt                6   4  0  2   9- 7  12  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:618 ",
+                "excerpt": "2.Universidad de Concepción            6   3  2  1  10- 8  11  Qualified"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Deportes Iquique",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:575"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Cobreloa",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:576"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "San Marcos de Arica",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:577"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Deportes Antofagasta",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:578"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Coquimbo Unido",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:581"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Deportes Copiapó",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:582"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Cobresal",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:583"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Deportes La Serena",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:584"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 4,
+                  "gf": 8,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "San Luis de Quillota",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:587"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Everton",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:588"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 9,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Santiago Wanderers",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:589"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 15,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Unión La Calera",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:590"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Audax Italiano",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:593"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Universidad Católica",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:594"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Magallanes",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:595"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 20,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Barnechea",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:596"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 13,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Unión Española",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:599"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Santiago Morning",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:600"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Palestino",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:601"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Unión San Felipe",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:602"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 9,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Universidad de Chile",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:605"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "O'Higgins",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:606"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Rangers",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:607"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Curicó Unido",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:608"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Colo-Colo",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:611"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Huachipato",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:612"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Deportes Concepción",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:613"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 2,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Ñublense",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:614"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Deportes Puerto Montt",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:617"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Universidad de Concepción",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:618"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Deportes Temuco",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:619"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 575
+                  },
+                  "team": "Iberia",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2016.txt:620"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 508
+                  },
+                  "team": "Alas Portuarias",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2024.txt:510"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 508
+                  },
+                  "team": "Deportivo Halcones",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2024.txt:511"
+              },
+              {
+                "season": "2024",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Table:",
+                    "line": 508
+                  },
+                  "team": "Colo Colo Chico",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesc/chile2024.txt:512"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 32,
+                  "entry": "Primera División + Primera B",
+                  "zones": 2,
+                  "groups": 8,
+                  "clubsPerGroup": 4,
+                  "groupRounds": 6,
+                  "groupDoubleRoundRobin": true,
+                  "knockoutStages": [
+                    "R16",
+                    "QF",
+                    "SF",
+                    "Final"
+                  ],
+                  "finalLegs": 1,
+                  "continentalAccess": "winner plays league rank3 for Libertadores Chile4; loser Sudamericana Chile4"
+                },
+                "source": "repository/research",
+                "locator": "SOUTH_AMERICA/CHI/2627/NATIONAL_CUP.json#block110Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

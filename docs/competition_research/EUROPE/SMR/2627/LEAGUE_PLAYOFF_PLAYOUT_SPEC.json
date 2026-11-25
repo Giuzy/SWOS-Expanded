@@ -103,7 +103,75 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "020aed4ce63b0a8cbb3ec0f868bbf0c3279202f5cfbb7d2432192c4666fc1c59": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+          "phaseQueue": "PARENT_PHASE_LINK",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "parentRow": 301,
+                  "directRanks": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "preliminaryPairs": [
+                    [
+                      8,
+                      11
+                    ],
+                    [
+                      9,
+                      10
+                    ]
+                  ],
+                  "preliminaryLegs": 1,
+                  "preliminaryTie": "higher regular-season rank advances after 90 minutes",
+                  "QFandSFLegs": 2,
+                  "QFandSFTie": "higher regular-season rank advances if tied on points and aggregate GD",
+                  "placementFinals": [
+                    [
+                      2,
+                      3
+                    ],
+                    [
+                      4,
+                      5
+                    ]
+                  ],
+                  "finalLegs": 1,
+                  "finalExtraTime": true,
+                  "finalPenalties": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SMR/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json#sportRuleEvidence81",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

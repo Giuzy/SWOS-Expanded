@@ -152,6 +152,96 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "db3852ee9bc42000c1a1689a52bf330df0ab963e359260bcacc2c116a719c417": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Super Cup 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-03-15",
+              "max_date": "2018-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Super Cup 2019",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "11",
+              "unique_oriented_pairs": "11",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "11",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-03-15",
+              "max_date": "2019-04-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Super Cup 2023",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "13",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "8",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-04-03",
+              "max_date": "2023-04-25"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2018",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesi/india2018.txt:516 ",
+                "excerpt": "NB: first edition; post-season tournament between the I-League and ISL clubs;"
+              },
+              {
+                "season": "2025/2026",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 16,
+                  "groups": 4,
+                  "groupMatches": 24,
+                  "groupWinnersToSemifinals": true,
+                  "champion": "FC Goa",
+                  "actualContinentalAccess": "AFC Challenge League 2026/27 group stage"
+                },
+                "source": "repository/research",
+                "locator": "ASIA/IND/2627/NATIONAL_CUP.json#block54Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

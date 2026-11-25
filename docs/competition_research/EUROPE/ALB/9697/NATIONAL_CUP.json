@@ -456,6 +456,2268 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "dfc78ac8d460f33e0af12c759d2aef218d0ef4b0f6cf162f70938ff8fee5b811": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 1999/2000",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-08-21",
+              "max_date": "2000-04-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-26",
+              "max_date": "2001-05-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-08-18",
+              "max_date": "2002-06-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-08-30",
+              "max_date": "2003-05-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-05-19",
+              "max_date": "2004-05-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2005/06",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-09-20",
+              "max_date": "2006-04-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2006/07",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "49",
+              "rows": "74",
+              "unique_oriented_pairs": "74",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "74",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-08-27",
+              "max_date": "2007-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2007/08",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "69",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2007-09-05",
+              "max_date": "2008-08-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Albania Cup (Kupa e Shqipërisë) 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "41",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-09-24",
+              "max_date": "2009-04-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "70",
+              "unique_oriented_pairs": "70",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "70",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-23",
+              "max_date": "2010-04-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-21",
+              "max_date": "2011-05-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-07",
+              "max_date": "2012-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "58",
+              "unique_oriented_pairs": "58",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "58",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-12",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "64",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-25",
+              "max_date": "2014-04-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-29",
+              "max_date": "2015-04-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-27",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-09-25",
+              "max_date": "2017-04-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-09-06",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-02",
+              "max_date": "2019-06-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-02",
+              "max_date": "2020-06-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-11-01",
+              "max_date": "2021-04-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-11",
+              "max_date": "2022-04-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-09-15",
+              "max_date": "2023-05-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "47",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "47",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-09-27",
+              "max_date": "2024-05-14"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-25",
+              "max_date": "2025-04-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "41",
+              "rows": "45",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "45",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-01",
+              "max_date": "2026-04-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "1995/96",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-05-15",
+              "max_date": "1996-05-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "50",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-08-21",
+              "max_date": "2000-04-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-26",
+              "max_date": "2001-05-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-08-18",
+              "max_date": "2002-06-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "37",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-08-30",
+              "max_date": "2003-05-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-05-19",
+              "max_date": "2004-05-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-09-20",
+              "max_date": "2006-04-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "49",
+              "rows": "74",
+              "unique_oriented_pairs": "74",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "74",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-08-27",
+              "max_date": "2007-04-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-09-05",
+              "max_date": "2008-04-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "41",
+              "rows": "65",
+              "unique_oriented_pairs": "65",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "65",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-09-24",
+              "max_date": "2009-04-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "70",
+              "unique_oriented_pairs": "70",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "70",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-23",
+              "max_date": "2010-04-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "26",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-09-21",
+              "max_date": "2011-05-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-07",
+              "max_date": "2012-04-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "38",
+              "rows": "58",
+              "unique_oriented_pairs": "58",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "58",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-12",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "36",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "64",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-25",
+              "max_date": "2014-04-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-29",
+              "max_date": "2015-04-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-27",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-09-25",
+              "max_date": "2017-04-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-09-06",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-09-02",
+              "max_date": "2019-06-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "33",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-02",
+              "max_date": "2020-06-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-11-01",
+              "max_date": "2021-04-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-11",
+              "max_date": "2022-04-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "34",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-09-15",
+              "max_date": "2023-05-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "47",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "47",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-09-27",
+              "max_date": "2024-05-14"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-09-25",
+              "max_date": "2025-04-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Kupa e Shqipërisë",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "41",
+              "rows": "45",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "45",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-01",
+              "max_date": "2026-04-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 122,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Apolonia Fier",
+                  "Laçi",
+                  "Shkumbini Peqin",
+                  "Tirana"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 128,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Flamurtari Vlorë",
+                  "Kamza",
+                  "Pogradeci",
+                  "Teuta Durrës"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 134,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Besa Kavajë",
+                  "Kastrioti Krujë",
+                  "Luftëtari Gjirokastër",
+                  "Skënderbeu Korçë"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 140,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Bylis Ballshi",
+                  "Dinamo Tiranë",
+                  "Elbasani",
+                  "Vllaznia Shkodër"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 148,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Bylis Ballshi",
+                  "Kamza",
+                  "Kastrioti Krujë",
+                  "Tirana"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2012.txt",
+                "edition": "2011/2012",
+                "tableLine": 154,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Flamurtari Vlorë",
+                  "Laçi",
+                  "Skënderbeu Korçë",
+                  "Vllaznia Shkodër"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2013.txt",
+                "edition": "2012/2013",
+                "tableLine": 435,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Kastrioti Krujë",
+                  "Kukësi",
+                  "Shkumbini Peqin",
+                  "Skënderbeu Korçë"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesa/alba2013.txt",
+                "edition": "2012/2013",
+                "tableLine": 441,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Bylis Ballshi",
+                  "Flamurtari Vlorë",
+                  "Laçi",
+                  "Teuta Durrës"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "observedFirstRoundEntrants": 32,
+                  "R32Legs": 2,
+                  "R16Legs": 2,
+                  "QFLegs": 2,
+                  "SFLegs": 1,
+                  "finalLegs": 1,
+                  "awayGoals": true,
+                  "extraTime": true,
+                  "penalties": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ALB/9697/NATIONAL_CUP.json#sportRuleEvidence80",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba00.txt:491",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba00.txt:557",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba00.txt:599",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba00.txt:674",
+                "excerpt": "Penalties: Çuko goal, Kola save goalkeeper, Muka out, Tosku save"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba00.txt:688",
+                "excerpt": "Penalties: Gazheli 0-0, Muça 1-0, Çuko 1-1, Bespalla 2-1, Muka 2-2, Prenga 3-2,"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/albacup00.txt:190 Author: Giovanni Nappi",
+                "excerpt": "Penalties: Çuko goal, Kola save goalkeeper, Muka out, Tosku save"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/albacup00.txt:204 Author: Giovanni Nappi",
+                "excerpt": "Penalties: Gazheli 0-0, Muça 1-0, Çuko 1-1, Bespalla 2-1, Muka 2-2, Prenga 3-2,"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba01.txt:469",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba01.txt:540",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba01.txt:631",
+                "excerpt": "Remark: Nallbani stopped a penalty from Edmond Kodra at 69]"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba02.txt:503",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba02.txt:577",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba03.txt:607",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba03.txt:690",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba03.txt:748",
+                "excerpt": "[penalties: Bledi Kadiu (L) cross bar 0-0, Luan Pinari (D) saved 0-0;"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba04.txt:574",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba04.txt:600",
+                "excerpt": "Second Round [Sep 17 and Oct 1]"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba04.txt:656",
+                "excerpt": "Third Round [Nov 12 and 26]"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba06.txt:613",
+                "excerpt": "First Round [Aug 28 and Sep 4]"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba06.txt:639",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba06.txt:716",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba07.txt:587",
+                "excerpt": "First Round [Aug 27]"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba07.txt:612",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba08.txt:592",
+                "excerpt": "First Preliminary Round [Sep 5]"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba08.txt:602",
+                "excerpt": "Second Preliminary Round [Sep 19]"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba08.txt:608",
+                "excerpt": "Third Preliminary Round [Sep 26]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba09.txt:575",
+                "excerpt": "First Preliminary Round [Sep 24]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba09.txt:593",
+                "excerpt": "Second Preliminary Round [Oct 2]"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba09.txt:678",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2010.txt:399",
+                "excerpt": "First Preliminary Round [Sep 23]"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2010.txt:409",
+                "excerpt": "Second Preliminary Round [Sep 30]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2011.txt:425",
+                "excerpt": "First Preliminary Round [Sep 21]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2011.txt:435",
+                "excerpt": "Second Preliminary Round [Sep 28]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2011.txt:544",
+                "excerpt": "Tirana wins 4-3 on penalties"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:122 ",
+                "excerpt": "1.Tirana                    6   6  0  0  13- 4  18  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:123 ",
+                "excerpt": "2.Laçi                      6   2  2  2   7- 5   8  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:128 ",
+                "excerpt": "1.Flamurtari Vlorë          6   3  1  2   6- 3  10  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:129 ",
+                "excerpt": "2.Kamza                     6   2  3  1   9- 4   9  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:134 ",
+                "excerpt": "1.Kastrioti Krujë           6   4  1  1  15- 8  13  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:135 ",
+                "excerpt": "2.Skënderbeu Korçë          6   4  0  2  10- 7  12  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:140 ",
+                "excerpt": "1.Vllaznia Shkodër          6   5  1  0  19- 7  16  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:141 ",
+                "excerpt": "2.Bylis Ballshi             6   4  1  1  13- 8  13  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:148 ",
+                "excerpt": "1.Tirana                    6   3  2  1   8- 4  11  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:149 ",
+                "excerpt": "2.Kastrioti Krujë           6   3  1  2   9- 9  10  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:154 ",
+                "excerpt": "1.Flamurtari Vlorë          6   3  2  1   8- 5  11  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:155 ",
+                "excerpt": "2.Skënderbeu Korçë          6   3  2  1   8- 6  11  Qualified"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 13,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 122
+                  },
+                  "team": "Tirana",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:122"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 122
+                  },
+                  "team": "Laçi",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:123"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 122
+                  },
+                  "team": "Apolonia Fier",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:124"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 19,
+                  "gf": 10,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 122
+                  },
+                  "team": "Shkumbini Peqin",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:125"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 128
+                  },
+                  "team": "Flamurtari Vlorë",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:128"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 4,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 128
+                  },
+                  "team": "Kamza",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:129"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 128
+                  },
+                  "team": "Teuta Durrës",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:130"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 128
+                  },
+                  "team": "Pogradeci",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:131"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 15,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 134
+                  },
+                  "team": "Kastrioti Krujë",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:134"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 134
+                  },
+                  "team": "Skënderbeu Korçë",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:135"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 134
+                  },
+                  "team": "Luftëtari Gjirokastër",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:136"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 3,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 134
+                  },
+                  "team": "Besa Kavajë",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:137"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 19,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Vllaznia Shkodër",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:140"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Bylis Ballshi",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:141"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 16,
+                  "gf": 7,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Elbasani",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:142"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 140
+                  },
+                  "team": "Dinamo Tiranë",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:143"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 148
+                  },
+                  "team": "Tirana",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:148"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 148
+                  },
+                  "team": "Kastrioti Krujë",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:149"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 7,
+                  "gf": 11,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 148
+                  },
+                  "team": "Bylis Ballshi",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:150"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 6,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 148
+                  },
+                  "team": "Kamza",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:151"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 154
+                  },
+                  "team": "Flamurtari Vlorë",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:154"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 154
+                  },
+                  "team": "Skënderbeu Korçë",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:155"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 154
+                  },
+                  "team": "Vllaznia Shkodër",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:156"
+              },
+              {
+                "season": "2011/12",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 154
+                  },
+                  "team": "Laçi",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2012.txt:157"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:435 Author: Karel Stokkermans",
+                "excerpt": "1.Skënderbeu Korçë          6   6  0  0  21- 8  18  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:436 Author: Karel Stokkermans",
+                "excerpt": "2.Kukësi                    6   4  0  2  12- 7  12  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:441 Author: Karel Stokkermans",
+                "excerpt": "1.Bylis Ballshi             6   4  0  2  15- 9  12  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:442 Author: Karel Stokkermans",
+                "excerpt": "2.Laçi                      6   4  0  2  12- 7  12  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 21,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 435
+                  },
+                  "team": "Skënderbeu Korçë",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:435"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 435
+                  },
+                  "team": "Kukësi",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:436"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 435
+                  },
+                  "team": "Kastrioti Krujë",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:437"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 17,
+                  "gf": 4,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 435
+                  },
+                  "team": "Shkumbini Peqin",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:438"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 15,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "Bylis Ballshi",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:441"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "Laçi",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:442"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "Flamurtari Vlorë",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:443"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 20,
+                  "gf": 5,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 441
+                  },
+                  "team": "Teuta Durrës",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2013.txt:444"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesa/alba2025.txt:421",
+                "excerpt": "Prelimninary Round [Sep 25]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

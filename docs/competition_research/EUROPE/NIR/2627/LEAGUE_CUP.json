@@ -129,6 +129,849 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "7562cd999992960a20547e93776c2337ced64b1d97c6a5614aa109715447bd37": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Northern Ireland League Cup 1999/2000",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "36",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2000-01-25",
+              "max_date": "2000-03-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Northern Ireland League Cup 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-01-16",
+              "max_date": "2001-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Northern Ireland League Cup 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-08-13",
+              "max_date": "2002-11-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "BetMcLean Cup",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "36",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "19",
+              "min_date": "2000-01-25",
+              "max_date": "2000-03-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "BetMcLean Cup",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-01-16",
+              "max_date": "2001-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "BetMcLean Cup",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "46",
+              "unique_oriented_pairs": "46",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "46",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-08-13",
+              "max_date": "2002-11-26"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nilleagcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 103,
+                "phase": "Group Stage",
+                "heading": "Final Table",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Ards Newtonards",
+                  "FC Bangor",
+                  "Glentoran Belfast",
+                  "Linfield Belfast",
+                  "Lisburn Distillery"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nilleagcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 27,
+                "phase": "Group Stage",
+                "heading": "Final Table",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Ballymena United",
+                  "Coleraine Belfast",
+                  "Institute Belfast",
+                  "Limavady United",
+                  "Omagh Town"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nilleagcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 52,
+                "phase": "Group Stage",
+                "heading": "Final Table",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Armagh City",
+                  "Dungannon Swifts",
+                  "FC Portadown",
+                  "Glenavon Lurgan",
+                  "Newry Town"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesn/nilleagcup03.txt",
+                "edition": "2002/2003",
+                "tableLine": 77,
+                "phase": "Group Stage",
+                "heading": "Final Table",
+                "date": null,
+                "rows": 5,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Ballyclare Comrades",
+                  "Carrick Rangers",
+                  "Cliftonville Belfast",
+                  "Crusaders Belfast",
+                  "FC Larne"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995/96",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nil96.txt:250",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "1995/96",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nil96.txt:268",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nil00.txt:473",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nil00.txt:496",
+                "excerpt": "[*] no extra time played as referee Alan Snoddy claimed he had no"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup01.txt:12",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:104 Author: Ambrosius Kutschera",
+                "excerpt": "1.Linfield Belfast                4  3  1  0  10:5  10 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:105 Author: Ambrosius Kutschera",
+                "excerpt": "2.Glentoran Belfast               4  2  2  0   6:3   8 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:28 Author: Ambrosius Kutschera",
+                "excerpt": "1.Ballymena United                4  3  1  0  15- 3  10 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:29 Author: Ambrosius Kutschera",
+                "excerpt": "2.Omagh Town                      4  3  1  0   6- 2  10 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:53 Author: Ambrosius Kutschera",
+                "excerpt": "1.FC Portadown                    4  3  0  1  13- 4   9 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:54 Author: Ambrosius Kutschera",
+                "excerpt": "2.Glenavon Lurgan                 4  2  0  2   5- 4   6 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:78 Author: Ambrosius Kutschera",
+                "excerpt": "1.Cliftonville Belfast            4  2  2  0   6-3   8 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:79 Author: Ambrosius Kutschera",
+                "excerpt": "2.Crusaders Belfast               4  2  2  0   4-2   8 Qualified"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 103
+                  },
+                  "team": "Linfield Belfast",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:104"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 103
+                  },
+                  "team": "Glentoran Belfast",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:105"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 103
+                  },
+                  "team": "Lisburn Distillery",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:106"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 2,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 103
+                  },
+                  "team": "Ards Newtonards",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:107"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 2,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 103
+                  },
+                  "team": "FC Bangor",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:108"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 10,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 27
+                  },
+                  "team": "Ballymena United",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:28"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 27
+                  },
+                  "team": "Omagh Town",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:29"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 27
+                  },
+                  "team": "Coleraine Belfast",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:30"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 27
+                  },
+                  "team": "Institute Belfast",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:31"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 15,
+                  "gf": 3,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 0,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 27
+                  },
+                  "team": "Limavady United",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:32"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 9,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 52
+                  },
+                  "team": "FC Portadown",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:53"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 52
+                  },
+                  "team": "Glenavon Lurgan",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:54"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 52
+                  },
+                  "team": "Dungannon Swifts",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:55"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 52
+                  },
+                  "team": "Newry Town",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:56"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 3,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 52
+                  },
+                  "team": "Armagh City",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:57"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 8,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 77
+                  },
+                  "team": "Cliftonville Belfast",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:78"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 77
+                  },
+                  "team": "Crusaders Belfast",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:79"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 77
+                  },
+                  "team": "Carrick Rangers",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:80"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 77
+                  },
+                  "team": "FC Larne",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:81"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 4,
+                  "points": 1,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table",
+                    "line": 77
+                  },
+                  "team": "Ballyclare Comrades",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesn/nilleagcup03.txt:82"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "observedRound1Entrants": 24,
+                  "round1Ties": 12,
+                  "leagueCupWinnerEntersEuropeanPlayoffFinal": true,
+                  "observedPenalties": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/NIR/2627/LEAGUE_CUP.json#sportRuleEvidence82",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

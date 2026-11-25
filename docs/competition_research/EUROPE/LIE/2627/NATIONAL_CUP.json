@@ -502,6 +502,1132 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "4e79dd563aaf24df1bcc414a15932b227af598f4ce6ef6dc2484a68195559d3f": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 1999/2000",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-11-09",
+              "max_date": "2000-04-05"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-03-14",
+              "max_date": "2001-04-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-11-06",
+              "max_date": "2002-05-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-24",
+              "max_date": "2003-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "25",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-09-23",
+              "max_date": "2004-05-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2004/05",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-08-24",
+              "max_date": "2004-11-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2005/06",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-09-13",
+              "max_date": "2005-11-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2006/07",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-08-11",
+              "max_date": "2007-04-11"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2007/08",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-08-11",
+              "max_date": "2008-04-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-26",
+              "max_date": "2009-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2009/10",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-18",
+              "max_date": "2010-05-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2010/11",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-17",
+              "max_date": "2011-04-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2011/12",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-16",
+              "max_date": "2012-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2012/13",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-21",
+              "max_date": "2013-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2013/14",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-20",
+              "max_date": "2014-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2014/15",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-26",
+              "max_date": "2015-05-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2015/16",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-25",
+              "max_date": "2016-05-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2016/17",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-17",
+              "max_date": "2017-05-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2017/18",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "8",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-22",
+              "max_date": "2017-10-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2018/19",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-21",
+              "max_date": "2018-09-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2019/20",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-20",
+              "max_date": "2019-09-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2020/21",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-24",
+              "max_date": "2020-09-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2021/22",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "8",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-28",
+              "max_date": "2021-11-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2022/23",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-08-08",
+              "max_date": "2023-05-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2023/24",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-11",
+              "max_date": "2024-05-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2024/25",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-14",
+              "max_date": "2025-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Liechtenstein Cup 2025/26",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-12",
+              "max_date": "2026-05-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-11-09",
+              "max_date": "2000-04-05"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-03-14",
+              "max_date": "2001-04-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-11-06",
+              "max_date": "2002-05-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-09-24",
+              "max_date": "2003-04-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "25",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-09-23",
+              "max_date": "2004-05-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-08-24",
+              "max_date": "2004-11-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-09-13",
+              "max_date": "2005-11-09"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-08-11",
+              "max_date": "2007-04-11"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-08-11",
+              "max_date": "2008-04-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-26",
+              "max_date": "2009-04-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-18",
+              "max_date": "2010-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-17",
+              "max_date": "2011-04-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-16",
+              "max_date": "2012-05-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-21",
+              "max_date": "2013-05-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-20",
+              "max_date": "2014-05-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-26",
+              "max_date": "2015-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-25",
+              "max_date": "2016-05-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-17",
+              "max_date": "2017-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "8",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-22",
+              "max_date": "2017-10-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-21",
+              "max_date": "2018-09-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-20",
+              "max_date": "2019-09-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "11",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-08-24",
+              "max_date": "2020-09-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "8",
+              "unique_oriented_pairs": "8",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "8",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-09-28",
+              "max_date": "2021-11-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-08-08",
+              "max_date": "2023-05-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-11",
+              "max_date": "2024-05-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-14",
+              "max_date": "2025-05-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Interum FL-Cup",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-12",
+              "max_date": "2026-05-05"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup00.txt:6",
+                "excerpt": "First Round (1/8 Final) [Oct 19,20]"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup01.txt:6",
+                "excerpt": "First Round (1/8 Final) [Oct 17,18]"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup02.txt:6",
+                "excerpt": "First Round (1/8 Finals)"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup03.txt:6",
+                "excerpt": "First Round (1/8 Finals)"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup04.txt:13",
+                "excerpt": "First Round (1/8 Finals)"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup04.txt:26",
+                "excerpt": "Second Round (Quarterfinals)"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup05.txt:21",
+                "excerpt": "Second Round (Quarterfinals)"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup05.txt:9",
+                "excerpt": "First Round (1/8 Finals)"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup06.txt:19",
+                "excerpt": "Second Round (Quarterfinals)"
+              },
+              {
+                "season": "2005/06",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup06.txt:7",
+                "excerpt": "First Round (1/8 Finals)"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup07.txt:18",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup07.txt:8",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup08.txt:17",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup08.txt:8",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup09.txt:18",
+                "excerpt": "second preliminary round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup09.txt:20",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup09.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2010.txt:17",
+                "excerpt": "second preliminary round"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2010.txt:19",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2010.txt:49",
+                "excerpt": "[penalties: Sturzenegger     0-1, Cerrone    1-1;"
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2010.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2016.txt:15",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2016.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2017.txt:16",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2017.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2018.txt:14",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2018.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2019.txt:19",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2019.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2020.txt:13",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2020.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2021.txt:13",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2021.txt:6",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2022.txt:14",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesl/liecup2022.txt:6",
+                "excerpt": "First Preliminary Round"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

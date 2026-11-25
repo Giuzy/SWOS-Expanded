@@ -670,6 +670,1442 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "c30f60474fb10fed9825f6be54bf7f8ae74a4819c192440f72e9251bfefce3cc": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "98",
+              "rows": "96",
+              "unique_oriented_pairs": "96",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "96",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-03-13",
+              "max_date": "2009-11-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "98",
+              "rows": "97",
+              "unique_oriented_pairs": "97",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "97",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-03-03",
+              "max_date": "2010-11-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-05-10",
+              "max_date": "2011-10-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2012/13",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-16",
+              "max_date": "2013-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2013/14",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-20",
+              "max_date": "2014-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2014/15",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-20",
+              "max_date": "2015-03-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2015/16",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-19",
+              "max_date": "2016-03-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2016/17",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-24",
+              "max_date": "2017-03-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2017/18",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-16",
+              "max_date": "2018-03-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2018/19",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "39",
+              "unique_oriented_pairs": "39",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "39",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-15",
+              "max_date": "2019-05-30"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2019/20",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-07-09",
+              "max_date": "2020-06-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2020/21",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-03-13",
+              "max_date": "2021-04-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2021/22",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-03-12",
+              "max_date": "2022-03-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2022/23",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-03-11",
+              "max_date": "2023-03-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2023/24",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-03-09",
+              "max_date": "2024-03-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2024/25",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "6",
+              "unique_oriented_pairs": "6",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "6",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-03-08",
+              "max_date": "2025-03-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Svenska Cupen 2025/26",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "7",
+              "unique_oriented_pairs": "7",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "7",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2026-03-14",
+              "max_date": "2026-05-14"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2010",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2010.txt:535 Author: Clas Glenning",
+                "excerpt": "NB: Örgryte, Hammarby (both relegated from Allsvenskan 2009),"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:104 Author: Karel Stokkermans",
+                "excerpt": "1.Falkenbergs FF           3   3  0  0   7- 2   9  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:110 Author: Karel Stokkermans",
+                "excerpt": "1.Östers IF                3   2  1  0   8- 1   7  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:116 Author: Karel Stokkermans",
+                "excerpt": "1.Örgryte IS               3   2  0  1   7- 4   6  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:122 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Norrköping           3   2  1  0   6- 0   7  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:128 Author: Karel Stokkermans",
+                "excerpt": "1.Helsingborgs IF          3   2  1  0   9- 2   7  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:134 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Göteborg             3   2  0  1   6- 2   6  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:140 Author: Karel Stokkermans",
+                "excerpt": "1.Djurgårdens IF           3   2  1  0   7- 2   7  Qualified"
+              },
+              {
+                "season": "2012/13",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2012.txt:98 Author: Karel Stokkermans",
+                "excerpt": "1.IK Sirius                3   2  0  1   9- 4   6  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:518 Author: Karel Stokkermans",
+                "excerpt": "1.Malmö FF                 3   3  0  0  13- 3   9  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:524 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Göteborg             3   3  0  0  16- 2   9  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:530 Author: Karel Stokkermans",
+                "excerpt": "1.Helsingborgs IF          3   3  0  0  11- 1   9  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:536 Author: Karel Stokkermans",
+                "excerpt": "1.IF Elfsborg              3   3  0  0  10- 0   9  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:542 Author: Karel Stokkermans",
+                "excerpt": "1.IK Sirius                3   3  0  0   6- 2   9  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:548 Author: Karel Stokkermans",
+                "excerpt": "1.IF Brommapojkarna        3   2  1  0   5- 0   7  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:554 Author: Karel Stokkermans",
+                "excerpt": "1.GAIS                     3   2  1  0   3- 1   7  Qualified"
+              },
+              {
+                "season": "2013/14",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2013.txt:560 Author: Karel Stokkermans",
+                "excerpt": "1.BK Häcken                3   3  0  0   9- 1   9  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:514 Author: Karel Stokkermans",
+                "excerpt": "1.Malmö FF                 3   3  0  0  12- 0   9  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:520 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Göteborg             3   2  1  0  13- 2   7  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:526 Author: Karel Stokkermans",
+                "excerpt": "1.Hammarby IF              3   2  1  0   4- 2   7  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:532 Author: Karel Stokkermans",
+                "excerpt": "1.IF Elfsborg              3   3  0  0  10- 1   9  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:538 Author: Karel Stokkermans",
+                "excerpt": "1.BK Häcken                3   3  0  0   9- 3   9  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:544 Author: Karel Stokkermans",
+                "excerpt": "1.Örebro SK                3   2  1  0   6- 4   7  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:550 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Norrköping           3   2  0  1   7- 3   6  Qualified"
+              },
+              {
+                "season": "2014/15",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2014.txt:556 Author: Karel Stokkermans",
+                "excerpt": "1.Helsingborgs IF          3   1  2  0   7- 3   5  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:525 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Norrköping           3   2  1  0   6- 1   7  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:531 Author: Karel Stokkermans",
+                "excerpt": "1.Halmstads BK             3   2  0  1   5- 3   6  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:537 Author: Karel Stokkermans",
+                "excerpt": "1.AIK                      3   3  0  0  10- 2   9  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:543 Author: Karel Stokkermans",
+                "excerpt": "1.Kalmar FF                3   3  0  0   6- 2   9  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:549 Author: Karel Stokkermans",
+                "excerpt": "1.Malmö FF                 3   3  0  0  10- 2   9  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:555 Author: Karel Stokkermans",
+                "excerpt": "1.Hammarby IF              3   2  1  0   7- 3   7  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:561 Author: Karel Stokkermans",
+                "excerpt": "1.BK Häcken                3   2  1  0  10- 2   7  Qualified"
+              },
+              {
+                "season": "2015/16",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2015.txt:567 Author: Karel Stokkermans",
+                "excerpt": "1.Helsingborgs IF          3   2  1  0   5- 2   7  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:522 Author: Karel Stokkermans",
+                "excerpt": "NB: Ängelholms FF withdrew before the group stage and were replaced by Ljungskile SK"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:527 Author: Karel Stokkermans",
+                "excerpt": "1.AIK                      3   2  1  0   4- 0   7  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:533 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Norrköping           3   1  2  0  10- 3   5  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:539 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Göteborg             3   2  1  0  11- 4   7  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:545 Author: Karel Stokkermans",
+                "excerpt": "1.IF Elfsborg              3   2  1  0  11- 3   7  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:551 Author: Karel Stokkermans",
+                "excerpt": "1.Trelleborgs FF           3   2  1  0   5- 3   7  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:557 Author: Karel Stokkermans",
+                "excerpt": "1.IF Brommapojkarna        3   2  1  0   8- 2   7  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:563 Author: Karel Stokkermans",
+                "excerpt": "1.Östersunds FK            3   3  0  0   8- 2   9  Qualified"
+              },
+              {
+                "season": "2016/17",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2016.txt:569 Author: Karel Stokkermans",
+                "excerpt": "1.BK Häcken                3   2  1  0   8- 2   7  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:510 Author: Karel Stokkermans",
+                "excerpt": "1.Malmö FF                 3   3  0  0   7- 1   9  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:516 Author: Karel Stokkermans",
+                "excerpt": "1.AIK                      3   3  0  0   7- 3   9  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:522 Author: Karel Stokkermans",
+                "excerpt": "1.Djurgårdens IF           3   3  0  0   8- 0   9  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:528 Author: Karel Stokkermans",
+                "excerpt": "1.BK Häcken                3   2  1  0   7- 1   7  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:534 Author: Karel Stokkermans",
+                "excerpt": "1.Östersunds FK            3   3  0  0   8- 0   9  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:540 Author: Karel Stokkermans",
+                "excerpt": "1.Örebro SK                3   1  2  0   6- 3   5  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:546 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Göteborg             3   1  2  0   4- 3   5  Qualified"
+              },
+              {
+                "season": "2017/18",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2017.txt:552 Author: Karel Stokkermans",
+                "excerpt": "1.GAIS                     3   2  1  0  10- 5   7  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:514 Author: Karel Stokkermans",
+                "excerpt": "1.AIK                      3   2  1  0   3- 1   7  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:520 Author: Karel Stokkermans",
+                "excerpt": "1.AFC Eskilstuna           3   2  1  0   9- 1   7  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:526 Author: Karel Stokkermans",
+                "excerpt": "1.Östers IF                3   3  0  0   7- 3   9  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:532 Author: Karel Stokkermans",
+                "excerpt": "1.Hammarby IF              3   2  1  0   7- 2   7  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:538 Author: Karel Stokkermans",
+                "excerpt": "1.BK Häcken                3   3  0  0  11- 1   9  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:544 Author: Karel Stokkermans",
+                "excerpt": "1.Halmstads BK             3   1  2  0   3- 2   5  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:550 Author: Karel Stokkermans",
+                "excerpt": "1.Djurgårdens IF           3   3  0  0   8- 3   9  Qualified"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2018.txt:556 Author: Karel Stokkermans",
+                "excerpt": "1.GAIS                     3   2  0  1   8- 5   6  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:510 Author: Karel Stokkermans",
+                "excerpt": "1.Mjällby AIF              3   3  0  0  10- 2   9  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:516 Author: Karel Stokkermans",
+                "excerpt": "1.Malmö FF                 3   3  0  0  13- 1   9  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:522 Author: Karel Stokkermans",
+                "excerpt": "1.Hammarby IF              3   3  0  0  11- 1   9  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:528 Author: Karel Stokkermans",
+                "excerpt": "1.AIK                      3   2  1  0   6- 3   7  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:534 Author: Karel Stokkermans",
+                "excerpt": "1.Falkenbergs FF           3   2  0  1   4- 2   6  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:540 Author: Karel Stokkermans",
+                "excerpt": "1.BK Häcken                3   3  0  0   9- 0   9  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:546 Author: Karel Stokkermans",
+                "excerpt": "1.IFK Göteborg             3   2  1  0   5- 1   7  Qualified"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2019.txt:552 Author: Karel Stokkermans",
+                "excerpt": "1.IF Elfsborg              3   2  0  1   5- 2   6  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:471 ",
+                "excerpt": "1.Västerås SK              3   2  1  0   5-1    7  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:477 ",
+                "excerpt": "1.Degerfors IF             3   3  0  0   6-1    9  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:483 ",
+                "excerpt": "1.BK Häcken                3   2  1  0   6-1    7  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:489 ",
+                "excerpt": "1.Djurgårdens IF           3   3  0  0  12-1    9  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:495 ",
+                "excerpt": "1.Östersunds FK            3   2  1  0   4-0    7  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:501 ",
+                "excerpt": "1.IFK Norrköping           3   2  1  0   7-2    7  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:507 ",
+                "excerpt": "1.Trelleborgs FF           3   2  1  0   5-2    7  Qualified"
+              },
+              {
+                "season": "2020/21",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2020.txt:513 ",
+                "excerpt": "1.Hammarby IF              3   3  0  0  10-3    9  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:484 ",
+                "excerpt": "1.Malmö FF                 3   3  0  0  12-2    9  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:490 ",
+                "excerpt": "1.AIK                      3   2  1  0   7-1    7  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:496 ",
+                "excerpt": "1.Djurgårdens IF           3   2  1  0   5-1    7  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:502 ",
+                "excerpt": "1.IF Elfsborg              3   3  0  0  16-4    9  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:508 ",
+                "excerpt": "1.Hammarby IF              3   3  0  0  12-2    9  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:514 ",
+                "excerpt": "1.Kalmar FF                3   3  0  0   6-1    9  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:520 ",
+                "excerpt": "1.IFK Norrköping           3   2  1  0   7-2    7  Qualified"
+              },
+              {
+                "season": "2021/22",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2021.txt:526 ",
+                "excerpt": "1.IFK Göteborg             3   1  2  0   5-3    5  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:464 ",
+                "excerpt": "1.BK Häcken                3   3  0  0  13-2    9  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:470 ",
+                "excerpt": "1.Djurgårdens IF           3   3  0  0  10-3    9  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:476 ",
+                "excerpt": "1.Hammarby IF              3   3  0  0  15-1    9  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:482 ",
+                "excerpt": "1.Kalmar FF                3   3  0  0  10-3    9  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:488 ",
+                "excerpt": "1.AIK                      3   2  1  0   7-1    7  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:494 ",
+                "excerpt": "1.Malmö FF                 3   3  0  0   5-1    9  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:500 ",
+                "excerpt": "1.IFK Norrköping           3   2  1  0   8-3    7  Qualified"
+              },
+              {
+                "season": "2022/23",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2022.txt:506 ",
+                "excerpt": "1.Mjällby AIF              3   3  0  0   6-3    9  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:466 ",
+                "excerpt": "1.Malmö FF                 3   2  1  0  11-1    7  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:472 ",
+                "excerpt": "1.Degerfors IF             3   1  2  0   9-4    5  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:478 ",
+                "excerpt": "1.IF Brommapojkarna        3   2  1  0   5-1    7  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:484 ",
+                "excerpt": "1.Djurgårdens IF           3   3  0  0  10-0    9  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:490 ",
+                "excerpt": "1.Halmstads BK             3   2  1  0   5-3    7  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:496 ",
+                "excerpt": "1.AIK                      3   2  1  0   5-2    7  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:502 ",
+                "excerpt": "1.Mjällby AIF              3   2  1  0   6-3    7  Qualified"
+              },
+              {
+                "season": "2023/24",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2023.txt:508 ",
+                "excerpt": "1.IFK Norrköping           3   1  2  0   7-3    5  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:466 ",
+                "excerpt": "1.Malmö FF                 3   3  0  0  10-1    9  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:472 ",
+                "excerpt": "1.Hammarby                 3   2  1  0   6-2    7  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:478 ",
+                "excerpt": "1.Trelleborgs FF           3   2  1  0   6-4    7  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:484 ",
+                "excerpt": "1.IFK Göteborg             3   3  0  0   9-3    9  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:490 ",
+                "excerpt": "1.Mjällby AIF              3   3  0  0  12-0    9  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:496 ",
+                "excerpt": "1.IFK Norrköping           3   3  0  0   9-3    9  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:502 ",
+                "excerpt": "1.IF Elfsborg              3   2  1  0   5-2    7  Qualified"
+              },
+              {
+                "season": "2024/25",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2024.txt:508 ",
+                "excerpt": "1.BK Häcken                3   2  0  1   7-3    6  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:471 Author: Martin Arenlind",
+                "excerpt": "1.Mjällby AIF              3   3  0  0   7-1    9  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:477 Author: Martin Arenlind",
+                "excerpt": "1.Hammarby IF              3   3  0  0  14-3    9  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:483 Author: Martin Arenlind",
+                "excerpt": "1.GAIS                     3   3  0  0  11-3    9  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:489 Author: Martin Arenlind",
+                "excerpt": "1.IFK Göteborg             3   2  1  0   7-1    7  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:495 Author: Martin Arenlind",
+                "excerpt": "1.Djurgårdens IF           3   2  0  1  10-2    6  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:501 Author: Martin Arenlind",
+                "excerpt": "1.Malmö FF                 3   3  0  0   7-1    9  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:507 Author: Martin Arenlind",
+                "excerpt": "1.AIK                      3   2  0  1   7-2    6  Qualified"
+              },
+              {
+                "season": "2025/26",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesz/zwed2025.txt:513 Author: Martin Arenlind",
+                "excerpt": "1.IK Sirius                3   3  0  0  12-2    9  Qualified"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "districtEntrants": 64,
+                  "topTwoTierEntrants": 32,
+                  "round1Window": [
+                    "2026-06-02",
+                    "2026-06-11"
+                  ],
+                  "round2Windows": [
+                    [
+                      "2026-08-18",
+                      "2026-08-20"
+                    ],
+                    [
+                      "2026-08-25",
+                      "2026-08-27"
+                    ]
+                  ],
+                  "round2Home": "district clubs",
+                  "round2Draw": "north/south",
+                  "groupTeams": 32,
+                  "groups": 8,
+                  "seededTeams": 16,
+                  "advance": "group winners",
+                  "quarterfinalHome": "four best group winners",
+                  "semiFinalHome": "draw",
+                  "groupAndFinalYear": 2027
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SWE/2627/NATIONAL_CUP.json#sportRuleEvidence48",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

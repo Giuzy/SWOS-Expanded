@@ -85,7 +85,50 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "d7cc50bb2afe677783f64a6d48c6032140338ea848a33bb2a2ea1de47c49bdcb": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+          "phaseQueue": "PARENT_PHASE_LINK",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {
+                  "topTier": {
+                    "qualified": 8,
+                    "direct": true,
+                    "playIn": false,
+                    "legs": 2,
+                    "aggregateTieBeforeFinal": "higher regular-season rank"
+                  },
+                  "secondTier": {
+                    "qualified": 8,
+                    "legs": 2
+                  },
+                  "note": "parent mapping and exact final rules pending"
+                },
+                "source": "repository/research",
+                "locator": "NORTH_AMERICA/MEX/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json#block53Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

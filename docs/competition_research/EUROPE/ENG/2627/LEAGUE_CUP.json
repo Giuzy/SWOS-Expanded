@@ -133,6 +133,84 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "742ff59835aa6e4cce1a5c9888a92a05529dd2ee78b8f185d08c868c7257b36c": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "EFL Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "92",
+              "rows": "76",
+              "unique_oriented_pairs": "76",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-08-02",
+              "max_date": "2022-11-10"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "participants": 92,
+                  "preliminary": {
+                    "entrants": 4,
+                    "ties": 2,
+                    "qualifiers": 2
+                  },
+                  "round1": {
+                    "entrants": 70,
+                    "eflDirect": 68,
+                    "preliminaryWinners": 2,
+                    "ties": 35,
+                    "regionalised": true
+                  },
+                  "round2": {
+                    "entrants": 46,
+                    "fromR1": 35,
+                    "premierNonEurope": 11
+                  },
+                  "round3": {
+                    "entrants": 32,
+                    "fromR2": 23,
+                    "europeanDirect": 9
+                  },
+                  "singleLegExceptSemiFinal": true,
+                  "semiFinal": {
+                    "legs": 2,
+                    "aggregate": true,
+                    "awayGoals": false
+                  },
+                  "levelAfter90BeforeSemiFinal": "penalties",
+                  "semiFinalAggregateLevelAtSecondLegEnd": "extra time then penalties (secondary current rule summary)",
+                  "finalLevelAfter90": "extra time then penalties",
+                  "loanEligibility": "Eligible unless parent club expressly refuses"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ENG/2627/LEAGUE_CUP.json#block109Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

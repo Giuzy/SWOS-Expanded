@@ -394,7 +394,73 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "05efd1b06e864bf0d5d698eb5d992480547b57c7fe8cd9ee7eb60325d1bfba0f": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe d'Algérie",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "7",
+              "rows": "5",
+              "unique_oriented_pairs": "5",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "5",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-02-04",
+              "max_date": "2005-05-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe d'Algérie",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "20",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-03-02",
+              "max_date": "2007-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe d'Algérie",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-03-22",
+              "max_date": "2008-06-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Coupe d'Algérie",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "21",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "21",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-02-27",
+              "max_date": "2009-04-17"
+            }
+          ],
+          "crossRowConflict": false
+        }
+      },
       "assessments": {
         "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
           "status": "I",

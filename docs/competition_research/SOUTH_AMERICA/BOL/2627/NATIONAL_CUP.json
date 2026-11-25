@@ -110,6 +110,5332 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "ae5a9af8bf1808e0cba11fa47198a397c002d4d39a09d6753bda0e940d350bdd": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-02-14",
+              "max_date": "2023-07-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "1996",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "24",
+              "rows": "18",
+              "unique_oriented_pairs": "18",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "18",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-01-24",
+              "max_date": "1996-08-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "1997",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-08-27",
+              "max_date": "1997-09-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "1998",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-07-31",
+              "max_date": "1998-07-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "2001",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "1",
+              "unique_oriented_pairs": "1",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-11-29",
+              "max_date": "2001-11-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "2002",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2002-07-10",
+              "max_date": "2002-08-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-22",
+              "max_date": "2012-09-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-22",
+              "max_date": "2013-10-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "3",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-12-23",
+              "max_date": "2016-12-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa de la División Profesional",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "27",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "27",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-02-14",
+              "max_date": "2023-07-12"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bol2012.txt",
+                "edition": "2012",
+                "tableLine": 1285,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "ABB (La Paz)",
+                  "Ciclón (Tarija)",
+                  "Enrique Happ (Cochabamba)",
+                  "Fancesa (Sucre)",
+                  "Nac. Emilio Alave (Potosí)",
+                  "San José (Pailón)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bol2012.txt",
+                "edition": "2012",
+                "tableLine": 1321,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Colcapirhua (Cochabamba)",
+                  "Escuela Municipal (Huanuni)",
+                  "PSJ La Palmera (Trinidad)",
+                  "Sport Boys (Warnes)",
+                  "Stormers (Sucre)",
+                  "Universitario (Cobija)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bol2013.txt",
+                "edition": "2013",
+                "tableLine": 1101,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "ABB (La Paz)",
+                  "Flamengo (Sucre)",
+                  "García Agreda (Tarija)",
+                  "Oruro Royal",
+                  "Universitario (Cochabamba)",
+                  "Wilstermann Coop. (Potosí)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bol2013.txt",
+                "edition": "2013",
+                "tableLine": 1137,
+                "phase": "",
+                "heading": "Final Table:",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  ".31 de Octubre (La Paz)",
+                  "Calleja (Santa Cruz)",
+                  "Destroyers (Santa Cruz)",
+                  "San Joaquín (Guayaramerín)",
+                  "Universitario (Trinidad)",
+                  "Vaca Díez (Cobija)"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bol2023.txt",
+                "edition": "2023",
+                "tableLine": 935,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 17,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Always Ready",
+                  "Aurora",
+                  "Blooming",
+                  "Bolívar",
+                  "Guabirá",
+                  "Independiente Petrolero",
+                  "Jorge Wilstermann",
+                  "Libertad Gran Mamoré",
+                  "Nacional (Potosí)",
+                  "Oriente Petrolero",
+                  "Palmaflor del Trópico",
+                  "Real Santa Cruz",
+                  "Real Tomayapo",
+                  "Royal Pari FC",
+                  "The Strongest",
+                  "Universitario (Vinto)",
+                  "Vaca Díez"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "1996",
+                "tableLine": 55,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ABB",
+                  "Blooming",
+                  "Deportivo Aleman",
+                  "Stormers San Lorenzo",
+                  "The Strongest",
+                  "Union Maestranza"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "1996",
+                "tableLine": 63,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 6,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Atlético Ciclón",
+                  "Deportivo Zuraca",
+                  "Jorge Wilstermann",
+                  "La Paz F.C.",
+                  "Oriente Petrolero",
+                  "Unión Central"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "1997",
+                "tableLine": 132,
+                "phase": "Group Stage",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "ABB",
+                  "Blooming",
+                  "Bolivar",
+                  "Destroyers",
+                  "Guabirá",
+                  "Jorge Wilstermann",
+                  "Municipal",
+                  "Oriente Petrolero",
+                  "Primero de Mayo",
+                  "Real Charcas",
+                  "San José",
+                  "The Strongest"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "1998",
+                "tableLine": 218,
+                "phase": "Group Stage",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 8,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Blooming",
+                  "Fraternidad Tigres",
+                  "Jorge Wilstermann",
+                  "Oriente Petrolero",
+                  "Real Mamoré",
+                  "Real Potosí",
+                  "The Strongest",
+                  "Unión Central"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "2000",
+                "tableLine": 340,
+                "phase": "Final Tables",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Atlético Ciclón",
+                  "Blooming",
+                  "Bolívar",
+                  "Deportivo Cristal",
+                  "Guabirá",
+                  "Iberoamericana",
+                  "Jorge Wilstermann",
+                  "Real Santa Cruz",
+                  "The Strongest",
+                  "Unión Central"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "2001",
+                "tableLine": 388,
+                "phase": "Preliminary Round",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 68,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  ".1 de Mayo",
+                  ".25 de Junio",
+                  "Bamin Tarija",
+                  "Bolivar",
+                  "Chaco Petrolero",
+                  "Club Atletico Figaro",
+                  "Club Atlético Ciclón",
+                  "Club Aurora",
+                  "Club Ayacucho",
+                  "Club Blooming",
+                  "Club Bolivar Nimbles",
+                  "Club Callejas",
+                  "Club Destroyers",
+                  "Club Enrique Happ",
+                  "Club Fancesa",
+                  "Club Jorge Wilstermann",
+                  "Club Junin",
+                  "Club Litoral",
+                  "Club Real Potosí",
+                  "Club Trinidad",
+                  "Club Universitario",
+                  "Club Unión Central",
+                  "Club Villaroel",
+                  "Cochabamba",
+                  "Deportivo Alcala",
+                  "Deportivo Beni",
+                  "Deportivo Cristal",
+                  "Deportivo Garcia",
+                  "Deportivo Juva",
+                  "Deportivo Kala",
+                  "Fraternidad Tigres",
+                  "Frontanilla",
+                  "Guabirá",
+                  "Huachacalla",
+                  "Independiente Petrolero",
+                  "Juan Rios",
+                  "Juventud Valencia",
+                  "La Paz",
+                  "Madrid",
+                  "Mamore F.C.",
+                  "Mariscal del Alto",
+                  "Miraflores",
+                  "Municipal",
+                  "Municipal Real Mamoré",
+                  "Nacional Potosí",
+                  "Nueva Cliza",
+                  "Oriente Petrolero",
+                  "Oruro Royal",
+                  "Perequije",
+                  "Potosi F.C.",
+                  "Primero de Mayo",
+                  "Racing (Cochabamba)",
+                  "Real Charcas",
+                  "Real Santa Cruz",
+                  "Real Santa Cruz",
+                  "Rio Mamore",
+                  "Rosario Central",
+                  "Sebaya",
+                  "Stormers",
+                  "Stormers San Lorenzo",
+                  "The Strongest",
+                  "Torno F.C.",
+                  "Union Tarija",
+                  "Universitario",
+                  "Universitario de Beni",
+                  "Universitario de Pando",
+                  "Universitario de Potosi",
+                  "Vaca Dies"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "2001",
+                "tableLine": 505,
+                "phase": "Group Stage",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 12,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Atlético Ciclón",
+                  "Bolívar",
+                  "Guabirá",
+                  "Huachacalla",
+                  "Indep. Petrolero",
+                  "Jorge Wilstermann",
+                  "Nacional Potosí",
+                  "Oriente Petrolero",
+                  "Real Mamoré",
+                  "Real Potosí",
+                  "Unión Central",
+                  "Vaca Diez"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesb/bolcuphistfull.txt",
+                "edition": "2002",
+                "tableLine": 572,
+                "phase": "Group Stage",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 10,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Atlético Ciclón",
+                  "Blooming",
+                  "Bolívar",
+                  "Guabirá",
+                  "Independiente Petrolero",
+                  "Jorge Wilstermann",
+                  "Mariscal Braun",
+                  "Oriente Petrolero",
+                  "Real Mamoré",
+                  "The Strongest"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 14,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 55
+                  },
+                  "team": "The Strongest",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:55"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 55
+                  },
+                  "team": "ABB",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:56"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 55
+                  },
+                  "team": "Blooming",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:57"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 55
+                  },
+                  "team": "Stormers San Lorenzo",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:58"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 55
+                  },
+                  "team": "Union Maestranza",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:59"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 13,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 55
+                  },
+                  "team": "Deportivo Aleman",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:60"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 14,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 63
+                  },
+                  "team": "Atlético Ciclón",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:63"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 63
+                  },
+                  "team": "Jorge Wilstermann",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:64"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 63
+                  },
+                  "team": "Oriente Petrolero",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:65"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 9,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 63
+                  },
+                  "team": "Unión Central",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:66"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 63
+                  },
+                  "team": "La Paz F.C.",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:67"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 15,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 63
+                  },
+                  "team": "Deportivo Zuraca",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:68"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:101",
+                "excerpt": "Second Qualifying Round"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:111",
+                "excerpt": "Third Qualifying Round (5 best losers also qualified)"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Oriente Petrolero",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:132"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 3,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 14,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "The Strongest",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:133"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Primero de Mayo",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:134"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Destroyers",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:135"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 2,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Real Charcas",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:136"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 3,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Jorge Wilstermann",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:137"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Guabirá",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:140"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 11,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Blooming",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:141"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Municipal",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:142"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "ABB",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:143"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 4,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 5,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "Bolivar",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:144"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 4,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 132
+                  },
+                  "team": "San José",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:145"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:95",
+                "excerpt": "First Qualifying Round [Jan ?]"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:177",
+                "excerpt": "First Qualifying Round"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:181",
+                "excerpt": "Second Qualifying Round"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:189",
+                "excerpt": "Third Qualifying Round"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 17,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "Jorge Wilstermann",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:218"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "Oriente Petrolero",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:219"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "The Strongest",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:220"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "Fraternidad Tigres",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:221"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "Blooming",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:224"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "Unión Central",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:225"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "Real Potosí",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:226"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 218
+                  },
+                  "team": "Real Mamoré",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:227"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:228",
+                "excerpt": "NB: total goal difference -1"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:313",
+                "excerpt": "Qualifying Round"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 18,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 17,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "The Strongest",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:340"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 16,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Blooming",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:341"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 13,
+                  "gf": 13,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Bolívar",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:342"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 12,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Deportivo Cristal",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:343"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 15,
+                  "gf": 9,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 5,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Unión Central",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:344"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 11,
+                  "gf": 15,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Guabirá",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:347"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 16,
+                  "gf": 19,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Jorge Wilstermann",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:348"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 12,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Atlético Ciclón",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:349"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 16,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 9,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Iberoamericana",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:350"
+              },
+              {
+                "season": "2000",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 23,
+                  "gf": 18,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 340
+                  },
+                  "team": "Real Santa Cruz",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:351"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:385",
+                "excerpt": "best team in each group not qualified for third stage enter Loser's Round."
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 36,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 21,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Bolivar",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:388"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 24,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 17,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "The Strongest",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:389"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 18,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 15,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "La Paz",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:390"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 18,
+                  "gf": 19,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 12,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Mariscal del Alto",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:391"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 8,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Litoral",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:392"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 29,
+                  "gf": 18,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 6,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Chaco Petrolero",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:393"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 34,
+                  "gf": 17,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 4,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Fraternidad Tigres",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:394"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 8,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 1,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Ayacucho",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:395"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 19,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 19,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Oriente Petrolero",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:399"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Blooming",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:400"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Guabirá",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:401"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 11,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Real Santa Cruz",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:402"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 9,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Destroyers",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:403"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 7,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": ".25 de Junio",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:404"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 4,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Torno F.C.",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:405"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 15,
+                  "gf": 3,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 2,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Callejas",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:406"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:407",
+                "excerpt": "NB: total goal difference -12"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 17,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Jorge Wilstermann",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:410"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Universitario",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:411"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 15,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 14,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Aurora",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:412"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Enrique Happ",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:413"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 10,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Cochabamba",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:414"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 15,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Frontanilla",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:415"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 16,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Racing (Cochabamba)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:416"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 16,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Nueva Cliza",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:417"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Unión Central",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:421"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 14,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Atlético Ciclón",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:422"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Real Charcas",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:423"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Deportivo Garcia",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:424"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 9,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Union Tarija",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:425"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 12,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Bamin Tarija",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:426"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 23,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Vaca Dies",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:430"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 10,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 9,
+                  "points": 14,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Universitario de Pando",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:431"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 17,
+                  "gf": 18,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Miraflores",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:432"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 18,
+                  "gf": 18,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Real Santa Cruz",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:433"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 7,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Perequije",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:434"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 15,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 6,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": ".1 de Mayo",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:435"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 23,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 19,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Huachacalla",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:439"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Sebaya",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:440"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 10,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 12,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Oruro Royal",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:441"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 10,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Bolivar Nimbles",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:442"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 10,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Deportivo Cristal",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:443"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 9,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Rosario Central",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:444"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 7,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 7,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Villaroel",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:445"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 4,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Deportivo Kala",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:446"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 20,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 19,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Independiente Petrolero",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:450"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 17,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 17,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Universitario",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:451"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 15,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 15,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Fancesa",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:452"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 14,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 13,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Stormers",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:453"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 10,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 10,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Madrid",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:454"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 8,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Atletico Figaro",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:455"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 6,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 6,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Junin",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:456"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 4,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Deportivo Alcala",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:457"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 23,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 21,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Nacional Potosí",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:461"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 19,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 19,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Real Potosí",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:462"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 16,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 16,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Universitario de Potosi",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:463"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 18,
+                  "gf": 18,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 16,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Stormers San Lorenzo",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:464"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 10,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Potosi F.C.",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:465"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 18,
+                  "gf": 8,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 6,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Deportivo Juva",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:466"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 4,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Municipal",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:467"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 23,
+                  "gf": 3,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 0,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Juventud Valencia",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:468"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Municipal Real Mamoré",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:472"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 6,
+                  "gf": 14,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Primero de Mayo",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:473"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 7,
+                  "gf": 12,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 15,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Universitario de Beni",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:474"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 11,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 12,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Mamore F.C.",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:475"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 15,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 8,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Rio Mamore",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:476"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 14,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 5,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Deportivo Beni",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:477"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 12,
+                  "gf": 3,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 3,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Juan Rios",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:478"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 18,
+                  "gf": 2,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Preliminary Round",
+                  "played": 7,
+                  "points": 0,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 388
+                  },
+                  "team": "Club Trinidad",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:479"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:484",
+                "excerpt": "Qualifying Round"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 13,
+                  "gf": 25,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 20,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Oriente Petrolero",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:505"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 13,
+                  "gf": 19,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 17,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Bolívar",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:506"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 12,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 17,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Jorge Wilstermann",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:507"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 12,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 11,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Real Potosí",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:508"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 21,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 10,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Atlético Ciclón",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:509"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 23,
+                  "gf": 11,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 8,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Unión Central",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:510"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 12,
+                  "gf": 22,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 22,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Guabirá",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:513"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 20,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 16,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Real Mamoré",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:514"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 20,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 16,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Nacional Potosí",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:515"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 17,
+                  "gf": 15,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 14,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Indep. Petrolero",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:516"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 15,
+                  "gf": 15,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 9,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Huachacalla",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:517"
+              },
+              {
+                "season": "2001",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 24,
+                  "gf": 7,
+                  "lost": 8,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 10,
+                  "points": 4,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 505
+                  },
+                  "team": "Vaca Diez",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:518"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:544",
+                "excerpt": "Qualifying Round"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 20,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Oriente Petrolero",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:572"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 17,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 16,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Guabirá",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:573"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 19,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 11,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Blooming",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:574"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Independiente Petrolero",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:575"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 13,
+                  "gf": 10,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 3,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Atlético Ciclón",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:576"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:577",
+                "excerpt": "NB: total goal difference +12"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 9,
+                  "gf": 18,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 18,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Bolívar",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:580"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 14,
+                  "gf": 18,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Jorge Wilstermann",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:581"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 20,
+                  "gf": 17,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 10,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "The Strongest",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:582"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 9,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 8,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Real Mamoré",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:583"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 19,
+                  "gf": 13,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group Stage",
+                  "played": 8,
+                  "points": 5,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 572
+                  },
+                  "team": "Mariscal Braun",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:584"
+              },
+              {
+                "season": "2002",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bolcuphistfull.txt:585",
+                "excerpt": "NB: total goal difference +2"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1234",
+                "excerpt": "NB: promotion tournament for the 2012/13 Nacional B;"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1253",
+                "excerpt": "Municipalidad de Yacuiba, which thereby qualified for the 2012/13 Nacional B"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 16,
+                  "lost": 0,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1285
+                  },
+                  "team": "Ciclón (Tarija)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1287"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1285
+                  },
+                  "team": "Enrique Happ (Cochabamba)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1288"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1285
+                  },
+                  "team": "Fancesa (Sucre)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1289"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1285
+                  },
+                  "team": "San José (Pailón)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1290"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 7,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1285
+                  },
+                  "team": "Nac. Emilio Alave (Potosí)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1291"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 14,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1285
+                  },
+                  "team": "ABB (La Paz)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1292"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 0,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1321
+                  },
+                  "team": "Sport Boys (Warnes)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1323"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1321
+                  },
+                  "team": "PSJ La Palmera (Trinidad)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1324"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 12,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1321
+                  },
+                  "team": "Escuela Municipal (Huanuni)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1325"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 6,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 6,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1321
+                  },
+                  "team": "Colcapirhua (Cochabamba)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1326"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1321
+                  },
+                  "team": "Universitario (Cobija)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1327"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 20,
+                  "gf": 1,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1321
+                  },
+                  "team": "Stormers (Sucre)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1328"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1341",
+                "excerpt": "NB: Enrique Happ, Ciclón and Sport Boys qualified for Nacional B 2012/13"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1053",
+                "excerpt": "NB: promotion tournament for the 2013/14 Nacional B;"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1072",
+                "excerpt": "Municipalidad de Porvenir, which thereby qualified for the 2013/14 Nacional B"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 15,
+                  "lost": 0,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 15,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1101
+                  },
+                  "team": "García Agreda (Tarija)",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1103"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 8,
+                  "lost": 1,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1101
+                  },
+                  "team": "ABB (La Paz)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1104"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 9,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1101
+                  },
+                  "team": "Flamengo (Sucre)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1105"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1101
+                  },
+                  "team": "Wilstermann Coop. (Potosí)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1106"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 15,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 2,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1101
+                  },
+                  "team": "Oruro Royal",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1107"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 10,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 1,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1101
+                  },
+                  "team": "Universitario (Cochabamba)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1108"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 13,
+                  "lost": 0,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1137
+                  },
+                  "team": "Destroyers (Santa Cruz)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1139"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 5,
+                  "gf": 13,
+                  "lost": 1,
+                  "note": "Semifinals",
+                  "phase": "",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1137
+                  },
+                  "team": "Calleja (Santa Cruz)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1140"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1137
+                  },
+                  "team": ".31 de Octubre (La Paz)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1141"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 7,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1137
+                  },
+                  "team": "San Joaquín (Guayaramerín)",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1142"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 5,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1137
+                  },
+                  "team": "Universitario (Trinidad)",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1143"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 20,
+                  "gf": 3,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 5,
+                  "points": 0,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "Final Table:",
+                    "line": 1137
+                  },
+                  "team": "Vaca Díez (Cobija)",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1144"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1158",
+                "excerpt": "NB: ABB, García Agreda and Calleja qualified for Nacional B 2013/14"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol-wom2016.txt:50",
+                "excerpt": "Rounds 2"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:935 Author: Tim Venables",
+                "excerpt": "1.Bolívar                    10   8  0  2  24- 7  24       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:936 Author: Tim Venables",
+                "excerpt": "2.Jorge Wilstermann          10   5  2  3  20-11  17       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:937 Author: Tim Venables",
+                "excerpt": "3.Royal Pari FC              10   4  1  5  14-15  13       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:944 Author: Tim Venables",
+                "excerpt": "1.Aurora                      8   3  4  1   5- 4  13       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:945 Author: Tim Venables",
+                "excerpt": "2.The Strongest               8   3  3  2  10- 6  12       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:952 Author: Tim Venables",
+                "excerpt": "1.Blooming                   10   7  1  2  16- 8  22       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:953 Author: Tim Venables",
+                "excerpt": "2.Always Ready               10   4  3  3  20-17  15       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:954 Author: Tim Venables",
+                "excerpt": "3.Universitario (Vinto)      10   4  3  3  17-17  15       Qualified"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 24,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 24,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Bolívar",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:935"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 11,
+                  "gf": 20,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 17,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Jorge Wilstermann",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:936"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 14,
+                  "lost": 5,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 13,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Royal Pari FC",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:937"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 17,
+                  "gf": 10,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 13,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Libertad Gran Mamoré",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:939"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 13,
+                  "gf": 7,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 12,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Real Tomayapo",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:940"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 19,
+                  "gf": 7,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 6,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Oriente Petrolero",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:941"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Aurora",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:944"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 6,
+                  "gf": 10,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "The Strongest",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:945"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 9,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 11,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Guabirá",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:947"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 5,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 10,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Palmaflor del Trópico",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:948"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 11,
+                  "gf": 4,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 8,
+                  "points": 6,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Real Santa Cruz",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:949"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 8,
+                  "gf": 16,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 22,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Blooming",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:952"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 20,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 15,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Always Ready",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:953"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 17,
+                  "lost": 3,
+                  "note": "Qualified",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 15,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Universitario (Vinto)",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:954"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 17,
+                  "gf": 20,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 12,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Nacional (Potosí)",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:956"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 21,
+                  "gf": 14,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 12,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Vaca Díez",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:957"
+              },
+              {
+                "season": "2023",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 17,
+                  "gf": 10,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Final Tables",
+                  "played": 10,
+                  "points": 8,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 935
+                  },
+                  "team": "Independiente Petrolero",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesb/bol2023.txt:958"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "qualification"
+                ],
+                "values": {
+                  "teams": 16,
+                  "groups": 4,
+                  "clubsPerGroup": 4,
+                  "qualifiersPerGroup": 2,
+                  "knockout": [
+                    "QF",
+                    "SF",
+                    "Final"
+                  ],
+                  "continentalAccess": {
+                    "winner": "Libertadores Bolivia3 unless already Bolivia1/2; then best unqualified league club",
+                    "runnerUp": "Sudamericana Bolivia1 unless Libertadores qualified"
+                  }
+                },
+                "source": "repository/research",
+                "locator": "SOUTH_AMERICA/BOL/2627/NATIONAL_CUP.json#block110Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {
@@ -269,6 +5595,182 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "f84b5409cbaaf7baeeb8225c38225981bc3e8c2828b34f55961b5abf685745f9": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Bolivia 2012",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "12",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-22",
+              "max_date": "2012-09-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Bolivia 2013",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "10",
+              "rows": "25",
+              "unique_oriented_pairs": "25",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "25",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-22",
+              "max_date": "2013-10-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Bolivia 2014",
+              "season": "2014",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-10-08",
+              "max_date": "2014-10-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Bolivia 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "3",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-12-23",
+              "max_date": "2016-12-30"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2012",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1234 Author: Tim Venables",
+                "excerpt": "NB: promotion tournament for the 2012/13 Nacional B;"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1253 Author: Tim Venables",
+                "excerpt": "Municipalidad de Yacuiba, which thereby qualified for the 2012/13 Nacional B"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2012.txt:1341 Author: Tim Venables",
+                "excerpt": "NB: Enrique Happ, Ciclón and Sport Boys qualified for Nacional B 2012/13"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1053 Author: Tim Venables",
+                "excerpt": "NB: promotion tournament for the 2013/14 Nacional B;"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1072 Author: Tim Venables",
+                "excerpt": "Municipalidad de Porvenir, which thereby qualified for the 2013/14 Nacional B"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2013.txt:1158 Author: Tim Venables",
+                "excerpt": "NB: ABB, García Agreda and Calleja qualified for Nacional B 2013/14"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2016.txt:972 Author: Tim Venables",
+                "excerpt": "1.Always Ready                4   3  1  0  12- 1  10  Promoted"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2016.txt:973 Author: Tim Venables",
+                "excerpt": "2.Aurora                      4   3  1  0   6- 2  10  Promoted"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2016.txt:979 Author: Tim Venables",
+                "excerpt": "1.Destroyers                  4   4  0  0  13- 0  12  Promoted"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bol2016.txt:986 Author: Tim Venables",
+                "excerpt": "Aurora promoted on better record than García Agreda"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

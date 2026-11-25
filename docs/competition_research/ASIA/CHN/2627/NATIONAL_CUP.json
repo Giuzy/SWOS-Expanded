@@ -546,7 +546,100 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "ecc3c55fd7f7823743895f8006f9618eb0a062db230d8a20e1c7ea728a5e6e9b": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "entrants": 80,
+                  "tierCounts": [
+                    16,
+                    16,
+                    19,
+                    29
+                  ],
+                  "clubBTeamsExcluded": true,
+                  "singleLeg": true,
+                  "totalGames": 79,
+                  "roundMatches": [
+                    16,
+                    16,
+                    16,
+                    16,
+                    8,
+                    4,
+                    2,
+                    1
+                  ],
+                  "entryByRound": [
+                    "3 tier3 +29 amateur",
+                    "16 tier3",
+                    "16 tier2",
+                    "16 tier1"
+                  ],
+                  "redrawAfterRound": 4,
+                  "plannedRoundWindows": [
+                    [
+                      "2026-03-13",
+                      "2026-03-15"
+                    ],
+                    [
+                      "2026-04-18",
+                      "2026-04-20"
+                    ],
+                    [
+                      "2026-05-15",
+                      "2026-05-17"
+                    ],
+                    [
+                      "2026-06-19",
+                      "2026-06-21"
+                    ],
+                    [
+                      "2026-07-21",
+                      "2026-07-22"
+                    ],
+                    [
+                      "2026-09-01",
+                      "2026-09-02"
+                    ],
+                    [
+                      "2026-11-21",
+                      "2026-11-22"
+                    ],
+                    [
+                      "2026-12-06",
+                      "2026-12-06"
+                    ]
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "ASIA/CHN/2627/NATIONAL_CUP.json#block53Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "9b8f194ffc80984a48c270119f7a55fc0187dfd780cc20ca77abcefc742c5557": {
           "status": "I",

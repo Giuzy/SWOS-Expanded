@@ -458,6 +458,219 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "c5347616f190c7c830fae87f3b9477194d6e63bc4fc51fcf1022a506a35056b1": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Ecuador 2018/19",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "98",
+              "unique_oriented_pairs": "98",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "98",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-02",
+              "max_date": "2019-06-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Ecuador 2022",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "46",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-05-06",
+              "max_date": "2022-11-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Ecuador 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-21",
+              "max_date": "2024-11-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Ecuador 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-10",
+              "max_date": "2025-12-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Ecuador",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "98",
+              "unique_oriented_pairs": "98",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "98",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-07-02",
+              "max_date": "2019-06-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Ecuador",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "30",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-05-06",
+              "max_date": "2022-06-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Ecuador",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-21",
+              "max_date": "2024-11-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Ecuador",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "14",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-09-10",
+              "max_date": "2025-12-03"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2018/19",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/ecua2019.txt:562",
+                "excerpt": "First Preliminary Round"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/ecua2019.txt:609",
+                "excerpt": "Second Preliminary Round"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/ecua2019.txt:641",
+                "excerpt": "NB: Deportivo Quito excluded due to suspension and replaced by Mineros"
+              },
+              {
+                "season": "2018/19",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablese/ecua2019.txt:775",
+                "excerpt": "NB: LDU de Quito winners on away goals rule"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "preliminary1": {
+                    "teams": 4,
+                    "ties": 2,
+                    "access": "two lowest 2025 provincial performance + amateur runner-up and third"
+                  },
+                  "preliminary2": {
+                    "teams": 2,
+                    "ties": 1
+                  },
+                  "preliminary3": {
+                    "teams": 32,
+                    "ties": 16,
+                    "access": {
+                      "provincialChampions": 18,
+                      "tier2": 12,
+                      "amateurChampion": 1,
+                      "prelimWinner": 1
+                    },
+                    "noTier2VsTier2": true
+                  },
+                  "round32": {
+                    "teams": 32,
+                    "fromPrelim": 16,
+                    "tier1": 16
+                  },
+                  "round16Legs": 1,
+                  "quarterFinalLegs": 1,
+                  "semifinalLegs": 2,
+                  "finalLegs": 1,
+                  "home": "lower-tier club subject to venue requirements; same-tier ranking detail requires corroboration"
+                },
+                "source": "repository/research",
+                "locator": "SOUTH_AMERICA/ECU/2627/NATIONAL_CUP.json#block110Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

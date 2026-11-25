@@ -402,6 +402,942 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "95bfd8bfb9f03dc7de8b3b5bfbd4b08c66ae40b7c24b97bb4ce4736cf52b2b0a": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2003",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "22",
+              "unique_oriented_pairs": "22",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "22",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-07-16",
+              "max_date": "2003-10-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "23",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-04-14",
+              "max_date": "2010-09-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-06-28",
+              "max_date": "2011-10-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-06-05",
+              "max_date": "2012-08-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "23",
+              "rows": "28",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-06-12",
+              "max_date": "2013-08-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-06-30",
+              "max_date": "2015-08-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "45",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "45",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-06-01",
+              "max_date": "2016-08-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "61",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-05-30",
+              "max_date": "2017-08-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-05-22",
+              "max_date": "2018-08-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "41",
+              "unique_oriented_pairs": "41",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "41",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-05-28",
+              "max_date": "2019-08-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-05-25",
+              "max_date": "2022-09-07"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-23",
+              "max_date": "2023-09-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-05-21",
+              "max_date": "2024-09-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-05-20",
+              "max_date": "2025-10-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup 1999",
+              "season": "1999",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "28",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1999-06-05",
+              "max_date": "1999-08-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup 2007",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-06-12",
+              "max_date": "2007-09-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "US Open Cup 2008",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-06-10",
+              "max_date": "2008-08-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "1996",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "19",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1996-06-27",
+              "max_date": "1996-10-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2003",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "22",
+              "unique_oriented_pairs": "22",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "22",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-07-16",
+              "max_date": "2003-10-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2007",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-06-12",
+              "max_date": "2007-09-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2008",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "43",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-06-10",
+              "max_date": "2008-08-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "23",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-04-14",
+              "max_date": "2010-09-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2011",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-06-28",
+              "max_date": "2011-10-04"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2012",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-06-05",
+              "max_date": "2012-08-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2013",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "23",
+              "rows": "28",
+              "unique_oriented_pairs": "27",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "28",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2013-06-12",
+              "max_date": "2013-08-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "14",
+              "unique_oriented_pairs": "14",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "14",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-06-30",
+              "max_date": "2015-08-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "45",
+              "unique_oriented_pairs": "45",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "45",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-06-01",
+              "max_date": "2016-08-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "61",
+              "rows": "43",
+              "unique_oriented_pairs": "43",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "43",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-05-30",
+              "max_date": "2017-08-15"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "56",
+              "rows": "42",
+              "unique_oriented_pairs": "42",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "42",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-05-22",
+              "max_date": "2018-08-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "41",
+              "unique_oriented_pairs": "41",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "41",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-05-28",
+              "max_date": "2019-08-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2022",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-05-25",
+              "max_date": "2022-09-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2023",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-05-23",
+              "max_date": "2023-09-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-05-21",
+              "max_date": "2024-09-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Lamar Hunt U.S. Open Cup",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-05-20",
+              "max_date": "2025-10-01"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1995",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa95.txt:280",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "1995",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa95.txt:294",
+                "excerpt": "Replay(Maryland protested the notification of the time of the previous match)"
+              },
+              {
+                "season": "1995",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa95.txt:297",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "1995",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa95.txt:309",
+                "excerpt": "Richmond Kickers 1, El Paso Patriots 1-1 (Richmond wins on penalty kicks 4-2)"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa96.txt:1009",
+                "excerpt": "because of fixture congestion.  DC United replaced them."
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa96.txt:1032",
+                "excerpt": "called up to the Jamaican National team for a World Cup Qualifier.  They"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa96.txt:975",
+                "excerpt": "FIRST ROUND"
+              },
+              {
+                "season": "1996",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa96.txt:986",
+                "excerpt": "SECOND ROUND"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa97.txt:343",
+                "excerpt": "Round One"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa97.txt:358",
+                "excerpt": "Round Two"
+              },
+              {
+                "season": "1997",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa97.txt:373",
+                "excerpt": "Round Three"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa98.txt:396",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa98.txt:408",
+                "excerpt": "Second Round (June 23-28)"
+              },
+              {
+                "season": "1998",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa98.txt:419",
+                "excerpt": "Third Round (July 7-8)"
+              },
+              {
+                "season": "2003",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usacup03.txt:107",
+                "excerpt": "Italians in First Round]"
+              },
+              {
+                "season": "2003",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usacup03.txt:111",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2003",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usacup03.txt:136",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2003",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usacup03.txt:33",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2003",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usacup03.txt:8",
+                "excerpt": "USASA (Amateur) Qualifying"
+              },
+              {
+                "season": "2003",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usacup03.txt:91",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:460",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:480",
+                "excerpt": "Second Round [Jun 26]"
+              },
+              {
+                "season": "2007",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa07.txt:490",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:561",
+                "excerpt": "MLS Play In Qualifier"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:564",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:584",
+                "excerpt": "Second Round [Jun 24]"
+              },
+              {
+                "season": "2008",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa08.txt:594",
+                "excerpt": "Third Round [Jul 1]"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2010.txt:518",
+                "excerpt": "Qualification MLS"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2010.txt:520",
+                "excerpt": "First Round"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2010.txt:536",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2010.txt:544",
+                "excerpt": "NB: DC United and New York Red Bulls qualified for 1/8 Finals of"
+              },
+              {
+                "season": "2011",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2011.txt:117",
+                "excerpt": "Third Round [Jun 28]"
+              },
+              {
+                "season": "2012",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2012.txt:129",
+                "excerpt": "Fourth Round [Jun 5]"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2013.txt:604",
+                "excerpt": "Fourth Round"
+              },
+              {
+                "season": "2013",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2014.txt:630",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2015",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2015.txt:630",
+                "excerpt": "Fifth Round"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2016.txt:609",
+                "excerpt": "Third Round [Jun 1]"
+              },
+              {
+                "season": "2016",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2016.txt:626",
+                "excerpt": "Fourth Round [MLS clubs enter]"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2017.txt:656",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2017.txt:673",
+                "excerpt": "Fourth Round [MLS clubs enter]"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2018.txt:676",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2018.txt:692",
+                "excerpt": "Fourth Round [MLS clubs enter]"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2019.txt:694",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2019",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesu/usa2019.txt:709",
+                "excerpt": "Fourth Round [MLS clubs enter]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

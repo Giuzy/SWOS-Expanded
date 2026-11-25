@@ -135,6 +135,76 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "492b29bdd855d2d185a4433e7217bb61001b6c4c81e0f203febea464a76b7e19": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Belgian Cup 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-10-16",
+              "max_date": "1998-05-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Belgian Cup 1998/99",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1998-10-14",
+              "max_date": "1999-05-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "R32Entrants": 32,
+                  "topTierNewEntrants": 18,
+                  "qualifiers": 14,
+                  "legs": 1,
+                  "quarterfinalReplay": true,
+                  "semifinalLegs": 2,
+                  "finalLegs": 1,
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/BEL/9697/NATIONAL_CUP.json#block71Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

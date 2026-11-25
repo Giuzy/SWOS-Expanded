@@ -137,7 +137,89 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "0cef246e162a5eac87f26ab94fe270375225944f135a0629bfddd13b5a425361": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "LEAGUE_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "participants": 60,
+                  "round1": {
+                    "entrants": 56,
+                    "geographicalGroups": 4,
+                    "groupSize": 14,
+                    "ties": 28,
+                    "legs": 1
+                  },
+                  "round2": {
+                    "entrants": 32,
+                    "fromR1": 28,
+                    "seededCoppaItaliaEntrants": 4,
+                    "geographicalGroups": 4,
+                    "groupSize": 8,
+                    "ties": 16,
+                    "legs": 1
+                  },
+                  "round16": {
+                    "ties": 8,
+                    "legs": 1
+                  },
+                  "quarterFinal": {
+                    "ties": 4,
+                    "legs": 1
+                  },
+                  "semiFinal": {
+                    "ties": 2,
+                    "legs": 2
+                  },
+                  "final": {
+                    "ties": 1,
+                    "legs": 2
+                  },
+                  "tieAfter90ThroughQF": "direct penalties",
+                  "championAccess": "first national phase of Serie C promotion playoffs",
+                  "totalMatches": 62,
+                  "twoLegTieBreak": [
+                    "match points",
+                    "aggregate goal difference",
+                    "two 15-minute extra-time periods",
+                    "penalties"
+                  ],
+                  "substitutions": {
+                    "normal": 5,
+                    "normalWindows": 3,
+                    "extraTimeAdditional": 1,
+                    "extraTimeAdditionalWindow": 1
+                  },
+                  "matchSquadMax": 26
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/ITA/2627/LEAGUE_CUP.json#block111Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "99afa21bb82fab1033fcdfabbc24a84fdd30fde0ae60e07e8387e6b6a19a4bf1": {
           "status": "I",

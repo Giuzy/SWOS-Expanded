@@ -348,6 +348,326 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "d622ee6e6e038030c5c8e86de04ba09712d6f2a8739db25b0cf9dbbf7468604e": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "51",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-08-04",
+              "max_date": "2010-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-10-19",
+              "max_date": "2011-04-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-09-27",
+              "max_date": "2012-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-09-25",
+              "max_date": "2013-04-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "20",
+              "unique_oriented_pairs": "20",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "20",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-09-24",
+              "max_date": "2014-04-15"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-11-12",
+              "max_date": "2015-04-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-11-03",
+              "max_date": "2016-04-13"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-10-18",
+              "max_date": "2017-04-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-10-17",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-10-23",
+              "max_date": "2019-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-09-04",
+              "max_date": "2020-06-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-04-06",
+              "max_date": "2021-05-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-03-01",
+              "max_date": "2022-05-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "17",
+              "unique_oriented_pairs": "17",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "17",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-11-08",
+              "max_date": "2023-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-11-07",
+              "max_date": "2024-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-11-05",
+              "max_date": "2025-04-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Slovenský Pohár",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "17",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-11-15",
+              "max_date": "2026-04-15"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 32,
+                  "firstRoundMatches": 16,
+                  "secondRoundMatches": 8,
+                  "quarterfinalLegs": 1,
+                  "semifinalLegs": 2,
+                  "finalLegs": 1,
+                  "penaltiesObserved": true,
+                  "extraTimeObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SVK/9697/NATIONAL_CUP.json#block75Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2020.txt:461 Author: Miroslav Samák",
+                "excerpt": "Round 3 [no extra time after draws]"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "regulation",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2020.txt:503 Author: Miroslav Samák",
+                "excerpt": "Round 4 [no extra time after draws]"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2020.txt:526 Author: Miroslav Samák",
+                "excerpt": "1/8 Finals [no extra time after draws]"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tabless/slow2020.txt:539 Author: Miroslav Samák",
+                "excerpt": "Quarterfinals [Mar 4] [no extra time after draws]"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

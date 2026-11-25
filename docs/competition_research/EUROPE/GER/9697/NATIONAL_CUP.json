@@ -679,6 +679,4357 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "4fe6325c4c6cbadcb64b2f0d09b32b064f76dae6efb11876b0bded359dde68b8": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-07-31",
+              "max_date": "2010-03-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-13",
+              "max_date": "2011-03-02"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-29",
+              "max_date": "2012-03-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-17",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-02",
+              "max_date": "2014-04-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "61",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-15",
+              "max_date": "2015-04-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "60",
+              "rows": "57",
+              "unique_oriented_pairs": "57",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "57",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-07",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-19",
+              "max_date": "2017-04-26"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-11",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-17",
+              "max_date": "2019-04-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "58",
+              "unique_oriented_pairs": "58",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "58",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-09",
+              "max_date": "2020-03-04"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-11",
+              "max_date": "2021-05-01"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "61",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-06",
+              "max_date": "2022-05-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-29",
+              "max_date": "2023-06-03"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-11",
+              "max_date": "2024-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-16",
+              "max_date": "2025-05-24"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "DFB Pokal",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-15",
+              "max_date": "2026-05-23"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 1997/98",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "57",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-08-14",
+              "max_date": "1998-02-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 1998/99",
+              "season": "1998/99",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "31",
+              "rows": "56",
+              "unique_oriented_pairs": "28",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "28",
+              "min_date": "1998-09-17",
+              "max_date": "1999-03-10"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 1999/2000",
+              "season": "1999/2000",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "77",
+              "rows": "390",
+              "unique_oriented_pairs": "337",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "390",
+              "duplicate_pair_occurrences": "53",
+              "min_date": "1999-07-31",
+              "max_date": "2000-06-09"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "77",
+              "rows": "400",
+              "unique_oriented_pairs": "353",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "400",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2000-08-11",
+              "max_date": "2001-05-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "107",
+              "rows": "1011",
+              "unique_oriented_pairs": "964",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "1011",
+              "duplicate_pair_occurrences": "47",
+              "min_date": "2001-07-27",
+              "max_date": "2002-05-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2002/03",
+              "season": "2002/03",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "83",
+              "rows": "376",
+              "unique_oriented_pairs": "341",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "376",
+              "duplicate_pair_occurrences": "35",
+              "min_date": "2002-08-10",
+              "max_date": "2003-05-25"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "66",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-08-29",
+              "max_date": "2004-03-17"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2004/05",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "42",
+              "rows": "21",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "21",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-08-20",
+              "max_date": "2004-08-22"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2005/06",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "55",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "48",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-08-19",
+              "max_date": "2006-04-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2006/07",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "53",
+              "rows": "47",
+              "unique_oriented_pairs": "47",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "47",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-09-08",
+              "max_date": "2007-04-18"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2007/08",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "53",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-08-03",
+              "max_date": "2008-03-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Germany Cup (DFB Pokal) 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "58",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-08",
+              "max_date": "2009-04-22"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "DFB Pokal 2018/19",
+              "season": "2018-19",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-17",
+              "max_date": "2019-05-25"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "DFB Pokal 2019/20",
+              "season": "2019-20",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-09",
+              "max_date": "2020-07-04"
+            },
+            {
+              "source": "github/openfootball/football.json",
+              "competition": "DFB Pokal 2020/21",
+              "season": "2020-21",
+              "season_basis": "SOURCE_SEASON",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-11",
+              "max_date": "2021-05-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "1997/98",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "58",
+              "rows": "53",
+              "unique_oriented_pairs": "53",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "53",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "1997-08-14",
+              "max_date": "1998-02-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "57",
+              "rows": "49",
+              "unique_oriented_pairs": "49",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "49",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-08-29",
+              "max_date": "2004-03-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "22",
+              "rows": "16",
+              "unique_oriented_pairs": "16",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "16",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-08-15",
+              "max_date": "2004-12-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2005/06",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "90",
+              "rows": "82",
+              "unique_oriented_pairs": "82",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "82",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2005-08-07",
+              "max_date": "2006-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "26",
+              "rows": "21",
+              "unique_oriented_pairs": "21",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "21",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-10-22",
+              "max_date": "2007-04-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "59",
+              "rows": "55",
+              "unique_oriented_pairs": "55",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "55",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-08-03",
+              "max_date": "2008-03-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "58",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-08",
+              "max_date": "2009-04-22"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "63",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-07-31",
+              "max_date": "2010-03-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "56",
+              "unique_oriented_pairs": "56",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-13",
+              "max_date": "2011-03-02"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-07-29",
+              "max_date": "2012-03-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "62",
+              "rows": "59",
+              "unique_oriented_pairs": "59",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "59",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-17",
+              "max_date": "2013-04-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "75",
+              "rows": "72",
+              "unique_oriented_pairs": "72",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "72",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-02",
+              "max_date": "2014-05-17"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "71",
+              "rows": "68",
+              "unique_oriented_pairs": "68",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "68",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-15",
+              "max_date": "2015-05-01"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "65",
+              "rows": "61",
+              "unique_oriented_pairs": "61",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "61",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-07",
+              "max_date": "2016-04-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "64",
+              "unique_oriented_pairs": "64",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "64",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-19",
+              "max_date": "2017-04-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "97",
+              "rows": "91",
+              "unique_oriented_pairs": "91",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "91",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-11",
+              "max_date": "2018-04-18"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "96",
+              "rows": "93",
+              "unique_oriented_pairs": "93",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "93",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-11",
+              "max_date": "2019-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "96",
+              "rows": "89",
+              "unique_oriented_pairs": "89",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "89",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-03",
+              "max_date": "2020-06-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "99",
+              "rows": "99",
+              "unique_oriented_pairs": "99",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "99",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-11",
+              "max_date": "2021-05-30"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2021/22",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "104",
+              "rows": "105",
+              "unique_oriented_pairs": "105",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "105",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-06",
+              "max_date": "2022-05-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "102",
+              "rows": "100",
+              "unique_oriented_pairs": "99",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "100",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "2022-07-29",
+              "max_date": "2023-06-03"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-11",
+              "max_date": "2024-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-16",
+              "max_date": "2025-05-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "DFB-Pokal",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "63",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-08-15",
+              "max_date": "2026-05-23"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2015",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-15",
+              "max_date": "2015-05-30"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2016",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-07",
+              "max_date": "2016-05-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2017",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-19",
+              "max_date": "2017-05-27"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2018",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-11",
+              "max_date": "2018-05-19"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2019",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-17",
+              "max_date": "2019-05-25"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2020",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-09",
+              "max_date": "2020-07-04"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2021",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-09-11",
+              "max_date": "2021-05-13"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2022",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2021-08-06",
+              "max_date": "2022-05-21"
+            },
+            {
+              "source": "worldfootballR/worldfootballR_data-master.zip",
+              "competition": "DFB-Pokal",
+              "season": "2023",
+              "season_basis": "SOURCE_SEASON_END_YEAR",
+              "teams": "64",
+              "rows": "48",
+              "unique_oriented_pairs": "48",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "0",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-07-29",
+              "max_date": "2022-10-19"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "teams": 64,
+                  "rounds": 6,
+                  "legs": 1,
+                  "penaltiesObserved": true,
+                  "reserveTeamsObserved": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/GER/9697/NATIONAL_CUP.json#block68Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/duit97.txt:761",
+                "excerpt": "First Round:                    [9-11 Aug 1996]"
+              },
+              {
+                "season": "1996/97",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/duit97.txt:796",
+                "excerpt": "Second Round:               [30 Aug-1 Sep 1996]"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1008 Author:",
+                "excerpt": "17.SC Weismain                     34  8 12 14  42-53  36  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1009 Author:",
+                "excerpt": "18.SC Neukirchen                   34  9  8 17  43-62  35  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1020 Author:",
+                "excerpt": "Osterfeld not promoted, since 4 teams from 2. Bundesliga"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1021 Author:",
+                "excerpt": "were relegated to Regionalliga West/South-West."
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1027 Author:",
+                "excerpt": "1.Aachener TSV Alemannia          32 20  4  8  56-38  64  Promoted"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1029 Author:",
+                "excerpt": "2.SV Eintracht Trier              32 18  6  8  62-37  60  Promotion Playoff"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1045 Author:",
+                "excerpt": "16.SpVgg. Erkenschwick             32  2  9 21  30-77  15  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:1046 Author:",
+                "excerpt": "17.FC Remscheid                    32  2  4 26  23-83  10  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:845 Author:",
+                "excerpt": "Penalties:"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:859 Author:",
+                "excerpt": "1.DSC Arminia Bielefeld        34 20  7  7  62-32  67  Promoted"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:860 Author:",
+                "excerpt": "2.SpVgg Unterhaching           34 19  6  9  47-30  63  Promoted"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:861 Author:",
+                "excerpt": "3.SSV Ulm 1846                 34 15 13  6  63-51  58  Promoted"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:875 Author:",
+                "excerpt": "15.FC Gütersloh                 34 10  7 17  39-58  37  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:876 Author:",
+                "excerpt": "16.KFC Uerdingen 05             34  7 10 17  34-57  31  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:877 Author:",
+                "excerpt": "17.SG Wattenscheid 09           34  7  9 18  31-46  30  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:878 Author:",
+                "excerpt": "18.TSV Fortuna Düsseldorf       34  5 13 16  35-59  28  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:880 Author:",
+                "excerpt": "Promoted to 2. Bundesliga:"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement",
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:885 Author:",
+                "excerpt": "Qualified for Promotion Playoffs:"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:891 Author:",
+                "excerpt": "Promotion Playoffs:"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:898 Author:",
+                "excerpt": "Chemnitzer FC promoted"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:906 Author:",
+                "excerpt": "1.Offenbacher FC Kickers        2  2  0  0   4- 1   6  Promoted"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:918 Author:",
+                "excerpt": "1.VfL Osnabrück                   34 23  6  5  67-26  75  Promotion Playoff"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:935 Author:",
+                "excerpt": "16.BSV Kickers Emden               34  7 13 14  49-65  34  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:936 Author:",
+                "excerpt": "17.VfL Hasetal Herzlake            34  6  7 21  44-83  25  Relegated (withdraw to Kreisliga)"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:937 Author:",
+                "excerpt": "18.Sportfreunde Ricklingen         34  7  3 24  33-70  24  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:939 Author:",
+                "excerpt": "Promoted:"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:952 Author:",
+                "excerpt": "1.Chemnitzer FC                   34 23  8  3  59-12  77  Promotion Playoff"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:971 Author:",
+                "excerpt": "18.SD Croatia Berlin-Lichterfelde  34  6  3 25  20-61  21  Relegated"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:982 Author:",
+                "excerpt": "be promoted, since their first team already plays in"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:989 Author:",
+                "excerpt": "1.SV Waldhof Mannheim             34 21  8  5  57-25  71  Promoted"
+              },
+              {
+                "season": "1998/99",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit99.txt:991 Author:",
+                "excerpt": "2.Offenbacher FC Kickers          34 19 11  4  71-38  68  Promotion Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1495 ",
+                "excerpt": "Promoted:"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1508 ",
+                "excerpt": "VfL Osnabrueck (champions Regionalliga Nord) promoted,"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1524 ",
+                "excerpt": "1.LR Ahlen                      2  1  1  0   3- 2   4  Promoted"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1537 ",
+                "excerpt": "1.VfL Osnabrück                34 22  8  4  69-34  74  Promotion Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1544 ",
+                "excerpt": "6.Lüneburger SK                34 18  6 10  60-38  60  Relegation Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1546 ",
+                "excerpt": "7.BV Cloppenburg               34 14 13  7  73-58  55  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1547 ",
+                "excerpt": "8.Kieler SV Holstein           34 14  9 11  62-57  51  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1548 ",
+                "excerpt": "9.1.SC Göttingen 05            34 13  6 15  58-63  45  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1549 ",
+                "excerpt": "10.SV Arminia Hannover          34 10 11 13  53-51  41  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1550 ",
+                "excerpt": "11.SV Meppen                    34 10 11 13  57-57  41  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1551 ",
+                "excerpt": "12.1.SC Norderstedt             34 10  6 18  47-64  36  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1552 ",
+                "excerpt": "13.SV Eintracht Nordhorn        34 11  3 20  54-76  36  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1553 ",
+                "excerpt": "14.TuS Celle FC                 34  9  8 17  39-65  35  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1554 ",
+                "excerpt": "15.FC Sankt Pauli Amateure      34  9  7 18  44-67  34  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1555 ",
+                "excerpt": "16.Hamburger SV Amateure        34  9  4 21  45-68  31  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1556 ",
+                "excerpt": "17.FC Bremerhaven               34  7  6 21  39-82  27  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1557 ",
+                "excerpt": "18.VfB Oldenburg                34  4  4 26  28-83  14  [-2]  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1559 ",
+                "excerpt": "Promotion/Relegation Playoffs"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1569 ",
+                "excerpt": "Lüneburger SV qualified for Regionalliga Nord 2000/01"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1575 ",
+                "excerpt": "1.1.FC Union Berlin            34 23  8  3  53-23  77  Promotion Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1583 ",
+                "excerpt": "7.FC Rot-Weiß Erfurt           34 17  6 11  39-41  57  Relegation Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1585 ",
+                "excerpt": "8.1.FC Dynamo Dresden          34 13 13  8  44-34  52  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1586 ",
+                "excerpt": "9.VfB Leipzig                  34 14  7 13  43-36  49  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1587 ",
+                "excerpt": "10.1.FC Magdeburg               34 13  8 13  64-44  47  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1588 ",
+                "excerpt": "11.Hertha BSC Amateure          34 12  7 15  42-55  43  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1589 ",
+                "excerpt": "12.Eisenhüttenstädter FC Stahl  34 11  7 16  40-61  40  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1590 ",
+                "excerpt": "13.Vogtländischer FC Plauen     34  9  8 17  39-51  35  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1591 ",
+                "excerpt": "14.VfL Halle 96                 34  9  8 17  35-65  35  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1592 ",
+                "excerpt": "15.B. Tennis-Club Borussia Am.  34 10  4 20  53-70  34  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1593 ",
+                "excerpt": "16.FSV Lok Altmark Stendal      34  9  7 18  38-60  34  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1594 ",
+                "excerpt": "17.Berliner FC Dynamo           34  7  7 20  39-56  28  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1595 ",
+                "excerpt": "18.FSV Zwickau                  34  6  7 21  33-67  25  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1607 ",
+                "excerpt": "FC Rot-Weiß Erfurt qualified for Regionalliga Nord 2000/01"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1613 ",
+                "excerpt": "1.SSV Reutlingen               34 28  3  3 102-25  87  Promoted"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1615 ",
+                "excerpt": "2.SC Pfullendorf               34 18  7  9  57-36  61  Promotion Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1629 ",
+                "excerpt": "14.FSV Frankfurt                34 10 11 13  48-57  41  Relegation Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1631 ",
+                "excerpt": "15.TSF Ditzingen                34  8 12 14  46-55  36  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1632 ",
+                "excerpt": "16.SG Quelle/60 Fürth           34  8 11 15  40-70  35  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1633 ",
+                "excerpt": "17.SC Borussia Fulda               34  6 13 15  40-57  31  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1634 ",
+                "excerpt": "18.SV Lohhof                    34  2  4 28  29-103 10  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1636 ",
+                "excerpt": "[*] relegated due to relegation first team to Regionalliga"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1648 ",
+                "excerpt": "Jahn Regensburg qualified for Regionalliga Nord 2000/01,"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1649 ",
+                "excerpt": "FSV Frankfurt relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1655 ",
+                "excerpt": "1.1.FC Saarbrücken             36 23  8  5  69-22  77  Promoted"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1657 ",
+                "excerpt": "2.LR Ahlen                     36 21  8  7  82-32  71  Promotion Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1669 ",
+                "excerpt": "12.SpVgg. Elversberg            36 13  9 14  49-49  48  Relegation Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1671 ",
+                "excerpt": "13.SC Paderborn 07              36 13  9 14  47-47  48  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1672 ",
+                "excerpt": "14.1.FC Kaiserslautern Amat.    36 13  9 14  49-55  48  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1673 ",
+                "excerpt": "15.VfL Bochum Amateure          36 11  7 18  57-69  40  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1674 ",
+                "excerpt": "16.Bayer 04 Leverkusen Amat.    36  8 14 14  45-52  38  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1675 ",
+                "excerpt": "17.FK Pirmasens                 36  9  6 21  38-75  33  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1676 ",
+                "excerpt": "18.SC Idar-Oberstein            36  8  7 21  25-78  31  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1677 ",
+                "excerpt": "19.FSV Salmrohr                 36  5  1 30  19-87  16  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1681 ",
+                "excerpt": "Promotion/Relegation Playoff"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:1690 ",
+                "excerpt": "1.SpVgg. Elversberg             3  3  0  0   8- 3   9  Qualified for RL Süd 2000/01"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:956 ",
+                "excerpt": "1.1.FC Köln                    34 19  8  7  68-39  65  Promoted"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:957 ",
+                "excerpt": "2.VfL Bochum                   34 18  7  9  67-48  61  Promoted"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:958 ",
+                "excerpt": "3.Energie Cottbus              34 18  4 12  62-42  58  Promoted"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:973 ",
+                "excerpt": "16.Fortuna Köln                 34  8 11 15  38-50  35  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:974 ",
+                "excerpt": "17.Offenbacher Kickers          34  8 11 15  35-58  35  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:975 ",
+                "excerpt": "18.Karlsruher SC                34  5 12 17  35-56  27  Relegated"
+              },
+              {
+                "season": "1999/2000",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit00.txt:978 ",
+                "excerpt": "relegated Stuttgarter Kickers remain in 2. Bundesliga"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1510 Author: Karel Stokkermans",
+                "excerpt": "1.1.FC Union Berlin            36 21 10  5  62-23  73  Promoted"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1511 Author: Karel Stokkermans",
+                "excerpt": "2.SV Babelsberg 03             36 19 11  6  57-41  68  Promoted"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1526 Author: Karel Stokkermans",
+                "excerpt": "15.Werder Bremen Amateure       36 12  9 15  49-53  45  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1527 Author: Karel Stokkermans",
+                "excerpt": "16.Fortuna Düsseldorf           36 13  3 20  46-52  42  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1528 Author: Karel Stokkermans",
+                "excerpt": "17.Lüneburger SK                36  9  6 21  52-73  33  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1529 Author: Karel Stokkermans",
+                "excerpt": "18.Borussia Dortmund Amateure   36  6 12 18  36-55  30  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1530 Author: Karel Stokkermans",
+                "excerpt": "19.Tennis Borussia Berlin       36  6  5 25  33-80  23  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1534 Author: Karel Stokkermans",
+                "excerpt": "1.Karlsruher SC                34 17 10  7  48-25  61  Promoted"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1535 Author: Karel Stokkermans",
+                "excerpt": "2.VfB Stuttgart Amateure       34 16 10  8  57-38  58  [ineligible for promotion]"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1537 Author: Karel Stokkermans",
+                "excerpt": "3.1.FC Schweinfurt 05          34 16  9  9  57-43  57  Promoted"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1550 Author: Karel Stokkermans",
+                "excerpt": "15.Rot-Weiß Erfurt              34 10  9 15  40-47  39  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1551 Author: Karel Stokkermans",
+                "excerpt": "16.TSV München 1860 Amateure    34  8 13 13  49-63  37  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1552 Author: Karel Stokkermans",
+                "excerpt": "17.SC Pfullendorf               34  9  9 16  42-49  36  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1553 Author: Karel Stokkermans",
+                "excerpt": "18.Carl Zeiss Jena              34  7  8 19  39-57  29  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1556 Author: Karel Stokkermans",
+                "excerpt": "SSV Ulm (relegated from 2nd Bundesliga)"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:1566 Author: Karel Stokkermans",
+                "excerpt": "Promoted teams from ‹Oberliga, see page duit4-01›'s:"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:954 Author: Karel Stokkermans",
+                "excerpt": "1.1.FC Nürnberg                34 20  5  9  58-35  65  Champions, Promoted"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:955 Author: Karel Stokkermans",
+                "excerpt": "2.VfL Borussia Mönchengladbach 34 17 11  6  62-31  62  Promoted"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:956 Author: Karel Stokkermans",
+                "excerpt": "3.FC Sankt Pauli               34 17  9  8  70-52  60  Promoted"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:970 Author: Karel Stokkermans",
+                "excerpt": "15.VfL Osnabrück                34  9 10 15  40-52  37  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:971 Author: Karel Stokkermans",
+                "excerpt": "16.SSV Ulm 1846                 34  9  7 18  42-58  34  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:972 Author: Karel Stokkermans",
+                "excerpt": "17.Stuttgarter Kickers          34  8 10 16  31-51  34  Relegated"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit01.txt:973 Author: Karel Stokkermans",
+                "excerpt": "18.Chemnitzer FC                34  3  7 24  24-78  16  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1921 ",
+                "excerpt": "1.VfB Lübeck                   34 20  5  9  70-46  65  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1922 ",
+                "excerpt": "2.Eintracht Braunschweig       34 19  7  8  60-29  64  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1938 ",
+                "excerpt": "16.Dresdner SC                  34  9  5 20  41-60  32  [*]  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1939 ",
+                "excerpt": "17.Fortuna Düsseldorf           34  8  8 18  36-57  32  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1940 ",
+                "excerpt": "18.Fortuna Köln                 34  6  8 20  33-68  26  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1945 ",
+                "excerpt": "3rd level license for 2002/03; due to this, the relegation of"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1948 ",
+                "excerpt": "Relegated from 2nd level: SV Babelsberg 03"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:1949 ",
+                "excerpt": "Promoted from 4th level: 1.FC Köln Amateure, Borussia Dortmund Amateure,"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2434 ",
+                "excerpt": "1.Wacker Burghausen            34 19 10  5  49-22  67  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2435 ",
+                "excerpt": "2.Eintracht Trier              34 16 11  7  51-34  59  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2450 ",
+                "excerpt": "15.1.FC Kaiserslautern Amateure 34  9  7 18  41-60  34  [+]  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2451 ",
+                "excerpt": "16.VfB Stuttgart Amateure       34  8  7 19  43-58  31  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2452 ",
+                "excerpt": "17.SpVgg Ansbach                34  7  7 20  27-66  28  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2453 ",
+                "excerpt": "18.Borussia Fulda               34  2 12 20  23-67  18  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2456 ",
+                "excerpt": "due to this, the relegation of 1.FC Kaiserslautern Amateure was not"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2460 ",
+                "excerpt": "relegated to the Verbandsliga Nordbaden for 2003/04 (in which season"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2461 ",
+                "excerpt": "they earned promotion back to the Oberliga BW 2004/05)."
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2463 ",
+                "excerpt": "Relegated from 2nd level: 1.FC Saarbrücken and 1.FC Schweinfurt 05"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:2464 ",
+                "excerpt": "Promoted from 4th level: FC Augsburg, SC Pfullendorf, Borussia Neunkirchen,"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:879 ",
+                "excerpt": "1.Hannover 96                  34 22  9  3  93-37  75  Champions, Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:880 ",
+                "excerpt": "2.DSC Arminia Bielefeld        34 19  8  7  68-38  65  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:881 ",
+                "excerpt": "3.VfL Bochum                   34 19  8  7  69-49  65  Promoted"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:895 ",
+                "excerpt": "15.SpVgg. Unterhaching          34 10  8 16  40-49  38  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:896 ",
+                "excerpt": "18.1.FC Saarbrücken             34  6  7 21  30-74  25  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:897 ",
+                "excerpt": "17.1.FC Schweinfurt 05          34  6  6 22  30-70  24  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:898 ",
+                "excerpt": "18.SV Babelsberg 03             34  4  6 24  39-82  18  Relegated"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit02.txt:901 ",
+                "excerpt": "would have meant automatic relegation, but obtained one on appeal;"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1320 ",
+                "excerpt": "1.FC Erzgebirge Aue            34  20  6  8   59- 34  66  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1321 ",
+                "excerpt": "2.VfL Osnabrück von 1899       34  19  8  7   56- 29  65  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1336 ",
+                "excerpt": "15.SC Verl von 1924             34  12  4 18   47- 65  40  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1337 ",
+                "excerpt": "16.SV Babelsberg 03             34   9  7 18   54- 73  34  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1338 ",
+                "excerpt": "17.Bayer 04 Leverkusen Amat.    34   9  6 19   46- 59  33  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1339 ",
+                "excerpt": "18.Dresdner SC Fußball 1898     34   7  8 19   32- 58  29  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1343 ",
+                "excerpt": "1.SpVgg Unterhaching 1925      36  22  7  7   75- 34  73  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1344 ",
+                "excerpt": "2.SSV Jahn 2000 Regensburg     36  22  7  7   66- 25  73  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1359 ",
+                "excerpt": "15.SV Stuttgarter Kickers       36  11 12 13   40- 54  45  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1360 ",
+                "excerpt": "16.Sportfreunde Siegen 1899     36  11 10 15   47- 55  43  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1361 ",
+                "excerpt": "17.SV Darmstadt 1898            36  11  9 16   42- 53  42  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1362 ",
+                "excerpt": "18.Eintracht Frankfurt Amat.    36   7 11 18   36- 64  32  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1363 ",
+                "excerpt": "19.Borussia 1905 VfB Neunkirchen36   3  9 24   23- 74  18  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1365 ",
+                "excerpt": "NB: the relegation of Stuttgarter Kickers will not be effective due"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1381 ",
+                "excerpt": "2.VfR 1910 Neumünster          32  19  9  4   75-40  66  Promotion Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1391 ",
+                "excerpt": "12.TSV Altenholz von 1948       32  12  5 15   51-73  41  Withdrew after saison, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1396 ",
+                "excerpt": "16.Eimsbütteler TV Hamburg      32   5  4 23   39-84  19  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1397 ",
+                "excerpt": "17.TSB 1865 Flensburg           32   4  2 26   41-93  14  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1398 ",
+                "excerpt": "18.1.SC Norderstedt              0   0  0  0    0- 0   0  Withdrew, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1400 ",
+                "excerpt": "[1] FC St.Pauli 1910 Amt. can not take part in the Promotion Play-Off, because the first team FC St.Pauli was relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1407 ",
+                "excerpt": "1.BSV Kickers 1946 Emden       34  22  5  7   83- 43   71  Promotion Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1424 ",
+                "excerpt": "16.1.SC Göttingen von 1905      34   5 11 18   27- 59   26  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1425 ",
+                "excerpt": "17.FC Schüttorf 09              34   6  6 22   36- 79   24  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1426 ",
+                "excerpt": "18.FC Bremerhaven 1899          34   6  5 23   40-102   23  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1428 ",
+                "excerpt": "Promotion Play-Off:"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1431 ",
+                "excerpt": "Neumünster promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1437 ",
+                "excerpt": "1.FC Schönberg 95              36  29  4  3  122- 29   91  Promotion Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1454 ",
+                "excerpt": "16.1.FC Lokomotive 2002 Stendal 36  12  4 20   51- 81   40  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1455 ",
+                "excerpt": "17.FC Eintracht Schwerin        36   8  8 20   35- 77   32  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1456 ",
+                "excerpt": "18.Köpenicker SC                36   6  3 27   31- 78   21  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1457 ",
+                "excerpt": "19.SG Eintracht Oranienburg     36   2  4 30   25-110   10  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement",
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1463 ",
+                "excerpt": "1.FC Sachsen Leipzig 1990      34  26  5  3   76-19  83  Promotion Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1480 ",
+                "excerpt": "16.SV Wacker 07 Gotha           34   8  4 22   25-58  28  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1481 ",
+                "excerpt": "17.VfB Chemnitz                 34   7  6 21   25-61  27  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1482 ",
+                "excerpt": "18.FC Lausitz Hoyerswerda       34   6  3 25   21-93  21  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1487 ",
+                "excerpt": "Sachsen Leipzig promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1493 ",
+                "excerpt": "1.FC Schalke 04 Amat.          34  28  2  4  102-35   86  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1510 ",
+                "excerpt": "16.DJK TuS Hordel 1911          34   8  9 17   52-62   33  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1511 ",
+                "excerpt": "17.SC Westfalia 1904 Herne      34   5 13 16   39-61   28  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1512 ",
+                "excerpt": "18.TSG 1919 Dülmen              34   7  6 21   40-80   27  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1518 ",
+                "excerpt": "1.Wuppertaler SV               32  23  6  3   77-22   75  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1535 ",
+                "excerpt": "16.Aachener TSV Alemannia Amat. 32   8  5 19   43-68   29  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1536 ",
+                "excerpt": "17.MSV 02 Duisburg Amat.        32   7  7 18   38-58   28  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1537 ",
+                "excerpt": "18.Rheydter Spielverein 1905     0   0  0  0    0- 0    0  Withdew, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1543 ",
+                "excerpt": "1.1.FSV Mainz 05 Amat.         36  21 10  5   70-23   73  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1560 ",
+                "excerpt": "16.VfL 1883 Hamm/Sieg           36  11  7 18   38-53   40  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1561 ",
+                "excerpt": "17.SV Röchling Völklingen 06    36   8  9 19   41-66   33  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1562 ",
+                "excerpt": "18.SC Halberg Brebach           36   6  7 23   31-64   25  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1563 ",
+                "excerpt": "19.Sportfreunde 1919 Eisbachtal 36   5  6 25   34-82   21  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1569 ",
+                "excerpt": "1.1.FC 1930 Eschborn           34  24  7  3   78-38   79  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1580 ",
+                "excerpt": "11.SC Neukirchen 1899           34  12  7 15   61-82   43  Withdrew after saison, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1587 ",
+                "excerpt": "16.SV Viktoria Aschaffenburg    34   8 10 16   57-84   34  Withdrew after saison, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1588 ",
+                "excerpt": "17.FSC 1924 Lohfelden           34   9  3 22   35-79   30  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1589 ",
+                "excerpt": "18.SC 1929 Waldgirmes           34   7  6 21   35-60   26  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1597 ",
+                "excerpt": "FC Germania Ober-Roden promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1603 ",
+                "excerpt": "1.VfB Stuttgart 1893 Amat.     34  24  6  4   72-24   78  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1613 ",
+                "excerpt": "10.SV Waldhof 07 Mannheim Amat. 34  12  7 15   44-49   43  Relegated [1]"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1620 ",
+                "excerpt": "16.FC 1929 Teningen             34  10  5 19   43-69   35  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1621 ",
+                "excerpt": "17.FC 1908 Villingen            34   8  9 17   36-68   33  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1622 ",
+                "excerpt": "18.SF 1922 Dorfmerkingen        34   6 11 17   37-57   29  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1624 ",
+                "excerpt": "[1] SV Waldhof Mannheim Amat. was relegated because of the relegation of the first team SV Waldhof Mannheim"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1630 ",
+                "excerpt": "1.1.SC Feucht                  34  26  6  2  107-37   84  Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1649 ",
+                "excerpt": "17.FC Falke Markt Schwaben 1930 34   6  6 22   37-81   24  Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1650 ",
+                "excerpt": "18.TSV Gerbrunn Fußball         34   4  6 24   32-86   18  Withdrew after saison, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1658 ",
+                "excerpt": "1.FC Passau     - Quelle Fürth    1:1 5:3 after penalties"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1662 ",
+                "excerpt": "Großbardorf and Passau promoted, because no club was relegated to the Oberliga Bayern."
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1669 ",
+                "excerpt": "1.FT Eider Büdelsdorf          30  23  2  5   93- 35  71 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1671 ",
+                "excerpt": "2.TSV 1946 Kropp               30  17  9  4   70- 35  60 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1686 ",
+                "excerpt": "14.BSC 1967 Brunsbüttel         30   7  5 18   35- 58  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1687 ",
+                "excerpt": "15.FSV Borussia Lübeck 1991     30   5  7 18   27- 57  22 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1688 ",
+                "excerpt": "16.TSV 1913 Heiligenstedten     30   3  2 25   26-102  11 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1692 ",
+                "excerpt": "1.Harburger Turnerbund 1865    30  21  4  5   76- 32  67 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1694 ",
+                "excerpt": "2.SC Victoria 1895 Hamburg     30  20  5  5   65- 22  65 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1708 ",
+                "excerpt": "14.TSV Uetersen 1898            30   7 12 11   34- 41  33 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1709 ",
+                "excerpt": "15.TSV Wandsetal von 1890       30   9  6 15   41- 65  33 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1710 ",
+                "excerpt": "16.SV Örnek/Türkspor            30   2  5 23   28- 88  11 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1714 ",
+                "excerpt": "1.SC 1913 Weyhe                30  20  7  3   88- 32  67 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1731 ",
+                "excerpt": "15.Lüssumer TV 1898             30  10  2 18   43- 69  32 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1732 ",
+                "excerpt": "16.SC Sparta 1901 Bremerhaven   30   4  5 21   33- 92  17 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1736 ",
+                "excerpt": "1.SV Hannover 1896 Amat.       30  22  4  4   70- 24  70 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1751 ",
+                "excerpt": "14.1.FC 1919 Wunstorf           30   9  7 14   44- 50  34 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1752 ",
+                "excerpt": "15.TuS 1861 Esens               30   7  5 18   33- 67  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1753 ",
+                "excerpt": "16.TuS 1895 Bersenbrück         30   4  5 21   25- 70  17 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1757 ",
+                "excerpt": "1.SSV 1921 Vorsfelde           32  23  5  4   64- 14  74 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1772 ",
+                "excerpt": "14.SV Teutonia Uelzen von 1912  32  11  4 17   41- 49  37 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1773 ",
+                "excerpt": "15.SV Grün-Weiß 1897 Vallstedt  32   8  4 20   40- 68  28 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1774 ",
+                "excerpt": "16.Lüneburger Sport-Klub [2]    32   4  3 25   33- 96  15 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1775 ",
+                "excerpt": "17.TuS Celle FC                 32   4  1 27   37-109  13 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1779 ",
+                "excerpt": "1.Sievershäger SV 1950         30  19  6  5   62- 26  63 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1796 ",
+                "excerpt": "15.FSV von 1919 Malchin         30   7  5 18   46- 70  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1797 ",
+                "excerpt": "16.SV Warnemünde 1949 Fußball   30   3  4 23   32- 89  13 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1801 ",
+                "excerpt": "1.Yesilyurt Spor Klübü Berlin  34  25  8  1   88- 22  83 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1819 ",
+                "excerpt": "16.1.FC Union Berlin Amat.      34  10  6 18   54- 51  36 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1820 ",
+                "excerpt": "17.FSV Fortuna Pankow 1946      34   7  6 21   34- 95  27 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1821 ",
+                "excerpt": "18.Steglitzer FC Stern Berlin   34   5  5 24   27- 78  20 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1825 ",
+                "excerpt": "1.FFC Viktoria Frankfurt/Oder  30  19  7  4   71- 25  64 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1840 ",
+                "excerpt": "14.FC Stahl 1998 Brandenburg    30   7  8 15   43- 64  29 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1842 ",
+                "excerpt": "15.FSV GA Brieske-Senftenberg   30   6  8 16   27- 63  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1843 ",
+                "excerpt": "16.SV Kloster Lehnin            30   2  3 25   23- 86   9 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1847 ",
+                "excerpt": "1.VfB Germania 1900 Halberstadt32  21 10  1   83- 27  73 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1863 ",
+                "excerpt": "15.Haldenslebener SC            32   6  9 17   38- 61  27 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1864 ",
+                "excerpt": "16.SV Blau-Weiß Empor Wanzleben 32   7  3 22   32- 77  24 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1865 ",
+                "excerpt": "17.Mansfelder SV Eisleben       32   1  2 29   15-121   5 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1869 ",
+                "excerpt": "1.VfB Auerbach/Vogtland 1906   30  19  6  5   73- 38  63 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1885 ",
+                "excerpt": "14.BSC Rapid Chemnitz-Kappel    30   7  7 16   37- 65  28 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1886 ",
+                "excerpt": "15.Bischofswerdaer FV 08        30   5  8 17   27- 40  23 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1887 ",
+                "excerpt": "16.FC Stahl Riesa 1998          30   3  5 22   17- 72  14 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1891 ",
+                "excerpt": "1.SSV Erfurt-Nord              30  19  6  5   66- 30  63 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1908 ",
+                "excerpt": "15.1.SC 1911 Heiligenstadt      30   6  5 19   27- 64  23 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1909 ",
+                "excerpt": "16.FC Union Mühlhausen          30   3  9 18   31- 65  18 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1913 ",
+                "excerpt": "1.LR Ahlen Amat.               28  21  2  5   84- 32  65 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1915 ",
+                "excerpt": "2.SV Enger-Westerenger         28  18  5  5   51- 24  59 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1929 ",
+                "excerpt": "14.TuS Jöllenbeck               28   5  5 18   39- 81  20 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1930 ",
+                "excerpt": "15.SpVgg 20 Brakel              28   4  6 18   29- 77  18 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1934 ",
+                "excerpt": "1.SV Schermbeck 1912           28  18  6  4   70- 30  60 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1936 ",
+                "excerpt": "2.SV Vorwärts Kornharpen 1929  28  16  5  7   56- 42  53 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1950 ",
+                "excerpt": "14.SV 1912 Herne-Sodingen       28   7  5 16   39- 58  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1951 ",
+                "excerpt": "15.DSC 1969 Wanne-Eickel        28   3  5 20   21- 72  14 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1955 ",
+                "excerpt": "1.1.FC Kleve 1863/1903         28  17  6  5   53- 21  57 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1957 ",
+                "excerpt": "2.SV Viktoria Goch             28  17  3  8   48- 28  54 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1972 ",
+                "excerpt": "14.VfL Rhede 1920               28   6  7 15   36- 58  25 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1973 ",
+                "excerpt": "15.FC Remscheid                 28   3  7 18   21- 66  16 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1974 ",
+                "excerpt": "16.Hülser SV                     0   0  0  0    0-  0   0 Withdrew, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1978 ",
+                "excerpt": "1.PSI Köln Yurdumspor          30  22  2  6   71- 25  68 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1980 ",
+                "excerpt": "2.SSG 09 Bergisch Gladbach     30  17  6  7   57- 37  57 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1995 ",
+                "excerpt": "14.FC Germania 1910 Teveren     30   7  6 17   40- 56  27 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1996 ",
+                "excerpt": "15.TuS Schmidt 1911             30   5 10 15   35- 59  25 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:1997 ",
+                "excerpt": "16.FC Eintracht Italia Köln     30   4  3 23   31- 74  15 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2001 ",
+                "excerpt": "1.SV Klausen                   30  19  7  4   56- 23  64 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2003 ",
+                "excerpt": "2.SV Eintracht Trier 05 Amat.  30  19  5  6   76- 28  62 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2019 ",
+                "excerpt": "15.TuS 1846/1912 Montabaur      30   6  5 19   40- 87  23 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2020 ",
+                "excerpt": "16.FC Germania 1912 Metternich  30   5  4 21   27- 69  19 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2024 ",
+                "excerpt": "1.Binger FVgg Hassia 1910      30  22  7  1   63- 18  73 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2026 ",
+                "excerpt": "2.VfR 1919 Grünstadt           30  20  6  4   52- 27  66 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2042 ",
+                "excerpt": "15.SV 1920 Horchheim            30   5  8 17   29- 59  23 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2043 ",
+                "excerpt": "16.SG Rot-Weiß/Olympia Alzey    30   5  6 19   27- 73  21 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2047 ",
+                "excerpt": "1.FV Sportfreunde Köllerbach   34  22  6  6   85- 41  72 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2049 ",
+                "excerpt": "2.SG SV Holz/FC Kutzhof        34  21  8  5   77- 31  71 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2067 ",
+                "excerpt": "17.SSV Eintracht Überherrn      34   5  5 24   42- 89  20 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2068 ",
+                "excerpt": "18.FV Siersburg                 34   3  7 24   42-103  16 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2072 ",
+                "excerpt": "1.Hünfelder SV 1919            30  20  9  1   87- 24  69 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2074 ",
+                "excerpt": "2.SV 1928 Asbach Bad Hersfeld  30  20  6  4   78- 35  66 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2089 ",
+                "excerpt": "14.RSV 1919 Petersberg          30   7  9 14   52- 66  30 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2090 ",
+                "excerpt": "15.SV Steinbach 1920            30   7  5 18   49- 74  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2091 ",
+                "excerpt": "16.Melsunger FV 08              30   2  7 21   32- 80  13 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2095 ",
+                "excerpt": "1.FSV 1918 Braunfels           30  19  8  3   64- 29  65 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2097 ",
+                "excerpt": "2.SG Eintracht Wetzlar 05      30  18  6  6   57- 26  60 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2112 ",
+                "excerpt": "14.FC 1920 Burgsolms            30   8  6 16   48- 67  30 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2113 ",
+                "excerpt": "15.VfB 09 Wetter                30   7  9 14   32- 66  30 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2114 ",
+                "excerpt": "16.1.SC Gießen-Sachsenhausen    30   2  4 24   26-115  10 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2118 ",
+                "excerpt": "1.TSG 1862/1909 Weinheim       28  20  5  3   71- 26  65 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2120 ",
+                "excerpt": "2.TSG 1899 Hoffenheim [2]      28  17  8  3   61- 18  59 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2135 ",
+                "excerpt": "14.SV Schollbrunn               28   5  2 21   33- 77  17 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2136 ",
+                "excerpt": "15.SV 98 Schwetzingen           28   3  7 18   21- 57  16 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2137 ",
+                "excerpt": "16.SV Laudenbach                 0   0  0  0    0-  0   0 Withdrew, Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2141 ",
+                "excerpt": "1.SV 1949 Linx                 30  22  4  4   74- 19  70 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2143 ",
+                "excerpt": "2.FC Emmendingen 1903          30  19  4  7   75- 41  61 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2158 ",
+                "excerpt": "14.FC Singen 04                 30   6  6 18   44- 71  24 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2159 ",
+                "excerpt": "15.FC 1911 Neustadt/Schwarzwald 30   5  5 20   27- 84  20 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2160 ",
+                "excerpt": "16.FC Bötzingen 1949            30   3  9 18   41- 79  18 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2164 ",
+                "excerpt": "1.TSV 1846 Crailsheim          28  21  1  6   68- 23  64 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2166 ",
+                "excerpt": "2.Heidenheimer SB 1846         28  17  7  4   60- 27  58 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2179 ",
+                "excerpt": "13.VfB Friedrichshafen          28  10  1 17   44- 61  31 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2180 ",
+                "excerpt": "14.FV 08 Rottweil               28   8  6 14   31- 39  30 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2181 ",
+                "excerpt": "15.FV 1893 Ravensburg           28   6  4 18   27- 59  22 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2182 ",
+                "excerpt": "16.FV 1970 Biberach/Riß          0   0  0  0    0-  0   0 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2186 ",
+                "excerpt": "1.Würzburger FV                36  29  3  4  103- 31  90 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2188 ",
+                "excerpt": "2.TSV 1923 Großbardorf         36  24  7  5  103- 53  79 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2205 ",
+                "excerpt": "16.SpVgg Stegaurach             36   9  8 19   59- 82  35 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2206 ",
+                "excerpt": "17.SV 1919 Erlenbach/Main       36   7 10 19   44- 76  31 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2207 ",
+                "excerpt": "18.FVgg Bayern Kitzingen        36   5  7 24   40- 93  22 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2208 ",
+                "excerpt": "19.TSV Scheuerfeld              36   5  1 30   40-121  16 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2212 ",
+                "excerpt": "1.SpVgg 1919 Landshut          34  23  6  5   79- 28  75 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2214 ",
+                "excerpt": "2.1.FC Passau                  34  21  4  9   57- 29  67 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2231 ",
+                "excerpt": "16.1.FC Beilngries              34   9  8 17   52- 68  35 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2232 ",
+                "excerpt": "17.SV 1927 Hutthurm             34   8  8 18   39- 67  32 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2233 ",
+                "excerpt": "18.SV Perlesreut                34   6  8 20   27- 58  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2237 ",
+                "excerpt": "1.FC 1907 Memmingen            34  22  7  5   65- 28  73 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2239 ",
+                "excerpt": "2.SV Gendorf Burgkirchen       34  19 11  4   67- 26  68 Play-Off"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2256 ",
+                "excerpt": "16.SV Raisting                  34   5 12 17   40- 68  27 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2257 ",
+                "excerpt": "17.FC 1920 Gundelfingen/Donau   34   6  8 20   27- 67  26 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:2258 ",
+                "excerpt": "18.TSG 1890 Thannhausen         34   4  7 23   38- 87  19 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:789 ",
+                "excerpt": "1.SC Freiburg                  34 20  7  7  58-32  67 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:790 ",
+                "excerpt": "2.1.FC Köln                    34 18 11  5  63-45  65 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:791 ",
+                "excerpt": "3.Eintracht Frankfurt          34 17 11  6  59-33  62 Promoted"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:805 ",
+                "excerpt": "15.Eintracht Braunschweig       34  8 10 16  33-53  34 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:806 ",
+                "excerpt": "16.SSV Reutlingen               34 11  6 17  43-53  33 Relegated [-6]"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:807 ",
+                "excerpt": "17.FC St. Pauli                 34  7 10 17  48-67  31 Relegated"
+              },
+              {
+                "season": "2002/03",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit03.txt:808 ",
+                "excerpt": "18.SV Waldhof Mannheim          34  6  7 21  32-71  25 Relegated"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/duit04.txt:915",
+                "excerpt": "Second Round"
+              },
+              {
+                "season": "2003/04",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/duit04.txt:952",
+                "excerpt": "Third Round"
+              },
+              {
+                "season": "2004/05",
+                "categories": [
+                  "qualification",
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesd/duit-wom05.txt:449",
+                "excerpt": "Qualifying Round [Aug 15]"
+              },
+              {
+                "season": "2019/20",
+                "categories": [
+                  "movement"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesd/duit2020.txt:655 Author: Karel Stokkermans",
+                "excerpt": "playing at the fourth league level (they were promoted to the third level"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

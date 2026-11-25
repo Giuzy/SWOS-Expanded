@@ -224,6 +224,440 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "ecad720544949eeaf4b9717f216ab2af84db719425d9dcf90351a7508dd9e8bd": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Swiss Cup 1999/2000",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "209",
+              "rows": "192",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "192",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1999-08-06",
+              "max_date": "2000-04-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Swiss Cup 2000/01",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "220",
+              "rows": "199",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "199",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-12",
+              "max_date": "2001-04-12"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Swiss Cup 2001/02",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "229",
+              "rows": "202",
+              "unique_oriented_pairs": "202",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "202",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-08-10",
+              "max_date": "2002-03-21"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Swiss Cup 2007/08",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "73",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-09-14",
+              "max_date": "2007-12-16"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Swiss Cup 2008/09",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-09-19",
+              "max_date": "2009-03-18"
+            },
+            {
+              "source": "github/openfootball/europe",
+              "competition": "Swiss Cup",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "63",
+              "unique_oriented_pairs": "63",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "55",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-08-18",
+              "max_date": "2024-06-02"
+            },
+            {
+              "source": "github/openfootball/europe",
+              "competition": "Swiss Cup",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "64",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "56",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-08-16",
+              "max_date": "2025-04-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "1999/00",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "209",
+              "rows": "192",
+              "unique_oriented_pairs": "191",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "192",
+              "duplicate_pair_occurrences": "1",
+              "min_date": "1999-08-06",
+              "max_date": "2000-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "220",
+              "rows": "199",
+              "unique_oriented_pairs": "199",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "199",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-12",
+              "max_date": "2001-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "2001/02",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "229",
+              "rows": "202",
+              "unique_oriented_pairs": "202",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "202",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2001-08-10",
+              "max_date": "2002-03-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "8",
+              "rows": "4",
+              "unique_oriented_pairs": "4",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "4",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-12-07",
+              "max_date": "2003-12-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "2004/05",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "74",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2004-09-17",
+              "max_date": "2005-02-13"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "2006/07",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "96",
+              "rows": "91",
+              "unique_oriented_pairs": "91",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "91",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2006-07-29",
+              "max_date": "2007-04-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "2007/08",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "73",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2007-09-14",
+              "max_date": "2007-12-16"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Swiss Cup",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "67",
+              "rows": "62",
+              "unique_oriented_pairs": "62",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "62",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-09-19",
+              "max_date": "2009-03-18"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "1996/1997",
+                "categories": [
+                  "format",
+                  "regulation"
+                ],
+                "values": {
+                  "principalRounds": 2,
+                  "mainRounds": 6,
+                  "format": "single elimination",
+                  "europeanByesAtR64": [
+                    "Grasshopper Club Zürich",
+                    "Neuchâtel Xamax",
+                    "FC Sion",
+                    "FC Aarau"
+                  ],
+                  "extraTimeObserved": true,
+                  "penaltiesObserved": true,
+                  "finalVenue": "Wankdorf, Bern"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SUI/9697/NATIONAL_CUP.json#block72Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit00.txt:1549",
+                "excerpt": "1st Principal Round"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit00.txt:1613",
+                "excerpt": "2nd Principal Round"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit00.txt:1676",
+                "excerpt": "3th Principal Round"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit00.txt:1711",
+                "excerpt": "4th Principal Round"
+              },
+              {
+                "season": "1999/00",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit00.txt:1757",
+                "excerpt": "[Replay Nov 14]"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit01.txt:1695",
+                "excerpt": "1st Principal Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit01.txt:1766",
+                "excerpt": "2nd Principal Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit01.txt:1830",
+                "excerpt": "3th Principal Round"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit01.txt:1879",
+                "excerpt": "4th Principal Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit02.txt:1599",
+                "excerpt": "1st Principal Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit02.txt:1674",
+                "excerpt": "2nd Principal Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit02.txt:1739",
+                "excerpt": "3th Principal Round"
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "evolution"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit02.txt:1828",
+                "excerpt": "The player Goran Obradovic of Servette FC was suspended."
+              },
+              {
+                "season": "2001/02",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit02.txt:1829",
+                "excerpt": "FC Wangen bei Olten is qualified."
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit07.txt:1663",
+                "excerpt": "1. Qualifikationsrunde of 1. Liga"
+              },
+              {
+                "season": "2006/07",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit07.txt:1714",
+                "excerpt": "2. Qualifikationsrunde of 1. Liga"
+              },
+              {
+                "season": "2007/08",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit08.txt:1804",
+                "excerpt": "[Penalties : Carbone 0-0, Rossi 0-0, Neri 1-0, Bah 1-0, Pouga 2-0,"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesz/zwit09.txt:1664",
+                "excerpt": "[Penalties : Gajic 1-0, Obradovic 1-1, Paiva 1-2,"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

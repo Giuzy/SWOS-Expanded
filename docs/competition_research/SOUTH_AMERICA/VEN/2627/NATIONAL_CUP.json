@@ -308,6 +308,3457 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "433b4f3ccd82d3e4545b35fa711e107101c4d827f8b23185b96ce031d03a35d0": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2010",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-26",
+              "max_date": "2010-12-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2015",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-19",
+              "max_date": "2015-10-28"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2016",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-10-12",
+              "max_date": "2016-10-19"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2017",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-11-08",
+              "max_date": "2017-11-29"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2018",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-29",
+              "max_date": "2018-10-31"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2019",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-11-20",
+              "max_date": "2019-11-27"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2024",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-07",
+              "max_date": "2024-07-20"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa Venezuela 2025",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-07-29",
+              "max_date": "2025-10-08"
+            },
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Copa venezuela",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "52",
+              "rows": "36",
+              "unique_oriented_pairs": "36",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "36",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-02",
+              "max_date": "2009-09-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2000/01",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "112",
+              "unique_oriented_pairs": "112",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "112",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2000-08-20",
+              "max_date": "2000-11-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2008/09",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "45",
+              "rows": "29",
+              "unique_oriented_pairs": "29",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "29",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2008-08-27",
+              "max_date": "2008-09-07"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2009",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "4",
+              "rows": "3",
+              "unique_oriented_pairs": "3",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "3",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-11-28",
+              "max_date": "2009-12-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2009/10",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "40",
+              "rows": "26",
+              "unique_oriented_pairs": "26",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "26",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2009-09-02",
+              "max_date": "2009-09-06"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2010",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "47",
+              "rows": "60",
+              "unique_oriented_pairs": "60",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "60",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-26",
+              "max_date": "2010-12-08"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2015",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-19",
+              "max_date": "2015-10-28"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2016",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-10-12",
+              "max_date": "2016-10-19"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2017",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-11-08",
+              "max_date": "2017-11-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2018",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-29",
+              "max_date": "2018-10-31"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2019",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "2",
+              "rows": "2",
+              "unique_oriented_pairs": "2",
+              "double_round_robin_candidate": "1",
+              "inferred_dates": "2",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-11-20",
+              "max_date": "2019-11-27"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2024",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-07-07",
+              "max_date": "2024-07-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Copa Venezuela",
+              "season": "2025",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "18",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-07-29",
+              "max_date": "2025-10-08"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez01.txt",
+                "edition": "2000/2001",
+                "tableLine": 14,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Atlético Monagas",
+                  "Carabobo FC",
+                  "Caracas FC",
+                  "Deportivo Galícia",
+                  "Deportivo ItalChacao",
+                  "Deportivo Trujillanos",
+                  "Deportivo Táchira",
+                  "El Vigía FC",
+                  "Estudiantes de Mérida",
+                  "Llaneros de Guanaré",
+                  "Mineros de Guayana",
+                  "Nacional Táchira",
+                  "Portuguesa FC",
+                  "UD Lara",
+                  "ULA",
+                  "Zulianos FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez01.txt",
+                "edition": "2000/2001",
+                "tableLine": 217,
+                "phase": "",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 16,
+                "balancedRankedTableCandidate": false,
+                "teams": [
+                  "Atlético Monagas",
+                  "Carabobo FC",
+                  "Caracas FC",
+                  "Deportivo Galícia",
+                  "Deportivo ItalChacao",
+                  "Deportivo Trujillanos",
+                  "Deportivo Táchira",
+                  "El Vigía FC",
+                  "Estudiantes de Mérida",
+                  "Llaneros de Guanaré",
+                  "Mineros de Guayana",
+                  "Nacional Táchira",
+                  "Portuguesa FC",
+                  "UD Lara",
+                  "ULA",
+                  "Zulianos FC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2017.txt",
+                "edition": "2017",
+                "tableLine": 699,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 2,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Deportivo Nueva Esparta",
+                  "Fundación UDC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2017.txt",
+                "edition": "2017",
+                "tableLine": 704,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "La Mejía",
+                  "Minasoro",
+                  "Minervén"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2017.txt",
+                "edition": "2017",
+                "tableLine": 709,
+                "phase": "Group 3",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Hermandad Gallega",
+                  "Libertador",
+                  "Pellícano"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2017.txt",
+                "edition": "2017",
+                "tableLine": 714,
+                "phase": "Group 4",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Arroceros de Calabozo",
+                  "Ortiz",
+                  "Pacairigua"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2017.txt",
+                "edition": "2017",
+                "tableLine": 719,
+                "phase": "Group 5",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Madeira Club Lara",
+                  "Talentos del Sur",
+                  "Unión Deportiva Lara"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2017.txt",
+                "edition": "2017",
+                "tableLine": 724,
+                "phase": "Group 6",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 2,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Ilusión Naranja",
+                  "Internacional Turén"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2017.txt",
+                "edition": "2017",
+                "tableLine": 729,
+                "phase": "Group 7",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Atlético Mérida",
+                  "Independiente La Fría",
+                  "Policía del Táchira"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2018.txt",
+                "edition": "2018",
+                "tableLine": 731,
+                "phase": "Group 1",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Angostura",
+                  "Chicó de Guayana",
+                  "LALA"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2018.txt",
+                "edition": "2018",
+                "tableLine": 736,
+                "phase": "Group 2",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Atlético Furrial",
+                  "Margarita",
+                  "Petroleros"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2018.txt",
+                "edition": "2018",
+                "tableLine": 741,
+                "phase": "Group 3",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Deportivo Petare",
+                  "Libertador",
+                  "Universidad Central"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2018.txt",
+                "edition": "2018",
+                "tableLine": 746,
+                "phase": "Group 4",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "GV Maracay",
+                  "Yaracuy",
+                  "Yaracuyanos"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2018.txt",
+                "edition": "2018",
+                "tableLine": 751,
+                "phase": "Group 5",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Hermanos Colmenarez",
+                  "Llaneros EF",
+                  "ULA"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2018.txt",
+                "edition": "2018",
+                "tableLine": 756,
+                "phase": "Group 6",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Deportivo JBL",
+                  "Titanes",
+                  "Unión Atlético Falcón"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2018.txt",
+                "edition": "2018",
+                "tableLine": 761,
+                "phase": "Group 7",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 3,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "El Vigía",
+                  "Real Frontera",
+                  "Ureña SC"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2025.txt",
+                "edition": "2025",
+                "tableLine": 137,
+                "phase": "Group A",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Aragua",
+                  "Caracas FC",
+                  "Deportivo Miranda",
+                  "Dynamo Puerto"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2025.txt",
+                "edition": "2025",
+                "tableLine": 145,
+                "phase": "Group B",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "El Vigía",
+                  "Estudiantes FC de Mérida",
+                  "Real Frontera",
+                  "Ureña"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2025.txt",
+                "edition": "2025",
+                "tableLine": 153,
+                "phase": "Group C",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Marítimo de la Guaira",
+                  "Titanes",
+                  "Yaracuyanos",
+                  "Zamora"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2025.txt",
+                "edition": "2025",
+                "tableLine": 161,
+                "phase": "Group D",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Angostura",
+                  "Bolívar",
+                  "Mineros de Guayana",
+                  "Monagas"
+                ]
+              },
+              {
+                "source": "rsssf-deep/corpus.zip",
+                "document": "corpus/tablesv/venez2025.txt",
+                "edition": "2025",
+                "tableLine": 169,
+                "phase": "Group E",
+                "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                "date": null,
+                "rows": 4,
+                "balancedRankedTableCandidate": true,
+                "teams": [
+                  "Barquisimeto",
+                  "Héroes de Falcón",
+                  "Rayo Zuliano",
+                  "Trujillanos"
+                ]
+              }
+            ],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 16,
+                  "lost": 4,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 14,
+                  "points": 26,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Deportivo Táchira",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:14"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 14,
+                  "gf": 23,
+                  "lost": 4,
+                  "note": "[Mérida]",
+                  "phase": "",
+                  "played": 14,
+                  "points": 24,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "ULA",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:15"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 11,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 23,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Deportivo Trujillanos",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:16"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 15,
+                  "gf": 25,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 22,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Estudiantes de Mérida",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:17"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 19,
+                  "gf": 18,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 19,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Nacional Táchira",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:18"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 13,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 17,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "El Vigía FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:19"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 21,
+                  "gf": 13,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 14,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Portuguesa FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:20"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 12,
+                  "lost": 9,
+                  "note": "[Maracaibo]",
+                  "phase": "",
+                  "played": 14,
+                  "points": 9,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Zulianos FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:21"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 6,
+                  "gf": 16,
+                  "lost": 4,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 14,
+                  "points": 26,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Deportivo Táchira",
+                  "won": 8
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:217"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 14,
+                  "gf": 23,
+                  "lost": 4,
+                  "note": "[Mérida]",
+                  "phase": "",
+                  "played": 14,
+                  "points": 24,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "ULA",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:218"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 11,
+                  "gf": 14,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 23,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Deportivo Trujillanos",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:219"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 15,
+                  "gf": 25,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 22,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Estudiantes de Mérida",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:220"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 19,
+                  "gf": 18,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 19,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Nacional Táchira",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:221"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 18,
+                  "gf": 13,
+                  "lost": 7,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 17,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "El Vigía FC",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:222"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 21,
+                  "gf": 13,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 14,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Portuguesa FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:223"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 30,
+                  "gf": 12,
+                  "lost": 9,
+                  "note": "[Maracaibo]",
+                  "phase": "",
+                  "played": 14,
+                  "points": 9,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Zulianos FC",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:224"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 15,
+                  "gf": 30,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 14,
+                  "points": 27,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Caracas FC",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:228"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 8,
+                  "gf": 13,
+                  "lost": 3,
+                  "note": "[Caracas]",
+                  "phase": "",
+                  "played": 14,
+                  "points": 25,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Deportivo ItalChacao",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:229"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 10,
+                  "gf": 22,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 24,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Carabobo FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:230"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 14,
+                  "gf": 28,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 20,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Mineros de Guayana",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:231"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 22,
+                  "gf": 28,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 20,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Deportivo Galícia",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:232"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 20,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Atlético Monagas",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:233"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 40,
+                  "gf": 18,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 9,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "Llaneros de Guanaré",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:234"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 37,
+                  "gf": 5,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 4,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 217
+                  },
+                  "team": "UD Lara",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:235"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:237",
+                "excerpt": "NB: top-10 teams (based on average points 1999/00 and 2000/01) qualified"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 15,
+                  "gf": 30,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "",
+                  "played": 14,
+                  "points": 27,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Caracas FC",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:25"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 8,
+                  "gf": 13,
+                  "lost": 3,
+                  "note": "[Caracas]",
+                  "phase": "",
+                  "played": 14,
+                  "points": 25,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Deportivo ItalChacao",
+                  "won": 7
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:26"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 6,
+                  "ga": 10,
+                  "gf": 22,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 24,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Carabobo FC",
+                  "won": 6
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:27"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 14,
+                  "gf": 28,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 20,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Mineros de Guayana",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:28"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 22,
+                  "gf": 28,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 20,
+                  "rank": 5,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Deportivo Galícia",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:29"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 5,
+                  "ga": 17,
+                  "gf": 19,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 20,
+                  "rank": 6,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Atlético Monagas",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:30"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 40,
+                  "gf": 18,
+                  "lost": 9,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 9,
+                  "rank": 7,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "Llaneros de Guanaré",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:31"
+              },
+              {
+                "season": "2000/01",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 4,
+                  "ga": 37,
+                  "gf": 5,
+                  "lost": 10,
+                  "note": "",
+                  "phase": "",
+                  "played": 14,
+                  "points": 4,
+                  "rank": 8,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 14
+                  },
+                  "team": "UD Lara",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez01.txt:32"
+              },
+              {
+                "season": "2008/09",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez09.txt:1138",
+                "excerpt": "Dep. Anzoátegui SC champions and qualify to Copa Nissan Sudamericana 2009."
+              },
+              {
+                "season": "2009/10",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2010.txt:733",
+                "excerpt": "NB: Caracas FC qualify to Copa Sudamericana 2010 as cup winners"
+              },
+              {
+                "season": "2010",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2011.txt:661",
+                "excerpt": "Trujillanos FC qualify to Copa Sudamericana 2011."
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:699 ",
+                "excerpt": "1.Deportivo Nueva Esparta       2   0  2  0   4- 4   2  Qualified"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:704 ",
+                "excerpt": "1.Minasoro                      2   1  1  0   4- 2   4  Qualified"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:709 ",
+                "excerpt": "1.Hermandad Gallega             2   2  0  0   5- 2   6  Qualified"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:714 ",
+                "excerpt": "1.Pacairigua                    2   1  0  1   7- 6   3  Qualified"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:719 ",
+                "excerpt": "1.Talentos del Sur              2   1  1  0   4- 2   4  Qualified"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:724 ",
+                "excerpt": "1.Internacional Turén           2   1  1  0   5- 4   4  Qualified"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:729 ",
+                "excerpt": "1.Independiente La Fría         2   1  1  0   4- 1   4  Qualified"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 2,
+                  "points": 2,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 699
+                  },
+                  "team": "Deportivo Nueva Esparta",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:699"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 2,
+                  "points": 2,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 699
+                  },
+                  "team": "Fundación UDC",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:700"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 704
+                  },
+                  "team": "Minasoro",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:704"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 704
+                  },
+                  "team": "Minervén",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:705"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 704
+                  },
+                  "team": "La Mejía",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:706"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 709
+                  },
+                  "team": "Hermandad Gallega",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:709"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 709
+                  },
+                  "team": "Pellícano",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:710"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 709
+                  },
+                  "team": "Libertador",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:711"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 6,
+                  "gf": 7,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 714
+                  },
+                  "team": "Pacairigua",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:714"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 714
+                  },
+                  "team": "Arroceros de Calabozo",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:715"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 7,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 714
+                  },
+                  "team": "Ortiz",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:716"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 5",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 719
+                  },
+                  "team": "Talentos del Sur",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:719"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 719
+                  },
+                  "team": "Unión Deportiva Lara",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:720"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 719
+                  },
+                  "team": "Madeira Club Lara",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:721"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 6",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 724
+                  },
+                  "team": "Internacional Turén",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:724"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 2,
+                  "points": 1,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 724
+                  },
+                  "team": "Ilusión Naranja",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:725"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 7",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 729
+                  },
+                  "team": "Independiente La Fría",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:729"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 729
+                  },
+                  "team": "Atlético Mérida",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:730"
+              },
+              {
+                "season": "2017",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 1,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 2,
+                  "points": 1,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 729
+                  },
+                  "team": "Policía del Táchira",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2017.txt:731"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:731 ",
+                "excerpt": "1.Angostura                     2   2  0  0   7- 5   6  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:732 ",
+                "excerpt": "2.LALA                          2   1  0  1   3- 3   3  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:736 ",
+                "excerpt": "1.Margarita                     2   2  0  0   4- 1   6  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:737 ",
+                "excerpt": "2.Atlético Furrial              2   0  1  1   3- 4   1  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:741 ",
+                "excerpt": "1.Libertador                    2   1  1  0   3- 0   4  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:742 ",
+                "excerpt": "2.Deportivo Petare              2   1  1  0   2- 1   4  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:746 ",
+                "excerpt": "1.Yaracuyanos                   2   2  0  0   6- 1   6  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:747 ",
+                "excerpt": "2.Yaracuy                       2   1  0  1   6- 4   3  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:751 ",
+                "excerpt": "1.ULA                           2   1  0  1   5- 4   3  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:752 ",
+                "excerpt": "2.Llaneros EF                   2   1  0  1   3- 2   3  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:756 ",
+                "excerpt": "1.Titanes                       2   2  0  0   7- 0   6  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:757 ",
+                "excerpt": "2.Deportivo JBL                 2   1  0  1   2- 4   3  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:761 ",
+                "excerpt": "1.Real Frontera                 2   2  0  0   5- 2   6  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:762 ",
+                "excerpt": "2.Ureña SC                      2   1  0  1   3- 4   3  Qualified"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 731
+                  },
+                  "team": "Angostura",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:731"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 3,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 1",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 731
+                  },
+                  "team": "LALA",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:732"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 3,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 1",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 731
+                  },
+                  "team": "Chicó de Guayana",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:733"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 4,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 736
+                  },
+                  "team": "Margarita",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:736"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 2",
+                  "played": 2,
+                  "points": 1,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 736
+                  },
+                  "team": "Atlético Furrial",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:737"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 4,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 2",
+                  "played": 2,
+                  "points": 1,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 736
+                  },
+                  "team": "Petroleros",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:738"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 0,
+                  "gf": 3,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 741
+                  },
+                  "team": "Libertador",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:741"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 2,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 3",
+                  "played": 2,
+                  "points": 4,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 741
+                  },
+                  "team": "Deportivo Petare",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:742"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 1,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 3",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 741
+                  },
+                  "team": "Universidad Central",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:743"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 1,
+                  "gf": 6,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 746
+                  },
+                  "team": "Yaracuyanos",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:746"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 6,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 4",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 746
+                  },
+                  "team": "Yaracuy",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:747"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 4",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 746
+                  },
+                  "team": "GV Maracay",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:748"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 5,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 5",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 751
+                  },
+                  "team": "ULA",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:751"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 5",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 751
+                  },
+                  "team": "Llaneros EF",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:752"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group 5",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 751
+                  },
+                  "team": "Hermanos Colmenarez",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:753"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 0,
+                  "gf": 7,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 6",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 756
+                  },
+                  "team": "Titanes",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:756"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 2,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 6",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 756
+                  },
+                  "team": "Deportivo JBL",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:757"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 5,
+                  "gf": 0,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 6",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 756
+                  },
+                  "team": "Unión Atlético Falcón",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:758"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 2,
+                  "gf": 5,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group 7",
+                  "played": 2,
+                  "points": 6,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 761
+                  },
+                  "team": "Real Frontera",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:761"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 3,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group 7",
+                  "played": 2,
+                  "points": 3,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 761
+                  },
+                  "team": "Ureña SC",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:762"
+              },
+              {
+                "season": "2018",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 4,
+                  "gf": 2,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group 7",
+                  "played": 2,
+                  "points": 0,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 761
+                  },
+                  "team": "El Vigía",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2018.txt:763"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:137 ",
+                "excerpt": "1.Caracas FC                    6   3  2  1  10- 4  11       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:139 ",
+                "excerpt": "2.Dynamo Puerto                 6   3  1  2  11- 9  10       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:145 ",
+                "excerpt": "1.Estudiantes FC de Mérida      6   5  1  0  16- 1  16       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:147 ",
+                "excerpt": "2.Real Frontera                 6   3  1  2   7- 6  10       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:153 ",
+                "excerpt": "1.Marítimo de la Guaira         6   4  2  0  13- 7  14       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:161 ",
+                "excerpt": "1.Monagas                       6   5  1  0  13- 5  16       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:169 ",
+                "excerpt": "1.Rayo Zuliano                  6   4  1  1  14- 4  13       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:171 ",
+                "excerpt": "2.Barquisimeto                  6   4  0  2  12- 9  12       Qualified"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 10,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 11,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 137
+                  },
+                  "team": "Caracas FC",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:137"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 9,
+                  "gf": 11,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 137
+                  },
+                  "team": "Dynamo Puerto",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:139"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 4,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 137
+                  },
+                  "team": "Deportivo Miranda",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:141"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 16,
+                  "gf": 5,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group A",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 137
+                  },
+                  "team": "Aragua",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:142"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 1,
+                  "gf": 16,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 145
+                  },
+                  "team": "Estudiantes FC de Mérida",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:145"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 6,
+                  "gf": 7,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 10,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 145
+                  },
+                  "team": "Real Frontera",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:147"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 8,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 145
+                  },
+                  "team": "El Vigía",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:149"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 16,
+                  "gf": 3,
+                  "lost": 6,
+                  "note": "",
+                  "phase": "Group B",
+                  "played": 6,
+                  "points": 0,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 145
+                  },
+                  "team": "Ureña",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:150"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 7,
+                  "gf": 13,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 14,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 153
+                  },
+                  "team": "Marítimo de la Guaira",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:153"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 7,
+                  "gf": 9,
+                  "lost": 1,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 153
+                  },
+                  "team": "Zamora",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:155"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 3,
+                  "ga": 7,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 153
+                  },
+                  "team": "Titanes",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:157"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 11,
+                  "gf": 5,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group C",
+                  "played": 6,
+                  "points": 3,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 153
+                  },
+                  "team": "Yaracuyanos",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:158"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 5,
+                  "gf": 13,
+                  "lost": 0,
+                  "note": "Qualified",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 16,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 161
+                  },
+                  "team": "Monagas",
+                  "won": 5
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:161"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 8,
+                  "gf": 12,
+                  "lost": 3,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 9,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 161
+                  },
+                  "team": "Mineros de Guayana",
+                  "won": 3
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:163"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 2,
+                  "ga": 8,
+                  "gf": 5,
+                  "lost": 2,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 8,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 161
+                  },
+                  "team": "Bolívar",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:165"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 15,
+                  "gf": 6,
+                  "lost": 5,
+                  "note": "",
+                  "phase": "Group D",
+                  "played": 6,
+                  "points": 1,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 161
+                  },
+                  "team": "Angostura",
+                  "won": 0
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:166"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 4,
+                  "gf": 14,
+                  "lost": 1,
+                  "note": "Qualified",
+                  "phase": "Group E",
+                  "played": 6,
+                  "points": 13,
+                  "rank": 1,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 169
+                  },
+                  "team": "Rayo Zuliano",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:169"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 9,
+                  "gf": 12,
+                  "lost": 2,
+                  "note": "Qualified",
+                  "phase": "Group E",
+                  "played": 6,
+                  "points": 12,
+                  "rank": 2,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 169
+                  },
+                  "team": "Barquisimeto",
+                  "won": 4
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:171"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 0,
+                  "ga": 14,
+                  "gf": 6,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group E",
+                  "played": 6,
+                  "points": 6,
+                  "rank": 3,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 169
+                  },
+                  "team": "Héroes de Falcón",
+                  "won": 2
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:173"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "table"
+                ],
+                "values": {
+                  "drawn": 1,
+                  "ga": 13,
+                  "gf": 8,
+                  "lost": 4,
+                  "note": "",
+                  "phase": "Group E",
+                  "played": 6,
+                  "points": 4,
+                  "rank": 4,
+                  "table": {
+                    "date": null,
+                    "heading": "RANKED_ROWS_NO_EXPLICIT_TABLE_HEADING",
+                    "line": 169
+                  },
+                  "team": "Trujillanos",
+                  "won": 1
+                },
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:174"
+              },
+              {
+                "season": "2025",
+                "categories": [
+                  "qualification"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tablesv/venez2025.txt:176",
+                "excerpt": "NB: Barquisimeto, Dynamo Puerto and Real Frontera qualified as three best runners-up"
+              },
+              {
+                "season": "2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "teams": 28,
+                  "groups": {
+                    "entrants": 20,
+                    "groups": 5,
+                    "clubsPerGroup": 4,
+                    "access": {
+                      "tier2": 14,
+                      "tier1NonQuadrangular": 6
+                    },
+                    "doubleRoundRobin": true,
+                    "gamesPerClub": 6,
+                    "qualifiers": {
+                      "winners": 5,
+                      "bestRunnersUp": 3
+                    }
+                  },
+                  "knockout": {
+                    "round16": 16,
+                    "groupQualifiers": 8,
+                    "tier1Quadrangular": 8,
+                    "legs": 2,
+                    "stages": [
+                      "R16",
+                      "QF",
+                      "SF",
+                      "Final"
+                    ]
+                  }
+                },
+                "source": "repository/research",
+                "locator": "SOUTH_AMERICA/VEN/2627/NATIONAL_CUP.json#block110Research",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

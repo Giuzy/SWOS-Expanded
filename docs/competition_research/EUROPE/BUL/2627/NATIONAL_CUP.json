@@ -168,6 +168,138 @@
             }
           ],
           "crossRowConflict": false
+        },
+        "6dae00d00446cf3debb20330a4d98b1a321291bd3730094a37061d2c629874b7": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "corpus/corpus.zip",
+              "competition": "Bulgarian Cup 2003/04",
+              "season": "2003/04",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "68",
+              "rows": "38",
+              "unique_oriented_pairs": "38",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "38",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2003-10-21",
+              "max_date": "2003-10-21"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2003/04",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {},
+                "source": "corpus/corpus.zip",
+                "locator": "corpus/tablesb/bulg04.txt:650 Author: Iordan Tsirov",
+                "excerpt": "[penalty shootout:"
+              },
+              {
+                "season": "2025/2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "roundOf32": 32,
+                  "roundOf32DrawPairs": 16,
+                  "drawDate": "2025-09-26",
+                  "exampleMatchDate": "2025-10-28"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/BUL/2627/NATIONAL_CUP.json#sportRuleEvidence45",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2025/2026",
+                "categories": [
+                  "format"
+                ],
+                "values": {
+                  "semifinalLegs": 2,
+                  "semifinalFirstHome": "first drawn",
+                  "semifinalDrawDate": "2026-02-18",
+                  "quarterfinalDrawDate": "2025-12-18",
+                  "roundOf16DrawDate": "2025-11-05",
+                  "observedRoundOf16Window": [
+                    "2025-12-11",
+                    "2025-12-15"
+                  ]
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/BUL/2627/NATIONAL_CUP.json#sportRuleEvidence46",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "format",
+                  "qualification",
+                  "regulation"
+                ],
+                "values": {
+                  "regionalQualifiers": 20,
+                  "regionalQualificationLegs": 1,
+                  "regionalTie": "direct penalties after 90 minutes",
+                  "secondPreliminary": {
+                    "tier2": 16,
+                    "regional": 20,
+                    "winners": 18,
+                    "legs": 1,
+                    "regionalHosts": true,
+                    "crossPotPairs": 16,
+                    "regionalOnlyPairs": 2,
+                    "samePotHost": "first drawn"
+                  },
+                  "roundOf32": {
+                    "tier1": 14,
+                    "preliminaryWinners": 18,
+                    "legs": 1,
+                    "preliminaryHosts": true,
+                    "crossPotPairs": 14,
+                    "preliminaryOnlyPairs": 2,
+                    "samePotHost": "first drawn"
+                  },
+                  "roundOf16Legs": 1,
+                  "quarterfinalLegs": 1,
+                  "semifinalLegs": 2,
+                  "finalLegs": 1,
+                  "roundOf16QuarterfinalDraw": "open draw first drawn hosts",
+                  "semifinalFirstHome": "first drawn",
+                  "europeanAccess": "cup winner; league champion double reallocates Europa to league rank 2, Conference playoff rank 4 instead of cup finalist",
+                  "nationalStageTieResolution": "extra time 2x15 then penalties",
+                  "semifinalAggregateTieResolution": "extra time 2x15 in second leg then penalties",
+                  "semifinalVenue": "top-tier licensed stadium",
+                  "finalVenueSelection": "before semifinal draw",
+                  "finalNominalHome": "organizer determines",
+                  "unexcusedWithdrawal": "excluded from following edition; administrative sanction",
+                  "forfeit": "elimination; both legs awarded as losses if two-leg tie",
+                  "playerEligibility": "top-tier match sheet and starting XI conditions apply",
+                  "supercupDoubleWinnerReplacement": "league runner-up",
+                  "drawDeadlineHoursBeforeRound": 72,
+                  "shootoutImpossibleExceptionalOutcome": "draw after inability to restore conditions, witnessed by officials and club representatives"
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/BUL/2627/NATIONAL_CUP.json#sportRuleEvidence77",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
         }
       },
       "assessments": {

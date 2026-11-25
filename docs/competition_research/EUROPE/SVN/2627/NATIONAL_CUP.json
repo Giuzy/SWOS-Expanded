@@ -135,7 +135,272 @@
       ],
       "conflicts": [],
       "reviewRequired": true,
-      "observations": {},
+      "observations": {
+        "3c3ebfc63410b6042167c8d3358ccdc783a0b040e1dee697aa5e2d074e8c55f7": {
+          "fullNativeRosterCandidate": false,
+          "phasePlan": null,
+          "phaseCategory": "NATIONAL_CUP",
+          "phaseQueue": "CUP_REVIEW",
+          "historyObservations": [
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2010/11",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "33",
+              "unique_oriented_pairs": "33",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "33",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2010-08-25",
+              "max_date": "2011-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2011/12",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "25",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2011-08-25",
+              "max_date": "2012-05-23"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2012/13",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "26",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2012-08-22",
+              "max_date": "2013-05-29"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2013/14",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2013-08-21",
+              "max_date": "2014-05-21"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2014/15",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "33",
+              "unique_oriented_pairs": "33",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "33",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2014-08-20",
+              "max_date": "2015-05-20"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2015/16",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2015-08-19",
+              "max_date": "2016-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2016/17",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2016-08-17",
+              "max_date": "2017-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2017/18",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "27",
+              "rows": "31",
+              "unique_oriented_pairs": "31",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "31",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2017-08-15",
+              "max_date": "2018-04-12"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2018/19",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "32",
+              "unique_oriented_pairs": "32",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "32",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2018-08-14",
+              "max_date": "2019-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2019/20",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "28",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2019-08-14",
+              "max_date": "2020-06-10"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2020/21",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "16",
+              "rows": "15",
+              "unique_oriented_pairs": "15",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "15",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2020-10-20",
+              "max_date": "2021-05-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2022/23",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2022-11-08",
+              "max_date": "2023-04-26"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2023/24",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2023-11-21",
+              "max_date": "2024-04-25"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2024/25",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2024-10-29",
+              "max_date": "2025-04-24"
+            },
+            {
+              "source": "rsssf-deep/corpus.zip",
+              "competition": "Pokal Pivovarna Union",
+              "season": "2025/26",
+              "season_basis": "SOURCE_TITLE",
+              "teams": "32",
+              "rows": "30",
+              "unique_oriented_pairs": "30",
+              "double_round_robin_candidate": "0",
+              "inferred_dates": "30",
+              "duplicate_pair_occurrences": "0",
+              "min_date": "2025-10-21",
+              "max_date": "2026-04-22"
+            }
+          ],
+          "crossRowConflict": false,
+          "deepEvidence": {
+            "editions": [],
+            "unresolvedEditionGroups": [],
+            "conflicts": [],
+            "publishedTableCandidates": [],
+            "observedTableMembershipChanges": [],
+            "ruleAndTableEvidence": [
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slov2011.txt:366",
+                "excerpt": "First Round [Aug 25]"
+              },
+              {
+                "season": "2010/11",
+                "categories": [
+                  "format"
+                ],
+                "values": {},
+                "source": "rsssf-deep/corpus.zip",
+                "locator": "corpus/tabless/slov2011.txt:380",
+                "excerpt": "Second Round [Sep 15]"
+              },
+              {
+                "season": "2026/2027",
+                "categories": [
+                  "regulation"
+                ],
+                "values": {
+                  "registeredClubs": 181,
+                  "regionalPreliminaries": true,
+                  "regionalWinnersJoinHigherTiers": true
+                },
+                "source": "repository/research",
+                "locator": "EUROPE/SVN/2627/NATIONAL_CUP.json#sportRuleEvidence78",
+                "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+              }
+            ],
+            "scope": "Exact edition candidates only; historical results before START; not verified regulations or rankings.",
+            "corroboratedAliasCandidates": []
+          }
+        }
+      },
       "assessments": {
         "e670db019766d84ce8f03273bcea23fbadc19dc4cc4b68086bdffbcec5a25b5c": {
           "status": "I",

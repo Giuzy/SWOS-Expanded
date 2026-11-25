@@ -1,0 +1,296 @@
+{
+  "block": 145,
+  "head": "16a1541bd02891107ccfdacb0c8a05665b246fc5",
+  "status": "NAMED_CLOSURE_COMPONENT_AUDIT",
+  "scope": "Existing evidence only. No new scores or fixtures. Static identity mapping by existing primary-file CE formula; current native DB unchanged. Complete component status is not whole-competition closure. NA excluded; PARTIAL includes uncertain applicability. Percentage is completed categories/applicable, not subjective percentage of data volume.",
+  "rows": [
+    {
+      "row": 432,
+      "name": "CAF Super Cup",
+      "edition": "2026",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Official name and exact existing slot"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "2/2 initial entrants, CAF prior winners and native keys"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "Two teams, one match"
+        },
+        "calendar": {
+          "status": "COMPLETE",
+          "evidence": "Actual 8 Nov 2026, 1/1 reconciled"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "90 min, direct penalties; effective 2026 substitutions and administrative/eligibility details not verified"
+        },
+        "movement": {
+          "status": "NA",
+          "evidence": "Cup"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Entry routes known; outgoing access not explicitly audited"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "Starts after cutoff"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "First played 1993 candidate; permanent changes not fully audited"
+        }
+      },
+      "complete": 4,
+      "applicable": 7,
+      "mapping": [
+        {
+          "sport": "Mamelodi Sundowns",
+          "native": "SUNDOWNS",
+          "uuid": "b338ba44-e736-5314-9032-7a6f35418cac",
+          "file": 69,
+          "ordinal": 1,
+          "stableClub": 4521986,
+          "blob": "c9715e2065b16807009d95b3803c3bfa10bd2f08"
+        },
+        {
+          "sport": "USM Alger",
+          "native": "USM ALGER",
+          "uuid": "509a4b73-4364-50ab-bfb1-832f325649ee",
+          "file": 42,
+          "ordinal": 9,
+          "stableClub": 2752522,
+          "blob": "e9779c1cee87f4a59f1439ee0c7307714b50b60c"
+        }
+      ],
+      "sourceRowBlob": "41fe1b4c4f1873bb9b950f7bc2d1f1f656ef4d43"
+    },
+    {
+      "row": 425,
+      "name": "Recopa Sudamericana",
+      "edition": "2027 initial / 2026 reference",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Official name and native slot"
+        },
+        "participants": {
+          "status": "PARTIAL",
+          "evidence": "2026 reference entrants mapped, not initial 2027"
+        },
+        "format": {
+          "status": "PARTIAL",
+          "evidence": "2026 two-leg regulation, 2027 confirmation/template policy pending"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "2026 2/2, 2027 initial dates unavailable"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Detailed 2026 regulation, effective 2027 not certified"
+        },
+        "movement": {
+          "status": "NA",
+          "evidence": "Cup"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "2026 entry route known, 2027 not established"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "2026 finished February; no active initial 2027 state"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Permanent chronology unresolved"
+        }
+      },
+      "complete": 1,
+      "applicable": 7,
+      "referenceMapping": [
+        {
+          "sport": "Lanús",
+          "native": "LANUS",
+          "uuid": "9b18a829-929e-555f-a5d3-296e55ea866d",
+          "file": 43,
+          "ordinal": 13,
+          "stableClub": 2818062,
+          "blob": "530dd3b14c7daaddbb6b23d407a7fc360f1b5ea3"
+        },
+        {
+          "sport": "Flamengo",
+          "native": "FLAMENGO",
+          "uuid": "5a16e51e-b30a-5452-82bf-22278abec1c1",
+          "file": 46,
+          "ordinal": 0,
+          "stableClub": 3014657,
+          "blob": "c038fe33f693dcc42c15517ac67ea91d9411970c"
+        }
+      ],
+      "sourceRowBlob": "41fe1b4c4f1873bb9b950f7bc2d1f1f656ef4d43"
+    },
+    {
+      "row": 358,
+      "name": "Løgmanssteypið",
+      "edition": "2026",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Named exact native cup slot"
+        },
+        "participants": {
+          "status": "PARTIAL",
+          "evidence": "10/16 mapped; six absent from primary Faroe file, check pools/other files before declaring globally missing"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "16 initial entrants, R16/QF/final single, SF two legs; optional preliminary separately noted"
+        },
+        "calendar": {
+          "status": "COMPLETE",
+          "evidence": "17/17 dates and oriented pairings verified"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "ET 2x15 and penalties, full applicable rules not certified"
+        },
+        "movement": {
+          "status": "NA",
+          "evidence": "Cup"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental access not independently checked in row"
+        },
+        "july1": {
+          "status": "PARTIAL",
+          "evidence": "16/16 pre-cutoff scores and bracket consistent; native keys incomplete"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "1998–2004 group format, 2005 KO transition observed; complete chronology pending"
+        }
+      },
+      "complete": 3,
+      "applicable": 8,
+      "mapping": [
+        {
+          "sport": "KÍ",
+          "native": "KI KLAKSVIK",
+          "uuid": "3e91506f-112f-58b3-886e-a553116aa86e",
+          "file": 11,
+          "ordinal": 0,
+          "stableClub": 720897,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "HB",
+          "native": "HB TORSHAVN",
+          "uuid": "177a11d6-61b3-57f5-bbb1-4e6e4e63436a",
+          "file": 11,
+          "ordinal": 1,
+          "stableClub": 720898,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "NSÍ",
+          "native": "NSI RUNAVIK",
+          "uuid": "eca5b870-ec51-5f21-bedc-2aa7d384dc21",
+          "file": 11,
+          "ordinal": 2,
+          "stableClub": 720899,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "Víkingur",
+          "native": "VIKINGUR GOTA",
+          "uuid": "5d39d431-6134-585b-b7fe-5fa1772a2f77",
+          "file": 11,
+          "ordinal": 3,
+          "stableClub": 720900,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "B36",
+          "native": "B36 TORSHAVN",
+          "uuid": "f59530f1-6e7f-56f3-b809-ac05e24c22d2",
+          "file": 11,
+          "ordinal": 4,
+          "stableClub": 720901,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "B68",
+          "native": "B68 TOFTIR",
+          "uuid": "557b34a1-05ac-567c-b05c-16641f46ab49",
+          "file": 11,
+          "ordinal": 5,
+          "stableClub": 720902,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "EB/Streymur",
+          "native": "EB/STREYMUR",
+          "uuid": "88c2bd7a-0e44-5040-adc4-6cc26bc4e30b",
+          "file": 11,
+          "ordinal": 6,
+          "stableClub": 720903,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "07 Vestur",
+          "native": "07 VESTUR",
+          "uuid": "38ff1905-e591-5560-bd48-fdf7b1443e31",
+          "file": 11,
+          "ordinal": 7,
+          "stableClub": 720904,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "Skála",
+          "native": "SKALA",
+          "uuid": "d7f884e1-3547-5c9a-95ac-434d6bfc9dbd",
+          "file": 11,
+          "ordinal": 8,
+          "stableClub": 720905,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "AB",
+          "native": "AB ARGIR",
+          "uuid": "1e3a7e47-0846-5e09-9fdb-50ae8c84ef56",
+          "file": 11,
+          "ordinal": 9,
+          "stableClub": 720906,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        }
+      ],
+      "unmappedPrimaryFile": [
+        "FC Suðuroy",
+        "FC Hoyvík",
+        "TB",
+        "ÍF",
+        "B71",
+        "MB"
+      ],
+      "bracket": {
+        "round16": 8,
+        "quarterfinals": 4,
+        "semifinalLegs": 4,
+        "finalists": [
+          "KÍ",
+          "Víkingur"
+        ],
+        "allPreCutoffProgressionAgrees": true
+      },
+      "sourceRowBlob": "fe3b94c74a713ef3ff54756e35170ab3b089dcc4"
+    }
+  ]
+}

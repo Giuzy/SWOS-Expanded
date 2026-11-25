@@ -1,0 +1,408 @@
+{
+  "block": 145,
+  "head": "16a1541bd02891107ccfdacb0c8a05665b246fc5",
+  "status": "NAMED_CLOSURE_COMPONENT_AUDIT",
+  "scope": "Existing same-edition data only. COMPLETE format and movement mean the documented sporting structure and rank routes, not full regulations or implementation. Current names do not imply complete historical chronology. No scheduled/actual date equivalence, no new scores, no runtime changes. NA excluded from denominator; uncertain is not NA.",
+  "rows": [
+    {
+      "row": 186,
+      "name": "Serie A",
+      "country": "ITA",
+      "edition": "2026/27",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block68Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "20 clubs; 38 games each; title and survival tie playoffs described"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "380 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Head-to-head order, title and survival playoff rules present; full applicable regulation not certified"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Three relegated; 17/18 survival tie mechanism known"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false
+    },
+    {
+      "row": 231,
+      "name": "Premier League",
+      "country": "ENG",
+      "edition": "2026/27",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block67Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "20 clubs; 38 games each"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "380 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points and ranking tiebreak reference 793; full applicable regulation not certified"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Three relegated"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false
+    },
+    {
+      "row": 232,
+      "name": "Championship",
+      "country": "ENG",
+      "edition": "2026/27",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block67Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "24 clubs; 46 games each plus seven promotion playoff games"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "552 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Semi-final allocation reference 438; full rulebook and playoff dates outstanding"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Two direct promotions, ranks 3–8 playoff, three relegated"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false
+    },
+    {
+      "row": 235,
+      "name": "Primera División",
+      "country": "ESP",
+      "edition": "2026/27",
+      "sourceRowBlob": "5de9397212b87e719eac18dc700c6e9b5cc3edf1",
+      "sourceRowPath": "EUROPE/ESP/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block69Research",
+      "fields": {
+        "identity": {
+          "status": "PARTIAL",
+          "evidence": "Display name retained, independent official identity confirmation outstanding"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "20 clubs; 38 games each"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "380 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points known; eligibility and tiebreak rules pending"
+        },
+        "movement": {
+          "status": "PARTIAL",
+          "evidence": "Ranks 18–20 relegated; movement baseline still pending"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 2,
+      "applicable": 8,
+      "closed": false
+    },
+    {
+      "row": 239,
+      "name": "Ligue 1",
+      "country": "FRA",
+      "edition": "2026/27",
+      "sourceRowBlob": "536825dbccfbcd07eadc753ce9277f59da1796e0",
+      "sourceRowPath": "EUROPE/FRA/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block69Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "18 clubs; 34 games each; relegation playoff two legs"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points and playoff format known; full applicable regulation not certified"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Ranks 17–18 relegated; rank 16 playoff against Ligue 2 qualifier"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false
+    },
+    {
+      "row": 243,
+      "name": "Bundesliga",
+      "country": "GER",
+      "edition": "2026/27",
+      "sourceRowBlob": "068a4df05ad6c3f3a2b77dccb633ae1f4bc4e445",
+      "sourceRowPath": "EUROPE/GER/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block68Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "18 clubs; 34 games each; relegation playoff two legs"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Ranking criteria and playoff host verified; full applicable regulation not certified"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Ranks 17–18 relegated; rank 16 vs tier 2 rank 3"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false
+    },
+    {
+      "row": 275,
+      "name": "Eredivisie",
+      "country": "NED",
+      "edition": "2026/27",
+      "sourceRowBlob": "7c3bd128596db3875f1dca1f2880170cd8524341",
+      "sourceRowPath": "EUROPE/NED/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block70Research",
+      "fields": {
+        "identity": {
+          "status": "PARTIAL",
+          "evidence": "Display name retained, independent official identity confirmation outstanding"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "PARTIAL",
+          "evidence": "18 clubs; 34 games each; other postseason structures not established in this rule packet"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points known; complete rule packet pending"
+        },
+        "movement": {
+          "status": "PARTIAL",
+          "evidence": "Current movement regulation not retrieved"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 1,
+      "applicable": 8,
+      "closed": false
+    },
+    {
+      "row": 286,
+      "name": "Primeira Liga",
+      "country": "POR",
+      "edition": "2026/27",
+      "sourceRowBlob": "288b92664197001e676beb56cb858723729ec31f",
+      "sourceRowPath": "EUROPE/POR/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block70Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "18 clubs; 34 games each; relegation playoff two legs"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points and playoff dates present; full applicable regulation not certified"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Ranks 17–18 relegated; rank 16 vs tier 2 rank 3"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false
+    }
+  ]
+}

@@ -2142,7 +2142,7 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 144,
+  "lastPreparedBlock": 149,
   "cutoffScope": "CUTOFF_SCOPE.json",
   "anomalies": "ANOMALIES.json",
   "matrixAudit": "MATRIX_AUDIT.json",
@@ -2202,7 +2202,7 @@
     "348": "closure/MODERN_CUTOFF_CHECK_143.json",
     "420": "closure/MODERN_CUTOFF_CHECK_143.json"
   },
-  "closureScope": "Exact row-keyed legacy identity and initial edition calendar reconciliation overlays; not runtime inputs. Direct closure142 on rows 3,15,22,54,75 retained; row overlay complements those fields without duplicate fixture arrays. All initial entrant identities and historical tier membership are distinct checks. Block143: 14 modern exact-row overlays reference existing initial regular schedules, rules, native identity joins and cutoff score checks; no duplicate match or score arrays, no runtime inputs. Block144 supplemental modern entrant overlays preserve block143 regular schedule links. Field census is a partial inventory of pointers only.",
+  "closureScope": "Exact row-keyed legacy identity and initial edition calendar reconciliation overlays; not runtime inputs. Direct closure142 on rows 3,15,22,54,75 retained; row overlay complements those fields without duplicate fixture arrays. All initial entrant identities and historical tier membership are distinct checks. Block143: 14 modern exact-row overlays reference existing initial regular schedules, rules, native identity joins and cutoff score checks; no duplicate match or score arrays, no runtime inputs. Block144 supplemental modern entrant overlays preserve block143 regular schedule links. Field census is a partial inventory of pointers only. Block145 adds named nine-component audits and exact row references; percentages are complete applicable components only, not overall data volume. Block146 supersedes only named component assessments; preserve 145 overlays and all raw evidence. Shared UEFA qualification reference is not a future actual allocation. Block147 replaces only named assessments; previous raw overlays retained, current rules and provisional playoff dates separated. Block148 consolidates official Portuguese shared regulation across 286/287/395 and archived chronology for seven leagues; row-level observations not certified legal timeline. Block149: exact native entrants for POR2 and league cup; date/pairs and access recorded, no post-cutoff results.",
   "closureAdditionalRowPath": {
     "186": "closure/MODERN_INITIAL_ENTRANTS_144.json",
     "231": "closure/MODERN_INITIAL_ENTRANTS_144.json",
@@ -2210,5 +2210,35 @@
   },
   "fieldCensus": [
     "closure/FIELD_CENSUS_144_A.json"
-  ]
+  ],
+  "namedClosureRowPath": {
+    "186": "closure/NAMED_CLOSURE_149.json",
+    "231": "closure/NAMED_CLOSURE_149.json",
+    "232": "closure/NAMED_CLOSURE_149.json",
+    "235": "closure/NAMED_CLOSURE_149.json",
+    "239": "closure/NAMED_CLOSURE_149.json",
+    "243": "closure/NAMED_CLOSURE_149.json",
+    "275": "closure/NAMED_CLOSURE_149.json",
+    "286": "closure/NAMED_CLOSURE_149.json",
+    "287": "closure/NAMED_CLOSURE_149.json",
+    "358": "closure/NAMED_CLOSURE_149.json",
+    "395": "closure/NAMED_CLOSURE_149.json",
+    "425": "closure/NAMED_CLOSURE_149.json",
+    "432": "closure/NAMED_CLOSURE_149.json"
+  },
+  "namedClosurePreviousVersionRowPath": {
+    "186": "closure/NAMED_CLOSURE_148.json",
+    "231": "closure/NAMED_CLOSURE_148.json",
+    "232": "closure/NAMED_CLOSURE_148.json",
+    "235": "closure/NAMED_CLOSURE_148.json",
+    "239": "closure/NAMED_CLOSURE_148.json",
+    "243": "closure/NAMED_CLOSURE_148.json",
+    "275": "closure/NAMED_CLOSURE_148.json",
+    "286": "closure/NAMED_CLOSURE_148.json",
+    "287": "closure/NAMED_CLOSURE_148.json",
+    "358": "closure/NAMED_CLOSURE_148.json",
+    "395": "closure/NAMED_CLOSURE_148.json",
+    "425": "closure/NAMED_CLOSURE_148.json",
+    "432": "closure/NAMED_CLOSURE_148.json"
+  }
 }

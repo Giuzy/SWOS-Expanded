@@ -1,0 +1,849 @@
+{
+  "block": 146,
+  "head": "16a1541bd02891107ccfdacb0c8a05665b246fc5",
+  "status": "TARGETED_SPORTING_CLOSURE",
+  "scope": "User's regulation category is sporting result/advancement (points, ties, ET, penalties, playoffs), not all financial/disciplinary/roster administrative provisions. No broader strict audit upgrade, no runtime changes. Same nine category checklist, name separate label not counted twice. External checks only targeted to unresolved components.",
+  "sources": {
+    "cafReg": "https://www.cafonline.com/media/gntfbye3/zc7zrv2o8jukvokkwurj.pdf",
+    "cafListing": "https://www.cafonline.com/inside-caf/about-us/official-documents/competitions-regulations/",
+    "cafHistory": "https://www.cafonline.com/caf-super-cup/news/everything-you-need-to-know-about-the-totalenergies-caf-super-cup/",
+    "cafHistory2026": "https://www.cafonline.com/caf-super-cup/news/from-1993-to-2026-how-the-totalenergies-caf-super-cup-developed-through-the-years/",
+    "rsssf": "https://www.rsssf.org/tablesa/afsup.html",
+    "caf2011DecisionOriginal": "https://www.cafonline.com/competition/super-cup_2009/news/7612-super-cup-final-no-extra-time-in-case-of-a-draw.html",
+    "cafDecisionRepost": "https://e-s-tunis.com/forum/viewtopic.php?pid=229391",
+    "observed2011": "https://www.sowetan.co.za/sport/2011-01-31-kidiaba-the-hero-for-tp-mazembe/",
+    "fifaEntry": "https://www.fifa.com/en/tournaments/mens/intercontinentalcup/2026/articles/qatar-appointed-host-final-three-matches",
+    "cafEntry": "https://www.cafonline.com/news/explainer-what-mamelodi-sundowns-face-in-the-fifa-intercontinental-cup/",
+    "fsf": "https://www.fsf.fo/fsf/logir-og-reglur-2/kappingarreglur/kappingarreglur-fyri-steypakappingar-2/",
+    "fsfEuropean": "https://www.fsf.fo/jorgen-nsi-skal-ut-aftur-i-europa/",
+    "uefaCL": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Article-3-Entries-for-the-competition-Online",
+    "uefaEL": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Europa-League-2026/27/Article-3-Entries-for-the-competition-Online",
+    "uefaCO": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Conference-League-2026/27/Article-3-Entries-for-the-competition-Online",
+    "uefaRefPeriod": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Europa-League-2026/27/D.2-Reference-periods-for-rankings-Online",
+    "uefaAnnex": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Conference-League-2026/27/Annex-A-Access-List-for-the-2026/27-UEFA-Club-Competitions-Online",
+    "froProvisional": "https://fortheleague.com/rankings/countries/faroe-islands",
+    "froReference": "https://bkassies.nl/uefabackup/qual2026.html"
+  },
+  "changes": {
+    "caf": {
+      "row": 432,
+      "ruleVersion": "2019-07-17, listed in current CAF regulations index",
+      "sportRules": {
+        "teams": 2,
+        "legs": 1,
+        "minutes": 90,
+        "extraTime": false,
+        "penaltiesIfDraw": true,
+        "points": null,
+        "ranking": null,
+        "home": "CL winner capital unless CAF authorizes neutral/alternative",
+        "date": "CAF fixes after interclub season",
+        "incoming": [
+          "CAF Champions League champion",
+          "CAF Confederation Cup champion"
+        ],
+        "outgoing": []
+      },
+      "historicalVersions": [
+        {
+          "fromMatchYear": 1993,
+          "toMatchYear": 2004,
+          "access": [
+            "African Champions Cup/CAF Champions League winner",
+            "African Cup Winners' Cup winner"
+          ],
+          "singleMatch": true
+        },
+        {
+          "fromMatchYear": 2005,
+          "access": [
+            "CAF Champions League winner",
+            "CAF Confederation Cup winner"
+          ],
+          "singleMatch": true
+        },
+        {
+          "decisionDateCandidate": "2008-09-19",
+          "firstEffectiveMatchYear": null,
+          "observedFirstDirectShootoutYear": 2011,
+          "lastObservedExtraTimeYear": 2007,
+          "possibleFirstEffectiveYears": [
+            2009,
+            2010,
+            2011
+          ],
+          "status": "EFFECTIVE_EDITION_UNRESOLVED"
+        }
+      ],
+      "sourceLimits": "2026 history full page cache miss; 2025 official full article crosschecked RSSSF; CAF original 2011 announcement cache miss; 2008 date from repost snippet only; no actual future results imported; PDF screenshot failed."
+    },
+    "fro": {
+      "row": 358,
+      "regulationVersion": "2021-02-10, amended 2026-02",
+      "sportRules": {
+        "eligibleTiers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "maxTeamsPerClub": 1,
+        "preliminaryOptional": true,
+        "seededDrawPossible": true,
+        "normalMinutes": 90,
+        "extraTimeMinutes": 30,
+        "penalties": true,
+        "semifinalLegs": 2,
+        "otherLegs": 1,
+        "semifinalAggregate": true
+      },
+      "outgoingSuperCup": {
+        "normal": "cup champion vs league champion",
+        "double": "league champion vs league runner-up"
+      },
+      "uefa": "2027/28 cup route Q1 provisional secondary; official association-specific annex not confirmed"
+    },
+    "europe": {
+      "rows": [
+        186,
+        231,
+        232,
+        235,
+        239,
+        243,
+        275,
+        286,
+        358
+      ],
+      "sharedAccess": {
+        "edition": "2026/27",
+        "associationRankingPeriod": "2020/21–2024/25",
+        "clubRankingPeriod": "2021/22–2025/26",
+        "baseline": "Association rank selects entry slots; top league ranks and domestic cup champion; extra EPS to best two associations based on prior season performance; titleholder/rebalancing rules under art3. No fixed real future participants, no static country rank projection.",
+        "status": "SHARED_REFERENCE_NOT_COMPLETE_COUNTRY_ACCESS",
+        "scope": "Do not transfer 2026/27 access list or real rankings to simulated 2027/28; CE results and dynamic coefficient policy must be agreed. 2027 provisional source excerpt only."
+      },
+      "existingRegulationRefs": [
+        {
+          "row": 186,
+          "blob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+          "field": "block68Research.rules"
+        },
+        {
+          "row": 231,
+          "blob": "3df00233d328661ff58bd5e02526765a3ff7fa3f",
+          "historyIndex": 793
+        },
+        {
+          "row": 243,
+          "blob": "b1ed291f8ae902459150f7257f71fc9685f1a570",
+          "historyIndex": 440
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "row": 432,
+      "name": "CAF Super Cup",
+      "edition": "2026",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Official name and exact existing slot"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "2/2 initial entrants, CAF prior winners and native keys"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "Two teams, one match"
+        },
+        "calendar": {
+          "status": "COMPLETE",
+          "evidence": "Actual 8 Nov 2026, 1/1 reconciled"
+        },
+        "regulation": {
+          "status": "COMPLETE",
+          "evidence": "Sporting result/advancement rules per CAF official listed regulation, Ch XXV arts 1,5–7,9–11: 90 min, direct penalties, no ET/points/ranking; no replay. Venue and date authority documented. Administrative substitution/eligibility audit separately pending; not gameplay certification. PDF text inspected, screenshot unavailable."
+        },
+        "movement": {
+          "status": "NA",
+          "evidence": "Cup"
+        },
+        "qualification": {
+          "status": "COMPLETE",
+          "evidence": "Input = CL and Confederation Cup champions. Trophy itself confers no additional FIFA club tournament route under reviewed CAF/FIFA sporting pathways; FIFA access is CL title, not Super Cup. No automatic titleholder re-entry."
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "Starts after cutoff"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "1993 first played (foundation 1992), single annual fixture, through 2004 match-date year CL vs Cup Winners' Cup, 2005 Confederation Cup access. ET observed through 2007; 2011 direct penalties verified; contemporary repost attributes amendment to 19 Sep 2008, but original CAF announcement unavailable, exact first effective edition (2009–11) unresolved. Distinguish origin-season from match year, no temporary venue arrangements as permanent changes."
+        }
+      },
+      "complete": 6,
+      "applicable": 7,
+      "mapping": [
+        {
+          "sport": "Mamelodi Sundowns",
+          "native": "SUNDOWNS",
+          "uuid": "b338ba44-e736-5314-9032-7a6f35418cac",
+          "file": 69,
+          "ordinal": 1,
+          "stableClub": 4521986,
+          "blob": "c9715e2065b16807009d95b3803c3bfa10bd2f08"
+        },
+        {
+          "sport": "USM Alger",
+          "native": "USM ALGER",
+          "uuid": "509a4b73-4364-50ab-bfb1-832f325649ee",
+          "file": 42,
+          "ordinal": 9,
+          "stableClub": 2752522,
+          "blob": "e9779c1cee87f4a59f1439ee0c7307714b50b60c"
+        }
+      ],
+      "sourceRowBlob": "41fe1b4c4f1873bb9b950f7bc2d1f1f656ef4d43",
+      "percent": 85.71428571428571,
+      "closed": false
+    },
+    {
+      "row": 425,
+      "name": "Recopa Sudamericana",
+      "edition": "2027 initial / 2026 reference",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Official name and native slot"
+        },
+        "participants": {
+          "status": "PARTIAL",
+          "evidence": "2026 reference entrants mapped, not initial 2027"
+        },
+        "format": {
+          "status": "PARTIAL",
+          "evidence": "2026 two-leg regulation, 2027 confirmation/template policy pending"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "2026 2/2, 2027 initial dates unavailable"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Detailed 2026 regulation, effective 2027 not certified"
+        },
+        "movement": {
+          "status": "NA",
+          "evidence": "Cup"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "2026 entry route known, 2027 not established"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "2026 finished February; no active initial 2027 state"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Permanent chronology unresolved"
+        }
+      },
+      "complete": 1,
+      "applicable": 7,
+      "referenceMapping": [
+        {
+          "sport": "Lanús",
+          "native": "LANUS",
+          "uuid": "9b18a829-929e-555f-a5d3-296e55ea866d",
+          "file": 43,
+          "ordinal": 13,
+          "stableClub": 2818062,
+          "blob": "530dd3b14c7daaddbb6b23d407a7fc360f1b5ea3"
+        },
+        {
+          "sport": "Flamengo",
+          "native": "FLAMENGO",
+          "uuid": "5a16e51e-b30a-5452-82bf-22278abec1c1",
+          "file": 46,
+          "ordinal": 0,
+          "stableClub": 3014657,
+          "blob": "c038fe33f693dcc42c15517ac67ea91d9411970c"
+        }
+      ],
+      "sourceRowBlob": "41fe1b4c4f1873bb9b950f7bc2d1f1f656ef4d43",
+      "percent": 14.285714285714286,
+      "closed": false
+    },
+    {
+      "row": 358,
+      "name": "Løgmanssteypið",
+      "edition": "2026",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Named exact native cup slot"
+        },
+        "participants": {
+          "status": "PARTIAL",
+          "evidence": "10/16 mapped; six absent from primary Faroe file, check pools/other files before declaring globally missing"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "16 initial entrants, R16/QF/final single, SF two legs; optional preliminary separately noted"
+        },
+        "calendar": {
+          "status": "COMPLETE",
+          "evidence": "17/17 dates and oriented pairings verified"
+        },
+        "regulation": {
+          "status": "COMPLETE",
+          "evidence": "FSF men's cup regulation arts 1–6, amended February 2026: 90 minutes; single elimination except two-leg SF decided by aggregate, tied deciding match/tie ET 2x15 then penalties; optional preliminary/seeding; general FSF eligibility applies. No points or league tiebreak. Core sporting scope only, separate administration pending."
+        },
+        "movement": {
+          "status": "NA",
+          "evidence": "Cup"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "FSF 2026 rules directly confirm next domestic Super Cup berth; if league/cup double, league runner-up replaces cup opponent. UEFA Conference League cup route plus rebalancing confirmed for 2026/27 reference, provisional 2027/28 FRO cup berth in Q1 according to secondary list; association-specific official 2027 annex not retrieved, so full outgoing access not certified."
+        },
+        "july1": {
+          "status": "PARTIAL",
+          "evidence": "16/16 pre-cutoff scores and bracket consistent; native keys incomplete"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "1998–2004 group format, 2005 KO transition observed; complete chronology pending"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "mapping": [
+        {
+          "sport": "KÍ",
+          "native": "KI KLAKSVIK",
+          "uuid": "3e91506f-112f-58b3-886e-a553116aa86e",
+          "file": 11,
+          "ordinal": 0,
+          "stableClub": 720897,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "HB",
+          "native": "HB TORSHAVN",
+          "uuid": "177a11d6-61b3-57f5-bbb1-4e6e4e63436a",
+          "file": 11,
+          "ordinal": 1,
+          "stableClub": 720898,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "NSÍ",
+          "native": "NSI RUNAVIK",
+          "uuid": "eca5b870-ec51-5f21-bedc-2aa7d384dc21",
+          "file": 11,
+          "ordinal": 2,
+          "stableClub": 720899,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "Víkingur",
+          "native": "VIKINGUR GOTA",
+          "uuid": "5d39d431-6134-585b-b7fe-5fa1772a2f77",
+          "file": 11,
+          "ordinal": 3,
+          "stableClub": 720900,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "B36",
+          "native": "B36 TORSHAVN",
+          "uuid": "f59530f1-6e7f-56f3-b809-ac05e24c22d2",
+          "file": 11,
+          "ordinal": 4,
+          "stableClub": 720901,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "B68",
+          "native": "B68 TOFTIR",
+          "uuid": "557b34a1-05ac-567c-b05c-16641f46ab49",
+          "file": 11,
+          "ordinal": 5,
+          "stableClub": 720902,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "EB/Streymur",
+          "native": "EB/STREYMUR",
+          "uuid": "88c2bd7a-0e44-5040-adc4-6cc26bc4e30b",
+          "file": 11,
+          "ordinal": 6,
+          "stableClub": 720903,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "07 Vestur",
+          "native": "07 VESTUR",
+          "uuid": "38ff1905-e591-5560-bd48-fdf7b1443e31",
+          "file": 11,
+          "ordinal": 7,
+          "stableClub": 720904,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "Skála",
+          "native": "SKALA",
+          "uuid": "d7f884e1-3547-5c9a-95ac-434d6bfc9dbd",
+          "file": 11,
+          "ordinal": 8,
+          "stableClub": 720905,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        },
+        {
+          "sport": "AB",
+          "native": "AB ARGIR",
+          "uuid": "1e3a7e47-0846-5e09-9fdb-50ae8c84ef56",
+          "file": 11,
+          "ordinal": 9,
+          "stableClub": 720906,
+          "blob": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        }
+      ],
+      "unmappedPrimaryFile": [
+        "FC Suðuroy",
+        "FC Hoyvík",
+        "TB",
+        "ÍF",
+        "B71",
+        "MB"
+      ],
+      "bracket": {
+        "round16": 8,
+        "quarterfinals": 4,
+        "semifinalLegs": 4,
+        "finalists": [
+          "KÍ",
+          "Víkingur"
+        ],
+        "allPreCutoffProgressionAgrees": true
+      },
+      "sourceRowBlob": "fe3b94c74a713ef3ff54756e35170ab3b089dcc4",
+      "percent": 50,
+      "closed": false
+    },
+    {
+      "row": 186,
+      "name": "Serie A",
+      "country": "ITA",
+      "edition": "2026/27",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block68Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "20 clubs; 38 games each; title and survival tie playoffs described"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "380 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "COMPLETE",
+          "evidence": "Same-edition block68Research has 3/1/0, head-to-head ranking, title one-leg and survival two-leg playoff, no extra time and penalties, UEFA finalist exception; core sporting tie resolution only."
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Three relegated; 17/18 survival tie mechanism known"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 5,
+      "applicable": 8,
+      "closed": false,
+      "percent": 62.5
+    },
+    {
+      "row": 231,
+      "name": "Premier League",
+      "country": "ENG",
+      "edition": "2026/27",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block67Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "20 clubs; 38 games each"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "380 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "COMPLETE",
+          "evidence": "Same-edition block67Research points + exact ENG transition index793: GD, GF, H2H points, H2H away goals, neutral decider for decisive final positions. Ordinary equal ranks allowed if not decisive. No extra competition-specific playoff on non-decisive ties. Core sporting scope only."
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Three relegated"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 5,
+      "applicable": 8,
+      "closed": false,
+      "percent": 62.5
+    },
+    {
+      "row": 232,
+      "name": "Championship",
+      "country": "ENG",
+      "edition": "2026/27",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block67Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "24 clubs; 46 games each plus seven promotion playoff games"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "552 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Semi-final allocation reference 438; full rulebook and playoff dates outstanding"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Two direct promotions, ranks 3–8 playoff, three relegated"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false,
+      "percent": 50
+    },
+    {
+      "row": 235,
+      "name": "Primera División",
+      "country": "ESP",
+      "edition": "2026/27",
+      "sourceRowBlob": "5de9397212b87e719eac18dc700c6e9b5cc3edf1",
+      "sourceRowPath": "EUROPE/ESP/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block69Research",
+      "fields": {
+        "identity": {
+          "status": "PARTIAL",
+          "evidence": "Display name retained, independent official identity confirmation outstanding"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "20 clubs; 38 games each"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "380 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points known; eligibility and tiebreak rules pending"
+        },
+        "movement": {
+          "status": "PARTIAL",
+          "evidence": "Ranks 18–20 relegated; movement baseline still pending"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 2,
+      "applicable": 8,
+      "closed": false,
+      "percent": 25
+    },
+    {
+      "row": 239,
+      "name": "Ligue 1",
+      "country": "FRA",
+      "edition": "2026/27",
+      "sourceRowBlob": "536825dbccfbcd07eadc753ce9277f59da1796e0",
+      "sourceRowPath": "EUROPE/FRA/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block69Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "18 clubs; 34 games each; relegation playoff two legs"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points and playoff format known; full applicable regulation not certified"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Ranks 17–18 relegated; rank 16 playoff against Ligue 2 qualifier"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false,
+      "percent": 50
+    },
+    {
+      "row": 243,
+      "name": "Bundesliga",
+      "country": "GER",
+      "edition": "2026/27",
+      "sourceRowBlob": "068a4df05ad6c3f3a2b77dccb633ae1f4bc4e445",
+      "sourceRowPath": "EUROPE/GER/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block68Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "18 clubs; 34 games each; relegation playoff two legs"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "COMPLETE",
+          "evidence": "Same-edition block68Research: points, complete ranking order, timing of H2H application, neutral deciding match, relegation playoff host and exact transition440 no away goals/30 min ET/penalties. Scope core sporting rules, administrative result separately scoped."
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Ranks 17–18 relegated; rank 16 vs tier 2 rank 3"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 5,
+      "applicable": 8,
+      "closed": false,
+      "percent": 62.5
+    },
+    {
+      "row": 275,
+      "name": "Eredivisie",
+      "country": "NED",
+      "edition": "2026/27",
+      "sourceRowBlob": "7c3bd128596db3875f1dca1f2880170cd8524341",
+      "sourceRowPath": "EUROPE/NED/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block70Research",
+      "fields": {
+        "identity": {
+          "status": "PARTIAL",
+          "evidence": "Display name retained, independent official identity confirmation outstanding"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "PARTIAL",
+          "evidence": "18 clubs; 34 games each; other postseason structures not established in this rule packet"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points known; complete rule packet pending"
+        },
+        "movement": {
+          "status": "PARTIAL",
+          "evidence": "Current movement regulation not retrieved"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 1,
+      "applicable": 8,
+      "closed": false,
+      "percent": 12.5
+    },
+    {
+      "row": 286,
+      "name": "Primeira Liga",
+      "country": "POR",
+      "edition": "2026/27",
+      "sourceRowBlob": "288b92664197001e676beb56cb858723729ec31f",
+      "sourceRowPath": "EUROPE/POR/2627/LEAGUE_DIVISION.json",
+      "rulePointer": "block70Research",
+      "fields": {
+        "identity": {
+          "status": "COMPLETE",
+          "evidence": "Exact existing division and supported current name; historical naming assessed separately"
+        },
+        "participants": {
+          "status": "COMPLETE",
+          "evidence": "Complete static native mapping and exact fixture-label join, block143/144"
+        },
+        "format": {
+          "status": "COMPLETE",
+          "evidence": "18 clubs; 34 games each; relegation playoff two legs"
+        },
+        "calendar": {
+          "status": "PARTIAL",
+          "evidence": "306 regular reference fixtures complete; actual-date certification and any conditional/postseason fixtures pending"
+        },
+        "regulation": {
+          "status": "PARTIAL",
+          "evidence": "Points and playoff dates present; full applicable regulation not certified"
+        },
+        "movement": {
+          "status": "COMPLETE",
+          "evidence": "Ranks 17–18 relegated; rank 16 vs tier 2 rank 3"
+        },
+        "qualification": {
+          "status": "PARTIAL",
+          "evidence": "Outgoing continental qualification/access allocation not reconciled in this pass"
+        },
+        "july1": {
+          "status": "NA",
+          "evidence": "First regular fixture after 1 July; no active initial snapshot"
+        },
+        "evolution": {
+          "status": "PARTIAL",
+          "evidence": "Existing transition evidence not full permanent chronology"
+        }
+      },
+      "complete": 4,
+      "applicable": 8,
+      "closed": false,
+      "percent": 50
+    }
+  ]
+}

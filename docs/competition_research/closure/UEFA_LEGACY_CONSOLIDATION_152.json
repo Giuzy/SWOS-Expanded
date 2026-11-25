@@ -1,0 +1,235 @@
+{
+  "block": 152,
+  "head": "e414950a52330e0c547861422e856bc2428dda82",
+  "status": "ARCHIVE_FIRST_UEFA_EDITION_AND_DATE_RECONCILIATION",
+  "sources": {
+    "corpus": {
+      "sha256": "c2c9b1ba362ae36ab5ad200ac063cd89e3d970cc33c77b3660024df12bf08e94",
+      "entries": [
+        "corpus/ec/ec199697.txt",
+        "corpus/ec/ec199798.txt",
+        "corpus/ec/ec199899.txt",
+        "corpus/tablesi/ital97.txt",
+        "corpus/tablesf/fran97.txt",
+        "corpus/tablest/tur97.txt",
+        "corpus/tablesn/ned97ext.txt",
+        "corpus/tablesp/port2026.txt",
+        "corpus/tablesa/afsup.txt"
+      ],
+      "europeAuthor": "James M. Ross / RSSSF (1996/97 document last updated 2015-06-04)"
+    },
+    "matches": {
+      "sha256": "ef224cf2c252f07a842b3bcfd4ba5c718c25cedd8937ffa174a74b86b5ba4221",
+      "rows": 238858,
+      "latest": "2026-09-03",
+      "postCutoffRows": 654,
+      "divisions": {
+        "B1": 36,
+        "D1": 9,
+        "D2": 27,
+        "E0": 20,
+        "E1": 48,
+        "E2": 47,
+        "E3": 48,
+        "EC": 60,
+        "F1": 19,
+        "F2": 36,
+        "G1": 13,
+        "I1": 20,
+        "I2": 20,
+        "N1": 33,
+        "P1": 33,
+        "SC0": 25,
+        "SC1": 20,
+        "SC2": 24,
+        "SC3": 25,
+        "SP1": 31,
+        "SP2": 33,
+        "T1": 27
+      },
+      "missingFT": 0,
+      "duplicateDivisionDatePair": 0,
+      "scope": "Direct raw recheck, no new coverage increment, no score import."
+    }
+  },
+  "rows": {
+    "89": {
+      "name": "UEFA Cup Winners' Cup",
+      "id": "_cupWinnersCup",
+      "terminalEditions": [
+        {
+          "edition": "1996/97",
+          "entrants": 49,
+          "qualifyingTies": 17,
+          "byes": 15,
+          "mainEntrants": 32,
+          "matches": 95,
+          "final": "1997-05-14"
+        },
+        {
+          "edition": "1997/98",
+          "entrants": 47,
+          "qualifyingTies": 15,
+          "byes": 17,
+          "mainEntrants": 32,
+          "matches": 91,
+          "final": "1998-05-13"
+        },
+        {
+          "edition": "1998/99",
+          "entrants": 49,
+          "qualifyingTies": 17,
+          "byes": 15,
+          "mainEntrants": 32,
+          "matches": 95,
+          "final": "1999-05-19"
+        }
+      ],
+      "sharedFormat": {
+        "legsBeforeFinal": 2,
+        "finalLegs": 1,
+        "mainRoundTies": [
+          16,
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "end": "1998/99",
+      "nextAccess": "Domestic cup winners UEFA Cup from 1999/00, existing history indices 4 and 5",
+      "rules": "Away goals, extra time and penalties witnessed; exact golden-goal and all eligibility clauses not certified."
+    },
+    "90": {
+      "name": "UEFA Cup",
+      "id": "_uefaCup",
+      "initialFormat": {
+        "preliminaryEntrants": 54,
+        "preliminaryWinners": 27,
+        "qualifyingEntrants": 52,
+        "qualifyingDirect": 25,
+        "qualifyingWinners": 26,
+        "mainEntrants": 64,
+        "mainAccess": {
+          "qualifyingWinners": 26,
+          "intertotoFinalWinners": 3,
+          "championsQualifyingLosers": 8,
+          "direct": 27
+        },
+        "allRoundsLegs": 2,
+        "fixtures": 232
+      },
+      "limits": "RSSSF prose counts 29 preliminary winners in first round (includes three Intertoto winners) but exact dated audit distinguishes 26 qualifying winners and three Intertoto winners; use existing verified counts, no new calendar count."
+    },
+    "165": {
+      "name": "UEFA Champions League",
+      "id": "_euroCup",
+      "initialFormat": {
+        "teams": 24,
+        "qualifyingTeams": 16,
+        "qualifyingWinners": 8,
+        "direct": 8,
+        "groups": 4,
+        "groupSize": 4,
+        "groupMatches": 48,
+        "groupPoints": [
+          3,
+          1,
+          0
+        ],
+        "groupTieBreak": [
+          "head-to-head aggregate including away goals",
+          "overall goal difference"
+        ],
+        "topTwoAdvance": true,
+        "quarterFinalLegs": 2,
+        "semiFinalLegs": 2,
+        "finalLegs": 1,
+        "fixtures": 77
+      },
+      "limits": "Corpus uses Champions' Cup overall heading and Champions' League group label; exact official naming and final tiebreak rules pending. Eight qualification losers UEFA Cup. Existing calendar certification reused."
+    }
+  },
+  "nativeCopyAudit": [
+    {
+      "file": "EUROCWC",
+      "sha": "9a2569413de088fefb78d14f516f21f4c018b884",
+      "copies": 32,
+      "initialEntrants": 49,
+      "uuidNull": 32
+    },
+    {
+      "file": "EUROCUP",
+      "sha": "481205e6a363cd4d78ee693a0d0b2c7f9e6022dd",
+      "copies": 16,
+      "initialEntrants": 24,
+      "uuidNull": 16
+    },
+    {
+      "file": "UEFACUP",
+      "sha": "261a2885afac8a24533cc566f5d2424097f2c466",
+      "copies": 32,
+      "initialEntrants": 117,
+      "uuidNull": 32
+    }
+  ],
+  "nativeJoin": "Attempted batch primary-country joins exceeded tool call limit; no successful mapping claimed. Copies are not full initial membership and cannot be treated as canonical UUIDs.",
+  "legacyDateConflict": {
+    "row": 56,
+    "source": "corpus/tablesi/ital97.txt",
+    "regularLines": 306,
+    "rounds": 34,
+    "linesPerRound": 9,
+    "uniqueOrientedPairsAfterExplicitTypoNormalization": 305,
+    "typos": [
+      [
+        "Atlanta",
+        "Atalanta"
+      ],
+      [
+        "Intenazionale",
+        "Internazionale"
+      ]
+    ],
+    "duplicatePair": {
+      "home": "Roma",
+      "away": "Piacenza",
+      "rounds": [
+        1,
+        18
+      ],
+      "missingReverse": "Piacenza–Roma",
+      "status": "SOURCE_CONFLICT_NOT_AUTO_CORRECTED"
+    },
+    "explicitEarlierFixtures": [
+      [
+        "1996-09-07",
+        "Bologna",
+        "Lazio"
+      ],
+      [
+        "1996-09-07",
+        "Parma",
+        "Napoli"
+      ],
+      [
+        "1996-09-07",
+        "Roma",
+        "Piacenza"
+      ],
+      [
+        "1996-09-07",
+        "Udinese",
+        "Inter"
+      ]
+    ],
+    "priorSourcesDate": "1996-09-08",
+    "scope": "Individual annotations resolve nominal-first-round issue at evidence level; full pair/date cross-check incomplete. Keep competing source dates until reconciliation."
+  },
+  "otherDateLimits": {
+    "FRA": "fran97 first-tier final table only; first date unresolved",
+    "TUR": "tur97 first round 9–11 August window, no per-match day"
+  },
+  "caf": "Corpus insufficient to establish rule effective edition; targeted web official CAF history and contemporary repost reaffirm decision 2008 and use 2011, but 2009–10 applicability not established. No complete upgrade.",
+  "binaryLimits": "games.parquet and worldfootballR zip available but pyarrow/pyreadr/rdata/Rscript absent; no new binary extraction. Excel files not mounted; no need to request yet."
+}

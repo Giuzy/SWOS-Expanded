@@ -1,0 +1,1144 @@
+{
+  "block": 150,
+  "head": "e414950a52330e0c547861422e856bc2428dda82",
+  "status": "ARCHIVE_FIRST_CROSS_SOURCE_CALENDAR_AND_HISTORY",
+  "scope": "Only supplied GitHub sources and persisted extracts of uploaded archives. No web search, future score import, raw copyrighted score copying, runtime change or complete-edition certification. Source provenance may overlap.",
+  "sources": {
+    "footballcsv": "footballcsv/cache.footballdata",
+    "modern": "openfootball/football.json",
+    "historicalParquet": "schochastics/football-data; extracted block141, uploaded games.parquet"
+  },
+  "history": {
+    "scope": "Observed complete regular season pair structures; evidence of format size, not complete regulation history.",
+    "rowRefs": [
+      56,
+      186,
+      52,
+      239,
+      24,
+      286,
+      79,
+      275,
+      76,
+      232
+    ],
+    "editions": [
+      {
+        "country": "ITA",
+        "code": "it.1",
+        "edition": "2003-04",
+        "sha": "0674291002cd4939d49c2fd443d290b1b26e201a",
+        "teams": 18,
+        "matches": 306,
+        "first": "2003-08-30",
+        "last": "2004-05-16",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "ITA",
+        "code": "it.1",
+        "edition": "2004-05",
+        "sha": "c6e50e5e62c899e28dd83655e1726f28c16bb4f9",
+        "teams": 20,
+        "matches": 380,
+        "first": "2004-09-11",
+        "last": "2005-05-29",
+        "uniqueOrderedPairs": 380,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "ITA",
+        "code": "it.1",
+        "edition": "2005-06",
+        "sha": "e436c70364e2c9d23cac3bc67e07c10a5ad13112",
+        "teams": 20,
+        "matches": 380,
+        "first": "2005-08-27",
+        "last": "2006-05-14",
+        "uniqueOrderedPairs": 380,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "ITA",
+        "code": "it.1",
+        "edition": "2006-07",
+        "sha": "2bd5e816a77d544413bb1c6fd04c09b898a0b56e",
+        "teams": 20,
+        "matches": 380,
+        "first": "2006-09-09",
+        "last": "2007-05-27",
+        "uniqueOrderedPairs": 380,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "FRA",
+        "code": "fr.1",
+        "edition": "1996-97",
+        "sha": "f2eb113da6d3f977412b8dea3669bfeddd7b414b",
+        "teams": 20,
+        "matches": 380,
+        "first": "1996-08-11",
+        "last": "1997-05-24",
+        "uniqueOrderedPairs": 380,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "POR",
+        "code": "pt.1",
+        "edition": "1996-97",
+        "sha": "c2878f1164755b5ddae56b5f965d867cc54d5392",
+        "teams": 18,
+        "matches": 306,
+        "first": "1996-08-23",
+        "last": "1997-06-15",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "1996-97",
+        "sha": "1a24be59cb778f128083d96bda2bf0057de6175c",
+        "teams": 18,
+        "matches": 306,
+        "first": "1996-08-20",
+        "last": "1997-06-01",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "1997-98",
+        "sha": "69f11651a768712dbca872a1228006943e6a95ee",
+        "teams": 18,
+        "matches": 306,
+        "first": "1997-08-19",
+        "last": "1998-05-10",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "1998-99",
+        "sha": "e07425bc891ec9eb2deb7752caa80de386ed0640",
+        "teams": 18,
+        "matches": 306,
+        "first": "1998-08-20",
+        "last": "1999-05-23",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "1999-00",
+        "sha": "fa9e80dbcefd7c291594bae10ffc940ab04e9eb2",
+        "teams": 18,
+        "matches": 306,
+        "first": "1999-08-12",
+        "last": "2000-05-14",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "2000-01",
+        "sha": "6ff61557dd633a9bd890c55247ca54b03208c9e8",
+        "teams": 18,
+        "matches": 306,
+        "first": "2000-08-18",
+        "last": "2001-05-31",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "2001-02",
+        "sha": "e1230fa7ac25b82abfdf4a3bbfb1b93ea0c7d7f7",
+        "teams": 18,
+        "matches": 306,
+        "first": "2001-08-17",
+        "last": "2002-05-05",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "2002-03",
+        "sha": "cadf671060c133936968f1a4f88604aa9be490ab",
+        "teams": 18,
+        "matches": 306,
+        "first": "2002-08-16",
+        "last": "2003-05-29",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "NED",
+        "code": "nl.1",
+        "edition": "2003-04",
+        "sha": "9df96b74258dca0357125e7746c32a742e42a889",
+        "teams": 18,
+        "matches": 306,
+        "first": "2003-08-15",
+        "last": "2004-05-16",
+        "uniqueOrderedPairs": 306,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "ENG",
+        "code": "eng.2",
+        "edition": "1996-97",
+        "sha": "0559809dafc688098adc288f2be860731af6c344",
+        "teams": 24,
+        "matches": 552,
+        "first": "1996-08-16",
+        "last": "1997-05-04",
+        "uniqueOrderedPairs": 552,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "ENG",
+        "code": "eng.2",
+        "edition": "2003-04",
+        "sha": "b65fbec3107271350edc22faf2dfd637753faaa9",
+        "teams": 24,
+        "matches": 552,
+        "first": "2003-08-09",
+        "last": "2004-05-09",
+        "uniqueOrderedPairs": 552,
+        "invalid": 0,
+        "duplicatePairs": 0
+      },
+      {
+        "country": "ENG",
+        "code": "eng.2",
+        "edition": "2004-05",
+        "sha": "97381713ce546bc3b094f87361f694af15a2b040",
+        "teams": 24,
+        "matches": 552,
+        "first": "2004-08-07",
+        "last": "2005-05-08",
+        "uniqueOrderedPairs": 552,
+        "invalid": 0,
+        "duplicatePairs": 0
+      }
+    ]
+  },
+  "modernReferenceRecheck": [
+    {
+      "row": 186,
+      "sha": "6b8e10596db7df51f98cd81bb4ea03304e784a1f",
+      "matches": 380,
+      "withFT": 50,
+      "elapsedWithoutFT": 70,
+      "futureWithoutFT": 260,
+      "datePairMatches": 380,
+      "dateChanges": 0
+    },
+    {
+      "row": 231,
+      "sha": "60e281f0fcc51cfca1a901353666a688cf62a8ba",
+      "matches": 380,
+      "withFT": 45,
+      "elapsedWithoutFT": 65,
+      "futureWithoutFT": 270,
+      "datePairMatches": 380,
+      "dateChanges": 0
+    },
+    {
+      "row": 232,
+      "sha": "c2b14f2a80b9cd9dc63af271ff1bf941a1324581",
+      "matches": 552,
+      "withFT": 88,
+      "elapsedWithoutFT": 116,
+      "futureWithoutFT": 348,
+      "datePairMatches": 552,
+      "dateChanges": 0
+    },
+    {
+      "row": 235,
+      "sha": "daf0d8a5ff04578b06ca32927bfcb6609e50797c",
+      "matches": 380,
+      "withFT": 64,
+      "elapsedWithoutFT": 66,
+      "futureWithoutFT": 250,
+      "datePairMatches": 380,
+      "dateChanges": 0
+    },
+    {
+      "row": 239,
+      "sha": "ac75f05d04f914b95d2e70d7e267fd43c32e5d4f",
+      "matches": 306,
+      "withFT": 41,
+      "elapsedWithoutFT": 58,
+      "futureWithoutFT": 207,
+      "datePairMatches": 306,
+      "dateChanges": 0
+    },
+    {
+      "row": 243,
+      "sha": "c8696353819299a131f8041513f8c50ee28522a2",
+      "matches": 306,
+      "withFT": 33,
+      "elapsedWithoutFT": 57,
+      "futureWithoutFT": 216,
+      "datePairMatches": 306,
+      "dateChanges": 0
+    },
+    {
+      "row": 275,
+      "sha": "6968fd62fc9c539c3b9d9bb31d4e7789dee7e79d",
+      "matches": 306,
+      "withFT": 62,
+      "elapsedWithoutFT": 55,
+      "futureWithoutFT": 189,
+      "datePairMatches": 306,
+      "dateChanges": 0
+    },
+    {
+      "row": 286,
+      "sha": "90cb28d92b189b9d11d725a72b961757375682c4",
+      "matches": 306,
+      "withFT": 58,
+      "elapsedWithoutFT": 41,
+      "futureWithoutFT": 207,
+      "datePairMatches": 306,
+      "dateChanges": 0
+    }
+  ],
+  "legacyCrossSource": [
+    {
+      "row": 4,
+      "country": "BEL",
+      "edition": "1996/97",
+      "footballcsvBlob": "7b0458b02d5d69e5715b1a87f873fb343bee5536",
+      "parquetExtractBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "teams": 18,
+      "fixtures": 306,
+      "datePairMatches": 306,
+      "first": "1996-08-01",
+      "last": "1997-05-25",
+      "aliases": [
+        [
+          "Anderlecht (Belgium)",
+          "Anderlecht"
+        ],
+        [
+          "Antwerp (Belgium)",
+          "Antwerp"
+        ],
+        [
+          "Cercle Brugge (Belgium)",
+          "Cercle Brugge"
+        ],
+        [
+          "Club Brugge (Belgium)",
+          "Club Brugge"
+        ],
+        [
+          "Eendracht Aalst (Belgium)",
+          "Aalst"
+        ],
+        [
+          "Excelsior Mouscron (Belgium)",
+          "Mouscron"
+        ],
+        [
+          "FC Lommel (Belgium)",
+          "Lommel"
+        ],
+        [
+          "Genk (Belgium)",
+          "Genk"
+        ],
+        [
+          "Gent (Belgium)",
+          "Gent"
+        ],
+        [
+          "Germinal Ekeren (Belgium)",
+          "Germinal"
+        ],
+        [
+          "Krc Zuid West Vlaanderen (Belgium)",
+          "Harelbeke"
+        ],
+        [
+          "Lierse SK (Belgium)",
+          "Lierse"
+        ],
+        [
+          "Mechelen (Belgium)",
+          "Mechelen"
+        ],
+        [
+          "Rwd Molenbeek (Belgium)",
+          "Molenbeek"
+        ],
+        [
+          "Sint-Truiden (Belgium)",
+          "St Truiden"
+        ],
+        [
+          "Sporting Charleroi (Belgium)",
+          "Charleroi"
+        ],
+        [
+          "Sporting Lokeren (Belgium)",
+          "Lokeren"
+        ],
+        [
+          "Standard Liège (Belgium)",
+          "Standard"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 52,
+      "country": "FRA",
+      "edition": "1996/97",
+      "footballcsvBlob": "f2eb113da6d3f977412b8dea3669bfeddd7b414b",
+      "parquetExtractBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "teams": 20,
+      "fixtures": 380,
+      "datePairMatches": 380,
+      "first": "1996-08-11",
+      "last": "1997-05-24",
+      "aliases": [
+        [
+          "As Cannes (France)",
+          "Cannes"
+        ],
+        [
+          "As Nancy (France)",
+          "Nancy"
+        ],
+        [
+          "Auxerre (France)",
+          "Auxerre"
+        ],
+        [
+          "EA Guingamp (France)",
+          "Guingamp"
+        ],
+        [
+          "FC Metz (France)",
+          "Metz"
+        ],
+        [
+          "Girondins Bordeaux (France)",
+          "Bordeaux"
+        ],
+        [
+          "Le Havre (France)",
+          "Le Havre"
+        ],
+        [
+          "Lens (France)",
+          "Lens"
+        ],
+        [
+          "Lille (France)",
+          "Lille"
+        ],
+        [
+          "Monaco (France)",
+          "Monaco"
+        ],
+        [
+          "Montpellier (France)",
+          "Montpellier"
+        ],
+        [
+          "Nantes (France)",
+          "Nantes"
+        ],
+        [
+          "Nice (France)",
+          "Nice"
+        ],
+        [
+          "Olympique Lyon (France)",
+          "Lyon"
+        ],
+        [
+          "Olympique Marseille (France)",
+          "Marseille"
+        ],
+        [
+          "PSG (France)",
+          "Paris SG"
+        ],
+        [
+          "Rennes (France)",
+          "Rennes"
+        ],
+        [
+          "SC Bastia (France)",
+          "Bastia"
+        ],
+        [
+          "SM Caen (France)",
+          "Caen"
+        ],
+        [
+          "Strasbourg (France)",
+          "Strasbourg"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 56,
+      "country": "ITA",
+      "edition": "1996/97",
+      "footballcsvBlob": "e72e002dce2e78095a5454ca04281ee2de0fc487",
+      "parquetExtractBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "teams": 18,
+      "fixtures": 306,
+      "datePairMatches": 306,
+      "first": "1996-09-08",
+      "last": "1997-06-01",
+      "aliases": [
+        [
+          "AC Reggiana (Italy)",
+          "Reggiana"
+        ],
+        [
+          "Ac Perugia Calcio (Italy)",
+          "Perugia"
+        ],
+        [
+          "Acf Fiorentina (Italy)",
+          "Fiorentina"
+        ],
+        [
+          "Atalanta (Italy)",
+          "Atalanta"
+        ],
+        [
+          "Bologna (Italy)",
+          "Bologna"
+        ],
+        [
+          "Cagliari (Italy)",
+          "Cagliari"
+        ],
+        [
+          "Hellas Verona (Italy)",
+          "Verona"
+        ],
+        [
+          "Inter (Italy)",
+          "Inter"
+        ],
+        [
+          "Juventus FC (Italy)",
+          "Juventus"
+        ],
+        [
+          "Lazio (Italy)",
+          "Lazio"
+        ],
+        [
+          "Milan (Italy)",
+          "Milan"
+        ],
+        [
+          "Napoli (Italy)",
+          "Napoli"
+        ],
+        [
+          "Parma (Italy)",
+          "Parma"
+        ],
+        [
+          "Piacenza Calcio (Italy)",
+          "Piacenza"
+        ],
+        [
+          "Roma (Italy)",
+          "Roma"
+        ],
+        [
+          "Sampdoria (Italy)",
+          "Sampdoria"
+        ],
+        [
+          "Udinese (Italy)",
+          "Udinese"
+        ],
+        [
+          "Vicenza Calcio (Italy)",
+          "Vicenza"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 85,
+      "country": "ESP",
+      "edition": "1996/97",
+      "footballcsvBlob": "e0f6c3ae10cb5ce2263c874393dfe66c23450fdf",
+      "parquetExtractBlob": "541060c3b646b535fa5c4d982e8d13ec182dbd4e",
+      "teams": 22,
+      "fixtures": 462,
+      "datePairMatches": 462,
+      "first": "1996-08-31",
+      "last": "1997-06-23",
+      "aliases": [
+        [
+          "Athletic Club (Spain)",
+          "Ath Bilbao"
+        ],
+        [
+          "Atlético Madrid (Spain)",
+          "Ath Madrid"
+        ],
+        [
+          "CD Logrones (Spain)",
+          "Logrones"
+        ],
+        [
+          "CD Tenerife (Spain)",
+          "Tenerife"
+        ],
+        [
+          "CF Extremadura (Spain)",
+          "Extremadura"
+        ],
+        [
+          "Celta de Vigo (Spain)",
+          "Celta"
+        ],
+        [
+          "Deportivo La Coruna (Spain)",
+          "La Coruna"
+        ],
+        [
+          "Espanyol (Spain)",
+          "Espanol"
+        ],
+        [
+          "FC Barcelona (Spain)",
+          "Barcelona"
+        ],
+        [
+          "Hercules CF (Spain)",
+          "Hercules"
+        ],
+        [
+          "Racing Santander (Spain)",
+          "Santander"
+        ],
+        [
+          "Rayo Vallecano (Spain)",
+          "Vallecano"
+        ],
+        [
+          "Real Betis (Spain)",
+          "Betis"
+        ],
+        [
+          "Real Madrid (Spain)",
+          "Real Madrid"
+        ],
+        [
+          "Real Oviedo (Spain)",
+          "Oviedo"
+        ],
+        [
+          "Real Sociedad (Spain)",
+          "Sociedad"
+        ],
+        [
+          "Real Valladolid (Spain)",
+          "Valladolid"
+        ],
+        [
+          "Real Zaragoza (Spain)",
+          "Zaragoza"
+        ],
+        [
+          "Sd Compostela (Spain)",
+          "Compostela"
+        ],
+        [
+          "Sevilla (Spain)",
+          "Sevilla"
+        ],
+        [
+          "Sporting Gijon (Spain)",
+          "Sp Gijon"
+        ],
+        [
+          "Valencia (Spain)",
+          "Valencia"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 79,
+      "country": "NED",
+      "edition": "1996/97",
+      "footballcsvBlob": "1a24be59cb778f128083d96bda2bf0057de6175c",
+      "parquetExtractBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "teams": 18,
+      "fixtures": 306,
+      "datePairMatches": 306,
+      "first": "1996-08-20",
+      "last": "1997-06-01",
+      "aliases": [
+        [
+          "AZ (Netherlands)",
+          "AZ Alkmaar"
+        ],
+        [
+          "Ajax (Netherlands)",
+          "Ajax"
+        ],
+        [
+          "De Graafschap (Netherlands)",
+          "Graafschap"
+        ],
+        [
+          "FC Twente (Netherlands)",
+          "Twente"
+        ],
+        [
+          "FC Volendam (Netherlands)",
+          "Volendam"
+        ],
+        [
+          "Feyenoord (Netherlands)",
+          "Feyenoord"
+        ],
+        [
+          "Fortuna Sittard (Netherlands)",
+          "For Sittard"
+        ],
+        [
+          "Groningen (Netherlands)",
+          "Groningen"
+        ],
+        [
+          "Heerenveen (Netherlands)",
+          "Heerenveen"
+        ],
+        [
+          "NAC Breda (Netherlands)",
+          "NAC Breda"
+        ],
+        [
+          "NEC Nijmegen (Netherlands)",
+          "Nijmegen"
+        ],
+        [
+          "PSV (Netherlands)",
+          "PSV Eindhoven"
+        ],
+        [
+          "RKC Waalwijk (Netherlands)",
+          "Waalwijk"
+        ],
+        [
+          "Roda JC Kerkrade (Netherlands)",
+          "Roda JC"
+        ],
+        [
+          "Sparta Rotterdam (Netherlands)",
+          "Sparta"
+        ],
+        [
+          "Utrecht (Netherlands)",
+          "Utrecht"
+        ],
+        [
+          "Vitesse (Netherlands)",
+          "Vitesse"
+        ],
+        [
+          "Willem II (Netherlands)",
+          "Willem II"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 24,
+      "country": "POR",
+      "edition": "1996/97",
+      "footballcsvBlob": "c2878f1164755b5ddae56b5f965d867cc54d5392",
+      "parquetExtractBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "teams": 18,
+      "fixtures": 306,
+      "datePairMatches": 306,
+      "first": "1996-08-23",
+      "last": "1997-06-15",
+      "aliases": [
+        [
+          "Benfica (Portugal)",
+          "Benfica"
+        ],
+        [
+          "Boavista FC (Portugal)",
+          "Boavista"
+        ],
+        [
+          "CS Maritimo (Portugal)",
+          "Maritimo"
+        ],
+        [
+          "Estrela Amadora (Portugal)",
+          "Est Amadora"
+        ],
+        [
+          "Farense (Portugal)",
+          "Farense"
+        ],
+        [
+          "GD Chaves (Portugal)",
+          "Desp. Chaves"
+        ],
+        [
+          "Gil Vicente (Portugal)",
+          "Gil Vicente"
+        ],
+        [
+          "Leca FC (Portugal)",
+          "Leca"
+        ],
+        [
+          "Os Belenenses (Portugal)",
+          "Belenenses"
+        ],
+        [
+          "Porto (Portugal)",
+          "Porto"
+        ],
+        [
+          "Rio Ave (Portugal)",
+          "Rio Ave"
+        ],
+        [
+          "SC Espinho (Portugal)",
+          "Espinho"
+        ],
+        [
+          "SC Salgueiros (Portugal)",
+          "Salgueiros"
+        ],
+        [
+          "Sporting Braga (Portugal)",
+          "Sp Braga"
+        ],
+        [
+          "Sporting CP (Portugal)",
+          "Sp Lisbon"
+        ],
+        [
+          "Uniao Leiria (Portugal)",
+          "Leiria"
+        ],
+        [
+          "Vitoria Setubal (Portugal)",
+          "Setubal"
+        ],
+        [
+          "Vitória Guimarães (Portugal)",
+          "Guimaraes"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 13,
+      "country": "GRE",
+      "edition": "1996/97",
+      "footballcsvBlob": "fcd51fd86bfbca447d389332551556710969d38e",
+      "parquetExtractBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "teams": 18,
+      "fixtures": 306,
+      "datePairMatches": 306,
+      "first": "1996-09-06",
+      "last": "1997-05-25",
+      "aliases": [
+        [
+          "AEK Athens (Greece)",
+          "AEK"
+        ],
+        [
+          "Aep Iraklis FC (Greece)",
+          "Heracles"
+        ],
+        [
+          "Ags Kastoria (Greece)",
+          "Kastoria"
+        ],
+        [
+          "Ao Kavala (Greece)",
+          "Kavala"
+        ],
+        [
+          "Apollon Athens (Greece)",
+          "Apollon"
+        ],
+        [
+          "Aris (Greece)",
+          "Aris"
+        ],
+        [
+          "Athinaikos (Greece)",
+          "Athinaikos"
+        ],
+        [
+          "Edessaikos (Greece)",
+          "Edessaikos"
+        ],
+        [
+          "Ionikos Nikea (Greece)",
+          "Ionikos"
+        ],
+        [
+          "Kalamata (Greece)",
+          "Kalamata"
+        ],
+        [
+          "OFI (Greece)",
+          "OFI"
+        ],
+        [
+          "Olympiakos Piraeus (Greece)",
+          "Olympiakos"
+        ],
+        [
+          "PAOK (Greece)",
+          "PAOK"
+        ],
+        [
+          "Panachaiki Ge (Greece)",
+          "Panahaiki"
+        ],
+        [
+          "Panathinaikos (Greece)",
+          "Panathinaikos"
+        ],
+        [
+          "Paniliakos FC (Greece)",
+          "Paniliakos"
+        ],
+        [
+          "Skoda Xanthi (Greece)",
+          "Xanthi"
+        ],
+        [
+          "Veria FC (Greece)",
+          "Veroia"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 33,
+      "country": "TUR",
+      "edition": "1996/97",
+      "footballcsvBlob": "1c9609083487020a664224c7e9e84baaafb357ee",
+      "parquetExtractBlob": "541060c3b646b535fa5c4d982e8d13ec182dbd4e",
+      "teams": 18,
+      "fixtures": 306,
+      "datePairMatches": 306,
+      "first": "1996-08-11",
+      "last": "1997-05-25",
+      "aliases": [
+        [
+          "Altay Izmir (Turkey)",
+          "Altay"
+        ],
+        [
+          "Antalyaspor (Turkey)",
+          "Antalyaspor"
+        ],
+        [
+          "Belediye Vanspor (Turkey)",
+          "Vanspor"
+        ],
+        [
+          "Beşiktaş (Turkey)",
+          "Besiktas"
+        ],
+        [
+          "Bursaspor (Turkey)",
+          "Bursaspor"
+        ],
+        [
+          "Canakkale Dardanelspor (Turkey)",
+          "Dardanelspor"
+        ],
+        [
+          "Denizlispor (Turkey)",
+          "Denizlispor"
+        ],
+        [
+          "Fenerbahçe (Turkey)",
+          "Fenerbahce"
+        ],
+        [
+          "Galatasaray (Turkey)",
+          "Galatasaray"
+        ],
+        [
+          "Gaziantepspor (Turkey)",
+          "Gaziantepspor"
+        ],
+        [
+          "Genclerbirligi (Turkey)",
+          "Genclerbirligi"
+        ],
+        [
+          "Istanbulspor (Turkey)",
+          "Istanbulspor"
+        ],
+        [
+          "Kocaelispor (Turkey)",
+          "Kocaelispor"
+        ],
+        [
+          "Mke Ankaraguecue (Turkey)",
+          "Ankaragucu"
+        ],
+        [
+          "Samsunspor (Turkey)",
+          "Samsunspor"
+        ],
+        [
+          "Sariyer SK (Turkey)",
+          "Sariyer"
+        ],
+        [
+          "Trabzonspor (Turkey)",
+          "Trabzonspor"
+        ],
+        [
+          "Zeytinburnuspor (Turkey)",
+          "Zeytinburnu"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    },
+    {
+      "row": 81,
+      "country": "SCO",
+      "edition": "1996/97",
+      "footballcsvBlob": "5d14cc46b5bd206d1f97285f11a2d3da1b58bf49",
+      "parquetExtractBlob": "541060c3b646b535fa5c4d982e8d13ec182dbd4e",
+      "teams": 10,
+      "fixtures": 180,
+      "datePairMatches": 180,
+      "first": "1996-08-10",
+      "last": "1997-05-10",
+      "aliases": [
+        [
+          "Aberdeen (Scotland)",
+          "Aberdeen"
+        ],
+        [
+          "Celtic (Scotland)",
+          "Celtic"
+        ],
+        [
+          "Dundee United (Scotland)",
+          "Dundee United"
+        ],
+        [
+          "Dunfermline Athletic (Scotland)",
+          "Dunfermline"
+        ],
+        [
+          "Hearts (Scotland)",
+          "Hearts"
+        ],
+        [
+          "Hibernian (Scotland)",
+          "Hibernian"
+        ],
+        [
+          "Kilmarnock (Scotland)",
+          "Kilmarnock"
+        ],
+        [
+          "Motherwell (Scotland)",
+          "Motherwell"
+        ],
+        [
+          "Raith Rovers (Scotland)",
+          "Raith Rvs"
+        ],
+        [
+          "Rangers (Scotland)",
+          "Rangers"
+        ]
+      ],
+      "scope": "Regular stage only; independent upstream provenance not established. Playoff and native division membership separate."
+    }
+  ],
+  "legacyNativeIdentityAdditional": [
+    {
+      "row": 4,
+      "sourceIndex": 10,
+      "sourceLabel": "Krc Zuid West Vlaanderen (Belgium)",
+      "footballcsvLabel": "Harelbeke",
+      "nativeName": "RC HARELBEKE",
+      "uuid": "22e26a0a-aea1-5385-bb1c-1b24f5cf66a1",
+      "file": 2,
+      "ordinal": 9,
+      "currentNativeLeague": 0,
+      "nativeBlob": "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e",
+      "proof": "Unique exact oriented date signature in both sources; existing block71 historic participant label Harelbeke corroborates; exact native club name."
+    }
+  ],
+  "knownLimits": [
+    "AUT at.1.csv missing in 1996-97 cache (404).",
+    "FRA first date conflict: source calendars vs block136 worldfootballR 1996-08-09; ITA and TUR also have distinct prior date summaries. Keep all evidence and inspect original before exact full-edition certification.",
+    "ESP/NED/SCO separate promotion/relegation playoff fixtures are not in regular calendar.",
+    "Legacy membership discrepancies from block142 persist; BEL 16/18 identity only, two remain unknown; GRE Kastoria/POR Rio Ave absent in inspected primary files, not proven absent globally.",
+    "Original corpus.zip, games.parquet, Matches.txt and worldfootballR zip not available as raw bytes in this turn; library title search found Matches.txt only, previous raw materialization denied. Need corpus.zip for regulatory and chronological evidence."
+  ],
+  "summary": {
+    "historicFiles": 17,
+    "historicMatches": 6236,
+    "legacyCrossSourceRows": 9,
+    "legacyMatches": 2858,
+    "legacyAliases": 160,
+    "modernRows": 8,
+    "modernMatches": 2916,
+    "modernWithFT": 441,
+    "modernElapsedWithoutFT": 528,
+    "modernFutureWithoutFT": 1947,
+    "newLegacyNativeIdentity": 1,
+    "wholeCompetitionClosures": 0
+  }
+}

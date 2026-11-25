@@ -1,0 +1,1347 @@
+{
+  "block": 154,
+  "head": "e414950a52330e0c547861422e856bc2428dda82",
+  "status": "CANONICAL_LEGACY_CUP_ENTRANT_JOIN",
+  "calendarBlob": "9a47aef370be447b530e53376b758957770130b8",
+  "sourceOverlayBlobs": [
+    "f01ce0d52a82d79bbda3545521b51ac93beca92f",
+    "c429ce2df0bd5ead3dcca861d26c76bb5d3049ef",
+    "2c865311896bc8613551a09358121cba3982f9f9"
+  ],
+  "additionalNativeSources": [
+    [
+      "CZE",
+      "c56d93dd79bd99d58b2826a33ebd44ac90359881"
+    ],
+    [
+      "DEN",
+      "3d59288414bdb5879c3f93fd77714caaed2dd57e"
+    ],
+    [
+      "HUN",
+      "0ffeda4c082b4e5edf1c4c013058ec41cc524300"
+    ],
+    [
+      "NOR",
+      "2699ae66b5f6125260c310b50e29d7b7ccd4807b"
+    ],
+    [
+      "SUI",
+      "5b012fd88829b2fed6b7b1988c26ee7ffac9ce8a"
+    ],
+    [
+      "ROU",
+      "0735ecd4463c3e7576333c8d6e1667254efce7e9"
+    ],
+    [
+      "GER",
+      "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c"
+    ],
+    [
+      "BEL",
+      "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e"
+    ],
+    [
+      "FRA",
+      "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97"
+    ],
+    [
+      "AUT",
+      "11365a215132ac94221f50339b53faab8484c5e8"
+    ]
+  ],
+  "errors": [],
+  "scope": "Historical fixture entrants, canonical 9697 primary file/ordinal/UUID; actual later qualifiers conditional in play. No roster mutation, no score import, no global calendar certification. Explicit aliases, unique identities; partial counts are entrant occurrences, not distinct global teams.",
+  "rows": [
+    {
+      "row": 89,
+      "matched": [
+        {
+          "sport": "AEK Athens",
+          "nativeName": "AEK ATHENS",
+          "country": "GRE",
+          "uuid": "25ab0df8-8c12-5dca-b305-53a123d468bd",
+          "file": 15,
+          "ordinal": 0,
+          "nativeBlob": "9260977eaa9f71fa69ded33024fe9b4f29967fdd",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "AGF Aarhus",
+          "nativeName": "AGF",
+          "country": "DEN",
+          "uuid": "f7a7bd57-6138-5401-9a2a-79462ed7d2e6",
+          "file": 7,
+          "ordinal": 3,
+          "nativeBlob": "3d59288414bdb5879c3f93fd77714caaed2dd57e",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "AIK Stockholm",
+          "nativeName": "AIK",
+          "country": "SWE",
+          "uuid": "0feb6353-ef5f-51e4-9730-c123cf843a11",
+          "file": 36,
+          "ordinal": 0,
+          "nativeBlob": "4d3d4f05add71c511932ec12f5799fe1db7c0c25",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Barcelona",
+          "nativeName": "F.C.BARCELONA",
+          "country": "ESP",
+          "uuid": "9a7ad1b1-ab77-57c1-824c-8596a8b9eadf",
+          "file": 35,
+          "ordinal": 8,
+          "nativeBlob": "9ab967479b9fc76d9c1f9ddf9fcb4b1f121c362c",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Benfica",
+          "nativeName": "BENFICA",
+          "country": "POR",
+          "uuid": "2c7c4975-1234-555b-9f65-3cb0c820fc59",
+          "file": 29,
+          "ordinal": 2,
+          "nativeBlob": "2009a1ae3d3907c00df25310e2693e50843b5d9e",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "FC Sion",
+          "nativeName": "SION",
+          "country": "SUI",
+          "uuid": "bd504de0-b420-5724-9dc1-377f5b5216bb",
+          "file": 37,
+          "ordinal": 12,
+          "nativeBlob": "5b012fd88829b2fed6b7b1988c26ee7ffac9ce8a",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Fiorentina",
+          "nativeName": "FIORENTINA",
+          "country": "ITA",
+          "uuid": "23fb3e31-9dc3-52c0-8367-81f950939692",
+          "file": 20,
+          "ordinal": 50,
+          "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Galatasaray",
+          "nativeName": "GALATASARAY",
+          "country": "TUR",
+          "uuid": "79442f59-9ca4-5e46-87d9-1dd2138e5b48",
+          "file": 38,
+          "ordinal": 10,
+          "nativeBlob": "bcae7125de52d4bba61dc6a945a3a6c3baaa794d",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Glentoran",
+          "nativeName": "GLENTORAN",
+          "country": "NIR",
+          "uuid": "9fdaf0bc-421c-57f6-a77a-502ba5590600",
+          "file": 26,
+          "ordinal": 10,
+          "nativeBlob": "b5ce8ba27668ad971df794cf10819184e604481b",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Gloria Bistrița",
+          "nativeName": "GLORIA BISTRITA",
+          "country": "ROU",
+          "uuid": "80feb749-05f7-529b-bc4c-d1ed96ddc3d8",
+          "file": 30,
+          "ordinal": 8,
+          "nativeBlob": "0735ecd4463c3e7576333c8d6e1667254efce7e9",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Hapoel Ironi Rishon LeZion",
+          "nativeName": "RISHON-LEZION",
+          "country": "ISR",
+          "uuid": "88e3dcc5-81c8-5adc-8a8a-7a15eba85901",
+          "file": 19,
+          "ordinal": 15,
+          "nativeBlob": "76108caab785ce95f18f579ef7a8780e7c738076",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Heart of Midlothian",
+          "nativeName": "HEARTS",
+          "country": "SCO",
+          "uuid": "410281d6-3928-5859-900a-1a66f5eaf41f",
+          "file": 33,
+          "ordinal": 23,
+          "nativeBlob": "3c9e453561539587a463d860b8e4810db931778c",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Kispest Honvéd",
+          "nativeName": "KISPEST-HONVED",
+          "country": "HUN",
+          "uuid": "030b7c7c-47c2-5e2e-85b8-22b7fe3f6922",
+          "file": 16,
+          "ordinal": 8,
+          "nativeBlob": "0ffeda4c082b4e5edf1c4c013058ec41cc524300",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Liverpool",
+          "nativeName": "LIVERPOOL",
+          "country": "ENG",
+          "uuid": "c35fd59d-3ce9-5617-aa3e-f3af93d2b5d7",
+          "file": 8,
+          "ordinal": 22,
+          "nativeBlob": "27b8402dee465ed6b1f2815d4ca77b9f4ebbe60f",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Lokomotiv Moscow",
+          "nativeName": "LOKOMOTIV MOSCOW",
+          "country": "RUS",
+          "uuid": "67f4dd55-fa44-5a7e-b8da-9df16b95c554",
+          "file": 31,
+          "ordinal": 10,
+          "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Nyva Vinnytsia",
+          "nativeName": "NIVA VINNITSA",
+          "country": "UKR",
+          "uuid": "0ba32e35-9ae5-5337-84a8-d4eb6b95b5d6",
+          "file": 39,
+          "ordinal": 10,
+          "nativeBlob": "b22a4d3db4790e7ad0a7cb374cba8a15ecbc4978",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Olimpija Ljubljana",
+          "nativeName": "OLIMPIJA L'JANA",
+          "country": "SVN",
+          "uuid": "5ac0fe6a-b4ba-5d46-afde-0771f1e2aee8",
+          "file": 34,
+          "ordinal": 11,
+          "nativeBlob": "1234af7b50d705f56382a37cdc7b3c72d2c30ae9",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "PSV Eindhoven",
+          "nativeName": "PSV",
+          "country": "NED",
+          "uuid": "bd018a4f-abc3-56cd-a5db-dccf9af5db4e",
+          "file": 25,
+          "ordinal": 21,
+          "nativeBlob": "91528669e28c5549cf970ddadbf90b684fe99be3",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Paris Saint-Germain",
+          "nativeName": "PARIS ST-GERMAIN",
+          "country": "FRA",
+          "uuid": "d5f87c92-f252-5345-b361-d4dc20f508aa",
+          "file": 13,
+          "ordinal": 30,
+          "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Ruch Chorzów",
+          "nativeName": "RUCH CHORZOW",
+          "country": "POL",
+          "uuid": "bd107820-4171-5e41-9488-0b78bed3e30e",
+          "file": 28,
+          "ordinal": 14,
+          "nativeBlob": "c3a8846fcc6e3aeea6c13d92fd07f4bb248d36e0",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "SK Brann",
+          "nativeName": "BRANN",
+          "country": "NOR",
+          "uuid": "ae7ae259-f2cc-577e-9204-b73ce8e28f36",
+          "file": 27,
+          "ordinal": 1,
+          "nativeBlob": "2699ae66b5f6125260c310b50e29d7b7ccd4807b",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Sparta Praha",
+          "nativeName": "SPARTA PRAGUE",
+          "country": "CZE",
+          "uuid": "e2b66177-a96b-590d-9215-7f6591fa8ce5",
+          "file": 6,
+          "ordinal": 10,
+          "nativeBlob": "c56d93dd79bd99d58b2826a33ebd44ac90359881",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Sturm Graz",
+          "nativeName": "STURM GRAZ",
+          "country": "AUT",
+          "uuid": "ce022d47-5b73-5d25-8d69-d0ff81f6f41a",
+          "file": 1,
+          "ordinal": 7,
+          "nativeBlob": "11365a215132ac94221f50339b53faab8484c5e8",
+          "firstObservedPhase": "R32"
+        },
+        {
+          "sport": "Varteks Varaždin",
+          "nativeName": "VARTEKS VARAZDIN",
+          "country": "CRO",
+          "uuid": "b7dece59-098f-5997-9663-a22ffecdd227",
+          "file": 4,
+          "ordinal": 11,
+          "nativeBlob": "f907cbb93b40b903300bad81a6fb4cd283a7bcd4",
+          "firstObservedPhase": "Q"
+        }
+      ],
+      "missing": [
+        "AEK Larnaca",
+        "Cercle Brugge",
+        "Chemlon Humenné",
+        "Constructorul Chișinău",
+        "Crvena zvezda",
+        "Dinamo Batumi",
+        "FC Vaduz",
+        "Flamurtari Vlorë",
+        "HB Tórshavn",
+        "KR Reykjavík",
+        "Kaiserslautern",
+        "Kareda-Sakalas Šiauliai",
+        "Kotayk Abovyan",
+        "Levski Sofia",
+        "Llansantffraid",
+        "MPKC Mozyr",
+        "MyPa",
+        "Nîmes Olympique",
+        "Qarabağ",
+        "Shelbourne",
+        "Sloga Jugomagnat Skopje",
+        "Tallinna Sadam",
+        "US Luxembourg",
+        "Universitate Riga",
+        "Valletta"
+      ],
+      "entrants": 49,
+      "fixtures": 95,
+      "fullyMapped": false
+    },
+    {
+      "row": 90,
+      "matched": [
+        {
+          "sport": "AS Monaco",
+          "nativeName": "MONACO",
+          "country": "FRA",
+          "uuid": "cbfa605b-80e1-56a6-9178-90d33559150b",
+          "file": 13,
+          "ordinal": 23,
+          "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Aberdeen",
+          "nativeName": "ABERDEEN",
+          "country": "SCO",
+          "uuid": "47ae483f-c246-5f4b-81c3-c4b5c18312a1",
+          "file": 33,
+          "ordinal": 0,
+          "nativeBlob": "3c9e453561539587a463d860b8e4810db931778c",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Alania Vladikavkaz",
+          "nativeName": "ALANIA",
+          "country": "RUS",
+          "uuid": "ba26c7de-5606-5996-bddf-84051739eab5",
+          "file": 31,
+          "ordinal": 17,
+          "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Anderlecht",
+          "nativeName": "ANDERLECHT",
+          "country": "BEL",
+          "uuid": "c82714a4-c825-5d5d-998c-8d4dd6dde57b",
+          "file": 2,
+          "ordinal": 0,
+          "nativeBlob": "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Arsenal",
+          "nativeName": "ARSENAL",
+          "country": "ENG",
+          "uuid": "cf91e69a-7916-584b-8264-d505d89896ce",
+          "file": 8,
+          "ordinal": 0,
+          "nativeBlob": "27b8402dee465ed6b1f2815d4ca77b9f4ebbe60f",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Aston Villa",
+          "nativeName": "ASTON VILLA",
+          "country": "ENG",
+          "uuid": "c2c480ce-4bc2-599a-98c5-34a7bb97770d",
+          "file": 8,
+          "ordinal": 1,
+          "nativeBlob": "27b8402dee465ed6b1f2815d4ca77b9f4ebbe60f",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "BVSC Budapest",
+          "nativeName": "BVSC",
+          "country": "HUN",
+          "uuid": "8fb30bf5-c5b4-5151-90cc-3a201b3a2741",
+          "file": 16,
+          "ordinal": 1,
+          "nativeBlob": "0ffeda4c082b4e5edf1c4c013058ec41cc524300",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Bayern München",
+          "nativeName": "BAYERN MUENCHEN",
+          "country": "GER",
+          "uuid": "fc3da213-d298-52e0-88de-38fddbc02d2d",
+          "file": 14,
+          "ordinal": 3,
+          "nativeBlob": "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Beitar Jerusalem",
+          "nativeName": "BEITAR JERUSALEM",
+          "country": "ISR",
+          "uuid": "2df952d9-45ca-5327-a84a-43efc7f0a06b",
+          "file": 19,
+          "ordinal": 0,
+          "nativeBlob": "76108caab785ce95f18f579ef7a8780e7c738076",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Beşiktaş",
+          "nativeName": "BESIKTAS",
+          "country": "TUR",
+          "uuid": "8acf8c8a-3d46-51f3-b1a0-f48a89155bfa",
+          "file": 38,
+          "ordinal": 5,
+          "nativeBlob": "bcae7125de52d4bba61dc6a945a3a6c3baaa794d",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Boavista",
+          "nativeName": "BOAVISTA",
+          "country": "POR",
+          "uuid": "ec35c1a1-3c64-5288-a758-e0259cbb3a9c",
+          "file": 29,
+          "ordinal": 3,
+          "nativeBlob": "2009a1ae3d3907c00df25310e2693e50843b5d9e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Bodø/Glimt",
+          "nativeName": "BODO GLIMT",
+          "country": "NOR",
+          "uuid": "93c733a1-15bf-508d-bd80-7063e2153488",
+          "file": 27,
+          "ordinal": 0,
+          "nativeBlob": "2699ae66b5f6125260c310b50e29d7b7ccd4807b",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Borussia Mönchengladbach",
+          "nativeName": "MOENCHENGLADBACH",
+          "country": "GER",
+          "uuid": "adbd577f-18a3-50cb-bfa5-ff2224cdd381",
+          "file": 14,
+          "ordinal": 24,
+          "nativeBlob": "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Brøndby",
+          "nativeName": "BRONDBY",
+          "country": "DEN",
+          "uuid": "07707714-feba-5a02-bbe2-30d3f99dad08",
+          "file": 7,
+          "ordinal": 4,
+          "nativeBlob": "3d59288414bdb5879c3f93fd77714caaed2dd57e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "CSKA Moscow",
+          "nativeName": "CSKA MOSCOW",
+          "country": "RUS",
+          "uuid": "be1527d9-117d-55ba-bb78-952797c7c772",
+          "file": 31,
+          "ordinal": 1,
+          "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Celtic",
+          "nativeName": "CELTIC",
+          "country": "SCO",
+          "uuid": "f35ac076-734b-5be3-80da-2e813fd49f61",
+          "file": 33,
+          "ordinal": 9,
+          "nativeBlob": "3c9e453561539587a463d860b8e4810db931778c",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Chornomorets Odesa",
+          "nativeName": "CHERNOMORETS",
+          "country": "UKR",
+          "uuid": "da6881a2-d200-5749-ae7d-e48a11019e9c",
+          "file": 39,
+          "ordinal": 1,
+          "nativeBlob": "b22a4d3db4790e7ad0a7cb374cba8a15ecbc4978",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Club Brugge",
+          "nativeName": "CLUB BRUGGE",
+          "country": "BEL",
+          "uuid": "3d46bff1-de9b-5cd1-9ca1-9eb01095bde4",
+          "file": 2,
+          "ordinal": 4,
+          "nativeBlob": "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Croatia Zagreb",
+          "nativeName": "CROATIA ZAGREB",
+          "country": "CRO",
+          "uuid": "0130bfd3-ab16-5b0f-aa26-a45edebeae72",
+          "file": 4,
+          "ordinal": 1,
+          "nativeBlob": "f907cbb93b40b903300bad81a6fb4cd283a7bcd4",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Crusaders",
+          "nativeName": "CRUSADERS",
+          "country": "NIR",
+          "uuid": "47c29bb7-f871-57c8-a738-a9a3ee6a6c95",
+          "file": 26,
+          "ordinal": 7,
+          "nativeBlob": "b5ce8ba27668ad971df794cf10819184e604481b",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Dinamo Moscow",
+          "nativeName": "DINAMO MOSCOW",
+          "country": "RUS",
+          "uuid": "1980949a-0943-5e44-9605-1c743e482a63",
+          "file": 31,
+          "ordinal": 3,
+          "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Dynamo Kyiv",
+          "nativeName": "DINAMO KIEV",
+          "country": "UKR",
+          "uuid": "b4af25ee-aa0c-548b-9ede-17c4d7e91a84",
+          "file": 39,
+          "ordinal": 2,
+          "nativeBlob": "b22a4d3db4790e7ad0a7cb374cba8a15ecbc4978",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Espanyol",
+          "nativeName": "ESPANYOL",
+          "country": "ESP",
+          "uuid": "ca4782d3-00d1-56aa-855f-486de43cc1f8",
+          "file": 35,
+          "ordinal": 19,
+          "nativeBlob": "9ab967479b9fc76d9c1f9ddf9fcb4b1f121c362c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "FC Aarau",
+          "nativeName": "AARAU",
+          "country": "SUI",
+          "uuid": "54c04c35-93e5-51f1-82e6-30aafc09999f",
+          "file": 37,
+          "ordinal": 0,
+          "nativeBlob": "5b012fd88829b2fed6b7b1988c26ee7ffac9ce8a",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "FC Metz",
+          "nativeName": "METZ",
+          "country": "FRA",
+          "uuid": "46bfbd22-1d7d-5c46-90c8-45240cc4de18",
+          "file": 13,
+          "ordinal": 22,
+          "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Ferencváros",
+          "nativeName": "FERENCVAROS",
+          "country": "HUN",
+          "uuid": "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+          "file": 16,
+          "ordinal": 5,
+          "nativeBlob": "0ffeda4c082b4e5edf1c4c013058ec41cc524300",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Feyenoord",
+          "nativeName": "FEYENOORD",
+          "country": "NED",
+          "uuid": "caf095a3-6aab-56e8-a1ff-21220a1b71c0",
+          "file": 25,
+          "ordinal": 10,
+          "nativeBlob": "91528669e28c5549cf970ddadbf90b684fe99be3",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Germinal Ekeren",
+          "nativeName": "GERMINAL EKEREN",
+          "country": "BEL",
+          "uuid": "938f71b7-13e2-5ab9-9f0c-c1b632f7db41",
+          "file": 2,
+          "ordinal": 2,
+          "nativeBlob": "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Grazer AK",
+          "nativeName": "GRAZER AK",
+          "country": "AUT",
+          "uuid": "96cd9935-d905-5156-9649-b21d81407d18",
+          "file": 1,
+          "ordinal": 2,
+          "nativeBlob": "11365a215132ac94221f50339b53faab8484c5e8",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Guingamp",
+          "nativeName": "GUINGAMP",
+          "country": "FRA",
+          "uuid": "f277d8fa-15df-5818-b4dc-2c92c1543a84",
+          "file": 13,
+          "ordinal": 11,
+          "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "HIT Gorica",
+          "nativeName": "HIT GORICA",
+          "country": "SVN",
+          "uuid": "43f95077-46c5-598a-8eb2-d3c68347653f",
+          "file": 34,
+          "ordinal": 2,
+          "nativeBlob": "1234af7b50d705f56382a37cdc7b3c72d2c30ae9",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Hajduk Split",
+          "nativeName": "HAJDUK SPLIT",
+          "country": "CRO",
+          "uuid": "c25f0976-1d74-5ea5-b7f8-69a8a3cef995",
+          "file": 4,
+          "ordinal": 2,
+          "nativeBlob": "f907cbb93b40b903300bad81a6fb4cd283a7bcd4",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Halmstads BK",
+          "nativeName": "HALMSTAD BK",
+          "country": "SWE",
+          "uuid": "fb6d1a66-ca9d-52f5-b089-7a9088715e14",
+          "file": 36,
+          "ordinal": 5,
+          "nativeBlob": "4d3d4f05add71c511932ec12f5799fe1db7c0c25",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Hamburger SV",
+          "nativeName": "HAMBURGER SV",
+          "country": "GER",
+          "uuid": "ff76e7c0-9e4b-5994-b6f7-27d915e0d7dc",
+          "file": 14,
+          "ordinal": 16,
+          "nativeBlob": "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Helsingborgs IF",
+          "nativeName": "HELSINGBORGS IF",
+          "country": "SWE",
+          "uuid": "7eae0080-f651-5bd9-859e-5c1f239249f6",
+          "file": 36,
+          "ordinal": 7,
+          "nativeBlob": "4d3d4f05add71c511932ec12f5799fe1db7c0c25",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Hutnik Kraków",
+          "nativeName": "HUTNIK KRAKOW",
+          "country": "POL",
+          "uuid": "2b05a2e9-4e0f-50af-8c05-64226e216ecb",
+          "file": 28,
+          "ordinal": 4,
+          "nativeBlob": "c3a8846fcc6e3aeea6c13d92fd07f4bb248d36e0",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Internazionale",
+          "nativeName": "INTER",
+          "country": "ITA",
+          "uuid": "fd5b139f-d0f3-57c9-b8b9-6544bb747305",
+          "file": 20,
+          "ordinal": 21,
+          "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Iraklis",
+          "nativeName": "IRAKLIS",
+          "country": "GRE",
+          "uuid": "f0773153-3481-5432-ad44-0eef61155353",
+          "file": 15,
+          "ordinal": 8,
+          "nativeBlob": "9260977eaa9f71fa69ded33024fe9b4f29967fdd",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Karlsruher SC",
+          "nativeName": "KARLSRUHER SC",
+          "country": "GER",
+          "uuid": "b3b0cf16-f374-5ee7-a10c-8b6da1dee144",
+          "file": 14,
+          "ordinal": 22,
+          "nativeBlob": "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Lazio",
+          "nativeName": "LAZIO",
+          "country": "ITA",
+          "uuid": "0836799f-0730-5a79-91f6-c978906c0a36",
+          "file": 20,
+          "ordinal": 23,
+          "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Legia Warszawa",
+          "nativeName": "LEGIA WARSAW",
+          "country": "POL",
+          "uuid": "80a2364a-f280-596b-92cb-d24220ea4759",
+          "file": 28,
+          "ordinal": 7,
+          "nativeBlob": "c3a8846fcc6e3aeea6c13d92fd07f4bb248d36e0",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Lyngby",
+          "nativeName": "LYNGBY",
+          "country": "DEN",
+          "uuid": "00804020-5be7-575f-a757-19d700e5f2be",
+          "file": 7,
+          "ordinal": 8,
+          "nativeBlob": "3d59288414bdb5879c3f93fd77714caaed2dd57e",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Maccabi Haifa",
+          "nativeName": "MACCABI HAIFA",
+          "country": "ISR",
+          "uuid": "c0a216f8-4941-5edf-8873-d975f4c37c4c",
+          "file": 19,
+          "ordinal": 10,
+          "nativeBlob": "76108caab785ce95f18f579ef7a8780e7c738076",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "Maccabi Tel Aviv",
+          "nativeName": "MACCABI TEL-AVIV",
+          "country": "ISR",
+          "uuid": "64f9579d-d862-5571-8b46-11647acbff81",
+          "file": 19,
+          "ordinal": 14,
+          "nativeBlob": "76108caab785ce95f18f579ef7a8780e7c738076",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Malmö FF",
+          "nativeName": "MALMO FF",
+          "country": "SWE",
+          "uuid": "854d27fc-4be5-5f8b-a42d-a9ee537f9039",
+          "file": 36,
+          "ordinal": 12,
+          "nativeBlob": "4d3d4f05add71c511932ec12f5799fe1db7c0c25",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Molde",
+          "nativeName": "MOLDE",
+          "country": "NOR",
+          "uuid": "9a3f6836-d231-5a75-b83b-8dbc28bac68f",
+          "file": 27,
+          "ordinal": 9,
+          "nativeBlob": "2699ae66b5f6125260c310b50e29d7b7ccd4807b",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Montpellier",
+          "nativeName": "MONTPELLIER",
+          "country": "FRA",
+          "uuid": "4d542624-8d6d-5041-a8db-144189068f7f",
+          "file": 13,
+          "ordinal": 24,
+          "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Național București",
+          "nativeName": "NATIONAL",
+          "country": "ROU",
+          "uuid": "9a06b9fa-3596-5325-8937-ab939ee15fef",
+          "file": 30,
+          "ordinal": 10,
+          "nativeBlob": "0735ecd4463c3e7576333c8d6e1667254efce7e9",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Neuchâtel Xamax",
+          "nativeName": "NEUCHATEL XAMAX",
+          "country": "SUI",
+          "uuid": "995a3dfe-8f5f-5692-8fc6-295a7de2ca3b",
+          "file": 37,
+          "ordinal": 10,
+          "nativeBlob": "5b012fd88829b2fed6b7b1988c26ee7ffac9ce8a",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Newcastle United",
+          "nativeName": "NEWCASTLE UNITED",
+          "country": "ENG",
+          "uuid": "520f2b7c-8039-5ced-a43a-e12cbd014988",
+          "file": 8,
+          "ordinal": 8,
+          "nativeBlob": "27b8402dee465ed6b1f2815d4ca77b9f4ebbe60f",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "OB Odense",
+          "nativeName": "OB",
+          "country": "DEN",
+          "uuid": "f00f2197-8058-5962-bd2b-6fe8f6b46f1f",
+          "file": 7,
+          "ordinal": 9,
+          "nativeBlob": "3d59288414bdb5879c3f93fd77714caaed2dd57e",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Olympiacos",
+          "nativeName": "OLYMPIAKOS F.C.",
+          "country": "GRE",
+          "uuid": "aa6bcbdd-84a8-5783-8050-cde6f62bd866",
+          "file": 15,
+          "ordinal": 17,
+          "nativeBlob": "9260977eaa9f71fa69ded33024fe9b4f29967fdd",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Panathinaikos",
+          "nativeName": "PANATHINAIKOS",
+          "country": "GRE",
+          "uuid": "707353d4-629c-5e8a-9e51-4a18423ab8da",
+          "file": 15,
+          "ordinal": 19,
+          "nativeBlob": "9260977eaa9f71fa69ded33024fe9b4f29967fdd",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Parma",
+          "nativeName": "PARMA",
+          "country": "ITA",
+          "uuid": "e623d8c0-2867-521d-a89c-cfc352c02f1d",
+          "file": 20,
+          "ordinal": 0,
+          "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Portadown",
+          "nativeName": "PORTADOWN",
+          "country": "NIR",
+          "uuid": "e0c6a802-71ff-557c-a7c5-bba8cef050e9",
+          "file": 26,
+          "ordinal": 15,
+          "nativeBlob": "b5ce8ba27668ad971df794cf10819184e604481b",
+          "firstObservedPhase": "PRE"
+        },
+        {
+          "sport": "RC Lens",
+          "nativeName": "LENS",
+          "country": "FRA",
+          "uuid": "ccff487e-43a5-5957-9142-3850796dd33d",
+          "file": 13,
+          "ordinal": 15,
+          "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "RWD Molenbeek",
+          "nativeName": "RWD MOLENBEEK",
+          "country": "BEL",
+          "uuid": "7f977201-368f-5957-9e68-129a1249c579",
+          "file": 2,
+          "ordinal": 15,
+          "nativeBlob": "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Rapid București",
+          "nativeName": "RAPID BUCHAREST",
+          "country": "ROU",
+          "uuid": "3cbe0a26-000c-53a8-96c6-d81564eaeece",
+          "file": 30,
+          "ordinal": 15,
+          "nativeBlob": "0735ecd4463c3e7576333c8d6e1667254efce7e9",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Roda JC",
+          "nativeName": "RODA JC",
+          "country": "NED",
+          "uuid": "08c1c122-5c97-5f5f-a7e8-ae3b5a47c7b5",
+          "file": 25,
+          "ordinal": 24,
+          "nativeBlob": "91528669e28c5549cf970ddadbf90b684fe99be3",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Roma",
+          "nativeName": "ROMA",
+          "country": "ITA",
+          "uuid": "adb8e8a3-5cf8-5eb2-8e1d-f894bb5cf2b2",
+          "file": 20,
+          "ordinal": 47,
+          "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Schalke 04",
+          "nativeName": "FC SCHALKE 04",
+          "country": "GER",
+          "uuid": "cd5a559b-b4da-5ec8-a948-9de0b38cbc97",
+          "file": 14,
+          "ordinal": 29,
+          "nativeBlob": "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Sigma Olomouc",
+          "nativeName": "SIGMA OLOMOUC",
+          "country": "CZE",
+          "uuid": "a48d536d-ba52-5ace-bbd5-05e93d4046c5",
+          "file": 6,
+          "ordinal": 7,
+          "nativeBlob": "c56d93dd79bd99d58b2826a33ebd44ac90359881",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Silkeborg IF",
+          "nativeName": "SILKEBORG",
+          "country": "DEN",
+          "uuid": "013f2658-9da8-50b0-8311-45b2f5524d59",
+          "file": 7,
+          "ordinal": 10,
+          "nativeBlob": "3d59288414bdb5879c3f93fd77714caaed2dd57e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Slavia Praha",
+          "nativeName": "SLAVIA PRAGUE",
+          "country": "CZE",
+          "uuid": "470730a8-ec5c-5f4a-b7ee-3729f7030c83",
+          "file": 6,
+          "ordinal": 8,
+          "nativeBlob": "c56d93dd79bd99d58b2826a33ebd44ac90359881",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Spartak Moscow",
+          "nativeName": "SPARTAK",
+          "country": "RUS",
+          "uuid": "20b8533d-bac4-5de4-963e-2df4d927d087",
+          "file": 31,
+          "ordinal": 16,
+          "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Sporting CP",
+          "nativeName": "SPORTING LISBON",
+          "country": "POR",
+          "uuid": "76481162-39b7-5c75-b3d1-4ee4b60cfe89",
+          "file": 29,
+          "ordinal": 19,
+          "nativeBlob": "2009a1ae3d3907c00df25310e2693e50843b5d9e",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Tenerife",
+          "nativeName": "TENERIFE",
+          "country": "ESP",
+          "uuid": "c567945a-ae3d-558f-b545-13ec4e7eb7d1",
+          "file": 35,
+          "ordinal": 42,
+          "nativeBlob": "9ab967479b9fc76d9c1f9ddf9fcb4b1f121c362c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Torpedo Moscow",
+          "nativeName": "TORPEDO-LUZHNIKI",
+          "country": "RUS",
+          "uuid": "023c81c4-d3c6-51a5-b968-78700ce304ec",
+          "file": 31,
+          "ordinal": 19,
+          "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Trabzonspor",
+          "nativeName": "TRABZONSPOR",
+          "country": "TUR",
+          "uuid": "2c912c98-05c1-5c46-9ecf-0f6b56c2d08d",
+          "file": 38,
+          "ordinal": 21,
+          "nativeBlob": "bcae7125de52d4bba61dc6a945a3a6c3baaa794d",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Valencia",
+          "nativeName": "VALENCIA C.F.",
+          "country": "ESP",
+          "uuid": "f29e014f-20e9-5f8b-b16e-7ae7e774cb62",
+          "file": 35,
+          "ordinal": 44,
+          "nativeBlob": "9ab967479b9fc76d9c1f9ddf9fcb4b1f121c362c",
+          "firstObservedPhase": "R64"
+        },
+        {
+          "sport": "Vitória Guimarães",
+          "nativeName": "VIT. GUIMARAES",
+          "country": "POR",
+          "uuid": "749e7808-8fe6-504b-95e7-d2b91e4b9bac",
+          "file": 29,
+          "ordinal": 23,
+          "nativeBlob": "2009a1ae3d3907c00df25310e2693e50843b5d9e",
+          "firstObservedPhase": "R64"
+        }
+      ],
+      "missing": [
+        "1.FC Košice",
+        "APOEL",
+        "Anorthosis Famagusta",
+        "B71 Sandur",
+        "Barry Town",
+        "Bohemians Dublin",
+        "CS Grevenmacher",
+        "Dinaburg",
+        "Dinamo Minsk",
+        "Dinamo Tbilisi",
+        "Dinamo-93 Minsk",
+        "FC Haka",
+        "FC Jazz",
+        "FC Tirol Innsbruck",
+        "FK Bečej",
+        "Flora Tallinn",
+        "Floriana",
+        "GÍ Gøta",
+        "HJK",
+        "Inkaras Kaunas",
+        "Jeunesse d’Esch",
+        "KS Tirana",
+        "Khazri Baku",
+        "Lantana Tallinn",
+        "Lokomotiv Sofia",
+        "Margveti Zestafoni",
+        "NK Mura",
+        "Neftçi Baku",
+        "Newtown",
+        "Partizan",
+        "Pyunik Yerevan",
+        "Shirak Gyumri",
+        "Sileks Kratovo",
+        "Skonto Riga",
+        "Slavia Sofia",
+        "Sliema Wanderers",
+        "Slovan Bratislava",
+        "St Patrick’s Athletic",
+        "Teuta Durrës",
+        "Tiligul Tiraspol",
+        "Vardar Skopje",
+        "Vojvodina Novi Sad",
+        "Zimbru Chișinău",
+        "ÍA Akranes",
+        "ÍBV",
+        "Žalgiris Vilnius"
+      ],
+      "entrants": 117,
+      "fixtures": 232,
+      "fullyMapped": false
+    },
+    {
+      "row": 165,
+      "matched": [
+        {
+          "sport": "Ajax",
+          "nativeName": "AJAX",
+          "country": "NED",
+          "uuid": "403ec895-cb03-50e7-9b26-5c0cfa31db3b",
+          "file": 25,
+          "ordinal": 0,
+          "nativeBlob": "91528669e28c5549cf970ddadbf90b684fe99be3",
+          "firstObservedPhase": "GROUP_A"
+        },
+        {
+          "sport": "Alania Vladikavkaz",
+          "nativeName": "ALANIA",
+          "country": "RUS",
+          "uuid": "ba26c7de-5606-5996-bddf-84051739eab5",
+          "file": 31,
+          "ordinal": 17,
+          "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Atlético Madrid",
+          "nativeName": "ATLETICO MADRID",
+          "country": "ESP",
+          "uuid": "ea3689bc-b755-55f8-a855-957f2e9e3d4a",
+          "file": 35,
+          "ordinal": 6,
+          "nativeBlob": "9ab967479b9fc76d9c1f9ddf9fcb4b1f121c362c",
+          "firstObservedPhase": "GROUP_B"
+        },
+        {
+          "sport": "Auxerre",
+          "nativeName": "AUXERRE",
+          "country": "FRA",
+          "uuid": "c7c3e835-ab85-5658-a8a4-c8e34a2afc4c",
+          "file": 13,
+          "ordinal": 1,
+          "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+          "firstObservedPhase": "GROUP_A"
+        },
+        {
+          "sport": "Borussia Dortmund",
+          "nativeName": "BOR. DORTMUND",
+          "country": "GER",
+          "uuid": "b670a399-bb82-54c1-ae8c-7cd6f1598639",
+          "file": 14,
+          "ordinal": 4,
+          "nativeBlob": "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c",
+          "firstObservedPhase": "GROUP_B"
+        },
+        {
+          "sport": "Brøndby",
+          "nativeName": "BRONDBY",
+          "country": "DEN",
+          "uuid": "07707714-feba-5a02-bbe2-30d3f99dad08",
+          "file": 7,
+          "ordinal": 4,
+          "nativeBlob": "3d59288414bdb5879c3f93fd77714caaed2dd57e",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Club Brugge",
+          "nativeName": "CLUB BRUGGE",
+          "country": "BEL",
+          "uuid": "3d46bff1-de9b-5cd1-9ca1-9eb01095bde4",
+          "file": 2,
+          "ordinal": 4,
+          "nativeBlob": "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Dynamo Kyiv",
+          "nativeName": "DINAMO KIEV",
+          "country": "UKR",
+          "uuid": "b4af25ee-aa0c-548b-9ede-17c4d7e91a84",
+          "file": 39,
+          "ordinal": 2,
+          "nativeBlob": "b22a4d3db4790e7ad0a7cb374cba8a15ecbc4978",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Fenerbahçe",
+          "nativeName": "FENERBAHCE",
+          "country": "TUR",
+          "uuid": "16424f4c-0d16-5aaa-9a6b-6129cf703597",
+          "file": 38,
+          "ordinal": 9,
+          "nativeBlob": "bcae7125de52d4bba61dc6a945a3a6c3baaa794d",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Ferencváros",
+          "nativeName": "FERENCVAROS",
+          "country": "HUN",
+          "uuid": "e6fb5704-5f76-5129-8ff2-9ae8da162a28",
+          "file": 16,
+          "ordinal": 5,
+          "nativeBlob": "0ffeda4c082b4e5edf1c4c013058ec41cc524300",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Grasshopper Zürich",
+          "nativeName": "GRASSHOPPERS",
+          "country": "SUI",
+          "uuid": "85e0bcfb-9155-5c48-aad3-1cc99d4ef8fc",
+          "file": 37,
+          "ordinal": 5,
+          "nativeBlob": "5b012fd88829b2fed6b7b1988c26ee7ffac9ce8a",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "IFK Göteborg",
+          "nativeName": "IFK GOTHENBURG",
+          "country": "SWE",
+          "uuid": "fa466baa-cbff-5afe-80a3-dc8d317d8e0e",
+          "file": 36,
+          "ordinal": 8,
+          "nativeBlob": "4d3d4f05add71c511932ec12f5799fe1db7c0c25",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Juventus",
+          "nativeName": "JUVENTUS",
+          "country": "ITA",
+          "uuid": "ca8624cc-e706-54b7-8ffe-f9563d9ba5d7",
+          "file": 20,
+          "ordinal": 22,
+          "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+          "firstObservedPhase": "GROUP_C"
+        },
+        {
+          "sport": "Maccabi Tel Aviv",
+          "nativeName": "MACCABI TEL-AVIV",
+          "country": "ISR",
+          "uuid": "64f9579d-d862-5571-8b46-11647acbff81",
+          "file": 19,
+          "ordinal": 14,
+          "nativeBlob": "76108caab785ce95f18f579ef7a8780e7c738076",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Manchester United",
+          "nativeName": "MANCHESTER UTD",
+          "country": "ENG",
+          "uuid": "e05db570-919c-5bbb-9578-046f4cf3f7f9",
+          "file": 8,
+          "ordinal": 20,
+          "nativeBlob": "27b8402dee465ed6b1f2815d4ca77b9f4ebbe60f",
+          "firstObservedPhase": "GROUP_C"
+        },
+        {
+          "sport": "Milan",
+          "nativeName": "AC MILAN",
+          "country": "ITA",
+          "uuid": "859ea9cc-9b45-5b36-9225-1ef1531297b4",
+          "file": 20,
+          "ordinal": 31,
+          "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+          "firstObservedPhase": "GROUP_D"
+        },
+        {
+          "sport": "Panathinaikos",
+          "nativeName": "PANATHINAIKOS",
+          "country": "GRE",
+          "uuid": "707353d4-629c-5e8a-9e51-4a18423ab8da",
+          "file": 15,
+          "ordinal": 19,
+          "nativeBlob": "9260977eaa9f71fa69ded33024fe9b4f29967fdd",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Porto",
+          "nativeName": "FC PORTO",
+          "country": "POR",
+          "uuid": "67ffed3a-5172-5d9b-b689-8eab57aca7d7",
+          "file": 29,
+          "ordinal": 12,
+          "nativeBlob": "2009a1ae3d3907c00df25310e2693e50843b5d9e",
+          "firstObservedPhase": "GROUP_D"
+        },
+        {
+          "sport": "Rangers",
+          "nativeName": "RANGERS",
+          "country": "SCO",
+          "uuid": "01c460ac-399b-5687-a941-6c32f093b4e2",
+          "file": 33,
+          "ordinal": 33,
+          "nativeBlob": "3c9e453561539587a463d860b8e4810db931778c",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Rapid Wien",
+          "nativeName": "RAPID VIENNA",
+          "country": "AUT",
+          "uuid": "38de33dd-2597-5848-92e8-26e25179498e",
+          "file": 1,
+          "ordinal": 5,
+          "nativeBlob": "11365a215132ac94221f50339b53faab8484c5e8",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Rosenborg",
+          "nativeName": "ROSENBORG",
+          "country": "NOR",
+          "uuid": "048fa5e4-e588-52b2-bb1b-92973985bbde",
+          "file": 27,
+          "ordinal": 11,
+          "nativeBlob": "2699ae66b5f6125260c310b50e29d7b7ccd4807b",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Slavia Praha",
+          "nativeName": "SLAVIA PRAGUE",
+          "country": "CZE",
+          "uuid": "470730a8-ec5c-5f4a-b7ee-3729f7030c83",
+          "file": 6,
+          "ordinal": 8,
+          "nativeBlob": "c56d93dd79bd99d58b2826a33ebd44ac90359881",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Steaua București",
+          "nativeName": "STEAUA BUCHAREST",
+          "country": "ROU",
+          "uuid": "c21164ad-e22c-532d-8830-4c9e7e78f1eb",
+          "file": 30,
+          "ordinal": 18,
+          "nativeBlob": "0735ecd4463c3e7576333c8d6e1667254efce7e9",
+          "firstObservedPhase": "Q"
+        },
+        {
+          "sport": "Widzew Łódź",
+          "nativeName": "WIDZEW LODZ",
+          "country": "POL",
+          "uuid": "0f6d5dfe-abc9-5a03-a047-de9644709a2a",
+          "file": 28,
+          "ordinal": 23,
+          "nativeBlob": "c3a8846fcc6e3aeea6c13d92fd07f4bb248d36e0",
+          "firstObservedPhase": "Q"
+        }
+      ],
+      "missing": [],
+      "entrants": 24,
+      "fixtures": 77,
+      "fullyMapped": true
+    }
+  ]
+}

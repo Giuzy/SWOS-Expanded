@@ -103,6 +103,7 @@ static uint64_t def_hash(const ExpCeDef *d)
         b[4]=ph->pairing;b[5]=ph->byes;b[6]=ph->higher_home;b[7]=(uint8_t)p;
         for(i=0;i<8u;++i){h^=b[i];h*=UINT64_C(1099511628211);}
         for(i=0;i<8u;++i){h^=(uint8_t)(r>>(8u*i));h*=UINT64_C(1099511628211);}
+        for(i=0;i<4u;++i){h^=(uint8_t)(ph->host_nonmember_comp>>(8u*i));h*=UINT64_C(1099511628211);}
     }
     return h;
 }
@@ -539,7 +540,34 @@ static int phase_entrants(const ExpandedUniversalRegistry *r,
     return 1;
 }
 typedef struct KoPair { ExpCeEntrant hi,lo; } KoPair;
-static int ko_pairs(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
+/* membership of a club in the CURRENT (latest) edition of a competition */
+static int club_in_current_edition(uint32_t comp,ExpandedClubKey c)
+{
+    const ExpCeEdition *best=NULL;
+    uint32_t i;
+    for(i=0;i<s_ce.neds;++i) {
+        const ExpCeEdition *o=&s_ce.eds[i];
+        if(o->def_id!=comp || !o->nentrants)continue;
+        if(!best || o->key.start_day>best->key.start_day)best=o;
+    }
+    return best && entrant_has(best->entrants,best->nentrants,c);
+}
+static void apply_host_rule(const ExpCeDef *d,uint32_t phase,KoPair *pairs,uint32_t np)
+{
+    const ExpCePhaseDef *ph=&d->phases[phase];
+    uint32_t i;
+    if(!ph->host_nonmember_comp || ph->match.legs!=1u || phase+1u>=d->nphases ||
+       (ph->higher_home!=1u && ph->pairing!=EXP_CE_PAIR_LISTED))return;
+    for(i=0;i<np;++i) {
+        const int hi_in=club_in_current_edition(ph->host_nonmember_comp,pairs[i].hi.club);
+        const int lo_in=club_in_current_edition(ph->host_nonmember_comp,pairs[i].lo.club);
+        if(hi_in && !lo_in) { /* the non-member hosts the member */
+            const ExpCeEntrant t=pairs[i].hi;
+            pairs[i].hi=pairs[i].lo;pairs[i].lo=t;
+        }
+    }
+}
+static int ko_pairs_raw(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
                     ExpCeEntrant *ent,uint32_t n,KoPair *pairs,uint32_t *np,
                     char *why,size_t whylen)
 {
@@ -589,6 +617,14 @@ static int ko_pairs(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
         snprintf(why,whylen,"knockout pairing %u unsupported",(unsigned)ph->pairing);
         return 0;
     }
+}
+static int ko_pairs(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
+                    ExpCeEntrant *ent,uint32_t n,KoPair *pairs,uint32_t *np,
+                    char *why,size_t whylen)
+{
+    if(!ko_pairs_raw(d,e,phase,ent,n,pairs,np,why,whylen))return 0;
+    apply_host_rule(d,phase,pairs,*np);
+    return 1;
 }
 static int form_groups(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
                        ExpCeEntrant *ent,uint32_t n,
@@ -915,9 +951,33 @@ static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl
     for(s=0;s<d->nsources;++s) {
         const ExpCeSourceSpec *sp=&d->sources[s];
         int blocked=0;
-        const ExpCeEdition *src=latest_closed(sp->competition,&blocked);
+        const ExpCeEdition *src;
         uint32_t want,rank,taken=0u;
         const int league=sp->source==EXP_CE_SRC_LEAGUE_RANK;
+        if(sp->source==EXP_CE_SRC_LISTED) {
+            /* ordered pool (placeholder clubs for paths not in the game):
+             * the first `count` not already qualified; never random, never a
+             * duplicate; an exhausted pool blocks the edition. */
+            uint32_t q;
+            want=sp->count;
+            if(sp->reallocate){want+=deficit;deficit=0u;}
+            for(q=0;q<sp->nclubs && taken<want;++q) {
+                const ExpandedClubKey c={e->key.competition.world,sp->clubs[q],
+                                         EXP_PARTICIPANT_CLUB};
+                if(entrant_has(e->entrants,k,c))continue;
+                if(k>=EXP_CE_MAX_ENTRANTS)return -1;
+                e->entrants[k]=(ExpCeEntrant){c,EXP_CE_SRC_LISTED,0u,0u,
+                    (uint8_t)(k+1u),0u,0u,0};
+                ++k;++taken;
+            }
+            if(taken<want) {
+                snprintf(why,wl,"listed pool exhausted: %lu of %lu clubs",
+                         (unsigned long)taken,(unsigned long)want);
+                return -1;
+            }
+            continue;
+        }
+        src=latest_closed(sp->competition,&blocked);
         if(!src) {
             if(blocked) {
                 snprintf(why,wl,"source %lu blocked",(unsigned long)sp->competition);
@@ -949,13 +1009,23 @@ static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl
         }
         while(taken<want) {
             ExpandedClubKey c;
+            uint32_t xi;
+            int skip=0;
             if(rank<1u || rank>src->nfinal) {
+                if(league && sp->reallocate) { /* table too short: the slots go
+                                                  to the next receiving rule */
+                    deficit+=want-taken;
+                    break;
+                }
                 snprintf(why,wl,"source %lu has no rank %lu",
                          (unsigned long)sp->competition,(unsigned long)rank);
                 return -1;
             }
             c=(ExpandedClubKey){e->key.competition.world,src->final_order[rank-1u],
               src->participant_kind};
+            for(xi=0;xi<sp->nexclude;++xi)
+                if(sp->exclude[xi]==c.stable_club)skip=1;
+            if(skip){++rank;continue;} /* excluded: does not use a slot */
             if(entrant_has(e->entrants,k,c)) {
                 if(!sp->reallocate) {
                     snprintf(why,wl,"club %lu qualified twice, no reallocation rule",
@@ -1000,6 +1070,24 @@ int ExpCe_LeagueFamilyChainOk(uint8_t country,uint8_t comp_id)
     }
     return 1;
 }
+/* Length of the LEADING simple chain of a family whose full chain is broken
+ * (e.g. parallel groups below): divisions 0..len-1 with relegated(d) ==
+ * promoted(d+1) > 0 for every inner pair. Movement is performed inside this
+ * prefix only; the division at its bottom executes no relegation toward the
+ * non-chain divisions and the divisions below keep their clubs. A prefix of
+ * one division is no chain (the family stays blocked). */
+static uint32_t league_chain_prefix(const ExpCeDef *d0)
+{
+    uint32_t i,len=1u;
+    if(!d0 || !d0->divisions || d0->divisions>16u || d0->promoted)return 0u;
+    for(i=0;i+1u<d0->divisions;++i) {
+        const ExpCeDef *a=def_find(ExpCe_LeagueCompetitionId(d0->country,d0->comp_id,(uint8_t)i));
+        const ExpCeDef *b=def_find(ExpCe_LeagueCompetitionId(d0->country,d0->comp_id,(uint8_t)(i+1u)));
+        if(!a || !b || !a->relegated || a->relegated!=b->promoted)break;
+        len=i+2u;
+    }
+    return len>=2u?len:0u;
+}
 /* League family rollover: all divisions of (country, comp_id) completed.
  * 1 created successors, 0 wait, -1 blocked. */
 static int league_family_rollover(ExpandedUniversalRegistry *r,
@@ -1007,7 +1095,7 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
 {
     const ExpCeDef *div[16];
     ExpCeEdition *cur[16];
-    uint32_t nd=d0->divisions,i,j;
+    uint32_t nd=d0->divisions,i,j,seg=0u;
     char why[96];
     int chain=1;
     if(!nd || nd>16u)return -1;
@@ -1035,6 +1123,12 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
         if(cur[i]->partial)chain=-1;
     /* simple chain only: relegated(d) == promoted(d+1) */
     if(chain>0)chain=ExpCe_LeagueFamilyChainOk(d0->country,d0->comp_id);
+    /* v301: broken chain with a movement-capable leading segment: exchange
+     * inside it, keep the rest unchanged (documented temporary limitation) */
+    if(chain==0) {
+        seg=league_chain_prefix(d0);
+        if(seg>=2u && seg<nd)chain=2;
+    }
     for(i=0;i<nd;++i) {
         ExpCeEdition *n;
         int32_t start=0;
@@ -1052,7 +1146,7 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
             if(best!=UINT32_MAX)cur[j]=&s_ce.eds[best];
         }
         n=&s_ce.eds[s_ce.neds-1u];
-        if(chain<0 && !div[i]->missing[0]) {
+        if((chain<0 || (chain==2 && i>=seg)) && !div[i]->missing[0]) {
             for(j=0;j<cur[i]->nentrants && k<EXP_CE_MAX_ENTRANTS;++j)
                 n->entrants[k++]=(ExpCeEntrant){cur[i]->entrants[j].club,
                     EXP_CE_SRC_KEPT_NO_MOVEMENT,0u,0u,(uint8_t)(k+1u),0u,
@@ -1066,7 +1160,8 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
             }
             n->state=EXP_CE_ED_PARTICIPANTS;
             ed_log("EDITION_PARTICIPANTS",n,
-                   "previous edition partial: same clubs, no promotion/relegation");
+                   chain<0?"previous edition partial: same clubs, no promotion/relegation":
+                           "below the movement segment (parallel groups): same clubs kept");
             continue;
         }
         if(chain<=0 || div[i]->missing[0]) {
@@ -1077,7 +1172,7 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
             continue;
         }
         /* retained */
-        for(j=div[i]->promoted;j+div[i]->relegated<cur[i]->nfinal;++j) {
+        for(j=div[i]->promoted;j+((chain==2 && i+1u==seg)?0u:div[i]->relegated)<cur[i]->nfinal;++j) {
             const uint32_t rank=j+1u;
             n->entrants[k++]=(ExpCeEntrant){
                 (ExpandedClubKey){d0->world,cur[i]->final_order[j],EXP_PARTICIPANT_CLUB},
@@ -1090,7 +1185,7 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
                     (ExpandedClubKey){d0->world,cur[i-1u]->final_order[j],EXP_PARTICIPANT_CLUB},
                     EXP_CE_SRC_RELEGATED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
                     div[i-1u]->id,cur[i-1u]->key.start_day};
-        if(i+1u<nd) /* promoted from the division below */
+        if(i+1u<(chain==2?seg:nd)) /* promoted from the division below */
             for(j=0;j<div[i+1u]->promoted;++j)
                 n->entrants[k++]=(ExpCeEntrant){
                     (ExpandedClubKey){d0->world,cur[i+1u]->final_order[j],EXP_PARTICIPANT_CLUB},
@@ -1602,6 +1697,17 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
             return 0;
         }
     }
+    if(mjson_find(j,l,"$.host_rule",&o,&ol)==MJSON_TOK_OBJECT) {
+        double cc=0,cid=0,dv=0;
+        char ht[32];
+        if(!json_str(o,ol,"$.type",ht,sizeof ht) || strcmp(ht,"NON_MEMBER_HOSTS")!=0 ||
+           mjson_get_number(o,ol,"$.league.country",&cc)<=0 ||
+           mjson_get_number(o,ol,"$.league.comp_id",&cid)<=0 ||
+           mjson_get_number(o,ol,"$.league.division",&dv)<=0) {
+            snprintf(ph->missing,sizeof ph->missing,"host_rule");return 0;
+        }
+        ph->host_nonmember_comp=ExpCe_LeagueCompetitionId((uint8_t)cc,(uint8_t)cid,(uint8_t)dv);
+    }
     if(mjson_find(j,l,"$.window",&o,&ol)==MJSON_TOK_OBJECT) {
         if(!parse_window(o,ol,&ph->window,ph->missing,sizeof ph->missing))return 0;
         ph->has_window=1u;
@@ -1754,7 +1860,35 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                 if(strcmp(t,"LEAGUE_RANK")==0)sp->source=EXP_CE_SRC_LEAGUE_RANK;
                 else if(strcmp(t,"CUP_WINNER")==0)sp->source=EXP_CE_SRC_CUP_WINNER;
                 else if(strcmp(t,"CUP_RUNNER_UP")==0)sp->source=EXP_CE_SRC_CUP_RUNNER_UP;
+                else if(strcmp(t,"LISTED")==0)sp->source=EXP_CE_SRC_LISTED;
                 else continue;
+                {   /* generic pool / exclusion lists ("country:slot" keys) */
+                    const char *la=NULL;
+                    int ll=0,lo=0,lk,lkl,lv,lvl,lt;
+                    if(mjson_find(sj,svl,"$.clubs",&la,&ll)==MJSON_TOK_ARRAY)
+                        while((lo=mjson_next(la,ll,lo,&lk,&lkl,&lv,&lvl,&lt))>0 &&
+                              sp->nclubs<EXP_CE_MAX_POOL) {
+                            char ck[24];
+                            ExpandedClubKey kk;
+                            if(lt!=MJSON_TOK_STRING || lvl<5 || lvl>=26)continue;
+                            memcpy(ck,la+lv+1,(size_t)lvl-2u);ck[lvl-2]=0;
+                            if(parse_club(ck,world,&kk))
+                                sp->clubs[sp->nclubs++]=kk.stable_club;
+                        }
+                    lo=0;
+                    if(mjson_find(sj,svl,"$.exclude",&la,&ll)==MJSON_TOK_ARRAY)
+                        while((lo=mjson_next(la,ll,lo,&lk,&lkl,&lv,&lvl,&lt))>0 &&
+                              sp->nexclude<EXP_CE_MAX_EXCLUDE) {
+                            char ck[24];
+                            ExpandedClubKey kk;
+                            if(lt!=MJSON_TOK_STRING || lvl<5 || lvl>=26)continue;
+                            memcpy(ck,la+lv+1,(size_t)lvl-2u);ck[lvl-2]=0;
+                            if(parse_club(ck,world,&kk))
+                                sp->exclude[sp->nexclude++]=kk.stable_club;
+                        }
+                    if(mjson_get_number(sj,svl,"$.count",&v)>0 && v>=1 && v<=64)
+                        sp->count=(uint8_t)v;
+                }
                 if(mjson_get_number(sj,svl,"$.competition",&v)>0)sp->competition=(uint32_t)v;
                 else {
                     double cc=0,cid=0,dv=0;
@@ -1772,7 +1906,7 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                     int b=0;
                     if(mjson_get_bool(sj,svl,"$.reallocate",&b)>0)sp->reallocate=(uint8_t)(b!=0);
                 }
-                if(!sp->competition)continue;
+                if(sp->source==EXP_CE_SRC_LISTED ? (!sp->count || !sp->nclubs) : !sp->competition)continue;
                 ++d->nsources;
             }
         }

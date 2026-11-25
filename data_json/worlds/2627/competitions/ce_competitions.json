@@ -245,6 +245,15 @@
       "country": 20,
       "type": 1,
       "source": "25/11/2026 approved brief: first edition single final Inter-Lazio, GAME_TEMPLATE date 22/12/2026, edition change 21/12; competition NOT in the original OG catalogue (first competition added entirely through the CE, no OG slot).",
+      "authentic_regulation": {
+        "bench": 7, "substitutions": 5, "extra_time_minutes": 30, "penalties": true,
+        "note": "modern Supercoppa rules; NOT used by the engine: bench 7 exceeds the OG bench cap (5)"
+      },
+      "og_reference": {
+        "competition": "Serie A (leagues.json _italianLeague, division 0)",
+        "applied": { "bench": 5, "subs": 3 },
+        "reason": "same country, OG-native substitution limits; modern bench/substitution rules are not representable without changing the OG bench limit (not approved)"
+      },
       "match": {
         "bench": 5,
         "subs": 3,
@@ -275,6 +284,10 @@
         "date": "12-21",
         "year_offset": 1
       },
+      "next_entrants": [
+        { "source": "LEAGUE_RANK", "league": { "country": 20, "comp_id": 61, "division": 0 }, "from": 1, "to": 1 },
+        { "source": "LISTED", "count": 1, "clubs": ["20:299"] }
+      ],
       "first_edition": {
         "year": 2026,
         "entrants": [
@@ -289,40 +302,56 @@
       "country": 44,
       "type": 1,
       "source": "25/11/2026 approved research card row 329: 32 national entrants, 31 single-leg knockout games (32/16/8/4/2), GAME_TEMPLATE_2026 round windows from the published schedule, edition change 29/01. 12 entrants are temporary TEST clubs (44:55..44:66, see test_clubs.json). Real regulation has 5 substitutions in 3 windows plus one extra substitution and window in extra time: the extra-time extras exceed the OG bench cap (5) and are NOT represented; home advantage of a member-federation club against an A-League club is NOT represented (first drawn hosts).",
+      "authentic_regulation": {
+        "substitutions": 5, "windows": 3, "extra_time_additional_substitution": 1, "extra_time_additional_window": 1,
+        "extra_time_minutes": 30, "penalties": true, "note": "verified real rules (research card row 329); NOT used by the engine: they exceed the OG bench cap"
+      },
+      "og_reference": {
+        "competition": "A-League Men (leagues.json _australianLeague, division 0)",
+        "applied": { "bench": 5, "subs": 3 },
+        "reason": "same country, OG-native substitution limits; the real 5 substitutions / 3 windows / extra-time extras are not representable without changing the OG bench limit (not approved)"
+      },
       "match": {
         "bench": 5,
-        "subs": 5,
-        "windows": 3,
+        "subs": 3,
         "discipline": 1,
-        "provenance": "VERIFIED"
+        "provenance": "OG_NATIVE"
       },
       "phases": [
         {
           "kind": "KNOCKOUT",
           "pairing": "DRAW",
           "higher_home": 1,
+          "host_rule": { "type": "NON_MEMBER_HOSTS", "league": { "country": 44, "comp_id": 88, "division": 0 } },
           "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "first_edition_days": ["2026-07-22"],
           "window": { "first": "07-14", "last": "07-30", "weekdays": "TUE,WED,THU,SUN", "rest": 3 }
         },
         {
           "kind": "KNOCKOUT",
           "pairing": "DRAW",
           "higher_home": 1,
+          "host_rule": { "type": "NON_MEMBER_HOSTS", "league": { "country": 44, "comp_id": 88, "division": 0 } },
           "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "first_edition_days": ["2026-08-12"],
           "window": { "first": "08-08", "last": "08-12", "weekdays": "SAT,SUN,TUE,WED", "rest": 3 }
         },
         {
           "kind": "KNOCKOUT",
           "pairing": "BRACKET",
           "higher_home": 1,
+          "host_rule": { "type": "NON_MEMBER_HOSTS", "league": { "country": 44, "comp_id": 88, "division": 0 } },
           "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "first_edition_days": ["2026-08-18"],
           "window": { "first": "08-18", "last": "08-26", "weekdays": "TUE,WED", "rest": 3 }
         },
         {
           "kind": "KNOCKOUT",
           "pairing": "BRACKET",
           "higher_home": 1,
+          "host_rule": { "type": "NON_MEMBER_HOSTS", "league": { "country": 44, "comp_id": 88, "division": 0 } },
           "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "first_edition_days": ["2026-09-09"],
           "window": { "first": "09-09", "last": "09-15", "weekdays": "TUE,WED", "rest": 3 }
         },
         {
@@ -330,13 +359,19 @@
           "pairing": "BRACKET",
           "higher_home": 1,
           "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
-          "window": { "first": "10-10", "last": "10-10", "weekdays": "SAT", "rest": 0 }
+          "first_edition_days": ["2026-10-10"],
+          "window": { "first": "10-04", "last": "10-31", "weekdays": "SAT,SUN", "rest": 3 }
         }
       ],
       "expiry": {
         "date": "01-29",
         "year_offset": 1
       },
+      "next_entrants": [
+        { "source": "CUP_WINNER", "competition": 2884866 },
+        { "source": "LEAGUE_RANK", "league": { "country": 44, "comp_id": 88, "division": 0 }, "from": 1, "to": 10, "reallocate": true, "exclude": ["44:3", "44:8"] },
+        { "source": "LISTED", "count": 21, "reallocate": true, "clubs": ["44:55", "44:56", "44:57", "44:58", "44:59", "44:60", "44:61", "44:62", "44:63", "44:64", "44:65", "44:66", "44:67", "44:68", "44:69", "44:70", "44:71", "44:72", "44:73", "44:74", "44:75", "44:76", "44:77", "44:78"] }
+      ],
       "first_edition": {
         "year": 2026,
         "entrants": [

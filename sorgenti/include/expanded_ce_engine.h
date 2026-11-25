@@ -27,6 +27,8 @@
 #define EXP_CE_MAX_GROUPS 16u
 #define EXP_CE_MAX_ENTRANTS 128u
 #define EXP_CE_MAX_SOURCES 16u
+#define EXP_CE_MAX_POOL 40u
+#define EXP_CE_MAX_EXCLUDE 8u
 #define EXP_CE_MAX_BREAKS 8u
 
 typedef enum ExpCeEditionState {
@@ -113,6 +115,11 @@ typedef struct ExpCePhaseDef {
     uint8_t higher_home;          /* KO: 1 higher seed hosts leg 1 (or the
                                      single match), 2 higher seed hosts the
                                      deciding leg / lower hosts a single one */
+    /* v301 host rule (JSON host_rule NON_MEMBER_HOSTS): in a single-leg KO
+     * round, when exactly ONE club of a pair belongs to the current edition
+     * of this competition (e.g. the A-League), the OTHER club hosts. 0 =
+     * none. Never applied to the last phase (neutral final). */
+    uint32_t host_nonmember_comp;
     uint8_t has_window;
     ExpCeWindow window;           /* dates (GAME_TEMPLATE unless verified) */
     /* verified real round days of the FIRST edition (take precedence over
@@ -129,6 +136,18 @@ typedef struct ExpCeSourceSpec {  /* participants of the NEXT editions */
     uint8_t rank_from, rank_to;   /* LEAGUE_RANK inclusive */
     uint8_t reallocate;           /* duplicate -> next rank of the source */
     uint32_t competition;
+    /* v301 generic additions (JSON next_entrants):
+     *  - LEAGUE_RANK "exclude": clubs that are skipped WITHOUT consuming a
+     *    wanted slot (e.g. clubs of another federation);
+     *  - LISTED: an ordered POOL of clubs ("clubs") of which the first
+     *    "count" not already qualified are taken (placeholder TEST clubs for
+     *    qualification paths the game does not represent yet). No random
+     *    choice, no duplicate, an exhausted pool blocks the edition. */
+    uint8_t count;                /* LISTED: clubs wanted */
+    uint8_t nclubs;               /* LISTED: pool size */
+    uint8_t nexclude;
+    uint32_t clubs[EXP_CE_MAX_POOL];
+    uint32_t exclude[EXP_CE_MAX_EXCLUDE];
 } ExpCeSourceSpec;
 
 typedef enum ExpCeOrigin {

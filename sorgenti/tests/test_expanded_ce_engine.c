@@ -247,6 +247,39 @@ static const char *k_json =
 "  {\"club\":\"16:9\",\"source\":\"VERIFIED\"},{\"club\":\"16:10\",\"source\":\"VERIFIED\"},"
 "  {\"club\":\"16:11\",\"source\":\"VERIFIED\"},{\"club\":\"16:12\",\"source\":\"VERIFIED\"},"
 "  {\"club\":\"17:1\",\"source\":\"VERIFIED\"},{\"club\":\"17:2\",\"source\":\"VERIFIED\"}]}},"
+/* v301: next-edition sources LISTED (placeholder pool) and `exclude`: a
+ * 2-club league slice (rank 1..2, club 16:1 excluded without using a slot)
+ * plus 2 pool clubs; the pool skips a club that already qualified */
+"{\"id\":720898,\"name\":\"POOL CUP\",\"country\":16,\"type\":1,"
+" \"match\":{\"bench\":5,\"subs\":3,\"discipline\":1,\"provenance\":\"GAME_TEMPLATE\"},"
+" \"expiry\":{\"date\":\"12-20\",\"year_offset\":1},"
+" \"phases\":["
+"  {\"kind\":\"KNOCKOUT\",\"pairing\":\"SEEDED\",\"higher_home\":1,\"match\":{\"legs\":1,\"penalties\":1},"
+"   \"window\":{\"first\":\"10-03\",\"last\":\"10-17\",\"weekdays\":\"SAT\",\"rest\":3}},"
+"  {\"kind\":\"KNOCKOUT\",\"pairing\":\"BRACKET\",\"higher_home\":1,\"match\":{\"legs\":1,\"penalties\":1},"
+"   \"window\":{\"first\":\"10-24\",\"last\":\"10-31\",\"weekdays\":\"SAT\",\"rest\":3}}],"
+" \"first_edition\":{\"year\":2026,\"entrants\":["
+"  {\"club\":\"16:1\",\"source\":\"VERIFIED\"},{\"club\":\"16:2\",\"source\":\"VERIFIED\"},"
+"  {\"club\":\"16:3\",\"source\":\"VERIFIED\"},{\"club\":\"16:4\",\"source\":\"VERIFIED\"}]},"
+" \"next_entrants\":["
+"  {\"source\":\"LEAGUE_RANK\",\"league\":{\"country\":16,\"comp_id\":1,\"division\":0},\"from\":1,\"to\":2,\"reallocate\":true,\"exclude\":[\"16:1\"]},"
+"  {\"source\":\"LISTED\",\"count\":2,\"reallocate\":true,\"clubs\":[\"16:2\",\"16:40\",\"16:41\",\"16:42\"]}]},"
+/* v301 host rule: a club that is NOT in the current edition of league 16/1/0
+ * hosts a member (16:1..16:4 are members); the last phase is not affected */
+"{\"id\":786434,\"name\":\"HOST CUP\",\"country\":16,\"type\":1,"
+" \"match\":{\"bench\":5,\"subs\":3,\"discipline\":1,\"provenance\":\"GAME_TEMPLATE\"},"
+" \"phases\":["
+"  {\"kind\":\"KNOCKOUT\",\"pairing\":\"SEEDED\",\"higher_home\":1,"
+"   \"host_rule\":{\"type\":\"NON_MEMBER_HOSTS\",\"league\":{\"country\":16,\"comp_id\":1,\"division\":0}},"
+"   \"match\":{\"legs\":1,\"penalties\":1},"
+"   \"window\":{\"first\":\"11-02\",\"last\":\"11-16\",\"weekdays\":\"MON\",\"rest\":3}},"
+"  {\"kind\":\"KNOCKOUT\",\"pairing\":\"BRACKET\",\"higher_home\":1,"
+"   \"host_rule\":{\"type\":\"NON_MEMBER_HOSTS\",\"league\":{\"country\":16,\"comp_id\":1,\"division\":0}},"
+"   \"match\":{\"legs\":1,\"penalties\":1},"
+"   \"window\":{\"first\":\"11-23\",\"last\":\"11-30\",\"weekdays\":\"MON\",\"rest\":3}}],"
+" \"first_edition\":{\"year\":2026,\"entrants\":["
+"  {\"club\":\"16:1\",\"source\":\"VERIFIED\"},{\"club\":\"16:5\",\"source\":\"VERIFIED\"},"
+"  {\"club\":\"16:2\",\"source\":\"VERIFIED\"},{\"club\":\"16:6\",\"source\":\"VERIFIED\"}]}},"
 /* type2 continental: 2 groups (pots), cross-groups 2-leg KO in January,
  * single final in March: the edition crosses the year */
 "{\"id\":458754,\"name\":\"CONTINENTAL\",\"country\":200,\"type\":2,"
@@ -318,15 +351,19 @@ static void setup_world(void)
     add_league(16,0,3,0,1,3);add_league(16,1,3,1,1,3);add_league(16,2,3,1,0,3);
     /* family 17: two parallel lower groups (Italy-like): not a chain */
     add_league(17,0,3,0,2,3);add_league(17,1,3,1,0,3);add_league(17,2,3,1,0,3);
+    /* family 22 (Serie A/B-like): chain only inside divisions 0-1; below it
+     * the targets do not match (parallel groups) */
+    add_league(22,0,3,0,2,3);add_league(22,1,3,2,3,3);add_league(22,2,3,1,0,3);
     for(d=0;d<3u;++d) {
         first_league_edition(16,d,1u+4u*d);
         first_league_edition(17,d,1u+4u*d);
+        first_league_edition(22,d,1u+4u*d);
     }
     /* family 18: one division whose 2026 season began before START */
     add_league(18,0,1,0,0,3);
     s_skip_first=2u;first_league_edition(18,0,1u);s_skip_first=0u;
     add_league_window(19,&CW);
-    assert(ExpCe_LoadJsonDefinitions(k_json,(int)strlen(k_json),WORLD_2627,"test.json")==6);
+    assert(ExpCe_LoadJsonDefinitions(k_json,(int)strlen(k_json),WORLD_2627,"test.json")==8);
     assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
 }
 
@@ -473,6 +510,71 @@ int main(void)
     assert(e && !e->block && e->state>=EXP_CE_ED_COMPLETED);
     e=edition_of(524290u,2027); /* its successor depends on the blocked one */
     assert(e && e->block==EXP_CE_BLOCK_DEPENDENCY);
+    {   /* v301 generic sources: exclude + LISTED pool */
+        const ExpCeEdition *p26=edition_of(720898u,2026),*p27=edition_of(720898u,2027);
+        uint32_t listed=0u,ranked=0u;
+        assert(p26 && p26->state>=EXP_CE_ED_COMPLETED);
+        assert(p27 && !p27->block && p27->state>=EXP_CE_ED_PARTICIPANTS &&
+               p27->nentrants==4u);
+        for(i=0;i<p27->nentrants;++i) {
+            const ExpCeEntrant *x=&p27->entrants[i];
+            assert(x->club.stable_club!=((16u<<16)|1u));      /* excluded club */
+            if(x->source==EXP_CE_SRC_LISTED)++listed;
+            else {++ranked;assert(x->from_competition==L160);}
+        }
+        /* 16:2 may be a ranked qualifier: then the pool skips it (no duplicate) */
+        assert(listed==2u && ranked==2u);
+        for(i=0;i<p27->nentrants;++i) {
+            uint32_t j;
+            for(j=i+1u;j<p27->nentrants;++j)
+                assert(p27->entrants[i].club.stable_club!=p27->entrants[j].club.stable_club);
+        }
+    }
+    {   /* v301: partial chain: A<->B exchange, divisions below keep their clubs */
+        const uint32_t A=ExpCe_LeagueCompetitionId(22,1,0),B=ExpCe_LeagueCompetitionId(22,1,1),
+                       Cc=ExpCe_LeagueCompetitionId(22,1,2);
+        const ExpCeEdition *a26=edition_of(A,2026),*b26=edition_of(B,2026),
+                           *a27=edition_of(A,2027),*b27=edition_of(B,2027),*c27=edition_of(Cc,2027);
+        uint32_t pro=0u,ret=0u,rel=0u,kept=0u,k;
+        assert(a26 && b26 && a26->nfinal==4u && b26->nfinal==4u);
+        assert(a27 && b27 && c27 && !a27->block && !b27->block && !c27->block);
+        assert(a27->nentrants==4u && b27->nentrants==4u && c27->nentrants==4u);
+        for(k=0;k<a27->nentrants;++k) {
+            if(a27->entrants[k].source==EXP_CE_SRC_RETAINED)++ret;
+            if(a27->entrants[k].source==EXP_CE_SRC_PROMOTED) {
+                ++pro;assert(a27->entrants[k].club.stable_club==b26->final_order[pro-1u]);
+            }
+        }
+        assert(ret==2u && pro==2u);                       /* A: 2 stay, B's top 2 arrive */
+        ret=rel=0u;
+        for(k=0;k<b27->nentrants;++k) {
+            if(b27->entrants[k].source==EXP_CE_SRC_RETAINED)++ret;
+            if(b27->entrants[k].source==EXP_CE_SRC_RELEGATED)++rel;
+        }
+        assert(ret==2u && rel==2u);   /* B keeps 2, receives A's bottom 2; sends 0 below */
+        for(k=0;k<c27->nentrants;++k)
+            if(c27->entrants[k].source==EXP_CE_SRC_KEPT_NO_MOVEMENT)++kept;
+        assert(kept==4u);                                  /* below the segment: same clubs */
+    }
+    puts("TYPE0_PARTIAL_CHAIN_SEGMENT_MOVEMENT_ONLY_INSIDE_REST_KEPT=PASS");
+    {   /* v301 host rule: the non-member hosts in the first round; the FINAL
+         * (last phase) keeps the normal listed order */
+        uint32_t seen=0u,fin=0u;
+        for(i=0;i<R()->fixture_count;++i) {
+            const ExpandedUniversalFixture *f=&R()->fixtures[i];
+            const uint32_t h=f->home.stable_club&0xffffu,a=f->away.stable_club&0xffffu;
+            if(f->key.edition.competition.stable_competition!=786434u ||
+               f->key.edition.start_day>D(2027,1,1))continue;
+            if(EXP_CE_STAGE_PHASE(f->key.stage)==0u) {
+                ++seen;
+                assert(h>=5u);        /* 16:5 / 16:6 (non-members) host 16:1 / 16:2 */
+                assert(a<=4u);
+            } else ++fin;
+        }
+        assert(seen==2u && fin==1u);
+    }
+    puts("HOST_RULE_NON_MEMBER_HOSTS_GENERIC_JSON=PASS");
+    puts("SOURCES_LISTED_POOL_AND_EXCLUDE_NO_DUPLICATE_NO_RANDOM=PASS");
     puts("BLOCKED_DEFINITION_ISOLATED_DEPENDENTS_NOT_RUN=PASS");
     (void)champ_cont26;
 
@@ -505,7 +607,7 @@ int main(void)
         add_league(16,0,3,0,1,3);add_league(16,1,3,1,1,3);add_league(16,2,3,1,0,3);
         add_league(17,0,3,0,2,3);add_league(17,1,3,1,0,3);add_league(17,2,3,1,0,3);
         add_league(18,0,1,0,0,3);add_league_window(19,&CW);
-        assert(ExpCe_LoadJsonDefinitions(k_json,(int)strlen(k_json),WORLD_2627,"t")==6);
+        assert(ExpCe_LoadJsonDefinitions(k_json,(int)strlen(k_json),WORLD_2627,"t")==8);
         assert(ExpandedUniversal_CarValidate(disk,len));
         assert(ExpandedUniversal_CarRestore(disk,len));
         {

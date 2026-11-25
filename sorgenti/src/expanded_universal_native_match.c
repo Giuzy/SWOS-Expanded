@@ -359,24 +359,26 @@ int ExpandedUniversal_NativeRunOriginal(
     oldCareer=_isCareer;
     homeControls=c->home->team.teamControls;
     awayControls=c->away->team.teamControls;
+    {   /* TEST clubs (placeholder rosters), EVERY path: CPU quick, VIEW RESULT,
+         * DEBUG, and the manager's PLAY MATCH / COACH MATCH. The result is
+         * assigned by the data-driven administrative policy, so no
+         * interactive OG match is started; it travels through this SAME
+         * witness, ledger and CAR. OG is not asked and scores nothing. */
+        ExpandedFixtureScore admin;
+        const char *why=NULL;
+        if(ExpCeAdmin_Decide(fixture,&admin,&why)) {
+            witness->key=fixture->key;witness->home=fixture->home;
+            witness->away=fixture->away;witness->day_index=fixture->day_index;
+            witness->score=admin;witness->valid=1u;
+            fprintf(stderr,"[universal-native] ADMIN_TEST_RESULT event=%llu "
+                "score=%u:%u rule=%s og-played=NO CAR_ONE_WITNESS=1\n",
+                (unsigned long long)fixture->event_id,(unsigned)admin.home,
+                (unsigned)admin.away,why?why:"?");
+            return 1;
+        }
+    }
     if(!c->interactive) {
         int quick_ok;
-        {   /* TEST clubs (placeholder rosters): the result is assigned by the
-             * data-driven administrative policy, through this SAME witness,
-             * ledger and CAR. OG is not asked and scores nothing. */
-            ExpandedFixtureScore admin;
-            const char *why=NULL;
-            if(ExpCeAdmin_Decide(fixture,&admin,&why)) {
-                witness->key=fixture->key;witness->home=fixture->home;
-                witness->away=fixture->away;witness->day_index=fixture->day_index;
-                witness->score=admin;witness->valid=1u;
-                fprintf(stderr,"[universal-native] ADMIN_TEST_RESULT event=%llu "
-                    "score=%u:%u rule=%s og-played=NO CAR_ONE_WITNESS=1\n",
-                    (unsigned long long)fixture->event_id,(unsigned)admin.home,
-                    (unsigned)admin.away,why?why:"?");
-                return 1;
-            }
-        }
         /* CPU and manager VIEW RESULT use the ORIGINAL OG quick scorer.
          * Never open a field or invoke the old DIY competition writer. */
         if(c->home!=&_careerTeam)

@@ -11,6 +11,7 @@
 #include "expanded_ce_engine.h"
 #include "expanded_ce_admin.h"
 #include "expanded_ce_table.h"
+#include "expanded_universal_pairings.h"
 
 static WorldId s_world=WORLD_2627;
 WorldId World_Current(void){return s_world;}
@@ -115,6 +116,39 @@ static const ExpCeEdition *edition_of(uint32_t comp,uint16_t year)
     }
     return NULL;
 }
+/* first season of a league as the catalog emits it (double round robin) */
+typedef struct RrUser {ExpandedUniversalFixture *out;uint32_t n,clubs;uint8_t country;
+    uint32_t comp;int32_t start,day0;} RrUser;
+static int rr(void *u,uint32_t cycle,uint32_t round,uint32_t serial,uint32_t h,uint32_t a)
+{
+    RrUser *x=(RrUser *)u;
+    ExpandedUniversalFixture *f=&x->out[x->n++];
+    memset(f,0,sizeof *f);
+    f->home=(ExpandedClubKey){WORLD_2627,((uint32_t)x->country<<16)|(h+1u),EXP_PARTICIPANT_CLUB};
+    f->away=(ExpandedClubKey){WORLD_2627,((uint32_t)x->country<<16)|(a+1u),EXP_PARTICIPANT_CLUB};
+    f->day_index=x->day0+7*(int32_t)(cycle*(x->clubs-1u)+round);
+    f->key.edition.competition=(ExpandedCompetitionKey){WORLD_2627,x->comp};
+    f->key.edition.start_day=x->start;f->key.stage=1u;f->key.tie=serial+1u;
+    f->key.leg=(uint16_t)cycle;f->country=x->country;f->slot=0u;
+    f->event_id=((uint64_t)WORLD_2627<<60)|((uint64_t)x->comp<<20)|((uint64_t)cycle<<12)|(serial+1u);
+    return 1;
+}
+static void add_league_first_season(uint8_t country,uint8_t comp_id,uint32_t clubs)
+{
+    static const ExpCeWindow LW={8,1,5,31,1, 1u<<6,1u<<2,3,0,{{0}}};
+    static ExpandedUniversalFixture fx[512];
+    ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);
+    RrUser u;
+    assert(d && ExpCe_LeagueDefinition(WORLD_2627,country,comp_id,0u,1u,(uint16_t)clubs,
+        2u,3u,3u,5u,0u,0u,0u,0u,&LW,d) && ExpCe_AddDefinition(d));
+    free(d);
+    memset(&u,0,sizeof u);
+    u.out=fx;u.clubs=clubs;u.country=country;
+    u.comp=ExpCe_LeagueCompetitionId(country,comp_id,0u);
+    u.start=D(2026,8,1);u.day0=D(2026,8,2);
+    assert(ExpandedUniversal_GenerateRoundRobin(clubs,2u,rr,&u) && u.n==clubs*(clubs-1u));
+    assert(ExpandedUniversal_CarInsertFixtures(fx,u.n));
+}
 int main(void)
 {
     int len=0;
@@ -130,9 +164,11 @@ int main(void)
     free(json);
     {   int tl=0;
         char *tj=slurp("../data_json/worlds/2627/competitions/test_clubs.json",&tl);
-        assert(ExpCeAdmin_LoadJson(tj,tl,WORLD_2627)==12);
+        assert(ExpCeAdmin_LoadJson(tj,tl,WORLD_2627)==25);
         free(tj);
     }
+    add_league_first_season(44u,88u,12u);   /* A-League Men (12 clubs 44:1..44:12) */
+    add_league_first_season(20u,61u,20u);   /* Serie A (20 clubs 20:1..20:20) */
     def=ExpCe_Definition(SUPERCOPPA);
     assert(def && !def->missing[0] && def->type==1u && def->country==20u &&
            def->nphases==1u && def->nfirst==2u);
@@ -157,26 +193,6 @@ int main(void)
     assert(s_games>=1u);
     e=edition_of(SUPERCOPPA,2026);
     assert(e && e->state>=EXP_CE_ED_COMPLETED && e->nfinal>=2u);
-    /* the edition expires on 21/12/2027 (its own cycle, never 1 July) */
-    run_until(D(2027,12,22));
-    e=edition_of(SUPERCOPPA,2026);
-    assert(e && e->state==EXP_CE_ED_ARCHIVED);
-    assert(ExpandedUniversal_ArchiveContains(e->key));        /* archived once */
-    {
-        const ExpandedEditionSummary *s=NULL;
-        for(i=0;i<ExpandedUniversal_ArchiveCount();++i) {
-            const ExpandedEditionSummary *a=ExpandedUniversal_ArchiveAt(i);
-            if(a->edition.competition.stable_competition==SUPERCOPPA)s=a;
-        }
-        assert(s && s->match_count==1u && s->champion==((20u<<16)|1u) &&
-               s->runner_up==((20u<<16)|9u));                 /* penalties 5-4 */
-    }
-    /* renewal: only Serie A winner + Coppa Italia winner/runner-up per the
-     * verified regulation, but Coppa Italia is not defined in the CE yet: the
-     * 2027 edition must NOT invent participants */
-    e=edition_of(SUPERCOPPA,2027);
-    assert(e && e->block==EXP_CE_BLOCK_ENTRANTS && e->state==EXP_CE_ED_CREATED);
-    assert(ExpandedUniversal_ValidateRestore(R()));
     /* ===== Australia Cup: 32 entrants (20 real + 12 TEST), 31 knockout games */
     {
         const uint32_t AC=2884866u;
@@ -184,13 +200,13 @@ int main(void)
         const ExpCeDef *ad=ExpCe_Definition(AC);
         const ExpCeEdition *ae=edition_of(AC,2026);
         assert(ad && !ad->missing[0] && ad->nphases==5u && ad->nfirst==32u);
-        assert(ae && ae->state==EXP_CE_ED_ARCHIVED && ae->nfinal>=2u);
-        assert(ExpandedUniversal_ArchiveContains(ae->key));
+        assert(ae && ae->state>=EXP_CE_ED_COMPLETED && ae->nfinal>=2u);
         for(i=0;i<R()->fixture_count;++i) {
             const ExpandedUniversalFixture *f=&R()->fixtures[i];
             const ExpandedFixtureLedgerEntry *l=&R()->ledger.entries[i];
             int th,ta;
-            if(f->key.edition.competition.stable_competition!=AC)continue;
+            if(f->key.edition.competition.stable_competition!=AC ||
+               !ExpandedEditionKey_Equal(f->key.edition,ae->key))continue;
             assert(l->state==EXP_FIXTURE_PLAYED && EXP_CE_STAGE_PHASE(f->key.stage)<=4u);
             ++played;++per_round[EXP_CE_STAGE_PHASE(f->key.stage)+1u];
             th=ExpCeAdmin_IsTest(f->home);ta=ExpCeAdmin_IsTest(f->away);
@@ -210,9 +226,94 @@ int main(void)
         assert(adm>0u && s_admin>=adm && s_real>=1u);   /* Supercoppa is a real match */
         printf("AUSTRALIA_CUP played=%u admin=%u test_vs_real=%u test_vs_test=%u\n",
                played,adm,tvr,tvt);
-        /* the 2027 edition cannot invent its 32 participants */
+    }
+    /* the edition expires on 21/12/2027 (its own cycle, never 1 July) */
+    run_until(D(2027,12,22));
+    e=edition_of(SUPERCOPPA,2026);
+    assert(e && e->state==EXP_CE_ED_ARCHIVED);
+    assert(ExpandedUniversal_ArchiveContains(e->key));        /* archived once */
+    {
+        const ExpandedEditionSummary *s=NULL;
+        for(i=0;i<ExpandedUniversal_ArchiveCount();++i) {
+            const ExpandedEditionSummary *a=ExpandedUniversal_ArchiveAt(i);
+            if(a->edition.competition.stable_competition==SUPERCOPPA)s=a;
+        }
+        assert(s && s->match_count==1u && s->champion==((20u<<16)|1u) &&
+               s->runner_up==((20u<<16)|9u));                 /* penalties 5-4 */
+    }
+    /* renewal: only Serie A winner + Coppa Italia winner/runner-up per the
+     * verified regulation, but Coppa Italia is not defined in the CE yet: the
+     * 2027 edition must NOT invent participants */
+    /* 2027 edition: Serie A winner (CE result) + the TEST placeholder of the
+     * Coppa Italia winner; plays and completes by the administrative rule */
+    {
+        const ExpCeEdition *s27=edition_of(SUPERCOPPA,2027);
+        const uint32_t serieA=ExpCe_LeagueCompetitionId(20u,61u,0u);
+        int has_test=0,has_league=0;
+        assert(s27 && !s27->block && s27->nentrants==2u);
+        for(i=0;i<s27->nentrants;++i) {
+            if(s27->entrants[i].club.stable_club==((20u<<16)|299u))has_test=1;
+            if(s27->entrants[i].source==EXP_CE_SRC_LEAGUE_RANK &&
+               s27->entrants[i].from_competition==serieA &&
+               s27->entrants[i].rank==1u)has_league=1;
+        }
+        assert(has_test && has_league);
+        run_until(D(2028,1,5));
+        s27=edition_of(SUPERCOPPA,2027);
+        assert(s27 && s27->state>=EXP_CE_ED_COMPLETED);
+        for(i=0;i<R()->fixture_count;++i) {
+            const ExpandedUniversalFixture *f=&R()->fixtures[i];
+            const ExpandedFixtureLedgerEntry *l=&R()->ledger.entries[i];
+            if(f->key.edition.competition.stable_competition!=SUPERCOPPA ||
+               !ExpandedEditionKey_Equal(f->key.edition,s27->key))continue;
+            assert(l->state==EXP_FIXTURE_PLAYED && (l->score.flags&EXP_CE_SCORE_ADMIN_TEST));
+            assert(f->home.stable_club==((20u<<16)|299u)?
+                   (l->score.home==0u&&l->score.away==3u):
+                   (l->score.home==3u&&l->score.away==0u));      /* the real club wins */
+        }
+    }
+    assert(ExpandedUniversal_ValidateRestore(R()));
+    {
+        const uint32_t AC=2884866u;
+        const ExpCeEdition *ae=edition_of(AC,2026);
+        assert(ae && ae->state==EXP_CE_ED_ARCHIVED);          /* expiry 29/01/2027 */
+        assert(ExpandedUniversal_ArchiveContains(ae->key));
+        /* 2027 edition renews on its own: champion + 10 Australian A-League
+         * clubs (NZ clubs 44:3 / 44:8 excluded) + 21 TEST placeholders for the
+         * regional slots; no duplicate, nothing random */
         ae=edition_of(AC,2027);
-        assert(ae && ae->block==EXP_CE_BLOCK_ENTRANTS);
+        assert(ae && !ae->block && ae->nentrants==32u);
+        {
+            uint32_t al=0u,listed=0u,champ=0u,j;
+            for(i=0;i<ae->nentrants;++i) {
+                const ExpCeEntrant *x=&ae->entrants[i];
+                assert(x->club.stable_club!=((44u<<16)|3u) && x->club.stable_club!=((44u<<16)|8u));
+                for(j=i+1u;j<ae->nentrants;++j)
+                    assert(x->club.stable_club!=ae->entrants[j].club.stable_club);
+                if(x->source==EXP_CE_SRC_CUP_WINNER)++champ;
+                if(x->source==EXP_CE_SRC_LEAGUE_RANK || x->source==EXP_CE_SRC_REALLOCATED)++al;
+                if(x->source==EXP_CE_SRC_LISTED) {
+                    ++listed;
+                    assert(ExpCeAdmin_IsTest(x->club));
+                }
+            }
+            assert(champ==1u && al==10u && listed==21u);
+        }
+        assert(ae->state>=EXP_CE_ED_COMPLETED && ae->nfinal>=2u);   /* it also played */
+        {   /* host rule: an A-League club never hosts a non-A-League club in R32 */
+            uint32_t hosted_by_non_member=0u,bad=0u;
+            for(i=0;i<R()->fixture_count;++i) {
+                const ExpandedUniversalFixture *f=&R()->fixtures[i];
+                uint32_t hs=f->home.stable_club&0xffffu,as=f->away.stable_club&0xffffu;
+                if(f->key.edition.competition.stable_competition!=AC ||
+                   !ExpandedEditionKey_Equal(f->key.edition,ae->key) ||
+                   EXP_CE_STAGE_PHASE(f->key.stage)>3u)continue;
+                if((f->home.stable_club>>16)==44u && hs>=1u && hs<=12u && !(as>=1u && as<=12u))
+                    ++bad;                      /* AL host vs non-AL */
+                if(!(hs>=1u && hs<=12u) && as>=1u && as<=12u)++hosted_by_non_member;
+            }
+            assert(bad==0u && hosted_by_non_member>0u);
+        }
     }
     puts("AUSTRALIA_CUP_REAL_JSON_32_ENTRANTS_31_GAMES_TEST_ADMIN_RESULTS=PASS");
     puts("SUPERCOPPA_ITALIANA_REAL_JSON_FIRST_EDITION_ARCHIVE_NO_INVENTED_RENEWAL=PASS");

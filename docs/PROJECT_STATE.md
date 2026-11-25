@@ -2357,3 +2357,6 @@ Decisione già approvata e ora implementata nel codice del selettore NEW CAREER:
 
 ## 25/11/2026 — v00.13.301 (aggiornamento): AUSTRALIA CUP + SQUADRE TEST + RISULTATI AMMINISTRATIVI (DATI + TEST ISOLATI + BUILD)
 Australia Cup (id 2884866) definita solo da dati; 12 squadre TEST (AUSTRALIA.json ordinali 54-65, fuori campionato, solo catalogo universale); modulo generico expanded_ce_admin.c con policy in test_clubs.json (TEST vs reale 0-3; TEST vs TEST vincitore per coppia, 1-0), flag ADMIN_TEST 0x04 persistito, gancio nel percorso OG quick; PLAY interattivo contro TEST NON sovrascritto (decisione aperta). Test isolati PASS; avvio gioco/gancio nativo/Windows NON PROVATI. Dettagli: docs/CE_SETTE_COMPETIZIONI_AUDIT.md.
+
+## 25/11/2026 — v00.13.302: FUNZIONI GENERICHE CE PER LE SETTE COMPETIZIONI (SOURCE + TEST ISOLATI + BUILD)
+Risultato amministrativo TEST su tutti i percorsi (anche PLAY/COACH MATCH); sorgenti next_entrants LISTED (pool) ed exclude; host_rule NON_MEMBER_HOSTS; scambio nel segmento iniziale della catena di una famiglia di divisioni (Serie A-B), resto invariato; riferimento OG documentato per panchina/sostituzioni (authentic_regulation vs og_reference). Australia Cup e Supercoppa rinnovabili e provate con i JSON reali. A-League 22+4 e finali NON implementate (progetto in docs/CE_SETTE_COMPETIZIONI_AUDIT.md). Windows/gameplay non provati.

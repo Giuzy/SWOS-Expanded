@@ -10,6 +10,7 @@
 #include "teams.h"
 #include "comp_identity.h"
 #include "expanded_universal_world_catalog.h"
+#include "expanded_ce_admin.h"
 #ifdef SWOS_SDL_BUILD
 #include <stdio.h>
 #include <string.h>
@@ -136,6 +137,20 @@ static unsigned import_file(uint8_t file, uint8_t country,
             continue;
         }
         if(Team_IsOutsideLeague(&t->team)) {
+            /* Temporary TEST clubs (test_clubs.json) sit outside every league
+             * on purpose: they enter ONLY the universal catalog (roster +
+             * stable key) so cups can field them; never the league world. */
+            const ExpandedClubKey tk={(uint16_t)WORLD_2627,
+                ((uint32_t)World_FileCountry(file)<<16)|
+                ((uint32_t)World_Slot(file,t->team.teamOrdinal)+1u),
+                EXP_PARTICIPANT_CLUB};
+            if(World_Current()==WORLD_2627 && ExpCeAdmin_IsTest(tk)) {
+                if(!ExpandedUniversalCatalog_AddClub(t))
+                    fprintf(stderr,"[universal-catalog] TEST_CLUB_ROSTER_REJECTED "
+                        "file=%u ordinal=%u\n",(unsigned)file,
+                        (unsigned)t->team.teamOrdinal);
+                continue;
+            }
             track_rejection(t,file,LIVE_IMPORT_OUTSIDE);
             continue;
         }
@@ -176,6 +191,8 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     const uint32_t oldMatches=ExpandedWorldLive_CupArchivedMatches()+
         ExpandedWorldLive_CupResidentMatches();
     const uint32_t oldTitles=ExpandedWorldLive_CupHistoricalTitles();
+    if(World_Current()==WORLD_2627)
+        (void)ExpCe_LoadTestClubs((uint16_t)WORLD_2627); /* before the import */
     memset(&s_import_runtime,0,sizeof s_import_runtime);
     s_import_runtime.attempts=attempt;
     s_import_runtime.status=1;

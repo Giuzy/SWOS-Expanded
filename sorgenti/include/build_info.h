@@ -195,7 +195,12 @@
  * ManagerBound). NEW CAREER: PROVISIONAL third state of the existing
  * toggle "START AS NATIONAL TEAM COACH" -> national team of the manager's
  * nationality through the same InitCareer. Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.300"
+/* v00.13.301: Supercoppa Italiana (id 1310978) and Australia Cup (id 2884866)
+ * added through data only in ce_competitions.json; 12 temporary TEST clubs
+ * (AUSTRALIA.json ordinals 54..65, outside every league) with data-driven
+ * administrative results (test_clubs.json, expanded_ce_admin.c, hook in the
+ * OG quick path, persisted score flag 0x04). */
+#define SWOS_EXPANDED_VERSION "00.13.301"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

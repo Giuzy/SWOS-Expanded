@@ -5,12 +5,42 @@
  */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_ce_engine.h"
+#include "expanded_ce_admin.h"
 #include "expanded_universal_json_leagues.h"
 #include "swos_io.h"
 #include "world.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+/* TEST clubs + administrative-result policy (optional test_clubs.json). Also called
+ * BEFORE the roster import so TEST clubs outside every league still get a catalog
+ * roster. Idempotent. Returns the club count, -1 malformed, 0 no file. */
+int ExpCe_LoadTestClubs(uint16_t world)
+{
+    int n=0;
+        char path[1024];
+        const char *rel="data_json/worlds/2627/competitions/test_clubs.json";
+        FILE *file=fopen(swos_data_path(rel,path,(uint32_t)sizeof path),"rb");
+        ExpCeAdmin_Reset();
+        if(file) {
+            long size=0;
+            char *bytes=NULL;
+            n=-1;
+            if(fseek(file,0,SEEK_END)==0 && (size=ftell(file))>0 &&
+               size<1L*1024L*1024L && fseek(file,0,SEEK_SET)==0 &&
+               (bytes=(char *)malloc((size_t)size+1u))!=NULL &&
+               fread(bytes,1,(size_t)size,file)==(size_t)size) {
+                bytes[size]=0;
+                n=ExpCeAdmin_LoadJson(bytes,(int)size,world);
+            }
+            free(bytes);fclose(file);
+            fprintf(stderr,"[ce-engine] TEST_CLUBS world=%s clubs=%d %s\n",
+                world==WORLD_2627?"2627":"9697",n,
+                n<0?"MALFORMED_NO_ADMIN_RESULTS":"administrative-results=ON");
+        }
+    return n;
+}
 
 /* Definitions: one per league division (leagues.json + league_calendar.json,
  * OG native rules) + data_json/worlds/2627/competitions/ce_competitions.json
@@ -68,6 +98,7 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
             free(bytes);fclose(file);
         }
     }
+    (void)ExpCe_LoadTestClubs(world);
     fprintf(stderr,"[ce-engine] DEFINITIONS world=%s leagues=%lu json=%d "
         "source=leagues.json+league_calendar.json+ce_competitions.json\n",
         world==WORLD_2627?"2627":"9697",(unsigned long)leagues,json);

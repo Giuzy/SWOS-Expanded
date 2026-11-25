@@ -56,7 +56,7 @@ int main(void)
            (unsigned long)json,(unsigned long)ready,(unsigned long)missing,
            (unsigned long)chain_ok,(unsigned long)chain_bad);
     assert(leagues==134u);      /* every division of leagues.json */
-    assert(json==2u);           /* Copa Bolivia, Libertadores */
+    assert(json==4u);           /* Copa Bolivia, Libertadores, Supercoppa, Australia Cup */
     assert(chain_ok==90u && chain_bad==1u); /* Italy: parallel groups */
     puts("CE_REAL_DATA_VALIDATOR_AND_MATRIX=PASS_STATIC_DATA_ONLY");
     return 0;

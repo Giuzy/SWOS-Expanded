@@ -239,5 +239,141 @@
         "entrants": []
       }
     }
+    ,{
+      "id": 1310978,
+      "name": "SUPERCOPPA ITALIANA",
+      "country": 20,
+      "type": 1,
+      "source": "25/11/2026 approved brief: first edition single final Inter-Lazio, GAME_TEMPLATE date 22/12/2026, edition change 21/12; competition NOT in the original OG catalogue (first competition added entirely through the CE, no OG slot).",
+      "match": {
+        "bench": 5,
+        "subs": 3,
+        "discipline": 1,
+        "provenance": "OG_NATIVE"
+      },
+      "phases": [
+        {
+          "kind": "KNOCKOUT",
+          "pairing": "LISTED",
+          "match": {
+            "legs": 1,
+            "extra_time": 1,
+            "penalties": 1
+          },
+          "first_edition_days": [
+            "2026-12-22"
+          ],
+          "window": {
+            "first": "12-22",
+            "last": "12-22",
+            "weekdays": "MON,TUE,WED,THU,FRI,SAT,SUN",
+            "rest": 0
+          }
+        }
+      ],
+      "expiry": {
+        "date": "12-21",
+        "year_offset": 1
+      },
+      "first_edition": {
+        "year": 2026,
+        "entrants": [
+          { "club": "20:1", "source": "VERIFIED" },
+          { "club": "20:9", "source": "VERIFIED" }
+        ]
+      }
+    }
+    ,{
+      "id": 2884866,
+      "name": "AUSTRALIA CUP",
+      "country": 44,
+      "type": 1,
+      "source": "25/11/2026 approved research card row 329: 32 national entrants, 31 single-leg knockout games (32/16/8/4/2), GAME_TEMPLATE_2026 round windows from the published schedule, edition change 29/01. 12 entrants are temporary TEST clubs (44:55..44:66, see test_clubs.json). Real regulation has 5 substitutions in 3 windows plus one extra substitution and window in extra time: the extra-time extras exceed the OG bench cap (5) and are NOT represented; home advantage of a member-federation club against an A-League club is NOT represented (first drawn hosts).",
+      "match": {
+        "bench": 5,
+        "subs": 5,
+        "windows": 3,
+        "discipline": 1,
+        "provenance": "VERIFIED"
+      },
+      "phases": [
+        {
+          "kind": "KNOCKOUT",
+          "pairing": "DRAW",
+          "higher_home": 1,
+          "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "window": { "first": "07-14", "last": "07-30", "weekdays": "TUE,WED,THU,SUN", "rest": 3 }
+        },
+        {
+          "kind": "KNOCKOUT",
+          "pairing": "DRAW",
+          "higher_home": 1,
+          "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "window": { "first": "08-08", "last": "08-12", "weekdays": "SAT,SUN,TUE,WED", "rest": 3 }
+        },
+        {
+          "kind": "KNOCKOUT",
+          "pairing": "BRACKET",
+          "higher_home": 1,
+          "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "window": { "first": "08-18", "last": "08-26", "weekdays": "TUE,WED", "rest": 3 }
+        },
+        {
+          "kind": "KNOCKOUT",
+          "pairing": "BRACKET",
+          "higher_home": 1,
+          "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "window": { "first": "09-09", "last": "09-15", "weekdays": "TUE,WED", "rest": 3 }
+        },
+        {
+          "kind": "KNOCKOUT",
+          "pairing": "BRACKET",
+          "higher_home": 1,
+          "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "window": { "first": "10-10", "last": "10-10", "weekdays": "SAT", "rest": 0 }
+        }
+      ],
+      "expiry": {
+        "date": "01-29",
+        "year_offset": 1
+      },
+      "first_edition": {
+        "year": 2026,
+        "entrants": [
+          { "club": "44:2", "source": "VERIFIED" },
+          { "club": "44:11", "source": "VERIFIED" },
+          { "club": "44:9", "source": "VERIFIED" },
+          { "club": "44:7", "source": "VERIFIED" },
+          { "club": "44:6", "source": "VERIFIED" },
+          { "club": "44:4", "source": "VERIFIED" },
+          { "club": "44:1", "source": "VERIFIED" },
+          { "club": "44:10", "source": "VERIFIED" },
+          { "club": "44:5", "source": "VERIFIED" },
+          { "club": "44:12", "source": "VERIFIED" },
+          { "club": "44:55", "source": "VERIFIED" },
+          { "club": "44:14", "source": "VERIFIED" },
+          { "club": "44:19", "source": "VERIFIED" },
+          { "club": "44:18", "source": "VERIFIED" },
+          { "club": "44:27", "source": "VERIFIED" },
+          { "club": "44:56", "source": "VERIFIED" },
+          { "club": "44:57", "source": "VERIFIED" },
+          { "club": "44:58", "source": "VERIFIED" },
+          { "club": "44:59", "source": "VERIFIED" },
+          { "club": "44:53", "source": "VERIFIED" },
+          { "club": "44:47", "source": "VERIFIED" },
+          { "club": "44:45", "source": "VERIFIED" },
+          { "club": "44:60", "source": "VERIFIED" },
+          { "club": "44:61", "source": "VERIFIED" },
+          { "club": "44:62", "source": "VERIFIED" },
+          { "club": "44:63", "source": "VERIFIED" },
+          { "club": "44:33", "source": "VERIFIED" },
+          { "club": "44:30", "source": "VERIFIED" },
+          { "club": "44:37", "source": "VERIFIED" },
+          { "club": "44:64", "source": "VERIFIED" },
+          { "club": "44:65", "source": "VERIFIED" },
+          { "club": "44:66", "source": "VERIFIED" }
+        ]
+      }
+    }
   ]
 }

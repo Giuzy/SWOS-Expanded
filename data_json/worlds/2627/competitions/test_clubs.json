@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "kind": "SWOS_EXPANDED_CE_TEST_CLUBS",
+  "world": "2627",
+  "owner": "COMPETITION_ENGINE (expanded_ce_admin.c)",
+  "notes": [
+    "Temporary placeholder clubs with TEST rosters (all players named TEST, identical characteristics). Their matches are NOT played by OG: the result is assigned by 'policy' through the same CE ledger/scheduler/KO update/CAR and carries the persisted score flag ADMIN_TEST (0x04).",
+    "Remove a club from 'clubs' when its real roster is inserted: it then plays like every other club. The club key keeps its identity (44:slot).",
+    "test_vs_real: the real club always wins (winner_goals:loser_goals). test_vs_test: ONE winner per PAIR and edition (PAIR_HASH), never the first of the fixture, so both legs of a tie have the same winner.",
+    "Approved by the project owner on 25/11/2026: TEST vs real 0-3 (3-0); TEST vs TEST 1-0 for the pair winner. Interactive PLAY MATCH against a TEST club is NOT overridden (still the original 50 Hz match): pending owner decision."
+  ],
+  "policy": {
+    "test_vs_real": { "winner_goals": 3, "loser_goals": 0 },
+    "test_vs_test": { "winner_goals": 1, "loser_goals": 0, "selection": "PAIR_HASH" }
+  },
+  "labels": {
+    "44:55": "Tigers FC (NPL Capital Football) - OG name TIGERS FC",
+    "44:56": "Maitland (NPL Northern NSW) - OG name MAITLAND",
+    "44:57": "Weston Bears (NPL Northern NSW) - OG name WESTON BEARS",
+    "44:58": "Azzurri United (NorZone Premier League) - OG name AZZURRI UNITED",
+    "44:59": "Marlin Coast Rangers (FQPL Far North & Gulf) - OG name MARLIN COAST RGR",
+    "44:60": "Cumberland United (State League 1 South Australia) - OG name CUMBERLAND UNITED",
+    "44:61": "FK Beograd (NPL South Australia) - OG name FK BEOGRAD",
+    "44:62": "Kingborough Lions United (NPL Tasmania) - OG name KINGBOROUGH LIONS",
+    "44:63": "North Sunshine Eagles (Victoria Premier League 1) - OG name N SUNSHINE EAGLES",
+    "44:64": "Brunswick Juventus (Victoria Premier League 1) - OG name BRUNSWICK JUVENT.",
+    "44:65": "Bayswater City (NPL Western Australia) - OG name BAYSWATER CITY",
+    "44:66": "Fremantle City (NPL Western Australia) - OG name FREMANTLE CITY"
+  },
+  "clubs": [
+    "44:55", "44:56", "44:57", "44:58", "44:59", "44:60",
+    "44:61", "44:62", "44:63", "44:64", "44:65", "44:66"
+  ]
+}

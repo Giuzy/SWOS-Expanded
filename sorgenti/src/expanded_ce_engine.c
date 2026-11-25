@@ -1566,6 +1566,17 @@ int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,
     if(meetings)*meetings=d->phases[phase].meetings;
     return 1;
 }
+/* CE-derived competition name of a fixture (readers: calendar, viewers).
+ * 1 ok, 0 unknown competition (the caller keeps a neutral label). */
+int ExpCe_FixtureCompetitionName(const ExpandedUniversalFixture *f,
+                                 char *out,size_t n)
+{
+    const ExpCeDef *d;
+    if(!f || !out || !n || !(d=def_find(f->key.edition.competition.stable_competition)) ||
+       !d->name[0])return 0;
+    snprintf(out,n,"%s",d->name);
+    return 1;
+}
 int ExpCe_TableRules(ExpandedEditionKey edition,uint32_t stage,
                      ExpCeTableRules *table)
 {

@@ -787,6 +787,22 @@ int ExpandedUniversalLive_DebugAdvance(ExpandedWorldDate target)
         ok?"COMPLETED":"BLOCKED");
     return ok;
 }
+/* 1 when the manager's fixture due today is NOT a league round (cup, super
+ * cup, multi-phase): the OG league board has no projection for it, so the
+ * menu uses the original OG team screen (VIEW RESULT = OG quick, MATCH =
+ * OG 50 Hz) fed by the same CE fixture. Never auto-played by FORWARD. */
+int ExpandedUniversalLive_ManagerDueIsNonLeague(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    ExpandedClubKey manager={0};
+    const ExpandedUniversalFixture *f=NULL;
+    int32_t today=0;
+    if(!r || r->recovery_required || !ExpandedUniversalLive_Active() ||
+       !ExpandedUniversalLive_TodayIndex(&today) || !manager_key(&manager))
+        return 0;
+    f=exp_live_manager_fixture(r,manager);
+    return f && f->day_index==today && f->competition_type!=0u;
+}
 int ExpandedUniversalLive_PlayManager(void)
 {
     return exp_universal_live_manager_action(1);

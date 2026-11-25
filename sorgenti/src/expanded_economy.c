@@ -24,6 +24,7 @@
 #include "expanded_bolivia_calendar_viewport.h" /* render-only red arrows and OG focus */
 #include "expanded_universal_car.h" /* CE fixture ledger: read-only manager calendar */
 #include "expanded_universal_live.h" /* active CE world, no legacy fixture fallback */
+#include "expanded_ce_engine.h" /* v303: CE competition names for the calendar */
 #include "expanded_universal_world_catalog.h" /* roster names; never reconstruct teams */
 #endif
 #include "expanded_midseason_join.h"
@@ -2753,15 +2754,23 @@ static void ui_render_ce_calendar(void)
         const TeamFileEx *opponent=ExpandedUniversalCatalog_Roster(
             home?f->away:f->home);
         ExpandedWorldDate d={0};
+        /* v303: ANY competition type (league, cup, super cup, group+KO).
+         * One unreadable fixture is skipped, never erases the calendar. */
+        if(count>=capacity)goto done;
         if(!opponent || !ExpandedFixtureKey_Equal(f->key,entry->key) ||
            (entry->state!=EXP_FIXTURE_PLAYED &&
             entry->state!=EXP_FIXTURE_SCHEDULED) ||
-           f->competition_type!=0u ||
-           !ExpandedWorld_IndexToDate(f->day_index,&d) ||
-           count>=capacity)goto done;
+           !ExpandedWorld_IndexToDate(f->day_index,&d)) {
+            fprintf(stderr,"[ce-calendar] FIXTURE_SKIPPED event=%llu "
+                "reason=%s\n",(unsigned long long)f->event_id,
+                !opponent?"opponent-roster":
+                !ExpandedFixtureKey_Equal(f->key,entry->key)?"ledger-key":
+                "state-or-date");
+            continue;
+        }
         UICompactFixture *r=&rows[count++];
         r->expandedBolivia=1u; /* selects the existing dated columns */
-        r->cup=0u;r->eventId=f->event_id;
+        r->cup=0u;r->eventId=f->event_id; /* cup flag set below from the type */
         r->day=d.day;r->month=d.month;
         r->dayKey=ui_fixture_date_key(d.year,d.month,d.day);
         const unsigned compId=(unsigned)(
@@ -2776,11 +2785,16 @@ static void ui_render_ce_calendar(void)
             (uintptr_t)tbl[0]!=(uintptr_t)-1 &&
             (uintptr_t)tbl[0]!=(uintptr_t)-2?
             (const Competition *)tbl[0]:NULL;
-        const char *name=comp && comp->type==0 &&
-            comp->compId==compId?comp_name_at((Competition *)comp,
-                 (size_t)f->slot*2u+1u):NULL;
+        const char *name=f->competition_type==0u && comp &&
+            comp->type==0 && comp->compId==compId?
+            comp_name_at((Competition *)comp,(size_t)f->slot*2u+1u):NULL;
+        char ceName[48]={0};
+        if(!(name && *name) &&
+           ExpCe_FixtureCompetitionName(f,ceName,sizeof ceName))
+            name=ceName;
+        r->cup=(uint8_t)(f->competition_type!=0u);
         snprintf(r->label,sizeof r->label,"%s",
-                 name && *name?name:"LEAGUE");
+                 name && *name?name:(f->competition_type?"CUP":"LEAGUE"));
         snprintf(r->first,sizeof r->first,"%.17s",
                  (const char *)myTeam->team.teamName);
         snprintf(r->side,sizeof r->side,"%s",home?"(H)":"(A)");

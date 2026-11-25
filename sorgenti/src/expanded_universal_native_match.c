@@ -6,6 +6,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_native_match.h"
 #include "expanded_ce_admin.h"
+#include "expanded_ce_engine.h"
 #include "game_init.h"
 #include "match_sim.h" /* the original OG fast VIEW RESULT scorer */
 #include "expanded_world_live.h" /* fixture date -> OG view-random phase */
@@ -141,12 +142,24 @@ static int exp_universal_native_match_valid(
        c->maximum_substitutes<c->minimum_substitutes ||
        c->maximum_substitutes>16 ||
        c->interactive>1u)return 0;
-    /* A type0 league's repeated meetings are independent matches,
-     * NOT KO two-leg ties. Accept 1..4 JSON-declared cycles (leg 0..3);
-     * the separate legacy bracket/aggregate remains forbidden. */
-    if(f->competition_type!=0u || f->key.leg>3u ||
-       f->key.replay!=0u)return 0;
-    return 1;
+    /* The contract follows the PHASE of the fixture, not a competition
+     * type. A TYPE 0 league's repeated meetings are independent matches
+     * (leg 0..3). For TYPE 1/2 the CE definition decides: a TABLE phase
+     * allows leg < meetings, a KNOCKOUT phase leg 0..1 (single match or
+     * two-leg tie; aggregate, extra time and penalties are resolved by the
+     * original OG algorithms from the context the CE prepared). Replays are
+     * not supported by the engine. Identity, leg, phase and roster checks
+     * stay mandatory: an unknown or inconsistent phase is refused BEFORE
+     * the claim. */
+    if(f->key.replay!=0u || f->competition_type>2u)return 0;
+    if(f->competition_type==0u)return f->key.leg<=3u;
+    {
+        uint8_t kind=0u,meetings=0u;
+        if(!ExpCe_FixturePhase(f,&kind,&meetings))return 0;
+        if(kind==EXP_CE_PHASE_KNOCKOUT)return f->key.leg<=1u;
+        if(kind==EXP_CE_PHASE_TABLE)return f->key.leg<meetings && f->key.leg<=3u;
+    }
+    return 0;
 }
 static int s_result_prompt;
 void ExpandedUniversal_NativeSetResultPrompt(int on)

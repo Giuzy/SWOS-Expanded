@@ -33,6 +33,7 @@ int ExpandedUniversalLive_EngineRestore(void);
 int ExpandedUniversalLive_ClubNameCompare(void *user,ExpandedClubKey a,
                                           ExpandedClubKey b);
 /* 0 not owned, 1 handled/blocked, 2 actual OG + CAR completed. */
+int ExpandedUniversalLive_ManagerDueIsNonLeague(void);
 int ExpandedUniversalLive_PlayManager(void); /* only manual real OG 50 Hz */
 int ExpandedUniversalLive_ViewManagerResult(void); /* OG fast, same CAR */
 /* OG board VIEW RESULT of a CPU fixture in the manager's league round:

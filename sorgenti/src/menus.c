@@ -3974,7 +3974,16 @@ static int exp_universal_contest_action(MenuEntry *entry)
          * backed by a transient read-only CE projection. Its OG MATCH and
          * VIEW RESULT buttons both execute the same CE fixture. */
         extern int ExpandedUniversal_OGBoardPresent(void);
-        const int result=ExpandedUniversal_OGBoardPresent();
+        int result=ExpandedUniversal_OGBoardPresent();
+        if(result==0 && ExpandedUniversalLive_ManagerDueIsNonLeague()) {
+            /* Cup / Super Cup / multi-phase fixture of the manager: no OG
+             * league board exists for it. Use the original OG team screen
+             * (VIEW RESULT = OG quick, MATCH = OG 50 Hz) on the SAME CE
+             * fixture; FORWARD never plays it. */
+            fprintf(stderr,"[universal-manager-menu] NON_LEAGUE_FIXTURE "
+                "og-team-screen=1\n");
+            result=ExpandedUniversalLive_ViewManagerResult()==2?2:1;
+        }
         if(result==2) {
             fprintf(stderr,"[universal-manager-menu] MATCH_COMMITTED "
                 "owner=CE postmatch=NO_OLD_TSKC_WITNESS=1\n");

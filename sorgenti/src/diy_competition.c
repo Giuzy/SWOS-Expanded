@@ -10844,6 +10844,8 @@ static int ce_board_standings(ExpandedUniversalRegistry *r,
  * Original OG match + CAR were already completed; there is no second result
  * writer and no standings stored into a local career competition slot.
  * Validate every identity and count before changing the displayed table. */
+/* v302: precise reason of the last refresh refusal (diagnostics only). */
+static const char *s_ceBoardWhy="?";
 static int ce_board_refresh_completed(void)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
@@ -10855,36 +10857,51 @@ static int ce_board_refresh_completed(void)
     uint32_t count=0u,total=0u;
     const unsigned n=(unsigned)_numSelectedTeams;
     unsigned i,j;
-    if(!s_ceBoardActive || s_ceBoardViewOnly || !r || r->recovery_required ||
-       !r->fixtures || !r->ledger.entries || n<2u || n>64u ||
+    if(!s_ceBoardActive || s_ceBoardViewOnly || !r || r->recovery_required) {
+        s_ceBoardWhy="state(active/viewonly/registry/recovery)";return 0;
+    }
+    if(!r->fixtures || !r->ledger.entries || n<2u || n>64u ||
        s_ceBoardHomeRow<0 || s_ceBoardAwayRow<0 ||
-       (unsigned)s_ceBoardHomeRow>=n || (unsigned)s_ceBoardAwayRow>=n)
-        return 0;
+       (unsigned)s_ceBoardHomeRow>=n || (unsigned)s_ceBoardAwayRow>=n) {
+        s_ceBoardWhy="board-size-or-rows";return 0;
+    }
     f=ExpandedUniversal_Find(r,s_ceBoardEventId);
     played=f?ExpandedUniversal_EntryFor(r,f):NULL;
-    if(!played || played->state!=EXP_FIXTURE_PLAYED ||
-       !ce_board_standings(r,f->key.edition,f->key.stage,
-                           values,64u,&count) || count!=n)
-        return 0;
+    if(!played || played->state!=EXP_FIXTURE_PLAYED) {
+        s_ceBoardWhy="fixture-not-played-in-ledger";return 0;
+    }
+    if(!ce_board_standings(r,f->key.edition,f->key.stage,values,64u,&count)) {
+        s_ceBoardWhy="standings-rules-or-table";return 0;
+    }
+    if(count!=n) {
+        s_ceBoardWhy="standings-count-differs-from-board-clubs";return 0;
+    }
     for(i=0u;i<n;++i)
-        if(!ExpandedUniversal_NativeTeamKey(&_selectedTeams[i],&clubs[i]))
-            return 0;
+        if(!ExpandedUniversal_NativeTeamKey(&_selectedTeams[i],&clubs[i])) {
+            s_ceBoardWhy="board-team-has-no-ce-key";return 0;
+        }
     if(!ExpandedClubKey_Equal(clubs[s_ceBoardHomeRow],f->home) ||
-       !ExpandedClubKey_Equal(clubs[s_ceBoardAwayRow],f->away))
-        return 0;
+       !ExpandedClubKey_Equal(clubs[s_ceBoardAwayRow],f->away)) {
+        s_ceBoardWhy="home-away-row-identity";return 0;
+    }
     for(i=0u;i<n;++i) {
         const ExpandedUniversalStanding *v=&values[i];
         for(j=0u;j<n;++j)
             if(ExpandedClubKey_Equal(clubs[j],v->club))break;
-        if(j==n || matched[j] || v->played>UINT16_MAX ||
+        if(j==n) {s_ceBoardWhy="standing-club-not-on-board";return 0;}
+        if(matched[j] || v->played>UINT16_MAX ||
            v->wins>UINT16_MAX || v->draws>UINT16_MAX ||
            v->losses>UINT16_MAX || v->goals_for>UINT16_MAX ||
            v->goals_against>UINT16_MAX || v->points>UINT16_MAX ||
-           UINT32_MAX-total<v->played)return 0;
+           UINT32_MAX-total<v->played) {
+            s_ceBoardWhy="standing-duplicate-or-out-of-range";return 0;
+        }
         matched[j]=1u;
         total+=v->played;
     }
-    if((total&1u) || total/2u>UINT16_MAX)return 0;
+    if((total&1u) || total/2u>UINT16_MAX) {
+        s_ceBoardWhy="played-total-odd-or-out-of-range";return 0;
+    }
     for(i=0u;i<n;++i) {
         const ExpandedUniversalStanding *v=&values[i];
         for(j=0u;j<n;++j)
@@ -11022,8 +11039,8 @@ static void ce_board_action(unsigned action)
         /* The CE result may already be durably saved. Never display stale
          * standings or retry its OG match after a failed projection. */
         fprintf(stderr,"[universal-og-board] CE_RESULT_PROJECTION_FAILED "
-            "event=%llu no-replay=1\n",
-            (unsigned long long)s_ceBoardEventId);
+            "event=%llu reason=%s no-replay=1\n",
+            (unsigned long long)s_ceBoardEventId,s_ceBoardWhy);
         SetExitMenuFlag();
         return;
     }

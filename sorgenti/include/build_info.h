@@ -205,7 +205,11 @@
  * NON_MEMBER_HOSTS, partial league chain (Serie A<->B exchange); 24+1 TEST clubs
  * (AUSTRALIA.json 54..77, ITALY_POOL.json 42); Australia Cup and Supercoppa
  * renew on their own. */
-#define SWOS_EXPANDED_VERSION "00.13.302"
+/* v00.13.303: CE universal integration fixes: native match validity by PHASE (TYPE 0/1/2),
+ * non-league manager fixtures use the OG team screen, calendar shows every CE
+ * competition of the club, CE_RESULT_PROJECTION_FAILED now logs its reason. */
+/* v00.13.304: universal round-robin home/away distribution (de Werra-style canonical rule). */
+#define SWOS_EXPANDED_VERSION "00.13.304"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

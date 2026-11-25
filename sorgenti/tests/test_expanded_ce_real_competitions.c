@@ -188,6 +188,23 @@ int main(void)
         assert(f->country==20u);
     }
     assert(fx==1u);                                           /* one final */
+    {   /* the board projection reads the CE table of a running league: all
+         * clubs must appear with the rules of the REAL league definitions */
+        const uint32_t cids[2]={ExpCe_LeagueCompetitionId(20u,61u,0u),
+                                ExpCe_LeagueCompetitionId(44u,88u,0u)};
+        const uint32_t want[2]={20u,12u};
+        uint32_t q;
+        for(q=0;q<2u;++q) {
+            const ExpCeEdition *le=edition_of(cids[q],2026);
+            ExpCeTableRules tr;
+            ExpCeTableRow rows[64];
+            uint32_t nrows=0u;
+            assert(le);
+            assert(ExpCe_TableRules(le->key,EXP_CE_STAGE(0,1),&tr));
+            assert(ExpCeTable_Compute(R(),le->key,EXP_CE_STAGE(0,1),&tr,NULL,NULL,
+                                      rows,64u,&nrows) && nrows==want[q]);
+        }
+    }
     s_games=0u;
     run_until(D(2026,12,31));
     assert(s_games>=1u);

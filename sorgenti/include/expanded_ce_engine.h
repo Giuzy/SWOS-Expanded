@@ -279,6 +279,9 @@ int ExpCe_RulesForFixture(const ExpandedUniversalFixture *f,
  * does for playEachTeam==1). 1 ok. */
 int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,
                        uint8_t *meetings);
+/* Competition name (from the CE definition) of a fixture, for readers. */
+int ExpCe_FixtureCompetitionName(const ExpandedUniversalFixture *f,
+                                 char *out,size_t n);
 /* Table rules of (competition, stage), for readers. */
 int ExpCe_TableRules(ExpandedEditionKey edition,uint32_t stage,
                      ExpCeTableRules *table);

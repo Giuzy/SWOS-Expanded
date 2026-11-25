@@ -589,6 +589,7 @@ def candidates(co,rows,named,native):
     db=co.db
     db.execute("CREATE INDEX ix_group ON fixture(source,competition,country,season,season_basis)")
     db.execute("CREATE INDEX ix_date ON fixture(date)")
+    db.execute("CREATE INDEX ix_rule_group ON rule(competition,country,season)")
     db.commit()
     lookup=collections.defaultdict(set);tiers=collections.defaultdict(set)
     for rid,r in rows.items():
@@ -699,6 +700,7 @@ def candidates(co,rows,named,native):
     return {"matrix_rows":len(rows),"named_verified_rows":len(named),"source_groups":len(groups),"mapped_matrix_rows":sum(bool(v) for v in rowhits.values()),"initial_join_candidates":len(joins),"observed_changes":len(changes),"observed_membership_changes":len(movement),"cross_source_exact_pairs":cross_count,"july1_candidates":len(cutoff),"rule_candidates":db.execute("SELECT count(*) FROM rule").fetchone()[0],"fixture_candidates":db.execute("SELECT count(*) FROM fixture").fetchone()[0],"verified_upgrades":0,"note":"All generated evidence requires review; no existing closure or game file changed."}
 
 def adapter_version(source):
+    if source.startswith('rsssf-deep/'):return 'scoped-sections-v1'
     if source.startswith("worldfootballR/"):return "rds-v2"
     if source in TEXT_REPOS:return "world-text-v3"
     if source.startswith("parquet/"):return "parquet-v2"
@@ -830,6 +832,7 @@ def reuse_source(co, prior, entry):
         if attached:co.db.execute("DETACH DATABASE previous")
 
 def source_family(source):
+    if source.startswith(('corpus/','rsssf-deep/')):return 'rsssf-corpus'
     # These two sets were exactly equal in the first run (238858 each).
     # Even after a future update, the uploaded Matches.txt derives from xgabora;
     # count the upstream family once, preserve both provenance occurrences.
@@ -931,6 +934,7 @@ def run_consolidation(source,outbase,stamp,insert=False):
     result["research_index_sha256"]=hashfile(ROOT/"docs/competition_research/INDEX.json")
     result["consolidator_sha256"]=hashfile(HERE/"consolidate.py")
     result["closure_pass_sha256"]=hashfile(HERE/"closure_pass.py")
+    result["deep_pass_sha256"]=hashfile(HERE/"deep_pass.py")
     dump(out/"consolidation_summary.json",result)
     if insert:
         from insert import materialize, selftest as insertion_selftest
@@ -995,7 +999,7 @@ def main():
         if not chosen:
             recovered=False
             for old in (prior[2].values() if prior else ()):
-                if old["source"].startswith(kind+"/"):
+                if old["source"].startswith(kind+"/") or (kind=='corpus' and old['source'].startswith('rsssf-deep/')):
                     entry=dict(old,status="ARCHIVED_ONLY")
                     if reuse_source(co,prior,entry):manifest.append(entry);recovered=True
             if not recovered:co.note(kind,"","MISSING_LOCAL_SOURCE")
@@ -1004,6 +1008,14 @@ def main():
             source=kind+"/"+str(p.relative_to(sources)).replace("\\","/")
             print("Reading",source,flush=True)
             entry={"source":source,"bytes":p.stat().st_size,"sha256":hashfile(p)};manifest.append(entry)
+            if kind=='corpus':
+                import deep_pass
+                supplemental=dict(entry,source='rsssf-deep/'+str(p.relative_to(sources)).replace('\\','/'))
+                manifest.append(supplemental)
+                if not reuse_source(co,prior,supplemental):
+                    print('RSSSF scoped section pass',p.name,flush=True)
+                    try:deep_pass.collect_corpus(p,supplemental['source'],co,ROOT,COUNTRIES)
+                    except Exception as exc:co.note(supplemental['source'],p.name,'ERROR_SECTION_ARCHIVE',exc)
             if reuse_source(co,prior,entry):
                 print("Reused",source,flush=True);continue
             try:

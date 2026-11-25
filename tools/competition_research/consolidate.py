@@ -12,6 +12,7 @@ import tempfile
 import unicodedata
 import zipfile
 import closure_pass as mass
+import deep_pass as deep
 
 FIELDS = ('identity','participants','format','calendar','regulation','movement','qualification','july1','evolution')
 FILES = ('evidence.sqlite','matrix_candidates.csv','source_groups.csv','native_join_candidates.csv')
@@ -233,6 +234,7 @@ def consolidate(source,out,root=None):
                 hits=world_slots[m['world'],j['uuid'],int(j['file']),int(j['ordinal'])]
                 if len(hits)==1:archive_alias[rid,key(j),norm(j['label'])].update(hits)
         alias_count=mass.reviewed_aliases(root,matrix,native,reviewed)
+        all_rules=deep.rule_index(db,byrow,matrix,tiers,names,root)
         packets=[];queue=[];collisions=C.defaultdict(list);all_count=0;families=C.defaultdict(list);merged_count=0
         for rid,m in sorted(matrix.items()):
             w=m['world'];year=1996 if w=='9697' else 2026;cut=f'{year}-07-01';end=f'{year+1}-07-01'
@@ -258,6 +260,10 @@ def consolidate(source,out,root=None):
                 options.append((rank,g,fs,stats,mapping,missing,full,complete))
                 if roster_complete and w=='2627' and league and g['source'].startswith('euro2627/') and mass.exact_edition(g,w) and full and set(mapping.values())==native_tier and not stats['invalid'] and not stats['clubDayClashes'] and not stats['inferredDates'] and stats['orientedPairs']==stats['fixtures']:
                     rosters.append({'sourceGroup':dict(zip(('source','competition','country','season','season_basis'),key(g))),'identityCandidates':{l:native[k] for l,k in mapping.items()}})
+            # Candidate club spelling variants require two actual same-edition opponent/date witnesses.
+            pool=native_tier if league and w=='2627' else {k for k in native if k[0]==w and (k[1]==m['country'] or rid in international)}
+            options,alias_witnesses=deep.reconcile(options,native,pool)
+            raw_options=list(options)
             # A union can only fill missing pairs from the same explicit edition; any date conflict blocks it.
             if league and options and not any(o[6] and o[7] for o in options):
                 merged=mass.merge_regular(options,m,native,expected.get(rid,set()),cut,end,audit_fixtures,complete_regular)
@@ -274,6 +280,16 @@ def consolidate(source,out,root=None):
             packet['phaseQueue']=routes.get(rid,{}).get('queue','UNCLASSIFIED')
             packet['phaseModel']=routes.get(rid,{}).get('model')
             packet['phasePlan']=plans.get(str(rid))
+            evidence=deep.combine(raw_options,w,packet['phasePlan'],all_rules.get(rid,[]),native,expected.get(rid,set()))
+            evidence['corroboratedAliasCandidates']=alias_witnesses
+            if evidence['editions'] or evidence['unresolvedEditionGroups'] or evidence['ruleAndTableEvidence'] or alias_witnesses:packet['deepEvidence']=evidence
+            # Full roster only from a complete reviewed RR, explicit exact start edition, and live native tier bijection.
+            wanted=f'{year}/{year+1}'
+            for e in evidence['editions']:
+                if league and roster_complete and e['edition']==wanted and e['completeReviewedRegularComponent'] and not e['conflicts'] and set(e['nativeRoster'])=={k[2] for k in native_tier} and len({native[k]['name'] for k in native_tier})==len(native_tier):
+                    packet['fullNativeRosterCandidate']=True
+                    packet['deepRosterBasis']='COMPLETE_REVIEWED_EXACT_EDITION_NATIVE_TIER_BIJECTION'
+                    packet['nativeRosterCandidate']={'edition':wanted,'identityCandidates':{native[k]['name']:native[k] for k in native_tier}}
             if options:
                 _,g,fs,stats,mapping,missing,full,complete=options[0];packet.update({'sourceGroup':dict(zip(('source','competition','country','season','season_basis'),key(g))),'shape':stats,'fullUniqueIdentityCandidate':full,'completeRegularStructureCandidate':complete,'unmappedOrAmbiguous':missing,'identityCandidates':{l:native[k] for l,k in mapping.items()},'alternatives':[{'sourceGroup':list(key(o[1])),'shape':o[3],'mapped':len(o[4])} for o in options[1:]],'fixtureColumns':['date','dateBasis','homeLabel','awayLabel','homeUUID','awayUUID','locator','stage'],'fixtures':[[d,b,h,a,mapping[h][2] if h in mapping else None,mapping[a][2] if a in mapping else None,loc,s] for d,b,h,a,hg,ag,loc,s in fs]})
                 # Snapshot evidence only: no inferred ranking or post-cutoff score.
@@ -290,9 +306,20 @@ def consolidate(source,out,root=None):
             queue.append((rid,w,m['country'],m['name'],packet['status'],int(bool(closed)),len(gaps),';'.join(gaps),len(target),packet.get('shape',{}).get('family',''),len(packet.get('unmappedOrAmbiguous',[]))))
         cross=[{'world':w,'date':d,'uuid':u,'rows':sorted(set(rs))} for (w,d,u),rs in collisions.items() if len(set(rs))>1]
     blocked={r for c in cross for r in c['rows']}
+    # Check exact-edition joined events across rows as candidates, including cups; exclude shared parent phases.
+    deep_days=C.defaultdict(set)
+    for p in packets:
+        if p.get('phaseQueue') in ('PARENT_PHASE_LINK','OUT_OF_SCOPE'):continue
+        for ed in p.get('deepEvidence',{}).get('editions',[]):
+            for e in ed['events']:
+                if 'EXPLICIT' not in e['dateBases'] or not e['homeUUID'] or not e['awayUUID']:continue
+                for u in (e['homeUUID'],e['awayUUID']):deep_days[p['world'],e['date'],u].add(p['row'])
+    deep_cross=[{'world':w,'date':d,'uuid':u,'rows':sorted(rs)} for (w,d,u),rs in sorted(deep_days.items()) if len(rs)>1]
+    deep_blocked={r for c in deep_cross for r in c['rows']}
     for p in packets:
         p['crossRowConflict']=p['row'] in blocked
-        if p['row'] in blocked:p['status']='REVIEW_CROSS_ROW_CONFLICT'
+        if p['row'] in deep_blocked:p['deepCrossRowConflict']=True
+        if p['row'] in blocked or p['row'] in deep_blocked:p['status']='REVIEW_CROSS_ROW_CONFLICT'
         available=set()
         if p.get('fullUniqueIdentityCandidate') and p.get('completeRegularStructureCandidate'):available.add('participants')
         if p.get('completeRegularStructureCandidate'):available.update(('format','calendar'))
@@ -304,11 +331,13 @@ def consolidate(source,out,root=None):
     queue=[(*x,routes.get(x[0],{}).get('queue','UNCLASSIFIED'),routes.get(x[0],{}).get('model')) for x in queue]
     with (out/'consolidation_queue.csv').open('w',encoding='utf-8-sig',newline='') as f:
         wr=csv.writer(f);wr.writerow(('row','world','country','name','candidateStatus','previouslyClosed','manualGapCount','manualGaps','initialGroups','family','unresolvedLabels','phaseQueue','phaseModel'));wr.writerows(queue)
-    write(out/'consolidation_packets.json',{'scope':'REVIEW_ONLY: candidate identities, schedules, history, rule excerpts; not OG/CE runtime data or verified closure','packets':packets,'crossRowCandidateCollisions':cross,'formatFamilies':dict(families),'warnings':warnings})
+    write(out/'consolidation_packets.json',{'scope':'REVIEW_ONLY: candidate identities, schedules, history, rule excerpts; not OG/CE runtime data or verified closure','packets':packets,'crossRowCandidateCollisions':cross,'deepCrossRowCandidateCollisions':deep_cross,'formatFamilies':dict(families),'warnings':warnings})
     summary={'matrixRows':len(matrix),'rowsWithGroups':sum(bool(byrow[r]) for r in matrix),'recoveredGroupAssociations':recovered,'ambiguousGroupAssociationsSkipped':ambiguous,'initialGroupsReviewed':all_count,'rowsWithInitialGroups':sum(bool(p['initialGroupCount']) for p in packets),'completeRegularStructureCandidates':sum(bool(p.get('completeRegularStructureCandidate')) for p in packets),'fullUniqueIdentityCandidates':sum(bool(p.get('fullUniqueIdentityCandidate')) for p in packets),'regularPacketsReadyForReview':sum(p['status']=='REGULAR_PACKET_READY_FOR_REVIEW' for p in packets),'crossRowCandidateCollisions':len(cross),'candidateFieldReviewTasks':sum(len(p['candidateReviewFields']) for p in packets),'formatFamilies':{k:len(v) for k,v in families.items()},'newVerifiedClosures':0,'newProvisionalClosures':0,'repoWarnings':len(warnings),'nativeRecordsRejectedAgainstCurrentRepo':stale_native,'currentRepoChecked':bool(root)}
     summary['phaseRouting']=dict(C.Counter(p['phaseQueue'] for p in packets))
     summary['phasePlans']=sum(p['phasePlan'] is not None for p in packets)
     summary['regularSizeGate']='expected same-edition sport count required; unknown/conflict/inferred dates not ready'
+    ds=[p['deepEvidence'] for p in packets if 'deepEvidence' in p and p.get('phaseQueue')!='OUT_OF_SCOPE' and p['row'] not in (100,101,102)]
+    summary['deepExtraction']={'rowsWithEvidence':len(ds),'ruleAndTableObservations':sum(len(d['ruleAndTableEvidence']) for d in ds),'exactEditionEvents':sum(len(e['events']) for d in ds for e in d['editions']),'unresolvedEditionGroups':sum(len(d['unresolvedEditionGroups']) for d in ds),'corroboratedAliasCandidates':sum(len(d['corroboratedAliasCandidates']) for d in ds),'july1ArithmeticCandidates':sum(bool(e['july1Arithmetic']) for d in ds for e in d['editions']),'internalConflicts':sum(len(d['conflicts']) for d in ds),'crossRowCandidateCollisions':len(deep_cross)}
     result=mass.assess(packets,native,root,out)
     summary['massClosure']=result
     summary['newProvisionalClosures']=len(result['newProvisionalClosureRows'])
@@ -318,6 +347,7 @@ def consolidate(source,out,root=None):
     write(out/'consolidation_summary.json',summary);return summary
 
 def selftest():
+    deep.selftest()
     mass.selftest()
     mass.gate_selftest(audit_fixtures,complete_regular)
     f=[('1996-08-01','EXPLICIT','A','B',1,0,'1',''),('1996-08-02','EXPLICIT','B','A',0,0,'2','')]

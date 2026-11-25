@@ -35,7 +35,7 @@ def observation(p):
     keys = ('sourceGroup','shape','fullUniqueIdentityCandidate','completeRegularStructureCandidate',
             'fullNativeRosterCandidate','nativeRosterCandidate','identityCandidates','unmappedOrAmbiguous',
             'fixtureColumns','fixtures','july1Candidate','ruleExcerpts','phasePlan','phaseCategory',
-            'phaseQueue','alternatives','historyObservations','crossRowConflict')
+            'phaseQueue','alternatives','historyObservations','crossRowConflict','deepEvidence','deepCrossRowConflict','deepRosterBasis')
     evidence = {k:p[k] for k in keys if k in p}
     # No result columns in fixtures; historical scores only before the world's start.
     if 'fixtures' in evidence and evidence.get('fixtureColumns') != [
@@ -44,6 +44,9 @@ def observation(p):
     cut = '1996-07-01' if p['world']=='9697' else '2026-07-01'
     if any(x[0]>=cut for x in evidence.get('july1Candidate',{}).get('scores',[])):
         raise ValueError('Post-start historical score')
+    for edition in evidence.get('deepEvidence',{}).get('editions',[]):
+        for e in edition['events']:
+            if e['date']>=cut and e.get('preStartScores'):raise ValueError('Deep post-start historical score')
     return evidence
 
 def complete_pair_dates(o):
@@ -66,9 +69,11 @@ def merge_observation(old,p,s):
     old=old or {}
     versions=dict(old.get('observations',{}))
     o=observation(p)
-    if o.get('fixtures') or o.get('historyObservations') or o.get('ruleExcerpts') or o.get('phasePlan') or o.get('nativeRosterCandidate'):
+    if o.get('fixtures') or o.get('historyObservations') or o.get('ruleExcerpts') or o.get('phasePlan') or o.get('nativeRosterCandidate') or o.get('deepEvidence'):
         versions.setdefault(digest(o),o)
-    conflicts=set()
+    conflicts=set(old.get('conflicts',[]))
+    if p.get('deepEvidence',{}).get('conflicts'):conflicts.add('DEEP_EDITION_OBSERVATION_CONFLICT')
+    if p.get('deepCrossRowConflict'):conflicts.add('DEEP_CROSS_ROW_CANDIDATE_COLLISION')
     if p.get('crossRowConflict'):
         conflicts.add('CURRENT_CROSS_ROW_COLLISION')
     dates=[v for o in versions.values() if (v:=complete_pair_dates(o))]

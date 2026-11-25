@@ -128,6 +128,14 @@ def assess(packets,native,root,out):
         keys=[k for k in ix if re.fullmatch(r'fieldStatusMatrix\d+',k)]
         if keys:
             m=read(docs/ix[max(keys,key=lambda k:int(k[len('fieldStatusMatrix'):]))]);baseline={r['row']:{'status':r['status'],'fields':dict(zip(m['columns'],r['fields']))} for r in m['rows']};indexed=True
+        if ix.get('automaticInsertion'):
+            current=read(docs/ix['automaticInsertion'])
+            records=current['rows'];current_baseline={r['row']:{'status':r['status'],'fields':dict(r['fields'])} for r in records}
+            if len(records)!=len(current_baseline) or set(current_baseline)!=set(baseline):raise ValueError('Current insertion matrix mismatch')
+            for rid,old in baseline.items():
+                for field,value in old['fields'].items():
+                    if value=='V' and current_baseline[rid]['fields'].get(field)!='V':raise ValueError('Verified field regressed')
+            baseline=current_baseline
         cache={}
         for p in packets:
             path=ix.get('rowPath',{}).get(str(p['row']))
@@ -153,8 +161,13 @@ def assess(packets,native,root,out):
             primary=(category=='LEAGUE_DIVISION' and re.fullmatch(r'div\d+',p['detail'])) or (category in ('NATIONAL_CUP','LEAGUE_CUP','CONTINENTAL_CLUB','SUPERCUP_OR_INTERCONTINENTAL','REGIONAL_STATE_LEAGUE') and p.get('phaseQueue')!='PARENT_PHASE_LINK')
             if primary and p['id'] and key_counts[p['world'],p['country'],p['id'],p['detail']]==1 and name_counts[p['world'],p['country'],norm(nm['officialName'])]==1:
                 promote('identity','UNIQUE_SCOPED_PRIMARY_INVENTORY_AND_CURRENT_NAME')
-        if p.get('fullNativeRosterCandidate'):promote('participants','SAME_EDITION_FULL_NATIVE_ROSTER_BIJECTION')
-        if p.get('completeRegularStructureCandidate') and p.get('fullUniqueIdentityCandidate') and not p.get('crossRowConflict') and exact_edition(p.get('sourceGroup',{}),p['world']) and f['july1']=='NA':
+        deep_conflict=bool(p.get('deepEvidence',{}).get('conflicts') or p.get('deepCrossRowConflict') or row.get('automaticResearch',{}).get('conflicts'))
+        if p.get('fullNativeRosterCandidate') and (not p.get('deepRosterBasis') or not deep_conflict):promote('participants','SAME_EDITION_FULL_NATIVE_ROSTER_BIJECTION')
+        if f['july1']=='?' and not deep_conflict:
+            y=1996 if p['world']=='9697' else 2026
+            active=[e for e in p.get('deepEvidence',{}).get('editions',[]) if e['edition'] in (str(y),f'{y}/{y+1}') and e.get('activeAtStartCandidate')]
+            if len(active)==1:f['july1']='I';changes.append({'row':rid,'field':'july1','basis':'EXPLICIT_MATCHES_STRADDLE_START_APPLICABLE_NOT_COMPLETE'})
+        if p.get('completeRegularStructureCandidate') and p.get('fullUniqueIdentityCandidate') and not p.get('crossRowConflict') and not deep_conflict and exact_edition(p.get('sourceGroup',{}),p['world']) and f['july1']=='NA':
             # Whole-edition promotion requires a reviewed full phase plan or already complete format.
             plan=p.get('phasePlan') or {};ph=plan.get('phases',[])
             if len(ph)==1 and ph[0].get('type')=='ROUND_ROBIN' and type(ph[0].get('teams')) is int and type(ph[0].get('meetingsPerPair')) is int and p['shape']['teams']==ph[0]['teams'] and p['shape']['fixtures']==ph[0]['teams']*(ph[0]['teams']-1)*ph[0]['meetingsPerPair']//2:
@@ -164,7 +177,7 @@ def assess(packets,native,root,out):
             if r.get('world')==p['world'] and r.get('edition')==edition and r.get('id')==p['id'] and r.get('country')==p['country'] and p['detail'] in r.get('details',[]) and r.get('field') in ('regulation','movement','qualification','format') and r.get('completeForField') is True and r.get('reference') and (docs/r['reference']).is_file():
                 promote(r['field'],'REVIEWED_FAMILY:'+r['reference'])
         gaps=[k for k,v in f.items() if v not in ('V','P','NA')];status=old['status']
-        if indexed and status=='I' and not gaps and not p.get('crossRowConflict'):
+        if indexed and status=='I' and not gaps and not p.get('crossRowConflict') and not deep_conflict:
             status='P';new_closed.append(rid)
         after.append({'row':rid,'world':p['world'],'name':nm.get('officialName') or p['name'],'status':status,'fields':f,'gaps':gaps,'manualGaps':sorted(set(gaps)-set(p.get('candidateReviewFields',[]))),'history':history(p),'groupCount':p['sourceGroupCount'],'regularComponentCompleteCandidate':bool(p.get('completeRegularStructureCandidate')),'fullIdentityCandidate':bool(p.get('fullUniqueIdentityCandidate'))})
     b,a=counts(before),counts(after);closed=lambda rs:sum(r['status'] in ('P','V') for r in rs)

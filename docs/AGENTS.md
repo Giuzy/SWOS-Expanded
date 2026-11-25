@@ -1,3 +1,7 @@
+## 25/11/2026 — Decisione utente vigente: calendario per turno e accoppiamenti CE
+
+Specifica autoritativa: [GAME_DESIGN.md](GAME_DESIGN.md), «CALENDARIO PER TURNO, ACCOPPIAMENTI CE E CHIUSURA DATI». Supera obblighi precedenti di date/accoppiamenti reali gara per gara: CE genera in 9697/2627 dopo START; conserva risultati/accoppiamenti storici effettivi pre-1 luglio con date di turno e genera continuazione vincolata, ritorno speculare. Profilo giorni normali/infrasettimanali senza rinvii/annullamenti, date dei turni, cambio stagione giorno prima inizio, matrice 12 campi e chiusura per competizione, non per numero di fixture. Non cancellare fonti/evidenze o date generate e persistite; eliminare date individuali ridondanti nei derivati solo dopo validazione. Design approvato, implementazione e riclassificazione ancora da fare. #1 eliminata; unico deposito #2, sovrascrittura integrale, zero append/commenti/archivi.
+
 ## 25/11/2026 — Deposito operativo: sovrascrittura integrale obbligatoria (regola utente vigente)
 
 Unico deposito: [Issue #2](https://github.com/Giuzy/SWOS-Expanded/issues/2). La #1 è stata eliminata: non interrogarla; le citazioni storiche non sono istruzioni operative. Dopo un'interruzione leggere solo il corpo corrente della #2, recuperare i preparati e verificare ramo/HEAD/versione. Nel lavoro continuo non rileggere senza necessità.

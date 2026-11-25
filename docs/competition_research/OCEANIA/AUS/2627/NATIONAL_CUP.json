@@ -302,6 +302,833 @@
           }
         }
       }
+    },
+    "roundTemplateAudit": {
+      "head": "416c24bc549cc9389c6b5df8fcb3fd3b8f50c668",
+      "date": "2026-11-25",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "fields": {
+        "name": "V",
+        "identity": "V",
+        "participants": "P",
+        "format": "V",
+        "regulation": "V",
+        "movement": "NA",
+        "qualification": "P",
+        "july1": "V",
+        "roundDates": "V",
+        "competitionDays": "V",
+        "evolution": "P",
+        "seasonChange": "P"
+      },
+      "identity": {
+        "world": "2627",
+        "country": "AUS",
+        "id": "_australianCup",
+        "row": 329,
+        "scope": "national cup, not historic NSL Cup or state qualifying cups"
+      },
+      "name": {
+        "2014": "FFA Cup",
+        "2022": "Australia Cup",
+        "commercial2025_2026": "Hahn Australia Cup",
+        "display": "Australia Cup"
+      },
+      "participants": {
+        "edition": 2026,
+        "officialCount": 32,
+        "dbSha": "9a5575e03254b71454a9ddb0dcd7de4d4bfb7b04",
+        "dbCount": 54,
+        "mapped": 20,
+        "missing": 12,
+        "entrants": [
+          {
+            "name": "Adelaide United",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 1,
+            "uuid": "51478288-cd51-50c1-ba14-156c4c9167fa",
+            "gameName": "ADELAIDE UNITED"
+          },
+          {
+            "name": "Brisbane Roar",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 10,
+            "uuid": "1e530bc3-bb45-52b2-8c40-4c2a317a9bf3",
+            "gameName": "BRISBANE ROAR"
+          },
+          {
+            "name": "Central Coast Mariners",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 8,
+            "uuid": "9a9b9376-1e17-5104-a446-bf95088f456d",
+            "gameName": "CENTRAL COAST"
+          },
+          {
+            "name": "Macarthur FC",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 6,
+            "uuid": "d3ff0acc-f715-5cf6-83e2-8cec0f482e7f",
+            "gameName": "MACARTHUR"
+          },
+          {
+            "name": "Melbourne City",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 5,
+            "uuid": "7ac542ab-a2c4-58bb-bee5-784872a507ca",
+            "gameName": "MELBOURNE CITY"
+          },
+          {
+            "name": "Melbourne Victory",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 3,
+            "uuid": "1ca16b42-32e5-5068-99be-2c6696e438ba",
+            "gameName": "MELB. VICTORY"
+          },
+          {
+            "name": "Newcastle Jets",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 0,
+            "uuid": "8997658d-68ad-5300-a5ad-f393f4a6f9c5",
+            "gameName": "NEWCASTLE"
+          },
+          {
+            "name": "Perth Glory",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 9,
+            "uuid": "a895e1b4-367a-57be-ae1a-1e246c03802a",
+            "gameName": "PERTH GLORY"
+          },
+          {
+            "name": "Sydney FC",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 4,
+            "uuid": "14a88519-1d1a-5e2a-a425-113cbc7567c2",
+            "gameName": "SYDNEY"
+          },
+          {
+            "name": "Western Sydney Wanderers",
+            "route": "AL",
+            "teamFile": 44,
+            "ordinal": 11,
+            "uuid": "eb48c010-8b29-5377-afaf-1986d9458f18",
+            "gameName": "WESTERN SYDNEY"
+          },
+          {
+            "name": "Tigers FC",
+            "route": "ACT",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NPL Capital Football (ACT)",
+            "leagueEvidence": "Capital Football 2026 NPL Men's",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "APIA Leichhardt",
+            "route": "NSW",
+            "teamFile": 44,
+            "ordinal": 13,
+            "uuid": "5fe9a578-59e2-57ae-8f2c-4bc517ce3cf9",
+            "gameName": "APIA LEICHHARDT"
+          },
+          {
+            "name": "Sydney Olympic",
+            "route": "NSW",
+            "teamFile": 44,
+            "ordinal": 18,
+            "uuid": "bfc137a1-3c00-5e3a-bdaf-ebde525da47c",
+            "gameName": "SYDNEY OLYMPIC"
+          },
+          {
+            "name": "Sydney United 58",
+            "route": "NSW",
+            "teamFile": 44,
+            "ordinal": 17,
+            "uuid": "ef0f5fa1-579d-5f52-a451-9314bf572945",
+            "gameName": "SYDNEY UNITED 58"
+          },
+          {
+            "name": "SD Raiders",
+            "route": "NSW",
+            "teamFile": 44,
+            "ordinal": 26,
+            "uuid": "b8da47d8-59be-5d8e-b4a1-5e82bd41c9c8",
+            "gameName": "RAIDERS"
+          },
+          {
+            "name": "Maitland",
+            "route": "NNSW",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NPL Northern NSW",
+            "leagueEvidence": "Northern NSW Football 2026 fixtures",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Weston Bears",
+            "route": "NNSW",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NPL Northern NSW",
+            "leagueEvidence": "Northern NSW Football 2026 fixtures",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Azzurri United",
+            "route": "NT",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NorZone Premier League (NT)",
+            "leagueEvidence": "Macarthur FC June 2026 cup preview; Azzurri official club",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Marlin Coast Rangers",
+            "route": "QLD",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "FQPL Far North & Gulf (regional Queensland)",
+            "leagueEvidence": "Football Queensland regional competition declaration and 2026 opening cup draw; club",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Rochedale Rovers",
+            "route": "QLD",
+            "teamFile": 44,
+            "ordinal": 52,
+            "uuid": "02f925fc-a38f-5d75-9fe2-96b2a80622c9",
+            "gameName": "ROCHEDALE ROVERS"
+          },
+          {
+            "name": "Lions FC",
+            "route": "QLD",
+            "teamFile": 44,
+            "ordinal": 46,
+            "uuid": "c3b02f9c-8163-597a-ac21-35c68c67f6f7",
+            "gameName": "LIONS"
+          },
+          {
+            "name": "Peninsula Power",
+            "route": "QLD",
+            "teamFile": 44,
+            "ordinal": 44,
+            "uuid": "e0806877-e3b1-5d61-8f91-bd1a4aaa66fa",
+            "gameName": "PENINSULA POWER"
+          },
+          {
+            "name": "Cumberland United",
+            "route": "SA",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "State League 1 South Australia",
+            "leagueEvidence": "Football SA 2026 Senior Elite Competition Structures",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "FK Beograd",
+            "route": "SA",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NPL South Australia",
+            "leagueEvidence": "Football SA 2026 Senior Elite Competition Structures",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Kingborough Lions United",
+            "route": "TAS",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NPL Tasmania",
+            "leagueEvidence": "Football Tasmania 2026 NPL expansion",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "North Sunshine Eagles",
+            "route": "VIC",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "Victoria Premier League 1 (VPL1)",
+            "leagueEvidence": "Football Victoria 2026 league structures; OzFootball VPL1 2026",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Preston Lions",
+            "route": "VIC",
+            "teamFile": 44,
+            "ordinal": 32,
+            "uuid": "7aca4a6c-6e38-5b1a-a2a2-341fff06f8bd",
+            "gameName": "PRESTON LIONS"
+          },
+          {
+            "name": "Heidelberg United",
+            "route": "VIC",
+            "teamFile": 44,
+            "ordinal": 29,
+            "uuid": "c49d0f74-f6e5-5aee-8a57-0c561282d85d",
+            "gameName": "HEIDELBERG UTD."
+          },
+          {
+            "name": "South Melbourne",
+            "route": "AC_CHAMPION",
+            "teamFile": 44,
+            "ordinal": 36,
+            "uuid": "b3d7c68d-f77a-5b63-8719-ccab584af68b",
+            "gameName": "SOUTH MELBOURNE"
+          },
+          {
+            "name": "Brunswick Juventus",
+            "route": "VIC",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "Victoria Premier League 1 (VPL1)",
+            "leagueEvidence": "Football Victoria 2026 league structures; OzFootball VPL1 2026",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Bayswater City",
+            "route": "WA",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NPL Western Australia",
+            "leagueEvidence": "Football West 2026 NPL WA Men's fixtures",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          },
+          {
+            "name": "Fremantle City",
+            "route": "WA",
+            "mapping": "ABSENT_FROM_AUSTRALIA_TEAM_FILE_44",
+            "uuid": null,
+            "league2026": "NPL Western Australia",
+            "leagueEvidence": "Football West 2026 NPL WA Men's fixtures",
+            "leagueInPlayableCatalogue": false,
+            "importStatus": "PENDING_CLAUDE_REAL_CLUB_IMPORT"
+          }
+        ],
+        "missingLeagueAudit": {
+          "date": "2026-11-25",
+          "checked": 12,
+          "scope": "All twelve unmapped national entrants play in eight competitions outside the four playable Australian leagues. Official national entrants rechecked against Football Australia June22. 54 playable league members remain approved; no change to their membership or native IDs. Other country files not exhaustively searched. No catalogue expansion or replacement authorized."
+        },
+        "deferredImport": {
+          "date": "2026-11-25",
+          "status": "USER_APPROVED_DEFERRED_CLUB_IMPORT",
+          "owner": "Claude (future implementation)",
+          "officialEntrants": 32,
+          "mapped": 20,
+          "pending": 12,
+          "clubNames": [
+            "Tigers FC",
+            "Maitland",
+            "Weston Bears",
+            "Azzurri United",
+            "Marlin Coast Rangers",
+            "Cumberland United",
+            "FK Beograd",
+            "Kingborough Lions United",
+            "North Sunshine Eagles",
+            "Brunswick Juventus",
+            "Bayswater City",
+            "Fremantle City"
+          ],
+          "rule": "Retain all 32 real first-edition entrants. Import the 12 missing real clubs with valid rosters and stable IDs, then bind to the existing national-cup definition and run using common CE and OG match execution. No invented substitutes, duplicate club identities, or change to 54 confirmed league memberships. Do not add new playable leagues without separate authorization.",
+          "acceptance": [
+            "32 distinct resolvable club IDs and valid rosters at START",
+            "Existing 54 playable club memberships unchanged",
+            "31 national knockout fixtures via CE; OG QUICK/PLAY according to existing policy",
+            "No replay or future real results; SAVE/CONTINUE and lifecycle tested"
+          ],
+          "scope": "Decision only. No club/roster data added, no runtime changes. Future regional qualification and season-change rules remain unresolved."
+        }
+      },
+      "format": {
+        "rounds": [
+          32,
+          16,
+          8,
+          4,
+          2
+        ],
+        "legs": 1,
+        "matches": 31,
+        "openDraw": true,
+        "drawR32": "one pot",
+        "drawR16": "one pot; then QF/SF bracket drawn via R16 match numbers",
+        "home": "member federation club hosts against A-League; otherwise first drawn; final venue FA decision",
+        "preliminaryClubsReported": 777
+      },
+      "regulation": {
+        "articles": [
+          "6.1",
+          "8",
+          "9",
+          "10",
+          "11",
+          "16",
+          "30"
+        ],
+        "duration": 90,
+        "extraTime": 30,
+        "penalties": true,
+        "substitutions": 5,
+        "windows": 3,
+        "extraTimeAdditionalSub": 1,
+        "extraTimeAdditionalWindow": 1,
+        "concussionAdditionalFinalRounds": 1,
+        "preliminaryExtraTimeWaiver": "exceptional prior FA approval only",
+        "oneHighestSeniorTeamPerClub": true,
+        "scope": "basic match and draw rules verified; detailed registration and exceptions not exhaustively audited"
+      },
+      "qualification": {
+        "federationSlots": {
+          "NSW": 4,
+          "QLD": 4,
+          "VIC": 4,
+          "SA": 2,
+          "WA": 2,
+          "NNSW": 2,
+          "ACT": 1,
+          "NT": 1,
+          "TAS": 1
+        },
+        "automaticACChampion": 1,
+        "automaticAustralianAL": 10,
+        "excluded": [
+          "Auckland FC",
+          "Wellington Phoenix FC"
+        ],
+        "winnerAccess": "AFC Champions League Two 2027/28 direct, subject to applicable licensing/FA/AFC eligibility",
+        "futurePreliminaries": "NOT_IMPLEMENTED; actual qualifying results needed; no random or standings fallback",
+        "preliminaryResearch": {
+          "date": "2026-11-25",
+          "ruleStatus": "V national arts 8.1–8.5; regional entry and real-club pools P",
+          "federationOrder": [
+            "ACT",
+            "NSW",
+            "NNSW",
+            "NT",
+            "QLD",
+            "SA",
+            "TAS",
+            "VIC",
+            "WA"
+          ],
+          "officialAnnouncedStarts": {
+            "QLD": "2026-01-30",
+            "NNSW_North": "2026-02-08",
+            "NNSW_South": "2026-03-08",
+            "ACT": null,
+            "NSW": "2026-03-07",
+            "VIC": "2026-02-13",
+            "TAS": "2026-03-06",
+            "SA": "2026-02-20",
+            "WA": "2026-02-21",
+            "NT": "2026-03-17"
+          },
+          "observedWindowsKind": "SECONDARY_2026_ROUND_WINDOW_EVIDENCE; not complete official match dates; no results imported",
+          "rounds": [
+            {
+              "stage": "QUAL",
+              "eliminations": 2,
+              "before": 777,
+              "after": 775,
+              "windows": [
+                null,
+                null,
+                null,
+                null,
+                "01-31",
+                null,
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "stage": "R1",
+              "eliminations": 56,
+              "before": 775,
+              "after": 719,
+              "windows": [
+                null,
+                null,
+                null,
+                null,
+                "01-31/02-07",
+                null,
+                null,
+                "02-13/02-16",
+                null
+              ]
+            },
+            {
+              "stage": "R2",
+              "eliminations": 158,
+              "before": 719,
+              "after": 561,
+              "windows": [
+                null,
+                "03-06/03-14",
+                "02-14/03-15",
+                null,
+                "02-06/02-08",
+                null,
+                null,
+                "02-27/03-02",
+                "02-20/02-22"
+              ]
+            },
+            {
+              "stage": "R3",
+              "eliminations": 203,
+              "before": 561,
+              "after": 358,
+              "windows": [
+                "02-24/02-26",
+                "03-12/03-31",
+                "02-21/03-25",
+                null,
+                "02-13/02-15",
+                "02-20/02-28",
+                "03-07/03-09",
+                "03-13/03-16",
+                "03-13/03-15"
+              ]
+            },
+            {
+              "stage": "R4",
+              "eliminations": 172,
+              "before": 358,
+              "after": 186,
+              "windows": [
+                "03-10/04-14",
+                "04-07/04-16",
+                "02-28/04-29",
+                "03-24/04-02",
+                "03-24/04-11",
+                "04-03/04-06",
+                "04-03/04-06",
+                "03-31/04-06",
+                "04-10/04-12"
+              ]
+            },
+            {
+              "stage": "R5",
+              "eliminations": 87,
+              "before": 186,
+              "after": 99,
+              "windows": [
+                "04-28/05-05",
+                "04-21/04-29",
+                "03-07/05-13",
+                "03-30/04-07",
+                "04-21/04-29",
+                "04-24/04-27",
+                "04-24/04-26",
+                "04-28/04-29",
+                "05-01/05-02"
+              ]
+            },
+            {
+              "stage": "R6",
+              "eliminations": 44,
+              "before": 99,
+              "after": 55,
+              "windows": [
+                "05-20/05-21",
+                "05-05/05-13",
+                "06-06",
+                "05-02",
+                "05-12/05-31",
+                "05-12/05-20",
+                "05-15/05-17",
+                "05-12/05-13",
+                "05-19"
+              ]
+            },
+            {
+              "stage": "R7",
+              "eliminations": 22,
+              "before": 55,
+              "after": 33,
+              "windows": [
+                "06-06",
+                "05-26/05-28",
+                "06-10",
+                "05-21",
+                "06-12/06-13",
+                "06-10/06-17",
+                "06-08",
+                "05-26/06-02",
+                "06-16"
+              ]
+            },
+            {
+              "stage": "VIC_PLAYOFF",
+              "eliminations": 1,
+              "before": 33,
+              "after": 32,
+              "windows": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "06-16",
+                null
+              ]
+            }
+          ],
+          "scope": "Aggregate counts include 11 direct entrants outside the preliminary playing pool. 777 total; 766 territorial entrants; 745 eliminated to 21 territorial winners; 2 preliminary walkovers in QUAL are not matches played. Later rounds may also contain walkovers. Source table not independently audited for every match or postponement.",
+          "firstObservedCandidate": "2026-01-31",
+          "lastObserved": "2026-06-17",
+          "entryRules": {
+            "NSW": "NPL enters R4, earlier tiers R2/R3",
+            "QLD": "staggered entry, NPL/FQPL enter R4, separate regional and metropolitan paths; R7 eight clubs including one regional, four winners",
+            "VIC": "earlier tiers R1–3, NPL/VPL R4; R7 and extra playoff due to AC champion pathway; confirm official discretionary allocation before generalizing",
+            "other": "Regional competitions operate separately; entry tiers, exact eligible pools and local exceptions not fully primary-certified"
+          },
+          "sourcesConsulted": [
+            "Football Australia refined structure January 2026",
+            "Hahn Australia Cup Competition Regulations January 2026 arts 8.1–8.5 text; screenshots unavailable",
+            "2026 Australia Cup preliminary rounds schedule and format (secondary summary)",
+            "Football Queensland opening-round announcement 19 January (indexed text)"
+          ]
+        }
+      },
+      "july1": {
+        "date": "2026-07-01",
+        "nationalEntrantsKnown": true,
+        "preliminaryCompleted": true,
+        "draw": "2026-06-22",
+        "schedulePublished": "2026-06-25",
+        "nationalMatchesPlayed": 0,
+        "scope": "national finals only; prior preliminary phase represented by qualified entrant list, not invented scores"
+      },
+      "roundDates": {
+        "kind": "GAME_TEMPLATE_2026",
+        "rounds": [
+          {
+            "round": "R32",
+            "dates": [
+              [
+                "2026-07-14",
+                2
+              ],
+              [
+                "2026-07-15",
+                2
+              ],
+              [
+                "2026-07-21",
+                4
+              ],
+              [
+                "2026-07-22",
+                4
+              ],
+              [
+                "2026-07-26",
+                2
+              ],
+              [
+                "2026-07-30",
+                2
+              ]
+            ]
+          },
+          {
+            "round": "R16",
+            "dates": [
+              [
+                "2026-08-08",
+                1
+              ],
+              [
+                "2026-08-09",
+                2
+              ],
+              [
+                "2026-08-11",
+                2
+              ],
+              [
+                "2026-08-12",
+                3
+              ]
+            ]
+          },
+          {
+            "round": "QF",
+            "dates": [
+              [
+                "2026-08-18",
+                1
+              ],
+              [
+                "2026-08-19",
+                1
+              ],
+              [
+                "2026-08-25",
+                1
+              ],
+              [
+                "2026-08-26",
+                1
+              ]
+            ]
+          },
+          {
+            "round": "SF",
+            "dates": [
+              [
+                "2026-09-09",
+                1
+              ],
+              [
+                "2026-09-15",
+                1
+              ]
+            ]
+          },
+          {
+            "round": "F",
+            "dates": [
+              [
+                "2026-10-10",
+                1
+              ]
+            ]
+          }
+        ],
+        "scope": "official published matchday count/date only; no real post-START pairings or scores stored"
+      },
+      "competitionDays": {
+        "order": [
+          "SUN",
+          "MON",
+          "TUE",
+          "WED",
+          "THU",
+          "FRI",
+          "SAT"
+        ],
+        "counts": [
+          4,
+          0,
+          11,
+          12,
+          2,
+          0,
+          2
+        ],
+        "scope": "31 published scheduled national games; no claimed independent postponement audit"
+      },
+      "seasonChange": {
+        "status": "P exact first match; V approved rule",
+        "rule": "one civil day before first qualifying match of edition, not before national R32; only after prior edition completed; preserve seeded July state",
+        "userApproved": "2026-11-25",
+        "officialPlannedFirstQualifying": "2026-01-30",
+        "officialTemplateBoundaryCandidate": "01-29",
+        "earliestObservedSecondary": "2026-01-31",
+        "observedBoundaryCandidate": "01-30",
+        "resolution": "Do not confuse official scheduled date and earliest observed actual match. Actual 31 January still lacks primary fixture verification; use no silently chosen hardcoded date. Retain planned 30 January as announced GAME_TEMPLATE_2026 start metadata; date policy remains P until reconciled."
+      },
+      "evolution": {
+        "changes": [
+          {
+            "year": 1996,
+            "description": "NSL Cup distinct historical competition; 1996/97 last edition, not this row"
+          },
+          {
+            "year": 2014,
+            "description": "FFA Cup inaugurated, 32 national entrants"
+          },
+          {
+            "year": 2020,
+            "description": "edition cancelled pandemic"
+          },
+          {
+            "year": 2021,
+            "description": "open draw from R16 onward; A-League bottom-four playoff, AFC berth, pandemic edition extended"
+          },
+          {
+            "year": 2022,
+            "description": "Australia Cup name adopted; full open draw including R32; AFC Cup 2023/24 winner pathway"
+          },
+          {
+            "year": 2024,
+            "description": "combined R16/QF/SF draw, ACL Two route"
+          },
+          {
+            "year": 2025,
+            "description": "Hahn commercial naming"
+          },
+          {
+            "year": 2026,
+            "description": "A-League qualification playoff removed, NZ clubs excluded, prior AC champion direct, 21 federation qualifiers plus 10 A-League plus champion"
+          }
+        ],
+        "status": "P",
+        "quarantine": [
+          "1996/97 Australia Cup label in corpus and rsssf-deep: distinct NSL Cup, not modern row329"
+        ],
+        "additionalVerifiedChanges": [
+          {
+            "period": "2014–2020",
+            "description": "protected draw ensured a member federation club reached semifinal; 2014 launch; NT entered in 2015; 2020 cancelled"
+          },
+          {
+            "period": "2015–2021",
+            "description": "prior NPL Finals winner direct national place (2021 used 2019 champion; 2021 regulation previously indexed); further annual allocation details P"
+          },
+          {
+            "year": 2021,
+            "description": "open from R16 onwards (not fully open R32); bottom four A-League playoff for two places; continental ACL qualification introduced"
+          },
+          {
+            "year": 2022,
+            "description": "fully open R32 draw (FA annual review and PFA report indexed); winner pathway AFC Cup 2023/24"
+          },
+          {
+            "period": "2023–2024",
+            "description": "bottom four A-League regular-season clubs playoff for two R32 places, 2024 official draw announcement confirms both years; ACL Two route from 2024 cycle"
+          },
+          {
+            "year": 2026,
+            "description": "21 territorial places + Australian Championship winner + 10 Australia-based A-League entrants; NZ exclusion; no AL qualification playoff"
+          }
+        ]
+      },
+      "limits": [
+        "32/32 national entrants known at cutoff; 20 unique native UUIDs, 12 absent from country team file (54 records); no replacement or fabricated team. Other country files not searched for misplaced clubs. User approved deferred real-club import; participant research list complete, native mapping remains P until 32/32 valid.",
+        "National art8.1–8.5 access and 21 quotas verified; regional entry/windows and aggregate elimination chain acquired, but full eligible pools, local rules and runtime representation P. No invented qualifiers.",
+        "July state V for national R32+ scope: 32 known before START, zero national games; 777-club real preliminary history not fully imported or certified.",
+        "Official final-round published schedule 31 matches; actual-vs-planned postponement reconciliation not yet independently checked; use published schedule template only, not fixture outcomes.",
+        "User approved edition rollover day before first preliminary match. Official planned first date 30 January (29 January boundary candidate), observed secondary first 31 January (30 January candidate), primary actual date unresolved; never reset at July.",
+        "Historical changes expanded and 2021 R16-only vs 2022 fully open draw distinguished. 1996/97 corpus belongs to NSL Cup; preserve quarantine. Annual historical allocations not completely certified."
+      ]
     }
   }
 ]

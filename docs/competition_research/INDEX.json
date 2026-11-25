@@ -3825,20 +3825,21 @@
       207,
       208,
       209,
-      210
+      210,
+      329
     ],
     "field": "operationalFields",
     "scope": "Targeted AUS review, 12 fields, no global migration",
     "approvedRows": [
       207,
       208,
+      209,
       210
     ],
     "incompleteRows": [
-      209,
       329
     ],
-    "victoriaPartial": "Victoria row209 slot88/3: 7V/5P; 125 pre-cutoff/57 residual. Official Dandenong City -4, Preston -6, Heidelberg 0; Dandenong 21 points rank9. R16 Preston–Melbourne Jun5→Aug19 confirmed, no future score stored. 125 unique score/date joins, zero club/day collisions, 14 arithmetic rows, 122 observed ordinary matches excluding three known changes. Hume GA22 vs cached Transfermarkt21 unresolved; full table, licence/academy and 10.12 movement discretion, full season profile and history P. No new closure. Shard 974c7698b5be48015a2a75576eae09282967856a; RG 51e457b000714e9877851da95a85ccbd943319c9. Large canonical matrix rewrite failed h2; retained current 7V/5P, operationalLimits still stale.",
+    "victoriaPartial": "Victoria row209 operationally closed by explicit user approval 2026-11-25: 10V/2P (qualification P approved provisionally, evolution P). Same Queensland rule: highest placed compliant eligible club, excluding already admitted Foundation Clubs and A-League academy/reserve teams. Historical evolution not fully certified; no further academy search without new sources. Australia 4/5 operationally complete, 0 runtime verified. Prior evidence and cutoff unchanged.",
     "userPolicy20261125": {
       "priorityHigh": [
         "name",
@@ -3864,6 +3865,7 @@
       "seasonChange": "one day before first match; previous edition must complete",
       "datePolicy": "representative round dates, weekday frequencies, exclude postponements and cancellations, keep actual pre-cutoff evidence for integrity; no destructive source deletion",
       "scope": "targeted revised schema, global recount pending"
-    }
+    },
+    "australiaCupPartial": "Australia Cup row329 7V/4P/1NA: 32/32 real entrants (20 native, 12 deferred Claude import), national rules V, 21 territorial slots verified, 9 federations' 2026 preliminary windows and 745-elimination aggregate acquired (secondary; no fabricated results), regional pools/rules P. User approved change day before first qualifying match. Announced start 30 Jan vs observed secondary 31 Jan: 29/30 Jan boundary candidates, exact actual date P; no July reset. History P expanded (2021 R16 open, 2022 all open, 2023–24 AL playoff, 2026 removed). National dates/day profile V for national stage only; no runtime certification."
   }
 }

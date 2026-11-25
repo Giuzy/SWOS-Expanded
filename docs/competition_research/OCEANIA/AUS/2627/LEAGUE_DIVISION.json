@@ -8405,7 +8405,7 @@
     "roundTemplateAudit": {
       "head": "66024378bd9775fb09d8493edb9624b48877089a",
       "date": "2026-11-25",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "status": "OPERATIONALLY_CLOSED_USER_APPROVED_NOT_RUNTIME",
       "sources": {
         "guide": {
           "url": "https://footballvictoria.com.au/sites/ffv/files/2026-03/NPLM_2026_OfficialSeasonGuide.pdf",
@@ -8592,18 +8592,80 @@
           "upDirect": 2,
           "upPlayoff": "VPL1 ranks 3–6, 3v6/4v5 then winners"
         },
-        "condition": "Ordinary 3 down, 2 direct + playoff 3rd up arts10.2 and 10.9; 10.12.2(a) allows alternative bottom-one relegation due to Australian Championship. Need resolve applicability, no choice inferred. Lower tier absent in native slot catalog; future entrant identity/generation pending.",
+        "condition": "GAME_TEMPLATE_2026 ordinary: 3 down from ranks 12–14; VPL1 top two up and winner of 3v6/4v5 playoff up. FINAL February rules 10.3.2, 10.10.4; 10.13.2 optional bottom-one exception not applied in observed 2026 transition. FV discretion/licences preserved, no automatic expansion. Earlier article numbers came from December edition; final 10.12 concerns women's division and must not be used for NPLM.",
         "confirmation2026": {
           "down": 3,
           "upDirect": 2,
           "upPlayoff": 1,
           "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/SLM%20Promotion%20Relegation%20Graphic%202026.pdf",
           "playoff": "https://footballvictoria.com.au/news/2026-vplm-play-offs-match-previews",
-          "limits": "Actual promotion playoff held; ordinary rules conditional on licenses/discretion; alternate art10.12 applicability not determined."
+          "limits": "Actual promotion playoff held; ordinary rules conditional on licenses/discretion; alternate art10.12 applicability not determined.",
+          "additionalEvidence": [
+            "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released",
+            "https://footballvictoria.com.au/news/2026-vplm-play-offs-match-previews",
+            "https://en.wikipedia.org/wiki/2026_National_Premier_Leagues_Victoria_Men%27s"
+          ]
+        },
+        "previousVersionCondition": "Ordinary 3 down, 2 direct + playoff 3rd up arts10.2 and 10.9; 10.12.2(a) allows alternative bottom-one relegation due to Australian Championship. Need resolve applicability, no choice inferred. Lower tier absent in native slot catalog; future entrant identity/generation pending.",
+        "final2026": {
+          "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20Advanced%20Competitions%20Rules%20of%20Competition%20-%20FINAL.pdf",
+          "articles": [
+            "10.1.2–10.1.5",
+            "10.2.1",
+            "10.3.2",
+            "10.10.4–10.10.5",
+            "10.13.1–10.13.2"
+          ],
+          "ordinary": {
+            "down": 3,
+            "downRanks": [
+              12,
+              13,
+              14
+            ],
+            "upDirectRanks": [
+              1,
+              2
+            ],
+            "upPlayoff": {
+              "pairs": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "homeHigherSeed": true,
+              "finalVenue": "FV appointed",
+              "winnersAdvance": 1
+            }
+          },
+          "vacancyOrder": [
+            "highest ranked relegated team",
+            "remaining relegated teams in rank order",
+            "highest nonpromoted team from lower tier",
+            "remaining nonpromoted lower tier teams in rank order"
+          ],
+          "alternate": {
+            "down": 1,
+            "condition": "explicit FV restructuring decision; not automatic merely because Australian Championship exists"
+          },
+          "actualTransitionWitness": [
+            "https://footballvictoria.com.au/news/2027-football-victoria-provisional-declaration-leagues",
+            "https://footballvictoria.com.au/senol-npl-transfer",
+            "https://www.heraldsun.com.au/leader/west/check-out-all-the-npl-and-vpl-highlights-from-the-weekends-action/news-story/3bbf84b1b60d95663b9ec0548bcb5080",
+            "https://footballvictoria.com.au/news/2026-vplm-play-offs-match-previews",
+            "https://melbournevictory.com.au/news/vpl-coaches-notes-victory-roll-redbacks-to-reach-final/"
+          ],
+          "status": "V ordinary rule and three-down/three-up actual transition; future membership derived only from simulated results; no real postcutoff results/entrants imported",
+          "limits": "Lower VPL1 not a playable catalog row; native promotion pipeline and entrant identities still need CE design/implementation. Do not invent a hidden lower tier, substitute random entrants, or cancel movement silently. FV discretionary vacancies not deterministic absent a defined event."
         }
       },
       "qualification": {
-        "australianChampionship": "Schedule 3 section 1 art2: Premier if licensed and agreement signed; if Foundation or noncompliant next highest eligible non-Foundation; federation discretion; academy licence status unresolved.",
+        "australianChampionship": "FINAL February numbered section 14.3.1–14.3.4 (not old numbering): top regular-season club with signed participation agreement and FA licence; if Foundation or noncompliant, next highest eligible non-Foundation club; FA discretion. Academy exclusion supported by secondary sources, not official express clause. No actual future entrant imported.",
         "cup": {
           "entryRound": 4,
           "basedOn": "previous division allocation, discretion",
@@ -8615,13 +8677,94 @@
             "https://footballvictoria.com.au/news/2026-dockerty-cup-round-3-4-draw-information",
             "https://footballvictoria.com.au/news/2026-new-balance-dockerty-cup-round-7-and-finals-draw-details"
           ],
-          "academy": "separate eligibility unresolved; do not assume reserve can enter",
+          "academy": "Melbourne City II excluded from preliminary route as reserve of A-League parent entering directly. FA clause 6.1 one team per club, highest-standard senior team, 8.1(d) A-League clubs excluded from preliminaries unless FA authorizes, 7.2 material interest restriction; do not confuse unrelated community club with same name.",
           "nationalEligibilityEvidence": {
             "source": "https://footballtasmania.com.au/sites/tas/files/2026-02/Hahn%20Australia%20Cup%202026%20Competition%20Regulations.pdf",
-            "rule": "A-League Men clubs ineligible for preliminaries unless FA determines otherwise; specific academy status not determined."
+            "articles": [
+              "6.1",
+              "7.2",
+              "8.1(d)",
+              "8.4"
+            ],
+            "status": "V rule",
+            "limits": "Explicit FA exception possible (e.g. Western United parent 2026); not a generic reserve entry.",
+            "exceptionExample": "https://footballaustralia.com.au/news/football-australia-announces-refined-competitions-structure-2026?page=11"
+          },
+          "communityShield": {
+            "source": "https://footballvictoria.com.au/events/cups/community-shield",
+            "rule": "Prior NPL grand-final champion vs prior Dockerty Cup champion",
+            "scope": "External competition, not separate catalogue row; no automatic catalogue expansion or same-club fallback inferred."
           }
         },
-        "academyEligibility": "not inferred"
+        "academyEligibility": "Cup exclusion V; Australian Championship exclusion P; league promotion allowed (official academy pathway)",
+        "australianChampionshipVerification": {
+          "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20ADVANCED%20COMPETITIONS%20RULES%20OF%20COMPETITION_0.pdf",
+          "section": "Schedule 3 §1 arts1–2",
+          "corroboration": "https://footballaustralia.com.au/news/australian-championship-groups-confirmed-2026?page=5",
+          "scope": "Actual national allocation confirms ordinary pathway, no future entrants imported. Foundation exclusion and licence criteria explicit; academy-specific licence status not verified.",
+          "finalRule": {
+            "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20Advanced%20Competitions%20Rules%20of%20Competition%20-%20FINAL.pdf",
+            "articles": [
+              "14.1.2",
+              "14.3.1–14.3.4"
+            ],
+            "foundationNames": [
+              "Avondale",
+              "Preston Lions",
+              "South Melbourne"
+            ],
+            "foundationKeys": [
+              "A",
+              "P",
+              "S"
+            ],
+            "slot": 1,
+            "criteria": [
+              "regular season ranking",
+              "not Foundation",
+              "signed agreement",
+              "licence compliance"
+            ],
+            "academy": {
+              "key": "M",
+              "parent": "Melbourne City",
+              "status": "P_EXCLUSION_SECONDARY_CORROBORATION",
+              "sources": [
+                "https://unitedsportinginstitute.com/library/npl-explained",
+                "https://en.wikipedia.org/wiki/2026_National_Premier_Leagues_Victoria_Men%27s",
+                "https://aleagues.com.au/news/a-league-academies-npl-wrap-score-results-highlights-melbourne-city-vpl1-playoff-perth-glory-penalty-shootout-central-coast-mariners-wellington-phoenix/"
+              ],
+              "limits": "Official academy-specific exclusion not located; user explicitly approved identical Queensland game policy provisionally for Victoria on 2026-11-25. No invented licence status."
+            },
+            "nationalGuide": "https://australianchampionship.com.au/news/beginners-guide-australian-championship"
+          },
+          "additionalPrimaryReview": {
+            "nationalLicence": {
+              "source": "https://footballaustralia.com.au/sites/default/files/2026-01/Football%20Australia%20Club%20Licensing%20Regulations%202026_0.pdf",
+              "result": "Art3.1–3.9 lists AFC, A-League and NPL licences only; no Australian Championship mention, cannot derive academy-specific ban from it."
+            },
+            "fvSchedule3": {
+              "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20ADVANCED%20COMPETITIONS%20RULES%20OF%20COMPETITION_0.pdf",
+              "result": "Signed NST agreement and minimum specific licensing standards, top eligible non-Foundation if Premier ineligible; discretion. No explicit academy prohibition in section."
+            },
+            "nationalFAQ": {
+              "source": "https://australianchampionship.com.au/faqs",
+              "result": "Eight Foundation plus eight federation slots, confirms Victoria 3 Foundation names; no academy eligibility clause."
+            },
+            "national2026Guide": {
+              "source": "https://australianchampionship.com.au/news/ultimate-guide-2026-australian-championship",
+              "result": "Real 2026 allocation confirms rule; no future entrant stored."
+            },
+            "secondary": "https://unitedsportinginstitute.com/library/npl-explained",
+            "status": "P official academy-specific clause not found; provisional game policy approved 2026-11-25, reopen only on new evidence."
+          }
+        },
+        "gamePolicy": {
+          "approvedByUser": true,
+          "approvalDate": "2026-11-25",
+          "rule": "Highest placed compliant eligible club; exclude already admitted Foundation Clubs and A-League academy/reserve teams.",
+          "provenance": "USER_APPROVED_PROVISIONAL_GAME_POLICY; same rule as Queensland; Victoria-specific 2026 academy exclusion not independently certified"
+        }
       },
       "calendar": {
         "status": "PUBLISHED_SCHEDULE_NOT_ACTUAL",
@@ -9373,11 +9516,591 @@
             "R12 BM"
           ],
           "limits": "Known changes excluded; entire season not reconciled"
+        },
+        "fullSeasonActualAudit": {
+          "source": [
+            "https://www.soccerstats.com/results.asp?league=australia3&pmtype=month7",
+            "https://www.soccerstats.com/results.asp?league=australia3&pmtype=month8"
+          ],
+          "publishedGuide": "https://footballvictoria.com.au/sites/ffv/files/2026-03/NPLM_2026_OfficialSeasonGuide.pdf#page=5",
+          "scope": "Date-only post-cutoff evidence, not future scores or hardcoded runtime fixtures. All 182 directed pair keys unique. 26 rounds each 7. No club-day collision. Exclude all date changes from published guide in normal-day template; reasons not all known. GMT source checked against local-day match listings for sampled fixtures.",
+          "postCutoffDateEvidence": {
+            "columns": [
+              "round",
+              "date",
+              "homeKey",
+              "awayKey"
+            ],
+            "rows": [
+              [
+                19,
+                "2026-07-03",
+                "G",
+                "B"
+              ],
+              [
+                19,
+                "2026-07-03",
+                "H",
+                "N"
+              ],
+              [
+                19,
+                "2026-07-04",
+                "U",
+                "D"
+              ],
+              [
+                19,
+                "2026-07-04",
+                "A",
+                "P"
+              ],
+              [
+                19,
+                "2026-07-04",
+                "L",
+                "M"
+              ],
+              [
+                19,
+                "2026-07-04",
+                "C",
+                "O"
+              ],
+              [
+                19,
+                "2026-07-05",
+                "S",
+                "T"
+              ],
+              [
+                20,
+                "2026-07-10",
+                "G",
+                "L"
+              ],
+              [
+                20,
+                "2026-07-10",
+                "D",
+                "S"
+              ],
+              [
+                20,
+                "2026-07-10",
+                "O",
+                "A"
+              ],
+              [
+                20,
+                "2026-07-10",
+                "P",
+                "U"
+              ],
+              [
+                20,
+                "2026-07-11",
+                "M",
+                "H"
+              ],
+              [
+                20,
+                "2026-07-11",
+                "T",
+                "B"
+              ],
+              [
+                20,
+                "2026-07-12",
+                "N",
+                "C"
+              ],
+              [
+                21,
+                "2026-07-17",
+                "B",
+                "D"
+              ],
+              [
+                21,
+                "2026-07-17",
+                "G",
+                "T"
+              ],
+              [
+                21,
+                "2026-07-18",
+                "U",
+                "O"
+              ],
+              [
+                21,
+                "2026-07-18",
+                "A",
+                "N"
+              ],
+              [
+                21,
+                "2026-07-18",
+                "L",
+                "H"
+              ],
+              [
+                21,
+                "2026-07-18",
+                "S",
+                "P"
+              ],
+              [
+                21,
+                "2026-07-18",
+                "C",
+                "M"
+              ],
+              [
+                22,
+                "2026-07-24",
+                "G",
+                "D"
+              ],
+              [
+                22,
+                "2026-07-24",
+                "H",
+                "C"
+              ],
+              [
+                22,
+                "2026-07-24",
+                "N",
+                "U"
+              ],
+              [
+                22,
+                "2026-07-24",
+                "O",
+                "S"
+              ],
+              [
+                22,
+                "2026-07-24",
+                "P",
+                "B"
+              ],
+              [
+                22,
+                "2026-07-25",
+                "M",
+                "A"
+              ],
+              [
+                22,
+                "2026-07-25",
+                "T",
+                "L"
+              ],
+              [
+                23,
+                "2026-07-31",
+                "B",
+                "O"
+              ],
+              [
+                23,
+                "2026-07-31",
+                "P",
+                "G"
+              ],
+              [
+                23,
+                "2026-08-01",
+                "U",
+                "M"
+              ],
+              [
+                23,
+                "2026-08-01",
+                "A",
+                "H"
+              ],
+              [
+                23,
+                "2026-08-01",
+                "L",
+                "C"
+              ],
+              [
+                23,
+                "2026-08-01",
+                "T",
+                "D"
+              ],
+              [
+                23,
+                "2026-08-02",
+                "S",
+                "N"
+              ],
+              [
+                24,
+                "2026-08-14",
+                "D",
+                "L"
+              ],
+              [
+                24,
+                "2026-08-14",
+                "O",
+                "G"
+              ],
+              [
+                24,
+                "2026-08-14",
+                "N",
+                "B"
+              ],
+              [
+                24,
+                "2026-08-15",
+                "H",
+                "U"
+              ],
+              [
+                24,
+                "2026-08-15",
+                "M",
+                "S"
+              ],
+              [
+                24,
+                "2026-08-15",
+                "C",
+                "A"
+              ],
+              [
+                24,
+                "2026-08-16",
+                "P",
+                "T"
+              ],
+              [
+                16,
+                "2026-08-19",
+                "P",
+                "M"
+              ],
+              [
+                25,
+                "2026-08-21",
+                "G",
+                "N"
+              ],
+              [
+                25,
+                "2026-08-22",
+                "M",
+                "B"
+              ],
+              [
+                25,
+                "2026-08-22",
+                "L",
+                "A"
+              ],
+              [
+                25,
+                "2026-08-22",
+                "U",
+                "C"
+              ],
+              [
+                25,
+                "2026-08-22",
+                "D",
+                "P"
+              ],
+              [
+                25,
+                "2026-08-22",
+                "T",
+                "O"
+              ],
+              [
+                25,
+                "2026-08-23",
+                "S",
+                "H"
+              ],
+              [
+                26,
+                "2026-08-29",
+                "A",
+                "U"
+              ],
+              [
+                26,
+                "2026-08-29",
+                "C",
+                "S"
+              ],
+              [
+                26,
+                "2026-08-29",
+                "H",
+                "B"
+              ],
+              [
+                26,
+                "2026-08-29",
+                "M",
+                "G"
+              ],
+              [
+                26,
+                "2026-08-29",
+                "O",
+                "D"
+              ],
+              [
+                26,
+                "2026-08-29",
+                "P",
+                "L"
+              ],
+              [
+                26,
+                "2026-08-29",
+                "N",
+                "T"
+              ]
+            ]
+          },
+          "changes": {
+            "columns": [
+              "round",
+              "publishedPair",
+              "publishedDate",
+              "observedPair",
+              "observedDate"
+            ],
+            "rows": [
+              [
+                7,
+                "SD",
+                "2026-03-30",
+                "SD",
+                "2026-03-31"
+              ],
+              [
+                8,
+                "DB",
+                "2026-04-10",
+                "DB",
+                "2026-04-11"
+              ],
+              [
+                12,
+                "MB",
+                "2026-05-10",
+                "BM",
+                "2026-05-08"
+              ],
+              [
+                16,
+                "PM",
+                "2026-06-05",
+                "PM",
+                "2026-08-19"
+              ],
+              [
+                20,
+                "MH",
+                "2026-07-12",
+                "MH",
+                "2026-07-11"
+              ],
+              [
+                21,
+                "SP",
+                "2026-07-19",
+                "SP",
+                "2026-07-18"
+              ],
+              [
+                24,
+                "HU",
+                "2026-08-14",
+                "HU",
+                "2026-08-15"
+              ],
+              [
+                25,
+                "DP",
+                "2026-08-21",
+                "DP",
+                "2026-08-22"
+              ],
+              [
+                25,
+                "BM",
+                "2026-08-21",
+                "MB",
+                "2026-08-22"
+              ]
+            ]
+          },
+          "actualDayCounts": {
+            "FRI": 72,
+            "SAT": 84,
+            "SUN": 21,
+            "THU": 1,
+            "TUE": 1,
+            "MON": 2,
+            "WED": 1
+          },
+          "ordinaryDayCounts": {
+            "FRI": 71,
+            "SAT": 78,
+            "SUN": 21,
+            "THU": 1,
+            "MON": 2
+          },
+          "ordinaryCount": 173,
+          "actualCount": 182,
+          "roundWeekdayCounts": {
+            "1": {
+              "FRI": 2,
+              "SAT": 3,
+              "SUN": 2
+            },
+            "2": {
+              "THU": 1,
+              "FRI": 5,
+              "SAT": 1
+            },
+            "3": {
+              "FRI": 2,
+              "SAT": 4,
+              "SUN": 1
+            },
+            "4": {
+              "FRI": 2,
+              "SAT": 3,
+              "SUN": 2
+            },
+            "5": {
+              "FRI": 3,
+              "SAT": 4
+            },
+            "6": {
+              "FRI": 4,
+              "SAT": 1,
+              "SUN": 2
+            },
+            "7": {
+              "FRI": 2,
+              "SAT": 4,
+              "TUE": 1
+            },
+            "8": {
+              "FRI": 1,
+              "SAT": 5,
+              "SUN": 1
+            },
+            "9": {
+              "FRI": 2,
+              "SAT": 4,
+              "SUN": 1
+            },
+            "10": {
+              "FRI": 5,
+              "SAT": 1,
+              "SUN": 1
+            },
+            "11": {
+              "FRI": 3,
+              "SAT": 4
+            },
+            "12": {
+              "FRI": 5,
+              "SAT": 2
+            },
+            "13": {
+              "FRI": 3,
+              "SAT": 3,
+              "MON": 1
+            },
+            "14": {
+              "FRI": 3,
+              "SAT": 1,
+              "SUN": 2,
+              "MON": 1
+            },
+            "15": {
+              "FRI": 1,
+              "SAT": 5,
+              "SUN": 1
+            },
+            "16": {
+              "FRI": 4,
+              "SAT": 1,
+              "SUN": 1,
+              "WED": 1
+            },
+            "17": {
+              "FRI": 2,
+              "SAT": 4,
+              "SUN": 1
+            },
+            "18": {
+              "FRI": 4,
+              "SAT": 2,
+              "SUN": 1
+            },
+            "19": {
+              "FRI": 2,
+              "SAT": 4,
+              "SUN": 1
+            },
+            "20": {
+              "FRI": 4,
+              "SAT": 2,
+              "SUN": 1
+            },
+            "21": {
+              "FRI": 2,
+              "SAT": 5
+            },
+            "22": {
+              "FRI": 5,
+              "SAT": 2
+            },
+            "23": {
+              "FRI": 2,
+              "SAT": 4,
+              "SUN": 1
+            },
+            "24": {
+              "FRI": 3,
+              "SAT": 3,
+              "SUN": 1
+            },
+            "25": {
+              "FRI": 1,
+              "SAT": 5,
+              "SUN": 1
+            },
+            "26": {
+              "SAT": 7
+            }
+          },
+          "verified": "V date profile and exclusions relative to original guide; not official dates for future seasons."
         }
       },
       "july1": {
         "cutoff": "2026-07-01",
-        "status": "COMPLETE_STRUCTURAL_SNAPSHOT_PENDING_INDEPENDENT_FULL_TABLE_RECONCILIATION",
+        "status": "RECONCILED_DERIVED_TABLE_WITH_EXPLICIT_SCORE_SOURCE_DISCREPANCY",
         "source": "https://footystats.org/australia/victoria-npl/fixtures",
         "scoreColumns": [
           "round",
@@ -11239,7 +11962,189 @@
           "GSA older cached club page has incorrect initial 0–8; official guide and FootyStats both 1–1",
           "No independent complete cutoff standings read; derived table not falsely certified",
           "Transfermarkt UK cached table R18 Hume GA21 vs reconstructed 22; Dandenong City sanction confirmed by federation and club. Exact full independent table not accessible; retain score discrepancy as open, no invented corrections."
-        ]
+        ],
+        "independentTableReconciliation": {
+          "source": "https://www.transfermarkt.co.uk/npl-victoria/tabelle/wettbewerb/A2VI",
+          "columns": [
+            "club",
+            "played",
+            "W",
+            "D",
+            "L",
+            "GF",
+            "GA",
+            "points"
+          ],
+          "rows": [
+            [
+              "O",
+              18,
+              12,
+              4,
+              2,
+              40,
+              17,
+              40
+            ],
+            [
+              "U",
+              18,
+              12,
+              3,
+              3,
+              39,
+              21,
+              39
+            ],
+            [
+              "A",
+              18,
+              11,
+              1,
+              6,
+              51,
+              22,
+              34
+            ],
+            [
+              "H",
+              18,
+              9,
+              3,
+              6,
+              30,
+              23,
+              30
+            ],
+            [
+              "M",
+              17,
+              7,
+              5,
+              5,
+              32,
+              20,
+              26
+            ],
+            [
+              "P",
+              17,
+              10,
+              2,
+              5,
+              25,
+              13,
+              26
+            ],
+            [
+              "C",
+              18,
+              6,
+              7,
+              5,
+              24,
+              25,
+              25
+            ],
+            [
+              "S",
+              18,
+              8,
+              1,
+              9,
+              28,
+              32,
+              25
+            ],
+            [
+              "D",
+              18,
+              7,
+              4,
+              7,
+              26,
+              25,
+              21
+            ],
+            [
+              "N",
+              18,
+              6,
+              3,
+              9,
+              20,
+              33,
+              21
+            ],
+            [
+              "L",
+              18,
+              5,
+              4,
+              9,
+              21,
+              32,
+              19
+            ],
+            [
+              "B",
+              18,
+              4,
+              4,
+              10,
+              17,
+              39,
+              16
+            ],
+            [
+              "T",
+              18,
+              3,
+              3,
+              12,
+              19,
+              41,
+              12
+            ],
+            [
+              "G",
+              18,
+              1,
+              4,
+              13,
+              10,
+              39,
+              7
+            ]
+          ],
+          "exactRows": 12,
+          "rankMatches": 14,
+          "playedWDLPointsMatches": 14,
+          "discrepancies": [
+            [
+              "U",
+              5,
+              21,
+              22
+            ],
+            [
+              "T",
+              4,
+              19,
+              20
+            ]
+          ],
+          "decision": "Keep Dandenong Thunder–Hume City 1–3, June27, confirmed by Transfermarkt individual match, MatchDaySync, SportPremi, Hume full fixture list, FootyStats; later Transfermarkt round19 Hume 39:22 following 0:0 confirms GA22. OzFootball search excerpt reports 0–3, retained as contradictory witness, not adopted. No source correction to native score needed. Both table discrepancies accounted for by single missing goal.",
+          "sources": [
+            "https://www.transfermarkt.com/spielbericht/index/spielbericht/4820686",
+            "https://www.footballfixtures.org/team/hume-city",
+            "https://matchdaysync.com/match/dandenong-thunder-vs-hume-city-fc-2026-06-27",
+            "https://www.ozfootball.net/ark/States/VIC/2026NPLR.html",
+            "https://www.transfermarkt.co.uk/national-premier-league-victoria/tabelle/wettbewerb/A2VI"
+          ],
+          "status": "V_RECONCILED_WITH_EXPLICIT_CONTRADICTORY_SOURCE",
+          "deductions": "Preston -6, Dandenong City -4, Heidelberg 0, before cutoff only"
+        }
       },
       "evolution": {
         "namePeriods": [
@@ -11256,7 +12161,8 @@
         ],
         "noFinals": [
           1999,
-          2000
+          2000,
+          2014
         ],
         "changes": [
           "2005 NSL dissolution changed entrant composition; not permanent rule",
@@ -11264,7 +12170,181 @@
           "2021 abandoned, mediated 56-match carryover from 2022 per official season guide; one-off, not general CE rule",
           "2025 three relegations and three promotions, playoff for third"
         ],
-        "limits": "exact edition-by-edition rules, dates, membership, historical relegation and 2020/2021 exceptional lifecycle incomplete"
+        "limits": "exact edition-by-edition rules, dates, membership, historical relegation and 2020/2021 exceptional lifecycle incomplete",
+        "additionalEvidence": [
+          {
+            "year": 2007,
+            "change": "four relegations observed in transition to 2008; not permanent rule",
+            "source": "https://www.ozfootball.net/ark/States/VIC/2007PLT.html"
+          },
+          {
+            "year": 2009,
+            "change": "12 clubs, 22 regular matches, top-five finals after removal of AIS",
+            "source": "https://en.wikipedia.org/wiki/Victorian_Premier_League_(1991%E2%80%932013)"
+          },
+          {
+            "year": 2011,
+            "change": "24 matches observed in official club histories; VTC special eligibility (no finals or relegation), exact rule version not fully verified",
+            "source": "https://footballvictoria.com.au/sites/ffv/files/2026-03/NPLM_2026_OfficialSeasonGuide.pdf"
+          },
+          {
+            "year": 2014,
+            "change": "Rebrand to NPL Victoria, licence application and selection, 14 clubs/26 matches, no finals; 2015 finals restored",
+            "sources": [
+              "https://www.ozfootball.net/ark/States/VIC/2013PLT.html",
+              "https://footballvictoria.com.au/league-honours-mens-npl-04"
+            ]
+          },
+          {
+            "year": 2015,
+            "change": "Regionalised second tier East/West direct promotions; third berth through promotion/relegation playoff (observed). Finals restored.",
+            "source": "https://footballvictoria.com.au/the-story-of-football-in-victoria-09"
+          },
+          {
+            "year": 2016,
+            "change": "NPL2 renamed and regional East/West direct promotion plus promotion playoff observed",
+            "source": "https://footballvictoria.com.au/the-story-of-football-in-victoria-09"
+          },
+          {
+            "year": 2019,
+            "change": "26 regular rounds and top-six knockout with top two bye; promotion/relegation playoff scheduled",
+            "source": "https://nationalpremierleagues.com.au/news/npl-2019-npl-victoria-fixture-goes-live",
+            "basis": "official indexed excerpt, full page cache miss"
+          },
+          {
+            "year": 2020,
+            "change": "Senior and junior promotion decoupled; planned two direct up/two direct down, promotion/relegation playoff abolished; 2020 abandoned without title. 2021 separately abandoned with exceptional mediated regular-season Premier, no finals champion.",
+            "sources": [
+              "https://footballvictoria.com.au/news/football-victoria-announces-new-2020-npl-structures",
+              "https://footballvictoria.com.au/league-honours-mens-npl-04",
+              "https://footballvictoria.com.au/sites/ffv/files/2025-08/2025_NPLM_OfficialFinalsGuide_V1_05.pdf"
+            ]
+          },
+          {
+            "year": 2021,
+            "change": "Abandoned after 18 rounds; bespoke mediated settlement credited 56 relevant 2022 results also to outstanding 2021 fixtures, Premier only; not a regular CE rule",
+            "sources": [
+              "https://footballvictoria.com.au/league-honours-mens-npl-04",
+              "https://footballvictoria.com.au/sites/ffv/files/2025-08/2025_NPLM_OfficialFinalsGuide_V1_05.pdf"
+            ]
+          },
+          {
+            "year": 2022,
+            "change": "Rules 10.2.1–11 and 10.3.4–5: 14 teams, 26 home/away rounds, bottom two down and top two NPL2 up subject to FV discretion, top six finals 3v6/4v5 then reseed against top2, ET and penalties, state Premier may qualify for national NPL Finals subject to FA decision",
+            "source": "https://footballvictoria.com.au/sites/ffv/files/2022-07/2022%20Rules%20of%20Competition%20NPL%20Mens%20%26%20Boys.pdf",
+            "basis": "official rule text, screenshot unavailable"
+          },
+          {
+            "year": 2024,
+            "change": "Lower-tier nomenclature NPL2/NPL3 changed to VPL1/VPL2; top tier stays NPL Victoria",
+            "source": "https://footballvictoria.com.au/player-honours-npl2-bnf"
+          },
+          {
+            "year": 2025,
+            "change": "Australian Championship introduced; eight foundation plus eight NPL qualifiers; promotion playoff three up/three down",
+            "sources": [
+              "https://footballvictoria.com.au/news/football-australia-unveils-australian-championship",
+              "https://footballvictoria.com.au/news/nplm-and-vplm-competition-structures-2025-2026"
+            ]
+          },
+          {
+            "year": 2026,
+            "change": "National cup one direct prior Australian Championship winner in addition to normal state allocations, new A-League entry",
+            "source": "https://footballaustralia.com.au/news/football-australia-announces-refined-competitions-structure-2026?page=11"
+          }
+        ],
+        "historicalTableEvidence": [
+          {
+            "year": 1996,
+            "playedPerClub": 26,
+            "observedRelegation": 1,
+            "source": "https://www.ozfootball.net/ark/States/VIC/1996PLT.html",
+            "limits": "Observed explicit automatic relegation; not proof of entire movement policy"
+          },
+          {
+            "year": 1997,
+            "playedPerClub": 26,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/1997PLT.html"
+          },
+          {
+            "year": 1998,
+            "playedPerClub": 26,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/1998PLT.html"
+          },
+          {
+            "year": 1999,
+            "playedPerClub": 26,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/1999PLT.html"
+          },
+          {
+            "year": 2000,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2000PLT.html"
+          },
+          {
+            "year": 2001,
+            "playedPerClub": 22,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2001PLT.html"
+          },
+          {
+            "year": 2002,
+            "playedPerClub": 22,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2002PLT.html",
+            "basis": "search excerpt only, open failed"
+          },
+          {
+            "year": 2003,
+            "playedPerClub": 22,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2003PLR.html",
+            "basis": "indexed rounds 1–22 plus Finals; table unavailable"
+          },
+          {
+            "year": 2004,
+            "playedPerClub": 22,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2004PLT.html",
+            "basis": "search excerpt only"
+          },
+          {
+            "year": 2005,
+            "playedPerClub": 26,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2005PLT.html",
+            "basis": "search excerpt only"
+          },
+          {
+            "year": 2008,
+            "observedRelegation": 3,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2008PLT.html"
+          },
+          {
+            "year": 2010,
+            "observedRelegation": 2,
+            "source": "https://www.ozfootball.net/ark/States/VIC/2010PLT.html"
+          }
+        ],
+        "historicalTableEvidencePolicy": "Historical observations not equivalent to permanent regulations. No new 9697 changes authorized.",
+        "nationalRouteHistory": {
+          "competition": "NPL National Finals Series",
+          "observedYears": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "victoriaNPLStart": 2014,
+          "source": "https://footballaustralia.com.au/npl-honours-board",
+          "route2022": "formal eligibility retained subject to FA, does not prove competition was held",
+          "source2022": "https://footballvictoria.com.au/sites/ffv/files/2022-07/2022%20Rules%20of%20Competition%20NPL%20Mens%20%26%20Boys.pdf",
+          "limits": "No exact historical cessation year inferred from 2020 N/A; do not add competition outside game catalogue."
+        }
       },
       "seasonChange": {
         "date": "2026-02-12",
@@ -11282,6 +12362,42 @@
         },
         "status": "7V/5P; correction Dandenong City -4; no new closure",
         "limits": "R18 Hume GA discrepancy and no independent full table; discretionary movement, qualification, full ordinary weekday profile and history unresolved; no future scores."
+      },
+      "followup20261125b": {
+        "status": "9V/3P research assessment, pending canonical matrix update; movement/qualification/evolution P, no operational closure.",
+        "tests": {
+          "allOrientedPairs": 182,
+          "rounds": 26,
+          "matchesEachRound": 7,
+          "clubDayCollisions": 0,
+          "ordinaryMatches": 173,
+          "tableExactRows": 12,
+          "tableRankWDLPoints": 14,
+          "tableDiscrepancies": 2
+        },
+        "limits": "No future score stored. Ordinary excludes nine changed dates compared to March guide, some not proven formal postponements. No full historic regulation chain."
+      },
+      "followup20261125c": {
+        "status": "10V/2P, movement V; qualification P only AC academy official exclusion/licence proof, historical P. No operational closure without approval or further verification.",
+        "tests": {
+          "ordinaryMovementBalance": true,
+          "foundationKeysValid": true,
+          "academyKeyValid": true
+        },
+        "limits": "PDF text inspected; screenshots cache miss. Actual 2026 transition corroborates ordinary rule, no future results or actual future entrants stored. Lower tier absence is runtime dependency, not a new catalog decision."
+      },
+      "followup20261125d": {
+        "status": "10V/2P unchanged, historical and qualification evidence strengthened, research search exhausted in accessible sources; not certified closure.",
+        "limits": "Archive index/table opens blocked/timeouts; PDF screenshots cache miss; no primary academy-specific exclusion, no historical full regulation sequence. Existing game template and all previous cutoff evidence retained. No runtime/CAR changes."
+      },
+      "operationalClosure": {
+        "status": "COMPLETA_VERIFICATA",
+        "verifiedFields": 10,
+        "approvedFields": 1,
+        "applicableOperationalFields": 11,
+        "historyComplete": false,
+        "approvalDate": "2026-11-25",
+        "scope": "Research operational closure only. Qualification P accepted by user as provisional common game rule; historical evolution P; no official certification or runtime tests."
       }
     }
   },

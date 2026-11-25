@@ -62995,6 +62995,657 @@
           }
         }
       }
+    },
+    "roundTemplateAudit": {
+      "head": "794b7e6ee36abcd935168ffae778d592f07ee0fb",
+      "date": "2026-11-25",
+      "status": "OPERATIONAL_DATA_READY_FOR_REVIEW_NOT_RUNTIME",
+      "fields": {
+        "name": "V",
+        "identity": "V",
+        "participants": "V",
+        "format": "V",
+        "regulation": "V",
+        "movement": "V",
+        "qualification": "V",
+        "july1": "NA",
+        "roundDates": "V",
+        "competitionDays": "V",
+        "evolution": "P",
+        "seasonChange": "V"
+      },
+      "identity": {
+        "world": "2627",
+        "country": "ITA",
+        "id": "_italianLeague",
+        "detail": "div1",
+        "row": 186,
+        "competitionId": 61,
+        "slotOrdinal": 1
+      },
+      "name": {
+        "display": "Serie A"
+      },
+      "participants": {
+        "count": 20,
+        "dbBlob": "d03139fce63f52249222186845fd6e5943aa4bf8",
+        "sourceMappingBlob": "b75317886b3d84d4e78b1a9e2fc77c46547dd44a",
+        "columns": [
+          "sportName",
+          "nativeName",
+          "uuid",
+          "fileCountry",
+          "ordinal",
+          "stableClub"
+        ],
+        "mapping": [
+          [
+            "AC Milan",
+            "MILAN",
+            "c219c629-1d36-57b4-9f8c-898ae2b7558c",
+            20,
+            4,
+            1310725
+          ],
+          [
+            "AC Monza",
+            "MONZA",
+            "f27e7ddb-8932-5769-8f13-f3dccaef2b46",
+            20,
+            19,
+            1310740
+          ],
+          [
+            "ACF Fiorentina",
+            "FIORENTINA",
+            "8b5c5ae4-b9b0-5934-a5d2-223581ce5a2d",
+            20,
+            14,
+            1310735
+          ],
+          [
+            "AS Roma",
+            "ROMA",
+            "28248df7-6296-55eb-a4f9-e9316191b9b9",
+            20,
+            2,
+            1310723
+          ],
+          [
+            "Atalanta BC",
+            "ATALANTA",
+            "91bf8ac9-f9fc-5d50-a6d3-4b15c3292ead",
+            20,
+            6,
+            1310727
+          ],
+          [
+            "Bologna FC 1909",
+            "BOLOGNA",
+            "61186117-fdb8-5c7a-b36e-8152d671c128",
+            20,
+            7,
+            1310728
+          ],
+          [
+            "Cagliari Calcio",
+            "CAGLIARI",
+            "8a99a7aa-d10c-5928-b72c-cc7831fcd9e9",
+            20,
+            13,
+            1310734
+          ],
+          [
+            "Como 1907",
+            "COMO",
+            "eff5ba85-934d-5e0c-aebf-d38858b9576f",
+            20,
+            3,
+            1310724
+          ],
+          [
+            "FC Internazionale Milano",
+            "INTER",
+            "5ea29452-fd30-51c0-ab1d-970521e8e08a",
+            20,
+            0,
+            1310721
+          ],
+          [
+            "Frosinone Calcio",
+            "FROSINONE",
+            "9bcb6abf-4e14-5ec3-8661-e62fd213a6a6",
+            20,
+            18,
+            1310739
+          ],
+          [
+            "Genoa CFC",
+            "GENOA",
+            "a164d132-084c-5ba4-a640-e7067ffadfa0",
+            20,
+            15,
+            1310736
+          ],
+          [
+            "Juventus FC",
+            "JUVENTUS",
+            "12cc22f0-814f-59cf-ab15-f68fd7ba8327",
+            20,
+            5,
+            1310726
+          ],
+          [
+            "Parma Calcio 1913",
+            "PARMA",
+            "425fe11b-5415-5d58-bb46-a23e4a42c6f5",
+            20,
+            12,
+            1310733
+          ],
+          [
+            "SS Lazio",
+            "LAZIO",
+            "8f1f7bee-15c9-5e08-9965-eb7e01eda8dc",
+            20,
+            8,
+            1310729
+          ],
+          [
+            "SSC Napoli",
+            "NAPOLI",
+            "64f78ca6-a835-568d-a2dc-fa7430bf029d",
+            20,
+            1,
+            1310722
+          ],
+          [
+            "Torino FC",
+            "TORINO",
+            "b62f2ba1-45d4-5378-a2e9-81a4cc75246c",
+            20,
+            11,
+            1310732
+          ],
+          [
+            "US Lecce",
+            "LECCE",
+            "c97b7ac8-1a16-5231-905c-619fa96ae8d8",
+            20,
+            16,
+            1310737
+          ],
+          [
+            "US Sassuolo Calcio",
+            "SASSUOLO",
+            "d4955232-a9b2-5ffa-9de5-5e8d7ff68389",
+            20,
+            10,
+            1310731
+          ],
+          [
+            "Udinese Calcio",
+            "UDINESE",
+            "5067b719-58bb-5843-86b8-372ab145f72b",
+            20,
+            9,
+            1310730
+          ],
+          [
+            "Venezia FC",
+            "VENEZIA",
+            "0fc4dcde-e332-5568-8cf2-fe55b9639158",
+            20,
+            17,
+            1310738
+          ]
+        ],
+        "verifiedAgainstCurrentDb": true
+      },
+      "format": {
+        "groups": 1,
+        "teams": 20,
+        "cycles": 2,
+        "rounds": 38,
+        "gamesPerClub": 38,
+        "matches": 380,
+        "firstHalfUnorderedPairs": 190,
+        "secondHalfUnorderedPairs": 190,
+        "uniqueOrientedPairs": 380,
+        "clubDateRecords": 760,
+        "roundMirrors": 12,
+        "returnOrder": "ASYMMETRIC; reverse home/away pairs, not same round order"
+      },
+      "regulation": {
+        "source": "block68Research.rules; prior official Lega regulation text",
+        "status": "V: official 2026/27 sporting ranking rules, no runtime certification",
+        "rules": {
+          "teams": 20,
+          "rounds": 2,
+          "gamesPerClub": 38,
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "relegationCount": 3,
+          "titleTie": {
+            "legs": 1,
+            "home": "higher head-to-head rank",
+            "extraTime": false,
+            "penalties": true
+          },
+          "survivalTie": {
+            "ranks": [
+              17,
+              18
+            ],
+            "legs": 2,
+            "secondLegHome": "higher head-to-head rank",
+            "extraTime": false,
+            "penalties": true
+          },
+          "tieBreakers": [
+            "head-to-head points",
+            "head-to-head goal difference",
+            "overall goal difference",
+            "overall goals scored",
+            "draw"
+          ],
+          "uefaFinalistException": "head-to-head classification replaces playoff if a UEFA finalist is involved"
+        },
+        "officialEvidence": {
+          "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/aegoankwttfmjaamki5o.pdf",
+          "section": "9 and FIGC CU244/A",
+          "titleTie": {
+            "legs": 1,
+            "home": "best mini-table rank",
+            "extraTime": false,
+            "penalties": true
+          },
+          "survivalTie": {
+            "ranks": [
+              17,
+              18
+            ],
+            "legs": 2,
+            "secondLegHome": "best mini-table rank",
+            "aggregateGoals": true,
+            "extraTime": false,
+            "penalties": true
+          },
+          "multipleTies": "mini-table of tied teams selects boundary pair",
+          "uefaFinalistException": "mini-table instead of affected playoff",
+          "tieBreak": [
+            "head-to-head points",
+            "head-to-head GD",
+            "overall GD",
+            "overall GF",
+            "draw"
+          ]
+        }
+      },
+      "movement": {
+        "promoted": 0,
+        "relegated": 3,
+        "source": "block68Research.rules and native division; survival playoff 17/18 when tied",
+        "scope": "number and basic criterion supported; detailed tie rules in regulation field"
+      },
+      "qualification": {
+        "sourceBlob": "a2c3713d3a5e06f1eccd44fd6ee5e41d824702dd",
+        "scope": "V for 2026/27 operating rules and approved template policy, not future official access lists or runtime",
+        "officialEvidence": {
+          "annex": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Annex-A-Access-List-for-the-2026/27-UEFA-Club-Competitions-Online",
+          "ucl": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Article-3-Entries-for-the-competition-Online",
+          "uel": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Europa-League-2026/27/Article-3-Entries-for-the-competition-Online",
+          "uecl": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Conference-League-2026/27/Article-3-Entries-for-the-competition-Online",
+          "base2026": {
+            "associationRank": 2,
+            "UCL": {
+              "ranks": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "stage": "LEAGUE_PHASE"
+            },
+            "UEL": {
+              "ranks": [
+                5
+              ],
+              "cupWinner": true,
+              "stage": "LEAGUE_PHASE"
+            },
+            "UECL": {
+              "ranks": [
+                6
+              ],
+              "stage": "PLAYOFF_MAIN_PATH"
+            }
+          },
+          "conditional": "UEFA titleholders, reductions of lower quotas when holder moves up, EPS top two season coefficients after rebalance, cup duplicate and rank scorrimento per art3; no domestic cup finalist for UEFA; actual future association rank from CE",
+          "coppaItalia": "all 20; seeds by section21",
+          "supercoppa": {
+            "source": "https://www.legaseriea.it/supercoppa/news/la-ea-sports-fc-supercup-2026-2027",
+            "edition": "2026/27",
+            "date": "2026-12-22",
+            "teams": 2,
+            "entry": [
+              "previous league champion",
+              "previous domestic cup winner or finalist if duplicate"
+            ],
+            "extraTime": true,
+            "penalties": true,
+            "alternativeFourTeamFormat": "separate edition-dependent parameter; no automatic annual alternation",
+            "future": "GAME_TEMPLATE_2026 only, no claim of official future format"
+          }
+        }
+      },
+      "july1": {
+        "applicability": "NA",
+        "date": "2026-07-01",
+        "reason": "Regular season first observed/scheduled 22 Aug 2026, no pre-cutoff matches"
+      },
+      "roundDates": {
+        "kind": "GAME_TEMPLATE_2026",
+        "columns": [
+          "round",
+          "nominalDate"
+        ],
+        "dates": [
+          [
+            1,
+            "2026-08-23"
+          ],
+          [
+            2,
+            "2026-08-30"
+          ],
+          [
+            3,
+            "2026-09-06"
+          ],
+          [
+            4,
+            "2026-09-13"
+          ],
+          [
+            5,
+            "2026-09-20"
+          ],
+          [
+            6,
+            "2026-10-11"
+          ],
+          [
+            7,
+            "2026-10-18"
+          ],
+          [
+            8,
+            "2026-10-25"
+          ],
+          [
+            9,
+            "2026-10-28"
+          ],
+          [
+            10,
+            "2026-11-01"
+          ],
+          [
+            11,
+            "2026-11-08"
+          ],
+          [
+            12,
+            "2026-11-22"
+          ],
+          [
+            13,
+            "2026-11-29"
+          ],
+          [
+            14,
+            "2026-12-06"
+          ],
+          [
+            15,
+            "2026-12-13"
+          ],
+          [
+            16,
+            "2026-12-20"
+          ],
+          [
+            17,
+            "2027-01-03"
+          ],
+          [
+            18,
+            "2027-01-06"
+          ],
+          [
+            19,
+            "2027-01-10"
+          ],
+          [
+            20,
+            "2027-01-17"
+          ],
+          [
+            21,
+            "2027-01-24"
+          ],
+          [
+            22,
+            "2027-01-31"
+          ],
+          [
+            23,
+            "2027-02-07"
+          ],
+          [
+            24,
+            "2027-02-14"
+          ],
+          [
+            25,
+            "2027-02-21"
+          ],
+          [
+            26,
+            "2027-02-28"
+          ],
+          [
+            27,
+            "2027-03-07"
+          ],
+          [
+            28,
+            "2027-03-14"
+          ],
+          [
+            29,
+            "2027-03-21"
+          ],
+          [
+            30,
+            "2027-04-04"
+          ],
+          [
+            31,
+            "2027-04-11"
+          ],
+          [
+            32,
+            "2027-04-18"
+          ],
+          [
+            33,
+            "2027-04-25"
+          ],
+          [
+            34,
+            "2027-05-02"
+          ],
+          [
+            35,
+            "2027-05-09"
+          ],
+          [
+            36,
+            "2027-05-16"
+          ],
+          [
+            37,
+            "2027-05-23"
+          ],
+          [
+            38,
+            "2027-05-30"
+          ]
+        ],
+        "source": "block126Research 380 records; Sunday representative on weekends, Wednesday R9/R18; 38 rounds validated; future dates scheduled not played; not actual future individual matches"
+      },
+      "competitionDays": {
+        "order": [
+          "SUN",
+          "MON",
+          "TUE",
+          "WED",
+          "THU",
+          "FRI",
+          "SAT"
+        ],
+        "first12ScheduledMatches": 120,
+        "first12Counts": [
+          47,
+          17,
+          3,
+          5,
+          2,
+          7,
+          39
+        ],
+        "weekdayNormal": "FRI–MON",
+        "midweekRounds": [
+          9,
+          18
+        ],
+        "midweekPlannedMatches": 20,
+        "observedDateMultiplicityMatches": 119,
+        "observedRecords": 120,
+        "source": "block126Research and block131DateAudit; first 12 published schedule, later placeholder round dates not independent match-day observations",
+        "limits": "V operational 2026 template, not full future actual dates; preserve original date and rescheduling reason.",
+        "officialTemplate": {
+          "source": "https://images.legaseriea.it/image/private/fl_attachment/prd/aegoankwttfmjaamki5o.pdf",
+          "standard": {
+            "FRI": 1,
+            "SAT": 3,
+            "SUN": 5,
+            "MON": 1
+          },
+          "noMondayRounds": [
+            5,
+            8,
+            11,
+            17,
+            29
+          ],
+          "noFridayRounds": [
+            6,
+            10,
+            12,
+            19,
+            30
+          ],
+          "firstRound": {
+            "SAT": 4,
+            "SUN": 4,
+            "MON": 2
+          },
+          "midweek": [
+            9,
+            18
+          ],
+          "breakDates": [
+            "2026-09-27",
+            "2026-10-04",
+            "2026-11-15",
+            "2026-12-27",
+            "2027-03-28"
+          ],
+          "lastRounds": [
+            37,
+            38
+          ],
+          "lastRoundPolicy": "concurrent relevant matches, subject to published exceptions",
+          "postponements": "first feasible date with applicable rest, same fixture ID; suspended match continuation not a new fixture"
+        },
+        "A041": {
+          "status": "V original pair and official reschedule reconciled",
+          "round": 12,
+          "home": "Juventus FC",
+          "away": "Venezia FC",
+          "originalDate": "2026-11-23",
+          "amendedDate": "2026-11-22",
+          "originalSource": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
+          "amendment": "https://www.legaseriea.it/serie-a/news/anticipi-e-posticipi-fino-alla-fine-del-girone-di-andata",
+          "confirmation": "https://www.legaseriea.it/serie-a/news/le-designazioni-arbitrali-della-12a",
+          "correctedCounts": [
+            48,
+            16,
+            3,
+            5,
+            2,
+            7,
+            39
+          ],
+          "weekendOnlyCounts": [
+            48,
+            16,
+            0,
+            0,
+            0,
+            7,
+            39
+          ],
+          "midweekR9": [
+            0,
+            0,
+            3,
+            5,
+            2,
+            0,
+            0
+          ],
+          "sameClubDayCollisions": 0,
+          "scope": "derived correction; original block126 preserved; independent pair-by-pair verification of every match not claimed"
+        }
+      },
+      "evolution": {
+        "status": "P low priority",
+        "sourceBlob": "a2c3713d3a5e06f1eccd44fd6ee5e41d824702dd",
+        "changes": [
+          "2004/05: 18→20 clubs; 2003/04 transition rules",
+          "2004/05 title void and 2005/06 sanctions exceptional",
+          "modern asymmetric return calendar and conditional title/survival playoffs need historical date reconciliation"
+        ]
+      },
+      "seasonChange": {
+        "status": "V template rule",
+        "boundary": "08-21",
+        "firstMatch": "08-22",
+        "kind": "GAME_TEMPLATE_2026; day before first scheduled/observed match, previous edition must complete"
+      },
+      "limits": [
+        "No raw sources removed; date rows retained until discrepancy A041 and derivation verified, then remove redundant derived dates only. No future fixture import or actual scores.",
+        "No runtime/build/Windows/CAR tests. Existing automatic 10-field statuses preserved.",
+        "No new source harvesting, only existing repository evidence; operational status INCOMPLETA until regulation/qualification/day profile sufficient or explicitly approved.",
+        "Official 2026/27 regulation and Annex A read; Annex A image viewed, Lega PDF screenshot unavailable. A041 exact pair corrected in derived evidence only. History P, no future result import; Windows/gameplay/CAR not tested."
+      ]
     }
   },
   {

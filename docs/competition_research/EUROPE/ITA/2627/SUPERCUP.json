@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "world": "2627",
+  "country": "ITA",
+  "researchCategory": "SUPERCUP",
+  "identity": {
+    "researchKey": "2627:ITA:SUPERCUP",
+    "ceCompetitionId": 1310978,
+    "legacyInventoryRow": null,
+    "legacyNativeSlot": null,
+    "status": "V: reserved CE-only ID 0x140102; unique against both current cup definitions and all generated league IDs (low byte 1); no OG slot, runtime registration pending",
+    "nativeCatalogAudit": {
+      "countryCompetitions": "360e7b31f44a23c4fd42f7f99348cc7b1d6bd693",
+      "cups": "976b804fb06cbbe2353c24a84e7e8686965aa2f8",
+      "ceCompetitions": "e1b768f1a435cf37d11450169d88f0152351192a",
+      "scope": "No senior Italian Supercup entry found in these three current catalogs; not row323 Coppa Italia Serie C."
+    }
+  },
+  "name": {
+    "official": "EA SPORTS FC Supercup",
+    "display": "SUPERCOPPA ITALIANA"
+  },
+  "firstEdition": {
+    "edition": "2026/27",
+    "number": 39,
+    "participants": [
+      {
+        "name": "INTER",
+        "uuid": "5ea29452-fd30-51c0-ab1d-970521e8e08a",
+        "nativeCountry": 20,
+        "nativeOrdinal": 0,
+        "reason": "2025/26 league and cup winner",
+        "ceClubKey": "20:1",
+        "ceStableClub": 1310721,
+        "packedTeam": 5120,
+        "ceWorld": "2627"
+      },
+      {
+        "name": "LAZIO",
+        "uuid": "8f1f7bee-15c9-5e08-9965-eb7e01eda8dc",
+        "nativeCountry": 20,
+        "nativeOrdinal": 8,
+        "reason": "2025/26 cup finalist",
+        "ceClubKey": "20:9",
+        "ceStableClub": 1310729,
+        "packedTeam": 5128,
+        "ceWorld": "2627"
+      }
+    ],
+    "nativeRosterBlob": "d03139fce63f52249222186845fd6e5943aa4bf8",
+    "ceWorldSlotMapping": "V: world_data.c::World_FileCountry(20)=20; world.c::World_Slot(20,ordinal)=ordinal; World_SlotTeam roundtrip; expanded_universal_world_catalog.c::cat_key uses slot+1. expanded_ce_engine.c::parse_club reconstructs identical stable_club.",
+    "format": {
+      "type": "KNOCKOUT",
+      "teams": 2,
+      "matches": 1,
+      "legs": 1,
+      "phases": 1
+    },
+    "calendar": {
+      "date": "2026-12-22",
+      "weekday": "TUE",
+      "venue": "Giuseppe Meazza, Milano",
+      "localTime": "21:00",
+      "kind": "GAME_TEMPLATE_2026 from published 2026/27 schedule; no result",
+      "source": "https://www.legaseriea.it/supercoppa/news/la-ea-sports-fc-supercup-2026-2027"
+    },
+    "rollover": {
+      "date": "2026-12-21",
+      "policy": "day before first match, previous edition complete; participants known before start, no July games"
+    },
+    "july1": {
+      "applicability": "NA",
+      "reason": "edition not started; initial entrants already known"
+    }
+  },
+  "rules": {
+    "source": "https://images.legaseriea.it/image/private/fl_attachment/prd/aegoankwttfmjaamki5o.pdf",
+    "sections": "23.1–23.6",
+    "twoTeam": {
+      "entry": [
+        "previous league champion",
+        "previous cup winner"
+      ],
+      "duplicate": "previous cup finalist",
+      "extraTimeMinutes": [
+        15,
+        15
+      ],
+      "penaltiesAfterExtraTime": true
+    },
+    "fourTeamAlternative": {
+      "entry": [
+        "league champion",
+        "league runner-up",
+        "cup winner",
+        "cup finalist"
+      ],
+      "duplicateReplacement": "league third then fourth",
+      "matches": 3,
+      "semifinalA": "league champion vs cup finalist",
+      "semifinalB": "cup winner vs league runner-up",
+      "tie": "direct penalties; final extra time may be prescribed by Lega",
+      "refusalRankingIfChampionUnavailable": [
+        "league runner-up",
+        "cup winner",
+        "league third",
+        "cup finalist",
+        "league fourth",
+        "league fifth"
+      ],
+      "normalReplacementRanking": [
+        "league champion",
+        "cup winner",
+        "league runner-up",
+        "cup finalist",
+        "league third",
+        "league fourth"
+      ]
+    },
+    "selection": "use two-team 2026 template; no claim of fixed future official format or forced annual alternation",
+    "substitutions": 5,
+    "windows": 3,
+    "matchListMax": 26,
+    "discipline": "league suspensions served in next league game, residual Supercup suspensions carry to league; no OG behavior change without approval",
+    "prize": "trophy to winner",
+    "movement": "NA",
+    "outboundQualifications": "NA (no other competition berth in current rule)"
+  },
+  "history": {
+    "status": "P low priority",
+    "previousWinner": "NAPOLI 2025/26",
+    "source": "https://www.legaseriea.it/supercoppa/albo",
+    "changes": [
+      "1996 onward single match until 2022/23",
+      "2023/24 through 2025/26 four-team format",
+      "2026/27 single match again"
+    ],
+    "limits": "complete historical formats, naming, dates and exceptions not certified"
+  },
+  "operationalFields": {
+    "name": "V",
+    "identity": "V",
+    "participants": "V",
+    "format": "V",
+    "regulation": "V",
+    "movement": "NA",
+    "qualification": "NA",
+    "july1": "NA",
+    "roundDates": "V",
+    "competitionDays": "V",
+    "evolution": "P",
+    "seasonChange": "V"
+  },
+  "operationalStatus": "COMPLETE_VERIFIED",
+  "runtimeVerified": false,
+  "limits": [
+    "Research only: numeric ID reserved and both native UUIDs mapped to verified CE keys; no runtime definition, no results imported. Future registration must recheck uniqueness and roster lookup; future eligibility depends on CE Serie A and Coppa Italia result sources.",
+    "One Tuesday scheduled observation, not rule that all future editions occur on Tuesday; 22 December anchor is GAME_TEMPLATE_2026.",
+    "PDF text sections read; screenshots failed cache miss. Preserve OG match engine; five substitutions/26 list and discipline policy require implementation compatibility review; no workaround approved."
+  ]
+}

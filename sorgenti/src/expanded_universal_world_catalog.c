@@ -10,6 +10,7 @@
 #include "expanded_universal_json_leagues.h"
 #include "expanded_universal_date_planner.h"
 #include "expanded_ce_shared_pool_data.h"
+#include "expanded_ce_start_history.h"
 #include "expanded_ce_admin.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -343,7 +344,113 @@ static int cat_plan_league_days(const CatalogLeague *l,uint32_t rounds,
     *first_day=policy.first_day;
     return 1;
 }
-static int cat_make_league(const CatalogLeague *l)
+/* Construct one full edition from approved historical first-cycle
+ * pairings. No old OG calendar/score generator is involved. */
+static int cat_seed_league(const CatalogLeague *l,CatalogClub **clubs,uint32_t n,
+    const ExpCeHistorySeed *s)
+{
+    ExpCeHistoryGame *plan=NULL;uint32_t *ret=NULL,*seen=NULL;
+    uint32_t i,j,k=n-1u,half=n*k/2u,total=n*k,used=0;int ok=0;
+    if(s->n!=n || l->legs!=2u || l->rule.extras.rounds || l->rule.break_count ||
+       s->cutoff!=s_catalog.start_day || s->rounds!=2u*k)goto done;
+    plan=(ExpCeHistoryGame *)calloc(total,sizeof *plan);
+    ret=(uint32_t *)calloc(k,sizeof *ret);seen=(uint32_t *)calloc(k,sizeof *seen);
+    if(!plan||!ret||!seen)goto done;
+    for(i=0;i<s->ng;++i){
+        ExpCeHistoryGame x=s->games[i];uint32_t h=0,a=0;
+        for(j=0;j<n;++j){h|=clubs[j]->key.stable_club==x.home;a|=clubs[j]->key.stable_club==x.away;}
+        if(!h||!a)goto done;
+        if(x.round<=k){
+            if(used>=half)goto done;
+            for(j=0;j<used;++j)if((plan[j].home==x.home&&plan[j].away==x.away)||
+               (plan[j].home==x.away&&plan[j].away==x.home)||
+               (plan[j].round==x.round&&(plan[j].home==x.home||plan[j].home==x.away||
+                 plan[j].away==x.home||plan[j].away==x.away)))goto done;
+            plan[used++]=x;
+        }
+    }
+    if(used!=half)goto done;
+    for(i=0;i<k;++i){uint32_t count=0;
+        for(j=0;j<half;++j)if(plan[j].round==i+1u)++count;
+        if(count!=n/2u)goto done;}
+    for(i=0;i<s->ng;++i){
+        const ExpCeHistoryGame *x=&s->games[i];uint32_t a,b;
+        if(x->round<=k)continue;
+        for(j=0;j<half;++j)if(plan[j].home==x->away&&plan[j].away==x->home)break;
+        if(j==half)goto done;
+        a=x->round-k-1u;b=plan[j].round;
+        if((ret[a]&&ret[a]!=b)||(seen[b-1u]&&seen[b-1u]!=a+1u))goto done;
+        ret[a]=b;seen[b-1u]=a+1u;
+    }
+    for(i=0;i<k;++i)if(!ret[i]){
+        for(j=0;j<k&&seen[j];++j){}
+        if(j==k)goto done;
+        ret[i]=j+1u;seen[j]=i+1u;
+    }
+    for(i=0;i<k;++i)for(j=0;j<half;++j)if(plan[j].round==ret[i]){
+        ExpCeHistoryGame x={0};uint32_t q;
+        x.round=k+i+1u;x.home=plan[j].away;x.away=plan[j].home;
+        for(q=0;q<s->ng;++q)if(s->games[q].home==x.home&&s->games[q].away==x.away){
+            if(s->games[q].round!=x.round)goto done;
+            x=s->games[q];break;
+        }
+        if(used>=total)goto done;
+        plan[used++]=x;
+    }
+    if(used!=total)goto done;
+    for(i=0;i<total;++i)if(!plan[i].played){
+        int32_t day=s->days[plan[i].round-1u];
+        plan[i].day=day>=s->cutoff?day:INT32_MIN;
+    }
+    /* Use the ordinary/extra weekday and rest policy for outstanding
+     * pre-cutoff recoveries. Do not import individual future dates. */
+    for(i=0;i<total;++i)if(plan[i].day==INT32_MIN){
+        int32_t day;int found=0;
+        for(day=s->cutoff;day<=s->days[s->rounds-1u];++day){
+            int wd=ExpandedWorld_Weekday(day),valid=1;
+            if(wd<0||wd>6||!((l->rule.match_weekdays|l->rule.extra_weekdays)&(1u<<wd)))continue;
+            for(j=0;j<total;++j)if(i!=j&&plan[j].day!=INT32_MIN&&
+               (plan[i].home==plan[j].home||plan[i].home==plan[j].away||
+                plan[i].away==plan[j].home||plan[i].away==plan[j].away)){
+                int64_t delta=(int64_t)day-plan[j].day;
+                if(delta<0)delta=-delta;
+                if(delta==0||delta<(int64_t)l->rule.min_rest_days){valid=0;break;}
+            }
+            if(valid){plan[i].day=day;found=1;break;}
+        }
+        if(!found)goto done;
+    }
+    for(i=0;i<total;++i){
+        const ExpCeHistoryGame *x=&plan[i];ExpandedUniversalFixture f={0};
+        const uint32_t serial=i+1u;
+        f.home=(ExpandedClubKey){WORLD_2627,x->home,EXP_PARTICIPANT_CLUB};
+        f.away=(ExpandedClubKey){WORLD_2627,x->away,EXP_PARTICIPANT_CLUB};
+        f.country=l->country;f.slot=l->division;f.competition_type=0;
+        f.key.edition.competition.world=WORLD_2627;
+        f.key.edition.competition.stable_competition=((uint32_t)(l->country+1u)<<24)|
+            ((uint32_t)l->comp_id<<16)|((uint32_t)(l->division+1u)<<8)|1u;
+        f.key.edition.start_day=s->start;f.key.stage=1u;
+        f.key.tie=serial;f.key.leg=(uint16_t)(x->round>k);f.day_index=x->day;
+        f.event_id=((uint64_t)WORLD_2627<<60)|((uint64_t)World_FirstYear()<<44)|
+            ((uint64_t)l->country<<36)|((uint64_t)l->comp_id<<28)|
+            ((uint64_t)l->division<<20)|((uint64_t)f.key.leg<<17)|serial;
+        if(!ExpandedUniversal_FixtureValid(&f)||!cat_fixture(&f))goto done;
+        s_catalog.fixtures[s_catalog.nfixtures-1u].seed_continuation=1u;
+        if(x->played){
+            ExpandedUniversalCatalogFixture *dst=&s_catalog.fixtures[s_catalog.nfixtures-1u];
+            if(!dst->past_at_start)goto done;
+            dst->historical_verified=1u;
+            dst->historical_score=(ExpandedFixtureScore){x->hg,x->ag,0,0,EXP_CE_SCORE_START_HISTORY};
+            --s_catalog.audit.prestart_unresolved;++s_catalog.audit.historical_verified;
+        }
+    }
+    fprintf(stderr,"[ce-history] SEED country=%u division=%u history=%lu total=%lu\n",
+        l->country,l->division,(unsigned long)s->played,(unsigned long)total);
+    ok=1;
+done:
+    free(plan);free(ret);free(seen);return ok;
+}
+static int cat_make_league(const CatalogLeague *l,const ExpCeHistorySeed *seed)
 {
     CatalogClub **clubs=NULL;
     int32_t *round_days=NULL;
@@ -353,6 +460,7 @@ static int cat_make_league(const CatalogLeague *l)
     const uint32_t saved_count=s_catalog.nfixtures;
     const uint32_t saved_future=s_catalog.audit.future_fixtures;
     const uint32_t saved_prestart=s_catalog.audit.prestart_unresolved;
+    const uint32_t saved_history=s_catalog.audit.historical_verified;
     for(i=0;i<s_catalog.nclubs;++i)
         if(s_catalog.clubs[i].country==l->country &&
            s_catalog.clubs[i].division==l->division)++n;
@@ -369,6 +477,7 @@ static int cat_make_league(const CatalogLeague *l)
     for(i=1;i<n;++i)
         if(ExpandedClubKey_Equal(clubs[i-1u]->key,clubs[i]->key))
             goto rollback;
+    if(seed){if(!cat_seed_league(l,clubs,n,seed))goto rollback;free(clubs);return 1;}
     p.league=l;p.clubs=clubs;
     p.rounds=(n&1u)?n:n-1u;
     p.total_rounds=p.rounds*l->legs+l->rule.extras.rounds;
@@ -399,6 +508,7 @@ rollback:
     s_catalog.nfixtures=saved_count;
     s_catalog.audit.future_fixtures=saved_future;
     s_catalog.audit.prestart_unresolved=saved_prestart;
+    s_catalog.audit.historical_verified=saved_history;
     ++s_catalog.audit.bad_pairs;
     return 0;
 }
@@ -470,9 +580,21 @@ int ExpandedUniversalCatalog_Seal(void)
     if(!s_catalog.active)return World_Current()!=WORLD_2627;
     if(s_catalog.audit.sealed)return 1;
     if(!cat_import_shared_pool())return 0;
-    for(i=0;i<s_catalog.nleagues;++i)
-        if(!cat_make_league(&s_catalog.leagues[i]))
-            ++s_catalog.audit.unsupported_leagues;
+    {
+        ExpCeHistoryData history={0};uint32_t matched=0;
+        if(!ExpCeHistory_Load(&history))return 0;
+        for(i=0;i<s_catalog.nleagues;++i){
+            const CatalogLeague *l=&s_catalog.leagues[i];
+            const ExpCeHistorySeed *s=ExpCeHistory_Find(&history,l->country,l->comp_id,l->division,World_FirstYear());
+            if(s)++matched;
+            if(!cat_make_league(l,s)){
+                ++s_catalog.audit.unsupported_leagues;
+                if(s){ExpCeHistory_Free(&history);return 0;}
+            }
+        }
+        if(matched!=history.n){ExpCeHistory_Free(&history);return 0;}
+        ExpCeHistory_Free(&history);
+    }
     n=s_catalog.nfixtures;
     s_catalog.audit.fixtures=n;
     if(n>UINT32_MAX/2u)return 0;

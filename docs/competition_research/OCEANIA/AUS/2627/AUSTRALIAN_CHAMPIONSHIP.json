@@ -8,7 +8,7 @@
   "legacyInventoryRow": null,
   "operationalFields": {
     "name": "V",
-    "identity": "P",
+    "identity": "V",
     "participants": "P",
     "format": "V",
     "regulation": "P",
@@ -17,24 +17,27 @@
     "july1": "NA",
     "roundDates": "P",
     "competitionDays": "P",
-    "evolution": "P",
+    "evolution": "V",
     "seasonChange": "P"
   },
-  "operationalStatus": "INCOMPLETA",
+  "operationalStatus": "INCOMPLETA_RESEARCH_ADVANCED",
   "runtimeVerified": false,
   "gameRules": {
     "status": "USER_APPROVED_DESIGN_NOT_RUNTIME",
     "world": "2627",
     "competition": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
     "invitation": {
-      "source": "AUSTRALIAN_CHAMPIONSHIP_WINNER",
+      "source": "AUSTRALIAN_CHAMPIONSHIP_FINALISTS",
       "target": "A_LEAGUE",
-      "count": 1
+      "count": 2
     },
     "relegation": {
       "source": "A_LEAGUE_FINAL_REGULAR_TABLE",
-      "rank": 12,
-      "count": 1,
+      "ranks": [
+        11,
+        12
+      ],
+      "count": 2,
       "target": "ASSIGNED_REGIONAL_PYRAMID"
     },
     "aleagueSize": 12,
@@ -59,10 +62,23 @@
       ]
     },
     "qualification": "Preserve authentic Championship entry criteria; missing federation paths unresolved, no invented participants.",
-    "crossRegionBalance": "USER_APPROVED_GAME_POLICY: if net incoming from upper level is +1, one additional relegation to bottom pool; if net incoming is -1, one additional promotion from bottom pool. Maintain division cardinality, preserve ordinary result-dependent playout, no automatic extra movement when net zero. Select from eligible pool by persisted CE policy; unresolved role/order must not invent standings. Runtime transaction not implemented.",
-    "notes": "One up and one down; preserve real federation/country, identity, roster, no pool in A-League, no repeated membership or invented outcomes. Design exception, not official Australian rule."
+    "crossRegionBalance": "USER_APPROVED_GAME_POLICY: if net incoming from upper level is +1, one additional relegation to bottom pool; if net incoming is -1, one additional promotion from bottom pool. Maintain division cardinality, preserve ordinary result-dependent playout, no automatic extra movement when net zero. Select from eligible pool by persisted CE policy; unresolved role/order must not invent standings. Runtime transaction not implemented. Local standby exhausted: free standby from eligible other region, already user-approved (RG-CE-POOL-CROSS-REGION-308-BORROW). Two-for-two exchange requires handling net ±2; not implemented.",
+    "notes": "Two up and two down, preserve 12 A-League clubs, no pool in A-League. Game policy not authentic rule.",
+    "foundationReplacement": {
+      "priority": [
+        "SAME_REGION_POOL",
+        "REGION_WITH_MOST_AVAILABLE"
+      ],
+      "status": "USER_APPROVED_DESIGN_NOT_RUNTIME",
+      "limits": "Tie/capacity/role conflicts unresolved"
+    },
+    "missingFederations": {
+      "clubs": "REAL_VERIFIED_NAMES",
+      "rosterTemplate": "EXISTING_TEST_ZERO",
+      "newPlayerSourceRecords": 0
+    }
   },
-  "limits": "New approved CE-only competition; no assigned runtime ID, complete entrant mapping, regulation, calendar or qualification. Regional compensation approved, not implemented.",
+  "limits": "57 regional names verified; existing DB identities/reserve eligibility, 5 regional qualification paths, full tie-break/subs, exact SF/final dates and CE lifecycle unresolved. 2:2 design not runtime.",
   "authentic": {
     "identity": "Australian national second-tier tournament, inaugural October 2025, no official promotion to A-League",
     "format": {
@@ -73,25 +89,385 @@
       "groupSize": 4,
       "quarterfinalists": 8,
       "knockout": true,
-      "sourceScope": "2026 official groups and quarterfinal announcement; full detailed pairing and legs to audit"
+      "sourceScope": "Official format announcement + club guide; semifinal detailed hosting and pairing still partial.",
+      "meetings": 2,
+      "rounds": 6,
+      "gamesPerClub": 6,
+      "groupGames": 48,
+      "knockoutGames": 7,
+      "totalGames": 55,
+      "groupDraw": {
+        "foundationPerGroup": 2,
+        "qualifiedPerGroup": 2,
+        "random": true
+      },
+      "knockoutLegs": [
+        1,
+        1,
+        1
+      ],
+      "quarterfinalPairs": [
+        [
+          1,
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          2
+        ],
+        [
+          3,
+          1,
+          1,
+          2
+        ],
+        [
+          4,
+          1,
+          2,
+          2
+        ]
+      ],
+      "quarterfinalPairColumns": [
+        "homeGroup",
+        "homeRank",
+        "awayGroup",
+        "awayRank"
+      ],
+      "quarterfinalHost": "group winner",
+      "finalVenue": "Football Australia appoints venue"
     },
     "regulation": {
-      "drawnGroupMatches": "Penalty shootout bonus point model from 2026; exact point weights and tie-break ordering require full text verification",
-      "status": "P"
+      "status": "P",
+      "points": {
+        "win": 3,
+        "drawShootoutWin": 2,
+        "drawShootoutLoss": 1,
+        "loss": 0
+      },
+      "groupDraw": {
+        "extraTime": false,
+        "penalties": true,
+        "keepRegulationDraw": true,
+        "bonusPoints": 1
+      },
+      "firstTieBreak": "GOAL_DIFF_AFTER_POINTS",
+      "knockout": {
+        "extraTime": true,
+        "penalties": true
+      },
+      "missing": [
+        "full tie-break sequence after goal difference",
+        "2026 bench/substitutions/discipline rules"
+      ],
+      "source": "https://footballaustralia.com.au/news/penalty-shootout-bonus-point-model-2026-australian-championship?page=2"
     },
     "qualification": {
       "foundationClubs": 8,
       "regionalQualifiers": 8,
-      "sourceScope": "Official 2026 announcement; actual qualifying club names determined after July1 not imported as START data. Native mapping and absent federation paths pending."
+      "sourceScope": "Official 2026 announcement; actual qualifying club names determined after July1 not imported as START data. Native mapping and absent federation paths pending.",
+      "foundationAutoAccess": "up to five years from 2025, subject to licensing",
+      "rule": "one NPL regular premier per eligible federation; if already foundation or ineligible, next highest eligible non-foundation club",
+      "federations": [
+        "NSW",
+        "VIC",
+        "QLD",
+        "NNSW",
+        "SA",
+        "WA",
+        "ACT",
+        "TAS"
+      ],
+      "foundationMapping": [
+        {
+          "key": "44:14",
+          "name": "Wests APIA / APIA Leichhardt",
+          "native": "APIA LEICHHARDT",
+          "division": 1,
+          "uuid": "5fe9a578-59e2-57ae-8f2c-4bc517ce3cf9"
+        },
+        {
+          "key": "44:15",
+          "name": "Marconi Stallions",
+          "native": "MARC. STALLIONS",
+          "division": 1,
+          "uuid": "453d23a4-146b-5a72-9bb8-5e089abfdc38"
+        },
+        {
+          "key": "44:18",
+          "name": "Sydney United 58",
+          "native": "SYDNEY UNITED 58",
+          "division": 1,
+          "uuid": "ef0f5fa1-579d-5f52-a451-9314bf572945"
+        },
+        {
+          "key": "44:19",
+          "name": "Sydney Olympic",
+          "native": "SYDNEY OLYMPIC",
+          "division": 1,
+          "uuid": "bfc137a1-3c00-5e3a-bdaf-ebde525da47c"
+        },
+        {
+          "key": "44:20",
+          "name": "Wollongong Wolves",
+          "native": "WOLVES FC",
+          "division": 1,
+          "uuid": "3b9c31b0-96a0-5b66-bc2e-6a94d48a98a9"
+        },
+        {
+          "key": "44:29",
+          "name": "Avondale",
+          "native": "AVONDALE",
+          "division": 2,
+          "uuid": "4425c962-8718-5025-8106-1d845f62eba1"
+        },
+        {
+          "key": "44:33",
+          "name": "Preston Lions",
+          "native": "PRESTON LIONS",
+          "division": 2,
+          "uuid": "7aca4a6c-6e38-5b1a-a2a2-341fff06f8bd"
+        },
+        {
+          "key": "44:37",
+          "name": "South Melbourne",
+          "native": "SOUTH MELBOURNE",
+          "division": 2,
+          "uuid": "b3d7c68d-f77a-5b63-8719-ccab584af68b"
+        }
+      ],
+      "teamSourceSha": "0a26b850723652a63d223b6e02d84da721fa12c8",
+      "firstEditionEligibility": "8 fixed foundation IDs known before START, 8 qualifiers from CE results as earned; actual post-START club outcomes not used as entrants",
+      "representedFederations": [
+        "NSW",
+        "VIC",
+        "QLD"
+      ],
+      "unrepresentedFederations": [
+        "NNSW",
+        "SA",
+        "WA",
+        "ACT",
+        "TAS"
+      ],
+      "actual2026ResearchOnly": {
+        "scope": "Post-START historical evidence only. Never seed START qualifiers or future results; names illustrate mapping and access paths, not a runnable entrant list.",
+        "examples": [
+          {
+            "federation": "NSW",
+            "name": "Sutherland Sharks",
+            "native": "44:25",
+            "playable": true
+          },
+          {
+            "federation": "VIC",
+            "name": "Oakleigh Cannons",
+            "native": "44:32",
+            "playable": true
+          },
+          {
+            "federation": "QLD",
+            "name": "Lions FC",
+            "native": "44:47",
+            "playable": true
+          },
+          {
+            "federation": "WA",
+            "name": "Bayswater City",
+            "native": "44:65",
+            "playable": false,
+            "administrativeTest": true
+          },
+          {
+            "federation": "NNSW",
+            "name": "Broadmeadow Magic",
+            "native": null
+          },
+          {
+            "federation": "SA",
+            "name": "Adelaide City",
+            "native": null
+          },
+          {
+            "federation": "ACT",
+            "name": "Canberra Croatia",
+            "native": null
+          },
+          {
+            "federation": "TAS",
+            "name": "South Hobart",
+            "native": null
+          }
+        ],
+        "mappingCount": 12,
+        "realPlayableCount": 11,
+        "adminPlaceholderCount": 1,
+        "unmappedCount": 4
+      },
+      "sources": [
+        "https://australianchampionship.com.au/news/beginners-guide-australian-championship",
+        "https://footballaustralia.com.au/news/football-australia-announces-outcome-third-rfp-national-second-tier?page=4",
+        "https://australianchampionship.com.au/news/confirmed-qualified-clubs-2026-australian-championship",
+        "https://www.adelaidecityfc.com.au/post/what-you-need-to-know-about-the-australian-championship"
+      ],
+      "regionalCandidateResearch20261125": {
+        "scope": "Official 2026 senior men's top-tier club membership; evidence only, not playable division addition, allocated IDs or automatic Championship qualifiers. No post-START outcome imported.",
+        "total": 57,
+        "federations": [
+          {
+            "federation": "NNSW",
+            "source": "https://northernnswfootball.com.au/news/fixtures-announced-2026-npl-mens-nnsw-competition",
+            "clubs": [
+              "Broadmeadow Magic",
+              "Edgeworth Eagles",
+              "Kahibah FC",
+              "Lambton Jaffas",
+              "Cooks Hill United",
+              "Maitland FC",
+              "Belmont Swansea United",
+              "Valentine FC",
+              "Weston Bears",
+              "Newcastle Olympic",
+              "Charlestown Azzurri",
+              "Adamstown Rosebud"
+            ],
+            "opening": "2026-02-19",
+            "notes": "12th direct down, 11th playoff against lower tier ranks 2–4; lower premier direct up"
+          },
+          {
+            "federation": "SA",
+            "source": "https://footballsa.com.au/news/football-south-australia-2026-raa-npl-squad-lists",
+            "clubs": [
+              "Adelaide City",
+              "Adelaide Comets",
+              "Adelaide United Youth",
+              "Campbelltown City",
+              "Croydon FC",
+              "FK Beograd",
+              "MetroStars",
+              "Para Hills Knights",
+              "Playford City",
+              "Sturt Lions",
+              "West Adelaide",
+              "WT Birkalla"
+            ],
+            "opening": "2026-02-27",
+            "notes": "Youth side separate from senior identity"
+          },
+          {
+            "federation": "WA",
+            "source": "https://footballwest.com.au/news/2026-new-balance-npl-wa-mens-fixtures/",
+            "clubs": [
+              "Bayswater City",
+              "Balcatta Etna",
+              "Perth Azzurri",
+              "Olympic Kingsway",
+              "Armadale",
+              "Western Knights",
+              "Fremantle City",
+              "Stirling Macedonia",
+              "Perth RedStar",
+              "Dianella White Eagles",
+              "Sorrento FC",
+              "Perth Glory (NPL side)"
+            ],
+            "opening": "2026-02-27",
+            "notes": "22 rounds; end Aug22; bye Apr11, Jul17, Aug1; Perth Glory reserve identity unresolved"
+          },
+          {
+            "federation": "ACT",
+            "source": "https://capitalfootball.com.au/competitions/premier-league/",
+            "clubs": [
+              "Belconnen United FC",
+              "Brindabella Blues FC",
+              "Canberra Croatia FC",
+              "Canberra Juventus FC",
+              "Canberra Olympic FC",
+              "Canberra White Eagles",
+              "Monaro Panthers FC",
+              "O’Connor Knights",
+              "Queanbeyan City",
+              "Tigers FC",
+              "Tuggeranong United"
+            ],
+            "opening": null,
+            "notes": "Dates TBC on official page"
+          },
+          {
+            "federation": "TAS",
+            "source": "https://footballtasmania.com.au/news/fixtures-released-2026-statewide-leagues",
+            "clubs": [
+              "Devonport City Strikers",
+              "Launceston United",
+              "South Hobart",
+              "Launceston City",
+              "Kingborough Lions",
+              "Clarence Zebras",
+              "Glenorchy Knights",
+              "Riverside Olympic",
+              "Ulverstone",
+              "South East United"
+            ],
+            "opening": "2026-03-06",
+            "notes": "18 rounds; top five finals; bottom two relegated; corrected first date from earlier March7"
+          }
+        ],
+        "identityMapping": "P_DB_POOL_ADMIN_RESERVE_DEDUP_PENDING"
+      }
     },
     "calendar": {
-      "firstMatch": "2026-10-16",
+      "firstMatch": "2026-10-15",
       "quarterfinalStart": "2026-11-26",
       "finalWindowCandidates": [
-        "2026-12-10/12",
-        "2026-12-12/13"
+        "12-10/12",
+        "12-12/13"
       ],
-      "scope": "Published 2026 reference windows only; full round schedule/weekday frequencies and final date unresolved, no official future date asserted."
+      "scope": "SBS published six group windows; latest final release Oct15; quarterfinal dates 26–28 Nov; exact semi dates, final date and weekday frequency not verified; no post-START results or real future pairings stored.",
+      "openingCorrection": "Final fixture release supersedes earlier Oct16 DMC",
+      "groupWindows": [
+        [
+          "10-15",
+          "10-18"
+        ],
+        [
+          "10-22",
+          "10-25"
+        ],
+        [
+          "10-29",
+          "11-01"
+        ],
+        [
+          "11-05",
+          "11-08"
+        ],
+        [
+          "11-12",
+          "11-15"
+        ],
+        [
+          "11-19",
+          "11-22"
+        ]
+      ],
+      "quarterfinalWindow": [
+        "11-26",
+        "11-28"
+      ],
+      "semifinalWindow": null,
+      "kind": "GAME_TEMPLATE_2026",
+      "normalGroupWeekdays": [
+        "THU",
+        "FRI",
+        "SAT",
+        "SUN"
+      ],
+      "seasonChangeCandidate": "10-14",
+      "seasonChangeStatus": "P_USER_GENERAL_DAY_BEFORE_OPENING_TEMPLATE; not a new approved runtime policy, annual rollover requires expiry and completed edition"
     },
     "july1": {
       "status": "NA",
@@ -99,8 +475,12 @@
     },
     "evolution": {
       "inaugural": 2025,
+      "firstOpening": "2025-10-10",
+      "firstFinal": "2025-12-06",
       "bonusShootoutIntroduced": 2026,
-      "status": "P"
+      "formatStable": "16 clubs, four groups, six rounds, top2, elimination finals",
+      "status": "V_2025_2026_ONLY",
+      "future": "No certified later regulation changes."
     },
     "australiaCup": "Official 2026 pathway awarded previous Championship winner direct entry to round of 32; later applicability to verify, no future results imported."
   },
@@ -132,6 +512,70 @@
     {
       "url": "https://footballaustralia.com.au/news/football-australia-announces-refined-competitions-structure-2026?page=3",
       "scope": "2026 Australia Cup round32 direct qualification previous Championship winner."
+    },
+    {
+      "url": "https://www.adelaidecityfc.com.au/post/what-you-need-to-know-about-the-australian-championship",
+      "scope": "guide evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://footballaustralia.com.au/news/penalty-shootout-bonus-point-model-2026-australian-championship?page=2",
+      "scope": "pen evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://footballaustralia.com.au/news/football-australia-announces-outcome-third-rfp-national-second-tier?page=4",
+      "scope": "fnd evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://australianchampionship.com.au/news/beginners-guide-australian-championship",
+      "scope": "qual evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://australianchampionship.com.au/news/thursday-night-free-air-coverage-headlines-australian-championship-2026",
+      "scope": "ann evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://www.sbs.com.au/sport/how-to-watch-australian-championship",
+      "scope": "days evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://football360.com.au/australian-championship-2026-quarter-finals-fixtures-how-to-watch/",
+      "scope": "qf evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://australianchampionship.com.au/news/confirmed-qualified-clubs-2026-australian-championship",
+      "scope": "participants evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://www.highpressau.com/posts/australian-championship-2026-guide-teams-format-fixtures",
+      "scope": "ko evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
+    },
+    {
+      "url": "https://footballaustralia.com.au/news/football-australia-releases-domestic-match-calendar-202627?page=866",
+      "scope": "dmc evidence 25/11/2026; some pages only search excerpts, club guide full text indexed; no future results imported"
     }
-  ]
+  ],
+  "fieldAudit20261125": {
+    "before": {
+      "V": 2,
+      "P": 9,
+      "NA": 1
+    },
+    "after": {
+      "V": 4,
+      "P": 7,
+      "NA": 1
+    },
+    "applicable": 11,
+    "verified": 4,
+    "provisional": 7,
+    "closed": false,
+    "reason": "Sporting identity and observed 2025–26 evolution upgraded; other partial fields improved without overstating operational sufficiency."
+  },
+  "fieldAudit20261125Followup": {
+    "V": 4,
+    "P": 7,
+    "NA": 1,
+    "applicable": 11,
+    "closed": false
+  }
 }

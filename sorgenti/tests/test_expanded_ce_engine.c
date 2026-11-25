@@ -1029,6 +1029,80 @@ int main(void)
         assert(!s_dupes && ExpandedUniversal_ValidateRestore(R()));
         puts("INDEPENDENT_DIVISION_CALENDARS_ROLLOVER=PASS");
     }
+    /* Opt-in original table reseeding: six qualified, 2 byes, 7 KO
+     * matches. Two-leg semifinals return home to the better original seed. */
+    {
+        static const char j[]="{\"schema\":1,\"competitions\":[{\"id\":917506,\"name\":\"RESEEDED FINALS TEST\",\"country\":24,\"type\":2,\"match\":{\"bench\":5,\"subs\":3,\"discipline\":1,\"provenance\":\"GAME_TEMPLATE\"},\"table\":{\"points\":[3,1,0],\"tiebreak\":[\"POINTS\",\"GOAL_DIFF\",\"GOALS_FOR\",\"LOT\"],\"provenance\":\"GAME_TEMPLATE\"},\"expiry\":{\"date\":\"12-31\",\"year_offset\":0},\"phases\":[{\"kind\":\"TABLE\",\"groups\":1,\"meetings\":1,\"qualify\":6,\"window\":{\"first\":\"07-08\",\"last\":\"08-26\",\"weekdays\":\"WED\",\"rest\":3}},{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"byes\":2,\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},\"window\":{\"first\":\"09-01\",\"last\":\"09-30\",\"weekdays\":\"WED\",\"rest\":3}},{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"byes\":0,\"higher_home\":2,\"match\":{\"legs\":2,\"extra_time\":1,\"penalties\":1},\"window\":{\"first\":\"10-01\",\"last\":\"10-31\",\"weekdays\":\"WED\",\"rest\":3}},{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"byes\":0,\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},\"window\":{\"first\":\"11-01\",\"last\":\"11-30\",\"weekdays\":\"WED\",\"rest\":3}}],\"first_edition\":{\"year\":2026,\"entrants\":[{\"club\":\"24:1\",\"source\":\"VERIFIED\"},{\"club\":\"24:2\",\"source\":\"VERIFIED\"},{\"club\":\"24:3\",\"source\":\"VERIFIED\"},{\"club\":\"24:4\",\"source\":\"VERIFIED\"},{\"club\":\"24:5\",\"source\":\"VERIFIED\"},{\"club\":\"24:6\",\"source\":\"VERIFIED\"},{\"club\":\"24:7\",\"source\":\"VERIFIED\"},{\"club\":\"24:8\",\"source\":\"VERIFIED\"}]}}]}";
+        const uint32_t comp=917506u;
+        ExpCeTableRules tr;
+        ExpCeTableRow rank[8];
+        uint32_t nr=0u,k,counts[4]={0},sf[2]={0},last_hi=0;
+        ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+        s_ran_n=s_et=s_pens=s_dupes=0u;
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+        assert(ExpCe_LoadJsonDefinitions(j,(int)strlen(j),WORLD_2627,"finals.json")==1);
+        assert(!ExpCe_Definition(comp)->missing[0]);
+        assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+        run_until(D(2026,11,30));
+        e=edition_of(comp,2026);
+        assert(e && !e->block && e->state==EXP_CE_ED_COMPLETED && e->nfinal==8u);
+        assert(ExpCe_TableRules(e->key,EXP_CE_STAGE(0u,1u),&tr));
+        assert(ExpCeTable_Compute(R(),e->key,EXP_CE_STAGE(0u,1u),&tr,NULL,NULL,rank,8,&nr) && nr==8u);
+        for(k=0;k<R()->fixture_count;++k) {
+            const ExpandedUniversalFixture *f=&R()->fixtures[k];
+            uint32_t p,h,a;
+            if(!ExpandedEditionKey_Equal(f->key.edition,e->key))continue;
+            for(p=0;p<4u;++p)if(f->key.stage==EXP_CE_STAGE(p,p?EXP_CE_KO_GROUP:1u))break;
+            assert(p<4u);++counts[p];
+            if(!p)continue;
+            for(h=0;h<nr&&!ExpandedClubKey_Equal(f->home,rank[h].club);++h){}
+            for(a=0;a<nr&&!ExpandedClubKey_Equal(f->away,rank[a].club);++a){}
+            assert(h<6u && a<6u);
+            if(p==1u)assert((h==2u&&a==5u)||(h==3u&&a==4u));
+            if(p==2u && f->key.leg==1u){
+                assert(h<2u && a>=2u);
+                sf[h]=a+1u;
+            }
+            if(p==2u && f->key.leg==0u)assert(a<2u && h>=2u);
+            if(p==3u){assert(h<a);last_hi=h+1u;}
+        }
+        assert(counts[0]==28u && counts[1]==2u && counts[2]==4u && counts[3]==1u);
+        assert(sf[0]>sf[1] && sf[1] && last_hi && !s_dupes);
+        assert(ExpandedUniversal_ValidateRestore(R()));
+        puts("RESEED_TABLE_TOP6_2BYE_7KO=PASS");
+    }
+    /* Real league-origin definition overlay + distinct regular/title order
+     * persists across lifecycle encode/decode. No duplicate competition. */
+    {
+        static const char j[]="{\"schema\":1,\"leagues\":[{\"team_number\":23,\"comp_id\":1,\"division\":0,\"finals\":{\"qualify\":4,\"phases\":[{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},\"window\":{\"first\":\"10-08\",\"last\":\"10-31\",\"weekdays\":\"SAT\",\"rest\":3}},{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},\"window\":{\"first\":\"11-01\",\"last\":\"11-30\",\"weekdays\":\"SAT\",\"rest\":3}}]}}]}";
+        const ExpCeWindow w={8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}}};
+        const uint32_t id=ExpCe_LeagueCompetitionId(23u,1u,0u);
+        ExpCeDef *d=calloc(1u,sizeof *d);
+        uint32_t rank[4],title[4],k;
+        size_t hl=0;char *hex;
+        assert(d);
+        ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+        s_ran_n=s_et=s_pens=s_dupes=0u;
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+        assert(ExpCe_LeagueDefinition(WORLD_2627,23u,1u,0u,1u,4u,2u,3u,3u,5u,
+                                     0u,0u,0u,0u,&w,d));
+        assert(ExpCe_AddDefinition(d));free(d);
+        assert(ExpCe_LoadLeagueFinals(j,(int)strlen(j),WORLD_2627)==1);
+        assert(ExpCe_DefinitionCount()==1u && ExpCe_Definition(id)->nphases==3u);
+        first_league_edition(23u,0u,1u);
+        assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+        run_until(D(2026,11,28));
+        e=edition_of(id,2026);assert(e && !e->block && e->nregular==4u && e->nfinal==4u);
+        for(k=0;k<4u;++k){rank[k]=e->regular_order[k];title[k]=e->final_order[k];}
+        hex=ExpCe_EncodeHex(WORLD_2627,&hl);assert(hex && !strncmp(hex,"554c3033",8));
+        assert(ExpCe_ValidateHex(hex,hl,WORLD_2627));
+        assert(ExpCe_DecodeHex(hex,hl,WORLD_2627));free(hex);
+        e=edition_of(id,2026);
+        assert(e && e->nregular==4u && !memcmp(e->regular_order,rank,sizeof rank) &&
+               !memcmp(e->final_order,title,sizeof title));
+        assert(!s_dupes && ExpandedUniversal_ValidateRestore(R()));
+        puts("LEAGUE_FINALS_OVERLAY_UL03_RANK_TITLE=PASS");
+    }
     puts("FASE2_CE_ENGINE_ISOLATED=PASS");
     puts("OG_QUICK_50HZ_SUB_WINDOWS_MENUS_WINDOWS_GAMEPLAY=NOT_TESTED");
     return 0;

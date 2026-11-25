@@ -36,6 +36,7 @@ static int ce_grow(void **arr,uint32_t *cap,uint32_t need,size_t size)
 }
 void ExpCe_Reset(void)
 {
+    ExpCeTable_HistoryReset();
     free(s_ce.defs);free(s_ce.eds);free(s_ce.posts);
     memset(&s_ce,0,sizeof s_ce);
 }
@@ -135,6 +136,10 @@ static int def_check(ExpCeDef *d)
             return 0;
         }
         if(ph->kind==EXP_CE_PHASE_TABLE) {
+            if(ph->pairing==EXP_CE_PAIR_RESEED_TABLE) {
+                snprintf(d->missing,sizeof d->missing,"phase %u: RESEED_TABLE is KO only",(unsigned)p);
+                return 0;
+            }
             if(!ExpCeRules_ValidateTable(&ph->table,&err)) {
                 snprintf(d->missing,sizeof d->missing,"phase %u %.24s: %.48s",
                          (unsigned)p,err.field,err.reason);return 0;
@@ -151,6 +156,13 @@ static int def_check(ExpCeDef *d)
                 return 0;
             }
         } else if(ph->kind==EXP_CE_PHASE_KNOCKOUT) {
+            if(ph->pairing==EXP_CE_PAIR_RESEED_TABLE &&
+               (!p || d->phases[0].kind!=EXP_CE_PHASE_TABLE ||
+                d->phases[0].groups!=1u)) {
+                snprintf(d->missing,sizeof d->missing,
+                         "phase %u: RESEED_TABLE requires opening single table",(unsigned)p);
+                return 0;
+            }
             if(!ph->match.needs_winner || !ph->pairing ||
                (ph->pairing!=EXP_CE_PAIR_LISTED && ph->higher_home!=1u &&
                 ph->higher_home!=2u)) {
@@ -535,6 +547,35 @@ static int phase_qualifiers(const ExpandedUniversalRegistry *r,
     *n=k;
     return 1;
 }
+/* Reconstruct original single-table seeding from the authoritative ledger.
+ * No persisted random draw or extra writer; active editions retain all
+ * earlier phase fixtures. Never seed from incomplete results. */
+static int reseed_table(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
+                        const ExpCeEdition *e,const ExpCeHost *host,
+                        ExpCeEntrant *out,uint32_t n)
+{
+    ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+    uint32_t nr=0u,i,j;
+    if(d->phases[0].kind!=EXP_CE_PHASE_TABLE || d->phases[0].groups!=1u ||
+       phase_complete(r,d,e,0u)!=1 ||
+       !ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(0u,1u),&d->phases[0].table,
+           host?host->name_cmp:NULL,host?host->user:NULL,
+           rows,EXP_CE_MAX_ENTRANTS,&nr) || nr!=e->nentrants)return 0;
+    for(i=0;i<n;++i) {
+        for(j=0;j<nr;++j)
+            if(ExpandedClubKey_Equal(out[i].club,rows[j].club))break;
+        if(j==nr || j>=d->phases[0].qualify)return 0;
+        out[i].seed=(uint8_t)(j+1u);
+        for(j=0;j<i;++j)if(out[j].seed==out[i].seed)return 0;
+    }
+    for(i=1u;i<n;++i) {
+        const ExpCeEntrant x=out[i];
+        j=i;
+        while(j && out[j-1u].seed>x.seed){out[j]=out[j-1u];--j;}
+        out[j]=x;
+    }
+    return 1;
+}
 static int phase_entrants(const ExpandedUniversalRegistry *r,
                           const ExpCeDef *d,const ExpCeEdition *e,
                           const ExpCeHost *host,uint32_t phase,
@@ -551,6 +592,8 @@ static int phase_entrants(const ExpandedUniversalRegistry *r,
             if(phase>0u)out[k].source=out[k].source?out[k].source:EXP_CE_SRC_JOIN;
             ++k;
         }
+    if(d->phases[phase].pairing==EXP_CE_PAIR_RESEED_TABLE &&
+       !reseed_table(r,d,e,host,out,k))return 0;
     *n=k;
     return 1;
 }
@@ -601,6 +644,7 @@ static int ko_pairs_raw(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
     case EXP_CE_PAIR_BRACKET:
         for(i=0;i<*np;++i){pairs[i].hi=pool[2u*i];pairs[i].lo=pool[2u*i+1u];}
         return 1;
+    case EXP_CE_PAIR_RESEED_TABLE:
     case EXP_CE_PAIR_SEEDED:
         for(i=0;i<*np;++i){pairs[i].hi=pool[i];pairs[i].lo=pool[m-1u-i];}
         return 1;
@@ -938,8 +982,22 @@ static int final_order(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
         }
     }
     e->nfinal=k;
+    if(d->origin==EXP_CE_ORIGIN_LEAGUE && d->nphases>1u) {
+        ExpCeTableRow rows[EXP_CE_MAX_ENTRANTS];
+        uint32_t nr=0u,i;
+        if(e->partial || k!=e->nentrants || d->phases[0].groups!=1u ||
+           !ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(0u,1u),&d->phases[0].table,
+                host?host->name_cmp:NULL,host?host->user:NULL,
+                rows,EXP_CE_MAX_ENTRANTS,&nr) || nr!=e->nentrants)return 0;
+        for(i=0;i<nr;++i)e->regular_order[i]=rows[i].club.stable_club;
+        e->nregular=nr;
+    }
     return k>=2u;
 }
+static uint32_t league_rank_count(const ExpCeEdition *e)
+{return e->nregular?e->nregular:e->nfinal;}
+static uint32_t league_rank_at(const ExpCeEdition *e,uint32_t i)
+{return e->nregular?e->regular_order[i]:e->final_order[i];}
 /* latest COMPLETED/ARCHIVED edition of a competition (source of entrants) */
 static const ExpCeEdition *latest_closed(uint32_t competition,int *blocked)
 {
@@ -1032,7 +1090,7 @@ static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl
             ExpandedClubKey c;
             uint32_t xi;
             int skip=0;
-            if(rank<1u || rank>src->nfinal) {
+            if(rank<1u || rank>(league?league_rank_count(src):src->nfinal)) {
                 if(league && sp->reallocate) { /* table too short: the slots go
                                                   to the next receiving rule */
                     deficit+=want-taken;
@@ -1042,7 +1100,8 @@ static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl
                          (unsigned long)sp->competition,(unsigned long)rank);
                 return -1;
             }
-            c=(ExpandedClubKey){e->key.competition.world,src->final_order[rank-1u],
+            c=(ExpandedClubKey){e->key.competition.world,
+              league?league_rank_at(src,rank-1u):src->final_order[rank-1u],
               src->participant_kind};
             for(xi=0;xi<sp->nexclude;++xi)
                 if(sp->exclude[xi]==c.stable_club)skip=1;
@@ -1159,118 +1218,142 @@ static int league_independent_rollover(ExpandedUniversalRegistry *r,
 }
 /* League family rollover: all divisions of (country, comp_id) completed.
  * 1 created successors, 0 wait, -1 blocked. */
+/* Prepare every successor in private memory before publishing any of them.
+ * One malformed ranking or allocation failure must not split a family.
+ * The existing prefix/partial policies are preserved, not expanded here. */
 static int league_family_rollover(ExpandedUniversalRegistry *r,
                                   const ExpCeHost *host,const ExpCeDef *d0)
 {
     const ExpCeDef *div[16];
-    ExpCeEdition *cur[16];
-    uint32_t nd=d0->divisions,i,j,seg=0u;
-    char why[96];
-    int chain=1;
+    const ExpCeEdition *cur[16];
+    uint32_t old[16],nd=d0->divisions,i,j,k,seg=0u;
+    ExpCeEdition *next;
+    int chain=1,invalid=0;
     if(!nd || nd>16u)return -1;
     for(i=0;i<nd;++i) {
         uint32_t best=UINT32_MAX;
         div[i]=def_find(ExpCe_LeagueCompetitionId(d0->country,d0->comp_id,(uint8_t)i));
-        cur[i]=NULL;
         if(!div[i])return -1;
         for(j=0;j<s_ce.neds;++j) {
-            ExpCeEdition *o=&s_ce.eds[j];
+            const ExpCeEdition *o=&s_ce.eds[j];
             if(o->def_id!=div[i]->id)continue;
             if(best==UINT32_MAX || o->key.start_day>s_ce.eds[best].key.start_day)best=j;
         }
         if(best==UINT32_MAX)return -1;
-        cur[i]=&s_ce.eds[best];
+        old[i]=best;cur[i]=&s_ce.eds[best];
         if(cur[i]->successor || cur[i]->block)return cur[i]->block?-1:0;
-    }
-    for(i=0;i<nd;++i)
         if(cur[i]->state<EXP_CE_ED_COMPLETED)return 0;
-    /* A partial first edition (began before career START) has no complete
-     * final table: nobody is promoted, relegated or qualified from it. The
-     * next season keeps the SAME clubs in each division (no movement, no
-     * invented result); movements resume from the first complete edition. */
-    for(i=0;i<nd;++i)
+        if(cur[i]->year==UINT16_MAX || (i && cur[i]->year!=cur[0]->year))return -1;
         if(cur[i]->partial)chain=-1;
-    /* simple chain only: relegated(d) == promoted(d+1) */
+    }
     if(chain>0)chain=ExpCe_LeagueFamilyChainOk(d0->country,d0->comp_id);
-    /* v301: broken chain with a movement-capable leading segment: exchange
-     * inside it, keep the rest unchanged (documented temporary limitation) */
     if(chain==0) {
         seg=league_chain_prefix(d0);
         if(seg>=2u && seg<nd)chain=2;
     }
+    next=calloc(nd,sizeof *next);
+    if(!next)return -1;
     for(i=0;i<nd;++i) {
-        ExpCeEdition *n;
-        int32_t start=0;
-        uint32_t k=0u;
-        const uint16_t year=(uint16_t)(cur[i]->year+1u);
-        cur[i]->successor=1u;
-        if(!edition_start_day(div[i],year,&start) || !(n=ed_new(div[i],year,start)))
-            return -1;
-        /* ed_new may move s_ce.eds: refresh pointers */
-        for(j=0;j<nd;++j) {
-            uint32_t q,best=UINT32_MAX;
-            for(q=0;q<s_ce.neds;++q)
-                if(s_ce.eds[q].def_id==div[j]->id && s_ce.eds[q].year==year-1u)
-                    best=q;
-            if(best!=UINT32_MAX)cur[j]=&s_ce.eds[best];
+        ExpCeEdition *n=&next[i];
+        const ExpCeEdition *o=cur[i];
+        uint32_t up=0u,down=0u;
+        n->year=(uint16_t)(o->year+1u);
+        if(!edition_start_day(div[i],n->year,&n->key.start_day))goto fail;
+        n->key.competition=(ExpandedCompetitionKey){div[i]->world,div[i]->id};
+        n->def_id=div[i]->id;n->rules_hash=div[i]->rules_hash;
+        n->state=EXP_CE_ED_CREATED;
+        if(ed_find(n->key))goto fail;
+        if(div[i]->missing[0] || chain==0) {
+            invalid=1;
+            continue;
         }
-        n=&s_ce.eds[s_ce.neds-1u];
-        if((chain<0 || (chain==2 && i>=seg)) && !div[i]->missing[0]) {
-            for(j=0;j<cur[i]->nentrants && k<EXP_CE_MAX_ENTRANTS;++j)
-                n->entrants[k++]=(ExpCeEntrant){cur[i]->entrants[j].club,
-                    EXP_CE_SRC_KEPT_NO_MOVEMENT,0u,0u,(uint8_t)(k+1u),0u,
-                    div[i]->id,cur[i]->key.start_day};
+        if(o->nentrants!=div[i]->clubs || o->nentrants>EXP_CE_MAX_ENTRANTS)goto fail;
+        for(j=0;j<o->nentrants;++j) {
+            const ExpandedClubKey c=o->entrants[j].club;
+            if(c.world!=d0->world || c.kind!=EXP_PARTICIPANT_CLUB || !c.stable_club ||
+               entrant_has(o->entrants,j,c))goto fail;
+        }
+        if(chain<0 || (chain==2 && i>=seg))continue;
+        up=div[i]->promoted;
+        down=(chain==2 && i+1u==seg)?0u:div[i]->relegated;
+        if(league_rank_count(o)!=o->nentrants || up+down>league_rank_count(o))goto fail;
+        for(j=0;j<league_rank_count(o);++j) {
+            const ExpandedClubKey c={d0->world,league_rank_at(o,j),EXP_PARTICIPANT_CLUB};
+            if(!entrant_has(o->entrants,o->nentrants,c))goto fail;
+            for(k=0;k<j;++k)if(league_rank_at(o,k)==league_rank_at(o,j))goto fail;
+        }
+    }
+    if(!invalid) {
+        for(i=0;i<nd;++i) {
+            ExpCeEdition *n=&next[i];
+            k=0u;
+            if(chain<0 || (chain==2 && i>=seg)) {
+                for(j=0;j<cur[i]->nentrants;++j) {
+                    n->entrants[k]=(ExpCeEntrant){cur[i]->entrants[j].club,
+                        EXP_CE_SRC_KEPT_NO_MOVEMENT,0u,0u,(uint8_t)(k+1u),0u,
+                        div[i]->id,cur[i]->key.start_day};
+                    ++k;
+                }
+            } else {
+                const uint32_t down=(chain==2 && i+1u==seg)?0u:div[i]->relegated;
+                for(j=div[i]->promoted;j+down<league_rank_count(cur[i]);++j) {
+                    if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
+                    n->entrants[k]=(ExpCeEntrant){
+                        (ExpandedClubKey){d0->world,league_rank_at(cur[i],j),EXP_PARTICIPANT_CLUB},
+                        EXP_CE_SRC_RETAINED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
+                        div[i]->id,cur[i]->key.start_day};
+                    ++k;
+                }
+                if(i>0u)
+                    for(j=league_rank_count(cur[i-1u])-div[i-1u]->relegated;j<league_rank_count(cur[i-1u]);++j) {
+                        if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
+                        n->entrants[k]=(ExpCeEntrant){
+                            (ExpandedClubKey){d0->world,league_rank_at(cur[i-1u],j),EXP_PARTICIPANT_CLUB},
+                            EXP_CE_SRC_RELEGATED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
+                            div[i-1u]->id,cur[i-1u]->key.start_day};
+                        ++k;
+                    }
+                if(i+1u<(chain==2?seg:nd))
+                    for(j=0;j<div[i+1u]->promoted;++j) {
+                        if(k>=EXP_CE_MAX_ENTRANTS)goto fail;
+                        n->entrants[k]=(ExpCeEntrant){
+                            (ExpandedClubKey){d0->world,league_rank_at(cur[i+1u],j),EXP_PARTICIPANT_CLUB},
+                            EXP_CE_SRC_PROMOTED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
+                            div[i+1u]->id,cur[i+1u]->key.start_day};
+                        ++k;
+                    }
+            }
             n->nentrants=k;
-            if(k!=div[i]->clubs) {
-                snprintf(why,sizeof why,"division %u: %lu clubs kept, %u declared",
-                         (unsigned)i+1u,(unsigned long)k,(unsigned)div[i]->clubs);
-                ed_block(r,host,n,EXP_CE_BLOCK_ENTRANTS,why);
-                continue;
+            if(k!=div[i]->clubs)goto fail;
+            for(j=0;j<k;++j) {
+                uint32_t q;
+                const ExpandedClubKey c=n->entrants[j].club;
+                if(entrant_has(n->entrants,j,c))goto fail;
+                for(q=0;q<i;++q)if(entrant_has(next[q].entrants,next[q].nentrants,c))goto fail;
             }
             n->state=EXP_CE_ED_PARTICIPANTS;
-            ed_log("EDITION_PARTICIPANTS",n,
-                   chain<0?"previous edition partial: same clubs, no promotion/relegation":
-                           "below the movement segment (parallel groups): same clubs kept");
-            continue;
         }
-        if(chain<=0 || div[i]->missing[0]) {
-            snprintf(why,sizeof why,"%.95s",div[i]->missing[0]?div[i]->missing:
-                     "promotion/relegation targets not a simple chain "
-                     "(parallel groups): distribution rule missing");
-            ed_block(r,host,n,EXP_CE_BLOCK_DATA_MISSING,why);
-            continue;
-        }
-        /* retained */
-        for(j=div[i]->promoted;j+((chain==2 && i+1u==seg)?0u:div[i]->relegated)<cur[i]->nfinal;++j) {
-            const uint32_t rank=j+1u;
-            n->entrants[k++]=(ExpCeEntrant){
-                (ExpandedClubKey){d0->world,cur[i]->final_order[j],EXP_PARTICIPANT_CLUB},
-                EXP_CE_SRC_RETAINED,(uint8_t)rank,0u,(uint8_t)(k+1u),0u,
-                div[i]->id,cur[i]->key.start_day};
-        }
-        if(i>0u) /* relegated from the division above */
-            for(j=cur[i-1u]->nfinal-div[i-1u]->relegated;j<cur[i-1u]->nfinal;++j)
-                n->entrants[k++]=(ExpCeEntrant){
-                    (ExpandedClubKey){d0->world,cur[i-1u]->final_order[j],EXP_PARTICIPANT_CLUB},
-                    EXP_CE_SRC_RELEGATED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
-                    div[i-1u]->id,cur[i-1u]->key.start_day};
-        if(i+1u<(chain==2?seg:nd)) /* promoted from the division below */
-            for(j=0;j<div[i+1u]->promoted;++j)
-                n->entrants[k++]=(ExpCeEntrant){
-                    (ExpandedClubKey){d0->world,cur[i+1u]->final_order[j],EXP_PARTICIPANT_CLUB},
-                    EXP_CE_SRC_PROMOTED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
-                    div[i+1u]->id,cur[i+1u]->key.start_day};
-        n->nentrants=k;
-        if(k!=div[i]->clubs) {
-            snprintf(why,sizeof why,"division %u: %lu clubs after movements, %u "
-                     "declared",(unsigned)i+1u,(unsigned long)k,(unsigned)div[i]->clubs);
-            ed_block(r,host,n,EXP_CE_BLOCK_ENTRANTS,why);
-            continue;
-        }
-        n->state=EXP_CE_ED_PARTICIPANTS;
-        ed_log("EDITION_PARTICIPANTS",n,"league family rollover");
+    }
+    /* Reserve once; no fallible operations between publication and flags. */
+    if(s_ce.neds>UINT32_MAX-nd ||
+       !ce_grow((void **)&s_ce.eds,&s_ce.ceds,s_ce.neds+nd,sizeof *s_ce.eds))goto fail;
+    k=s_ce.neds;
+    memcpy(s_ce.eds+k,next,(size_t)nd*sizeof *next);
+    s_ce.neds+=nd;
+    for(i=0;i<nd;++i)s_ce.eds[old[i]].successor=1u;
+    free(next);
+    for(i=0;i<nd;++i) {
+        ExpCeEdition *n=&s_ce.eds[k+i];
+        if(invalid)
+            ed_block(r,host,n,EXP_CE_BLOCK_DATA_MISSING,
+                     div[i]->missing[0]?div[i]->missing:"promotion/relegation targets not a simple chain (parallel groups): distribution rule missing");
+        else
+            ed_log("EDITION_PARTICIPANTS",n,"validated atomic league family rollover");
     }
     return 1;
+fail:
+    free(next);
+    return -1;
 }
 static int ed_index(const ExpCeEdition *e){return (int)(e-s_ce.eds);}
 /* Defer every division of a league family, all still PARTICIPANTS with no
@@ -1390,6 +1473,10 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                 }
                 if(!pc)break;
                 if((uint32_t)e->phase+1u<d->nphases) {
+                    if(d->origin==EXP_CE_ORIGIN_LEAGUE && e->partial) {
+                        ed_block(r,host,e,EXP_CE_BLOCK_DATA_MISSING,
+                                 "finals require complete regular table");++moved;break;
+                    }
                     const int idx=ed_index(e);
                     if(!generate_phase(r,host,d,e,(uint32_t)e->phase+1u,today,
                                        &block,why,sizeof why)) {
@@ -1412,13 +1499,15 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
             }
             case EXP_CE_ED_COMPLETED: {
                 const int idx=ed_index(e);
+                if(d->origin==EXP_CE_ORIGIN_LEAGUE && d->nphases>1u &&
+                   today<e->expiry_day)break;
                 if(!e->successor) {
                     if(d->origin==EXP_CE_ORIGIN_LEAGUE) {
                         const ExpCeDef *d0=def_find(ExpCe_LeagueCompetitionId(
                             d->country,d->comp_id,0u));
                         if(league_family_independent(d)) {
                             if(league_independent_rollover(r,host,d,e))++moved;
-                        } else if(d0 && league_family_rollover(r,host,d0)!=0)++moved;
+                        } else if(d0 && league_family_rollover(r,host,d0)>0)++moved;
                     } else {
                         int32_t start=0;
                         ExpCeEdition *n;
@@ -1729,7 +1818,8 @@ static int parse_club(const char *t,uint16_t world,ExpandedClubKey *k)
 static const struct {const char *n;uint8_t v;} k_pairings[]={
     {"LISTED",EXP_CE_PAIR_LISTED},{"SEEDED",EXP_CE_PAIR_SEEDED},
     {"CROSS_GROUPS",EXP_CE_PAIR_CROSS_GROUPS},{"BRACKET",EXP_CE_PAIR_BRACKET},
-    {"DRAW",EXP_CE_PAIR_DRAW},{"POTS",EXP_CE_PAIR_POTS}};
+    {"DRAW",EXP_CE_PAIR_DRAW},{"POTS",EXP_CE_PAIR_POTS},
+    {"RESEED_TABLE",EXP_CE_PAIR_RESEED_TABLE}};
 static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
                        const ExpCeMatchRules *mbase,ExpCePhaseDef *ph)
 {
@@ -1815,6 +1905,71 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
         }
     }
     return 1;
+}
+/* Optional finals on league_calendar.json rows. No extra competition ID,
+ * no independent schedule; validate all opt-ins before changing definitions. */
+int ExpCe_LoadLeagueFinals(const char *json,int len,uint16_t world)
+{
+    const char *arr=NULL;
+    int alen=0,off=0,ko,kl,vo,vl,vt,added=0,rc=-1;
+    double schema=0;
+    ExpCeDef **staged=NULL;
+    uint32_t i;
+    if(!json || mjson_get_number(json,len,"$.schema",&schema)<=0 || schema!=1 ||
+       mjson_find(json,len,"$.leagues",&arr,&alen)!=MJSON_TOK_ARRAY)return -1;
+    staged=(ExpCeDef **)calloc(s_ce.ndefs?s_ce.ndefs:1u,sizeof *staged);
+    if(!staged)return -1;
+    while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
+        const char *row=arr+vo,*o=NULL,*phases=NULL;
+        int ol=0,pl=0,po=0,pk,pkl,pv,pvl,pt;
+        double country=0,comp=0,div=0,qual=0;
+        ExpCeDef *d,*copy;
+        if(mjson_find(row,vl,"$.finals",&o,&ol)==MJSON_TOK_INVALID)continue;
+        if(vt!=MJSON_TOK_OBJECT || mjson_find(row,vl,"$.finals",&o,&ol)!=MJSON_TOK_OBJECT ||
+           mjson_get_number(row,vl,"$.team_number",&country)<=0 ||
+           mjson_get_number(row,vl,"$.comp_id",&comp)<=0 ||
+           mjson_get_number(row,vl,"$.division",&div)<=0 ||
+           country<0 || country>254 || comp<0 || comp>255 || div<0 || div>15 ||
+           country!=(double)(uint8_t)country || comp!=(double)(uint8_t)comp ||
+           div!=(double)(uint8_t)div ||
+           mjson_get_number(o,ol,"$.qualify",&qual)<=0 || qual<2 || qual>64 ||
+           qual!=(double)(uint8_t)qual ||
+           mjson_find(o,ol,"$.phases",&phases,&pl)!=MJSON_TOK_ARRAY)goto done;
+        d=def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)div));
+        if(!d || d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE ||
+           d->nphases!=1u || d->missing[0] || qual>d->clubs)goto done;
+        i=(uint32_t)(d-s_ce.defs);
+        if(staged[i])goto done;
+        copy=(ExpCeDef *)malloc(sizeof *copy);
+        if(!copy)goto done;
+        staged[i]=copy;*copy=*d;
+        copy->phases[0].qualify=(uint8_t)qual;
+        while((po=mjson_next(phases,pl,po,&pk,&pkl,&pv,&pvl,&pt))>0) {
+            ExpCePhaseDef *ph;
+            if(pt!=MJSON_TOK_OBJECT || copy->nphases>=EXP_CE_MAX_PHASES)goto done;
+            ph=&copy->phases[copy->nphases++];
+            if(!parse_phase(phases+pv,pvl,&copy->phases[0].table,
+                &copy->phases[0].match,ph) || ph->kind!=EXP_CE_PHASE_KNOCKOUT)goto done;
+        }
+        if(po<0 || copy->nphases<2u || !def_check(copy))goto done;
+        /* Check qualifier count and byes now, not halfway through the season. */
+        {uint32_t p,n=(uint32_t)qual;
+         for(p=1u;p<copy->nphases;++p){
+             const ExpCePhaseDef *ph=&copy->phases[p];
+             if(ph->pairing!=EXP_CE_PAIR_RESEED_TABLE || n<ph->byes+2u ||
+                ((n-ph->byes)&1u))goto done;
+             n=ph->byes+(n-ph->byes)/2u;
+         }
+         if(n!=1u)goto done;}
+        copy->rules_hash=def_hash(copy);
+        ++added;
+    }
+    if(off<0)goto done;
+    for(i=0;i<s_ce.ndefs;++i)if(staged[i])s_ce.defs[i]=*staged[i];
+    rc=added;
+done:
+    for(i=0;i<s_ce.ndefs;++i)free(staged[i]);
+    free(staged);return rc;
 }
 int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                               const char *source_file)
@@ -2054,11 +2209,13 @@ static char *encode_hex(const ExpCeEdition *eds,uint32_t neds,
 {
     Wr w={0};
     uint32_t i,k;
+    int v3=0;
     uint64_t h=UINT64_C(14695981039346656037);
     char *hex;
     static const char dig[]="0123456789abcdef";
     w.ok=1;
-    wr_put(&w,"UL02",4u); /* v299: + participant kinds (UL01 still read) */
+    for(i=0;i<neds;++i)if(eds[i].nregular){v3=1;break;}
+    wr_put(&w,v3?"UL03":"UL02",4u); /* UL03 adds regular ranking, old formats readable */
     WR(&w,(uint16_t)world);WR(&w,(uint32_t)neds);
     for(i=0;i<neds;++i) {
         const ExpCeEdition *e=&eds[i];
@@ -2080,6 +2237,10 @@ static char *encode_hex(const ExpCeEdition *eds,uint32_t neds,
         }
         WR(&w,(uint16_t)e->nfinal);
         for(k=0;k<e->nfinal;++k)WR(&w,e->final_order[k]);
+        if(v3){
+            WR(&w,(uint16_t)e->nregular);
+            for(k=0;k<e->nregular;++k)WR(&w,e->regular_order[k]);
+        }
         WR(&w,wl);wr_put(&w,e->why,wl);
     }
     WR(&w,(uint32_t)nposts);
@@ -2152,7 +2313,7 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
     ExpCePostponement *posts=NULL;
     uint32_t ncalls=0;
     char magic[4];
-    int v2=0;
+    int v2=0,v3=0;
     if(!hex || (len&1u) || len<8u)return 0;
     n=len/2u;
     b=(uint8_t *)malloc(n);
@@ -2168,9 +2329,10 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
     if(stored!=h){free(b);return 0;}
     r.b=b;r.n=n-8u;r.pos=0;r.ok=1;
     rd_get(&r,magic,4u);rd_get(&r,&w16,2u);rd_get(&r,&neds,4u);
-    if(!r.ok || (memcmp(magic,"UL01",4u) && memcmp(magic,"UL02",4u)) ||
+    if(!r.ok || (memcmp(magic,"UL01",4u) && memcmp(magic,"UL02",4u) && memcmp(magic,"UL03",4u)) ||
        w16!=world || neds>1000000u){free(b);return 0;}
-    v2=memcmp(magic,"UL02",4u)==0;
+    v3=memcmp(magic,"UL03",4u)==0;
+    v2=v3 || memcmp(magic,"UL02",4u)==0;
     if(neds && !(eds=(ExpCeEdition *)calloc(neds,sizeof *eds))){free(b);return 0;}
     for(i=0;i<neds && r.ok;++i) {
         ExpCeEdition *e=&eds[i];
@@ -2204,6 +2366,20 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
         if(nf>EXP_CE_MAX_ENTRANTS){r.ok=0;break;}
         e->nfinal=nf;
         for(k=0;k<nf;++k)rd_get(&r,&e->final_order[k],4u);
+        if(v3) {
+            uint16_t nr=0;
+            rd_get(&r,&nr,2u);
+            if(nr>EXP_CE_MAX_ENTRANTS || (nr && (nr!=ne || nf!=ne ||
+               e->state<EXP_CE_ED_COMPLETED || e->partial))) {r.ok=0;break;}
+            e->nregular=nr;
+            for(k=0;k<nr;++k) {
+                uint32_t q;
+                ExpandedClubKey c={world,0u,e->participant_kind};
+                rd_get(&r,&e->regular_order[k],4u);c.stable_club=e->regular_order[k];
+                if(!c.stable_club || !entrant_has(e->entrants,ne,c))r.ok=0;
+                for(q=0;q<k;++q)if(e->regular_order[q]==c.stable_club)r.ok=0;
+            }
+        }
         rd_get(&r,&wl,1u);
         if(wl>=sizeof e->why){r.ok=0;break;}
         rd_get(&r,e->why,wl);e->why[wl]=0;

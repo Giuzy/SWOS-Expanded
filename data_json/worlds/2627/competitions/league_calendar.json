@@ -301,7 +301,7 @@
         }
       ],
       "division": 0,
-      "template_scope": "row207 GAME_TEMPLATE_2026; 26 equivalent rounds, six documented rivalry pairs; split matchweeks/finals pending",
+      "template_scope": "row207 GAME_TEMPLATE_2026; 26 equivalent rounds, six documented rivalry pairs; finals attached to same edition; split matchweeks pending",
       "extra_rounds": 4,
       "rivalries": [
         {
@@ -328,7 +328,66 @@
           "a": 2883589,
           "b": 2883588
         }
-      ]
+      ],
+      "finals": {
+        "qualify": 6,
+        "provenance": "GAME_TEMPLATE_2026; row207 finals windows; inherited existing OG match roster limits (3 from 5), not full official APL rule support",
+        "phases": [
+          {
+            "kind": "KNOCKOUT",
+            "pairing": "RESEED_TABLE",
+            "byes": 2,
+            "higher_home": 1,
+            "match": {
+              "legs": 1,
+              "extra_time": 1,
+              "penalties": 1,
+              "away_goals": 0
+            },
+            "window": {
+              "first": "05-14",
+              "last": "05-16",
+              "weekdays": "FRI,SAT,SUN",
+              "rest": 3
+            }
+          },
+          {
+            "kind": "KNOCKOUT",
+            "pairing": "RESEED_TABLE",
+            "higher_home": 2,
+            "match": {
+              "legs": 2,
+              "extra_time": 1,
+              "penalties": 1,
+              "away_goals": 0
+            },
+            "window": {
+              "first": "05-21",
+              "last": "05-30",
+              "weekdays": "SAT",
+              "extra_weekdays": "FRI,SUN",
+              "rest": 6
+            }
+          },
+          {
+            "kind": "KNOCKOUT",
+            "pairing": "RESEED_TABLE",
+            "higher_home": 1,
+            "match": {
+              "legs": 1,
+              "extra_time": 1,
+              "penalties": 1,
+              "away_goals": 0
+            },
+            "window": {
+              "first": "06-04",
+              "last": "06-06",
+              "weekdays": "FRI,SAT,SUN",
+              "rest": 3
+            }
+          }
+        ]
+      }
     },
     {
       "id": "_australianLeague",

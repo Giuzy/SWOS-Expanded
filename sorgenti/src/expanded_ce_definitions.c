@@ -6,6 +6,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_ce_engine.h"
 #include "expanded_ce_admin.h"
+#include "expanded_ce_start_history.h"
 #include "expanded_universal_json_leagues.h"
 #include "swos_io.h"
 #include "world.h"
@@ -81,6 +82,25 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
         if(ExpCe_AddDefinition(d))++leagues;
         free(d);
     }
+    if(world==WORLD_2627) {
+        char path[1024],*bytes=NULL;
+        long size=0;
+        int finals=-1;
+        FILE *file=fopen(swos_data_path("data_json/worlds/2627/competitions/league_calendar.json",
+                     path,(uint32_t)sizeof path),"rb");
+        if(file) {
+            if(fseek(file,0,SEEK_END)==0 && (size=ftell(file))>0 &&
+               size<16L*1024L*1024L && fseek(file,0,SEEK_SET)==0 &&
+               (bytes=(char *)malloc((size_t)size+1u))!=NULL &&
+               fread(bytes,1,(size_t)size,file)==(size_t)size) {
+                bytes[size]=0;
+                finals=ExpCe_LoadLeagueFinals(bytes,(int)size,world);
+            }
+            free(bytes);fclose(file);
+        }
+        fprintf(stderr,"[ce-engine] LEAGUE_FINALS definitions=%d\n",finals);
+        if(finals<0)return -2;
+    }
     {
         char path[1024];
         const char *rel="data_json/worlds/2627/competitions/ce_competitions.json";
@@ -98,6 +118,20 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
             } else json=-1;
             free(bytes);fclose(file);
         }
+    }
+    if(world==WORLD_2627){
+        ExpCeHistoryData h={0};
+        if(!ExpCeHistory_Load(&h))return -2;
+        for(i=0;i<h.n;++i){
+            const ExpCeHistorySeed *s=&h.rows[i];ExpandedEditionKey k={0};
+            k.competition.world=world;k.competition.stable_competition=
+                ExpCe_LeagueCompetitionId((uint8_t)s->country,(uint8_t)s->comp,(uint8_t)s->div);
+            k.start_day=s->start;
+            if(!ExpCeTable_HistoryAdd(k,s->played,s->deductions,s->nd)){
+                ExpCeHistory_Free(&h);ExpCeTable_HistoryReset();return -2;
+            }
+        }
+        ExpCeHistory_Free(&h);
     }
     (void)ExpCe_LoadTestClubs(world);
     fprintf(stderr,"[ce-engine] DEFINITIONS world=%s leagues=%lu json=%d "

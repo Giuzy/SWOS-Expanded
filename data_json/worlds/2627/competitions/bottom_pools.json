@@ -787,7 +787,7 @@
         "australian_championship": "WINNER_TO_A_LEAGUE_LAST_TO_ASSIGNED_REGION_DESIGN",
         "source": "https://australianchampionship.com.au/news/beginners-guide-australian-championship",
         "no_sporting_link_to_a_league": false,
-        "cross_region_balance": "USER_APPROVED_GAME_POLICY: if net incoming from upper level is +1, one additional relegation to bottom pool; if net incoming is -1, one additional promotion from bottom pool. Maintain division cardinality, preserve ordinary result-dependent playout, no automatic extra movement when net zero. Select from eligible pool by persisted CE policy; unresolved role/order must not invent standings. Runtime transaction not implemented."
+        "cross_region_balance": "USER_APPROVED_GAME_POLICY: if net incoming from upper level is +1, one additional relegation to bottom pool; if net incoming is -1, one additional promotion from bottom pool. Maintain division cardinality, preserve ordinary result-dependent playout, no automatic extra movement when net zero. Select from eligible pool by persisted CE policy; unresolved role/order must not invent standings. Runtime transaction not implemented. If the local standby is exhausted, use an uncommitted standby from another eligible region, preserving ordinary direct entrants and playout challengers, stable club ID and roster; remove it from the donor pool atomically. Candidate order must be resolved and persisted by CE. No fabricated entrant if no free club exists."
       }
     }
   ]

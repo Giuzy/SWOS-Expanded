@@ -24,10 +24,13 @@ typedef struct ExpandedUniversalCatalogFixture {
     uint8_t date_provenance;
     uint8_t past_at_start;
     uint8_t date_collision;
+    uint8_t historical_verified,seed_continuation;
+    ExpandedFixtureScore historical_score;
 } ExpandedUniversalCatalogFixture;
 typedef struct ExpandedUniversalCatalogAudit {
     uint32_t clubs, league_definitions, cup_definitions;
     uint32_t fixtures, future_fixtures, prestart_unresolved;
+    uint32_t historical_verified;
     uint32_t unsupported_leagues, failed_clubs, bad_pairs;
     uint32_t day_collisions, missing_cup_fixtures;
     uint32_t unverified_native_order; /* retired diagnostic; stays 0 JSON-first */

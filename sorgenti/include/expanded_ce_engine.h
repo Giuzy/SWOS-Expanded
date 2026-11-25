@@ -66,7 +66,8 @@ typedef enum ExpCePairing {
     EXP_CE_PAIR_CROSS_GROUPS = 3, /* A1-B2, B1-A2, C1-D2, D1-C2 ... */
     EXP_CE_PAIR_BRACKET = 4,      /* winners of ties 1-2, 3-4 ... */
     EXP_CE_PAIR_DRAW = 5,         /* deterministic CE game draw */
-    EXP_CE_PAIR_POTS = 6          /* groups: one club per pot, game draw */
+    EXP_CE_PAIR_POTS = 6,         /* groups: one club per pot, game draw */
+    EXP_CE_PAIR_RESEED_TABLE = 7  /* KO: original single-table rank, best v worst */
 } ExpCePairing;
 
 typedef enum ExpCeSource {
@@ -198,7 +199,9 @@ typedef struct ExpCeEdition {
     uint32_t nentrants;
     ExpCeEntrant entrants[EXP_CE_MAX_ENTRANTS];
     uint32_t nfinal;
-    uint32_t final_order[EXP_CE_MAX_ENTRANTS]; /* stable_club, rank order */
+    uint32_t final_order[EXP_CE_MAX_ENTRANTS]; /* championship order */
+    uint32_t nregular; /* opening single table of a league with finals */
+    uint32_t regular_order[EXP_CE_MAX_ENTRANTS];
     char why[96];                 /* block reason (diagnostic) */
 } ExpCeEdition;
 
@@ -245,6 +248,7 @@ const ExpCePostponement *ExpCe_PostponementAt(uint32_t i);
 /* JSON definitions (ce_competitions.json). Returns definitions added;
  * malformed definitions are added WITH `missing` set (visible in the
  * capability matrix, never run). -1 on a malformed file. */
+int ExpCe_LoadLeagueFinals(const char *json,int len,uint16_t world);
 int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                               const char *source_file);
 /* League family definition from the OG league row (leagues.json). */

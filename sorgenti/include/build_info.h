@@ -213,7 +213,12 @@
  * WORLD list of its country and in VIEW COMPETITIONS of its clubs; OG menus otherwise
  * unchanged; projection identity fix; Coppa Italia TEST placeholder 44:79. */
 /* v00.13.307 PREPARED: bottom pool standby cardinality and native slot preflight. */
-#define SWOS_EXPANDED_VERSION "00.13.307"
+/* v308 PREPARED: atomic direct league family membership transition; finals/pool pending. */
+/* v308 PREPARED: generic cross-region pool transaction planner; lifecycle hookup pending. */
+/* v308 PREPARED: cross-region free standby compensation; runtime hookup pending. */
+/* v308 PREPARED: opt-in original-table KO reseeding (not activated in leagues). */
+/* v308 PREPARED: A-League finals attached to CE, UL03 regular ranking, phase-aware manager dispatch. */
+#define SWOS_EXPANDED_VERSION "00.13.308"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

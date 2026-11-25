@@ -3,6 +3,43 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct HistoryRule {
+    ExpandedEditionKey edition;
+    uint32_t played,count;
+    ExpCeInitialDeduction *deductions;
+} HistoryRule;
+static HistoryRule *s_history;
+static uint32_t s_history_n;
+void ExpCeTable_HistoryReset(void)
+{
+    uint32_t i;
+    for(i=0;i<s_history_n;++i)free(s_history[i].deductions);
+    free(s_history);s_history=NULL;s_history_n=0;
+}
+int ExpCeTable_HistoryAdd(ExpandedEditionKey edition,uint32_t played,
+    const ExpCeInitialDeduction *deductions,uint32_t count)
+{
+    HistoryRule *rules;
+    ExpCeInitialDeduction *copy=NULL;
+    uint32_t i,j;
+    if(!played || (count&&!deductions))return 0;
+    for(i=0;i<s_history_n;++i)
+        if(ExpandedEditionKey_Equal(s_history[i].edition,edition))return 0;
+    for(i=0;i<count;++i){
+        if(!deductions[i].club||!deductions[i].points)return 0;
+        for(j=0;j<i;++j)if(deductions[j].club==deductions[i].club)return 0;
+    }
+    if(count){
+        copy=(ExpCeInitialDeduction *)malloc((size_t)count*sizeof *copy);
+        if(!copy)return 0;
+        memcpy(copy,deductions,(size_t)count*sizeof *copy);
+    }
+    rules=(HistoryRule *)realloc(s_history,(size_t)(s_history_n+1u)*sizeof *rules);
+    if(!rules){free(copy);return 0;}
+    s_history=rules;
+    s_history[s_history_n++]=(HistoryRule){edition,played,count,copy};
+    return 1;
+}
 typedef struct TbCtx {
     const ExpandedUniversalRegistry *r;
     ExpandedEditionKey edition;
@@ -147,7 +184,7 @@ int ExpCeTable_Compute(const ExpandedUniversalRegistry *r,
                        ExpCeTableRow *rows,uint32_t capacity,uint32_t *used)
 {
     TbCtx c;
-    uint32_t i,n=0u;
+    uint32_t i,n=0u,historical=0u;
     if(used)*used=0u;
     if(!r || !rules || !rows || !used || !capacity || !stage ||
        !r->fixtures || !r->ledger.entries ||
@@ -177,6 +214,17 @@ int ExpCeTable_Compute(const ExpandedUniversalRegistry *r,
         if(l->state!=EXP_FIXTURE_PLAYED)continue;
         s.home=l->score.home;s.away=l->score.away;
         row_apply(&rows[hi],&rows[ai],&s,rules);
+        if(l->score.flags&EXP_CE_SCORE_START_HISTORY)++historical;
+    }
+    if(historical){
+        const HistoryRule *h=NULL;uint32_t j,k;
+        for(j=0;j<s_history_n;++j)if(ExpandedEditionKey_Equal(s_history[j].edition,edition))h=&s_history[j];
+        if(!h || stage!=1u || historical!=h->played)return 0;
+        for(j=0;j<h->count;++j){
+            for(k=0;k<n&&rows[k].club.stable_club!=h->deductions[j].club;++k){}
+            if(k==n||rows[k].points<h->deductions[j].points)return 0;
+            rows[k].points-=h->deductions[j].points;
+        }
     }
     if(!rank_segment(&c,rows,0u,n,0u))return 0;
     for(i=0;i<n;++i)rows[i].rank=i+1u;

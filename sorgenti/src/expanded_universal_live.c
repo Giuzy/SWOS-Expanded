@@ -213,19 +213,19 @@ static int exp_live_engine_definitions(void)
 {
     /* a malformed ce_competitions.json is logged by the builder and leaves
      * only the league definitions: leagues keep their lifecycle */
-    (void)ExpCe_BuildWorldDefinitions((uint16_t)World_Current());
-    return 1;
+    return ExpCe_BuildWorldDefinitions((uint16_t)World_Current())!=-2;
 }
 /* START: editions of the first season + JSON first editions. */
-static void exp_live_engine_start(ExpandedUniversalRegistry *r)
+static int exp_live_engine_start(ExpandedUniversalRegistry *r)
 {
     if(!exp_live_engine_definitions() ||
        !ExpCe_BeginWorld(r,&s_ce_host,(uint16_t)World_Current(),World_FirstYear())) {
         fprintf(stderr,"[ce-engine] BEGIN_FAILED world=%s (leagues still "
             "play their first edition; lifecycle disabled)\n",World_Tag());
-        return;
+        return 0;
     }
     (void)ExpCe_Tick(r,&s_ce_host,r->scheduler.clock.day_index);
+    return 1;
 }
 /* CONTINUE: called by the loader once rosters/catalog are back. */
 int ExpandedUniversalLive_EngineRestore(void)
@@ -299,7 +299,7 @@ int ExpandedUniversalLive_Start(void)
     ExpandedUniversal_CarResetCurrent(); /* in RAM only, not an old CAR file */
     if(!ExpandedUniversal_CarBegin(
         (ExpandedWorldDate){World_FirstYear(),7u,1u},
-        a.future_fixtures))return 0;
+        a.future_fixtures+a.historical_verified))return 0;
     r=ExpandedUniversal_CarRegistry();
     if(!r)return 0;
 #if SIZE_MAX < UINT64_MAX
@@ -318,7 +318,10 @@ int ExpandedUniversalLive_Start(void)
     for(i=0;i<a.fixtures;++i) {
         const ExpandedUniversalCatalogFixture *f=
             ExpandedUniversalCatalog_Fixture(i);
-        if(!f || f->past_at_start || f->date_collision) {
+        if(f && f->seed_continuation && f->date_collision){
+            free(ordered);ExpandedUniversal_CarResetCurrent();return 0;
+        }
+        if(!f || (f->past_at_start && !f->historical_verified) || f->date_collision) {
             ++skipped;
             continue;
         }
@@ -335,10 +338,11 @@ int ExpandedUniversalLive_Start(void)
         r->fixtures[i]=*f;
         memset(claim,0,sizeof *claim);
         claim->key=f->key;
-        claim->state=EXP_FIXTURE_SCHEDULED;
+        claim->state=ordered[i]->historical_verified?EXP_FIXTURE_PLAYED:EXP_FIXTURE_SCHEDULED;
+        if(ordered[i]->historical_verified)claim->score=ordered[i]->historical_score;
         *event=(ExpandedScheduledEvent){
             f->event_id,0u,f->day_index,10u,EXP_EVENT_FIXTURE,
-            EXP_EVENT_PENDING};
+            ordered[i]->historical_verified?EXP_EVENT_COMPLETE:EXP_EVENT_PENDING};
     }
     free(ordered);ordered=NULL;
     r->fixture_count=registered;
@@ -367,7 +371,7 @@ int ExpandedUniversalLive_Start(void)
         (unsigned)a.source_complete,(unsigned long)a.missing_cup_fixtures,
         (unsigned long)a.prestart_unresolved,
         (unsigned long)a.day_collisions);
-    exp_live_engine_start(r);
+    if(!exp_live_engine_start(r)){ExpandedUniversal_CarResetCurrent();return 0;}
     return 1;
 }
 static ExpandedUniversalResult run_match(
@@ -484,10 +488,16 @@ void ExpandedUniversalLive_ResetCpuBatch(void)
  * (CPU ones with VIEW RESULT), so ordinary FORWARD must stop BEFORE the
  * first of them, not only before the manager's own fixture. Cups keep the
  * previous manager-fixture-only stop (no native CE bracket yet). */
+static int exp_live_is_league_round(const ExpandedUniversalFixture *f)
+{
+    uint8_t kind=0;
+    return f && f->competition_type==0u &&
+           ExpCe_FixturePhase(f,&kind,NULL) && kind==EXP_CE_PHASE_TABLE;
+}
 static int exp_live_same_round(const ExpandedUniversalFixture *f,
                                const ExpandedUniversalFixture *mf)
 {
-    return f && mf && f->competition_type==0u && mf->competition_type==0u &&
+    return exp_live_is_league_round(f) && exp_live_is_league_round(mf) &&
            f->day_index==mf->day_index &&
            ExpandedEditionKey_Equal(f->key.edition,mf->key.edition);
 }
@@ -801,7 +811,7 @@ int ExpandedUniversalLive_ManagerDueIsNonLeague(void)
        !ExpandedUniversalLive_TodayIndex(&today) || !manager_key(&manager))
         return 0;
     f=exp_live_manager_fixture(r,manager);
-    return f && f->day_index==today && f->competition_type!=0u;
+    return f && f->day_index==today && !exp_live_is_league_round(f);
 }
 int ExpandedUniversalLive_PlayManager(void)
 {

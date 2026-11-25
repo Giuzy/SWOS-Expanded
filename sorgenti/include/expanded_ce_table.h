@@ -21,6 +21,13 @@
 /* score.flags bits written by the OG adapters (witness). */
 #define EXP_CE_SCORE_EXTRA_TIME 0x01u  /* extra time was played */
 #define EXP_CE_SCORE_PENALTIES  0x02u  /* shoot-out was played */
+#define EXP_CE_SCORE_START_HISTORY 0x08u /* verified pre-START, never an OG witness */
+typedef struct ExpCeInitialDeduction { uint32_t club, points; } ExpCeInitialDeduction;
+/* Immutable rules of a seeded edition; loaded from the same START JSON
+ * on START and CONTINUE. Older unseeded CARs are not retroactively changed. */
+void ExpCeTable_HistoryReset(void);
+int ExpCeTable_HistoryAdd(ExpandedEditionKey edition,uint32_t played,
+    const ExpCeInitialDeduction *deductions,uint32_t count);
 
 typedef struct ExpCeTableRow {
     ExpandedClubKey club;

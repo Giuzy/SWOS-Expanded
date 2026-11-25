@@ -1,3 +1,7 @@
+## 25/11/2026 — v00.13.308 PREPARED: UL03 league regular ranking
+
+The outer `universal_lifecycle` prefix UL01: is unchanged. The inner magic UL03 is emitted only if a league edition contains a distinct regular ranking; each edition gets a 16-bit count and stable club IDs after its championship order. UL01/UL02 decode unchanged, UL03 validates complete regular membership/no duplicates; older readers reject UL03 rather than overwrite it. Inline and snapshot share encode_hex. Existing active A-League rules hash differs, RULES_CHANGED blocks rather than silently changing its schedule. No migration of existing saves or Windows CONTINUE proven.
+
 ## 24/11/2026 — v00.13.299: UE03 / UL02 (tipo partecipante e convocazioni)
 `universal_engine` scrive `UE03:` (25 colonne: le 23 di UE02 + `home_kind`, `away_kind`); i salvataggi `UE02:` si leggono con tipo CLUB. Il blob `universal_lifecycle` (prefisso testo `UL01:` invariato) contiene il magic interno `UL02` con `participant_kind` per edizione, il tipo di ogni partecipante e un contatore di liste convocati (sempre 0 da v00.13.300: le convocazioni sono dell'OG; i record scritti dalla v299 vengono letti e scartati); `UL01` resta leggibile. Una CAR v299 non è leggibile da build ≤ v298. Windows CONTINUE NON PROVATO.
 

@@ -1,0 +1,285 @@
+{
+  "block": 155,
+  "head": "5b5dbd81aa413002fb92873eb386079929e94f50",
+  "row": 395,
+  "world": "2627",
+  "edition": "2026/27",
+  "name": "Taça da Liga",
+  "sourceRowBlob": "f14d3a0299f4de0580619f335b2396b17ec22332",
+  "initialCalendar": {
+    "status": "COMPLETE_OFFICIAL_SCHEDULE",
+    "fixtures": [
+      {
+        "id": "Q1",
+        "date": "2026-10-28",
+        "home": "FC Porto",
+        "away": "Académico",
+        "status": "ACTUAL_DATE_CONFIRMED_NO_SCORE_IMPORTED"
+      },
+      {
+        "id": "Q2",
+        "date": "2026-10-27",
+        "home": "Sporting CP",
+        "away": "Marítimo",
+        "status": "ACTUAL_DATE_CONFIRMED_NO_SCORE_IMPORTED"
+      },
+      {
+        "id": "Q3",
+        "date": "2026-10-29",
+        "home": "SL Benfica",
+        "away": "Gil Vicente",
+        "status": "ACTUAL_DATE_CONFIRMED_NO_SCORE_IMPORTED"
+      },
+      {
+        "id": "Q4",
+        "date": "2026-10-29",
+        "home": "SC Braga",
+        "away": "FC Famalicão",
+        "status": "ACTUAL_DATE_CONFIRMED_NO_SCORE_IMPORTED"
+      },
+      {
+        "id": "S1",
+        "date": "2027-01-05",
+        "home": "WINNER_Q1",
+        "away": "WINNER_Q3",
+        "status": "OFFICIAL_SCHEDULE_FUTURE",
+        "officialMatchNo": "30201"
+      },
+      {
+        "id": "S2",
+        "date": "2027-01-06",
+        "home": "WINNER_Q2",
+        "away": "WINNER_Q4",
+        "status": "OFFICIAL_SCHEDULE_FUTURE",
+        "officialMatchNo": "30202"
+      },
+      {
+        "id": "F",
+        "date": "2027-01-09",
+        "home": "WINNER_S1",
+        "away": "WINNER_S2",
+        "status": "OFFICIAL_SCHEDULE_FUTURE",
+        "officialMatchNo": "30301"
+      }
+    ],
+    "sources": [
+      "https://www.ligaportugal.pt/news/27935/definidos-os-quartos-de-final-da-allianz-cup-20262027",
+      "https://www.ligaportugal.pt/noticias/28537/horarios-dos-quartos-de-final-da-20.a-edicao-da-allianz-cup",
+      "https://www.ligaportugal.pt/competicao/914/allianz-cup/20262027/calendario",
+      "https://www.ligaportugal.pt/backoffice/assets/Comunicado_Oficial_n_109_Jogos_das_meias_finais_e_da_final_da_Allianz_CUP_ab0f233166.pdf"
+    ],
+    "constraint": "Future slots remain conditional on OG game results; actual real-life post-cutoff winners/scores excluded. PDF text inspected, screenshot cache miss."
+  },
+  "evolution": {
+    "status": "PARTIAL",
+    "names": [
+      [
+        "2007/08–2009/10",
+        "Carlsberg Cup"
+      ],
+      [
+        "2010/11–2011/12 until January 2012",
+        "Bwin Cup"
+      ],
+      [
+        "January 2012–2014/15",
+        "Taça da Liga"
+      ],
+      [
+        "2015/16–2017/18",
+        "Taça CTT"
+      ],
+      [
+        "2018/19–2026/27",
+        "Allianz Cup"
+      ]
+    ],
+    "nameSources": [
+      "https://www.dn.pt/arquivo/diario-de-noticias/taca-da-liga-passa-a-ter-patrocinio-dos-ctt.html",
+      "https://www.record.pt/futebol/futebol-nacional/allianz-cup/detalhe/liga-obrigada-a-retirar-publicidade-da-bwin-734819",
+      "https://www.rtp.pt/noticias/futebol-nacional/caso-bwin-pode-ser-catastrofico-avisa-fpf_d516710",
+      "https://observador.pt/opiniao/allianz-cup-uma-prova-com-muita-emocao-e-ainda-mais-laivos-de-boa-gestao/"
+    ],
+    "note": "January 2012 legal withdrawal (reported 7–9 Jan), not assumed 2011/12 season start; exact branding removal event unresolved. Core name stays Taça da Liga; sponsor aliases do not create new identity.",
+    "formatVersions": [
+      [
+        "1996/97–2006/07",
+        "not held"
+      ],
+      [
+        "2007/08",
+        "32 teams, first 3 single KO rounds (8 games each), fourth 4 two-leg ties, group4 single round robin 6 matches, top2 final; 39 matches"
+      ],
+      [
+        "2008/09–2009/10",
+        "preliminary two legs, first 6 groups of 3, second 3 groups of 4, 3 group winners + best runner-up to SF"
+      ],
+      [
+        "2010/11–2014/15",
+        "initial groups then two-leg qualifying round then four final-stage groups, SF/final; variable group sizes, some early data incomplete"
+      ],
+      [
+        "2015/16–2019/20",
+        "two KO stages then four groups of four, SF/final; Final Four since 2016/17"
+      ],
+      [
+        "2020/21",
+        "8 club KO exception"
+      ],
+      [
+        "2021/22",
+        "two KO rounds, four groups of 3, SF/final"
+      ],
+      [
+        "2022/23",
+        "8 groups, QF/SF/final one-off World Cup calendar"
+      ],
+      [
+        "2023/24",
+        "return to 2021/22 model"
+      ],
+      [
+        "2024/25–2026/27",
+        "eight-team single-leg KO"
+      ],
+      [
+        "2027/28",
+        "separate approved future expansion, not apply early"
+      ]
+    ],
+    "formatSources": [
+      "corpus/tablesp/portleagcup08.txt",
+      "corpus/tablesp/portleagcup09.txt",
+      "corpus/tablesp/port2010.txt through port2026.txt",
+      "corpus/tablesp/portleagcuphist.txt",
+      "https://www.zerozero.pt/noticias/taca-da-liga-2024-25-definida-sabe-quantos-formatos-ja-teve-a-competicao/628875",
+      "https://www.jpn.up.pt/2024/05/24/nova-taca-da-liga-foi-aprovada-e-ja-tem-jogos-definidos/",
+      "https://www.ligaportugal.pt/news/28953/pontape-de-saida-para-uma-edicao-historica"
+    ],
+    "ruleEvidence": [
+      {
+        "edition": "2007/08",
+        "rule": "First three KO rounds direct penalties; fourth two legs, away-goals rule; finals direct penalties",
+        "sources": [
+          "https://www.jpn.up.pt/2007/05/18/futebol-taca-da-liga-confirmada-para-a-proxima-epoca/",
+          "https://www.dn.pt/arquivo/diario-de-noticias/golos-fora-contam-a-dobrar%3B-penaltis-no-fim-dos-90-minutos.html"
+        ]
+      },
+      {
+        "edition": "2008/09",
+        "rule": "Group goal-average criterion interpreted by Liga as goal difference, disputed; next goals scored; lower mean player age reported. Preserve dispute, not universal rule.",
+        "sources": [
+          "https://www.jpn.up.pt/2009/03/05/taca-da-liga-uma-competicao-polemica/",
+          "https://www.guimaraesdigital.pt/index.php/informacao/desporto/15419-37685",
+          "https://redvermelho.blogspot.com/2009/01/"
+        ]
+      },
+      {
+        "edition": "2009/10",
+        "rule": "Age tie-break actually used; archive presumed lot for Académica contradicted by club archive administrative appeal.",
+        "sources": [
+          "https://arquivos.portimonense.pt/seniores_jogos.php?competicao=Ta%C3%A7a+da+Liga&epoca=2009%2F2010&modalidade=Futebol+Seniores&prova=TL",
+          "https://www.dn.pt/arquivo/diario-de-noticias/tecnico-muda-guarda-redes-e-afasta-academica.html"
+        ]
+      },
+      {
+        "edition": "2011/12",
+        "rule": "Contemporary report states no ET",
+        "sources": [
+          "https://www.record.pt/futebol/futebol-nacional/allianz-cup/detalhe/em-caso-de-empate-havera-penaltis-747300"
+        ]
+      },
+      {
+        "edition": "2018/19",
+        "rule": "All single-leg knockout ties direct penalties, no ET",
+        "sources": [
+          "https://www.zerozero.pt/noticias/como-uma-pretendida-troca-de-guarda-redes-gerou-um-impasse-em-famalicao/226613"
+        ]
+      }
+    ],
+    "archiveConflicts": [
+      {
+        "edition": "2012/13",
+        "fixture": "Braga–Benfica",
+        "corpus": "aet",
+        "verified": "direct penalties after 90 min",
+        "sources": [
+          "https://www.rtp.pt/noticias/futebol-nacional/taca-da-liga-benfica-e-sporting-de-braga-com-igualdade-quase-total-na-prova_d1290173"
+        ]
+      },
+      {
+        "edition": "2013/14",
+        "fixture": "Porto–Benfica",
+        "corpus": "aet",
+        "verified": "direct penalties after 90 min",
+        "sources": [
+          "https://pt.uefa.com/news-media/news/0214-0f8a52302b48-ac699f8de822-1000--benfica-apura-se-para-a-final-nos-penalties/"
+        ]
+      },
+      {
+        "edition": "2019/20",
+        "fixture": "Académica–Farense",
+        "corpus": "aet",
+        "verified": "direct penalties after 90 min",
+        "sources": [
+          "https://futebol365.pt/artigo/211308-academica-vence-farense-nos-penaltis-e-segue-em-frente-na-taca-da-liga/"
+        ]
+      },
+      {
+        "edition": "2019/20",
+        "fixture": "Casa Pia–Vilafranquense",
+        "corpus": "aet",
+        "verified": "direct penalties after 90 min",
+        "sources": [
+          "https://futebol365.pt/artigo/211341-taca-da-liga-casa-pia-vence-novamente-nos-penaltis-o-vilafranquense/"
+        ]
+      },
+      {
+        "edition": "2019/20",
+        "fixture": "Leixões–Cova da Piedade",
+        "corpus": "aet",
+        "verified": "direct penalties after 90 min",
+        "sources": [
+          "https://www.record.pt/futebol/futebol-nacional/allianz-cup/detalhe/leixoes-cova-da-piedade-0-0-equipa-de-matosinhos-garante-triunfo-nos-penaltis-5-4"
+        ]
+      },
+      {
+        "edition": "2019/20",
+        "fixture": "Sporting Covilhã–Varzim",
+        "corpus": "aet",
+        "verified": "direct penalties after 90 min",
+        "sources": [
+          "https://futebol365.pt/artigo/211349-taca-da-liga-sporting-da-covilha-bate-varzim-nos-penaltis-e-segue-em-frente/"
+        ]
+      },
+      {
+        "edition": "2019/20",
+        "fixture": "Nacional–Chaves",
+        "corpus": "aet",
+        "verified": "direct penalties after 90 min",
+        "sources": [
+          "https://futebol365.pt/artigo/211605-taca-da-liga-chaves-bate-nacional-nos-penaltis-e-esta-na-fase-de-grupos/"
+        ]
+      },
+      {
+        "edition": "2019/20",
+        "fixture": "Paços Ferreira–Estoril",
+        "corpus": "aet",
+        "verified": "penalty outcome reported; immediate timing not explicitly checked",
+        "sources": [
+          "https://futebol365.pt/artigo/211616-taca-da-liga-pacos-de-ferreira-vence-estoril-praia-nos-penaltis/"
+        ]
+      }
+    ],
+    "remaining": "Complete edition-specific group tiebreak sequence, averaging/minutes eligibility, two-leg aggregate rules and dates of changes not established for all historical families. Do not invent; no full evolution closure."
+  },
+  "archivePriority": {
+    "corpusSha256": "c2c9b1ba362ae36ab5ad200ac063cd89e3d970cc33c77b3660024df12bf08e94",
+    "parquet": "parser absent",
+    "Matches": "division schema inspected, no cup rules",
+    "worldfootballR": "RDS parser absent",
+    "euroSheets": "Library search returned no hits",
+    "github": "FootballCSV and four supplied repository landing pages checked for scope; xgabora cache miss; no identified rulebook there; targeted web for gaps."
+  },
+  "researchOnly": true
+}

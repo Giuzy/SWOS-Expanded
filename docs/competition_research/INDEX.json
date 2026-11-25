@@ -2142,7 +2142,7 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 154,
+  "lastPreparedBlock": 155,
   "cutoffScope": "CUTOFF_SCOPE.json",
   "anomalies": "ANOMALIES.json",
   "matrixAudit": "MATRIX_AUDIT.json",
@@ -2212,22 +2212,22 @@
     "closure/FIELD_CENSUS_144_A.json"
   ],
   "namedClosureRowPath": {
-    "89": "closure/NAMED_CLOSURE_154.json",
-    "90": "closure/NAMED_CLOSURE_154.json",
-    "165": "closure/NAMED_CLOSURE_154.json",
-    "186": "closure/NAMED_CLOSURE_154.json",
-    "231": "closure/NAMED_CLOSURE_154.json",
-    "232": "closure/NAMED_CLOSURE_154.json",
-    "235": "closure/NAMED_CLOSURE_154.json",
-    "239": "closure/NAMED_CLOSURE_154.json",
-    "243": "closure/NAMED_CLOSURE_154.json",
-    "275": "closure/NAMED_CLOSURE_154.json",
-    "286": "closure/NAMED_CLOSURE_154.json",
-    "287": "closure/NAMED_CLOSURE_154.json",
-    "358": "closure/NAMED_CLOSURE_154.json",
-    "395": "closure/NAMED_CLOSURE_154.json",
-    "425": "closure/NAMED_CLOSURE_154.json",
-    "432": "closure/NAMED_CLOSURE_154.json"
+    "89": "closure/NAMED_CLOSURE_155.json",
+    "90": "closure/NAMED_CLOSURE_155.json",
+    "165": "closure/NAMED_CLOSURE_155.json",
+    "186": "closure/NAMED_CLOSURE_155.json",
+    "231": "closure/NAMED_CLOSURE_155.json",
+    "232": "closure/NAMED_CLOSURE_155.json",
+    "235": "closure/NAMED_CLOSURE_155.json",
+    "239": "closure/NAMED_CLOSURE_155.json",
+    "243": "closure/NAMED_CLOSURE_155.json",
+    "275": "closure/NAMED_CLOSURE_155.json",
+    "286": "closure/NAMED_CLOSURE_155.json",
+    "287": "closure/NAMED_CLOSURE_155.json",
+    "358": "closure/NAMED_CLOSURE_155.json",
+    "395": "closure/NAMED_CLOSURE_155.json",
+    "425": "closure/NAMED_CLOSURE_155.json",
+    "432": "closure/NAMED_CLOSURE_155.json"
   },
   "namedClosurePreviousVersionRowPath": {
     "89": "closure/NAMED_CLOSURE_154.json",
@@ -2291,5 +2291,8 @@
     "89": "closure/UEFA_NATIVE_ENTRANTS_154.json",
     "90": "closure/UEFA_NATIVE_ENTRANTS_154.json",
     "165": "closure/UEFA_NATIVE_ENTRANTS_154.json"
+  },
+  "porLeagueCupConsolidationRowPath": {
+    "395": "closure/POR_LEAGUE_CUP_155.json"
   }
 }

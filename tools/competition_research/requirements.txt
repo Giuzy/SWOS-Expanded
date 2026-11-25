@@ -1,0 +1,6 @@
+pandas>=2.2,<3
+pyarrow>=15,<25
+rdata>=0.11,<2
+pyreadr>=0.5,<1
+openpyxl>=3.1,<4
+xlrd>=2.0,<3

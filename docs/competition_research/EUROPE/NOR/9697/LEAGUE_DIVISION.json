@@ -84,6 +84,163 @@
         "firstObserved": "1996-04-13"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "closure142": {
+      "sourceBlob": "e0c23eeb443ccca219d08fbc51202669f02e9684",
+      "sectionCountry": "NOR",
+      "edition": "1996",
+      "fixtureCount": 182,
+      "participantCount": 14,
+      "observedPairMultiplicity": 1,
+      "firstDate": "1996-04-13",
+      "lastDate": "1996-10-20",
+      "withinSetCollisions": 0,
+      "expectedHistoricalTeams": 14,
+      "teamCountAgrees": true,
+      "dateStatus": "COMPLETE_REGULAR_PAIR_SET_SOURCE_OBSERVED",
+      "nativeStatus": "COMPLETE_STATIC_LEGACY_ROSTER_MATCH",
+      "nativeFileSha": "2699ae66b5f6125260c310b50e29d7b7ccd4807b",
+      "nativeTopTierCount": 14,
+      "mappedCount": 14,
+      "oneToOne": true,
+      "scope": "Exact first-edition top-tier row link. Source dates/orientation available, not independently reconciled or playoffs certified. Legacy file/ordinal/uuid is static native identity, not 2627 cat_key. No automatic successor aliases or generated calendar rules. Do not duplicate fixture list.",
+      "nativeMapping": [
+        {
+          "externalIndex": 0,
+          "externalLabel": "Bodø / Glimt (Norway)",
+          "historicalLabel": "Bodø/Glimt",
+          "nativeName": "BODO GLIMT",
+          "file": 27,
+          "ordinal": 0,
+          "uuid": "93c733a1-15bf-508d-bd80-7063e2153488"
+        },
+        {
+          "externalIndex": 1,
+          "externalLabel": "Brann (Norway)",
+          "historicalLabel": "Brann",
+          "nativeName": "BRANN",
+          "file": 27,
+          "ordinal": 1,
+          "uuid": "ae7ae259-f2cc-577e-9204-b73ce8e28f36"
+        },
+        {
+          "externalIndex": 2,
+          "externalLabel": "Ik Start (Norway)",
+          "historicalLabel": "Start",
+          "nativeName": "START",
+          "file": 27,
+          "ordinal": 15,
+          "uuid": "e314dfa8-4023-5a3b-8fba-1fc3bf4653c5"
+        },
+        {
+          "externalIndex": 3,
+          "externalLabel": "Kongsvinger Il (Norway)",
+          "historicalLabel": "Kongsvinger",
+          "nativeName": "KONGSVINGER",
+          "file": 27,
+          "ordinal": 5,
+          "uuid": "1290c774-a621-5987-bb04-c476d3e92737"
+        },
+        {
+          "externalIndex": 4,
+          "externalLabel": "Lillestroem SK (Norway)",
+          "historicalLabel": "Lillestrøm",
+          "nativeName": "LILLESTROM",
+          "file": 27,
+          "ordinal": 6,
+          "uuid": "f955f428-7b4d-519c-8cdd-078abccc9ff8"
+        },
+        {
+          "externalIndex": 5,
+          "externalLabel": "Molde (Norway)",
+          "historicalLabel": "Molde",
+          "nativeName": "MOLDE",
+          "file": 27,
+          "ordinal": 9,
+          "uuid": "9a3f6836-d231-5a75-b83b-8dbc28bac68f"
+        },
+        {
+          "externalIndex": 6,
+          "externalLabel": "Moss FK (Norway)",
+          "historicalLabel": "Moss",
+          "nativeName": "MOSS",
+          "file": 27,
+          "ordinal": 10,
+          "uuid": "170e644e-13d0-5806-959c-d436abbbc7af"
+        },
+        {
+          "externalIndex": 7,
+          "externalLabel": "Rosenborg (Norway)",
+          "historicalLabel": "Rosenborg",
+          "nativeName": "ROSENBORG",
+          "file": 27,
+          "ordinal": 11,
+          "uuid": "048fa5e4-e588-52b2-bb1b-92973985bbde"
+        },
+        {
+          "externalIndex": 8,
+          "externalLabel": "Skeid Football (Norway)",
+          "historicalLabel": "Skeid",
+          "nativeName": "SKEID",
+          "file": 27,
+          "ordinal": 12,
+          "uuid": "54ea41c5-8581-5fd1-afee-cd3caf0b0541"
+        },
+        {
+          "externalIndex": 9,
+          "externalLabel": "Stabaek If (Norway)",
+          "historicalLabel": "Stabæk",
+          "nativeName": "STABAEK",
+          "file": 27,
+          "ordinal": 14,
+          "uuid": "55e48d79-84fe-5972-97b7-96ae94307c50"
+        },
+        {
+          "externalIndex": 10,
+          "externalLabel": "Strømsgodset (Norway)",
+          "historicalLabel": "Strømsgodset",
+          "nativeName": "STROMSGODSET",
+          "file": 27,
+          "ordinal": 17,
+          "uuid": "816afbab-b8e5-5bc0-94f6-6d75d314f952"
+        },
+        {
+          "externalIndex": 11,
+          "externalLabel": "Tromsø (Norway)",
+          "historicalLabel": "Tromsø",
+          "nativeName": "TROMSO",
+          "file": 27,
+          "ordinal": 18,
+          "uuid": "eca20ddb-3cbb-59a0-b2b5-30cdbef3c81e"
+        },
+        {
+          "externalIndex": 12,
+          "externalLabel": "Viking (Norway)",
+          "historicalLabel": "Viking",
+          "nativeName": "VIKING",
+          "file": 27,
+          "ordinal": 20,
+          "uuid": "c1c879a8-6656-5b87-8307-cb869bae3ac5"
+        },
+        {
+          "externalIndex": 13,
+          "externalLabel": "Vålerenga (Norway)",
+          "historicalLabel": "Vålerenga",
+          "nativeName": "VIF FOTBALL",
+          "file": 27,
+          "ordinal": 19,
+          "uuid": "33a0ff43-870f-51b4-aa1a-e3ce53a07a98"
+        }
+      ],
+      "aliasMethod": "Explicit country/tier-specific identity mapping, including Vålerenga/VIF FOTBALL, IK Start/START, Lillestrøm/LILLESTROM and Skeid Football/SKEID. All 14 native first-tier entries used exactly once.",
+      "preCutoffDateComparison": {
+        "sourceSnapshotSha": "46ac89a6160e4ac70d19230844c32ef2ad580c57",
+        "snapshotCount": 89,
+        "archiveCount": 89,
+        "exactDateOrientedPairs": 89,
+        "mismatches": [],
+        "scope": "Compare dates/orientations only; no new scores. Does not certify entire calendar or all match rules."
+      }
     }
   }
 ]

@@ -1,0 +1,182 @@
+{
+  "block": 143,
+  "head": "2f8f4fce97ac0ab29dd2ee1208655a0a052ee7e4",
+  "status": "EXISTING_CUTOFF_EVIDENCE_CONSOLIDATED_NOT_COMPLETE",
+  "scope": "No new result or score; existing dated score references checked only. Exact labels, not a global collision audit. Group arithmetic 3/1/0 for Chile league cup only; computed table not official ranking certification. No generation policy set.",
+  "summary": {
+    "rows": 6,
+    "scores": 109,
+    "duplicates": 0,
+    "invalidScoreDate": 0,
+    "withinCompetitionDayConflicts": 0,
+    "crossCompetitionExactLabelConflicts": [],
+    "tableRecomputedRows": [
+      340
+    ]
+  },
+  "rows": [
+    {
+      "row": 221,
+      "country": "CHI",
+      "edition": "2026",
+      "sourceRowPath": "SOUTH_AMERICA/CHI/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "14c6e3c8e6183b05ad98365d21986fdc853a9976",
+      "ruleField": "block110Research.rules",
+      "cutoffField": "block110Research.cutoff",
+      "scoreCount": 10,
+      "distinctLabels": 16,
+      "duplicates": [],
+      "invalidScoreDate": [],
+      "withinCompetitionDayConflicts": [],
+      "tableAudit": null,
+      "storedPendingPairs": [],
+      "state": "PARTIAL",
+      "scope": "Selected results only, not full cutoff table.",
+      "remaining": "Reallocation, relegation and full tie-break rules pending. ANFP December decision describes one-match playoff; secondary later account claims two legs; retain conflict.",
+      "identity": "NATIVE_KEYS_PENDING"
+    },
+    {
+      "row": 339,
+      "country": "CHI",
+      "edition": "2026",
+      "sourceRowPath": "SOUTH_AMERICA/CHI/2627/NATIONAL_CUP.json",
+      "sourceRowBlob": "e8a6f89babeeac5ae692a9005896af216e9c6bff",
+      "ruleField": "block110Research.rules",
+      "cutoffField": "block110Research.cutoff",
+      "scoreCount": 1,
+      "distinctLabels": 2,
+      "duplicates": [],
+      "invalidScoreDate": [],
+      "withinCompetitionDayConflicts": [],
+      "tableAudit": null,
+      "storedPendingPairs": [],
+      "state": "PARTIAL",
+      "scope": "Group stage in progress; full pre-cutoff match list not yet extracted. Do not use August final tables.",
+      "remaining": "Intermediate KO legs and exact tie-break not asserted.",
+      "identity": "NATIVE_KEYS_PENDING"
+    },
+    {
+      "row": 340,
+      "country": "CHI",
+      "edition": "2026",
+      "sourceRowPath": "SOUTH_AMERICA/CHI/2627/LEAGUE_CUP.json",
+      "sourceRowBlob": "00c812c28cb5c5503e79af20f97ddc42890298d1",
+      "ruleField": "block110Research.rules",
+      "cutoffField": "block110Research.cutoff",
+      "scoreCount": 48,
+      "distinctLabels": 16,
+      "duplicates": [],
+      "invalidScoreDate": [],
+      "withinCompetitionDayConflicts": [],
+      "tableAudit": {
+        "groups": 4,
+        "tableRows": 16,
+        "mismatches": [],
+        "groupPairIssues": [],
+        "qualifiers": [
+          {
+            "group": "A",
+            "first": "Coquimbo Unido",
+            "uniquePointsLeader": true
+          },
+          {
+            "group": "B",
+            "first": "Ñublense",
+            "uniquePointsLeader": true
+          },
+          {
+            "group": "C",
+            "first": "O'Higgins",
+            "uniquePointsLeader": true
+          },
+          {
+            "group": "D",
+            "first": "Unión La Calera",
+            "uniquePointsLeader": true
+          }
+        ],
+        "qualifiedListMatches": true,
+        "semifinalEntrantsMatch": true
+      },
+      "storedPendingPairs": [],
+      "state": "PARTIAL",
+      "scope": "All 48 group scores extracted, tables computed 3/1/0; no July scores imported; keys and official full tie-break still pending.",
+      "remaining": "Inaugural edition; no historical repetition before 2026.",
+      "identity": "NATIVE_KEYS_PENDING"
+    },
+    {
+      "row": 342,
+      "country": "COL",
+      "edition": "2026",
+      "sourceRowPath": "SOUTH_AMERICA/COL/2627/NATIONAL_CUP.json",
+      "sourceRowBlob": "4a24298ec68ca047bd9f267900fc215154c987f4",
+      "ruleField": "block110Research.rules",
+      "cutoffField": "block110Research.cutoff",
+      "scoreCount": 8,
+      "distinctLabels": 16,
+      "duplicates": [],
+      "invalidScoreDate": [],
+      "withinCompetitionDayConflicts": [],
+      "tableAudit": null,
+      "storedPendingPairs": [],
+      "state": "PARTIAL",
+      "scope": "No standings reconstructed from incomplete scores. Other rounds/actual qualifiers pending.",
+      "remaining": "PDF text read; screenshot pages unavailable. August amendment not general future template.",
+      "identity": "NATIVE_KEYS_PENDING"
+    },
+    {
+      "row": 348,
+      "country": "ECU",
+      "edition": "2026",
+      "sourceRowPath": "SOUTH_AMERICA/ECU/2627/NATIONAL_CUP.json",
+      "sourceRowBlob": "03760ee5e9085cdbdfe3468be6a5657e64fdd256",
+      "ruleField": "block110Research.rules",
+      "cutoffField": "block110Research.cutoff",
+      "scoreCount": 33,
+      "distinctLabels": 49,
+      "duplicates": [],
+      "invalidScoreDate": [],
+      "withinCompetitionDayConflicts": [],
+      "tableAudit": null,
+      "storedPendingPairs": [
+        [
+          "Santo Domingo",
+          "Independiente del Valle"
+        ],
+        [
+          "Independiente Juniors",
+          "Liga de Quito"
+        ]
+      ],
+      "state": "PARTIAL",
+      "scope": "33 observed pre-cutoff results; no July results imported; all club keys pending.",
+      "remaining": "Preliminary access and single-leg rules supported; remaining match rules and venue ranking require full regulation.",
+      "identity": "NATIVE_KEYS_PENDING"
+    },
+    {
+      "row": 420,
+      "country": "VEN",
+      "edition": "2026",
+      "sourceRowPath": "SOUTH_AMERICA/VEN/2627/NATIONAL_CUP.json",
+      "sourceRowBlob": "fc3d947bb05db7931aad62ca64dc4458e2ba157d",
+      "ruleField": "block110Research.rules",
+      "cutoffField": "block110Research.cutoff",
+      "scoreCount": 9,
+      "distinctLabels": 18,
+      "duplicates": [],
+      "invalidScoreDate": [],
+      "withinCompetitionDayConflicts": [],
+      "tableAudit": null,
+      "storedPendingPairs": [
+        [
+          "Petare",
+          "Marítimo"
+        ]
+      ],
+      "state": "PARTIAL",
+      "scope": "Nine opening-round scores, Dynamo date crosschecked with local-day report; postponed match not a 0-0. Later scores excluded; full group state pending.",
+      "remaining": "Actual later calendar differs from announced format; no assumed future schedule.",
+      "identity": "NATIVE_KEYS_PENDING"
+    }
+  ]
+}

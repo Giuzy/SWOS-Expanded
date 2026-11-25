@@ -1,0 +1,1996 @@
+{
+  "block": 144,
+  "head": "2f8f4fce97ac0ab29dd2ee1208655a0a052ee7e4",
+  "status": "STRUCTURED_FIELD_PRESENCE_LOWER_BOUND",
+  "scope": "Existing row fields only; nonempty explicitly named structured values, not correctness/completeness or applicability certification. Ignore missing/scope/previous-edition fields and parent/alias candidates. Free text may contain further data not counted. Source row SHAs refer committed rows, not overlays. No new research.",
+  "scannedPaths": 15,
+  "scannedRows": 90,
+  "counts": {
+    "format": 79,
+    "regulation": 48,
+    "movement": 22,
+    "qualification": 0
+  },
+  "errors": [],
+  "rows": [
+    {
+      "row": 186,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.rounds",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.titleTie.legs",
+          "block68Research.rules.survivalTie.legs"
+        ],
+        "regulation": [
+          "block68Research.rules.points",
+          "block68Research.rules.titleTie.extraTime",
+          "block68Research.rules.titleTie.penalties",
+          "block68Research.rules.survivalTie.extraTime",
+          "block68Research.rules.survivalTie.penalties",
+          "block68Research.rules.tieBreakers"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount",
+          "block68Research.rules.survivalTie"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 187,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.rounds",
+          "block68Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 188,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 189,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 190,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 191,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 192,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 193,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 194,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 195,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 196,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 197,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 198,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 199,
+      "world": "2627",
+      "country": "ITA",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block68Research.rules.teams",
+          "block68Research.rules.gamesPerClub",
+          "block68Research.rules.rounds"
+        ],
+        "regulation": [
+          "block68Research.rules.points"
+        ],
+        "movement": [
+          "block68Research.rules.relegationCount"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 111,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence49.rules.teams",
+          "sportRuleEvidence49.rules.finalLegs",
+          "block100Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 166,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "PARENT_OR_MAPPING_PENDING"
+    },
+    {
+      "row": 167,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block100Research.rules.teams",
+          "block100Research.rules.groups",
+          "block100Research.rules.groupSize",
+          "block100Research.rules.knockout",
+          "block107Research.rules.groups"
+        ],
+        "regulation": [
+          "block100Research.rules.points",
+          "block107Research.rules.awayGoals",
+          "block107Research.rules.extraTime",
+          "block107Research.rules.penalties"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 168,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence50.rules.groupSize"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 169,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence50.rules.teams",
+          "sportRuleEvidence50.rules.rounds"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 170,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence50.rules.groupSize"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 171,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 172,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "PARENT_OR_MAPPING_PENDING"
+    },
+    {
+      "row": 173,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block100Research.rules.teams",
+          "block100Research.rules.groups",
+          "block100Research.rules.groupSize",
+          "block100Research.rules.knockout",
+          "block100Research.qualifying.teams",
+          "block100Research.qualifying.groups",
+          "block107Research.rules.playoffs"
+        ],
+        "regulation": [
+          "block100Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 174,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 175,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 176,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block100Research.rules.teams",
+          "block100Research.rules.groups",
+          "block100Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 177,
+      "world": "9697",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "4afce5869710d07afe969654935c637e1e96c7c5",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block100Research.rules.teams",
+          "block100Research.rules.groups",
+          "block100Research.rules.groupSize"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 321,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.phase1",
+          "block107Research.rules.phase1.teams",
+          "block107Research.rules.phase1.legs",
+          "block107Research.rules.phase2",
+          "block107Research.rules.phase2.teams",
+          "block107Research.rules.phase2.legs",
+          "block107Research.rules.phase3",
+          "block107Research.rules.phase3.teams",
+          "block107Research.rules.phase3.legs",
+          "block107Research.rules.groups",
+          "block107Research.rules.groupSize",
+          "block107Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 423,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "PARENT_OR_MAPPING_PENDING"
+    },
+    {
+      "row": 424,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.prelim.teams",
+          "block107Research.rules.groups",
+          "block107Research.rules.groupSize",
+          "block107Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 426,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.teams",
+          "block107Research.rules.rounds",
+          "block107Research.rules.legs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 427,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block108Research.rules.preliminary.legs",
+          "block108Research.rules.round16.legs",
+          "block108Research.rules.quarterfinal.legs",
+          "block108Research.rules.semifinalLegs",
+          "block108Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 428,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.teams",
+          "block107Research.rules.groupSize",
+          "block107Research.rules.gamesPerClub",
+          "block108Research.rules.legs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 429,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.groups",
+          "block107Research.rules.groupSize",
+          "block107Research.rules.semifinalLegs",
+          "block107Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 430,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block57Research.rules.groups",
+          "block57Research.rules.groupSize",
+          "block57Research.rules.semifinalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 431,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block57Research.rules.groups",
+          "block57Research.rules.groupSize",
+          "block57Research.rules.semifinalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 433,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.qualifying.teams",
+          "block107Research.rules.qualifying.groups",
+          "block107Research.rules.groups",
+          "block107Research.rules.groupSize",
+          "block107Research.rules.semifinalLegs",
+          "block107Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 525,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.semifinalLegs",
+          "block107Research.rules.finalLegs",
+          "block107Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block107Research.rules.points",
+          "block107Research.rules.awayGoals"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 526,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.semifinalLegs",
+          "block107Research.rules.finalLegs",
+          "block107Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block107Research.rules.points",
+          "block107Research.rules.awayGoals"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 527,
+      "world": "2627",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "2bdd542bde1a2097c792937c6898cfe84d946c16",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.semifinalLegs",
+          "block107Research.rules.finalLegs",
+          "block107Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block107Research.rules.points",
+          "block107Research.rules.awayGoals"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 528,
+      "world": "2627",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "1a2cc449343b42a404d2da4105c1bed0b55efe57",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence49.rules.teams",
+          "sportRuleEvidence49.rules.groups",
+          "sportRuleEvidence49.rules.groupSize",
+          "block64Research.rules.entrants",
+          "block64Research.rules.groups",
+          "block64Research.rules.groupSize"
+        ],
+        "regulation": [
+          "block64Research.rules.pointsWin",
+          "block64Research.rules.pointsDraw"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 529,
+      "world": "2627",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "1a2cc449343b42a404d2da4105c1bed0b55efe57",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence49.rules.teams",
+          "sportRuleEvidence49.rules.groups",
+          "sportRuleEvidence49.rules.groupSize"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 530,
+      "world": "2627",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "1a2cc449343b42a404d2da4105c1bed0b55efe57",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block100Research.rules.teams",
+          "block100Research.rules.groups",
+          "block100Research.rules.groupSize"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 531,
+      "world": "2627",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "1a2cc449343b42a404d2da4105c1bed0b55efe57",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence49.rules.teams",
+          "sportRuleEvidence49.rules.groups",
+          "sportRuleEvidence49.rules.groupSize"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 532,
+      "world": "2627",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "1a2cc449343b42a404d2da4105c1bed0b55efe57",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence49.rules.teams",
+          "sportRuleEvidence49.rules.groups",
+          "sportRuleEvidence49.rules.groupSize",
+          "block100Research.rules.teams",
+          "block100Research.rules.groups",
+          "block100Research.rules.groupSize"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 533,
+      "world": "2627",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "1a2cc449343b42a404d2da4105c1bed0b55efe57",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence49.rules.teams",
+          "sportRuleEvidence49.rules.groups",
+          "sportRuleEvidence49.rules.groupSize",
+          "sportRuleEvidence49.rules.qualifiersFinal.teams",
+          "sportRuleEvidence49.rules.qualifiersFinal.groups"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 534,
+      "world": "2627",
+      "country": null,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "sourceRowPath": "WORLD/INTERNATIONAL/2627/NATIONAL_TEAM_TOURNAMENT.json",
+      "sourceRowBlob": "1a2cc449343b42a404d2da4105c1bed0b55efe57",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block100Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 296,
+      "world": "2627",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9c7bb84511f2c354e734aa240cf48a50edbdc7df",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block95Research.clubs",
+          "block95Research.rounds",
+          "block95Research.playoffs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 297,
+      "world": "2627",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9c7bb84511f2c354e734aa240cf48a50edbdc7df",
+      "sportRuleReview": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "PARENT_OR_MAPPING_PENDING"
+    },
+    {
+      "row": 298,
+      "world": "2627",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9c7bb84511f2c354e734aa240cf48a50edbdc7df",
+      "sportRuleReview": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "PARENT_OR_MAPPING_PENDING"
+    },
+    {
+      "row": 299,
+      "world": "2627",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9c7bb84511f2c354e734aa240cf48a50edbdc7df",
+      "sportRuleReview": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "PARENT_OR_MAPPING_PENDING"
+    },
+    {
+      "row": 300,
+      "world": "2627",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9c7bb84511f2c354e734aa240cf48a50edbdc7df",
+      "sportRuleReview": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "PARENT_OR_MAPPING_PENDING"
+    },
+    {
+      "row": 64,
+      "world": "9697",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "bca6089a42c92042e44f07cdced0b6c42b9ef850",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block95Research.format"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 65,
+      "world": "9697",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "bca6089a42c92042e44f07cdced0b6c42b9ef850",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 66,
+      "world": "9697",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "bca6089a42c92042e44f07cdced0b6c42b9ef850",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 67,
+      "world": "9697",
+      "country": "SLV",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "NORTH_AMERICA/SLV/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "bca6089a42c92042e44f07cdced0b6c42b9ef850",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 68,
+      "world": "9697",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "cb99bafd7dccc0564323c8c0091f5586f09420c5",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block54Research.rules.teams"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 69,
+      "world": "9697",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "cb99bafd7dccc0564323c8c0091f5586f09420c5",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block96Research.clubs",
+          "block96Research.rounds",
+          "block96Research.finalsQualifiers"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 70,
+      "world": "9697",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "cb99bafd7dccc0564323c8c0091f5586f09420c5",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block96Research.clubs",
+          "block96Research.stages",
+          "block96Research.roundsPerStage",
+          "block96Research.format"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 71,
+      "world": "9697",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "cb99bafd7dccc0564323c8c0091f5586f09420c5",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block96Research.clubs",
+          "block96Research.rounds",
+          "block96Research.finalsQualifiers"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 75,
+      "world": "9697",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9ae945daf1221f0eb29efa2c5bdacd3f1d64d03c",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 76,
+      "world": "9697",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9ae945daf1221f0eb29efa2c5bdacd3f1d64d03c",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "historicalSportData.playoffs",
+          "historicalSportData.playoffs.semifinalLegs",
+          "historicalSportData.playoffs.finalLegs"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [
+          "historicalSportData.relegatedObservedRanks"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 77,
+      "world": "9697",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9ae945daf1221f0eb29efa2c5bdacd3f1d64d03c",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "historicalSportData.playoffs",
+          "historicalSportData.playoffs.semifinalLegs",
+          "historicalSportData.playoffs.finalLegs"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 78,
+      "world": "9697",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "9ae945daf1221f0eb29efa2c5bdacd3f1d64d03c",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "historicalSportData.playoffs",
+          "historicalSportData.playoffs.semifinalLegs",
+          "historicalSportData.playoffs.finalLegs"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [
+          "historicalSportData.relegatedObservedRanks"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 81,
+      "world": "9697",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "4d7fbf8d58c83b9a213aab81aa5408f2b4f706dd",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block71Research.rules.teams",
+          "block71Research.rules.rounds",
+          "block71Research.rules.gamesPerClub",
+          "block71Research.rules.relegationPlayoff.legs"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin",
+          "block71Research.rules.points"
+        ],
+        "movement": [
+          "block71Research.rules.relegatedDirect",
+          "block71Research.rules.relegationPlayoff"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 82,
+      "world": "9697",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "4d7fbf8d58c83b9a213aab81aa5408f2b4f706dd",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block71Research.rules.teams",
+          "block71Research.rules.rounds",
+          "block71Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin",
+          "block71Research.rules.points"
+        ],
+        "movement": [
+          "block71Research.rules.promotedDirect",
+          "block71Research.rules.relegatedDirect"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 83,
+      "world": "9697",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "4d7fbf8d58c83b9a213aab81aa5408f2b4f706dd",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block71Research.rules.teams",
+          "block71Research.rules.rounds",
+          "block71Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin",
+          "block71Research.rules.points"
+        ],
+        "movement": [
+          "block71Research.rules.promotedDirect",
+          "block71Research.rules.relegatedDirect"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 84,
+      "world": "9697",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "4d7fbf8d58c83b9a213aab81aa5408f2b4f706dd",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block71Research.rules.teams",
+          "block71Research.rules.rounds",
+          "block71Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin",
+          "block71Research.rules.points"
+        ],
+        "movement": [
+          "block71Research.rules.promotedDirect"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 89,
+      "world": "9697",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "9a47aef370be447b530e53376b758957770130b8",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence48.rules.semifinalLegs",
+          "sportRuleEvidence48.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 90,
+      "world": "9697",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "9a47aef370be447b530e53376b758957770130b8",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "sportRuleEvidence48.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 165,
+      "world": "9697",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "9a47aef370be447b530e53376b758957770130b8",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.groups",
+          "block107Research.rules.groupSize",
+          "block107Research.rules.gamesPerClub",
+          "block107Research.rules.semifinalLegs",
+          "block107Research.rules.finalLegs",
+          "block107Research.drawDates.groupStage"
+        ],
+        "regulation": [
+          "block107Research.rules.awayGoals"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 178,
+      "world": "9697",
+      "country": null,
+      "category": "CONTINENTAL_CLUB",
+      "sourceRowPath": "WORLD/INTERNATIONAL/9697/CONTINENTAL_CLUB.json",
+      "sourceRowBlob": "9a47aef370be447b530e53376b758957770130b8",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block107Research.rules.teams",
+          "block107Research.rules.groups",
+          "block107Research.rules.groupSize",
+          "block107Research.rules.gamesPerClub",
+          "block107Research.rules.finalLegs",
+          "block122Research.rules.groups",
+          "block122Research.rules.groupSize",
+          "block122Research.rules.finalLegs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 207,
+      "world": "2627",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "66cfcf158a00f3c308f24f5c7a14901d3c54c5c8",
+      "sportRuleReview": "PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block54Research.rules.teams",
+          "block54Research.rules.gamesPerClub",
+          "block54Research.rules.finals.teams"
+        ],
+        "regulation": [
+          "block54Research.rules.finals.awayGoals"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 208,
+      "world": "2627",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "66cfcf158a00f3c308f24f5c7a14901d3c54c5c8",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block54Research.rules.teams",
+          "block96Research.clubs",
+          "block96Research.regularRounds"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 209,
+      "world": "2627",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "66cfcf158a00f3c308f24f5c7a14901d3c54c5c8",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block54Research.rules.regularRounds",
+          "block96Research.clubs",
+          "block96Research.regularRounds",
+          "block96Research.finalsQualifiers"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 210,
+      "world": "2627",
+      "country": "AUS",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "66cfcf158a00f3c308f24f5c7a14901d3c54c5c8",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block96Research.clubs"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 231,
+      "world": "2627",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block67Research.rules.teams",
+          "block67Research.rules.gamesPerClub",
+          "block67Research.rules.rounds"
+        ],
+        "regulation": [
+          "block67Research.rules.points"
+        ],
+        "movement": [
+          "block67Research.rules.relegated"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 232,
+      "world": "2627",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block67Research.rules.teams",
+          "block67Research.rules.gamesPerClub",
+          "block67Research.rules.rounds",
+          "block67Research.rules.semifinalLegs",
+          "block67Research.rules.finalLegs"
+        ],
+        "regulation": [
+          "block67Research.rules.points"
+        ],
+        "movement": [
+          "block67Research.rules.directPromotion",
+          "block67Research.rules.relegated"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 233,
+      "world": "2627",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block67Research.rules.teams",
+          "block67Research.rules.gamesPerClub",
+          "block67Research.rules.rounds",
+          "block67Research.rules.playoffs",
+          "block67Research.rules.playoffs.semifinalLegs",
+          "block67Research.rules.playoffs.finalLegs"
+        ],
+        "regulation": [
+          "block67Research.rules.points",
+          "block67Research.rules.playoffs.awayGoals"
+        ],
+        "movement": [
+          "block67Research.rules.directPromotion",
+          "block67Research.rules.relegated"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 234,
+      "world": "2627",
+      "country": "ENG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block67Research.rules.teams",
+          "block67Research.rules.gamesPerClub",
+          "block67Research.rules.rounds",
+          "block67Research.rules.playoffs"
+        ],
+        "regulation": [
+          "block67Research.rules.points"
+        ],
+        "movement": [
+          "block67Research.rules.directPromotion",
+          "block67Research.rules.relegated"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 292,
+      "world": "2627",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "87b6a93d09efb0a34599aa3fbf1559999f0b6b15",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block71Research.rules.teams",
+          "block71Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block71Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 293,
+      "world": "2627",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "87b6a93d09efb0a34599aa3fbf1559999f0b6b15",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block71Research.rules.teams",
+          "block71Research.rules.rounds",
+          "block71Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block71Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 294,
+      "world": "2627",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "87b6a93d09efb0a34599aa3fbf1559999f0b6b15",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block71Research.rules.teams",
+          "block71Research.rules.rounds",
+          "block71Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block71Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 295,
+      "world": "2627",
+      "country": "SCO",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "87b6a93d09efb0a34599aa3fbf1559999f0b6b15",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block71Research.rules.teams",
+          "block71Research.rules.rounds",
+          "block71Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block71Research.rules.points"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 72,
+      "world": "9697",
+      "country": "NZL",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/NZL/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "86ab4bd7d21659e180d3a01f4fdb01a6efb2cf88",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block96Research.clubs",
+          "block96Research.regularRounds"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [
+          "block96Research.promotionRelegation",
+          "block96Research.promotionRelegation.relegatedRanks"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 73,
+      "world": "9697",
+      "country": "NZL",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/NZL/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "86ab4bd7d21659e180d3a01f4fdb01a6efb2cf88",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block96Research.clubs",
+          "block96Research.regularRounds"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 74,
+      "world": "9697",
+      "country": "NZL",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "OCEANIA/NZL/9697/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "86ab4bd7d21659e180d3a01f4fdb01a6efb2cf88",
+      "sportRuleReview": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "historicalSportData.teams",
+          "historicalSportData.regularOrInitialGamesPerClub",
+          "block96Research.clubs",
+          "block96Research.regularRounds"
+        ],
+        "regulation": [
+          "historicalSportData.pointsWin"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 203,
+      "world": "2627",
+      "country": "ARG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "SOUTH_AMERICA/ARG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "501ce44f2d5dddcc563ab1224524e9f3599dd788",
+      "sportRuleReview": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "fieldPointers": {
+        "format": [
+          "block63Research.rules.teams",
+          "block63Research.rules.groups"
+        ],
+        "regulation": [],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 204,
+      "world": "2627",
+      "country": "ARG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "SOUTH_AMERICA/ARG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "501ce44f2d5dddcc563ab1224524e9f3599dd788",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block101Research.rules.teams",
+          "block101Research.rules.groups",
+          "block101Research.rules.firstPromotion.legs",
+          "block101Research.rules.secondPromotion.entrants",
+          "block101Research.rules.secondPromotion.semifinalLegs",
+          "block101Research.rules.secondPromotion.finalLegs"
+        ],
+        "regulation": [
+          "block101Research.rules.points",
+          "block101Research.rules.firstPromotion.penalties"
+        ],
+        "movement": [],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    },
+    {
+      "row": 205,
+      "world": "2627",
+      "country": "ARG",
+      "category": "LEAGUE_DIVISION",
+      "sourceRowPath": "SOUTH_AMERICA/ARG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "501ce44f2d5dddcc563ab1224524e9f3599dd788",
+      "sportRuleReview": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "fieldPointers": {
+        "format": [
+          "block103Research.rules.teams",
+          "block103Research.rules.rounds",
+          "block103Research.rules.gamesPerClub"
+        ],
+        "regulation": [
+          "block103Research.rules.points"
+        ],
+        "movement": [
+          "block103Research.rules.relegationRanks"
+        ],
+        "qualification": []
+      },
+      "classification": "STRUCTURED_FIELD_PRESENCE_ONLY"
+    }
+  ]
+}

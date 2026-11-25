@@ -1,0 +1,508 @@
+{
+  "block": 141,
+  "status": "CONTEXTUAL_RULE_PACKAGES_NOT_CERTIFIED",
+  "scope": "RSSSF annual corpus excerpts for actual historical and previous modern editions. Distinguish explicit statements from observed table separators and played rounds. Some corroborate existing data. No scores, winners, invented qualification, or permanent application inferred. Croatia 1997/98 planned restructuring specifically identified. All exact rule coverage remains subject to final reconciliation.",
+  "rows": [
+    {
+      "country": "CRO",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 1,
+      "observed": {
+        "designation": "1A League",
+        "regularTeams": 16,
+        "regularGamesPerClub": 30,
+        "nextEditionTeams": 12,
+        "directRelegationRanks": [
+          14,
+          15,
+          16
+        ],
+        "playoffRanks": [
+          11,
+          12,
+          13
+        ],
+        "lowerTierPlayoffRanks": [
+          1,
+          2,
+          3
+        ],
+        "playoffGroups": 2,
+        "teamsPerGroup": 3,
+        "roundRobinLegs": 1,
+        "groupWinnersAdvance": 1,
+        "groupDates": [
+          [
+            "1997-06-10",
+            "1997-06-12",
+            "1997-06-14"
+          ],
+          [
+            "1997-06-11",
+            "1997-06-13",
+            "1997-06-15"
+          ]
+        ]
+      },
+      "scope": "Explicit reorganization for 1997/98, not a permanent movement rule. Three-way tie in one group requires additional tie-break evidence.",
+      "matrixFamilyRows": [
+        6
+      ]
+    },
+    {
+      "country": "CRO",
+      "world": "9697",
+      "edition": "1997/98",
+      "level": 2,
+      "observed": {
+        "previousDesignation": "1B League",
+        "previousLeagueDissolved": true,
+        "secondTierRegionalDivisions": [
+          "North",
+          "South",
+          "West",
+          "East",
+          "Center"
+        ],
+        "previous1BTop3EnterPlayoff": true,
+        "remainingPrevious1BEntrantsAssignedRegionalDivisions": true,
+        "promotionQualificationEntrants": {
+          "regionalWinners": 5,
+          "centralRunnerUp": 1
+        },
+        "qualificationWinnerPromoted": true,
+        "qualificationRunnerUpPlaysTopTierRank11": true
+      },
+      "scope": "Archive 1996/97 explicitly reports plan for following season; actual implementation to reconcile at end.",
+      "matrixFamilyRows": [
+        6
+      ]
+    },
+    {
+      "country": "ENG",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 2,
+      "observed": {
+        "designation": "Division One",
+        "regularTeams": 24,
+        "regularGamesPerClub": 46,
+        "directPromotionRanks": [
+          1,
+          2
+        ],
+        "promotionPlayoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "semifinalRankPairs": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "awayGoalsObservedAfterExtraTime": true
+      },
+      "scope": "Observed semifinal resolution in 1996/97, not a comprehensive regulation.",
+      "matrixFamilyRows": [
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "country": "ENG",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 3,
+      "observed": {
+        "designation": "Division Two",
+        "regularTeams": 24,
+        "regularGamesPerClub": 46,
+        "directPromotionRanks": [
+          1,
+          2
+        ],
+        "promotionPlayoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "semifinalRankPairs": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "relegationRanks": [
+          21,
+          22,
+          23,
+          24
+        ]
+      },
+      "scope": "Table separators and playoff rounds.",
+      "matrixFamilyRows": [
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "country": "ENG",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 4,
+      "observed": {
+        "designation": "Division Three",
+        "regularTeams": 24,
+        "regularGamesPerClub": 46,
+        "directPromotionRanks": [
+          1,
+          2,
+          3
+        ],
+        "promotionPlayoffRanks": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "semifinalRankPairs": [
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "relegationRanks": [
+          24
+        ]
+      },
+      "scope": "Table separators and playoff rounds.",
+      "matrixFamilyRows": [
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "country": "AUT",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "designation": "Bundesliga",
+        "championshipGroupRanks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "relegationGroupRanks": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "finalGamesPerClub": 32,
+        "regularPointsCarryFraction": 0.5,
+        "rounding": "DOWN"
+      },
+      "scope": "Previous edition, explicit carry note; no assumption of 2627 rules.",
+      "matrixFamilyRows": [
+        211
+      ]
+    },
+    {
+      "country": "AUT",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "phase": "Conference League Playoff",
+        "entrantRanksFromChampionshipGroup": [
+          5
+        ],
+        "entrantRanksFromRelegationGroup": [
+          1,
+          2
+        ],
+        "semifinalLegs": 1,
+        "finalLegs": 2,
+        "semifinalDate": "2026-05-19",
+        "finalDates": [
+          "2026-05-22",
+          "2026-05-25"
+        ]
+      },
+      "scope": "Explicit previous-edition access; no future participants copied.",
+      "matrixFamilyRows": [
+        211
+      ]
+    },
+    {
+      "country": "GRE",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "designation": "Super League",
+        "championshipGroupRanks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "middleGroupRanks": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "relegationGroupRanks": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "middleGroupPointsCarryFraction": 0.5,
+        "middleGroupRounding": "UP",
+        "observedFinalGamesByGroup": [
+          32,
+          32,
+          36
+        ],
+        "relegationRanks": [
+          13,
+          14
+        ]
+      },
+      "scope": "Previous edition; rounding explicitly limited to middle playoff.",
+      "matrixFamilyRows": [
+        248
+      ]
+    },
+    {
+      "country": "ISR",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "designation": "Ligat Ha'Al",
+        "regularTeams": 14,
+        "regularGamesPerClub": 26,
+        "championshipGroupRanks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "relegationGroupRanks": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "championshipFinalGamesPerClub": 36
+      },
+      "scope": "Previous edition observed tables.",
+      "matrixFamilyRows": [
+        257
+      ]
+    },
+    {
+      "country": "ISR",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 2,
+      "observed": {
+        "designation": "Liga Leumit",
+        "regularTeams": 16,
+        "regularGamesPerClub": 30,
+        "promotionGroupRanks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "relegationGroupRanks": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "finalGamesPerClub": 37,
+        "directPromotionRanks": [
+          1,
+          2
+        ]
+      },
+      "scope": "Previous edition, no exact native row assumed.",
+      "matrixFamilyRows": [
+        257
+      ]
+    },
+    {
+      "country": "POR",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "regularTeams": 18,
+        "regularGamesPerClub": 34,
+        "directRelegationRanks": [
+          17,
+          18
+        ],
+        "playoffUpperTierRank": 16,
+        "playoffLowerTierRank": 3,
+        "lowerTierDirectPromotionRanks": [
+          1,
+          2
+        ],
+        "playoffLegs": 2,
+        "dates": [
+          "2026-05-20",
+          "2026-05-28"
+        ]
+      },
+      "scope": "Previous edition, both divisions linked.",
+      "matrixFamilyRows": [
+        286,
+        287
+      ]
+    },
+    {
+      "country": "NED",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "phase": "Conference League Playoff",
+        "semifinals": 2,
+        "semifinalLegs": 1,
+        "finalLegs": 1,
+        "semifinalDate": "2026-05-21",
+        "finalDate": "2026-05-24",
+        "extraTimeAndPenaltiesObserved": true,
+        "venueException": "One semifinal moved to Volendam because normal stadium unavailable; final also in Volendam"
+      },
+      "scope": "Previous edition, venue exception not a permanent venue rule.",
+      "matrixFamilyRows": [
+        275,
+        276
+      ]
+    },
+    {
+      "country": "NED",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 2,
+      "observed": {
+        "phase": "Nacompetitie",
+        "firstRoundTies": 2,
+        "firstRoundLegs": 2,
+        "firstLegDates": [
+          "2026-04-28",
+          "2026-04-29"
+        ],
+        "secondLegDates": [
+          "2026-05-01",
+          "2026-05-02"
+        ],
+        "extraTimeAndPenaltiesObserved": true
+      },
+      "scope": "Observed first round only; later rounds not inferred.",
+      "matrixFamilyRows": [
+        275,
+        276
+      ]
+    },
+    {
+      "country": "BEL",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 2,
+      "observed": {
+        "phase": "Promotion/relegation playoff for one place in second tier",
+        "roundMatchCounts": [
+          3,
+          2,
+          2
+        ],
+        "roundDates": [
+          "1997-05-11",
+          "1997-05-18",
+          "1997-05-25"
+        ],
+        "legsPerObservedTie": 1,
+        "extraTimeObserved": true
+      },
+      "scope": "Final round includes placement tie; no general bracket seeding rule inferred.",
+      "matrixFamilyRows": [
+        4
+      ]
+    },
+    {
+      "country": "ROU",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 2,
+      "observed": {
+        "phase": "Promotion ranking tie",
+        "headToHeadApplied": true,
+        "awayGoalsApplied": true
+      },
+      "scope": "Specific promotion decision expressly reported; does not establish full tie-break order.",
+      "matrixFamilyRows": [
+        26
+      ]
+    }
+  ]
+}

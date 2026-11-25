@@ -1,9 +1,9 @@
 {
-  "lastPreparedBlock": 137,
+  "lastPreparedBlock": 142,
   "baseHead": "32fb2255832bda06f1cd96539eaa9dd0e3bca1ef",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
-  "openCount": 47,
+  "openCount": 50,
   "cases": [
     {
       "id": "A001",
@@ -579,6 +579,53 @@
       "rows": [
         122,
         358
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A051",
+      "type": "INITIAL_LEGACY_ROSTER_RECONCILIATION_PENDING",
+      "description": "BLR row3: both lists refer to 1996, not 2026. 7/16 unique normalized labels match; provider uses later names, e.g. FK Rechytsa 2014, while native uses VEDRICH RECHITSA. Remaining aliases or membership differences unresolved; preserve native names and do not assume distinct identity from differing labels.",
+      "rows": [
+        3
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A052",
+      "type": "INITIAL_LEGACY_ROSTER_MEMBERSHIP_DISCREPANCY",
+      "description": "ISL row15: historical 1996 source lists Fylkir and Stjarnan, legacy league=0 includes FH and FRAM instead; both ten clubs. Verify edition membership; do not substitute clubs based on count.",
+      "rows": [
+        15
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A053",
+      "type": "LEGACY_INITIAL_EDITION_DIVISION_MEMBERSHIP_AND_ENTRANT_GAPS",
+      "description": "Cross-cutting: many legacy native league=0 memberships differ from historical 1996/97 initial entrants, even when identities exist elsewhere in the same native 9697 file. ENG75 historical Middlesbrough, Nottingham Forest, Sunderland are in native league1; Barnsley, Bolton and Crystal Palace are in league0, consistent with 1997/98 composition (not proof all countries use that edition). GER54 and other rows also show differences; FRA52 18 native top vs historical20, TUR33 17 vs18, NIR21 16 vs8, SVN30 16 vs10, CRO6 12 vs16, UKR34 18 vs16. Exact entrant UUID/file/ordinal mappings and unmatched names in indexed closure overlays. Do not change any native league membership, clone missing clubs or apply modern successor alias without approved reconciliation. Separate initial roster correction from identity lookup. Existing BLR3/ISL15 tracked as A051/A052, not duplicated.",
+      "rows": [
+        75,
+        54,
+        52,
+        56,
+        85,
+        79,
+        24,
+        23,
+        13,
+        16,
+        33,
+        34,
+        31,
+        27,
+        21,
+        30,
+        2,
+        4,
+        6,
+        26,
+        81
       ],
       "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
     }

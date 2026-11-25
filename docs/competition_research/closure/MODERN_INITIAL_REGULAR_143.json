@@ -1,0 +1,806 @@
+{
+  "block": 143,
+  "head": "2f8f4fce97ac0ab29dd2ee1208655a0a052ee7e4",
+  "world": "2627",
+  "status": "CONSOLIDATED_INITIAL_REGULAR_REFERENCE_NOT_RUNTIME",
+  "scope": "Eight existing calendar sets linked directly to same-row sporting rules and existing native identity mapping. No extra source, new fixture, score or cutoff package. Actual dates, playoffs, complete match rules, global collisions and approved generation unresolved. Exact label join only; no fuzzy aliases or new native mapping.",
+  "summary": {
+    "rows": 8,
+    "fixtures": 2916,
+    "entrantOccurrences": 156,
+    "regularRuleAgreement": [
+      186,
+      231,
+      232,
+      235,
+      239,
+      243,
+      275,
+      286
+    ],
+    "fullyJoinedRows": [
+      235,
+      239,
+      243,
+      275,
+      286
+    ],
+    "fullyJoinedFixtures": 1604,
+    "exactLabelMatches": 92,
+    "aggregateDateAgreementRows": [
+      232,
+      243,
+      275
+    ],
+    "aggregateDateDifferenceRows": [
+      186,
+      231,
+      235,
+      239,
+      286
+    ]
+  },
+  "rows": [
+    {
+      "row": 186,
+      "country": "ITA",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block68Research.rules",
+      "participantField": null,
+      "observed": {
+        "teams": 20,
+        "fixtures": 380,
+        "firstDate": "2026-08-22",
+        "lastDate": "2027-05-30",
+        "distinctRounds": 38,
+        "roundSizeMin": 10,
+        "roundSizeMax": 10,
+        "homeGamesMin": 19,
+        "homeGamesMax": 19,
+        "awayGamesMin": 19,
+        "awayGamesMax": 19,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "rounds",
+        "gamesPerClub",
+        "points",
+        "relegationCount",
+        "titleTie",
+        "survivalTie",
+        "tieBreakers",
+        "uefaFinalistException"
+      ],
+      "ruleData": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegationCount": 3,
+        "titleTie": {
+          "legs": 1,
+          "home": "higher head-to-head rank",
+          "extraTime": false,
+          "penalties": true
+        },
+        "survivalTie": {
+          "ranks": [
+            17,
+            18
+          ],
+          "legs": 2,
+          "secondLegHome": "higher head-to-head rank",
+          "extraTime": false,
+          "penalties": true
+        },
+        "tieBreakers": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "overall goal difference",
+          "overall goals scored",
+          "draw"
+        ],
+        "uefaFinalistException": "head-to-head classification replaces playoff if a UEFA finalist is involved"
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 0,
+        "exactLabelMatches": 0,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 0,
+        "unmatchedCalendarLabels": [
+          "AC Milan",
+          "AC Monza",
+          "ACF Fiorentina",
+          "AS Roma",
+          "Atalanta BC",
+          "Bologna FC 1909",
+          "Cagliari Calcio",
+          "Como 1907",
+          "FC Internazionale Milano",
+          "Frosinone Calcio",
+          "Genoa CFC",
+          "Juventus FC",
+          "Parma Calcio 1913",
+          "SS Lazio",
+          "SSC Napoli",
+          "Torino FC",
+          "US Lecce",
+          "US Sassuolo Calcio",
+          "Udinese Calcio",
+          "Venezia FC"
+        ],
+        "unusedMappingLabels": [],
+        "fullExactJoin": false
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 120,
+        "matchedDateMultiplicity": 119,
+        "differentDays": 2,
+        "exactDailyCounts": false,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations.",
+        "review": "A041"
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "NATIVE_ENTRANT_MAPPING_MISSING",
+        "SCHEDULE_VS_PLAYED_DATE_DIFFERENCE_A041",
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    },
+    {
+      "row": 231,
+      "country": "ENG",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block67Research.rules",
+      "participantField": null,
+      "observed": {
+        "teams": 20,
+        "fixtures": 380,
+        "firstDate": "2026-08-21",
+        "lastDate": "2027-05-30",
+        "distinctRounds": 38,
+        "roundSizeMin": 10,
+        "roundSizeMax": 10,
+        "homeGamesMin": 19,
+        "homeGamesMax": 19,
+        "awayGamesMin": 19,
+        "awayGamesMax": 19,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "gamesPerClub",
+        "rounds",
+        "relegated",
+        "firstMatch",
+        "lastRegularMatch",
+        "weekendRounds",
+        "midweekRounds",
+        "holidayMinimumHoursBetweenRounds",
+        "points",
+        "rankingTieBreakersRef"
+      ],
+      "ruleData": {
+        "teams": 20,
+        "gamesPerClub": 38,
+        "rounds": 2,
+        "relegated": 3,
+        "firstMatch": "2026-08-21",
+        "lastRegularMatch": "2027-05-30",
+        "weekendRounds": 33,
+        "midweekRounds": 5,
+        "holidayMinimumHoursBetweenRounds": 60,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "rankingTieBreakersRef": {
+          "historyIndex": 793
+        }
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 0,
+        "exactLabelMatches": 0,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 0,
+        "unmatchedCalendarLabels": [
+          "AFC Bournemouth",
+          "Arsenal FC",
+          "Aston Villa FC",
+          "Brentford FC",
+          "Brighton & Hove Albion FC",
+          "Chelsea FC",
+          "Coventry City FC",
+          "Crystal Palace FC",
+          "Everton FC",
+          "Fulham FC",
+          "Hull City AFC",
+          "Ipswich Town FC",
+          "Leeds United FC",
+          "Liverpool FC",
+          "Manchester City FC",
+          "Manchester United FC",
+          "Newcastle United FC",
+          "Nottingham Forest FC",
+          "Sunderland AFC",
+          "Tottenham Hotspur FC"
+        ],
+        "unusedMappingLabels": [],
+        "fullExactJoin": false
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 110,
+        "matchedDateMultiplicity": 101,
+        "differentDays": 6,
+        "exactDailyCounts": false,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations.",
+        "review": "A041"
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "NATIVE_ENTRANT_MAPPING_MISSING",
+        "SCHEDULE_VS_PLAYED_DATE_DIFFERENCE_A041",
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    },
+    {
+      "row": 232,
+      "country": "ENG",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block67Research.rules",
+      "participantField": null,
+      "observed": {
+        "teams": 24,
+        "fixtures": 552,
+        "firstDate": "2026-08-14",
+        "lastDate": "2027-05-01",
+        "distinctRounds": 46,
+        "roundSizeMin": 12,
+        "roundSizeMax": 12,
+        "homeGamesMin": 23,
+        "homeGamesMax": 23,
+        "awayGamesMin": 23,
+        "awayGamesMax": 23,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "gamesPerClub",
+        "rounds",
+        "directPromotion",
+        "playoffRanks",
+        "firstPlayoffRound",
+        "firstPlayoffLegs",
+        "firstPlayoffHost",
+        "semifinalByes",
+        "semifinalLegs",
+        "finalLegs",
+        "finalVenue",
+        "playoffMatches",
+        "relegated",
+        "firstMatch",
+        "lastRegularMatch",
+        "points",
+        "semifinalAllocationRef"
+      ],
+      "ruleData": {
+        "teams": 24,
+        "gamesPerClub": 46,
+        "rounds": 2,
+        "directPromotion": 2,
+        "playoffRanks": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "firstPlayoffRound": [
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "firstPlayoffLegs": 1,
+        "firstPlayoffHost": "higher rank",
+        "semifinalByes": [
+          3,
+          4
+        ],
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "finalVenue": "Wembley",
+        "playoffMatches": 7,
+        "relegated": 3,
+        "firstMatch": "2026-08-14",
+        "lastRegularMatch": "2027-05-01",
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "semifinalAllocationRef": {
+          "historyIndex": 438
+        }
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 0,
+        "exactLabelMatches": 0,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 0,
+        "unmatchedCalendarLabels": [
+          "Birmingham City FC",
+          "Blackburn Rovers FC",
+          "Bolton Wanderers FC",
+          "Bristol City FC",
+          "Burnley FC",
+          "Cardiff City FC",
+          "Charlton Athletic FC",
+          "Derby County FC",
+          "Lincoln City FC",
+          "Middlesbrough FC",
+          "Millwall FC",
+          "Norwich City FC",
+          "Portsmouth FC",
+          "Preston North End FC",
+          "Queens Park Rangers FC",
+          "Sheffield United FC",
+          "Southampton FC",
+          "Stoke City FC",
+          "Swansea City AFC",
+          "Watford FC",
+          "West Bromwich Albion FC",
+          "West Ham United FC",
+          "Wolverhampton Wanderers FC",
+          "Wrexham AFC"
+        ],
+        "unusedMappingLabels": [],
+        "fullExactJoin": false
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 192,
+        "matchedDateMultiplicity": 192,
+        "differentDays": 0,
+        "exactDailyCounts": true,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations."
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "NATIVE_ENTRANT_MAPPING_MISSING",
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    },
+    {
+      "row": 235,
+      "country": "ESP",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/ESP/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "5de9397212b87e719eac18dc700c6e9b5cc3edf1",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block69Research.rules",
+      "participantField": "participantKeyAudit.mapping",
+      "observed": {
+        "teams": 20,
+        "fixtures": 380,
+        "firstDate": "2026-08-15",
+        "lastDate": "2027-05-30",
+        "distinctRounds": 38,
+        "roundSizeMin": 10,
+        "roundSizeMax": 10,
+        "homeGamesMin": 19,
+        "homeGamesMax": 19,
+        "awayGamesMin": 19,
+        "awayGamesMax": 19,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "rounds",
+        "gamesPerClub",
+        "points",
+        "relegatedDirect"
+      ],
+      "ruleData": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          18,
+          19,
+          20
+        ]
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 20,
+        "exactLabelMatches": 20,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 380,
+        "unmatchedCalendarLabels": [],
+        "unusedMappingLabels": [],
+        "fullExactJoin": true
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 130,
+        "matchedDateMultiplicity": 106,
+        "differentDays": 16,
+        "exactDailyCounts": false,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations.",
+        "review": "A041"
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "SCHEDULE_VS_PLAYED_DATE_DIFFERENCE_A041",
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    },
+    {
+      "row": 239,
+      "country": "FRA",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/FRA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "536825dbccfbcd07eadc753ce9277f59da1796e0",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block69Research.rules",
+      "participantField": "participantKeyAudit.mapping",
+      "observed": {
+        "teams": 18,
+        "fixtures": 306,
+        "firstDate": "2026-08-21",
+        "lastDate": "2027-05-29",
+        "distinctRounds": 34,
+        "roundSizeMin": 9,
+        "roundSizeMax": 9,
+        "homeGamesMin": 17,
+        "homeGamesMax": 17,
+        "awayGamesMin": 17,
+        "awayGamesMax": 17,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "rounds",
+        "gamesPerClub",
+        "points",
+        "relegatedDirect",
+        "relegationPlayoff"
+      ],
+      "ruleData": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponent": "Ligue 2 playoff winner",
+          "legs": 2,
+          "dates": [
+            "2027-06-03",
+            "2027-06-06"
+          ]
+        }
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 18,
+        "exactLabelMatches": 18,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 306,
+        "unmatchedCalendarLabels": [],
+        "unusedMappingLabels": [],
+        "fullExactJoin": true
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 99,
+        "matchedDateMultiplicity": 95,
+        "differentDays": 6,
+        "exactDailyCounts": false,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations.",
+        "review": "A041"
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "SCHEDULE_VS_PLAYED_DATE_DIFFERENCE_A041",
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    },
+    {
+      "row": 243,
+      "country": "GER",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/GER/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "068a4df05ad6c3f3a2b77dccb633ae1f4bc4e445",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block68Research.rules",
+      "participantField": "participantKeyAudit.mapping",
+      "observed": {
+        "teams": 18,
+        "fixtures": 306,
+        "firstDate": "2026-08-28",
+        "lastDate": "2027-05-22",
+        "distinctRounds": 34,
+        "roundSizeMin": 9,
+        "roundSizeMax": 9,
+        "homeGamesMin": 17,
+        "homeGamesMax": 17,
+        "awayGamesMin": 17,
+        "awayGamesMax": 17,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "rounds",
+        "gamesPerClub",
+        "points",
+        "relegatedDirect",
+        "relegationPlayoff",
+        "rankingTieBreakers",
+        "administrativeResult"
+      ],
+      "ruleData": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponentTier": 2,
+          "opponentRank": 3,
+          "legs": 2,
+          "secondLegHost": "Club with fewer rest days before first leg under final regular-season schedule; draw lots if equal",
+          "tieResolutionRef": {
+            "historyIndex": 440
+          }
+        },
+        "rankingTieBreakers": {
+          "order": [
+            "GOAL_DIFFERENCE",
+            "GOALS_SCORED",
+            "HEAD_TO_HEAD_AGGREGATE",
+            "HEAD_TO_HEAD_AWAY_GOALS",
+            "TOTAL_AWAY_GOALS",
+            "NEUTRAL_DECIDING_MATCH"
+          ],
+          "beforeBothHeadToHeadLegsPlayed": "first two criteria only; shared position if tied",
+          "afterBothLegsDuringSeason": "first five criteria; no deciding match during season"
+        },
+        "administrativeResult": "2–0 awarded win in specified post-match reclassification or suspension cases; not an automatic simulation rule"
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 18,
+        "exactLabelMatches": 18,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 306,
+        "unmatchedCalendarLabels": [],
+        "unusedMappingLabels": [],
+        "fullExactJoin": true
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 90,
+        "matchedDateMultiplicity": 90,
+        "differentDays": 0,
+        "exactDailyCounts": true,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations."
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    },
+    {
+      "row": 275,
+      "country": "NED",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/NED/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "7c3bd128596db3875f1dca1f2880170cd8524341",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block70Research.rules",
+      "participantField": "participantKeyAudit.mapping",
+      "observed": {
+        "teams": 18,
+        "fixtures": 306,
+        "firstDate": "2026-08-07",
+        "lastDate": "2027-05-23",
+        "distinctRounds": 34,
+        "roundSizeMin": 9,
+        "roundSizeMax": 9,
+        "homeGamesMin": 17,
+        "homeGamesMax": 17,
+        "awayGamesMin": 17,
+        "awayGamesMax": 17,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "gamesPerClub",
+        "rounds",
+        "points"
+      ],
+      "ruleData": {
+        "teams": 18,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 18,
+        "exactLabelMatches": 18,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 306,
+        "unmatchedCalendarLabels": [],
+        "unusedMappingLabels": [],
+        "fullExactJoin": true
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 117,
+        "matchedDateMultiplicity": 117,
+        "differentDays": 0,
+        "exactDailyCounts": true,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations."
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    },
+    {
+      "row": 286,
+      "country": "POR",
+      "edition": "2026/27",
+      "sourceRowPath": "EUROPE/POR/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "288b92664197001e676beb56cb858723729ec31f",
+      "calendarField": "block126Research.fixtures",
+      "sportRuleField": "block70Research.rules",
+      "participantField": "participantKeyAudit.mapping",
+      "observed": {
+        "teams": 18,
+        "fixtures": 306,
+        "firstDate": "2026-08-07",
+        "lastDate": "2027-05-16",
+        "distinctRounds": 34,
+        "roundSizeMin": 9,
+        "roundSizeMax": 9,
+        "homeGamesMin": 17,
+        "homeGamesMax": 17,
+        "awayGamesMin": 17,
+        "awayGamesMax": 17,
+        "orderedPairIssues": [],
+        "withinLeagueDayConflicts": [],
+        "invalidFixtures": []
+      },
+      "regularRuleAgreement": true,
+      "existingRuleFields": [
+        "teams",
+        "rounds",
+        "gamesPerClub",
+        "points",
+        "relegatedDirect",
+        "relegationPlayoff"
+      ],
+      "ruleData": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponentRank": 3,
+          "legs": 2,
+          "baseDates": [
+            "2027-05-29",
+            "2027-06-06"
+          ],
+          "alternativeDates": [
+            "2027-05-26",
+            "2027-05-27",
+            "2027-06-02"
+          ],
+          "condition": "cup semifinal/final participation; conditional calendar, individual date confirmation required",
+          "opponentTier": 2
+        }
+      },
+      "identityJoin": {
+        "verifiedMappingEntries": 18,
+        "exactLabelMatches": 18,
+        "uniqueJoinedKeys": true,
+        "fullyJoinedFixtures": 306,
+        "unmatchedCalendarLabels": [],
+        "unusedMappingLabels": [],
+        "fullExactJoin": true
+      },
+      "dateAggregateComparison": {
+        "referenceDateCount": 99,
+        "matchedDateMultiplicity": 97,
+        "differentDays": 3,
+        "exactDailyCounts": false,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations.",
+        "review": "A041"
+      },
+      "cutoff": "NO_INITIAL_SNAPSHOT_REQUIRED_REGULAR_SEASON_STARTS_AFTER_JULY1",
+      "gaps": [
+        "SCHEDULE_VS_PLAYED_DATE_DIFFERENCE_A041",
+        "FULL_ACTUAL_DATE_AND_MATCH_RULE_CERTIFICATION_PENDING",
+        "GENERATION_POLICY_REQUIRES_USER_APPROVAL"
+      ]
+    }
+  ]
+}

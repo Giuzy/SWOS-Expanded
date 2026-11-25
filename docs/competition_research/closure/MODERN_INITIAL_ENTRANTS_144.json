@@ -1,0 +1,599 @@
+{
+  "block": 144,
+  "head": "2f8f4fce97ac0ab29dd2ee1208655a0a052ee7e4",
+  "status": "STATIC_ENTRANT_CONSOLIDATION",
+  "rows": [
+    {
+      "row": 186,
+      "world": "2627",
+      "edition": "2026/27",
+      "country": "ITA",
+      "division": 0,
+      "sourceRowPath": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "c2349fcba465fa3c2bac67f2b5e9220ac94f064a",
+      "nativeTeamBlob": "d03139fce63f52249222186845fd6e5943aa4bf8",
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "AC Milan",
+          "MILAN",
+          "c219c629-1d36-57b4-9f8c-898ae2b7558c",
+          20,
+          4,
+          1310725
+        ],
+        [
+          "AC Monza",
+          "MONZA",
+          "f27e7ddb-8932-5769-8f13-f3dccaef2b46",
+          20,
+          19,
+          1310740
+        ],
+        [
+          "ACF Fiorentina",
+          "FIORENTINA",
+          "8b5c5ae4-b9b0-5934-a5d2-223581ce5a2d",
+          20,
+          14,
+          1310735
+        ],
+        [
+          "AS Roma",
+          "ROMA",
+          "28248df7-6296-55eb-a4f9-e9316191b9b9",
+          20,
+          2,
+          1310723
+        ],
+        [
+          "Atalanta BC",
+          "ATALANTA",
+          "91bf8ac9-f9fc-5d50-a6d3-4b15c3292ead",
+          20,
+          6,
+          1310727
+        ],
+        [
+          "Bologna FC 1909",
+          "BOLOGNA",
+          "61186117-fdb8-5c7a-b36e-8152d671c128",
+          20,
+          7,
+          1310728
+        ],
+        [
+          "Cagliari Calcio",
+          "CAGLIARI",
+          "8a99a7aa-d10c-5928-b72c-cc7831fcd9e9",
+          20,
+          13,
+          1310734
+        ],
+        [
+          "Como 1907",
+          "COMO",
+          "eff5ba85-934d-5e0c-aebf-d38858b9576f",
+          20,
+          3,
+          1310724
+        ],
+        [
+          "FC Internazionale Milano",
+          "INTER",
+          "5ea29452-fd30-51c0-ab1d-970521e8e08a",
+          20,
+          0,
+          1310721
+        ],
+        [
+          "Frosinone Calcio",
+          "FROSINONE",
+          "9bcb6abf-4e14-5ec3-8661-e62fd213a6a6",
+          20,
+          18,
+          1310739
+        ],
+        [
+          "Genoa CFC",
+          "GENOA",
+          "a164d132-084c-5ba4-a640-e7067ffadfa0",
+          20,
+          15,
+          1310736
+        ],
+        [
+          "Juventus FC",
+          "JUVENTUS",
+          "12cc22f0-814f-59cf-ab15-f68fd7ba8327",
+          20,
+          5,
+          1310726
+        ],
+        [
+          "Parma Calcio 1913",
+          "PARMA",
+          "425fe11b-5415-5d58-bb46-a23e4a42c6f5",
+          20,
+          12,
+          1310733
+        ],
+        [
+          "SS Lazio",
+          "LAZIO",
+          "8f1f7bee-15c9-5e08-9965-eb7e01eda8dc",
+          20,
+          8,
+          1310729
+        ],
+        [
+          "SSC Napoli",
+          "NAPOLI",
+          "64f78ca6-a835-568d-a2dc-fa7430bf029d",
+          20,
+          1,
+          1310722
+        ],
+        [
+          "Torino FC",
+          "TORINO",
+          "b62f2ba1-45d4-5378-a2e9-81a4cc75246c",
+          20,
+          11,
+          1310732
+        ],
+        [
+          "US Lecce",
+          "LECCE",
+          "c97b7ac8-1a16-5231-905c-619fa96ae8d8",
+          20,
+          16,
+          1310737
+        ],
+        [
+          "US Sassuolo Calcio",
+          "SASSUOLO",
+          "d4955232-a9b2-5ffa-9de5-5e8d7ff68389",
+          20,
+          10,
+          1310731
+        ],
+        [
+          "Udinese Calcio",
+          "UDINESE",
+          "5067b719-58bb-5843-86b8-372ab145f72b",
+          20,
+          9,
+          1310730
+        ],
+        [
+          "Venezia FC",
+          "VENEZIA",
+          "0fc4dcde-e332-5568-8cf2-fe55b9639158",
+          20,
+          17,
+          1310738
+        ]
+      ],
+      "verifiedFixtureCount": 380,
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "scope": "Explicit reviewed label aliases, unique native keys, full initial division membership matches. Static code formula from primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. Dates/other rules/runtime not certified."
+    },
+    {
+      "row": 231,
+      "world": "2627",
+      "edition": "2026/27",
+      "country": "ENG",
+      "division": 0,
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "nativeTeamBlob": "b8fe8901e16defbd79bd8e0523f01c2ceba68024",
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "AFC Bournemouth",
+          "BOURNEMOUTH",
+          "d4e290c4-dc8f-5229-bca2-59b5a54e1205",
+          8,
+          5,
+          524294
+        ],
+        [
+          "Arsenal FC",
+          "ARSENAL",
+          "b969299a-44a8-5e1f-ae9d-de2160079b33",
+          8,
+          0,
+          524289
+        ],
+        [
+          "Aston Villa FC",
+          "ASTON VILLA",
+          "024cd33f-5ca1-5743-9018-cff2810a3355",
+          8,
+          3,
+          524292
+        ],
+        [
+          "Brentford FC",
+          "BRENTFORD",
+          "5b116dac-7832-52f0-81b9-53bddb0a4ad4",
+          8,
+          8,
+          524297
+        ],
+        [
+          "Brighton & Hove Albion FC",
+          "BRIGHTON",
+          "d62980bd-c608-5ea8-83b8-e72cb2ea9126",
+          8,
+          7,
+          524296
+        ],
+        [
+          "Chelsea FC",
+          "CHELSEA",
+          "a247f5d6-244a-5a03-820b-3fc7f872a278",
+          8,
+          9,
+          524298
+        ],
+        [
+          "Coventry City FC",
+          "COVENTRY CITY",
+          "41308e0d-fcd5-5d92-8346-6edd7c19886e",
+          8,
+          17,
+          524306
+        ],
+        [
+          "Crystal Palace FC",
+          "CRYSTAL PALACE",
+          "67206e35-0dd4-55e0-b3e1-224e1ec23117",
+          8,
+          14,
+          524303
+        ],
+        [
+          "Everton FC",
+          "EVERTON",
+          "34a34b85-17fd-58ba-96c5-877db99703b6",
+          8,
+          12,
+          524301
+        ],
+        [
+          "Fulham FC",
+          "FULHAM",
+          "dc0c8f71-542d-520a-92fb-18ae331a42b4",
+          8,
+          10,
+          524299
+        ],
+        [
+          "Hull City AFC",
+          "HULL CITY",
+          "6e5ee641-a33d-58f6-8933-7809b9a99b65",
+          8,
+          19,
+          524308
+        ],
+        [
+          "Ipswich Town FC",
+          "IPSWICH TOWN",
+          "a49a66b3-d9f8-5ead-b970-63bfc02ad887",
+          8,
+          18,
+          524307
+        ],
+        [
+          "Leeds United FC",
+          "LEEDS UNITED",
+          "f5d62a3c-7a7a-58d2-ba4d-7f88bd447c66",
+          8,
+          13,
+          524302
+        ],
+        [
+          "Liverpool FC",
+          "LIVERPOOL",
+          "827315df-5bf9-5c10-9b3d-541093cebf7b",
+          8,
+          4,
+          524293
+        ],
+        [
+          "Manchester City FC",
+          "MANCHESTER CITY",
+          "78cd42fc-c006-5efb-ad5f-dccbc761d123",
+          8,
+          1,
+          524290
+        ],
+        [
+          "Manchester United FC",
+          "MAN UTD",
+          "6ee4ec1b-0d8f-5a99-8d0f-3af2c237c1d9",
+          8,
+          2,
+          524291
+        ],
+        [
+          "Newcastle United FC",
+          "NEWCASTLE UNITED",
+          "9a8f8aa7-4a92-5f8e-bb70-2df99726de4b",
+          8,
+          11,
+          524300
+        ],
+        [
+          "Nottingham Forest FC",
+          "NOTT'M FOREST",
+          "67722b45-6e00-5107-a395-1b12b323a3b3",
+          8,
+          15,
+          524304
+        ],
+        [
+          "Sunderland AFC",
+          "SUNDERLAND",
+          "b6457f0e-7a7d-5025-8b11-932c41246d50",
+          8,
+          6,
+          524295
+        ],
+        [
+          "Tottenham Hotspur FC",
+          "TOTTENHAM",
+          "a0ddb0b3-e3ce-54c8-81d6-47ac27ac3521",
+          8,
+          16,
+          524305
+        ]
+      ],
+      "verifiedFixtureCount": 380,
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "scope": "Explicit reviewed label aliases, unique native keys, full initial division membership matches. Static code formula from primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. Dates/other rules/runtime not certified."
+    },
+    {
+      "row": 232,
+      "world": "2627",
+      "edition": "2026/27",
+      "country": "ENG",
+      "division": 1,
+      "sourceRowPath": "EUROPE/ENG/2627/LEAGUE_DIVISION.json",
+      "sourceRowBlob": "b09f10d15739f8e667f296a625ed73e89af28f71",
+      "nativeTeamBlob": "b8fe8901e16defbd79bd8e0523f01c2ceba68024",
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Birmingham City FC",
+          "BIRMINGHAM CITY",
+          "7486f0df-6178-5225-bd6e-03262f086b6e",
+          8,
+          26,
+          524315
+        ],
+        [
+          "Blackburn Rovers FC",
+          "BLACKBURN ROVERS",
+          "223edf74-fb31-5c96-a799-6787f18f48b7",
+          8,
+          36,
+          524325
+        ],
+        [
+          "Bolton Wanderers FC",
+          "BOLTON WANDERERS",
+          "6cca91aa-18e1-5e2e-9d11-016e3e65486e",
+          8,
+          43,
+          524332
+        ],
+        [
+          "Bristol City FC",
+          "BRISTOL CITY",
+          "3c7fd32a-ab5d-571f-8cf7-f5c653827475",
+          8,
+          28,
+          524317
+        ],
+        [
+          "Burnley FC",
+          "BURNLEY",
+          "4a1490e9-19de-5d8d-9618-5e3ed9c076cd",
+          8,
+          39,
+          524328
+        ],
+        [
+          "Cardiff City FC",
+          "CARDIFF CITY",
+          "5ee234d9-f519-509f-a08e-dfc76f6683fb",
+          8,
+          42,
+          524331
+        ],
+        [
+          "Charlton Athletic FC",
+          "CHARLTON",
+          "8086a5ec-af61-52f5-ab68-6a035311dbb4",
+          8,
+          35,
+          524324
+        ],
+        [
+          "Derby County FC",
+          "DERBY COUNTY",
+          "8cfb80f2-bfae-5067-9c0f-81f0e71883ad",
+          8,
+          24,
+          524313
+        ],
+        [
+          "Lincoln City FC",
+          "LINCOLN CITY",
+          "5ff0ffa8-716e-5933-9bd8-48d34c1b2575",
+          8,
+          41,
+          524330
+        ],
+        [
+          "Middlesbrough FC",
+          "MIDDLESBROUGH",
+          "f7077daa-fa59-5f8f-883a-dc85875c9af4",
+          8,
+          22,
+          524311
+        ],
+        [
+          "Millwall FC",
+          "MILLWALL",
+          "a4289455-91cf-5922-aca3-85844d9164d7",
+          8,
+          20,
+          524309
+        ],
+        [
+          "Norwich City FC",
+          "NORWICH CITY",
+          "360d05ae-983a-51fc-802a-929f5eec201b",
+          8,
+          25,
+          524314
+        ],
+        [
+          "Portsmouth FC",
+          "PORTSMOUTH",
+          "dfd73d0e-8ca8-5c3e-a837-e5091c2575da",
+          8,
+          34,
+          524323
+        ],
+        [
+          "Preston North End FC",
+          "PRESTON",
+          "7c450346-12d2-52cd-bb7d-9342bc6134ae",
+          8,
+          30,
+          524319
+        ],
+        [
+          "Queens Park Rangers FC",
+          "QPR",
+          "15cc791a-8b75-5af1-8442-fc283f11849b",
+          8,
+          31,
+          524320
+        ],
+        [
+          "Sheffield United FC",
+          "SHEFFIELD UNITED",
+          "50697f2d-ac64-5307-96c0-3dc918bab7f6",
+          8,
+          29,
+          524318
+        ],
+        [
+          "Southampton FC",
+          "SOUTHAMPTON",
+          "a91a9c04-fed1-5fb5-bbd6-6fb43948c1c5",
+          8,
+          21,
+          524310
+        ],
+        [
+          "Stoke City FC",
+          "STOKE CITY",
+          "c2e11dfb-efa4-5680-974a-15dd28f60fb2",
+          8,
+          33,
+          524322
+        ],
+        [
+          "Swansea City AFC",
+          "SWANSEA CITY",
+          "b4beff15-9751-523a-a71b-54eee1a4229f",
+          8,
+          27,
+          524316
+        ],
+        [
+          "Watford FC",
+          "WATFORD",
+          "1b1dc856-9d05-5f90-86d8-d824f9a91236",
+          8,
+          32,
+          524321
+        ],
+        [
+          "West Bromwich Albion FC",
+          "WEST BROM",
+          "3395db16-1c24-5193-8b06-1531b5b8dea4",
+          8,
+          37,
+          524326
+        ],
+        [
+          "West Ham United FC",
+          "WEST HAM UNITED",
+          "94fa3535-c09c-5d3a-bbe1-1ef312876534",
+          8,
+          38,
+          524327
+        ],
+        [
+          "Wolverhampton Wanderers FC",
+          "WOLVES",
+          "5f8fd902-f566-50a4-b209-b170079d8263",
+          8,
+          40,
+          524329
+        ],
+        [
+          "Wrexham AFC",
+          "WREXHAM",
+          "f99ec747-f622-5b8b-9844-0098181ec8a4",
+          8,
+          23,
+          524312
+        ]
+      ],
+      "verifiedFixtureCount": 552,
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "scope": "Explicit reviewed label aliases, unique native keys, full initial division membership matches. Static code formula from primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. Dates/other rules/runtime not certified."
+    }
+  ],
+  "summary": {
+    "rows": 3,
+    "identities": 64,
+    "fixtures": 1312,
+    "allEightExistingModernSchedulesMapped": 2916
+  },
+  "codeRefs": {
+    "catalog": "ac8ef8261289ee0ae0521b2e0f2f4d105c76ec7a",
+    "world": "286d4ebe7e7bf55ccbb0cc91fbfeb41e3a2b7136",
+    "worldData": "cc70dc1ce4acefa47841eea16021df3e6aa99700"
+  }
+}

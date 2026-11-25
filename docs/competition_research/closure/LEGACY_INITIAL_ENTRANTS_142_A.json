@@ -1,0 +1,1169 @@
+{
+  "block": 142,
+  "status": "EXACT_ROW_CONSOLIDATION",
+  "scope": "Canonical row-keyed reconciliation overlay for initial legacy entrants. Existing calendar data referenced, not duplicated. Do not use native current division as proof of historical entrant identity; no change to team database. Identity mapping distinct from membership and full game readiness.",
+  "rows": [
+    {
+      "row": 75,
+      "country": "ENG",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "sourceSection": "ENG",
+      "nativeBlob": "27b8402dee465ed6b1f2815d4ca77b9f4ebbe60f",
+      "fixtureCount": 380,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Afc Wimbledon (England)",
+          "nativeName": "WIMBLEDON",
+          "uuid": "a1c3e6d0-5885-5b85-9fb2-0db406de112c",
+          "file": 8,
+          "ordinal": 42,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Arsenal FC (England)",
+          "nativeName": "ARSENAL",
+          "uuid": "cf91e69a-7916-584b-8264-d505d89896ce",
+          "file": 8,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Aston Villa (England)",
+          "nativeName": "ASTON VILLA",
+          "uuid": "c2c480ce-4bc2-599a-98c5-34a7bb97770d",
+          "file": 8,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Blackburn Rovers (England)",
+          "nativeName": "BLACKBURN ROVERS",
+          "uuid": "377066d8-6164-5f5a-be08-6ac71b33921a",
+          "file": 8,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Chelsea (England)",
+          "nativeName": "CHELSEA",
+          "uuid": "0eaf2533-c243-5311-b452-fc8f8d53946e",
+          "file": 8,
+          "ordinal": 18,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Coventry City (England)",
+          "nativeName": "COVENTRY CITY",
+          "uuid": "bab12338-1b03-59c9-b06a-873a656be7ae",
+          "file": 8,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Derby County (England)",
+          "nativeName": "DERBY COUNTY",
+          "uuid": "7d0aff8d-2f21-5c09-a17e-1bc7691ce5a2",
+          "file": 8,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Everton (England)",
+          "nativeName": "EVERTON",
+          "uuid": "9a8ed68c-f546-5bd0-ab8f-a2de91e4d15b",
+          "file": 8,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Leeds United (England)",
+          "nativeName": "LEEDS UNITED",
+          "uuid": "2198b309-4a83-5865-914b-80530ef2fbce",
+          "file": 8,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Leicester City (England)",
+          "nativeName": "LEICESTER CITY",
+          "uuid": "e758e6a3-e1a9-5f27-aae6-5d4e3379350e",
+          "file": 8,
+          "ordinal": 17,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Liverpool (England)",
+          "nativeName": "LIVERPOOL",
+          "uuid": "c35fd59d-3ce9-5617-aa3e-f3af93d2b5d7",
+          "file": 8,
+          "ordinal": 22,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Manchester United (England)",
+          "nativeName": "MANCHESTER UTD",
+          "uuid": "e05db570-919c-5bbb-9578-046f4cf3f7f9",
+          "file": 8,
+          "ordinal": 20,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Middlesbrough FC (England)",
+          "nativeName": "MIDDLESBROUGH",
+          "uuid": "053f1c17-98cb-5d1e-900e-64188348d815",
+          "file": 8,
+          "ordinal": 21,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Newcastle United (England)",
+          "nativeName": "NEWCASTLE UNITED",
+          "uuid": "520f2b7c-8039-5ced-a43a-e12cbd014988",
+          "file": 8,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Nottingham Forest (England)",
+          "nativeName": "NOTT'M FOREST",
+          "uuid": "99ec2c7f-8aab-5d82-83e5-1a12ad77c3c1",
+          "file": 8,
+          "ordinal": 24,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Sheffield Wednesday (England)",
+          "nativeName": "SHEFFIELD WED.",
+          "uuid": "3897fb14-0d69-5ea6-8138-e990682795ee",
+          "file": 8,
+          "ordinal": 32,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Southampton (England)",
+          "nativeName": "SOUTHAMPTON",
+          "uuid": "8b5d100d-bdaf-53c3-8335-9f460fa7801c",
+          "file": 8,
+          "ordinal": 33,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Sunderland Afc (England)",
+          "nativeName": "SUNDERLAND",
+          "uuid": "e1f4580c-ee76-5692-86ef-81e594fd059f",
+          "file": 8,
+          "ordinal": 36,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 18,
+          "sourceLabel": "Tottenham Hotspur (England)",
+          "nativeName": "TOTTENHAM H.",
+          "uuid": "8faeb252-1103-51dd-b56a-030b129ab129",
+          "file": 8,
+          "ordinal": 38,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 19,
+          "sourceLabel": "West Ham United (England)",
+          "nativeName": "WEST HAM UNITED",
+          "uuid": "a6ffbb1f-0e2a-52d2-b9a4-344576cdbaa0",
+          "file": 8,
+          "ordinal": 41,
+          "currentNativeLeague": 0
+        }
+      ],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "BARNSLEY",
+        "BOLTON WANDERERS",
+        "CRYSTAL PALACE"
+      ],
+      "scope": "Historical entrant labels resolved to native legacy records across all divisions, not a runtime roster change. ENG modern external Wimbledon label resolved via prior unique calendar signature to historical Wimbledon FC. No automatic change to division or transfer of 2627 data."
+    },
+    {
+      "row": 54,
+      "country": "GER",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "sourceSection": "GER",
+      "nativeBlob": "5cbdf0ea12569923abeaa3337d0ec15b0c6a582c",
+      "fixtureCount": 306,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "1 FC Koeln (Germany)",
+          "nativeName": "1.FC KOELN",
+          "uuid": "14214774-3e8f-5d6d-822c-695633c83f0e",
+          "file": 14,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Arminia Bielefeld (Germany)",
+          "nativeName": "ARM. BIELEFELD",
+          "uuid": "ccd4d75d-3c60-51b1-8e4d-94d00af6298e",
+          "file": 14,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Bayer Leverkusen (Germany)",
+          "nativeName": "BAYER LEVERKUSEN",
+          "uuid": "1e5a1a6f-d20a-57da-bcee-d3551476c2ce",
+          "file": 14,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Bayern München (Germany)",
+          "nativeName": "BAYERN MUENCHEN",
+          "uuid": "fc3da213-d298-52e0-88de-38fddbc02d2d",
+          "file": 14,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Bochum (Germany)",
+          "nativeName": "VFL BOCHUM",
+          "uuid": "fea17072-9f4a-5a29-80b8-673d57e61715",
+          "file": 14,
+          "ordinal": 38,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Borussia Dortmund (Germany)",
+          "nativeName": "BOR. DORTMUND",
+          "uuid": "b670a399-bb82-54c1-ae8c-7cd6f1598639",
+          "file": 14,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Borussia M'gladbach (Germany)",
+          "nativeName": "MOENCHENGLADBACH",
+          "uuid": "adbd577f-18a3-50cb-bfa5-ff2224cdd381",
+          "file": 14,
+          "ordinal": 24,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "FC Schalke 04 (Germany)",
+          "nativeName": "FC SCHALKE 04",
+          "uuid": "cd5a559b-b4da-5ec8-a948-9de0b38cbc97",
+          "file": 14,
+          "ordinal": 29,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Fortuna Duesseldorf (Germany)",
+          "nativeName": "FORT.DUESSELDORF",
+          "uuid": "71724002-58c2-5328-92ea-d7f38af45205",
+          "file": 14,
+          "ordinal": 10,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Freiburg (Germany)",
+          "nativeName": "SC FREIBURG",
+          "uuid": "ac0d397d-0ea7-53d5-af68-1a06fe06f772",
+          "file": 14,
+          "ordinal": 12,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Hamburger SV (Germany)",
+          "nativeName": "HAMBURGER SV",
+          "uuid": "ff76e7c0-9e4b-5994-b6f7-27d915e0d7dc",
+          "file": 14,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Hansa Rostock (Germany)",
+          "nativeName": "HANSA ROSTOCK",
+          "uuid": "52b24737-cee3-55c2-8334-5c737673846e",
+          "file": 14,
+          "ordinal": 18,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Karlsruher SC (Germany)",
+          "nativeName": "KARLSRUHER SC",
+          "uuid": "b3b0cf16-f374-5ee7-a10c-8b6da1dee144",
+          "file": 14,
+          "ordinal": 22,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "MSV Duisburg (Germany)",
+          "nativeName": "MSV DUISBURG",
+          "uuid": "3ed1f481-6114-5a9e-9622-c74d02dddc73",
+          "file": 14,
+          "ordinal": 25,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "St. Pauli (Germany)",
+          "nativeName": "FC ST. PAULI",
+          "uuid": "2c16e818-5921-5a7a-95af-6111136d6fbf",
+          "file": 14,
+          "ordinal": 30,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Stuttgart (Germany)",
+          "nativeName": "VFB STUTTGART",
+          "uuid": "1ac8dbcd-6ced-5610-ab37-8f55c51f7b75",
+          "file": 14,
+          "ordinal": 37,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "TSV 1860 Muenchen (Germany)",
+          "nativeName": "1860 MUENCHEN",
+          "uuid": "c9129cf7-7ff3-5234-9c5e-a1d2f3f220ee",
+          "file": 14,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Werder Bremen (Germany)",
+          "nativeName": "WERDER BREMEN",
+          "uuid": "120dbc5e-f73a-518a-abff-ebcbad43dd9d",
+          "file": 14,
+          "ordinal": 42,
+          "currentNativeLeague": 0
+        }
+      ],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "HERTHA BERLIN",
+        "KAISERSLAUTERN",
+        "VFL WOLFSBURG"
+      ],
+      "scope": "Historical entrant labels resolved to native legacy records across all divisions, not a runtime roster change. ENG modern external Wimbledon label resolved via prior unique calendar signature to historical Wimbledon FC. No automatic change to division or transfer of 2627 data."
+    },
+    {
+      "row": 52,
+      "country": "FRA",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "sourceSection": "FRA",
+      "nativeBlob": "35df2a7dcaf0ba2faad6b93ddb2ddc37d1c57e97",
+      "fixtureCount": 380,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "As Cannes (France)",
+          "nativeName": "CANNES",
+          "uuid": "d2cafd70-e957-558e-9f53-ac73507807bc",
+          "file": 13,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "As Nancy (France)",
+          "nativeName": "NANCY",
+          "uuid": "a2e22442-f975-5e90-bea9-d4fadead9661",
+          "file": 13,
+          "ordinal": 26,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Auxerre (France)",
+          "nativeName": "AUXERRE",
+          "uuid": "c7c3e835-ab85-5658-a8a4-c8e34a2afc4c",
+          "file": 13,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "EA Guingamp (France)",
+          "nativeName": "GUINGAMP",
+          "uuid": "f277d8fa-15df-5818-b4dc-2c92c1543a84",
+          "file": 13,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "FC Metz (France)",
+          "nativeName": "METZ",
+          "uuid": "46bfbd22-1d7d-5c46-90c8-45240cc4de18",
+          "file": 13,
+          "ordinal": 22,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Girondins Bordeaux (France)",
+          "nativeName": "BORDEAUX",
+          "uuid": "0c3d16c5-3744-567f-b7a3-f191feb8db5a",
+          "file": 13,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Le Havre (France)",
+          "nativeName": "LE HAVRE",
+          "uuid": "9c483f5d-05c5-5f14-aaac-d7740e7549e9",
+          "file": 13,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Lens (France)",
+          "nativeName": "LENS",
+          "uuid": "ccff487e-43a5-5957-9142-3850796dd33d",
+          "file": 13,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Lille (France)",
+          "nativeName": "LILLE",
+          "uuid": "d3a67a93-50fa-572e-a916-a3e911d4cac0",
+          "file": 13,
+          "ordinal": 16,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Monaco (France)",
+          "nativeName": "MONACO",
+          "uuid": "cbfa605b-80e1-56a6-9178-90d33559150b",
+          "file": 13,
+          "ordinal": 23,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Montpellier (France)",
+          "nativeName": "MONTPELLIER",
+          "uuid": "4d542624-8d6d-5041-a8db-144189068f7f",
+          "file": 13,
+          "ordinal": 24,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Nantes (France)",
+          "nativeName": "NANTES",
+          "uuid": "fc39dd80-d29d-5696-a2dd-a02d6fada120",
+          "file": 13,
+          "ordinal": 27,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Nice (France)",
+          "nativeName": "NICE",
+          "uuid": "0cdb05af-6335-5646-a624-c40e1c51f7d2",
+          "file": 13,
+          "ordinal": 28,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Olympique Lyon (France)",
+          "nativeName": "LYON",
+          "uuid": "fad4ba38-9ebb-5028-ab18-9aba23bb5f88",
+          "file": 13,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Olympique Marseille (France)",
+          "nativeName": "MARSEILLE",
+          "uuid": "a0f36d42-499f-54c5-a8e3-f93091297add",
+          "file": 13,
+          "ordinal": 20,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "PSG (France)",
+          "nativeName": "PARIS ST-GERMAIN",
+          "uuid": "d5f87c92-f252-5345-b361-d4dc20f508aa",
+          "file": 13,
+          "ordinal": 30,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Rennes (France)",
+          "nativeName": "RENNES",
+          "uuid": "901ef701-79b3-5a56-a4b3-9a2aa00c7ba9",
+          "file": 13,
+          "ordinal": 33,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "SC Bastia (France)",
+          "nativeName": "BASTIA",
+          "uuid": "7b3998b1-19de-5f47-a444-1ef44fe878c2",
+          "file": 13,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 18,
+          "sourceLabel": "SM Caen (France)",
+          "nativeName": "CAEN",
+          "uuid": "325de485-efd8-5bfa-8bf1-94a0b586696a",
+          "file": 13,
+          "ordinal": 5,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 19,
+          "sourceLabel": "Strasbourg (France)",
+          "nativeName": "STRASBOURG",
+          "uuid": "17671de9-ffd5-590a-bad2-f48834b8e5ac",
+          "file": 13,
+          "ordinal": 37,
+          "currentNativeLeague": 0
+        }
+      ],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "CHATEAUROUX",
+        "TOULOUSE"
+      ],
+      "scope": "Historical entrant labels resolved to native legacy records across all divisions, not a runtime roster change. ENG modern external Wimbledon label resolved via prior unique calendar signature to historical Wimbledon FC. No automatic change to division or transfer of 2627 data."
+    },
+    {
+      "row": 56,
+      "country": "ITA",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "sourceSection": "ITA",
+      "nativeBlob": "89dbc7b28d76ebb0dd0db0f4fa5133012e37607f",
+      "fixtureCount": 306,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "AC Reggiana (Italy)",
+          "nativeName": "REGGIANA",
+          "uuid": "bea43cbb-8c46-5076-b931-3c53dc78ccf8",
+          "file": 20,
+          "ordinal": 38,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Ac Perugia Calcio (Italy)",
+          "nativeName": "PERUGIA",
+          "uuid": "3ca4196a-7595-52d6-8a42-8ceacdf8802f",
+          "file": 20,
+          "ordinal": 32,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Acf Fiorentina (Italy)",
+          "nativeName": "FIORENTINA",
+          "uuid": "23fb3e31-9dc3-52c0-8367-81f950939692",
+          "file": 20,
+          "ordinal": 50,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Atalanta (Italy)",
+          "nativeName": "ATALANTA",
+          "uuid": "85282aef-0fdb-5552-afd3-67821e722ba3",
+          "file": 20,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Bologna (Italy)",
+          "nativeName": "BOLOGNA",
+          "uuid": "1cd6fac2-c416-5182-9954-d3107057a8d2",
+          "file": 20,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Cagliari (Italy)",
+          "nativeName": "CAGLIARI",
+          "uuid": "6a180399-66d0-5dc0-9d8e-e070b6ddd76b",
+          "file": 20,
+          "ordinal": 9,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Hellas Verona (Italy)",
+          "nativeName": "VERONA",
+          "uuid": "44c6f4f2-1828-596f-b839-1561d5685ffd",
+          "file": 20,
+          "ordinal": 49,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Inter (Italy)",
+          "nativeName": "INTER",
+          "uuid": "fd5b139f-d0f3-57c9-b8b9-6544bb747305",
+          "file": 20,
+          "ordinal": 21,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Juventus FC (Italy)",
+          "nativeName": "JUVENTUS",
+          "uuid": "ca8624cc-e706-54b7-8ffe-f9563d9ba5d7",
+          "file": 20,
+          "ordinal": 22,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Lazio (Italy)",
+          "nativeName": "LAZIO",
+          "uuid": "0836799f-0730-5a79-91f6-c978906c0a36",
+          "file": 20,
+          "ordinal": 23,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Milan (Italy)",
+          "nativeName": "AC MILAN",
+          "uuid": "859ea9cc-9b45-5b36-9225-1ef1531297b4",
+          "file": 20,
+          "ordinal": 31,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Napoli (Italy)",
+          "nativeName": "NAPOLI",
+          "uuid": "43b62d54-f507-59a5-b9d3-2a859562ac41",
+          "file": 20,
+          "ordinal": 28,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Parma (Italy)",
+          "nativeName": "PARMA",
+          "uuid": "e623d8c0-2867-521d-a89c-cfc352c02f1d",
+          "file": 20,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Piacenza Calcio (Italy)",
+          "nativeName": "PIACENZA",
+          "uuid": "651a441f-a646-5808-b7cb-057839a3f562",
+          "file": 20,
+          "ordinal": 34,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Roma (Italy)",
+          "nativeName": "ROMA",
+          "uuid": "adb8e8a3-5cf8-5eb2-8e1d-f894bb5cf2b2",
+          "file": 20,
+          "ordinal": 47,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Sampdoria (Italy)",
+          "nativeName": "SAMPDORIA",
+          "uuid": "ead02edd-1db9-5289-89f2-c119d1ad70d6",
+          "file": 20,
+          "ordinal": 42,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Udinese (Italy)",
+          "nativeName": "UDINESE",
+          "uuid": "89022db5-ac63-5f0c-b392-69bc1e8427bc",
+          "file": 20,
+          "ordinal": 40,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Vicenza Calcio (Italy)",
+          "nativeName": "VICENZA",
+          "uuid": "0eade3ac-945a-5e3b-adbd-84fce3a8c7e3",
+          "file": 20,
+          "ordinal": 18,
+          "currentNativeLeague": 0
+        }
+      ],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "BARI",
+        "BRESCIA",
+        "EMPOLI",
+        "LECCE"
+      ],
+      "scope": "Historical entrant labels resolved to native legacy records across all divisions, not a runtime roster change. ENG modern external Wimbledon label resolved via prior unique calendar signature to historical Wimbledon FC. No automatic change to division or transfer of 2627 data."
+    },
+    {
+      "row": 85,
+      "country": "ESP",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "541060c3b646b535fa5c4d982e8d13ec182dbd4e",
+      "sourceSection": "ESP",
+      "nativeBlob": "9ab967479b9fc76d9c1f9ddf9fcb4b1f121c362c",
+      "fixtureCount": 462,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Athletic Club (Spain)",
+          "nativeName": "ATHLETIC BILBAO",
+          "uuid": "ebcf5807-b9d3-54e7-a525-e71048a3ab00",
+          "file": 35,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Atlético Madrid (Spain)",
+          "nativeName": "ATLETICO MADRID",
+          "uuid": "ea3689bc-b755-55f8-a855-957f2e9e3d4a",
+          "file": 35,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "CD Logrones (Spain)",
+          "nativeName": "LOGRONES",
+          "uuid": "4fab3409-897a-5981-af24-72227d679944",
+          "file": 35,
+          "ordinal": 25,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "CD Tenerife (Spain)",
+          "nativeName": "TENERIFE",
+          "uuid": "c567945a-ae3d-558f-b545-13ec4e7eb7d1",
+          "file": 35,
+          "ordinal": 42,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "CF Extremadura (Spain)",
+          "nativeName": "EXTREMADURA",
+          "uuid": "37c537e0-aa92-568e-8201-292b61b8606c",
+          "file": 35,
+          "ordinal": 20,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Celta de Vigo (Spain)",
+          "nativeName": "CELTA DE VIGO",
+          "uuid": "29eaddb8-31dd-5d77-83c4-51c58f160c30",
+          "file": 35,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Deportivo La Coruna (Spain)",
+          "nativeName": "DEPORTIVO",
+          "uuid": "1578a983-a512-5af0-98e2-c382d57bce1a",
+          "file": 35,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Espanyol (Spain)",
+          "nativeName": "ESPANYOL",
+          "uuid": "ca4782d3-00d1-56aa-855f-486de43cc1f8",
+          "file": 35,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "FC Barcelona (Spain)",
+          "nativeName": "F.C.BARCELONA",
+          "uuid": "9a7ad1b1-ab77-57c1-824c-8596a8b9eadf",
+          "file": 35,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Hercules CF (Spain)",
+          "nativeName": "HERCULES",
+          "uuid": "97a07ac5-e543-5dcb-9ad4-d4d00812f20b",
+          "file": 35,
+          "ordinal": 22,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Racing Santander (Spain)",
+          "nativeName": "RACING SANTANDER",
+          "uuid": "8083d27b-5dff-5d68-907d-342f745f0d9c",
+          "file": 35,
+          "ordinal": 33,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Rayo Vallecano (Spain)",
+          "nativeName": "RAYO VALLECANO",
+          "uuid": "8c886db8-625b-5354-b624-739eb49e8366",
+          "file": 35,
+          "ordinal": 34,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Real Betis (Spain)",
+          "nativeName": "BETIS",
+          "uuid": "9861288e-a07a-52df-90b6-3f1c23bbe7f6",
+          "file": 35,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Real Madrid (Spain)",
+          "nativeName": "REAL MADRID",
+          "uuid": "09778597-b10b-5814-a802-8d8dc6da8173",
+          "file": 35,
+          "ordinal": 35,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Real Oviedo (Spain)",
+          "nativeName": "OVIEDO",
+          "uuid": "5d5714e0-b3a0-5c80-a0ef-196b0e0f351a",
+          "file": 35,
+          "ordinal": 31,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Real Sociedad (Spain)",
+          "nativeName": "REAL SOCIEDAD",
+          "uuid": "62b06038-f0f9-5260-a05d-18243c33eb66",
+          "file": 35,
+          "ordinal": 37,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Real Valladolid (Spain)",
+          "nativeName": "VALLADOLID",
+          "uuid": "a90813c6-8138-5999-8e77-8e4ab2277e96",
+          "file": 35,
+          "ordinal": 45,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Real Zaragoza (Spain)",
+          "nativeName": "ZARAGOZA",
+          "uuid": "8600d66e-45df-5f44-8daa-7434d1213ecf",
+          "file": 35,
+          "ordinal": 47,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 18,
+          "sourceLabel": "Sd Compostela (Spain)",
+          "nativeName": "COMPOSTELA",
+          "uuid": "29c83d54-1c14-58e8-83a5-37badb754799",
+          "file": 35,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 19,
+          "sourceLabel": "Sevilla (Spain)",
+          "nativeName": "SEVILLA",
+          "uuid": "ab847465-c468-58fb-b61a-139e45cfa073",
+          "file": 35,
+          "ordinal": 40,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 20,
+          "sourceLabel": "Sporting Gijon (Spain)",
+          "nativeName": "SPORTING GIJON",
+          "uuid": "1f74fa22-90c4-5483-b1fd-fa5c26f2b93a",
+          "file": 35,
+          "ordinal": 41,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 21,
+          "sourceLabel": "Valencia (Spain)",
+          "nativeName": "VALENCIA C.F.",
+          "uuid": "f29e014f-20e9-5f8b-b16e-7ae7e774cb62",
+          "file": 35,
+          "ordinal": 44,
+          "currentNativeLeague": 0
+        }
+      ],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "MALLORCA",
+        "MERIDA",
+        "SALAMANCA"
+      ],
+      "scope": "Historical entrant labels resolved to native legacy records across all divisions, not a runtime roster change. ENG modern external Wimbledon label resolved via prior unique calendar signature to historical Wimbledon FC. No automatic change to division or transfer of 2627 data."
+    },
+    {
+      "row": 79,
+      "country": "NED",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "sourceSection": "NED",
+      "nativeBlob": "91528669e28c5549cf970ddadbf90b684fe99be3",
+      "fixtureCount": 306,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "AZ (Netherlands)",
+          "nativeName": "AZ",
+          "uuid": "e9818c3d-3094-5eed-95be-12438d1541f5",
+          "file": 25,
+          "ordinal": 12,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Ajax (Netherlands)",
+          "nativeName": "AJAX",
+          "uuid": "403ec895-cb03-50e7-9b26-5c0cfa31db3b",
+          "file": 25,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "De Graafschap (Netherlands)",
+          "nativeName": "DE GRAAFSCHAP",
+          "uuid": "08719acd-0632-5a99-b428-47eab29444a8",
+          "file": 25,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "FC Twente (Netherlands)",
+          "nativeName": "FC TWENTE",
+          "uuid": "055d87b5-2be6-518a-9e20-5a27a88ee2c9",
+          "file": 25,
+          "ordinal": 28,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "FC Volendam (Netherlands)",
+          "nativeName": "FC VOLENDAM",
+          "uuid": "a9dd6df7-c34c-52a8-97e6-0cefebce8da0",
+          "file": 25,
+          "ordinal": 32,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Feyenoord (Netherlands)",
+          "nativeName": "FEYENOORD",
+          "uuid": "caf095a3-6aab-56e8-a1ff-21220a1b71c0",
+          "file": 25,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Fortuna Sittard (Netherlands)",
+          "nativeName": "FORTUNA SITTARD",
+          "uuid": "5a74c3a9-2493-55a7-a63d-4073f8523c61",
+          "file": 25,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Groningen (Netherlands)",
+          "nativeName": "FC GRONINGEN",
+          "uuid": "4194038f-b597-51d5-af6e-d35e0366201f",
+          "file": 25,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Heerenveen (Netherlands)",
+          "nativeName": "SC HEERENVEEN",
+          "uuid": "e25b7c64-6e45-5623-89db-b1aaebd388e1",
+          "file": 25,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "NAC Breda (Netherlands)",
+          "nativeName": "NAC",
+          "uuid": "09800210-c7ce-5cc2-b9e7-a6333c7f2be0",
+          "file": 25,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "NEC Nijmegen (Netherlands)",
+          "nativeName": "NEC",
+          "uuid": "1ef0ee98-ce73-5adb-bd49-882bc93d9fac",
+          "file": 25,
+          "ordinal": 20,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "PSV (Netherlands)",
+          "nativeName": "PSV",
+          "uuid": "bd018a4f-abc3-56cd-a5db-dccf9af5db4e",
+          "file": 25,
+          "ordinal": 21,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "RKC Waalwijk (Netherlands)",
+          "nativeName": "RKC WAALWIJK",
+          "uuid": "cc00abb6-8d06-5bf1-a842-0874793d2685",
+          "file": 25,
+          "ordinal": 23,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Roda JC Kerkrade (Netherlands)",
+          "nativeName": "RODA JC",
+          "uuid": "08c1c122-5c97-5f5f-a7e8-ae3b5a47c7b5",
+          "file": 25,
+          "ordinal": 24,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Sparta Rotterdam (Netherlands)",
+          "nativeName": "SPARTA ROTTERDAM",
+          "uuid": "baf067f5-5823-5424-b5c7-9d8b78c3583d",
+          "file": 25,
+          "ordinal": 25,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Utrecht (Netherlands)",
+          "nativeName": "FC UTRECHT",
+          "uuid": "9debd151-070c-5f90-ae43-94f136ced023",
+          "file": 25,
+          "ordinal": 29,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Vitesse (Netherlands)",
+          "nativeName": "VITESSE",
+          "uuid": "2673351b-d532-52e0-9947-b81a04340395",
+          "file": 25,
+          "ordinal": 31,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Willem II (Netherlands)",
+          "nativeName": "WILLEM II",
+          "uuid": "b2807646-cbf0-552d-9cf6-9d5376a793e0",
+          "file": 25,
+          "ordinal": 34,
+          "currentNativeLeague": 0
+        }
+      ],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "MVV"
+      ],
+      "scope": "Historical entrant labels resolved to native legacy records across all divisions, not a runtime roster change. ENG modern external Wimbledon label resolved via prior unique calendar signature to historical Wimbledon FC. No automatic change to division or transfer of 2627 data."
+    }
+  ]
+}

@@ -97,6 +97,157 @@
         "matches": 2
       },
       "missing": "Full cutoff fixture list, independent date/score checks, participant keys and standings reconciliation."
+    },
+    "closure142": {
+      "sourceBlob": "e0c23eeb443ccca219d08fbc51202669f02e9684",
+      "sectionCountry": "BLR",
+      "edition": "1996",
+      "fixtureCount": 240,
+      "participantCount": 16,
+      "observedPairMultiplicity": 1,
+      "firstDate": "1996-04-16",
+      "lastDate": "1996-11-10",
+      "withinSetCollisions": 0,
+      "expectedHistoricalTeams": 16,
+      "teamCountAgrees": true,
+      "dateStatus": "COMPLETE_REGULAR_PAIR_SET_SOURCE_OBSERVED",
+      "nativeStatus": "PARTIAL_STATIC_LEGACY_ROSTER_MATCH",
+      "nativeFileSha": "c931ad9ef4b012e4e6350c57c1f18b7088a725c7",
+      "nativeTopTierCount": 16,
+      "mappedCount": 7,
+      "oneToOne": true,
+      "mapping": [
+        {
+          "externalIndex": 0,
+          "externalLabel": "Belshina Bobruisk (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 1,
+          "externalLabel": "Dinamo Brest (Belarus)",
+          "matches": [
+            {
+              "name": "DINAMO BREST",
+              "file": 76,
+              "ordinal": 1,
+              "uuid": "adbdaf38-b451-5a31-bc06-f134d15fb836"
+            }
+          ]
+        },
+        {
+          "externalIndex": 2,
+          "externalLabel": "Dinamo Minsk (Belarus)",
+          "matches": [
+            {
+              "name": "DINAMO MINSK",
+              "file": 76,
+              "ordinal": 2,
+              "uuid": "41a33519-4d2c-5351-a95e-3773bcadf012"
+            }
+          ]
+        },
+        {
+          "externalIndex": 3,
+          "externalLabel": "Dnepr Mogilev (Belarus)",
+          "matches": [
+            {
+              "name": "DNEPR MOGILEV",
+              "file": 76,
+              "ordinal": 3,
+              "uuid": "d4ddb1bf-47e1-531c-a08e-145edfc9c403"
+            }
+          ]
+        },
+        {
+          "externalIndex": 4,
+          "externalLabel": "FC Ataka Aura Minsk (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 5,
+          "externalLabel": "FC Dinamo 93 Minsk (Belarus)",
+          "matches": [
+            {
+              "name": "DINAMO 93 MINSK",
+              "file": 76,
+              "ordinal": 0,
+              "uuid": "84af0c97-e669-5afd-81f5-48a038db5fda"
+            }
+          ]
+        },
+        {
+          "externalIndex": 6,
+          "externalLabel": "FK Lida (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 7,
+          "externalLabel": "FK Rechytsa 2014 (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 8,
+          "externalLabel": "Molodechno (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 9,
+          "externalLabel": "Naftan (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 10,
+          "externalLabel": "Neman Grodno (Belarus)",
+          "matches": [
+            {
+              "name": "NEMAN GRODNO",
+              "file": 76,
+              "ordinal": 9,
+              "uuid": "7edb31f1-ab8d-5998-aa36-9265ae1ef2dd"
+            }
+          ]
+        },
+        {
+          "externalIndex": 11,
+          "externalLabel": "Shakhter Soligorsk (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 12,
+          "externalLabel": "Slavia (Belarus)",
+          "matches": []
+        },
+        {
+          "externalIndex": 13,
+          "externalLabel": "Torpedo Minsk (Belarus)",
+          "matches": [
+            {
+              "name": "TORPEDO MINSK",
+              "file": 76,
+              "ordinal": 14,
+              "uuid": "377513c5-7b50-5449-8a89-e7c222a642d9"
+            }
+          ]
+        },
+        {
+          "externalIndex": 14,
+          "externalLabel": "Torpedo Mogilev (Belarus)",
+          "matches": [
+            {
+              "name": "TORPEDO MOGILEV",
+              "file": 76,
+              "ordinal": 15,
+              "uuid": "b5cd8f4e-ffca-5ea8-bcd3-cff91ca5a82c"
+            }
+          ]
+        },
+        {
+          "externalIndex": 15,
+          "externalLabel": "Vitebsk (Belarus)",
+          "matches": []
+        }
+      ],
+      "scope": "Exact first-edition top-tier row link. Source dates/orientation available, not independently reconciled or playoffs certified. Legacy file/ordinal/uuid is static native identity, not 2627 cat_key. No automatic successor aliases or generated calendar rules. Do not duplicate fixture list."
     }
   }
 ]

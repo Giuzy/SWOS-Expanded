@@ -1,0 +1,1051 @@
+{
+  "block": 142,
+  "status": "EXACT_ROW_CONSOLIDATION",
+  "scope": "Row-keyed reconciliation overlay for initial legacy entrants, no duplicate fixture list. Identity versus membership separate; no change to team database.",
+  "rows": [
+    {
+      "row": 24,
+      "country": "POR",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "sourceSection": "POR",
+      "nativeBlob": "2009a1ae3d3907c00df25310e2693e50843b5d9e",
+      "fixtureCount": 306,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Benfica (Portugal)",
+          "nativeName": "BENFICA",
+          "uuid": "2c7c4975-1234-555b-9f65-3cb0c820fc59",
+          "file": 29,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Boavista FC (Portugal)",
+          "nativeName": "BOAVISTA",
+          "uuid": "ec35c1a1-3c64-5288-a758-e0259cbb3a9c",
+          "file": 29,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "CS Maritimo (Portugal)",
+          "nativeName": "MARITIMO",
+          "uuid": "27256a5e-05c3-572f-9f05-790c9e61cc8a",
+          "file": 29,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Estrela Amadora (Portugal)",
+          "nativeName": "ESTRELA AMADORA",
+          "uuid": "d93c22f6-5663-5961-9fe6-7b3ba610bf3a",
+          "file": 29,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Farense (Portugal)",
+          "nativeName": "FARENSE",
+          "uuid": "0a8924a8-113e-59ed-b7c4-f49d38e21de1",
+          "file": 29,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "GD Chaves (Portugal)",
+          "nativeName": "CHAVES",
+          "uuid": "dc1ba81c-95b7-55b1-9a23-f2a6d0da97bb",
+          "file": 29,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Gil Vicente (Portugal)",
+          "nativeName": "GIL VICENTE",
+          "uuid": "d0487b25-96e3-5f1e-a2ea-a4eca06d9545",
+          "file": 29,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Leca FC (Portugal)",
+          "nativeName": "LECA",
+          "uuid": "ab8c4b32-c26a-5299-87f1-e8750f5952e0",
+          "file": 29,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Os Belenenses (Portugal)",
+          "nativeName": "BELENENSES",
+          "uuid": "cdc9fd1d-f6d9-5e52-b845-efd49c80677f",
+          "file": 29,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Porto (Portugal)",
+          "nativeName": "FC PORTO",
+          "uuid": "67ffed3a-5172-5d9b-b689-8eab57aca7d7",
+          "file": 29,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "SC Espinho (Portugal)",
+          "nativeName": "ESPINHO",
+          "uuid": "b01f00e7-a718-53b2-bfca-c99ba6552dbc",
+          "file": 29,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "SC Salgueiros (Portugal)",
+          "nativeName": "SALGUEIROS",
+          "uuid": "89e3e5b2-83b8-5cdc-be46-ebe9a8cf8ef1",
+          "file": 29,
+          "ordinal": 18,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Sporting Braga (Portugal)",
+          "nativeName": "BRAGA",
+          "uuid": "aa9028a5-6027-5eaf-90f3-3830cdd76ed1",
+          "file": 29,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Sporting CP (Portugal)",
+          "nativeName": "SPORTING LISBON",
+          "uuid": "76481162-39b7-5c75-b3d1-4ee4b60cfe89",
+          "file": 29,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Uniao Leiria (Portugal)",
+          "nativeName": "UNIAO LEIRIA",
+          "uuid": "7b973e27-71b3-5169-9cf7-9a24db35c8a4",
+          "file": 29,
+          "ordinal": 21,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Vitoria Setubal (Portugal)",
+          "nativeName": "VITORIA SETUBAL",
+          "uuid": "7193ddbd-105c-5542-b49d-4f825c91b78a",
+          "file": 29,
+          "ordinal": 24,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Vitória Guimarães (Portugal)",
+          "nativeName": "VIT. GUIMARAES",
+          "uuid": "749e7808-8fe6-504b-95e7-d2b91e4b9bac",
+          "file": 29,
+          "ordinal": 23,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Rio Ave (Portugal)",
+          "reason": "EXPECTED_NATIVE_LABEL_NOT_FOUND",
+          "expectedNativeLabel": "RIO AVE"
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "FELGUEIRAS",
+        "TIRSENSE"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity."
+    },
+    {
+      "row": 23,
+      "country": "POL",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "sourceSection": "POL",
+      "nativeBlob": "c3a8846fcc6e3aeea6c13d92fd07f4bb248d36e0",
+      "fixtureCount": 306,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Amica Wronki (Poland)",
+          "nativeName": "AMICA WRONKI",
+          "uuid": "e72c0b22-c422-53af-a5fd-832031952068",
+          "file": 28,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "GKS Belchatow (Poland)",
+          "nativeName": "GKS BELCHATOW",
+          "uuid": "7318c571-30c8-5f72-947c-d55ff46a081b",
+          "file": 28,
+          "ordinal": 1,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "GKS Katowice (Poland)",
+          "nativeName": "GKS KATOWICE",
+          "uuid": "f4fafa41-3650-53c4-a672-3bc5e89e4beb",
+          "file": 28,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Górnik Zabrze (Poland)",
+          "nativeName": "GORNIK ZABRZE",
+          "uuid": "8dad7aa8-ae68-52d8-bbe1-8b68680b312e",
+          "file": 28,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Hutnik Krakow (Poland)",
+          "nativeName": "HUTNIK KRAKOW",
+          "uuid": "2b05a2e9-4e0f-50af-8c05-64226e216ecb",
+          "file": 28,
+          "ordinal": 4,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "LKS Lodz (Poland)",
+          "nativeName": "LKS-PTAK LODZ",
+          "uuid": "0266f15d-092a-53ae-ba72-13085d566e7d",
+          "file": 28,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Lech Poznań (Poland)",
+          "nativeName": "LECH POZNAN",
+          "uuid": "caf2369f-3800-5e77-837e-94d203fd5c3a",
+          "file": 28,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Legia Warszawa (Poland)",
+          "nativeName": "LEGIA WARSAW",
+          "uuid": "80a2364a-f280-596b-92cb-d24220ea4759",
+          "file": 28,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Odra Wodzislaw (Poland)",
+          "nativeName": "ODRA WODZISLAW",
+          "uuid": "a4c17892-0357-5c7f-b3c6-b3b4df4b1fc5",
+          "file": 28,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Oks Stomil Olsztyn (Poland)",
+          "nativeName": "STOMIL OLSZTYN",
+          "uuid": "1927dd41-62b6-53ed-ae1c-87c3ec61f4e8",
+          "file": 28,
+          "ordinal": 20,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Polonia Warszawa (Poland)",
+          "nativeName": "POLONIA WARSAW",
+          "uuid": "47465dee-a1c9-5d0b-a998-bd92c91072b4",
+          "file": 28,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Raków Częstochowa (Poland)",
+          "nativeName": "RAKOW CZ-WA",
+          "uuid": "f959c932-40bd-5b99-ac33-af90daf2ae38",
+          "file": 28,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Ruch Chorzow (Poland)",
+          "nativeName": "RUCH CHORZOW",
+          "uuid": "bd107820-4171-5e41-9488-0b78bed3e30e",
+          "file": 28,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Widzew Łódź (Poland)",
+          "nativeName": "WIDZEW LODZ",
+          "uuid": "0f6d5dfe-abc9-5a03-a047-de9644709a2a",
+          "file": 28,
+          "ordinal": 23,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Wisla Krakow (Poland)",
+          "nativeName": "WISLA KRAKOW",
+          "uuid": "469d12cf-9e5f-5586-beea-02d55012451c",
+          "file": 28,
+          "ordinal": 24,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Zagłębie Lubin (Poland)",
+          "nativeName": "ZAGLEBIE LUBIN",
+          "uuid": "e19fa241-8619-5aa3-959d-55a5151d0354",
+          "file": 28,
+          "ordinal": 25,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Śląsk Wrocław (Poland)",
+          "nativeName": "SLASK WROCLAW",
+          "uuid": "7057e572-2296-526f-86bf-911e0692e71b",
+          "file": 28,
+          "ordinal": 16,
+          "currentNativeLeague": 4
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Sokol Pniewy (Poland)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "GROCLIN GRODZISK",
+        "KSZO OSTROWIEC",
+        "PETROCHEMIA",
+        "POGON SZCZECIN"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity."
+    },
+    {
+      "row": 13,
+      "country": "GRE",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "sourceSection": "GRE",
+      "nativeBlob": "9260977eaa9f71fa69ded33024fe9b4f29967fdd",
+      "fixtureCount": 306,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "AEK Athens (Greece)",
+          "nativeName": "AEK ATHENS",
+          "uuid": "25ab0df8-8c12-5dca-b305-53a123d468bd",
+          "file": 15,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Aep Iraklis FC (Greece)",
+          "nativeName": "IRAKLIS",
+          "uuid": "f0773153-3481-5432-ad44-0eef61155353",
+          "file": 15,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Ao Kavala (Greece)",
+          "nativeName": "KAVALA",
+          "uuid": "e5ecc926-fe78-5ab6-a829-16711643b758",
+          "file": 15,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Apollon Athens (Greece)",
+          "nativeName": "APOLLON ATHENS",
+          "uuid": "c158043c-2cb5-5f65-ba05-c00574a0593c",
+          "file": 15,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Aris (Greece)",
+          "nativeName": "ARIS",
+          "uuid": "6c6cfdc9-bde6-534a-b162-58beaee99ef1",
+          "file": 15,
+          "ordinal": 2,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Athinaikos (Greece)",
+          "nativeName": "ATHINAIKOS",
+          "uuid": "c6fb79e2-44a4-5a9d-8d88-4a53ab001441",
+          "file": 15,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Edessaikos (Greece)",
+          "nativeName": "EDESSAIKOS",
+          "uuid": "2c53e713-b3e1-5216-a9c3-8eda42fd4f1d",
+          "file": 15,
+          "ordinal": 5,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Ionikos Nikea (Greece)",
+          "nativeName": "IONIKOS",
+          "uuid": "3221571d-0226-53df-a9e8-f2a9a3593fd9",
+          "file": 15,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Kalamata (Greece)",
+          "nativeName": "KALAMATA",
+          "uuid": "2758bd62-6ab8-5c90-bc84-bd421584542a",
+          "file": 15,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "OFI (Greece)",
+          "nativeName": "OFI CRETE",
+          "uuid": "1e5493a7-81c8-57f7-9535-dd12a68aa718",
+          "file": 15,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Olympiakos Piraeus (Greece)",
+          "nativeName": "OLYMPIAKOS F.C.",
+          "uuid": "aa6bcbdd-84a8-5783-8050-cde6f62bd866",
+          "file": 15,
+          "ordinal": 17,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "PAOK (Greece)",
+          "nativeName": "PAOK",
+          "uuid": "49d229a1-932e-5cf5-8a48-ab2fee346b85",
+          "file": 15,
+          "ordinal": 22,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Panachaiki Ge (Greece)",
+          "nativeName": "PANAHAIKI",
+          "uuid": "d3ac5cb8-2c55-5670-864a-ac5aceb4be02",
+          "file": 15,
+          "ordinal": 18,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Panathinaikos (Greece)",
+          "nativeName": "PANATHINAIKOS",
+          "uuid": "707353d4-629c-5e8a-9e51-4a18423ab8da",
+          "file": 15,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Paniliakos FC (Greece)",
+          "nativeName": "PANILIAKOS",
+          "uuid": "a60dcf95-9ae4-5593-ae8f-fd597d029db6",
+          "file": 15,
+          "ordinal": 20,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Skoda Xanthi (Greece)",
+          "nativeName": "SCODA XANTHI",
+          "uuid": "8a3eb20c-fd54-547a-aa96-9ee93f360db6",
+          "file": 15,
+          "ordinal": 24,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Veria FC (Greece)",
+          "nativeName": "BEROIA",
+          "uuid": "11aada90-6f73-521e-81a7-c4d347aa8421",
+          "file": 15,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Ags Kastoria (Greece)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "ETHNIKOS",
+        "PANIONIOS",
+        "PROODEYTIKI"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity."
+    },
+    {
+      "row": 16,
+      "country": "ISR",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "sourceSection": "ISR",
+      "nativeBlob": "76108caab785ce95f18f579ef7a8780e7c738076",
+      "fixtureCount": 240,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Beitar Jerusalem (Israel)",
+          "nativeName": "BEITAR JERUSALEM",
+          "uuid": "2df952d9-45ca-5327-a84a-43efc7f0a06b",
+          "file": 19,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Bnei Yehuda Tel Aviv (Israel)",
+          "nativeName": "BNEI-YEHUDA T-A",
+          "uuid": "5eab07b8-269a-522f-a163-068d4cf3b625",
+          "file": 19,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Hapoel Be'er Sheva (Israel)",
+          "nativeName": "HAPOEL BEERSHEVA",
+          "uuid": "defd3c5d-1f5b-5b52-b2c5-1bf73d23ae8a",
+          "file": 19,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Hapoel Beit Shean FC (Israel)",
+          "nativeName": "HAPOEL BET-SHEAN",
+          "uuid": "1aec0474-a9f8-5cd7-a457-fd1f83edcc29",
+          "file": 19,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Hapoel Haifa (Israel)",
+          "nativeName": "HAPOEL HAIFA",
+          "uuid": "1255cf3d-2188-5896-bce4-7a915159a22b",
+          "file": 19,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Hapoel Jerusalem (Israel)",
+          "nativeName": "HAPOEL JERUSALEM",
+          "uuid": "4ed2ecd9-74cf-580c-98ea-62ea4aecdf69",
+          "file": 19,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Hapoel KSar Saba FC (Israel)",
+          "nativeName": "HAPOEL KFAR-SAVA",
+          "uuid": "8d517c25-fccf-5972-9684-554d311ef480",
+          "file": 19,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Hapoel Petach Tikva (Israel)",
+          "nativeName": "HA. PETACH-TIKVA",
+          "uuid": "1da4b0d5-609f-5fe2-9c4e-724baaf970d9",
+          "file": 19,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Hapoel Tel Aviv (Israel)",
+          "nativeName": "HAPOEL TEL-AVIV",
+          "uuid": "20e9bbd5-f7c2-5043-ad02-f971736f6614",
+          "file": 19,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Ironi Rishon Lezion (Israel)",
+          "nativeName": "RISHON-LEZION",
+          "uuid": "88e3dcc5-81c8-5adc-8a8a-7a15eba85901",
+          "file": 19,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Maccabi Haifa (Israel)",
+          "nativeName": "MACCABI HAIFA",
+          "uuid": "c0a216f8-4941-5edf-8873-d975f4c37c4c",
+          "file": 19,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Maccabi Herzliya (Israel)",
+          "nativeName": "MACCABI HERZLIYA",
+          "uuid": "5b970b74-dae4-5645-8b13-6457b58c77c6",
+          "file": 19,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Maccabi Petah Tikva (Israel)",
+          "nativeName": "MA. PETACH-TIKVA",
+          "uuid": "e3fa531b-78bc-59f8-8590-092d97fec6d8",
+          "file": 19,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Maccabi Tel Aviv (Israel)",
+          "nativeName": "MACCABI TEL-AVIV",
+          "uuid": "64f9579d-d862-5571-8b46-11647acbff81",
+          "file": 19,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Zafririm Holon (Israel)",
+          "nativeName": "ZAFRIRIM HOLON",
+          "uuid": "540d498b-3c8b-5ccf-b48d-d9066cdcc4aa",
+          "file": 19,
+          "ordinal": 6,
+          "currentNativeLeague": 4
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Hapoel Taibe (Israel)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "HAPOEL ASHKELON",
+        "IRONY ASHDOD"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity."
+    },
+    {
+      "row": 33,
+      "country": "TUR",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "541060c3b646b535fa5c4d982e8d13ec182dbd4e",
+      "sourceSection": "TUR",
+      "nativeBlob": "bcae7125de52d4bba61dc6a945a3a6c3baaa794d",
+      "fixtureCount": 306,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Altay Izmir (Turkey)",
+          "nativeName": "ALTAY",
+          "uuid": "dfbe3315-d228-53f8-a61e-98c9bb6e062f",
+          "file": 38,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Antalyaspor (Turkey)",
+          "nativeName": "ANTALYASPOR",
+          "uuid": "21321f91-ed10-54e9-8e3e-51cdccae0f2f",
+          "file": 38,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Belediye Vanspor (Turkey)",
+          "nativeName": "VANSPOR",
+          "uuid": "6ff5ba40-9bc8-5259-93b6-c372af5c81ae",
+          "file": 38,
+          "ordinal": 22,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Beşiktaş (Turkey)",
+          "nativeName": "BESIKTAS",
+          "uuid": "8acf8c8a-3d46-51f3-b1a0-f48a89155bfa",
+          "file": 38,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Bursaspor (Turkey)",
+          "nativeName": "BURSASPOR",
+          "uuid": "d58f8d21-b958-5d93-90a1-9da66cfcfa95",
+          "file": 38,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Canakkale Dardanelspor (Turkey)",
+          "nativeName": "DARDANELSPOR",
+          "uuid": "7a1c9932-3b4a-5c82-baf5-02d5d58c8341",
+          "file": 38,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Denizlispor (Turkey)",
+          "nativeName": "DENIZLISPOR",
+          "uuid": "2ace062e-91e2-54a9-87be-a80d68542587",
+          "file": 38,
+          "ordinal": 7,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Fenerbahçe (Turkey)",
+          "nativeName": "FENERBAHCE",
+          "uuid": "16424f4c-0d16-5aaa-9a6b-6129cf703597",
+          "file": 38,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Galatasaray (Turkey)",
+          "nativeName": "GALATASARAY",
+          "uuid": "79442f59-9ca4-5e46-87d9-1dd2138e5b48",
+          "file": 38,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Gaziantepspor (Turkey)",
+          "nativeName": "GAZIANTEPSPOR",
+          "uuid": "ebe38c42-42c4-56d5-b98a-9cc5d25f13ff",
+          "file": 38,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Genclerbirligi (Turkey)",
+          "nativeName": "GENCLERBIRLIGI",
+          "uuid": "d1057f4a-f76d-5c34-8bac-7adacadf9127",
+          "file": 38,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Istanbulspor (Turkey)",
+          "nativeName": "ISTANBULSPOR",
+          "uuid": "2d0a6f57-338d-50e9-8ef3-19164599dd05",
+          "file": 38,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Kocaelispor (Turkey)",
+          "nativeName": "KOCAELISPOR",
+          "uuid": "1aa47d90-95db-5031-bfab-8b68d47ef910",
+          "file": 38,
+          "ordinal": 17,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Mke Ankaraguecue (Turkey)",
+          "nativeName": "ANKARAGUCU",
+          "uuid": "9bf0e0dc-6191-5186-b424-cc59a313f0a4",
+          "file": 38,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Samsunspor (Turkey)",
+          "nativeName": "SAMSUNSPOR",
+          "uuid": "aba887e4-0acf-524d-bc3b-47d954a19921",
+          "file": 38,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Sariyer SK (Turkey)",
+          "nativeName": "SARIYER",
+          "uuid": "ecb152da-f8ab-5334-8e0e-e84f1d616a08",
+          "file": 38,
+          "ordinal": 20,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Trabzonspor (Turkey)",
+          "nativeName": "TRABZONSPOR",
+          "uuid": "2c912c98-05c1-5c46-9ecf-0f6b56c2d08d",
+          "file": 38,
+          "ordinal": 21,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Zeytinburnuspor (Turkey)",
+          "nativeName": "ZEYTINBURNU",
+          "uuid": "2a17390d-20f6-52b6-8c9e-665c567de6b1",
+          "file": 38,
+          "ordinal": 23,
+          "currentNativeLeague": 4
+        }
+      ],
+      "unresolved": [],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "KARABUKSPOR",
+        "KAYSERISPOR"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity."
+    },
+    {
+      "row": 34,
+      "country": "UKR",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "541060c3b646b535fa5c4d982e8d13ec182dbd4e",
+      "sourceSection": "UKR",
+      "nativeBlob": "b22a4d3db4790e7ad0a7cb374cba8a15ecbc4978",
+      "fixtureCount": 240,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Chornomorets (Ukraine)",
+          "nativeName": "CHERNOMORETS",
+          "uuid": "da6881a2-d200-5749-ae7d-e48a11019e9c",
+          "file": 39,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Dnipro Dnipropetrovsk (Ukraine)",
+          "nativeName": "DNEPROPETROVSK",
+          "uuid": "022c5f6d-cedc-5046-8220-61f04e7f235f",
+          "file": 39,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Dynamo Kyiv (Ukraine)",
+          "nativeName": "DINAMO KIEV",
+          "uuid": "b4af25ee-aa0c-548b-9ede-17c4d7e91a84",
+          "file": 39,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "FK Kremin (Ukraine)",
+          "nativeName": "KREMENCHUK",
+          "uuid": "09e368c4-3786-5ec6-a701-8ed33ec5cb14",
+          "file": 39,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "FK Krivbas (Ukraine)",
+          "nativeName": "KRIVBASS",
+          "uuid": "fec089a4-18a2-523f-914d-c79fa7218ff6",
+          "file": 39,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Karpaty Lviv (Ukraine)",
+          "nativeName": "KARPATY LVOV",
+          "uuid": "b1a53a44-af8a-5c65-87fa-de5424e00ac6",
+          "file": 39,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Metalurg Zaporizhya (Ukraine)",
+          "nativeName": "METALLURG Z.",
+          "uuid": "5fc0e2ed-64e5-55f2-9f74-96d2f2d0796d",
+          "file": 39,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Niva Ternopil (Ukraine)",
+          "nativeName": "NIVA TERNOPOL",
+          "uuid": "94082823-48e3-58bd-b194-0dda33ee0642",
+          "file": 39,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "PFK Niva Vinnitsa (Ukraine)",
+          "nativeName": "NIVA VINNITSA",
+          "uuid": "0ba32e35-9ae5-5337-84a8-d4eb6b95b5d6",
+          "file": 39,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Shakhtar Donetsk (Ukraine)",
+          "nativeName": "SHAKHTYOR",
+          "uuid": "2e849fe7-bfc8-58bc-b5d6-c270aed29182",
+          "file": 39,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Tavriya Simferopol (Ukraine)",
+          "nativeName": "TAVRIA",
+          "uuid": "872a927f-0e0b-5fa2-9ddc-42bbb52d94f4",
+          "file": 39,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Torpedo Zaporizhya (Ukraine)",
+          "nativeName": "TORPEDO ZAPOROJE",
+          "uuid": "2c5a7c6d-a010-506f-959a-e0b82e986cef",
+          "file": 39,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Arsenal Kiev (Ukraine)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Spartak Ivano Frankivsk (Ukraine)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Vorskla (Ukraine)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Zirka Kirovograd (Ukraine)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "BUKOVINA",
+        "METALLIST K.",
+        "TEMP SHETOVKA",
+        "VERES RIVNE",
+        "VOLYN LUTSK",
+        "ZARYA LUGANSK"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity."
+    }
+  ]
+}

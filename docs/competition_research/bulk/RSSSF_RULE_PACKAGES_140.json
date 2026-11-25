@@ -1,0 +1,346 @@
+{
+  "block": 140,
+  "status": "OBSERVED_RULE_AND_MOVEMENT_CANDIDATES",
+  "scope": "Structured observations from uploaded corpus annual tables and playoff sections; some corroborate existing research. No outcomes, future winners, official tie-break certification or new native keys. Previous editions kept distinct. Access and movement observations do not automatically establish permanent rules.",
+  "rows": [
+    {
+      "country": "BLR",
+      "world": "9697",
+      "edition": "1996",
+      "level": 1,
+      "observed": {
+        "teams": 16,
+        "regularGamesPerClub": 30,
+        "relegationRanks": [
+          15,
+          16
+        ],
+        "promotedCount": 2,
+        "merger": "Lokomotiv-96 formed by Dvina and Lokomotiv Vitebsk",
+        "archiveReportedPossibleRename": "Shinnik Bobruysk → Belshina"
+      },
+      "scope": "Rename reported tentatively by archive; not confirmed permanent.",
+      "matrixFamilyRows": [
+        3
+      ]
+    },
+    {
+      "country": "ISL",
+      "world": "9697",
+      "edition": "1996",
+      "level": 1,
+      "observed": {
+        "archiveDesignation": "1. deild (first level)",
+        "sponsor": "Sjova-Almennar",
+        "teams": 10,
+        "regularGamesPerClub": 18,
+        "positionsBelowRelegationSeparator": [
+          9,
+          10
+        ]
+      },
+      "scope": "Ranks inferred only from table separator; not complete movement rule.",
+      "matrixFamilyRows": [
+        15
+      ]
+    },
+    {
+      "country": "NIR",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 1,
+      "observed": {
+        "teams": 8,
+        "regularGamesPerClub": 28,
+        "relegationPlayoffRanks": [
+          8
+        ],
+        "playoffLegs": 2,
+        "nextEditionTeams": 10
+      },
+      "scope": "Explicit expansion to ten clubs; no permanent relegation rule inferred.",
+      "matrixFamilyRows": [
+        21
+      ]
+    },
+    {
+      "country": "SVN",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 1,
+      "observed": {
+        "teams": 10,
+        "regularGamesPerClub": 36,
+        "relegationRanks": [
+          10
+        ],
+        "relegationPlayoffRanks": [
+          9
+        ],
+        "playoffObservedGames": 1,
+        "promotedCountListed": 1
+      },
+      "scope": "One playoff score listed; not proof of one-leg rule.",
+      "matrixFamilyRows": [
+        30
+      ]
+    },
+    {
+      "country": "AUT",
+      "world": "9697",
+      "edition": "1996/97",
+      "level": 1,
+      "observed": {
+        "teams": 10,
+        "regularGamesPerClub": 36,
+        "relegationPlayoffRanks": [
+          10
+        ],
+        "exception": "LASK and FC Linz planned merger; Admira/Wacker instead plays Vorwärts Steyr; Admira/Wacker–VfB Mödling merger and second-tier vacancy unresolved in archive note"
+      },
+      "scope": "Season-specific administrative exception, not permanent rule.",
+      "matrixFamilyRows": [
+        2
+      ]
+    },
+    {
+      "country": "POL",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 2,
+      "observed": {
+        "teams": 18,
+        "regularGamesPerClub": 34,
+        "directPromotionRanks": [
+          1,
+          2
+        ],
+        "promotionPlayoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "relegationRanks": [
+          16,
+          17,
+          18
+        ],
+        "semifinalPairs": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "semifinalDate": "2026-05-28",
+        "finalDate": "2026-05-31",
+        "legsPerRoundObserved": 1,
+        "penaltiesObserved": true
+      },
+      "scope": "Previous edition; no automatic 2627 regulation.",
+      "matrixFamilyRows": [
+        285
+      ]
+    },
+    {
+      "country": "POL",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 3,
+      "observed": {
+        "teams": 18,
+        "regularGamesPerClub": 34,
+        "directPromotionRanks": [
+          1,
+          2
+        ],
+        "promotionPlayoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "relegationPlayoffRanks": [
+          13,
+          14
+        ],
+        "relegationRanks": [
+          15,
+          16,
+          17,
+          18
+        ],
+        "promotionSemifinalPairs": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "promotionSemifinalDate": "2026-06-02",
+        "promotionFinalDate": "2026-06-06",
+        "promotionLegsObserved": 1,
+        "lowerTierPlayoffSemifinalDate": "2026-06-03",
+        "relegationPlayoffFinalFirstLegDate": "2026-06-06"
+      },
+      "scope": "Level 3 reference only; check native row availability.",
+      "matrixFamilyRows": [
+        285
+      ]
+    },
+    {
+      "country": "RUS",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "relegationPlayoffRanks": [
+          13,
+          14
+        ],
+        "lowerTierRanks": [
+          3,
+          4
+        ],
+        "legs": 2,
+        "rankPairs": [
+          [
+            14,
+            3
+          ],
+          [
+            13,
+            4
+          ]
+        ],
+        "dates": [
+          "2026-05-20",
+          "2026-05-23"
+        ]
+      },
+      "scope": "Observed pairings and access from final tables; previous edition.",
+      "matrixFamilyRows": [
+        291
+      ]
+    },
+    {
+      "country": "ISL",
+      "world": "2627",
+      "edition": "2026",
+      "level": 1,
+      "observed": {
+        "regularTeams": 12,
+        "regularGamesPerClub": 22,
+        "championshipGroupRanks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "relegationGroupRanks": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "carryoverAllRegularPointsObserved": true
+      },
+      "scope": "Group tables at 22 matches; no later results copied.",
+      "matrixFamilyRows": [
+        256
+      ]
+    },
+    {
+      "country": "ISL",
+      "world": "2627",
+      "edition": "2026",
+      "level": 2,
+      "observed": {
+        "regularGamesPerClub": 22,
+        "promotionPlayoffRanks": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "semifinalPairs": [
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "semifinalLegs": 2,
+        "semifinalDates": [
+          "2026-09-09",
+          "2026-09-13"
+        ],
+        "finalDate": "2026-09-19",
+        "finalVenue": "Laugardalsvöllur"
+      },
+      "scope": "Scheduled dates from corpus; do not infer actual played dates or winner.",
+      "matrixFamilyRows": [
+        256
+      ]
+    },
+    {
+      "country": "NIR",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "relegationPlayoffRanks": [
+          11
+        ],
+        "lowerTierRank": 2,
+        "legs": 2,
+        "dates": [
+          "2026-04-28",
+          "2026-05-01"
+        ],
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "scope": "Previous edition.",
+      "matrixFamilyRows": [
+        277
+      ]
+    },
+    {
+      "country": "SVN",
+      "world": "2627",
+      "edition": "2025/26",
+      "level": 1,
+      "observed": {
+        "regularGamesPerClub": 34,
+        "relegationPlayoffRanks": [
+          9
+        ],
+        "lowerTierRank": 2,
+        "legs": 2,
+        "dates": [
+          "2026-05-27",
+          "2026-05-31"
+        ]
+      },
+      "scope": "Previous edition; 34 games shown for row 9, not uniform full round-robin proof.",
+      "matrixFamilyRows": [
+        306
+      ]
+    }
+  ]
+}

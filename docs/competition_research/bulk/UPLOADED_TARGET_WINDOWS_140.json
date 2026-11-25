@@ -1,0 +1,1167 @@
+{
+  "block": 140,
+  "status": "TARGET_WINDOW_OBSERVATIONS",
+  "historical": {
+    "file": "games.parquet",
+    "datasetRows": 1309501,
+    "latestDate": "2025-09-30",
+    "windowRows": 19703,
+    "januaryToJune1996": 6090,
+    "july1996ToJune1997": 13613,
+    "distinctExternalIds": 974,
+    "missingIdSides": 0,
+    "duplicateDatePairObservations": 1,
+    "scope": "Schochastics ODC-BY. Source home_ident/away_ident are external name-country strings, not native SWOS keys. Windows chosen as calendar-1996 or July-June candidate for each family, not proof of edition boundaries. RR multiplicity per oriented pair is an observed structure, not official regulation or full calendar verification. Provider labels may be misleading: DDR international label retained unmapped.",
+    "rows": [
+      {
+        "label": "argentina",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 382,
+        "distinctExternalIds": 22,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-07-01",
+        "lastObservedDate": "1997-05-31",
+        "providerCountryCode": "AR",
+        "janToJun1996Observations": 148,
+        "countryFamilyRefs": [
+          60,
+          61
+        ]
+      },
+      {
+        "label": "austria",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 180,
+        "distinctExternalIds": 10,
+        "orderedPairMultiplicity": 2,
+        "firstObservedDate": "1996-07-24",
+        "lastObservedDate": "1997-06-03",
+        "providerCountryCode": "AT",
+        "janToJun1996Observations": 90,
+        "countryFamilyRefs": [
+          2
+        ]
+      },
+      {
+        "label": "belarus",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-04-16",
+        "lastObservedDate": "1996-11-10",
+        "providerCountryCode": "BY",
+        "janToJun1996Observations": 86,
+        "countryFamilyRefs": [
+          3
+        ]
+      },
+      {
+        "label": "belgium",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-01",
+        "lastObservedDate": "1997-05-25",
+        "providerCountryCode": "BE",
+        "janToJun1996Observations": 126,
+        "countryFamilyRefs": [
+          4
+        ]
+      },
+      {
+        "label": "bolivia",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 196,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-03-02",
+        "lastObservedDate": "1996-12-22",
+        "providerCountryCode": "BO",
+        "janToJun1996Observations": 88,
+        "countryFamilyRefs": [
+          38
+        ]
+      },
+      {
+        "label": "brazil",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 276,
+        "distinctExternalIds": 24,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-01",
+        "lastObservedDate": "1996-11-24",
+        "providerCountryCode": "BR",
+        "janToJun1996Observations": 0,
+        "countryFamilyRefs": [
+          39
+        ]
+      },
+      {
+        "label": "bulgaria",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-09",
+        "lastObservedDate": "1997-06-01",
+        "providerCountryCode": "BG",
+        "janToJun1996Observations": 120,
+        "countryFamilyRefs": [
+          5
+        ]
+      },
+      {
+        "label": "china-pr",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 132,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-04-14",
+        "lastObservedDate": "1996-10-27",
+        "providerCountryCode": "CPR",
+        "janToJun1996Observations": 66,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "colombia",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 400,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-07-07",
+        "lastObservedDate": "1997-06-01",
+        "providerCountryCode": "CO",
+        "janToJun1996Observations": 292,
+        "countryFamilyRefs": [
+          41
+        ]
+      },
+      {
+        "label": "croatia",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-14",
+        "lastObservedDate": "1997-06-01",
+        "providerCountryCode": "HR",
+        "janToJun1996Observations": 104,
+        "countryFamilyRefs": [
+          6
+        ]
+      },
+      {
+        "label": "cyprus",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 182,
+        "distinctExternalIds": 14,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-09-21",
+        "lastObservedDate": "1997-05-11",
+        "providerCountryCode": "CY",
+        "janToJun1996Observations": 0,
+        "countryFamilyRefs": [
+          7
+        ]
+      },
+      {
+        "label": "czech-republic",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-11",
+        "lastObservedDate": "1997-06-11",
+        "providerCountryCode": "CZ",
+        "janToJun1996Observations": 120,
+        "countryFamilyRefs": [
+          8
+        ]
+      },
+      {
+        "label": "denmark",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 198,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-07-28",
+        "lastObservedDate": "1997-06-15",
+        "providerCountryCode": "DK",
+        "janToJun1996Observations": 79,
+        "countryFamilyRefs": [
+          9
+        ]
+      },
+      {
+        "label": "ecuador",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 230,
+        "distinctExternalIds": 11,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-02-10",
+        "lastObservedDate": "1996-12-25",
+        "providerCountryCode": "EC",
+        "janToJun1996Observations": 126,
+        "countryFamilyRefs": [
+          42
+        ]
+      },
+      {
+        "label": "england",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 380,
+        "distinctExternalIds": 20,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-17",
+        "lastObservedDate": "1997-05-11",
+        "providerCountryCode": "ENG",
+        "janToJun1996Observations": 176,
+        "countryFamilyRefs": [
+          75,
+          76,
+          77,
+          78
+        ]
+      },
+      {
+        "label": "finland",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 162,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-04-28",
+        "lastObservedDate": "1996-10-20",
+        "providerCountryCode": "FI",
+        "janToJun1996Observations": 74,
+        "countryFamilyRefs": [
+          12
+        ]
+      },
+      {
+        "label": "france",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 380,
+        "distinctExternalIds": 20,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-11",
+        "lastObservedDate": "1997-05-24",
+        "providerCountryCode": "FR",
+        "janToJun1996Observations": 161,
+        "countryFamilyRefs": [
+          52,
+          53
+        ]
+      },
+      {
+        "label": "georgia",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-01",
+        "lastObservedDate": "1997-05-30",
+        "providerCountryCode": "GE",
+        "janToJun1996Observations": 120,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "germany",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-16",
+        "lastObservedDate": "1997-05-31",
+        "providerCountryCode": "DE",
+        "janToJun1996Observations": 153,
+        "countryFamilyRefs": [
+          54,
+          55
+        ]
+      },
+      {
+        "label": "greece",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-09-06",
+        "lastObservedDate": "1997-05-25",
+        "providerCountryCode": "GR",
+        "janToJun1996Observations": 180,
+        "countryFamilyRefs": [
+          13
+        ]
+      },
+      {
+        "label": "honduras",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 135,
+        "distinctExternalIds": 10,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-31",
+        "lastObservedDate": "1997-04-06",
+        "providerCountryCode": "HN",
+        "janToJun1996Observations": 0,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "hungary",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-08",
+        "lastObservedDate": "1997-05-28",
+        "providerCountryCode": "HU",
+        "janToJun1996Observations": 121,
+        "countryFamilyRefs": [
+          14
+        ]
+      },
+      {
+        "label": "iceland",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 90,
+        "distinctExternalIds": 10,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-05-22",
+        "lastObservedDate": "1996-09-29",
+        "providerCountryCode": "IS",
+        "janToJun1996Observations": 32,
+        "countryFamilyRefs": [
+          15
+        ]
+      },
+      {
+        "label": "ireland-republic",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 198,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-31",
+        "lastObservedDate": "1997-04-27",
+        "providerCountryCode": "IRL",
+        "janToJun1996Observations": 85,
+        "countryFamilyRefs": [
+          25
+        ]
+      },
+      {
+        "label": "israel",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-24",
+        "lastObservedDate": "1997-05-31",
+        "providerCountryCode": "IL",
+        "janToJun1996Observations": 120,
+        "countryFamilyRefs": [
+          16
+        ]
+      },
+      {
+        "label": "italy",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-09-08",
+        "lastObservedDate": "1997-06-01",
+        "providerCountryCode": "IT",
+        "janToJun1996Observations": 171,
+        "countryFamilyRefs": [
+          56,
+          57
+        ]
+      },
+      {
+        "label": "japan",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 240,
+        "distinctExternalIds": 15,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-03-16",
+        "lastObservedDate": "1996-11-09",
+        "providerCountryCode": "JP",
+        "janToJun1996Observations": 120,
+        "countryFamilyRefs": [
+          58,
+          59
+        ]
+      },
+      {
+        "label": "korea-republic",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 144,
+        "distinctExternalIds": 9,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-05-11",
+        "lastObservedDate": "1996-11-05",
+        "providerCountryCode": "KOR",
+        "janToJun1996Observations": 40,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "latvia",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 144,
+        "distinctExternalIds": 11,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-04-20",
+        "lastObservedDate": "1996-11-02",
+        "providerCountryCode": "LV",
+        "janToJun1996Observations": 62,
+        "countryFamilyRefs": [
+          17
+        ]
+      },
+      {
+        "label": "lithuania",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 210,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-03-30",
+        "lastObservedDate": "1996-11-08",
+        "providerCountryCode": "LT",
+        "janToJun1996Observations": 98,
+        "countryFamilyRefs": [
+          18
+        ]
+      },
+      {
+        "label": "mexico",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 17,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-11",
+        "lastObservedDate": "1997-05-03",
+        "providerCountryCode": "MX",
+        "janToJun1996Observations": 136,
+        "countryFamilyRefs": [
+          62,
+          63
+        ]
+      },
+      {
+        "label": "moldova",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 226,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-03",
+        "lastObservedDate": "1997-06-19",
+        "providerCountryCode": "MD",
+        "janToJun1996Observations": 115,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "morocco",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 232,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-24",
+        "lastObservedDate": "1997-06-25",
+        "providerCountryCode": "MA",
+        "janToJun1996Observations": 112,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "netherlands",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-20",
+        "lastObservedDate": "1997-06-01",
+        "providerCountryCode": "NL",
+        "janToJun1996Observations": 138,
+        "countryFamilyRefs": [
+          79,
+          80
+        ]
+      },
+      {
+        "label": "northern-ireland",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 112,
+        "distinctExternalIds": 8,
+        "orderedPairMultiplicity": 2,
+        "firstObservedDate": "1996-09-28",
+        "lastObservedDate": "1997-04-26",
+        "providerCountryCode": "NIR",
+        "janToJun1996Observations": 62,
+        "countryFamilyRefs": [
+          21
+        ]
+      },
+      {
+        "label": "norway",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 182,
+        "distinctExternalIds": 14,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-04-13",
+        "lastObservedDate": "1996-10-20",
+        "providerCountryCode": "NO",
+        "janToJun1996Observations": 89,
+        "countryFamilyRefs": [
+          22
+        ]
+      },
+      {
+        "label": "peru",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-03-02",
+        "lastObservedDate": "1996-09-20",
+        "providerCountryCode": "PE",
+        "janToJun1996Observations": 144,
+        "countryFamilyRefs": [
+          45
+        ]
+      },
+      {
+        "label": "poland",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-07-21",
+        "lastObservedDate": "1997-06-25",
+        "providerCountryCode": "PL",
+        "janToJun1996Observations": 153,
+        "countryFamilyRefs": [
+          23
+        ]
+      },
+      {
+        "label": "portugal",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-23",
+        "lastObservedDate": "1997-06-15",
+        "providerCountryCode": "PT",
+        "janToJun1996Observations": 163,
+        "countryFamilyRefs": [
+          24
+        ]
+      },
+      {
+        "label": "romania",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-07-31",
+        "lastObservedDate": "1997-06-14",
+        "providerCountryCode": "RO",
+        "janToJun1996Observations": 117,
+        "countryFamilyRefs": [
+          26
+        ]
+      },
+      {
+        "label": "russia",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-03-02",
+        "lastObservedDate": "1996-11-03",
+        "providerCountryCode": "RU",
+        "janToJun1996Observations": 120,
+        "countryFamilyRefs": [
+          27
+        ]
+      },
+      {
+        "label": "scotland",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 180,
+        "distinctExternalIds": 10,
+        "orderedPairMultiplicity": 2,
+        "firstObservedDate": "1996-08-10",
+        "lastObservedDate": "1997-05-10",
+        "providerCountryCode": "SCO",
+        "janToJun1996Observations": 88,
+        "countryFamilyRefs": [
+          81,
+          82,
+          83,
+          84
+        ]
+      },
+      {
+        "label": "serbia-and-montenegro",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 198,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-10",
+        "lastObservedDate": "1997-05-31",
+        "providerCountryCode": "RS",
+        "janToJun1996Observations": 0,
+        "countryFamilyRefs": [
+          36
+        ]
+      },
+      {
+        "label": "slovenia",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 180,
+        "distinctExternalIds": 10,
+        "orderedPairMultiplicity": 2,
+        "firstObservedDate": "1996-08-04",
+        "lastObservedDate": "1997-06-01",
+        "providerCountryCode": "SI",
+        "janToJun1996Observations": 90,
+        "countryFamilyRefs": [
+          30
+        ]
+      },
+      {
+        "label": "spain",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 462,
+        "distinctExternalIds": 22,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-31",
+        "lastObservedDate": "1997-06-23",
+        "providerCountryCode": "ES",
+        "janToJun1996Observations": 264,
+        "countryFamilyRefs": [
+          85,
+          86
+        ]
+      },
+      {
+        "label": "sweden",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 182,
+        "distinctExternalIds": 14,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-04-21",
+        "lastObservedDate": "1996-10-26",
+        "providerCountryCode": "SE",
+        "janToJun1996Observations": 87,
+        "countryFamilyRefs": [
+          31
+        ]
+      },
+      {
+        "label": "switzerland",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 188,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-07-10",
+        "lastObservedDate": "1997-06-04",
+        "providerCountryCode": "CH",
+        "janToJun1996Observations": 56,
+        "countryFamilyRefs": [
+          32
+        ]
+      },
+      {
+        "label": "tunisia",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 152,
+        "distinctExternalIds": 13,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-31",
+        "lastObservedDate": "1997-05-25",
+        "providerCountryCode": "TN",
+        "janToJun1996Observations": 90,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "turkey",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 306,
+        "distinctExternalIds": 18,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-08-11",
+        "lastObservedDate": "1997-05-25",
+        "providerCountryCode": "TR",
+        "janToJun1996Observations": 153,
+        "countryFamilyRefs": [
+          33
+        ]
+      },
+      {
+        "label": "ukraine",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-07-20",
+        "lastObservedDate": "1997-06-23",
+        "providerCountryCode": "UA",
+        "janToJun1996Observations": 153,
+        "countryFamilyRefs": [
+          34
+        ]
+      },
+      {
+        "label": "united-states",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 177,
+        "distinctExternalIds": 10,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-04-06",
+        "lastObservedDate": "1996-10-20",
+        "providerCountryCode": "US",
+        "janToJun1996Observations": 74,
+        "countryFamilyRefs": [
+          49
+        ]
+      },
+      {
+        "label": "uruguay",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 160,
+        "distinctExternalIds": 12,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-03-02",
+        "lastObservedDate": "1996-08-24",
+        "providerCountryCode": "UY",
+        "janToJun1996Observations": 136,
+        "countryFamilyRefs": [
+          87,
+          88
+        ]
+      },
+      {
+        "label": "uzbekistan",
+        "window": "1996-01-01..1996-12-31",
+        "matches": 240,
+        "distinctExternalIds": 16,
+        "orderedPairMultiplicity": 1,
+        "firstObservedDate": "1996-04-20",
+        "lastObservedDate": "1996-11-07",
+        "providerCountryCode": "UZ",
+        "janToJun1996Observations": 99,
+        "countryFamilyRefs": []
+      },
+      {
+        "label": "venezuela",
+        "window": "1996-07-01..1997-06-30",
+        "matches": 224,
+        "distinctExternalIds": 10,
+        "orderedPairMultiplicity": null,
+        "firstObservedDate": "1996-08-11",
+        "lastObservedDate": "1997-05-26",
+        "providerCountryCode": "VE",
+        "janToJun1996Observations": 0,
+        "countryFamilyRefs": [
+          50
+        ]
+      }
+    ],
+    "internationalColumns": [
+      "providerLabel",
+      "windowRows",
+      "july1996ToJune1997Rows",
+      "distinctExternalIds"
+    ],
+    "international": [
+      [
+        "CAF SC",
+        1,
+        0,
+        2
+      ],
+      [
+        "Copa Lib",
+        174,
+        84,
+        35
+      ],
+      [
+        "Recopa",
+        2,
+        1,
+        4
+      ],
+      [
+        "UEFA CL",
+        89,
+        76,
+        28
+      ],
+      [
+        "UEFA EL",
+        246,
+        232,
+        122
+      ],
+      [
+        "UEFA ITC",
+        186,
+        138,
+        107
+      ],
+      [
+        "UEFA SC",
+        4,
+        2,
+        4
+      ],
+      [
+        "ddr",
+        109,
+        96,
+        58
+      ]
+    ]
+  },
+  "modern": {
+    "file": "Matches.txt",
+    "datasetRows": 238858,
+    "latestDate": "2026-09-03",
+    "calendar2026Rows": 4571,
+    "afterCutoffRows": 654,
+    "scope": "Football-Data.co.uk derived data via xgabora. Only counts/date bounds, no scores or raw fixtures redistributed. Jan–Jun observations are previous edition for these 22 European divisions; not July snapshot. No 2026 calendar-year leagues in this uploaded file. No extrapolation to full 2026/27.",
+    "rows": [
+      {
+        "division": "B1",
+        "janToJunPreviousEditionObservations": 151,
+        "julyToSepObservations": 36,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-07",
+        "lastObservedDate": "2026-09-03",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          213
+        ]
+      },
+      {
+        "division": "D1",
+        "janToJunPreviousEditionObservations": 171,
+        "julyToSepObservations": 9,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-28",
+        "lastObservedDate": "2026-08-30",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          243,
+          244,
+          245
+        ]
+      },
+      {
+        "division": "D2",
+        "janToJunPreviousEditionObservations": 153,
+        "julyToSepObservations": 27,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-07",
+        "lastObservedDate": "2026-08-30",
+        "tierCandidate": 2,
+        "countryFamilyRefs": [
+          243,
+          244,
+          245
+        ]
+      },
+      {
+        "division": "E0",
+        "janToJunPreviousEditionObservations": 194,
+        "julyToSepObservations": 20,
+        "observedParticipantLabels": 20,
+        "firstObservedDate": "2026-08-21",
+        "lastObservedDate": "2026-08-31",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          231,
+          232,
+          233,
+          234
+        ]
+      },
+      {
+        "division": "E1",
+        "janToJunPreviousEditionObservations": 266,
+        "julyToSepObservations": 48,
+        "observedParticipantLabels": 24,
+        "firstObservedDate": "2026-08-14",
+        "lastObservedDate": "2026-09-02",
+        "tierCandidate": 2,
+        "countryFamilyRefs": [
+          231,
+          232,
+          233,
+          234
+        ]
+      },
+      {
+        "division": "E2",
+        "janToJunPreviousEditionObservations": 285,
+        "julyToSepObservations": 47,
+        "observedParticipantLabels": 24,
+        "firstObservedDate": "2026-08-15",
+        "lastObservedDate": "2026-09-02",
+        "tierCandidate": 3,
+        "countryFamilyRefs": [
+          231,
+          232,
+          233,
+          234
+        ]
+      },
+      {
+        "division": "E3",
+        "janToJunPreviousEditionObservations": 276,
+        "julyToSepObservations": 48,
+        "observedParticipantLabels": 24,
+        "firstObservedDate": "2026-08-15",
+        "lastObservedDate": "2026-09-01",
+        "tierCandidate": 4,
+        "countryFamilyRefs": [
+          231,
+          232,
+          233,
+          234
+        ]
+      },
+      {
+        "division": "EC",
+        "janToJunPreviousEditionObservations": 258,
+        "julyToSepObservations": 60,
+        "observedParticipantLabels": 24,
+        "firstObservedDate": "2026-08-08",
+        "lastObservedDate": "2026-09-01",
+        "tierCandidate": 5,
+        "countryFamilyRefs": [
+          231,
+          232,
+          233,
+          234
+        ]
+      },
+      {
+        "division": "F1",
+        "janToJunPreviousEditionObservations": 162,
+        "julyToSepObservations": 19,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-21",
+        "lastObservedDate": "2026-09-03",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          239,
+          240
+        ]
+      },
+      {
+        "division": "F2",
+        "janToJunPreviousEditionObservations": 153,
+        "julyToSepObservations": 36,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-08",
+        "lastObservedDate": "2026-08-31",
+        "tierCandidate": 2,
+        "countryFamilyRefs": [
+          239,
+          240
+        ]
+      },
+      {
+        "division": "G1",
+        "janToJunPreviousEditionObservations": 132,
+        "julyToSepObservations": 13,
+        "observedParticipantLabels": 14,
+        "firstObservedDate": "2026-08-22",
+        "lastObservedDate": "2026-08-31",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          248
+        ]
+      },
+      {
+        "division": "I1",
+        "janToJunPreviousEditionObservations": 214,
+        "julyToSepObservations": 20,
+        "observedParticipantLabels": 20,
+        "firstObservedDate": "2026-08-22",
+        "lastObservedDate": "2026-08-31",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199
+        ]
+      },
+      {
+        "division": "I2",
+        "janToJunPreviousEditionObservations": 200,
+        "julyToSepObservations": 20,
+        "observedParticipantLabels": 20,
+        "firstObservedDate": "2026-08-21",
+        "lastObservedDate": "2026-08-30",
+        "tierCandidate": 2,
+        "countryFamilyRefs": [
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199
+        ]
+      },
+      {
+        "division": "N1",
+        "janToJunPreviousEditionObservations": 154,
+        "julyToSepObservations": 33,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-07",
+        "lastObservedDate": "2026-08-30",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          275,
+          276
+        ]
+      },
+      {
+        "division": "P1",
+        "janToJunPreviousEditionObservations": 164,
+        "julyToSepObservations": 33,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-07",
+        "lastObservedDate": "2026-08-31",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          286,
+          287
+        ]
+      },
+      {
+        "division": "SC0",
+        "janToJunPreviousEditionObservations": 112,
+        "julyToSepObservations": 25,
+        "observedParticipantLabels": 12,
+        "firstObservedDate": "2026-07-31",
+        "lastObservedDate": "2026-09-03",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          292,
+          293,
+          294,
+          295
+        ]
+      },
+      {
+        "division": "SC1",
+        "janToJunPreviousEditionObservations": 81,
+        "julyToSepObservations": 20,
+        "observedParticipantLabels": 10,
+        "firstObservedDate": "2026-08-01",
+        "lastObservedDate": "2026-08-29",
+        "tierCandidate": 2,
+        "countryFamilyRefs": [
+          292,
+          293,
+          294,
+          295
+        ]
+      },
+      {
+        "division": "SC2",
+        "janToJunPreviousEditionObservations": 86,
+        "julyToSepObservations": 24,
+        "observedParticipantLabels": 10,
+        "firstObservedDate": "2026-08-01",
+        "lastObservedDate": "2026-08-29",
+        "tierCandidate": 3,
+        "countryFamilyRefs": [
+          292,
+          293,
+          294,
+          295
+        ]
+      },
+      {
+        "division": "SC3",
+        "janToJunPreviousEditionObservations": 90,
+        "julyToSepObservations": 25,
+        "observedParticipantLabels": 10,
+        "firstObservedDate": "2026-08-01",
+        "lastObservedDate": "2026-08-29",
+        "tierCandidate": 4,
+        "countryFamilyRefs": [
+          292,
+          293,
+          294,
+          295
+        ]
+      },
+      {
+        "division": "SP1",
+        "janToJunPreviousEditionObservations": 209,
+        "julyToSepObservations": 31,
+        "observedParticipantLabels": 20,
+        "firstObservedDate": "2026-08-15",
+        "lastObservedDate": "2026-09-03",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          235,
+          236
+        ]
+      },
+      {
+        "division": "SP2",
+        "janToJunPreviousEditionObservations": 253,
+        "julyToSepObservations": 33,
+        "observedParticipantLabels": 22,
+        "firstObservedDate": "2026-08-14",
+        "lastObservedDate": "2026-08-31",
+        "tierCandidate": 2,
+        "countryFamilyRefs": [
+          235,
+          236
+        ]
+      },
+      {
+        "division": "T1",
+        "janToJunPreviousEditionObservations": 153,
+        "julyToSepObservations": 27,
+        "observedParticipantLabels": 18,
+        "firstObservedDate": "2026-08-14",
+        "lastObservedDate": "2026-08-31",
+        "tierCandidate": 1,
+        "countryFamilyRefs": [
+          311,
+          312
+        ]
+      }
+    ]
+  }
+}

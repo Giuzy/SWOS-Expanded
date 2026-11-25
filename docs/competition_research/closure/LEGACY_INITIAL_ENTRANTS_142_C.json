@@ -1,0 +1,1241 @@
+{
+  "block": 142,
+  "status": "EXACT_ROW_CONSOLIDATION",
+  "scope": "Row-keyed reconciliation overlay for initial legacy entrants, no duplicate fixture list. Identity versus membership separate; no change to team database.",
+  "rows": [
+    {
+      "row": 31,
+      "country": "SWE",
+      "world": "9697",
+      "edition": "1996",
+      "sourceBlob": "e0c23eeb443ccca219d08fbc51202669f02e9684",
+      "sourceSection": "SWE",
+      "nativeBlob": "4d3d4f05add71c511932ec12f5799fe1db7c0c25",
+      "fixtureCount": 182,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "AIK (Sweden)",
+          "nativeName": "AIK",
+          "uuid": "0feb6353-ef5f-51e4-9730-c123cf843a11",
+          "file": 36,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Degerfors (Sweden)",
+          "nativeName": "DEGERFORS IF",
+          "uuid": "866bb4fa-68d8-5631-985d-19586fdcb556",
+          "file": 36,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Halmstad (Sweden)",
+          "nativeName": "HALMSTAD BK",
+          "uuid": "fb6d1a66-ca9d-52f5-b089-7a9088715e14",
+          "file": 36,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Helsingborgs If (Sweden)",
+          "nativeName": "HELSINGBORGS IF",
+          "uuid": "7eae0080-f651-5bd9-859e-5c1f239249f6",
+          "file": 36,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "IFK Göteborg (Sweden)",
+          "nativeName": "IFK GOTHENBURG",
+          "uuid": "fa466baa-cbff-5afe-80a3-dc8d317d8e0e",
+          "file": 36,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Malmö FF (Sweden)",
+          "nativeName": "MALMO FF",
+          "uuid": "854d27fc-4be5-5f8b-a42d-a9ee537f9039",
+          "file": 36,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Norrköping (Sweden)",
+          "nativeName": "IFK NORRKOPING",
+          "uuid": "753b9c92-0fcd-58ff-9ada-e371df795cee",
+          "file": 36,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Oerebro SK (Sweden)",
+          "nativeName": "OREBRO SK",
+          "uuid": "66d9b42c-4036-51f7-84fc-f494481e818e",
+          "file": 36,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Oergryte Is (Sweden)",
+          "nativeName": "ORGRYTE IS",
+          "uuid": "33f4ae80-ac66-5644-838f-68c7b1f025e6",
+          "file": 36,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Trelleborgs Ff (Sweden)",
+          "nativeName": "TRELLEBORGS FF",
+          "uuid": "c95deb17-ee89-5612-919d-3aef30f7d1cb",
+          "file": 36,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Öster (Sweden)",
+          "nativeName": "OSTERS IF",
+          "uuid": "596b7156-93ce-5451-bf4f-f6eab8c065ab",
+          "file": 36,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Djurgården (Sweden)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Ik Oddevold (Sweden)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Umea FC (Sweden)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "ELFSBORGS IF",
+        "LJUNGSKILE SK",
+        "VASTERAS SK"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 27,
+      "country": "RUS",
+      "world": "9697",
+      "edition": "1996",
+      "sourceBlob": "e0c23eeb443ccca219d08fbc51202669f02e9684",
+      "sourceSection": "RUS",
+      "nativeBlob": "32d6966a8e5d2e8c38bfe67545fc151f65e9df29",
+      "fixtureCount": 306,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Alania Vladikavkaz (Russia)",
+          "nativeName": "ALANIA",
+          "uuid": "ba26c7de-5606-5996-bddf-84051739eab5",
+          "file": 31,
+          "ordinal": 17,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Baltika Kaliningrad (Russia)",
+          "nativeName": "BALTIKA",
+          "uuid": "23e7b362-34b3-5d49-a0fe-eb189b17be97",
+          "file": 31,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "CSKA Moskva (Russia)",
+          "nativeName": "CSKA MOSCOW",
+          "uuid": "be1527d9-117d-55ba-bb78-952797c7c772",
+          "file": 31,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Chernomorets Novorossisk (Russia)",
+          "nativeName": "CHERNOMORETS NR.",
+          "uuid": "ce06fca5-23bd-518c-80cf-b8a0757dc062",
+          "file": 31,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Dinamo Moskva (Russia)",
+          "nativeName": "DINAMO MOSCOW",
+          "uuid": "1980949a-0943-5e44-9605-1c743e482a63",
+          "file": 31,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "FK Kamaz (Russia)",
+          "nativeName": "KAMAZ-CHALLY",
+          "uuid": "0a18e99f-6138-5e39-b799-782a0a8e96c4",
+          "file": 31,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "FK Ural (Russia)",
+          "nativeName": "URALMASH",
+          "uuid": "95a4fcc9-c064-58d4-8fa2-e61f46df1869",
+          "file": 31,
+          "ordinal": 20,
+          "currentNativeLeague": 4
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "FK Zhemchuzhina (Russia)",
+          "nativeName": "ZHEMCHUZHYNA",
+          "uuid": "6af585b6-c49b-53a4-ba7f-14954d990396",
+          "file": 31,
+          "ordinal": 22,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Krylya Sovetov (Russia)",
+          "nativeName": "WINGS OF SOVIETS",
+          "uuid": "ab51d815-805d-59bf-9ff1-d9d69742b64d",
+          "file": 31,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Lok Nizhni Novgorod (Russia)",
+          "nativeName": "LOKOMOTIV  N. N.",
+          "uuid": "26b45cbf-2c92-5e60-9171-4182dc87e72a",
+          "file": 31,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Lokomotiv Moskva (Russia)",
+          "nativeName": "LOKOMOTIV MOSCOW",
+          "uuid": "67f4dd55-fa44-5a7e-b8da-9df16b95c554",
+          "file": 31,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Rostov (Russia)",
+          "nativeName": "ROSTSELMASH",
+          "uuid": "25adab23-b646-58bb-9ce8-5a00979ce98a",
+          "file": 31,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Rotor Volgograd (Russia)",
+          "nativeName": "ROTOR",
+          "uuid": "e893ac4d-471c-5b02-8ab8-680b701f1d08",
+          "file": 31,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Spartak Moskva (Russia)",
+          "nativeName": "SPARTAK",
+          "uuid": "20b8533d-bac4-5de4-963e-2df4d927d087",
+          "file": 31,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Torpedo Moskva (Russia)",
+          "nativeName": "TORPEDO-LUZHNIKI",
+          "uuid": "023c81c4-d3c6-51a5-b968-78700ce304ec",
+          "file": 31,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Zenit (Russia)",
+          "nativeName": "ZENIT",
+          "uuid": "d0467b2f-04d5-58a8-aba2-f53c84c3f455",
+          "file": 31,
+          "ordinal": 21,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Lada Togliatti (Russia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Tekstilshchik Kamyshin (Russia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "FAKEL",
+        "FC TYUMEN",
+        "SHINNIK"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 21,
+      "country": "NIR",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "e0c23eeb443ccca219d08fbc51202669f02e9684",
+      "sourceSection": "NIR",
+      "nativeBlob": "b5ce8ba27668ad971df794cf10819184e604481b",
+      "fixtureCount": 112,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Ards FC (Northern Ireland)",
+          "nativeName": "ARDS",
+          "uuid": "8c633723-3f5d-5d52-89af-d64adadd0473",
+          "file": 26,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Cliftonville (Northern Ireland)",
+          "nativeName": "CLIFTONVILLE",
+          "uuid": "7257dbea-81f9-54ad-9c69-04c139b4daf1",
+          "file": 26,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Coleraine (Northern Ireland)",
+          "nativeName": "COLERAINE",
+          "uuid": "9026786a-9dcf-5ec3-8e07-f0243db48dd0",
+          "file": 26,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Crusaders (Northern Ireland)",
+          "nativeName": "CRUSADERS",
+          "uuid": "47c29bb7-f871-57c8-a738-a9a3ee6a6c95",
+          "file": 26,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Glenavon (Northern Ireland)",
+          "nativeName": "GLENAVON",
+          "uuid": "ed638a66-de00-5bee-a95d-d0f950e820f6",
+          "file": 26,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Glentoran (Northern Ireland)",
+          "nativeName": "GLENTORAN",
+          "uuid": "9fdaf0bc-421c-57f6-a77a-502ba5590600",
+          "file": 26,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Linfield (Northern Ireland)",
+          "nativeName": "LINFIELD",
+          "uuid": "de466919-53ba-5461-b1b6-198cbf7884ba",
+          "file": 26,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Portadown (Northern Ireland)",
+          "nativeName": "PORTADOWN",
+          "uuid": "e0c6a802-71ff-557c-a7c5-bba8cef050e9",
+          "file": 26,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "BALLYCLARE C.",
+        "BALLYMENA UNITED",
+        "BANGOR",
+        "CARRICK RANGERS",
+        "DISTILLERY",
+        "LARNE",
+        "NEWRY TOWN",
+        "OMAGH TOWN"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 30,
+      "country": "SVN",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "e0c23eeb443ccca219d08fbc51202669f02e9684",
+      "sourceSection": "SVN",
+      "nativeBlob": "1234af7b50d705f56382a37cdc7b3c72d2c30ae9",
+      "fixtureCount": 180,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Celje (Slovenia)",
+          "nativeName": "PUBLIKUM CELJE",
+          "uuid": "b3e9ad01-6e7a-5ecc-b73a-507c00832133",
+          "file": 34,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Koper (Slovenia)",
+          "nativeName": "KOPER",
+          "uuid": "ad2116f2-9153-5fe5-a250-442467d00e53",
+          "file": 34,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Maribor (Slovenia)",
+          "nativeName": "MARIBOR BRANIK",
+          "uuid": "f4cb74aa-5dd5-5434-86c2-cdae94bfa1be",
+          "file": 34,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "NK Primorje (Slovenia)",
+          "nativeName": "PRIMORJE",
+          "uuid": "78218d5a-b0d8-5de6-9732-cbc61eebbbaa",
+          "file": 34,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Nd Gorica (Slovenia)",
+          "nativeName": "HIT GORICA",
+          "uuid": "43f95077-46c5-598a-8eb2-d3c68347653f",
+          "file": 34,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Olimpija (Slovenia)",
+          "nativeName": "OLIMPIJA L'JANA",
+          "uuid": "5ac0fe6a-b4ba-5d46-afde-0771f1e2aee8",
+          "file": 34,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Rudar Velenje (Slovenia)",
+          "nativeName": "RUDAR VELNJE",
+          "uuid": "36e7128b-4790-5a9f-adb8-f5a051a3fe4e",
+          "file": 34,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "NK Beltinci (Slovenia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "NK Korotan (Slovenia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Nd Mura 05 (Slovenia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "AM COSMOS",
+        "ISTRAGAS JADRAN",
+        "IZOLA",
+        "KRKA NOVOTERM",
+        "MAVRICA",
+        "MURA M. SOBOTA",
+        "OPTIMIZEM",
+        "POTROSNIK",
+        "ZIVILA NAKLO"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 2,
+      "country": "AUT",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "sourceSection": "AUT",
+      "nativeBlob": "11365a215132ac94221f50339b53faab8484c5e8",
+      "fixtureCount": 180,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Austria Wien (Austria)",
+          "nativeName": "AUSTRIA VIENNA",
+          "uuid": "4feea2e7-642c-50c4-b980-2ed9fb310fc9",
+          "file": 1,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Grazer AK (Austria)",
+          "nativeName": "GRAZER AK",
+          "uuid": "96cd9935-d905-5156-9649-b21d81407d18",
+          "file": 1,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "LASK (Austria)",
+          "nativeName": "LASK LINZ",
+          "uuid": "d3eefeee-67f6-5a6c-84e7-e4139dec1637",
+          "file": 1,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Rapid (Austria)",
+          "nativeName": "RAPID VIENNA",
+          "uuid": "38de33dd-2597-5848-92e8-26e25179498e",
+          "file": 1,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "SV Ried (Austria)",
+          "nativeName": "RIED IM INNKREIS",
+          "uuid": "d0423796-c0ec-5124-a013-d6f082fdaeb8",
+          "file": 1,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Salzburg (Austria)",
+          "nativeName": "SV SALZBURG",
+          "uuid": "1d4725ca-ba21-5a1b-8aa0-437dd35029c7",
+          "file": 1,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Sturm Graz (Austria)",
+          "nativeName": "STURM GRAZ",
+          "uuid": "ce022d47-5b73-5d25-8d69-d0ff81f6f41a",
+          "file": 1,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Blau-Weiß Linz (Austria)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "FC Admira Wacker (Austria)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "FC Wacker Innsbruck (Austria)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "FC LINZ",
+        "NIEDEROSTERREICH",
+        "TIROL INNSBRUCK"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 4,
+      "country": "BEL",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "sourceSection": "BEL",
+      "nativeBlob": "0aabdbb6bc9216991eb5f3d843ac9a2752806e5e",
+      "fixtureCount": 306,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Anderlecht (Belgium)",
+          "nativeName": "ANDERLECHT",
+          "uuid": "c82714a4-c825-5d5d-998c-8d4dd6dde57b",
+          "file": 2,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Antwerp (Belgium)",
+          "nativeName": "ANTWERP FC",
+          "uuid": "042d43b9-4b9a-5c2b-bc78-06f3412be470",
+          "file": 2,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Club Brugge (Belgium)",
+          "nativeName": "CLUB BRUGGE",
+          "uuid": "3d46bff1-de9b-5cd1-9ca1-9eb01095bde4",
+          "file": 2,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Eendracht Aalst (Belgium)",
+          "nativeName": "EENDRACHT AALST",
+          "uuid": "12f77fc5-63fc-57c5-bff3-b8e0cfc9dc31",
+          "file": 2,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Excelsior Mouscron (Belgium)",
+          "nativeName": "MOUSCRON",
+          "uuid": "b995d5c6-8e87-5791-880b-4f12781b5fa8",
+          "file": 2,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "FC Lommel (Belgium)",
+          "nativeName": "SK LOMMEL",
+          "uuid": "dc1a7d92-d74a-53f5-94f7-efbc1a82dddd",
+          "file": 2,
+          "ordinal": 13,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Genk (Belgium)",
+          "nativeName": "RC GENK",
+          "uuid": "434f6c58-13e0-58b3-b332-4a83da6b8df4",
+          "file": 2,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Gent (Belgium)",
+          "nativeName": "AA GENT",
+          "uuid": "59cbf2c0-e230-5d22-a9e9-4006283addf9",
+          "file": 2,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Germinal Ekeren (Belgium)",
+          "nativeName": "GERMINAL EKEREN",
+          "uuid": "938f71b7-13e2-5ab9-9f0c-c1b632f7db41",
+          "file": 2,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Lierse SK (Belgium)",
+          "nativeName": "LIERSE SK",
+          "uuid": "6d0747f7-b5f3-5b62-9816-c062d906d6ea",
+          "file": 2,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Rwd Molenbeek (Belgium)",
+          "nativeName": "RWD MOLENBEEK",
+          "uuid": "7f977201-368f-5957-9e68-129a1249c579",
+          "file": 2,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Sint-Truiden (Belgium)",
+          "nativeName": "SINT-TRUIDEN",
+          "uuid": "c6967dfd-03f5-5b02-a33e-6de2eec81429",
+          "file": 2,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Sporting Charleroi (Belgium)",
+          "nativeName": "CHARLEROI",
+          "uuid": "e428ba5e-c46e-56d9-8c84-b566d681c7ed",
+          "file": 2,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Sporting Lokeren (Belgium)",
+          "nativeName": "SC LOKEREN",
+          "uuid": "72c3fc7c-9fc8-502d-9151-febc5b580924",
+          "file": 2,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Standard Liège (Belgium)",
+          "nativeName": "STANDARD LIEGE",
+          "uuid": "212af111-2ad7-54cb-b5c1-4c3068af654e",
+          "file": 2,
+          "ordinal": 17,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Cercle Brugge (Belgium)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Krc Zuid West Vlaanderen (Belgium)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Mechelen (Belgium)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "VC WESTERLO",
+        "RC HARELBEKE",
+        "SK BEVEREN"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 6,
+      "country": "CRO",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "sourceSection": "CRO",
+      "nativeBlob": "f907cbb93b40b903300bad81a6fb4cd283a7bcd4",
+      "fixtureCount": 240,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Cibalia Vinkovci (Croatia)",
+          "nativeName": "CIBALIA VINKOVCI",
+          "uuid": "2564b364-62cc-5012-81e9-9f8ea0e4b058",
+          "file": 4,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Dinamo Zagreb (Croatia)",
+          "nativeName": "CROATIA ZAGREB",
+          "uuid": "0130bfd3-ab16-5b0f-aa26-a45edebeae72",
+          "file": 4,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Hajduk Split (Croatia)",
+          "nativeName": "HAJDUK SPLIT",
+          "uuid": "c25f0976-1d74-5ea5-b7f8-69a8a3cef995",
+          "file": 4,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Hnk Segesta (Croatia)",
+          "nativeName": "SEGESTA SISAK",
+          "uuid": "df372878-9f06-5d0a-86ba-760d2e6577f2",
+          "file": 4,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Nk Inter Zapresic (Croatia)",
+          "nativeName": "INKER ZAPRESIC",
+          "uuid": "5510a215-5a75-5f3d-a6b0-ffaf0675b7d2",
+          "file": 4,
+          "ordinal": 3,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Nk Istra Pula (Croatia)",
+          "nativeName": "ISTRA PULA",
+          "uuid": "84a1b483-18b0-5fdf-885b-e7f333a6b00d",
+          "file": 4,
+          "ordinal": 4,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Nk Marsonia Slavonski Brod (Croatia)",
+          "nativeName": "MARSONIA S. BROD",
+          "uuid": "f5ef4c30-ef24-5793-a1e2-96c3a61431f0",
+          "file": 4,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Nk Zagreb (Croatia)",
+          "nativeName": "NK ZAGREB",
+          "uuid": "3f47caed-9e69-52a3-824b-ed9201e0887f",
+          "file": 4,
+          "ordinal": 6,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Osijek (Croatia)",
+          "nativeName": "OSIJEK",
+          "uuid": "f24f0f02-3266-5f6b-9c5a-5a83f41ffd2e",
+          "file": 4,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Rijeka (Croatia)",
+          "nativeName": "RIJEKA",
+          "uuid": "88f66ad1-fd6c-5cad-97c1-43d47a940e1c",
+          "file": 4,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Varaždin (Croatia)",
+          "nativeName": "VARTEKS VARAZDIN",
+          "uuid": "b7dece59-098f-5997-9663-a22ffecdd227",
+          "file": 4,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Šibenik (Croatia)",
+          "nativeName": "SIBENIK",
+          "uuid": "7191563e-ff1e-534e-8228-00b9096a9ee3",
+          "file": 4,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Hnk Suhopolje (Croatia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Hrvatski Dragovoljac (Croatia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Nk Orijent Rijeka (Croatia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Nk Zadar (Croatia)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 26,
+      "country": "ROU",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "c045c69dce02f945ea4e2e42986cfb3274e19acd",
+      "sourceSection": "ROU",
+      "nativeBlob": "0735ecd4463c3e7576333c8d6e1667254efce7e9",
+      "fixtureCount": 306,
+      "identityStatus": "PARTIAL_NATIVE_IDENTITY_MAPPING",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Arge Piteti (Romania)",
+          "nativeName": "ARGES PITESTI",
+          "uuid": "dda03b53-c1eb-5e4d-b0cf-4c5b9c4559a7",
+          "file": 30,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Ceahlul Piatra Neamt (Romania)",
+          "nativeName": "CEAHLAUL P-N",
+          "uuid": "a2c992f8-6b8e-5850-8c5f-1d6234474a7b",
+          "file": 30,
+          "ordinal": 2,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Dinamo Bucureşti (Romania)",
+          "nativeName": "DINAMO BUCHAREST",
+          "uuid": "4a5d195c-7bad-5d39-858e-a1f92208d5ad",
+          "file": 30,
+          "ordinal": 5,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "FC Brasov (Romania)",
+          "nativeName": "BRASOV",
+          "uuid": "8d5bc625-eb93-5b28-b0a6-894d60441b14",
+          "file": 30,
+          "ordinal": 1,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "FC Politehnica Timisoara (Romania)",
+          "nativeName": "POLITEHNICA T.",
+          "uuid": "c128af97-fe77-5ff9-bcc0-a19319a085a7",
+          "file": 30,
+          "ordinal": 14,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "FC Universitatea Cluj (Romania)",
+          "nativeName": "UNIV. CLUJ",
+          "uuid": "d81fcb0c-0974-52be-aa9e-55cba4cf578b",
+          "file": 30,
+          "ordinal": 19,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "FC Universitatea Craiova (Romania)",
+          "nativeName": "UNIV. CRAIOVA",
+          "uuid": "053d508f-c107-51ce-bc3a-e9a2b54e7b10",
+          "file": 30,
+          "ordinal": 20,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Farul Constanta (Romania)",
+          "nativeName": "FARUL CONSTANTA",
+          "uuid": "4e2f5c33-a320-5ae7-9a67-49f08b567dbf",
+          "file": 30,
+          "ordinal": 7,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 11,
+          "sourceLabel": "Gloria Bistrita (Romania)",
+          "nativeName": "GLORIA BISTRITA",
+          "uuid": "80feb749-05f7-529b-bc4c-d1ed96ddc3d8",
+          "file": 30,
+          "ordinal": 8,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 13,
+          "sourceLabel": "Oţelul (Romania)",
+          "nativeName": "OTELUL GALATI",
+          "uuid": "571dc93a-2d2e-55fa-adb5-a0f99bf02f55",
+          "file": 30,
+          "ordinal": 11,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 14,
+          "sourceLabel": "Petrolul Ploiesti (Romania)",
+          "nativeName": "PETROLUL",
+          "uuid": "17d11736-4ca3-5005-8760-ba32c7224864",
+          "file": 30,
+          "ordinal": 12,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 15,
+          "sourceLabel": "Progresul Bucuresti (Romania)",
+          "nativeName": "NATIONAL",
+          "uuid": "9a06b9fa-3596-5325-8937-ab939ee15fef",
+          "file": 30,
+          "ordinal": 10,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 16,
+          "sourceLabel": "Rapid Bucureşti (Romania)",
+          "nativeName": "RAPID BUCHAREST",
+          "uuid": "3cbe0a26-000c-53a8-96c6-d81564eaeece",
+          "file": 30,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 17,
+          "sourceLabel": "Sportul Studenesc (Romania)",
+          "nativeName": "SPORTUL STUD.",
+          "uuid": "7e67e005-b5e3-5544-aad7-b1a04aad2b20",
+          "file": 30,
+          "ordinal": 17,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "CF Chindia Targoviste (Romania)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "FCSB (Romania)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 10,
+          "sourceLabel": "Fcm Bacu (Romania)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        },
+        {
+          "sourceIndex": 12,
+          "sourceLabel": "Jiul Petrosani (Romania)",
+          "reason": "IDENTITY_UNRESOLVED",
+          "expectedNativeLabel": null
+        }
+      ],
+      "divisionMembershipStatus": "BLOCKED_BY_UNRESOLVED_IDENTITY",
+      "nativeExtras": [
+        "INTER SIBIU",
+        "POLI IASI",
+        "SELENA BACAU",
+        "STEAUA BUCHAREST"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    },
+    {
+      "row": 81,
+      "country": "SCO",
+      "world": "9697",
+      "edition": "1996/97",
+      "sourceBlob": "541060c3b646b535fa5c4d982e8d13ec182dbd4e",
+      "sourceSection": "SCO",
+      "nativeBlob": "3c9e453561539587a463d860b8e4810db931778c",
+      "fixtureCount": 180,
+      "identityStatus": "ALL_INITIAL_ENTRANTS_MAPPED_TO_LEGACY_NATIVE_RECORDS",
+      "mapping": [
+        {
+          "sourceIndex": 0,
+          "sourceLabel": "Aberdeen (Scotland)",
+          "nativeName": "ABERDEEN",
+          "uuid": "47ae483f-c246-5f4b-81c3-c4b5c18312a1",
+          "file": 33,
+          "ordinal": 0,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 1,
+          "sourceLabel": "Celtic (Scotland)",
+          "nativeName": "CELTIC",
+          "uuid": "f35ac076-734b-5be3-80da-2e813fd49f61",
+          "file": 33,
+          "ordinal": 9,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 2,
+          "sourceLabel": "Dundee United (Scotland)",
+          "nativeName": "DUNDEE UNITED",
+          "uuid": "93b229fd-c6f6-57dd-8f42-39bc74fbb6fc",
+          "file": 33,
+          "ordinal": 15,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 3,
+          "sourceLabel": "Dunfermline Athletic (Scotland)",
+          "nativeName": "DUNFERMLINE",
+          "uuid": "a11b8717-9c06-59d4-bd66-1d682c7fe785",
+          "file": 33,
+          "ordinal": 16,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 4,
+          "sourceLabel": "Hearts (Scotland)",
+          "nativeName": "HEARTS",
+          "uuid": "410281d6-3928-5859-900a-1a66f5eaf41f",
+          "file": 33,
+          "ordinal": 23,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 5,
+          "sourceLabel": "Hibernian (Scotland)",
+          "nativeName": "HIBERNIAN",
+          "uuid": "200af490-5f45-5581-a03c-ae0916b67f4b",
+          "file": 33,
+          "ordinal": 24,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 6,
+          "sourceLabel": "Kilmarnock (Scotland)",
+          "nativeName": "KILMARNOCK",
+          "uuid": "63993064-a867-533d-82e4-6d2953867e67",
+          "file": 33,
+          "ordinal": 25,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 7,
+          "sourceLabel": "Motherwell (Scotland)",
+          "nativeName": "MOTHERWELL",
+          "uuid": "322e5811-445a-5105-a3f9-6a9086a7ebba",
+          "file": 33,
+          "ordinal": 28,
+          "currentNativeLeague": 0
+        },
+        {
+          "sourceIndex": 8,
+          "sourceLabel": "Raith Rovers (Scotland)",
+          "nativeName": "RAITH ROVERS",
+          "uuid": "0ce83a45-f345-57d6-9ac6-d3dddd7106c4",
+          "file": 33,
+          "ordinal": 32,
+          "currentNativeLeague": 1
+        },
+        {
+          "sourceIndex": 9,
+          "sourceLabel": "Rangers (Scotland)",
+          "nativeName": "RANGERS",
+          "uuid": "01c460ac-399b-5687-a941-6c32f093b4e2",
+          "file": 33,
+          "ordinal": 33,
+          "currentNativeLeague": 0
+        }
+      ],
+      "unresolved": [],
+      "divisionMembershipStatus": "REQUIRES_INITIAL_DIVISION_REASSIGNMENT",
+      "nativeExtras": [
+        "ST. JOHNSTONE"
+      ],
+      "scope": "Historical entrant aliases resolved against all native divisions, no automatic division changes. Unresolved entrants remain explicit; no fabricated native identity or forced modern successor association."
+    }
+  ]
+}

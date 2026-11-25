@@ -12,7 +12,7 @@
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
-      "actualDates": "NOT_RECONCILED",
+      "actualDates": "FULL_INITIAL_REGULAR_SEASON_DATE_PAIR_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
@@ -2405,6 +2405,141 @@
         ]
       ],
       "scope": "User-supplied worldfootballR archive; derived aggregates only, not raw fixtures or scores. Observed labels may include promotion/relegation playoff clubs and do not prove official entrant count or regulation changes. No independent date reconciliation, no native keys, no future result import. Existing calendar/snapshot evidence retained."
+    },
+    "closure142": {
+      "edition": "1996/97",
+      "sourceBlob": "4e2b8a80ed3b83cad4e72b94f81f7cab3fdfedee",
+      "sourceSection": "ENG",
+      "originalCalendarField": "block127Research",
+      "fixtureCount": 380,
+      "existingCount": 380,
+      "uniqueSignatureBijection": true,
+      "matchedDateAndOrientedPair": 380,
+      "dateStatus": "FULL_INITIAL_REGULAR_SEASON_DATE_PAIR_RECONCILED",
+      "aliases": [
+        [
+          "Afc Wimbledon (England)",
+          [
+            "Wimbledon FC"
+          ]
+        ],
+        [
+          "Arsenal FC (England)",
+          [
+            "Arsenal FC"
+          ]
+        ],
+        [
+          "Aston Villa (England)",
+          [
+            "Aston Villa FC"
+          ]
+        ],
+        [
+          "Blackburn Rovers (England)",
+          [
+            "Blackburn Rovers FC"
+          ]
+        ],
+        [
+          "Chelsea (England)",
+          [
+            "Chelsea FC"
+          ]
+        ],
+        [
+          "Coventry City (England)",
+          [
+            "Coventry City FC"
+          ]
+        ],
+        [
+          "Derby County (England)",
+          [
+            "Derby County FC"
+          ]
+        ],
+        [
+          "Everton (England)",
+          [
+            "Everton FC"
+          ]
+        ],
+        [
+          "Leeds United (England)",
+          [
+            "Leeds United FC"
+          ]
+        ],
+        [
+          "Leicester City (England)",
+          [
+            "Leicester City FC"
+          ]
+        ],
+        [
+          "Liverpool (England)",
+          [
+            "Liverpool FC"
+          ]
+        ],
+        [
+          "Manchester United (England)",
+          [
+            "Manchester United FC"
+          ]
+        ],
+        [
+          "Middlesbrough FC (England)",
+          [
+            "Middlesbrough FC"
+          ]
+        ],
+        [
+          "Newcastle United (England)",
+          [
+            "Newcastle United FC"
+          ]
+        ],
+        [
+          "Nottingham Forest (England)",
+          [
+            "Nottingham Forest FC"
+          ]
+        ],
+        [
+          "Sheffield Wednesday (England)",
+          [
+            "Sheffield Wednesday FC"
+          ]
+        ],
+        [
+          "Southampton (England)",
+          [
+            "Southampton FC"
+          ]
+        ],
+        [
+          "Sunderland Afc (England)",
+          [
+            "Sunderland AFC"
+          ]
+        ],
+        [
+          "Tottenham Hotspur (England)",
+          [
+            "Tottenham Hotspur FC"
+          ]
+        ],
+        [
+          "West Ham United (England)",
+          [
+            "West Ham United FC"
+          ]
+        ]
+      ],
+      "mismatchSample": [],
+      "scope": "Existing stored calendar compared against uploaded Schochastics source; complete match-day and oriented pair equality under bijection. Historical source labels can be modern aliases; native ID mapping and independent upstream provenance not proved. No fixture duplication or score import."
     }
   },
   {

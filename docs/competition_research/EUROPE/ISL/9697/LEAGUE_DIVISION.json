@@ -104,6 +104,113 @@
         "matches": 3
       },
       "missing": "Full cutoff fixture list, independent date/score checks, participant keys and standings reconciliation."
+    },
+    "closure142": {
+      "sourceBlob": "e0c23eeb443ccca219d08fbc51202669f02e9684",
+      "sectionCountry": "ISL",
+      "edition": "1996",
+      "fixtureCount": 90,
+      "participantCount": 10,
+      "observedPairMultiplicity": 1,
+      "firstDate": "1996-05-22",
+      "lastDate": "1996-09-29",
+      "withinSetCollisions": 0,
+      "expectedHistoricalTeams": 10,
+      "teamCountAgrees": true,
+      "dateStatus": "COMPLETE_REGULAR_PAIR_SET_SOURCE_OBSERVED",
+      "nativeStatus": "PARTIAL_STATIC_LEGACY_ROSTER_MATCH",
+      "nativeFileSha": "2db5c200ad1cbd16c1d484afad7dcbdd3001401f",
+      "nativeTopTierCount": 10,
+      "mappedCount": 5,
+      "oneToOne": true,
+      "mapping": [
+        {
+          "externalIndex": 0,
+          "externalLabel": "Breidablik (Iceland)",
+          "matches": [
+            {
+              "name": "BREIDABLIK",
+              "file": 17,
+              "ordinal": 0,
+              "uuid": "7c414c9e-c290-5183-bebd-60839f966186"
+            }
+          ]
+        },
+        {
+          "externalIndex": 1,
+          "externalLabel": "Fylkir Reykjavik (Iceland)",
+          "matches": []
+        },
+        {
+          "externalIndex": 2,
+          "externalLabel": "KR (Iceland)",
+          "matches": [
+            {
+              "name": "KR",
+              "file": 17,
+              "ordinal": 8,
+              "uuid": "13609d6c-ce12-5ec8-a38e-9201b9c01ab1"
+            }
+          ]
+        },
+        {
+          "externalIndex": 3,
+          "externalLabel": "Keflavik If (Iceland)",
+          "matches": [
+            {
+              "name": "KEFLAVIK",
+              "file": 17,
+              "ordinal": 7,
+              "uuid": "82f3e7cf-888c-5a36-9e43-163f8294faf0"
+            }
+          ]
+        },
+        {
+          "externalIndex": 4,
+          "externalLabel": "Leiftur Olafsjordur (Iceland)",
+          "matches": []
+        },
+        {
+          "externalIndex": 5,
+          "externalLabel": "Stjarnan (Iceland)",
+          "matches": []
+        },
+        {
+          "externalIndex": 6,
+          "externalLabel": "Umf Grindavik (Iceland)",
+          "matches": []
+        },
+        {
+          "externalIndex": 7,
+          "externalLabel": "Valur Reykjavik (Iceland)",
+          "matches": []
+        },
+        {
+          "externalIndex": 8,
+          "externalLabel": "ÍA (Iceland)",
+          "matches": [
+            {
+              "name": "IA",
+              "file": 17,
+              "ordinal": 5,
+              "uuid": "ae522bef-5048-50f5-bd09-5999cc6f311d"
+            }
+          ]
+        },
+        {
+          "externalIndex": 9,
+          "externalLabel": "ÍBV (Iceland)",
+          "matches": [
+            {
+              "name": "IBV",
+              "file": 17,
+              "ordinal": 6,
+              "uuid": "bc2715ca-e91b-5233-9ae5-777a57a85a40"
+            }
+          ]
+        }
+      ],
+      "scope": "Exact first-edition top-tier row link. Source dates/orientation available, not independently reconciled or playoffs certified. Legacy file/ordinal/uuid is static native identity, not 2627 cat_key. No automatic successor aliases or generated calendar rules. Do not duplicate fixture list."
     }
   }
 ]

@@ -770,6 +770,27 @@ def prior_result(outbase):
         except (OSError,ValueError,KeyError,TypeError):continue
     return None
 
+def restore_prior_raw(source,outbase):
+    required=("summary.json","source_manifest.json","source_log.json","evidence.sqlite")
+    if source.is_dir():
+        path=source
+    else:
+        path=outbase/("prior_raw_"+hashfile(source))
+        path.mkdir(exist_ok=True)
+        with zipfile.ZipFile(source) as z:
+            for name in required:
+                if z.namelist().count(name)!=1:raise ValueError("Missing/duplicate "+name)
+                temp=path/(name+".tmp")
+                with z.open(name) as src,temp.open("wb") as dst:
+                    while chunk:=src.read(1024*1024):dst.write(chunk)
+                temp.replace(path/name)
+    summary=json.loads((path/"summary.json").read_text(encoding="utf-8"))
+    manifest=json.loads((path/"source_manifest.json").read_text(encoding="utf-8"))
+    log=json.loads((path/"source_log.json").read_text(encoding="utf-8"))
+    if summary.get("cutoff")!=CUTOFF or not isinstance(manifest,list) or not isinstance(log,list) or not (path/"evidence.sqlite").is_file():
+        raise ValueError("Incompatible prior raw archive")
+    return path,summary,{x["source"]:x for x in manifest},log
+
 def reuse_source(co, prior, entry):
     if not prior:return False
     p,summary,old_manifest,old_log=prior
@@ -900,7 +921,7 @@ def selftest():
         co.db.close()
     print("SELFTEST PASS (normalization, cutoff, SQLite candidate integration; not historical certification)")
 
-def run_consolidation(source,outbase,stamp):
+def run_consolidation(source,outbase,stamp,insert=False):
     from consolidate import consolidate, selftest as consolidation_selftest
     consolidation_selftest()
     out=outbase/("CONSOLIDAMENTO_"+stamp);out.mkdir()
@@ -911,6 +932,11 @@ def run_consolidation(source,outbase,stamp):
     result["consolidator_sha256"]=hashfile(HERE/"consolidate.py")
     result["closure_pass_sha256"]=hashfile(HERE/"closure_pass.py")
     dump(out/"consolidation_summary.json",result)
+    if insert:
+        from insert import materialize, selftest as insertion_selftest
+        insertion_selftest()
+        result["insertion"]=materialize(ROOT,out,apply=True)
+        dump(out/"consolidation_summary.json",result)
     archives=pack_results(out,outbase)
     print(json.dumps(result,ensure_ascii=False,indent=2),flush=True)
     print("CARICARE PRIMA I RISULTATI CONSOLIDAMENTO:",flush=True)
@@ -925,22 +951,36 @@ def main():
     ap.add_argument("--max-download-mb",type=int,default=150)
     ap.add_argument("--consolidate-only",action="store_true",help="Consolidate previous completed local run, no downloads or raw parsing")
     ap.add_argument("--consolidate-source",type=Path,help="Explicit raw result directory or single original ZIP; implies consolidate-only")
+    ap.add_argument("--insert",action="store_true",help="Insert research-only evidence into the 533 indexed sheets; update matrix and statistics")
+    ap.add_argument("--sources-dir",type=Path,default=ROOT/"sources",help="Directory containing local source archives")
+    ap.add_argument("--prior-raw",type=Path,help="Reuse an explicit completed raw ZIP or directory as prior evidence")
     args=ap.parse_args()
     if args.consolidate_only or args.consolidate_source:
         outbase=HERE/"output";outbase.mkdir(parents=True,exist_ok=True)
         prior=prior_result(outbase) if args.consolidate_source is None else None
         source=args.consolidate_source or (prior[0] if prior else None)
         if source is None:raise ValueError("No completed raw research found; provide --consolidate-source")
-        run_consolidation(source.resolve(),outbase,dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
+        run_consolidation(source.resolve(),outbase,dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f"),args.insert)
         return
     selftest()
     from consolidate import selftest as consolidation_selftest
     consolidation_selftest()
+    from insert import selftest as insertion_selftest
+    insertion_selftest()
     if args.self_test:return
     import pandas as pd
-    sources=ROOT/"sources";cache=HERE/"cache";outbase=HERE/"output"
+    sources=args.sources_dir.resolve();cache=HERE/"cache";outbase=HERE/"output"
     for p in (sources,cache,outbase):p.mkdir(parents=True,exist_ok=True)
     prior=None if args.full else prior_result(outbase)
+    if args.prior_raw and not args.full:
+        prior=restore_prior_raw(args.prior_raw.resolve(),outbase)
+    elif prior is None and not args.full:
+        archives=sorted(set(sources.rglob("RICERCA_*.zip")) | set(outbase.glob("RICERCA_*.zip")),key=lambda p:p.name,reverse=True)
+        for archive in archives:
+            try:
+                prior=restore_prior_raw(archive,outbase);break
+            except (OSError,ValueError,KeyError,TypeError,zipfile.BadZipFile) as exc:
+                print("Prior ZIP not reusable:",archive,exc,flush=True)
     if prior:print("Reusing unchanged sources from",prior[0].name,flush=True)
     stamp=dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
     out=outbase/("RICERCA_"+stamp);out.mkdir()
@@ -952,7 +992,14 @@ def main():
     paths=[p for p in sources.rglob("*") if p.is_file()]
     for kind,prefixes,exts in order:
         chosen=sorted(p for p in paths if p.suffix.lower() in exts and any(p.name.lower().startswith(x) for x in prefixes))
-        if not chosen:co.note(kind,"","MISSING_LOCAL_SOURCE");continue
+        if not chosen:
+            recovered=False
+            for old in (prior[2].values() if prior else ()):
+                if old["source"].startswith(kind+"/"):
+                    entry=dict(old,status="ARCHIVED_ONLY")
+                    if reuse_source(co,prior,entry):manifest.append(entry);recovered=True
+            if not recovered:co.note(kind,"","MISSING_LOCAL_SOURCE")
+            continue
         for p in chosen:
             source=kind+"/"+str(p.relative_to(sources)).replace("\\","/")
             print("Reading",source,flush=True)
@@ -976,22 +1023,30 @@ def main():
                             co.table(x.parse(sheet),source,p.name+":"+sheet,comp,c,season)
             except Exception as exc:co.note(source,p.name,"ERROR",exc)
             co.flush()
-    if not args.no_download:
-        for repo,branch in REPOS:
-            source="github/"+repo
-            # Already uploaded parquet is the preferred source; remote repo still inventoried/downloaded.
-            print("GitHub",repo,flush=True)
-            try:
-                if args.refresh:
-                    old=cache/(repo.replace("/","__")+"-"+branch+".zip")
-                    if old.exists(): old.unlink()
+    for repo,branch in REPOS:
+        source="github/"+repo
+        print("GitHub",repo,flush=True)
+        target=cache/(repo.replace("/","__")+"-"+branch+".zip")
+        try:
+            if args.no_download:
+                if target.is_file() and zipfile.is_zipfile(target):
+                    p,status=target,"CACHE_OFFLINE"
+                else:
+                    old=prior[2].get(source) if prior else None
+                    entry=dict(old,status="ARCHIVED_ONLY") if old else None
+                    if entry and reuse_source(co,prior,entry):
+                        manifest.append(entry)
+                    else:
+                        co.note(source,branch,"CACHE_OR_REUSABLE_PRIOR_UNAVAILABLE")
+                    continue
+            else:
+                if args.refresh and target.exists():target.unlink()
                 p,status=download(repo,branch,cache,args.max_download_mb*1024*1024)
-                entry={"source":source,"branch":branch,"status":status,"bytes":p.stat().st_size,"sha256":hashfile(p)};manifest.append(entry)
-                if reuse_source(co,None if args.refresh else prior,entry):
-                    print("Reused",source,flush=True);continue
-                co.archive(p,source,"github");co.flush()
-            except Exception as exc:co.note(source,branch,"DOWNLOAD_OR_PARSE_ERROR",exc)
-    else:co.note("github","","DISABLED_BY_ARGUMENT")
+            entry={"source":source,"branch":branch,"status":status,"bytes":p.stat().st_size,"sha256":hashfile(p)};manifest.append(entry)
+            if reuse_source(co,None if args.refresh else prior,entry):
+                print("Reused",source,flush=True);continue
+            co.archive(p,source,"github");co.flush()
+        except Exception as exc:co.note(source,branch,"DOWNLOAD_OR_PARSE_ERROR",exc)
     print("SWOS identity and matrix reconciliation",flush=True)
     rows,named,native=catalogue(ROOT,co)
     co.flush()
@@ -1015,7 +1070,7 @@ def main():
     print(json.dumps(summary,ensure_ascii=False,indent=2),flush=True)
     print("UPLOAD ALL",len(archives),"ZIP(S), EACH <= 50 MB",flush=True)
     for archive in archives:print("RESULT ZIP:",archive,flush=True)
-    run_consolidation(out,outbase,stamp)
+    run_consolidation(out,outbase,stamp,args.insert)
 
 if __name__=="__main__":
     try:

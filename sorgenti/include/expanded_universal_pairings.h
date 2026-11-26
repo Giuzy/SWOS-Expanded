@@ -104,7 +104,7 @@ static inline int ExpandedUniversal_GenerateLeague(
     uint8_t degree[EXP_PAIR_MAX_CLUBS]={0};
     uint8_t home[EXP_PAIR_MAX_CLUBS*(EXP_PAIR_MAX_CLUBS-1u)/2u];
     uint8_t away[sizeof home],used[sizeof home];
-    uint32_t i,j,k,attempt,nchosen=0u,edges=0u,m;
+    uint32_t i,j,k,attempt,nchosen=0u,edges=0u,m,nr=0u;
     if(!emit||!ExpPair_ValidExtras(clubs,meetings,x))return 0;
     if(!x->rounds)return ExpandedUniversal_GenerateRoundRobin(clubs,meetings,emit,user);
     if(!keys)return 0;
@@ -117,8 +117,11 @@ static inline int ExpandedUniversal_GenerateLeague(
     for(k=0u;k<x->nrivalries;++k) {
         for(i=0u;i<clubs&&keys[i]!=x->rivalries[k][0];++i){}
         for(j=0u;j<clubs&&keys[j]!=x->rivalries[k][1];++j){}
-        if(i==clubs||j==clubs||++degree[i]>x->rounds||++degree[j]>x->rounds)return 0;
-        ra[k]=(uint8_t)i;rb[k]=(uint8_t)j;
+        /* v341: a rivalry whose club is not in THIS edition (relegated or replaced by the league
+         * exchange) is not played this season; the other extra rounds come from the seeded fill */
+        if(i==clubs||j==clubs)continue;
+        if(++degree[i]>x->rounds||++degree[j]>x->rounds)return 0;
+        ra[nr]=(uint8_t)i;rb[nr]=(uint8_t)j;++nr;
     }
     for(attempt=0u;attempt<65536u;++attempt) {
         for(i=0u;i<clubs;++i)order[i]=(uint8_t)i;
@@ -129,7 +132,7 @@ static inline int ExpandedUniversal_GenerateLeague(
         for(i=0u;i<clubs;++i)pos[order[i]]=(uint8_t)i;
         for(i=0u;i<m;++i)chosen[i]=0u;
         nchosen=0u;
-        for(k=0u;k<x->nrivalries;++k) {
+        for(k=0u;k<nr;++k) {
             uint32_t r;
             i=pos[ra[k]];j=pos[rb[k]];
             r=(i==m?2u*j:j==m?2u*i:i+j)%m;

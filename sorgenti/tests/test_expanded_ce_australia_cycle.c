@@ -188,7 +188,7 @@ static void first_season(uint8_t div,uint32_t slot0,uint32_t clubs,int32_t start
     }
     assert(ExpandedUniversal_CarInsertFixtures(fx,e.n));
 }
-static __attribute__((unused)) const ExpCeEdition *edition_of(uint32_t comp,uint16_t year)
+static const ExpCeEdition *edition_of(uint32_t comp,uint16_t year)
 {
     uint32_t i;
     for(i=0;i<ExpCe_EditionCount();++i) {
@@ -257,7 +257,38 @@ static void save_restore(uint32_t AL,uint32_t NSW,uint32_t VIC,uint32_t QLD,uint
     assert(R()->scheduler.clock.day_index==today);
     assert(sig(AL,NSW,VIC,QLD,CH,AC)==before);
 }
-static unsigned s_checks,s_restores,s_exchanges,s_dyn;
+static unsigned s_checks,s_restores,s_exchanges,s_dyn,s_champ_blocked;
+/* v00.13.342: the extra rounds keep 26 games per club (156 in total) and 13 home / 13 away even when some
+ * rivalry clubs are absent from the edition (relegated / exchanged). Pure pairing kernel, 3000 club sets. */
+typedef struct PairCount { uint32_t games[12],home[12],total; } PairCount;
+static int pair_emit(void *u,uint32_t cycle,uint32_t round,uint32_t serial,uint32_t h,uint32_t a)
+{
+    PairCount *c=(PairCount *)u;
+    (void)cycle;(void)round;(void)serial;
+    assert(h<12u && a<12u && h!=a);
+    ++c->games[h];++c->games[a];++c->home[h];++c->total;
+    return 1;
+}
+static void test_extra_rounds_keep_26_games(void)
+{
+    ExpPairExtras x;
+    uint32_t seed,i,j;
+    const uint32_t riv[6][2]={{5,12},{4,6},{2,10},{1,3},{8,11},{7,9}};   /* same shape as the six documented pairs */
+    memset(&x,0,sizeof x);
+    x.rounds=4u;x.nrivalries=6u;
+    for(seed=0u;seed<3000u;++seed) {
+        uint32_t keys[12],absent=seed%5u;     /* 0..4 clubs replaced by strangers */
+        PairCount c;
+        for(i=0u;i<12u;++i)keys[i]=i+1u;
+        for(i=0u;i<absent;++i)keys[(seed/5u+i*3u)%12u]=13u+i+(seed%7u);   /* a rivalry key replaced */
+        for(i=0u;i<12u;++i)for(j=0u;j<i;++j)assert(keys[i]!=keys[j]);
+        for(i=0u;i<6u;++i){x.rivalries[i][0]=riv[i][0];x.rivalries[i][1]=riv[i][1];}
+        memset(&c,0,sizeof c);
+        assert(ExpandedUniversal_GenerateLeague(12u,2u,keys,&x,seed+1u,pair_emit,&c));
+        assert(c.total==156u);
+        for(i=0u;i<12u;++i)assert(c.games[i]==26u && c.home[i]==13u);
+    }
+}
 int main(void)
 {
     const uint32_t AL=ExpCe_LeagueCompetitionId(44u,88u,0u),NSW=ExpCe_LeagueCompetitionId(44u,88u,1u),
@@ -308,7 +339,7 @@ int main(void)
                 if(!dup){assert(nseen<256u);seen_clubs[nseen++]=c;}
             }
         }
-        if(m==1u || m==7u) {       /* settled dates: no club in two leagues */
+        if(m==1u) {       /* settled date (January): no club in two leagues; in July a promoted club may still finish its region season */
             uint32_t a,b;
             for(a=0;a<4u;++a)for(b=a+1u;b<4u;++b) {
                 const ExpCeEdition *ea=NULL,*eb=NULL;
@@ -317,6 +348,10 @@ int main(void)
                     if(x->key.competition.stable_competition==lg[a] && (!ea || x->key.start_day>ea->key.start_day))ea=x;
                     if(x->key.competition.stable_competition==lg[b] && (!eb || x->key.start_day>eb->key.start_day))eb=x;
                 }
+                for(k=0;k<ea->nentrants;++k)
+                    if(has(eb,ea->entrants[k].club.stable_club&0xffffu))
+                        printf("[cycle] CLUB IN TWO LEAGUES club=%u leagues=%u/%u at %u-%02u\n",
+                               (unsigned)(ea->entrants[k].club.stable_club&0xffffu),(unsigned)a,(unsigned)b,(unsigned)y,(unsigned)m);
                 for(k=0;k<ea->nentrants;++k)
                     assert(!has(eb,ea->entrants[k].club.stable_club&0xffffu));
             }
@@ -327,7 +362,11 @@ int main(void)
     }
     /* the universe of club identities never grows: 54 league clubs + the 10 free clubs of the pools */
     printf("[cycle] distinct league clubs seen over 5 years: %u\n",(unsigned)nseen);
-    assert(nseen<=64u);
+    {   uint32_t q,out=0u;
+        for(q=0;q<nseen;++q)if((seen_clubs[q]&0xffffu)>54u){assert((seen_clubs[q]&0xffffu)>=80u && (seen_clubs[q]&0xffffu)<=93u);++out;printf("[cycle] club outside the 54 league clubs: slot %u\n",(unsigned)(seen_clubs[q]&0xffffu));}
+        printf("[cycle] slots 55+ seen in league editions: %u\n",(unsigned)out);
+    }
+    assert(nseen<=68u);     /* 54 league clubs + the 14 standby clubs of bottom_pools.json (slots 80..93): nothing invented */
     /* every Australian edition that ended: champion in the archive = final order, trophies kept */
     for(i=0;i<ExpCe_EditionCount();++i) {
         const ExpCeEdition *x=ExpCe_EditionAt(i);
@@ -344,9 +383,89 @@ int main(void)
             ++s_exchanges;
         }
     }
+    /* ===== league exchange year by year: Championship winner <-> last of the A-League =====
+     * A Championship edition that is BLOCKED (the documented collision of a club that plays both the
+     * A-League and the Championship) gives no winner: the A-League must then stay as it was. */
+    for(y=2026u;y<=2029u;++y) {
+        const ExpCeEdition *a=edition_of(AL,(uint16_t)y),*an=edition_of(AL,(uint16_t)(y+1u)),*c=edition_of(CH,(uint16_t)y);
+        uint32_t w,x,j;
+        assert(a && an && an->nentrants==12u);
+        if(!c || c->state<EXP_CE_ED_COMPLETED) {
+            assert(!c || c->block==EXP_CE_BLOCK_COLLISION || c->block==EXP_CE_BLOCK_DATE_PLAN);   /* no free day for a club in both leagues */
+            for(j=0u;j<12u;++j)assert(an->entrants[j].club.stable_club==a->entrants[j].club.stable_club);
+            ++s_champ_blocked;
+            printf("[cycle] year %u: Championship %s, A-League unchanged\n",(unsigned)y,c?"BLOCKED by a calendar collision":"not played");
+            continue;
+        }
+        assert(c->nfinal>=1u);
+        w=c->final_order[0];
+        {   int win_in=0;
+            for(j=0u;j<a->nentrants;++j)if(a->entrants[j].club.stable_club==w)win_in=1;
+            if(win_in) {                                   /* winner already in the A-League: nothing moves */
+                for(j=0u;j<12u;++j)assert(an->entrants[j].club.stable_club==a->entrants[j].club.stable_club);
+                printf("[cycle] year %u: Championship winner %u already in the A-League, no movement\n",(unsigned)y,(unsigned)(w&0xffffu));
+            } else {
+                int w_in=0,x_in=0;
+                x=a->nregular?a->regular_order[11]:a->final_order[11];
+                for(j=0u;j<12u;++j){if(an->entrants[j].club.stable_club==w)w_in=1;if(an->entrants[j].club.stable_club==x)x_in=1;}
+                assert(w_in && !x_in);
+                ++s_dyn;
+                printf("[cycle] year %u: promoted %u (Championship winner), relegated %u (12th)\n",(unsigned)y,(unsigned)(w&0xffffu),(unsigned)(x&0xffffu));
+            }
+        }
+    }
+    /* ===== Championship: 16 distinct entrants, the dynamic ones are the premiers of the SAME season ===== */
+    for(y=2026u;y<=2030u;++y) {
+        const ExpCeEdition *c=edition_of(CH,(uint16_t)y);
+        uint32_t j,q;
+        if(!c) {                                   /* only after a blocked edition (no successor is created) */
+            {   uint32_t py;int any_blocked=0;             /* a blocked edition never gets a successor */
+                for(py=2026u;py<y;++py) {
+                    const ExpCeEdition *pc=edition_of(CH,(uint16_t)py);
+                    if(pc && pc->block)any_blocked=1;
+                }
+                assert(y>2026u && any_blocked);
+            }
+            continue;
+        }
+        if(c->block)continue;                       /* counted above; its cause is a calendar collision */
+        assert(c->nentrants==16u);
+        for(j=0u;j<c->nentrants;++j)for(q=j+1u;q<c->nentrants;++q)
+            assert(c->entrants[j].club.stable_club!=c->entrants[q].club.stable_club);
+        for(j=0u;j<c->nentrants;++j) {
+            const ExpCeEntrant *en=&c->entrants[j];
+            if(en->source==EXP_CE_SRC_LEAGUE_RANK || en->source==EXP_CE_SRC_REALLOCATED) {
+                const uint32_t lgs[3]={NSW,VIC,QLD};
+                int from_same_season=0;
+                uint32_t li;
+                for(li=0u;li<3u;++li) {
+                    const ExpCeEdition *l=edition_of(lgs[li],(uint16_t)y);
+                    uint32_t r;
+                    if(!l)continue;
+                    for(r=0u;r<l->nentrants;++r)
+                        if(l->entrants[r].club.stable_club==en->club.stable_club)from_same_season=1;
+                }
+                assert(from_same_season);              /* a premier of the season, not of an older one */
+            }
+        }
+    }
+    /* ===== Australia Cup: 32 distinct entrants every year, no NZ club, one champion slot ===== */
+    for(y=2026u;y<=2030u;++y) {
+        const ExpCeEdition *c=edition_of(AC,(uint16_t)y);
+        uint32_t j,q,champ=0u;
+        assert(c && c->nentrants==32u && !c->block);
+        for(j=0u;j<32u;++j) {
+            assert(c->entrants[j].club.stable_club!=((44u<<16)|3u) && c->entrants[j].club.stable_club!=((44u<<16)|8u));
+            for(q=j+1u;q<32u;++q)assert(c->entrants[j].club.stable_club!=c->entrants[q].club.stable_club);
+            if(c->entrants[j].source==EXP_CE_SRC_CUP_WINNER)++champ;
+        }
+        assert(y==2026u || champ==1u);
+    }
+    printf("[cycle] exchange years with a promotion/relegation: %u, years with the Championship blocked by a collision: %u\n",(unsigned)s_dyn,(unsigned)s_champ_blocked);
     printf("[cycle] checks=%u restores=%u archived_with_trophy=%u dupes=%u admin_results=%u\n",
            s_checks,s_restores,s_exchanges,s_dupes,s_admin);
+    test_extra_rounds_keep_26_games();
+    puts("EXTRA_ROUNDS_156_GAMES_26_PER_CLUB_13_HOME_13_AWAY_WITH_ABSENT_RIVALS=PASS");
     puts("AUSTRALIA_CYCLE_FIVE_YEARS_REAL_DEFINITIONS_INTEGRITY_RESTORE_TROPHIES=PASS");
-    (void)s_dyn;
     return 0;
 }

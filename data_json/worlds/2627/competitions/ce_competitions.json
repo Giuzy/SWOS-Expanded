@@ -594,8 +594,8 @@
                             "penalties": 1
                       },
                       "window": {
-                            "first": "11-26",
-                            "last": "11-28",
+                            "first": "11-23",
+                            "last": "11-29",
                             "weekdays": "THU,FRI,SAT",
                             "rest": 3
                       }
@@ -610,8 +610,8 @@
                             "penalties": 1
                       },
                       "window": {
-                            "first": "12-05",
-                            "last": "12-05",
+                            "first": "12-03",
+                            "last": "12-09",
                             "weekdays": "SAT",
                             "rest": 3
                       }
@@ -626,8 +626,8 @@
                             "penalties": 1
                       },
                       "window": {
-                            "first": "12-12",
-                            "last": "12-12",
+                            "first": "12-10",
+                            "last": "12-16",
                             "weekdays": "SAT",
                             "rest": 3
                       }

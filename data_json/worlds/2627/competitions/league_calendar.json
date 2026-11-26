@@ -396,8 +396,8 @@
               "away_goals": 0
             },
             "window": {
-              "first": "05-14",
-              "last": "05-16",
+              "first": "05-10",
+              "last": "05-17",
               "weekdays": "FRI,SAT,SUN",
               "rest": 3
             }
@@ -413,8 +413,8 @@
               "away_goals": 0
             },
             "window": {
-              "first": "05-21",
-              "last": "05-30",
+              "first": "05-18",
+              "last": "06-01",
               "weekdays": "SAT",
               "extra_weekdays": "FRI,SUN",
               "rest": 6
@@ -431,8 +431,8 @@
               "away_goals": 0
             },
             "window": {
-              "first": "06-04",
-              "last": "06-06",
+              "first": "06-02",
+              "last": "06-09",
               "weekdays": "FRI,SAT,SUN",
               "rest": 3
             }

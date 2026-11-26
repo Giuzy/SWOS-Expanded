@@ -16,7 +16,7 @@ static int plan_in_break(const ExpandedDatePlanPolicy *p, int32_t day)
     for(i=0;i<p->break_count;++i)
         if(day>=p->breaks[i].first_day && day<=p->breaks[i].last_day)
             return 1;
-    return 0;
+    return p->blocked && p->blocked(p->blocked_ctx,day);
 }
 static int plan_day_mask(int32_t day)
 {

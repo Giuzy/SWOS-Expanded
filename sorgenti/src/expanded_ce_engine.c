@@ -340,6 +340,37 @@ static int edition_expiry_day(const ExpCeDef *d,uint16_t year,int32_t start,
     /* the last phase window end, first occurrence after the start */
     return md_on_or_after(w->last_m,w->last_d,start,out);
 }
+/* v00.13.342: days on which a club of the phase being generated already has
+ * a fixture of another competition (sorted). The planner never uses them. */
+#define EXP_CE_BUSY_MAX 32768u
+static int32_t s_busy[EXP_CE_BUSY_MAX];
+static uint32_t s_busy_n;
+static int busy_cmp(const void *a,const void *b)
+{
+    const int32_t x=*(const int32_t *)a,y=*(const int32_t *)b;
+    return x<y?-1:x>y?1:0;
+}
+static int busy_blocked(void *ctx,int32_t day)
+{
+    (void)ctx;
+    return s_busy_n && bsearch(&day,s_busy,s_busy_n,sizeof s_busy[0],busy_cmp)!=NULL;
+}
+static void busy_build(const ExpandedUniversalRegistry *r,const ExpCeEntrant *ent,uint32_t n)
+{
+    uint32_t i,j,w=0u;
+    s_busy_n=0u;
+    if(!r)return;
+    for(i=0u;i<r->fixture_count && w<EXP_CE_BUSY_MAX;++i) {
+        const ExpandedUniversalFixture *f=&r->fixtures[i];
+        for(j=0u;j<n;++j)
+            if(ent[j].club.stable_club==f->home.stable_club ||
+               ent[j].club.stable_club==f->away.stable_club) {
+                s_busy[w++]=f->day_index;break;
+            }
+    }
+    qsort(s_busy,w,sizeof s_busy[0],busy_cmp);
+    s_busy_n=w;
+}
 /* Plan `rounds` civil days for a phase. earliest = first allowed day. */
 static int plan_window_days(const ExpCePhaseDef *ph,int32_t edition_start,
                             int32_t earliest,uint32_t rounds,int32_t *days);
@@ -384,6 +415,7 @@ static int plan_window_days(const ExpCePhaseDef *ph,int32_t edition_start,
     pol.first_day=first;pol.last_day=last;
     pol.match_weekdays=w->weekdays;pol.extra_weekdays=w->extra_weekdays;
     pol.min_rest_days=w->rest;
+    pol.blocked=busy_blocked;
     for(i=0;i<w->nbreaks && i<EXP_DATE_PLAN_MAX_BREAKS;++i) {
         ExpandedDatePlanBreak *b=&pol.breaks[pol.break_count];
         if(!md_on_or_after(w->breaks[i][0],w->breaks[i][1],first,&b->first_day) ||
@@ -418,6 +450,79 @@ static int gen_push(GenBuf *g,const ExpandedUniversalFixture *f)
 {
     if(!ce_grow((void **)&g->f,&g->cap,g->n+1u,sizeof *g->f))return 0;
     g->f[g->n++]=*f;
+    return 1;
+}
+/* v00.13.342 generic priority + make-up (recupero) rule. A phase is planned
+ * avoiding every day on which one of its clubs already has a fixture; when
+ * its own window cannot fit (e.g. a short knockout window) the phase has
+ * priority: it is planned ignoring those days and the already registered,
+ * still SCHEDULED, future fixtures of OTHER editions that collide are moved
+ * to the first following day free for both clubs. Nothing is invented. */
+static int plan_with_priority(const ExpCeDef *d,const ExpCeEdition *e,
+                              const ExpCePhaseDef *ph,int32_t earliest,
+                              uint32_t rounds,int32_t *days)
+{
+    const uint32_t keep=s_busy_n;
+    if(plan_phase_days_ex(d,e,ph,earliest,rounds,days))return 1;
+    if(!keep)return 0;
+    s_busy_n=0u;                    /* priority: ignore the other competitions' days */
+    if(plan_phase_days_ex(d,e,ph,earliest,rounds,days))return 1;
+    s_busy_n=keep;
+    return 0;
+}
+#define EXP_CE_MAKEUP_MAX 64u
+#define EXP_CE_MAKEUP_SPAN 35
+static int club_free_on(const ExpandedUniversalRegistry *r,const GenBuf *g,uint64_t skip_id,
+                        uint32_t c1,uint32_t c2,int32_t day)
+{
+    uint32_t i;
+    for(i=0u;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *x=&r->fixtures[i];
+        if(x->day_index!=day || x->event_id==skip_id)continue;
+        if(x->home.stable_club==c1 || x->away.stable_club==c1 ||
+           x->home.stable_club==c2 || x->away.stable_club==c2)return 0;
+    }
+    for(i=0u;i<g->n;++i) {
+        const ExpandedUniversalFixture *x=&g->f[i];
+        if(x->day_index!=day)continue;
+        if(x->home.stable_club==c1 || x->away.stable_club==c1 ||
+           x->home.stable_club==c2 || x->away.stable_club==c2)return 0;
+    }
+    return 1;
+}
+/* 1 = no collision remains (after moving make-ups), 0 = cannot be resolved */
+static int resolve_collisions(ExpandedUniversalRegistry *r,const ExpCeHost *host,
+                              const GenBuf *g,int32_t today)
+{
+    uint64_t ids[EXP_CE_MAKEUP_MAX];
+    uint32_t n=0u,i,j,k;
+    if(!r)return 1;
+    for(i=0u;i<g->n;++i)
+        for(j=0u;j<r->fixture_count;++j) {
+            const ExpandedUniversalFixture *x=&r->fixtures[j],*y=&g->f[i];
+            int dup=0;
+            if(x->day_index!=y->day_index)continue;
+            if(x->home.stable_club!=y->home.stable_club && x->home.stable_club!=y->away.stable_club &&
+               x->away.stable_club!=y->home.stable_club && x->away.stable_club!=y->away.stable_club)continue;
+            if(x->event_id==y->event_id)return 0;
+            if(x->day_index<=today ||
+               ExpandedUniversal_EntryFor(r,x)->state!=EXP_FIXTURE_SCHEDULED)return 0;
+            for(k=0u;k<n;++k)if(ids[k]==x->event_id)dup=1;
+            if(dup)continue;
+            if(n>=EXP_CE_MAKEUP_MAX || !host || !host->reschedule)return 0;
+            ids[n++]=x->event_id;
+        }
+    for(k=0u;k<n;++k) {
+        const ExpandedUniversalFixture *x=ExpandedUniversal_Find(r,ids[k]);
+        int32_t day,to=0,from;
+        if(!x)return 0;
+        from=x->day_index;
+        for(day=x->day_index+1;day<=x->day_index+EXP_CE_MAKEUP_SPAN;++day)
+            if(club_free_on(r,g,ids[k],x->home.stable_club,x->away.stable_club,day)){to=day;break;}
+        if(!to || !host->reschedule(host->user,ids[k],to))return 0;
+        fprintf(stderr,"[ce-engine] MAKEUP event=%llu moved +%d days (priority phase)\n",
+                (unsigned long long)ids[k],(int)(to-from));
+    }
     return 1;
 }
 static void fixture_base(const ExpCeDef *d,const ExpCeEdition *e,
@@ -895,6 +1000,7 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             *block=EXP_CE_BLOCK_ROSTER;
             return 0;
         }
+    busy_build(r,ent,n);
     if(ph->kind==EXP_CE_PHASE_TABLE) {
         static ExpandedClubKey groups[EXP_CE_MAX_GROUPS][EXP_CE_MAX_ENTRANTS];
         uint32_t size[EXP_CE_MAX_GROUPS],rounds=0u,gi;
@@ -905,7 +1011,7 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             if(rr>rounds)rounds=rr;
         }
         if(!rounds || rounds>2048u ||
-           !plan_phase_days_ex(d,e,ph,earliest,rounds,days)) {
+           !plan_with_priority(d,e,ph,earliest,rounds,days)) {
             snprintf(why,whylen,"phase %u: %lu rounds do not fit the window",
                      (unsigned)phase,(unsigned long)rounds);
             *block=EXP_CE_BLOCK_DATE_PLAN;
@@ -950,7 +1056,7 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
                 *block=EXP_CE_BLOCK_DATE_PLAN;
                 return 0;
             }
-        } else if(!plan_phase_days_ex(d,e,ph,earliest,ph->match.legs,days)) {
+        } else if(!plan_with_priority(d,e,ph,earliest,ph->match.legs,days)) {
             snprintf(why,whylen,"phase %u: knockout legs do not fit the window",
                      (unsigned)phase);
             *block=EXP_CE_BLOCK_DATE_PLAN;
@@ -982,7 +1088,8 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             snprintf(why,whylen,"phase %u: generated fixture invalid",(unsigned)phase);
             *block=EXP_CE_BLOCK_CAPACITY;goto done;
         }
-    if(!host || !host->insert || !host->insert(host->user,g.f,g.n)) {
+    if(!resolve_collisions(r,host,&g,today) ||
+       !host || !host->insert || !host->insert(host->user,g.f,g.n)) {
         snprintf(why,whylen,"phase %u: %lu fixtures rejected by the registry "
                  "(same club same day / id collision)",(unsigned)phase,
                  (unsigned long)g.n);
@@ -1000,6 +1107,7 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
         ph->match.provenance==EXP_CE_PROV_JSON_VERIFIED?"VERIFIED_WINDOW":
         "GAME_TEMPLATE");
 done:
+    s_busy_n=0u;
     free(g.f);
     return ok;
 }
@@ -2478,6 +2586,7 @@ int ExpCe_PlanPhaseDays(const ExpCeDef *d,uint16_t year,uint32_t phase,
         return 0;
     memset(&e,0,sizeof e);
     e.key.start_day=start;e.year=year;
+    s_busy_n=0u;
     return plan_phase_days_ex(d,&e,&d->phases[phase],earliest,rounds,days);
 }
 int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,

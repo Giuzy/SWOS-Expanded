@@ -23,6 +23,11 @@ typedef struct ExpandedDatePlanPolicy {
     uint8_t min_rest_days;           /* minimum distance between two rounds */
     uint8_t break_count;
     ExpandedDatePlanBreak breaks[EXP_DATE_PLAN_MAX_BREAKS];
+    /* v00.13.342: optional. A day for which blocked() returns non-zero is
+     * never used (same effect as a break): e.g. a day on which one of the
+     * participating clubs already has a fixture of another competition. */
+    int (*blocked)(void *ctx, int32_t day);
+    void *blocked_ctx;
 } ExpandedDatePlanPolicy;
 
 /* Result reasons for diagnostics (0 = planned). */

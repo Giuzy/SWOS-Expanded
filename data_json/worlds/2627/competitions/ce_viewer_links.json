@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "scope": "READ_ONLY_UI_LINKS_NOT_SPORT_RULES",
+  "leagues": [
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 0,
+      "playoff": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 1,
+      "playoff": [],
+      "playout": []
+    },
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 2,
+      "playoff": []
+    },
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 3,
+      "playoff": []
+    },
+    {
+      "country": 20,
+      "comp_id": 61,
+      "division": 0,
+      "spareggi": []
+    },
+    {
+      "country": 20,
+      "comp_id": 61,
+      "division": 1,
+      "playoff": [],
+      "playout": []
+    }
+  ],
+  "notes": "Empty stage list means the approved phase is not yet linked to the CE. Never infer a sporting phase from the order of unrelated fixtures. POOL comes from bottom_pools.json, not this file. Replace pending bindings only with the final CE stage/edition identities."
+}

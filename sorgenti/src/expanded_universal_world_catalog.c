@@ -536,7 +536,8 @@ TeamFileEx *ExpandedUniversalCatalog_SharedPoolRoster(uint16_t raw)
     for(i=0;i<s_catalog.nclubs;++i) {
         TeamFileEx *t=s_catalog.clubs[i].roster;
         if((((uint16_t)t->team.countryNumber<<8)|t->team.teamOrdinal)==raw &&
-           (uint16_t)t->team.globalTeamNumber>=(uint32_t)_teamsCountryNumbers[255]+256u)
+           ExpCePool_IsReservedGlobal(_teamsCountryNumbers[255],
+               (uint16_t)t->team.globalTeamNumber))
             return t;
     }
     return NULL;

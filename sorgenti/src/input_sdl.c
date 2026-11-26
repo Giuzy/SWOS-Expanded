@@ -28,6 +28,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#if defined(_WIN32) && SDL_VERSION_ATLEAST(2,24,0)
+#include <SDL_hidapi.h>
+#include "input_switch_poweroff.h"
+#define SWOS_SWITCH_SLEEP_ON_EXIT 1
+#endif
 /* NEW CAREER 0.10.63: B does not act as fire at the first Title level. */
 extern uintptr_t _currentMenuPtr;
 extern uint8_t _swosMainMenu[];
@@ -823,8 +828,59 @@ int InputSDL_Init(void)
     return 0;
 }
 
+#ifdef SWOS_SWITCH_SLEEP_ON_EXIT
+/* Copy the exact path while the assigned SDL joystick is alive. SDL2's
+ * Switch CloseJoystick restores simple input mode: send sleep only AFTER
+ * closing all gamecontroller/raw handles, before SDL_Quit. Never enumerate
+ * or power off a waiting/unrelated device or guess by name alone. */
+static char *input_switch_sleep_path(int slot)
+{
+    SDL_Joystick *j;
+    const char *path;
+    if (slot < 0 || slot >= INPUTSDL_MAX_DEVICES || !dev_open(slot))
+        return NULL;
+    j = s_dev_gc[slot] ? SDL_GameControllerGetJoystick(s_dev_gc[slot])
+                       : s_dev_raw[slot];
+    if (!j || !SDL_JoystickGetAttached(j))
+        return NULL;
+    path = SDL_JoystickPath(j);
+    if (!swos_switch_sleep_eligible(SDL_JoystickGetVendor(j),
+                                    SDL_JoystickGetProduct(j),path))
+        return NULL;
+    return SDL_strdup(path);
+}
+
+static void input_switch_sleep_send(const char *path)
+{
+    SDL_hid_device *device;
+    uint8_t report[SWOS_SWITCH_SLEEP_REPORT_SIZE];
+    int result;
+    if (!path) return;
+    device = SDL_hid_open_path(path,0);
+    if (!device) {
+        fprintf(stderr,"[input] Switch Pro Bluetooth sleep: HID open failed; normal exit\n");
+        return;
+    }
+    swos_switch_sleep_report(report);
+    result = SDL_hid_write(device,report,sizeof report);
+    fprintf(stderr,"[input] Switch Pro Bluetooth sleep: %s (write=%d, physical sleep unverified)\n",
+            result >= (int)sizeof report ? "command sent" : "write failed/short",result);
+    SDL_hid_close(device);
+}
+#endif
+
 void InputSDL_Shutdown(void)
 {
+#ifdef SWOS_SWITCH_SLEEP_ON_EXIT
+    char *sleep_paths[INPUTSDL_NUM_PADS] = {NULL,NULL};
+    for (int p = 0; p < INPUTSDL_NUM_PADS; ++p)
+        sleep_paths[p] = input_switch_sleep_path(s_player_dev[p]);
+    if (sleep_paths[0] && sleep_paths[1] &&
+        SDL_strcasecmp(sleep_paths[0],sleep_paths[1]) == 0) {
+        SDL_free(sleep_paths[1]);
+        sleep_paths[1] = NULL;
+    }
+#endif
     for (int i = 0; i < INPUTSDL_MAX_DEVICES; ++i) {
         if (s_dev_gc[i]) {
             SDL_GameControllerClose(s_dev_gc[i]);
@@ -837,6 +893,12 @@ void InputSDL_Shutdown(void)
         s_dev_id[i] = 0;
     }
     s_player_dev[0] = s_player_dev[1] = -1;
+#ifdef SWOS_SWITCH_SLEEP_ON_EXIT
+    for (int p = 0; p < INPUTSDL_NUM_PADS; ++p) {
+        input_switch_sleep_send(sleep_paths[p]);
+        SDL_free(sleep_paths[p]);
+    }
+#endif
 }
 
 void InputSDL_HandleEvent(const SDL_Event *e)

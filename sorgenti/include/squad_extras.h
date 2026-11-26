@@ -17,8 +17,8 @@
  *     its record at a job change -- is listed, so he is never offered or brought back again
  *     (the Mod's lists XS and XL: "squad_extras" in the career save).
  *
- * Computer clubs still play with their 16. B-team call-ups, CPU substitutions and
- * the optional second VIEW SQUAD page are not part of this port (not yet proven).
+ * The stable CPU extra-player store preserves accessed extra records through CAR;
+ * match nomination, CPU substitutions and the extended live bench are not yet enabled.
  * World careers only (never 96/97), SDL only: the
  * Amiga's team files hold 16 and it reads no JSON, so there none of this happens.
  *
@@ -51,6 +51,11 @@ typedef struct {
     SqxLeft  left[SQX_LEFT_MAX];
 } SqxState;
 extern SqxState g_sqx;
+#ifdef SWOS_SDL_BUILD
+#include "sqx_match_store.h"
+/* Persistent owner of CPU extras promoted from the verified JSON cache. */
+extern SqxMatchStore g_sqx_match;
+#endif
 
 int32_t SquadExtras_On(void);           /* a world career, not a national team's */
 void    SquadExtras_Reset(void);        /* a new career, or a save without the item: none left */
@@ -75,8 +80,8 @@ int32_t     SquadExtras_Nth(uint16_t team, int32_t n);
 
 /* A long bench (long_bench.c): the n-th of a club's players 17.. it brings to a match, in any
  * match of a world (a friendly's, a DIY's, a career's): in a career the ones gone are left out;
- * `index` his place - 1 (16..). And his record by that index (the after-match write-backs land in
- * the club's cached block only, as the Mod's). NULL: none. */
+ * `index` his place - 1 (16..). Career CPU records are promoted to stable storage
+ * and saved in the same CAR. Non-career inspection retains its original cache. NULL: none. */
 PlayerFile *SquadExtras_BenchPlayer(uint16_t team, int32_t n, uint16_t *index);
 PlayerFile *SquadExtras_BenchRecord(uint16_t team, uint16_t index);
 /* The checksum of a club's players 17.. as its team file has them, in order (the team check's

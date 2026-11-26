@@ -130,7 +130,7 @@ static inline int ExpCeSharedPool_SavedRosterOK(const ExpCeSharedPoolData *p,
     const ExpCeSharedPoolRow *x=ExpCeSharedPool_Find(p,raw);
     uint32_t g=(uint16_t)t->team.globalTeamNumber;
     if(x)return g==x->global;
-    return g<(uint32_t)_teamsCountryNumbers[255]+256u;
+    return !ExpCePool_IsReservedGlobal(_teamsCountryNumbers[255],g);
 }
 static inline void ExpCeSharedPool_Materialize(const ExpCeSharedPoolRow *x,TeamFileEx *t)
 {

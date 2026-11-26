@@ -31,6 +31,9 @@
 #endif
 
 SqxState g_sqx;
+#ifdef SWOS_SDL_BUILD
+SqxMatchStore g_sqx_match;
+#endif
 
 extern uint16_t   _gameType, _isNationalSelector, _selTeamNumber;
 extern uint16_t   _careerNumPlayers;
@@ -153,15 +156,41 @@ static Block *block(uint16_t team)
     return b;
 }
 
+/* The JSON block proves ownership/identity and remains a read-only source.
+ * After promotion all CPU readers/writers resolve the same stable record;
+ * no mutable record points into the rotating eight-club cache. */
+static PlayerFile *effective_player(Block *b,uint16_t index,int promote)
+{
+    if(!b || index<16 || index>=16+SQX_MAX)return NULL;
+    unsigned i=index-16u;
+    if(i>=b->n || (b->gone&(1u<<i)) || !b->p[i].playerName[0])return NULL;
+    SqxMatchRecord *r=SqxMatch_Find(&g_sqx_match,b->team,index);
+    if(r && !SqxMatch_SameName(&r->player,&b->p[i])) {
+        fprintf(stderr,"[squads] MATCH_EXTRA_IDENTITY_MISMATCH %04x/%u\n",
+                (unsigned)b->team,(unsigned)index);
+        return NULL;
+    }
+    if(!r && promote) {
+        r=SqxMatch_Ensure(&g_sqx_match,b->team,index,&b->p[i]);
+        if(!r) {
+            fprintf(stderr,"[squads] MATCH_EXTRA_STORE_FAILED %04x/%u\n",
+                    (unsigned)b->team,(unsigned)index);
+            return NULL;
+        }
+    }
+    return r?&r->player:&b->p[i];
+}
+
 void SquadExtras_ClubLoaded(void)
 {
     s_added = 0;
     if (!SquadExtras_On())
         return;
-    const Block *b = block(_selTeamNumber);
+    Block *b = block(_selTeamNumber);
     int32_t added = 0;
     for (int32_t i = 0; i < b->n && _careerNumPlayers < 16 + SQX_MAX; i++) {
-        const PlayerFile *p = &b->p[i];
+        const PlayerFile *p = effective_player(b,(uint16_t)(16+i),0);
+        if(!p)continue;
         /* listed as gone (bought, left the club, written into its record at a job change), or a
          * name already in the record just copied (xleft.py xl_read) */
         if ((b->gone >> i) & 1)
@@ -205,9 +234,7 @@ PlayerFile *SquadExtras_Player(uint16_t team, uint16_t index)
 {
     if (!SquadExtras_On() || index < 16 || index >= 16 + SQX_MAX || team == _selTeamNumber)
         return NULL;
-    Block *b = block(team);
-    const int32_t i = index - 16;
-    return i < b->n && !((b->gone >> i) & 1) ? &b->p[i] : NULL;
+    return effective_player(block(team),index,1);
 }
 
 uint8_t *SquadExtras_GetPlayer(uint16_t team, uint16_t index)
@@ -215,8 +242,10 @@ uint8_t *SquadExtras_GetPlayer(uint16_t team, uint16_t index)
     if (!SquadExtras_On() || index < 16)
         return NULL;
     PlayerFile *p = SquadExtras_Player(team, index);
-    if (p)
-        return (uint8_t *)p - PF_OFF;
+    if (p) {
+        SqxMatchRecord *r=SqxMatch_Find(&g_sqx_match,team,index);
+        return r?r->bytes:NULL; /* actual allocated legacy prefix */
+    }
     memset(s_blank, 0, sizeof s_blank);
     return s_blank;
 }
@@ -232,6 +261,7 @@ PlayerFile *SquadExtras_BenchPlayer(uint16_t team, int32_t n, uint16_t *index)
             continue;
         if (n-- == 0) {
             *index = (uint16_t)(16 + i);
+            if(career && team!=_selTeamNumber)return effective_player(b,*index,1);
             return &b->p[i];
         }
     }
@@ -249,6 +279,8 @@ PlayerFile *SquadExtras_BenchRecord(uint16_t team, uint16_t index)
 {
     if (World_Current() == WORLD_9697 || index < 16 || index >= 16 + SQX_MAX)
         return NULL;
+    if(SquadExtras_On() && team!=_selTeamNumber)
+        return effective_player(block(team),index,1);
     Block *b = block(team);
     const int32_t i = index - 16;
     return i < b->n && b->p[i].playerName[0] ? &b->p[i] : NULL;
@@ -333,6 +365,20 @@ void SquadExtras_JobChange(void)
         const int32_t at = p->playerName[0] ? own_index(p->playerName) : -1;
         if (at >= 0)                    /* (in the record now: his copy 17.. must not come back) */
             SquadExtras_Left(_selTeamNumber, (uint16_t)at, p->playerName);
+    }
+    /* The managed roster was authoritative during the job. Refresh already
+     * promoted original extra records that remain outside the original 16.
+     * New never-promoted extras retain the historical job-change behaviour. */
+    Block *b=block(_selTeamNumber);
+    for(unsigned k=16;k<_careerNumPlayers && k<32;k++) {
+        const PlayerFile *p=(const PlayerFile *)(GetPlayerAtIndex(_selTeamNumber,(uint16_t)k)+PF_OFF);
+        if(!p->playerName[0])continue;
+        for(unsigned i=0;i<b->n;i++) {
+            if((b->gone&(1u<<i)) || !same_name(p->playerName,b->p[i].playerName))continue;
+            SqxMatchRecord *r=SqxMatch_Find(&g_sqx_match,_selTeamNumber,(uint16_t)(16+i));
+            if(r && SqxMatch_SameName(&r->player,p))r->player=*p;
+            break;
+        }
     }
 }
 
@@ -440,6 +486,9 @@ void SquadExtras_Reset(void)
 {
     s_added = 0;
     g_sqx.n = g_sqx.ring = 0;
+#ifdef SWOS_SDL_BUILD
+    SqxMatch_Clear(&g_sqx_match);
+#endif
     SquadExtras_Changed();
 }
 

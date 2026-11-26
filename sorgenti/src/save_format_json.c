@@ -7706,6 +7706,14 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
                          i ? "," : "", (unsigned)e->team,
                          (unsigned)e->index, (const char *)e->name);
         }
+        mjson_printf(json_out_emit,&out,"],%Q:[","match_records");
+        for(size_t i=0;i<g_sqx_match.count;i++) {
+            const SqxMatchRecord *r=g_sqx_match.rows[i];
+            char hex[SQX_MATCH_HEX_LEN+1];
+            SqxMatch_Encode(&r->player,hex);
+            mjson_printf(json_out_emit,&out,"%s[%u,%u,%Q]",
+                i?",":"",(unsigned)r->team,(unsigned)r->index,hex);
+        }
         mjson_printf(json_out_emit, &out, "%s", "]}");
     }
 #endif
@@ -8942,6 +8950,55 @@ static void apply_semantic_load(const char *src, int src_size)
 }
 
 #ifdef SWOS_SDL_BUILD
+/* Optional extra-player state in the existing squad_extras item. Older
+ * CARs without the field remain readable. Decode into an off-heap store
+ * before adoption; do not let a malformed or duplicate record overwrite
+ * a live roster. Source name/ordinal and departed ownership are checked
+ * again by effective_player before a record can enter a match or market. */
+static int sqx_match_records_read(const char *json,int len,int adopt)
+{
+    const char *arr=NULL;
+    int arr_len=0,off=0,vo,vl,vt;
+    int tok=mjson_find(json,len,"$.squad_extras.match_records",&arr,&arr_len);
+    SqxMatchStore next={0};
+    uint32_t previous=0;
+    int have_previous=0;
+    if(tok==MJSON_TOK_INVALID) {
+        if(adopt)SqxMatch_Clear(&g_sqx_match);
+        return 1;
+    }
+    if(tok!=MJSON_TOK_ARRAY || World_Current()!=WORLD_2627)goto fail;
+    while((off=fast_array_next(arr,arr_len,off,&vo,&vl,&vt))!=0) {
+        double team=-1,index=-1;
+        const char *unused=NULL;int unused_len=0;
+        char hex[SQX_MATCH_HEX_LEN+1]={0};
+        PlayerFile p;
+        if(vt!=MJSON_TOK_ARRAY ||
+           !mjson_get_number(arr+vo,vl,"$[0]",&team) ||
+           !mjson_get_number(arr+vo,vl,"$[1]",&index) ||
+           !(team>=0 && team<=65535 && index>=16 && index<30) ||
+           team!=(uint16_t)team || index!=(uint16_t)index ||
+           mjson_get_string(arr+vo,vl,"$[2]",hex,sizeof hex)!=(int)SQX_MATCH_HEX_LEN ||
+           mjson_find(arr+vo,vl,"$[3]",&unused,&unused_len)!=MJSON_TOK_INVALID ||
+           !SqxMatch_Decode(hex,strlen(hex),&p))goto fail;
+        uint32_t key=SqxMatch_Key((uint16_t)team,(uint16_t)index);
+        if((have_previous && key<=previous) ||
+           !SqxMatch_Insert(&next,(uint16_t)team,(uint16_t)index,&p))goto fail;
+        previous=key;have_previous=1;
+    }
+    if(adopt) {
+        SqxMatch_Clear(&g_sqx_match);
+        g_sqx_match=next;
+    } else SqxMatch_Clear(&next);
+    return 1;
+fail:
+    SqxMatch_Clear(&next);
+    fprintf(stderr,"[squads] MATCH_EXTRA_CAR_REJECTED old-save-preserved=1\n");
+    return 0;
+}
+#endif
+
+#ifdef SWOS_SDL_BUILD
 static int16_t SaveJson_LoadCareer_Impl(uint8_t *filename, const uint8_t *src_unused,
                             uint32_t src_size_unused)
 #else
@@ -8983,6 +9040,7 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     if((!savejson_universal_owner((const char *)src,(int)src_size) &&
         !savejson_preflight_career_keycache((const char *)src,(int)src_size)) ||
        !savejson_career_civil_clock_ok((const char *)src,(int)src_size,1) ||
+       !sqx_match_records_read((const char *)src,(int)src_size,0) ||
        (savejson_universal_owner((const char *)src,(int)src_size) &&
         !universal_rosters_validate((const char *)src,(int)src_size))) {
         swos_io_free(src);
@@ -9110,6 +9168,7 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
         if((!savejson_universal_owner((const char *)src,(int)src_size) &&
             !Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1)) ||
+           !sqx_match_records_read((const char *)src,(int)src_size,1) ||
            !ExpandedUniversal_CarRestore((const char *)src,(int)src_size) ||
            !universal_rosters_restore((const char *)src,(int)src_size) ||
            !Expanded_CompetitionCoordinator_ValidateRestore() ||

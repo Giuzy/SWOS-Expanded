@@ -1417,3 +1417,14 @@ Decisione utente 26/11: i 5 club fissi delle federazioni senza campionato giocab
 - **Prima edizione da fonti** (`first_edition.from_sources`): attende la lega, salta club ineleggibili senza consumare slot (Championship: 8 fondatori + 5 fissi + 3 dinamici, avvio 16 ottobre).
 - **Australia Cup**: test reale `AUSTRALIA_CUP_REAL_JSON_32_ENTRANTS_31_GAMES_TEST_ADMIN_RESULTS=PASS`; analisi `NATIONAL_CUP.json` (32 entranti 2026, 20 mappati / 12 mancanti nel DB, ACT/NNSW assenti dal file squadre 44, `PARTIAL_RESEARCH_NOT_RUNTIME`).
 **Limiti / aperti:** Australian Championship bloccata dal limite panchina OG (7>5, nessuna panchina estesa, regolamento non alterato); scambio A-League ↔ regionali (2 su/2 giù) NON implementato (kernel `ExpCePool_CrossRegion/Balance` pronto, non collegato); Australia Cup: rinnovo/qualificazioni oltre la prima edizione e 12 club mancanti NON integrati; qualificati dinamici Championship non verificati su dati reali di stagione; Serie B: 4 retrocessioni approvate, ma non conclusa finché la dipendenza Serie C resta aperta; viewer/pulsanti (CHAMPIONSHIP, QUAL, SPAREGGI, PLAYOFF, PLAYOUT, POOL) non toccati (ChatGPT). Nessun commit. Windows gameplay/SAVE/CONTINUE NON PROVATI.
+
+
+## 26/11/2026 — v317 PREPARED: stable mutable CPU extra players (RG-SQX-MATCH-STORE)
+Implemented source candidate: real extras from existing UUID/checksum-verified JSON, sparse stable storage on access, canonical CPU readers, CAR additive squad_extras.match_records and staged restore, unchanged packed 38/684/1018 ABI. ISO kernel 14,337 records PASS with stand-in; actual game compilation/market/transfer/CONTINUE NP. Manager job change refreshes already promoted original extras; unpromoted case remains historical. CE bench cap5 unchanged; nomination/QUICK/live panchina/zoom still pending. Details/limits and test matrix in RG-MATCH-BENCH-EXT / RG-SQX-MATCH-STORE. No commit now.
+
+## 26/11/2026 — RG-CE-NATIVE-PHASE-LINKS (sorgente preparato, non build)
+Viewer: adattatore nativo readonly per fase/edizione; nessuna seconda autorità. Vedere RG-CE-NATIVE-PHASE-LINKS e GAME_DESIGN. Sostituire mapping UI con ruoli CE definitivi, collegare membership pool persistita; non inferire fasi o squadre da ordine file.
+
+
+## 26/11/2026 — v317 combined scope
+START RG-CE-START-POOL-MARGIN: user-approved margin128, native end2313/cap2560, 119 slots and 14 IDs unchanged, isolated exact C PASS; real-data test prepared, Windows START/CONTINUE NP. Single commit of all pending requested by user: stable CPU extras/CAR, phase viewer, Switch Bluetooth exit. Prior prepared notes historical; long bench/QUICK/zoom incomplete, CE max5 unchanged.

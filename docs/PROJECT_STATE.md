@@ -2502,3 +2502,17 @@ See RG-MATCH-BENCH-EXT in REGRESSION_HISTORY_AND_DEPENDENCIES.md for source map,
 
 ## 26/11/2026 — Audit dipendenze panchina lunga dopo v315
 V: catalogo CE CPU conserva copie TeamFileEx da 16, GetPlayerAtIndex generico rifiuta ordinal>=16; extra roster e relativa persistenza da collegare. QUICK usa tabelle candidate indicizzate da cambi/bench e skill su ordinali11+, non basta ampliare remap da 32. Nome/sprite stride16, snapshot1018 e postmatch 16 devono seguire identità sidecar. Il renderer SDL scala solo i pixel già disegnati: per lo zoom out servono nuovi pixel del mondo (o layout contenuto nel viewport con approvazione), e asset prima degli occupanti. Dettagli V/I, routine, linee, RG-T e limiti nel sottocaso RG-MATCH-BENCH-EXT. Audit documentale, v00.13.315 invariata, nessun nuovo runtime o test; Windows/GP/CAR NP.
+
+
+## 26/11/2026 — v317 PREPARED: stable mutable CPU extra players (RG-SQX-MATCH-STORE)
+Implemented source candidate: real extras from existing UUID/checksum-verified JSON, sparse stable storage on access, canonical CPU readers, CAR additive squad_extras.match_records and staged restore, unchanged packed 38/684/1018 ABI. ISO kernel 14,337 records PASS with stand-in; actual game compilation/market/transfer/CONTINUE NP. Manager job change refreshes already promoted original extras; unpromoted case remains historical. CE bench cap5 unchanged; nomination/QUICK/live panchina/zoom still pending. Details/limits and test matrix in RG-MATCH-BENCH-EXT / RG-SQX-MATCH-STORE. No commit now.
+
+## 26/11/2026 — RG-CE-NATIVE-PHASE-LINKS (sorgente preparato, non build)
+Preparato viewer v310, non committato/compilato: A-League fasi KO collegate, pool iniziale e pulsanti Australia/Italia pending; CHAMPIONSHIP/misto/9697 non completati. ST JS 18/18 su dati/sorgente: nessun fallimento, non compilazione o gameplay. Lettura mjson.c supporta root numerico e mjson_next termina a 0; leg CE zero-based. Primo tentativo sostituzione viewer fallito per spazio di indentazione, nessuna scrittura; ancoraggio preciso ripreso. RG-T04/05/10/14/16/19/20 da eseguire: stage/edizione/mondo, pre-start, positive/negative, pool dopo rollover, BACK, STATS/EXIT, ledger/CAR/RNG invariati, 9697/CLASSIC/DIY/SEASON. C/Windows/GP/CAR NON PROVATI.
+
+## 26/11/2026 — RG-INPUT-SWITCH-SLEEP-EXIT (sorgente preparato)
+Sorgente preparato v310, spegnimento Switch Pro Bluetooth Windows al normale exit, helper C11 ISO PASS, hardware/Windows NON PROVATI. Vedi RG-INPUT-SWITCH-SLEEP-EXIT.
+
+
+## 26/11/2026 — v317 combined scope
+START: RG-CE-START-POOL-MARGIN, user-approved margin128, native end2313/cap2560, 119 slots/14 existing IDs unchanged, ISO PASS; real-data test prepared, full Windows START/CONTINUE NP. User requests all prepared code in one commit: stable CPU extras/CAR, phase viewer, Switch Bluetooth exit. Prior prepared notes historical; preserve Claude. Long bench/QUICK/zoom incomplete, CE cap5 unchanged. No save modified.

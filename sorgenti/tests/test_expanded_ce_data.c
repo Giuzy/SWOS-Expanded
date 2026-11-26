@@ -11,10 +11,12 @@
 #include "expanded_ce_engine.h"
 #include "expanded_universal_json_leagues.h"
 #include "world.h"
+#include "expanded_ce_shared_pool_data.h"
 void *swos_io_realloc(void *p,uint32_t n){return realloc(p,n);}
 WorldId World_Current(void){return WORLD_2627;}
 /* v311: definitions.c loads the shared pool (identity helpers of the native world) */
-uint16_t _teamsCountryNumbers[256];
+/* v317 START regression: actual baked native end, not an all-zero mock. */
+uint16_t _teamsCountryNumbers[256]={[255]=2313u};
 uint8_t World_FileCountry(uint8_t f){return f;}
 uint16_t World_Slot(uint8_t f,uint8_t o){(void)f;return o;}
 uint16_t World_SlotTeam(uint8_t c,uint16_t slot){return (uint16_t)(((uint16_t)c<<8)|slot);}
@@ -28,6 +30,24 @@ int main(void)
 {
     uint32_t i,ready=0,missing=0,leagues=0,json=0,chain_ok=0,chain_bad=0;
     int n;
+    {
+        ExpCeSharedPoolData sp={0};
+        assert(ExpCeSharedPool_Load(&sp) && sp.n==14u);
+        for(uint32_t k=0;k<sp.n;++k) {
+            TeamFileEx roster;
+            ExpCeSharedPool_Materialize(&sp.rows[k],&roster);
+            assert(ExpCePool_IsReservedGlobal(_teamsCountryNumbers[255],sp.rows[k].global));
+            assert(ExpCeSharedPool_SavedRosterOK(&sp,&roster));
+            roster.team.globalTeamNumber=2440;
+            assert(!ExpCeSharedPool_SavedRosterOK(&sp,&roster));
+        }
+        {TeamFileEx native={0};
+         native.team.globalTeamNumber=2440;
+         assert(ExpCeSharedPool_SavedRosterOK(&sp,&native));
+         native.team.globalTeamNumber=2441;
+         assert(!ExpCeSharedPool_SavedRosterOK(&sp,&native));}
+        ExpCeSharedPool_Free(&sp);
+    }
     assert(ExpandedUniversalJsonLeagues_Load());
     n=ExpCe_BuildWorldDefinitions(WORLD_2627);
     assert(n>0);

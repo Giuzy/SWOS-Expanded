@@ -234,7 +234,11 @@
  * transparent art and anchored geometry); extended live activation pending. */
 /* v00.13.316: common typed record swap and seat geometry wired into OG;
  * still five native reserves; extended nomination, renderer and QUICK pending. */
-#define SWOS_EXPANDED_VERSION "00.13.316"
+/* v00.13.317: START pool identity margin 128 (user approved); preserve IDs,
+ * capacity, collision checks and CAR roster validation. */
+/* v317 also includes stable CPU extra-player CAR state, readonly phase links
+ * and Windows Switch Pro exit sleep. Extended live bench/QUICK still pending. */
+#define SWOS_EXPANDED_VERSION "00.13.317"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

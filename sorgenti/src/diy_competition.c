@@ -108,6 +108,11 @@ static int s_ceBoardRoundDone;
 static int s_ceBoardInAction,s_ceBoardRestorePending;
 static uint64_t s_ceBoardEventId,s_ceBoardManagerEvent;
 static void ce_board_action(unsigned action);
+static void ce_board_extra_buttons(void);
+static void ce_native_cup_draw(void);
+/* Defined with the native reader below, checked before any legacy cup logic. */
+static int ce_native_cup_is_active(void);
+static int ce_native_cup_scroll(int direction);
 #endif
 /* The standalone backing buffer behind diyCompetitionStart (7136 B). The
  * current-stage copies below address it as a byte array (DIY_CFB_STANDINGS_LEN
@@ -8666,6 +8671,9 @@ void ShowDIYCupMenuWithParams(uint16_t arg0, uint16_t arg1, uint16_t arg2)
 __attribute__((used, externally_visible))
 void DIYCupFinish(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_native_cup_is_active()){ce_native_cup_draw();return;}
+#endif
     uint16_t off74 = *(uint16_t *)&_diyCompetitionStart.base.menuState; /* FIELD_3A+$10 */
 
     /* KEPT — Stage-3 re-test found this rebuild STILL LOAD-BEARING
@@ -8708,6 +8716,9 @@ extern uint8_t _currentMenu[]; /* needed by SWOS_AUTOSKIP_LOG sites */
 __attribute__((used, externally_visible))
 void DIYCupInit(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_native_cup_is_active()){ce_native_cup_draw();SetCurrentEntry(10u);return;}
+#endif
     SWOS_AUTOSKIP_LOG("DIYCupInit: ENTER seasonUpdate=%u arg0=%u arg1=%u arg2=%u "
                       "menuState=%u roundComplete=%u competitionFinished=%u hasGroups=%u",
                       (unsigned)_seasonUpdateInProgress,
@@ -8776,6 +8787,9 @@ void DIYCupInit(void)
 __attribute__((used, externally_visible))
 void DIYCupOnSelect10(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_native_cup_is_active()){SetExitMenuFlag();return;}
+#endif
 
     int16_t hasGroups        = _diyCompetitionStart.base.hasGroups;
     int16_t competitionFinished = _diyCompetitionStart.base.competitionFinished;
@@ -8798,6 +8812,9 @@ void DIYCupOnSelect10(void)
 __attribute__((used, externally_visible))
 void DIYCupOnSelect16(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_native_cup_scroll(-1))return;
+#endif
     if (_diyCupMatchListScrollIndex == 0)
         return;
     _diyCupMatchListScrollIndex--;
@@ -8809,6 +8826,9 @@ void DIYCupOnSelect16(void)
 __attribute__((used, externally_visible))
 void DIYCupOnSelect17(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_native_cup_scroll(1))return;
+#endif
     uint16_t d0 = _diyCupMatchListScrollIndex + 6;
     uint16_t d1 = *(uint16_t *)&_diyCompetitionStart.base.totalMatchesInRound; /* FIELD_3A+$18 */
 
@@ -10594,6 +10614,7 @@ void DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus(void)
         unsigned i;
         for(i=1u;i<=8u;++i)_menuEntries[i].isInvisible=1;
         if(s_ceBoardViewOnly) {
+            ce_board_extra_buttons();
             SetCurrentEntry(10u); /* view-only => EXIT */
             return;
         }
@@ -10791,6 +10812,15 @@ static void ce_board_restore_original(void)
     _fireResetFlag=s_ceBoardSavedFireReset;
     _writeOnlyVar01=s_ceBoardSavedWriteOnly;
     _viewRandomPhase=s_ceBoardSavedPhase;
+}
+#include "expanded_ce_native_view_links.h"
+static int ce_native_cup_is_active(void){return s_ceNativeCup.active;}
+static int ce_native_cup_scroll(int direction)
+{
+    if(!s_ceNativeCup.active)return 0;
+    if(direction<0 && s_ceNativeCup.scroll)--s_ceNativeCup.scroll;
+    if(direction>0 && s_ceNativeCup.scroll+6u<s_ceNativeCup.n)++s_ceNativeCup.scroll;
+    ce_native_cup_draw();DrawMenu();return 1;
 }
 static int ce_board_slot(const ExpandedClubKey *clubs,unsigned n,
                          ExpandedClubKey key)
@@ -11089,7 +11119,7 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
      * pending verified generic CE bracket phase and action projection. */
     for(i=0u;i<r->fixture_count;++i) {
         const ExpandedUniversalFixture *x=&r->fixtures[i];
-        if(!ce_board_same_edition(x,f))continue;
+        if(!ce_board_same_edition(x,f) || (viewOnly && x->key.stage!=f->key.stage))continue;
         if(x->competition_type!=0u ||
            ce_board_add(clubs,&n,x->home)<0 ||
            ce_board_add(clubs,&n,x->away)<0)return 0;
@@ -11257,6 +11287,7 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
         if(ce_board_select_current()!=1)goto restore;
     }
     s_ceBoardCommitted=0;s_ceBoardViewOnly=viewOnly;s_ceBoardActive=1;
+    if(viewOnly)ce_board_extra_load(f->key.edition,label);
     _careerLoadedFlag=0;
     _diyFixtureViewMode=1;
     _diyAllMatchesPlayed=0;
@@ -11269,6 +11300,7 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
     ShowDiyLeaguesTournamentMenu(1,viewOnly?1u:0u,0);
     result=viewOnly?1:(s_ceBoardCommitted?2:1);
 restore:
+    memset(&s_ceExtra,0,sizeof s_ceExtra);
     s_ceBoardActive=0;s_ceBoardViewOnly=0;s_ceBoardRoundDone=0;
     s_ceBoardRoundCount=0u;
     ce_board_restore_original();
@@ -11326,13 +11358,19 @@ int ExpandedUniversal_OGBoardViewLeague(uint8_t country,
     for(uint32_t i=0u;i<r->fixture_count;++i) {
         const ExpandedUniversalFixture *f=&r->fixtures[i];
         if(f->competition_type!=0u || f->country!=country ||
+           EXP_CE_STAGE_PHASE(f->key.stage)!=0u ||
            f->slot!=division ||
-           ((f->key.edition.competition.stable_competition>>16)&255u)
-                !=comp->compId ||
-           f->key.edition.start_day>r->scheduler.clock.day_index)
+           f->key.edition.competition.world!=r->world ||
+           f->key.edition.competition.stable_competition!=
+                ExpCe_LeagueCompetitionId(country,comp->compId,(uint8_t)division))
             continue;
-        if(!best || f->key.edition.start_day>
-                    best->key.edition.start_day)best=f;
+        /* View known participants before kickoff, without selecting an
+         * unrelated phase or an archived/pruned ledger. */
+        const ExpCeEdition *ed=ExpCe_Edition(f->key.edition);
+        if(!ed || !ed->nentrants || ed->state>=EXP_CE_ED_ARCHIVED)continue;
+        if(!best || f->key.edition.start_day>best->key.edition.start_day ||
+           (f->key.edition.start_day==best->key.edition.start_day &&
+            f->key.edition.sequence>best->key.edition.sequence))best=f;
     }
     if(!best) {
         fprintf(stderr,"[ce-world-view] UNAVAILABLE country=%u comp=%u "

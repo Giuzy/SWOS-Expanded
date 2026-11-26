@@ -552,6 +552,300 @@ static int cv_show(void)
 /* ------------------------------------------------------------------ */
 /* entry points (the OG menus only add ONE button, nothing else changes) */
 /* ------------------------------------------------------------------ */
+/* Extended RULES is a read-only projection of the selected CE edition.
+ * Provisional text page: no OG rule conversion, no fixture or CAR writer.
+ * Call only from a native modal; the generic viewer shares this line buffer. */
+static void cv_rule_u(const char *label,unsigned value)
+{
+    char t[16];
+    snprintf(t,sizeof t,"%u",value);
+    cv_add(label,t,CV_COLOR_NORMAL);
+}
+static void cv_rule_bool(const char *label,unsigned value)
+{
+    cv_add(label,value?"YES":"NO",CV_COLOR_NORMAL);
+}
+static const char *cv_rule_provenance(unsigned p)
+{
+    switch(p) {
+        case EXP_CE_PROV_OG_NATIVE:return "OG NATIVE";
+        case EXP_CE_PROV_JSON_VERIFIED:return "JSON VERIFIED";
+        case EXP_CE_PROV_JSON_TEMPLATE:return "GAME TEMPLATE";
+        default:return "DATA UNAVAILABLE";
+    }
+}
+static void cv_rule_date(const char *label,int32_t index)
+{
+    ExpandedWorldDate date={0};
+    char t[24];
+    if(!ExpandedWorld_IndexToDate(index,&date)) {
+        cv_add(label,"DATE UNAVAILABLE",CV_COLOR_NORMAL);return;
+    }
+    snprintf(t,sizeof t,"%02u/%02u/%04u",(unsigned)date.day,
+             (unsigned)date.month,(unsigned)date.year);
+    cv_add(label,t,CV_COLOR_NORMAL);
+}
+static void cv_rule_weekdays(const char *label,unsigned mask)
+{
+    static const char *const names[]={"MON","TUE","WED","THU","FRI","SAT","SUN"};
+    char t[32];size_t pos=0u;
+    t[0]=0;
+    for(unsigned i=0u;i<7u;++i)if(mask&(1u<<i)) {
+        if(pos)t[pos++]=' ';
+        memcpy(t+pos,names[i],3u);pos+=3u;t[pos]=0;
+    }
+    cv_add(label,pos?t:"NONE",CV_COLOR_NORMAL);
+}
+static void cv_rule_phase(const ExpCePhaseDef *p,const char *heading)
+{
+    static const char *const ties[]={
+        "END","POINTS","GOAL DIFFERENCE","GOALS FOR","WINS","AWAY GOALS FOR",
+        "HEAD TO HEAD POINTS","HEAD TO HEAD GOAL DIFF","HEAD TO HEAD GOALS",
+        "HEAD TO HEAD AWAY GOALS","NAME","DRAW"
+    };
+    char t[48],l[40];
+    cv_add(heading,p->kind==EXP_CE_PHASE_TABLE?"TABLE":
+           p->kind==EXP_CE_PHASE_KNOCKOUT?"KNOCKOUT":"UNKNOWN",CV_COLOR_HEAD);
+    if(p->missing[0] || !p->match.provenance ||
+       (p->kind==EXP_CE_PHASE_TABLE && !p->table.provenance)) {
+        cv_add("PHASE RULES","NO DATA",CV_COLOR_NORMAL);return;
+    }
+    if(p->kind==EXP_CE_PHASE_TABLE) {
+        snprintf(t,sizeof t,"%u / %u",(unsigned)p->groups,(unsigned)p->meetings);
+        cv_add("GROUPS / MEETINGS",t,CV_COLOR_NORMAL);
+        snprintf(t,sizeof t,"%u / %u / %u",(unsigned)p->table.win,
+                 (unsigned)p->table.draw,(unsigned)p->table.loss);
+        cv_add("POINTS W / D / L",t,CV_COLOR_NORMAL);
+        if(p->table.draw_penalties) {
+            snprintf(t,sizeof t,"%u / %u",(unsigned)p->table.draw_pen_win,
+                     (unsigned)p->table.draw_pen_loss);
+            cv_add("SHOOTOUT POINTS W / L",t,CV_COLOR_NORMAL);
+        }
+        if(p->qualify) {
+            snprintf(t,sizeof t,"%u - %u",(unsigned)(p->qualify_from?p->qualify_from:1u),
+                     (unsigned)p->qualify);
+            cv_add("QUALIFYING RANKS PER GROUP",t,CV_COLOR_NORMAL);
+        }
+        cv_add("TABLE RULES SOURCE",cv_rule_provenance(p->table.provenance),CV_COLOR_NORMAL);
+        for(unsigned i=0u;i<p->table.ntb && i<EXP_CE_MAX_TIEBREAK;++i) {
+            const unsigned k=p->table.tiebreak[i];
+            snprintf(l,sizeof l,"TIE BREAK %u",i+1u);
+            cv_add(l,k<sizeof ties/sizeof ties[0]?ties[k]:"UNKNOWN",CV_COLOR_NORMAL);
+        }
+    } else if(p->kind==EXP_CE_PHASE_KNOCKOUT) {
+        snprintf(t,sizeof t,"%u / %u / %s",(unsigned)p->match.legs,
+                 (unsigned)p->byes,p->match.needs_winner?"YES":"NO");
+        cv_add("LEGS / BYES / WINNER REQUIRED",t,CV_COLOR_NORMAL);
+        snprintf(t,sizeof t,"%s / %s / %s",p->match.extra_time?"YES":"NO",
+                 p->match.penalties?"YES":"NO",p->match.away_goals?"YES":"NO");
+        cv_add("EXTRA TIME / PENS / AWAY GOALS",t,CV_COLOR_NORMAL);
+        if(p->match.rank_tiebreak)
+            cv_add("REGULAR RANK TIE BREAK",p->match.rank_tiebreak==2u?
+                   "UNLESS LEVEL ON POINTS":"YES",CV_COLOR_NORMAL);
+    }
+    cv_add("MATCH RULES SOURCE",cv_rule_provenance(p->match.provenance),CV_COLOR_NORMAL);
+    snprintf(t,sizeof t,"%u FROM %u",(unsigned)p->match.subs,
+             (unsigned)p->match.bench);
+    cv_add("SUBSTITUTIONS",t,CV_COLOR_NORMAL);
+    if(p->match.windows)
+        snprintf(t,sizeof t,"%u / %s",(unsigned)p->match.windows,
+                 p->match.halftime_free?"YES":"NO");
+    else snprintf(t,sizeof t,"UNLIMITED / %s",p->match.halftime_free?"YES":"NO");
+    cv_add("WINDOWS / HALF TIME FREE",t,CV_COLOR_NORMAL);
+    if(p->match.extra_time || p->match.et_extra_subs || p->match.et_extra_windows) {
+        snprintf(t,sizeof t,"%u / %u",(unsigned)p->match.et_extra_subs,
+                 (unsigned)p->match.et_extra_windows);
+        cv_add("ET EXTRA SUBS / WINDOWS",t,CV_COLOR_NORMAL);
+    }
+    if(p->has_window) {
+        const ExpCeWindow *w=&p->window;
+        snprintf(t,sizeof t,"%02u/%02u - %02u/%02u (+%uY)",
+                 (unsigned)w->first_d,(unsigned)w->first_m,
+                 (unsigned)w->last_d,(unsigned)w->last_m,
+                 (unsigned)w->last_year_offset);
+        cv_add("CALENDAR TEMPLATE",t,CV_COLOR_NORMAL);
+        cv_rule_weekdays("GAME DAYS",w->weekdays);
+        cv_rule_weekdays("EXTRA GAME DAYS",w->extra_weekdays);
+        cv_rule_u("REST DAYS",w->rest);
+        for(unsigned i=0u;i<w->nbreaks && i<EXP_CE_MAX_BREAKS;++i) {
+            snprintf(t,sizeof t,"%02u/%02u - %02u/%02u",
+                     (unsigned)w->breaks[i][1],(unsigned)w->breaks[i][0],
+                     (unsigned)w->breaks[i][3],(unsigned)w->breaks[i][2]);
+            cv_add("CALENDAR BREAK",t,CV_COLOR_NORMAL);
+        }
+    }
+    if(p->nrel) {
+        size_t used=0u;
+        t[0]=0;
+        for(unsigned i=0u;i<p->nrel && i<sizeof p->rel/sizeof p->rel[0];++i) {
+            int n=snprintf(t+used,sizeof t-used,"%s%u",i?"/":"",(unsigned)p->rel[i]);
+            if(n<0 || (size_t)n>=sizeof t-used)break;
+            used+=(size_t)n;
+        }
+        snprintf(l,sizeof l,"DAY OFFSETS FROM PHASE INDEX %u",(unsigned)p->rel_anchor);
+        cv_add(l,t,CV_COLOR_NORMAL);
+    }
+}
+int ExpCeViewer_OpenRules(ExpandedEditionKey key)
+{
+    const ExpCeEdition *e;
+    const ExpCeDef *d;
+    char title[48],label[40],value[40];
+    uint32_t count=0u;
+    int32_t first=0,last=0;
+    if(!ExpCeViewer_Active())return 0;
+    s_reg=ExpandedUniversal_CarRegistry();
+    if(!s_reg || s_reg->recovery_required || key.competition.world!=s_reg->world)return 0;
+    e=ExpCe_Edition(key);
+    d=ExpCe_Definition(key.competition.stable_competition);
+    if(!d || d->world!=key.competition.world)return 0;
+    snprintf(title,sizeof title,"RULES %.39s",d->name);
+    if(!cv_begin(title))return 0;
+    s_listMode=0;
+    if(!e || !ExpandedEditionKey_Equal(e->key,key) || e->def_id!=d->id) {
+        cv_add("EDITION RULES","NO DATA",CV_COLOR_HEAD);
+        return cv_show();
+    }
+    cv_rule_u("EDITION YEAR",e->year);
+    cv_rule_date("EDITION START",key.start_day);
+    cv_add("EDITION STATE",ExpCe_StateName(e->state),CV_COLOR_NORMAL);
+    if(e->block)cv_add("EDITION BLOCK",ExpCe_BlockName(e->block),CV_COLOR_NORMAL);
+    snprintf(value,sizeof value,"%u / %u",(unsigned)d->clubs,(unsigned)e->nentrants);
+    cv_add("TEAMS CONFIGURED / CONFIRMED",value,CV_COLOR_NORMAL);
+    if(e->rules_hash!=d->rules_hash) {
+        cv_add("EDITION RULES UNAVAILABLE","RULE HASH MISMATCH",CV_COLOR_HEAD);
+        return cv_show();
+    }
+    if(d->missing[0]) {
+        cv_add("DEFINITION RULES","NO DATA",CV_COLOR_NORMAL);return cv_show();
+    }
+    cv_add("DEFINITION SOURCE",d->source_file,CV_COLOR_NORMAL);
+    if(e->state>=EXP_CE_ED_SCHEDULED && e->expiry_day>=key.start_day)
+        cv_rule_date("EDITION EXPIRY TARGET",e->expiry_day);
+    else cv_add("EDITION EXPIRY TARGET","NOT YET AVAILABLE",CV_COLOR_NORMAL);
+    cv_add("ROLLOVER","AFTER EXPIRY AND COMPLETION",CV_COLOR_NORMAL);
+    if(s_reg->fixtures && s_reg->fixture_count==s_reg->ledger.count) {
+        for(uint32_t i=0u;i<s_reg->fixture_count;++i) {
+            const ExpandedUniversalFixture *f=&s_reg->fixtures[i];
+            if(!ExpandedEditionKey_Equal(f->key.edition,key))continue;
+            if(!count || f->day_index<first)first=f->day_index;
+            if(!count || f->day_index>last)last=f->day_index;
+            ++count;
+        }
+        cv_rule_u("MATERIALISED FIXTURES",count);
+        if(count) {
+            cv_rule_date("FIRST MATERIALISED FIXTURE",first);
+            cv_rule_date("LAST MATERIALISED FIXTURE",last);
+        }
+    }
+    if(d->origin==EXP_CE_ORIGIN_LEAGUE) {
+        cv_add("MOVEMENT RULES","",CV_COLOR_HEAD);
+        snprintf(value,sizeof value,"%u / %u",(unsigned)d->promoted,(unsigned)d->relegated);
+        cv_add("REGULAR UP / DOWN",value,CV_COLOR_NORMAL);
+        if(d->xch_on) {
+            const ExpCeDef *cup=ExpCe_Definition(d->xch_champ);
+            cv_add("EXCHANGE CHAMPION FROM",cup && cup->world==d->world?
+                   cup->name:"NO DATA",CV_COLOR_NORMAL);
+            cv_rule_u("REPLACES REGULAR LEAGUE RANK",d->xch_rank);
+            cv_add("CHAMPION ALREADY MEMBER","NO EXCHANGE",CV_COLOR_NORMAL);
+            cv_add("RELEGATED CLUB","RETURNS TO ITS REGION",CV_COLOR_NORMAL);
+            cv_add("REGIONAL BALANCE","VIA BOTTOM POOL",CV_COLOR_NORMAL);
+        }
+        if(d->par_n) {
+            cv_rule_u("LOWER DIVISION GROUPS",d->par_n);
+            cv_rule_u("PROMOTED PER GROUP",d->par_per_group);
+            cv_rule_u("EXTRA BEST NEXT-PLACED",d->par_extra);
+        }
+        if(e->partial)cv_add("PARTIAL EDITION","MOVEMENTS NOT CERTIFIED",CV_COLOR_NORMAL);
+        if(d->promoted) {
+            const unsigned direct=(unsigned)d->promoted-(d->promotion_playoff?1u:0u);
+            if(direct) {
+                snprintf(value,sizeof value,"TOP %u",direct);
+                cv_add("DIRECT PROMOTION",value,CV_COLOR_NORMAL);
+            }
+            if(d->promotion_playoff && d->nphases>1u) {
+                const ExpCePhaseDef *p=&d->phases[0];
+                snprintf(value,sizeof value,"RANKS %u-%u",
+                         (unsigned)(p->qualify_from?p->qualify_from:1u),(unsigned)p->qualify);
+                cv_add("PLAYOFF FOR LAST PROMOTION",value,CV_COLOR_NORMAL);
+            }
+        }
+        if(d->fin_gap_min) {
+            snprintf(label,sizeof label,"RANK %u OVER %u BY MORE THAN",
+                     (unsigned)d->fin_gap_hi,(unsigned)d->fin_gap_lo);
+            snprintf(value,sizeof value,"%u PTS",(unsigned)d->fin_gap_min);
+            cv_add(label,value,CV_COLOR_NORMAL);
+            cv_add("THEN SKIP PLAYOFF",d->promotion_playoff?"NEXT RANK PROMOTED":"NO FINALS",
+                   CV_COLOR_NORMAL);
+        }
+        if(d->relegated && !d->pool_playoff && d->clubs>=d->relegated) {
+            const unsigned direct=(unsigned)d->relegated-
+                (ExpCe_PlayoutActive(d)?1u:0u);
+            if(direct) {
+                snprintf(value,sizeof value,"BOTTOM %u",direct);
+                cv_add("DIRECT RELEGATION",value,CV_COLOR_NORMAL);
+            }
+        }
+        if(d->has_playout) {
+            const int active=ExpCe_PlayoutActive(d);
+            cv_add("PLAYOUT RULE",active?"ENABLED":"NOT ACTIVE",CV_COLOR_NORMAL);
+            if(d->pool_playoff) {
+                cv_add("PLAYOUT","CLUB VS POOL CHALLENGER",CV_COLOR_NORMAL);
+                if(active)cv_add("LOSER","TO POOL",CV_COLOR_NORMAL);
+            } else {
+                snprintf(value,sizeof value,"RANK %u VS %u",(unsigned)d->playout_hi,
+                         (unsigned)d->playout_lo);
+                cv_add("PLAYOUT FOR SURVIVAL",value,CV_COLOR_NORMAL);
+                if(active)cv_add("LOSER","RELEGATED",CV_COLOR_NORMAL);
+                if(active && d->playout_gap_min) {
+                    snprintf(label,sizeof label,"RANK %u OVER %u BY MORE THAN",
+                             (unsigned)d->playout_hi,(unsigned)d->playout_lo);
+                    snprintf(value,sizeof value,"%u PTS",(unsigned)d->playout_gap_min);
+                    cv_add(label,value,CV_COLOR_NORMAL);
+                    cv_add("THEN SKIP PLAYOUT","LOWER RANK RELEGATED",CV_COLOR_NORMAL);
+                }
+            }
+            cv_rule_phase(&d->playout,"PLAYOUT");
+        }
+        if(d->pool_n) {
+            snprintf(value,sizeof value,"%u / %u / %u",(unsigned)d->pool_n,
+                     (unsigned)d->pool_direct,(unsigned)d->pool_playoff);
+            cv_add("POOL / DIRECT / PLAYOFF",value,CV_COLOR_NORMAL);
+            if(d->pool_direct) {
+                snprintf(value,sizeof value,"BOTTOM %u",(unsigned)d->pool_direct);
+                cv_add("DIRECT TO POOL",value,CV_COLOR_NORMAL);
+                snprintf(value,sizeof value,"%u CLUBS",(unsigned)d->pool_direct);
+                cv_add("DIRECT FROM POOL",value,CV_COLOR_NORMAL);
+            }
+        }
+    }
+    for(unsigned i=0u;i<d->nphases && i<EXP_CE_MAX_PHASES;++i) {
+        snprintf(label,sizeof label,"PHASE %u",i+1u);
+        cv_rule_phase(&d->phases[i],label);
+    }
+    if(d->nsources) {
+        cv_add("NEXT EDITION QUALIFICATION","",CV_COLOR_HEAD);
+        for(unsigned i=0u;i<d->nsources && i<EXP_CE_MAX_SOURCES;++i) {
+            const ExpCeSourceSpec *sp=&d->sources[i];
+            const ExpCeDef *from=ExpCe_Definition(sp->competition);
+            cv_add("SOURCE",ExpCe_SourceName(sp->source),CV_COLOR_NORMAL);
+            if(sp->competition) {
+                if(from && from->world==d->world)cv_add("FROM",from->name,CV_COLOR_NORMAL);
+                else cv_rule_u("SOURCE COMPETITION ID",sp->competition);
+            }
+            if(sp->rank_from || sp->rank_to) {
+                snprintf(value,sizeof value,"%u - %u",(unsigned)sp->rank_from,
+                         (unsigned)sp->rank_to);
+                cv_add("RANKS",value,CV_COLOR_NORMAL);
+            }
+            if(sp->count)cv_rule_u("SLOTS",sp->count);
+            if(sp->nexclude)cv_rule_u("EXCLUDED CLUBS",sp->nexclude);
+            cv_rule_bool("REALLOCATE DUPLICATES",sp->reallocate);
+        }
+    }
+    return cv_show();
+}
+
 int ExpCeViewer_OpenDefinition(uint32_t def_id)
 {
     const ExpCeDef *d=ExpCe_Definition(def_id);
@@ -564,12 +858,24 @@ int ExpCeViewer_OpenDefinition(uint32_t def_id)
      * Mixed tournaments and non-materialised/archive views retain the
      * existing CE reader; never fabricate a native bracket. */
     if(e && ExpCeViewer_OpenNativeCup(e->key))return 1;
-    cv_build_view(d,e);
-    s_listMode=0;
-    fprintf(stderr,"[ce-viewer] OPEN def=%u name=%s edition=%s lines=%u "
-        "source=CE readonly=1\n",(unsigned)def_id,d->name,
-        e?ExpCe_StateName(e->state):"NONE",(unsigned)s_n);
-    return cv_show();
+    /* The MORE RULES child shares the row buffer: close this view before
+     * opening the same OG basic page, then rebuild on return. */
+    for(;;) {
+        ExpandedEditionKey key={{d->world,d->id},0,0};
+        CvLine *line;
+        if(e)key=e->key;
+        cv_build_view(d,e);
+        if(s_lines && s_n<CV_MAX_LINES) {
+            memmove(s_lines+1,s_lines,s_n*sizeof *s_lines);
+            ++s_n;line=&s_lines[0];memset(line,0,sizeof *line);
+            snprintf(line->left,sizeof line->left,"RULES");
+            line->color=CV_COLOR_HEAD;line->sel=1u;line->arg=1u;
+        }
+        s_listMode=1;s_pick=-1;
+        if(!cv_show())return 0;
+        if(s_pick!=1)return 1;
+        (void)ExpCeViewer_OpenBasicRules(key);
+    }
 }
 /* The OG competition list stores a pointer per row. A button row points at
  * this small read-only record (type byte 0xCE, never an OG competition) that

@@ -21,6 +21,7 @@
 #include "expanded_universal_native_match.h"
 #include "expanded_universal_standings.h" /* canonical CE ledger table, no duplicate score calculation */
 #include "expanded_ce_engine.h" /* Fase 2: competition rules for every CE table */
+#include "expanded_ce_viewer.h"
 #include "play_match_menu.h" /* canonical OG TEAM_COMPUTER, no inline magic number */
 #endif
 #include "diy_competition.h"
@@ -109,6 +110,10 @@ static int s_ceBoardInAction,s_ceBoardRestorePending;
 static uint64_t s_ceBoardEventId,s_ceBoardManagerEvent;
 static void ce_board_action(unsigned action);
 static void ce_board_extra_buttons(void);
+static int s_ceBasicRulesActive;
+static ExpandedEditionKey s_ceBasicRulesKey;
+static void ce_basic_rules_render(void);
+static int ce_rules_open_board(void);
 static void ce_native_cup_draw(void);
 /* Defined with the native reader below, checked before any legacy cup logic. */
 static int ce_native_cup_is_active(void);
@@ -5291,6 +5296,9 @@ void ShowDesignDIYLeagueMenu(void)
 __attribute__((used, externally_visible))
 void ShowLeagueInfo(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_rules_open_board())return;
+#endif
     _diyLeagueLookOnly = 1;
     _diyLeagueSelectTeams = 0;
     ShowMenu(_designDiyLeagueMenu);
@@ -5328,6 +5336,9 @@ void ShowDesignDIYCupMenu(void)
 __attribute__((used, externally_visible))
 void ShowCupInfo(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_rules_open_board())return;
+#endif
     _diyCupLookOnly = 1;
     _diyCupSelectTeams = 0;
     ShowMenu(_designDiyCupMenu);
@@ -5373,6 +5384,9 @@ void ShowDesignDIYTournamentMenu(void)
 __attribute__((used, externally_visible))
 void ShowTournamentInfo(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_rules_open_board())return;
+#endif
     _diyTournamentLookOnly = 1;
     _diyTournamentSelectTeams = 0;
     ShowMenu(_designDiyTournamentMenu);
@@ -5418,6 +5432,9 @@ extern uint8_t  _aX0[];             /* "X %0" */
 __attribute__((used, externally_visible))
 void DesignDIYLeagueInit(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBasicRulesActive){ce_basic_rules_render();return;}
+#endif
     if (_diyLeagueSelectTeams != 0)
         SetNumberOfTeamsToSelect();
     DesignDIYLeagueFinish();
@@ -8549,6 +8566,9 @@ void DesignDIYLeagueUpdatePromotionRelegationText(void)
 __attribute__((used, externally_visible))
 void DesignDIYLeagueFinish(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBasicRulesActive){ce_basic_rules_render();return;}
+#endif
     if (_pitchType != 0xFFFE) { /* not SEASONAL */
         *(uint16_t *)&_diyCompetitionStart.base.pitchTypeOrSeason = 0; /* pitchTypeOrSeason = 0 */
         *(uint16_t *)&_diyCompetitionStart.base.pitchType = _pitchType; /* pitchType */
@@ -10812,6 +10832,98 @@ static void ce_board_restore_original(void)
     _fireResetFlag=s_ceBoardSavedFireReset;
     _writeOnlyVar01=s_ceBoardSavedWriteOnly;
     _viewRandomPhase=s_ceBoardSavedPhase;
+}
+/* CE RULES uses the original OG league info layout for every format.
+ * Only visual slots are written; never initialise a fake OG competition. */
+static char s_ceBasicText[6][48];
+static void ce_basic_rules_text(unsigned i,const char *str)
+{
+    MenuEntry *e=&_menuEntries[i];
+    e->content=ENTRY_STRING;e->fg=(uintptr_t)str;e->stringFlags=0;
+    e->onSelect=NULL;e->beforeDraw=NULL;e->afterDrawCb=NULL;
+    e->isInvisible=0;e->isDisabled=1;
+    if(e->background==2)e->bgColor=(e->bgColor&0xfff0u)|9u;
+}
+static void ce_basic_rules_more(MenuEntry *e)
+{
+    (void)e;
+    (void)ExpCeViewer_OpenRules(s_ceBasicRulesKey);
+    DrawMenu();
+}
+static void ce_basic_rules_render(void)
+{
+    const ExpCeDef *d=ExpCe_Definition(s_ceBasicRulesKey.competition.stable_competition);
+    const ExpCeEdition *ed=ExpCe_Edition(s_ceBasicRulesKey);
+    const ExpCePhaseDef *p,*last;
+    MenuEntry *more,*back;
+    static const char *const months[]={"","JAN","FEB","MAR","APR","MAY","JUN",
+        "JUL","AUG","SEP","OCT","NOV","DEC"};
+    unsigned i;
+    for(i=0;i<6u;++i)snprintf(s_ceBasicText[i],sizeof s_ceBasicText[i],"NO DATA");
+    if(d && d->world==s_ceBasicRulesKey.competition.world) {
+        snprintf(s_ceBasicText[0],sizeof s_ceBasicText[0],"%.39s",d->name);
+        if(ed && ExpandedEditionKey_Equal(ed->key,s_ceBasicRulesKey) &&
+           ed->def_id==d->id && ed->rules_hash==d->rules_hash && !d->missing[0]) {
+            if(d->clubs)snprintf(s_ceBasicText[2],sizeof s_ceBasicText[2],"%u",(unsigned)d->clubs);
+            if(d->nphases && d->nphases<=EXP_CE_MAX_PHASES) {
+                p=&d->phases[0];last=&d->phases[d->nphases-1u];
+                if(!p->missing[0] && !last->missing[0] && p->has_window && last->has_window &&
+                   p->window.first_m>=1u && p->window.first_m<=12u &&
+                   last->window.last_m>=1u && last->window.last_m<=12u)
+                    snprintf(s_ceBasicText[1],sizeof s_ceBasicText[1],"%s - %s",
+                             months[p->window.first_m],months[last->window.last_m]);
+                if(!p->missing[0] && p->kind==EXP_CE_PHASE_TABLE && p->meetings)
+                    snprintf(s_ceBasicText[3],sizeof s_ceBasicText[3],"X %u",(unsigned)p->meetings);
+                if(!p->missing[0] && p->kind==EXP_CE_PHASE_TABLE && p->table.provenance)
+                    snprintf(s_ceBasicText[4],sizeof s_ceBasicText[4],"%u",(unsigned)p->table.win);
+                if(!p->missing[0] && p->match.provenance)
+                    snprintf(s_ceBasicText[5],sizeof s_ceBasicText[5],"%u FROM %u",
+                             (unsigned)p->match.subs,(unsigned)p->match.bench);
+            }
+        }
+    }
+    for(i=0u;i<24u;++i){_menuEntries[i].isInvisible=1;_menuEntries[i].isDisabled=1;}
+    ce_basic_rules_text(1,s_ceBasicText[0]);_menuEntries[1].bgColor=0x17;
+    ce_basic_rules_text(3,"NUMBER OF TEAMS");ce_basic_rules_text(4,"PLAY EACH TEAM");
+    ce_basic_rules_text(5,"POINTS FOR A WIN");ce_basic_rules_text(6,"SUBSTITUTES");
+    ce_basic_rules_text(8,"SEASON");
+    ce_basic_rules_text(10,s_ceBasicText[1]);
+    _menuEntries[10].dwWidth=_menuEntries[13].dwWidth;
+    ce_basic_rules_text(13,s_ceBasicText[2]);
+    ce_basic_rules_text(14,s_ceBasicText[3]);
+    ce_basic_rules_text(15,s_ceBasicText[4]);
+    ce_basic_rules_text(16,s_ceBasicText[5]);
+    _menuEntries[16].dwWidth=_menuEntries[13].dwWidth;
+    back=&_menuEntries[22];back->isInvisible=back->isDisabled=0;
+    back->leftEntry=20;back->rightEntry=-1;back->upEntry=back->downEntry=-1;
+    back->skipLeftEntry=back->skipRightEntry=-1;
+    more=&_menuEntries[20];more->isInvisible=more->isDisabled=0;
+    more->content=ENTRY_STRING;more->fg=(uintptr_t)"MORE RULES";
+    more->onSelect=ce_basic_rules_more;more->beforeDraw=NULL;more->afterDrawCb=NULL;
+    more->leftEntry=-1;more->rightEntry=22;more->upEntry=more->downEntry=-1;
+    more->skipLeftEntry=more->skipRightEntry=-1;
+    SetCurrentEntry(22u);
+}
+int ExpCeViewer_OpenBasicRules(ExpandedEditionKey key)
+{
+    const ExpCeDef *d=ExpCe_Definition(key.competition.stable_competition);
+    if(s_ceBasicRulesActive || !ExpCeViewer_Active() || !d ||
+       d->world!=key.competition.world || key.competition.world!=(uint16_t)World_Current())
+        return 0;
+    s_ceBasicRulesKey=key;s_ceBasicRulesActive=1;
+    ShowMenu(_designDiyLeagueMenu);
+    s_ceBasicRulesActive=0;memset(&s_ceBasicRulesKey,0,sizeof s_ceBasicRulesKey);
+    return 1;
+}
+static int ce_rules_open_board(void)
+{
+    ExpandedUniversalRegistry *r;
+    const ExpandedUniversalFixture *f;
+    if(!s_ceBoardActive || !ExpCeViewer_Active())return 0;
+    r=ExpandedUniversal_CarRegistry();
+    f=r?ExpandedUniversal_Find(r,s_ceBoardEventId):NULL;
+    if(f)(void)ExpCeViewer_OpenBasicRules(f->key.edition);
+    return 1;
 }
 #include "expanded_ce_native_view_links.h"
 static int ce_native_cup_is_active(void){return s_ceNativeCup.active;}

@@ -29,6 +29,10 @@ int ExpCeViewer_OpenRecord(const void *rec);
 int ExpCeViewer_MatchesNative(uint32_t def_id,uint8_t country,const void *rec);
 /* Opens the viewer of a competition definition (edition chosen by the CE). */
 int ExpCeViewer_OpenDefinition(uint32_t def_id);
+/* Extended rules for an exact CE edition; call from a native modal only. */
+int ExpCeViewer_OpenRules(ExpandedEditionKey key);
+/* Same readonly OG rules page for CE leagues, cups and mixed competitions. */
+int ExpCeViewer_OpenBasicRules(ExpandedEditionKey key);
 /* Actual native OG cup renderer for a materialised, all-KO CE button or native alias. */
 int ExpCeViewer_OpenNativeCup(ExpandedEditionKey key);
 #endif

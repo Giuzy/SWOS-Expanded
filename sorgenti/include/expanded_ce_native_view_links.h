@@ -36,6 +36,7 @@ static struct {
     CeNativeMatchRow *rows;
     uint32_t n,scroll;
     int active;
+    ExpandedEditionKey edition;
     char title[64],status[80];
 } s_ceNativeCup;
 
@@ -160,6 +161,12 @@ static void ce_board_extra_load(ExpandedEditionKey key,const char *label)
     }
     s_ceExtra=tmp;
 }
+static void ce_native_cup_rules(MenuEntry *entry)
+{
+    (void)entry;
+    if(s_ceNativeCup.active)(void)ExpCeViewer_OpenBasicRules(s_ceNativeCup.edition);
+    DrawMenu();
+}
 static void ce_native_cup_draw(void)
 {
     unsigned i,k;
@@ -170,7 +177,13 @@ static void ce_native_cup_draw(void)
         _menuEntries[i].rightEntry=10;
     }
     _menuEntries[10].isInvisible=0;
-    _menuEntries[10].leftEntry=s_ceNativeCup.n>6u?17:-1;
+    _menuEntries[9].fg=(uintptr_t)"RULES";
+    _menuEntries[9].onSelect=ce_native_cup_rules;
+    _menuEntries[9].isInvisible=_menuEntries[9].isDisabled=0;
+    _menuEntries[9].leftEntry=s_ceNativeCup.n>6u?17:-1;
+    _menuEntries[9].rightEntry=10;
+    _menuEntries[9].skipLeftEntry=_menuEntries[9].skipRightEntry=-1;
+    _menuEntries[10].leftEntry=9;
     _menuEntries[10].upEntry=s_ceNativeCup.n>6u?17:-1;
     for(i=0;i<6u;++i) {
         MenuEntry *e=&_menuEntries[18u+i*8u];
@@ -260,6 +273,7 @@ static void ce_native_cup_open(ExpandedEditionKey key,uint8_t mask,
     }
     if(n>1u)qsort(rows,n,sizeof *rows,ce_native_cup_cmp);
     s_ceNativeCup.rows=rows;
+    s_ceNativeCup.edition=key;
     if(role && *role)
         snprintf(s_ceNativeCup.title,sizeof s_ceNativeCup.title,"%.26s %.9s %u",
                  label,role,(unsigned)ed->year);

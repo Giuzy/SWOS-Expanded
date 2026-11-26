@@ -331,6 +331,7 @@
     {
       "id": "_australianLeague",
       "team_number": 44,
+      "exchange": {"champion_competition": 2884098, "relegate_rank": 12, "routing": [{"division": 1, "clubs": ["44:5", "44:12", "44:7", "44:9"]}, {"division": 2, "clubs": ["44:4", "44:6", "44:2", "44:10"]}, {"division": 3, "clubs": ["44:11", "44:1", "44:3", "44:8"]}], "provenance": "USER_APPROVED_DESIGN 25/11/2026 (docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json row207 gameRuleExtension20261125): the Australian Championship winner, when not already an A-League club, replaces the club ranked 12th of the regular season; the relegated club returns to its assigned region (routing = initialRegionalRouting; keys are stable world-pack club keys); region sizes are kept through each pyramid bottom pool; a winner that is already in the A-League causes no movement"},
       "match_override": {"bench": 7, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "GAME_TEMPLATE", "source": "A-League Men 2026/27 (docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json row207 ruleEvidence): 5 substitutions, +1 in extra time, bench minimum 5 and 6/7 with 2/3 eligible young players; the maximum 7 is used because the youth condition is not modelled; 3 windows with a free half-time is the Australian pattern of the other cards"},
       "comp_id": 88,
       "first_match": "10-16",

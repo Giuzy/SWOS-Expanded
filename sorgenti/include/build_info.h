@@ -260,7 +260,8 @@
 /* v00.13.337: DIAGNOSTIC [bench-diag] world sprites at the left touchline (finding the old bench sprite). */
 /* v00.13.338: grass cover removed; the long bench art overlays the old shell (x shifted 6 px). */
 /* v00.13.339: NPL Queensland half-time and extra-time window per the decided table. */
-#define SWOS_EXPANDED_VERSION "00.13.339"
+/* v00.13.340: generic league exchange (top league <-> regional pyramids through the pool), Australia data. */
+#define SWOS_EXPANDED_VERSION "00.13.340"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

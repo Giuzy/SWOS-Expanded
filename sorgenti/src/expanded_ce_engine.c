@@ -133,6 +133,10 @@ static uint64_t def_hash(const ExpCeDef *d)
         h^=d->fin_gap_hi;h*=UINT64_C(1099511628211);h^=d->fin_gap_lo;h*=UINT64_C(1099511628211);
         h^=d->fin_gap_min;h*=UINT64_C(1099511628211);h^=d->playout_gap_min;h*=UINT64_C(1099511628211);}
     if(d->first_from_sources){h^=0x2Fu;h*=UINT64_C(1099511628211);}
+    if(d->xch_on){unsigned i;h^=0x7Bu;h*=UINT64_C(1099511628211);
+        h^=d->xch_rank;h*=UINT64_C(1099511628211);h^=d->xch_champ;h*=UINT64_C(1099511628211);
+        for(i=0u;i<d->xch_nroute && i<16u;++i){h^=d->xch_route_club[i];h*=UINT64_C(1099511628211);
+            h^=d->xch_route_div[i];h*=UINT64_C(1099511628211);}}
     if(d->pool_direct||d->pool_playoff){unsigned i;h^=0x6Du;h*=UINT64_C(1099511628211);
         h^=d->pool_direct;h*=UINT64_C(1099511628211);h^=d->pool_playoff;h*=UINT64_C(1099511628211);
         for(i=0u;i<d->pool_n && i<8u;++i){h^=(uint8_t)d->pool_clubs[i];h*=UINT64_C(1099511628211);
@@ -1055,6 +1059,143 @@ static uint32_t pool_universe(const ExpCeDef *d,uint32_t *out,uint32_t cap)
     }
     return n;
 }
+/* ---- v340 league exchange helpers ---- */
+static uint32_t league_rank_count(const ExpCeEdition *e);
+static uint32_t league_rank_at(const ExpCeEdition *e,uint32_t i);
+/* the exchange config (an `xch_on` league of the same country/competition) that routes `d` */
+static const ExpCeDef *xch_link(const ExpCeDef *d)
+{
+    uint32_t i,k;
+    if(!d || d->origin!=EXP_CE_ORIGIN_LEAGUE || d->xch_on)return NULL;
+    for(i=0u;i<s_ce.ndefs;++i) {
+        const ExpCeDef *a=&s_ce.defs[i];
+        if(!a->xch_on || a->country!=d->country || a->comp_id!=d->comp_id)continue;
+        for(k=0u;k<a->xch_nroute;++k)if(a->xch_route_div[k]==d->division)return a;
+    }
+    return NULL;
+}
+static const ExpCeEdition *latest_edition_of(uint32_t def_id)
+{
+    const ExpCeEdition *best=NULL;
+    uint32_t i;
+    for(i=0u;i<s_ce.neds;++i)
+        if(s_ce.eds[i].def_id==def_id && (!best || s_ce.eds[i].key.start_day>best->key.start_day))
+            best=&s_ce.eds[i];
+    return best;
+}
+static int ed_has_club(const ExpCeEdition *e,uint32_t club)
+{
+    uint32_t i;
+    for(i=0u;i<e->nentrants;++i)if(e->entrants[i].club.stable_club==club)return 1;
+    return 0;
+}
+static int xch_up_has(const uint32_t *a,uint32_t n,uint32_t v)
+{uint32_t i;for(i=0u;i<n;++i)if(a[i]==v)return 1;return 0;}
+/* the league division (region) a club belongs to: static routing first, else the region it has
+ * been a member of in any edition. -1 = unknown (never invented). */
+static int xch_region_of(const ExpCeDef *a,uint32_t club)
+{
+    uint32_t k,i;
+    for(k=0u;k<a->xch_nroute;++k)if(a->xch_route_club[k]==club)return (int)a->xch_route_div[k];
+    for(k=0u;k<a->xch_nroute;++k) {
+        const ExpCeDef *rd=def_find(ExpCe_LeagueCompetitionId(a->country,a->comp_id,a->xch_route_div[k]));
+        if(!rd)continue;
+        for(i=0u;i<s_ce.neds;++i)
+            if(s_ce.eds[i].def_id==rd->id && ed_has_club(&s_ce.eds[i],club))return (int)a->xch_route_div[k];
+    }
+    return -1;
+}
+/* A-League side: 1 exchange (W replaces X), 0 none, -1 wait (the champion edition is not complete) */
+static int xch_decide(const ExpCeDef *a,const ExpCeEdition *e,uint32_t *w,uint32_t *x)
+{
+    const ExpCeEdition *src=NULL;
+    uint32_t i;
+    if(!a->xch_on || e->partial || league_rank_count(e)!=e->nentrants || e->nentrants<a->xch_rank)return 0;
+    if(!def_find(a->xch_champ))return 0;
+    for(i=0u;i<s_ce.neds;++i)
+        if(s_ce.eds[i].def_id==a->xch_champ && s_ce.eds[i].year==e->year)src=&s_ce.eds[i];
+    if(!src)return 0;
+    if(src->block && src->state<EXP_CE_ED_COMPLETED)return 0;
+    if(src->state<EXP_CE_ED_COMPLETED)return -1;
+    if(src->partial || !src->nfinal)return 0;
+    *w=src->final_order[0];
+    if(ed_has_club(e,*w))return 0;                 /* already in the league: no promotion, no relegation */
+    *x=league_rank_at(e,a->xch_rank-1u);
+    if(xch_region_of(a,*x)<0)return 0;             /* destination unknown: no movement */
+    return 1;
+}
+/* region side: the A-League editions around this region edition (P running at its start, S its
+ * successor). 1 ok, 0 nothing to do, -1 wait for the A-League rollover. */
+static int xch_region_state(const ExpCeDef *a,const ExpCeEdition *e,const ExpCeEdition **p,const ExpCeEdition **s)
+{
+    const ExpCeEdition *best=NULL;
+    uint32_t i;
+    for(i=0u;i<s_ce.neds;++i) {
+        const ExpCeEdition *o=&s_ce.eds[i];
+        if(o->def_id!=a->id || o->key.start_day>e->key.start_day)continue;
+        if(!best || o->key.start_day>best->key.start_day)best=o;
+    }
+    if(!best)return 0;
+    if(!best->successor)return best->state>=EXP_CE_ED_COMPLETED?-1:0;
+    for(i=0u;i<s_ce.neds;++i)
+        if(s_ce.eds[i].def_id==a->id && s_ce.eds[i].year==(uint16_t)(best->year+1u)){*p=best;*s=&s_ce.eds[i];return 1;}
+    return -1;
+}
+/* region side: does the A-League movement of P -> S concern this region at all? */
+static int xch_region_affected(const ExpCeDef *d,const ExpCeDef *a,const ExpCeEdition *e,
+                               const ExpCeEdition *p,const ExpCeEdition *sx)
+{
+    uint32_t i;
+    for(i=0u;i<p->nentrants;++i) {
+        const uint32_t c=p->entrants[i].club.stable_club;
+        if(!ed_has_club(sx,c) && xch_region_of(a,c)==(int)d->division)return 1;
+    }
+    for(i=0u;i<sx->nentrants;++i) {
+        const uint32_t c=sx->entrants[i].club.stable_club;
+        if(!ed_has_club(p,c) && ed_has_club(e,c))return 1;
+    }
+    return 0;
+}
+/* region side: apply the exchange to the next membership nx (count *nn, size N). `ranked` = the
+ * current members best first. -1: no pool club available / inconsistent (never invented). */
+static int xch_region_adjust(const ExpCeDef *d,const ExpCeDef *a,const ExpCeEdition *e,
+    const ExpCeEdition *p,const ExpCeEdition *sx,uint32_t *nx,uint32_t *nn,uint32_t N,
+    const uint32_t *ranked,uint32_t nr,const uint32_t *pool,uint32_t np,uint32_t *xin,uint32_t *nxin)
+{
+    uint32_t i,k,n=*nn;
+    *nxin=0u;
+    for(i=0u;i<p->nentrants;++i) {          /* relegated into this region */
+        const uint32_t c=p->entrants[i].club.stable_club;
+        if(!ed_has_club(sx,c) && xch_region_of(a,c)==(int)d->division && !xch_up_has(nx,n,c)){
+            if(*nxin>=4u || n>=EXP_CE_MAX_ENTRANTS)return -1;
+            xin[(*nxin)++]=c;nx[n++]=c;
+        }
+    }
+    for(i=0u;i<sx->nentrants;++i) {         /* promoted out of this region */
+        const uint32_t c=sx->entrants[i].club.stable_club;
+        if(!ed_has_club(p,c) && ed_has_club(e,c)) {
+            for(k=0u;k<n;++k)if(nx[k]==c){nx[k]=nx[--n];break;}
+        }
+    }
+    while(n>N) {                             /* one too many: the worst kept club goes to the pool */
+        int done=0;
+        for(i=nr;i>0u && !done;--i) {
+            const uint32_t c=ranked[i-1u];
+            if(xch_up_has(xin,*nxin,c))continue;
+            for(k=0u;k<n;++k)if(nx[k]==c){nx[k]=nx[--n];done=1;break;}
+        }
+        if(!done)return -1;
+    }
+    for(i=0u;i<np && n<N;++i) {              /* one short: the next pool club by the CE draw order */
+        const uint32_t c=pool[i];
+        if(xch_up_has(nx,n,c) || ed_has_club(sx,c))continue;
+        nx[n++]=c;
+    }
+    if(n!=N)return -1;
+    *nn=n;
+    return 1;
+}
+
 /* pool = universe minus members, then the role order of THIS edition: a deterministic CE
  * draw seeded by (competition, year), never catalogue order. pool[0..direct) are the direct
  * entrants, pool[direct] the play-out challenger. Returns the pool size, UINT32_MAX on error. */
@@ -1066,6 +1207,11 @@ static uint32_t pool_roles(const ExpCeDef *d,const ExpCeEdition *e,uint32_t *poo
     for(i=0u;i<nu;++i) {
         uint32_t j;int in=0;
         for(j=0u;j<e->nentrants;++j)if(e->entrants[j].club.stable_club==uni[i])in=1;
+        {   /* v340: a club that now plays in the linked top league is not a free club */
+            const ExpCeDef *xa=xch_link(d);
+            const ExpCeEdition *top=xa?latest_edition_of(xa->id):NULL;
+            if(top && ed_has_club(top,uni[i]))in=1;
+        }
         if(!in){if(np>=cap)return UINT32_MAX;pool[np++]=uni[i];}
     }
     qsort(pool,np,sizeof *pool,cmp_u32_local);
@@ -1341,6 +1487,40 @@ static const ExpCeEdition *latest_closed(uint32_t competition,int *blocked)
     }
     return best;
 }
+/* v341: the source edition a dependent edition (starting at `dep_start`) must use. Among the
+ * editions of `competition` that END (their own expiry, from their definition) no later than
+ * `dep_start`, the one that started last: complete -> use it; not complete -> the dependent edition
+ * WAITS (pending) or is blocked (blocked). This ties an annual dependency to the right season (the
+ * Championship of 2027 needs the 2027 league seasons, not the closed 2026 ones) while a cup played
+ * in December still uses the last season that finished (Supercoppa 2027 <- league 2026/27).
+ * NULL with neither flag: no edition ends before dep_start, the caller falls back to latest_closed. */
+static const ExpCeEdition *source_for(uint32_t competition,int32_t dep_start,int *blocked,int *pending)
+{
+    const ExpCeEdition *best=NULL;
+    const ExpCeDef *d=def_find(competition);
+    uint32_t i;
+    *blocked=0;*pending=0;
+    if(!d)return NULL;
+    for(i=0;i<s_ce.neds;++i) {
+        const ExpCeEdition *o=&s_ce.eds[i];
+        int32_t end=0;
+        if(o->key.competition.stable_competition!=competition || o->partial)continue;
+        {   int ok=edition_expiry_day(d,o->year,o->key.start_day,&end);
+            int p;
+            /* a league whose last phase is a finals series with relative days has no absolute end:
+             * its regular-season window is the earliest the competition can end */
+            for(p=(int)d->nphases-1;p>=0 && !ok;--p)
+                if(d->phases[p].has_window)
+                    ok=md_on_or_after(d->phases[p].window.last_m,d->phases[p].window.last_d,o->key.start_day,&end);
+            if(!ok || end>dep_start || o->key.start_day>=dep_start)continue;
+        }
+        if(!best || o->key.start_day>best->key.start_day)best=o;
+    }
+    if(!best)return NULL;
+    if(best->state>=EXP_CE_ED_COMPLETED && best->nfinal)return best;
+    if(best->block)*blocked=1; else *pending=1;
+    return NULL;
+}
 /* JSON successor: entrants from the source specs, with provenance.
  * 1 confirmed, 0 wait (source not complete yet), -1 blocked (why). */
 static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl)
@@ -1383,7 +1563,11 @@ static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl
             }
             continue;
         }
-        src=latest_closed(sp->competition,&blocked);
+        {   int pend=0;
+            src=source_for(sp->competition,e->key.start_day,&blocked,&pend);
+            if(!src && pend)return 0;           /* the season this edition needs is still being played */
+            if(!src && !blocked)src=latest_closed(sp->competition,&blocked);
+        }
         if(!src) {
             if(blocked) {
                 snprintf(why,wl,"source %lu blocked",(unsigned long)sp->competition);
@@ -1526,19 +1710,42 @@ static int league_independent_rollover(ExpandedUniversalRegistry *r,
     ExpCeEdition *n;
     int32_t start=0;
     uint32_t i;
+    uint32_t xw=0u,xx=0u;
+    int xs=0;                                   /* v340: A-League side of the exchange */
+    const ExpCeDef *xa=NULL;                    /* v340: region side */
+    const ExpCeEdition *xp=NULL,*xsx=NULL;
+    int xr=0;
     if(e->successor || e->block || e->year==65535u ||
        e->nentrants!=d->clubs || e->nentrants>EXP_CE_MAX_ENTRANTS)return 0;
     for(i=0u;i<s_ce.neds;++i)
         if(s_ce.eds[i].def_id==d->id && s_ce.eds[i].year==year)return 0;
+    if(d->xch_on) {
+        xs=xch_decide(d,e,&xw,&xx);
+        if(xs<0)return 0;                       /* the champion edition of this year is not complete */
+    } else if((xa=xch_link(d))!=NULL) {
+        xr=xch_region_state(xa,e,&xp,&xsx);
+        if(xr<0)return 0;                       /* the top league has not rolled over yet */
+    }
     if(!edition_start_day(d,year,&start) || !(n=ed_new(d,year,start)))return 0;
     e=&s_ce.eds[idx]; /* ed_new may reallocate */
     e->successor=1u;
+    if(xa)xr=xch_region_state(xa,e,&xp,&xsx);   /* ed_new may have moved the edition array */
     n->nentrants=e->nentrants;
     for(i=0u;i<e->nentrants;++i)
         n->entrants[i]=(ExpCeEntrant){e->entrants[i].club,
             EXP_CE_SRC_KEPT_NO_MOVEMENT,0u,0u,(uint8_t)(i+1u),0u,
             d->id,e->key.start_day};
     n->state=EXP_CE_ED_PARTICIPANTS;
+    if(xs==1) {                                  /* the champion replaces the club ranked last */
+        for(i=0u;i<n->nentrants;++i)
+            if(n->entrants[i].club.stable_club==xx) {
+                n->entrants[i]=(ExpCeEntrant){(ExpandedClubKey){d->world,xw,EXP_PARTICIPANT_CLUB},
+                    EXP_CE_SRC_CUP_WINNER,0u,0u,(uint8_t)(i+1u),0u,d->xch_champ,e->key.start_day};
+                break;
+            }
+        ed_log("EDITION_PARTICIPANTS",n,"league exchange: cup winner promoted, last ranked relegated to its region");
+        return 1;
+    }
     if(d->pool_direct && !e->partial && league_rank_count(e)==e->nentrants && e->nentrants<=64u) {
         /* v311 bottom pool exchange: complete regular order, deterministic roles, the OG
          * play-out winner when a challenger plays; one atomic successor */
@@ -1557,20 +1764,37 @@ static int league_independent_rollover(ExpandedUniversalRegistry *r,
         rc=ExpCePool_Transition(1,1,members,ranked,e->nentrants,pool,np,d->pool_direct,d->pool_playoff,
                                 win,work,8u,nxm,nxp);
         if(rc!=EXP_CE_POOL_READY)goto pool_fail;
+        if(xr==1) {                              /* v340: exchange with the top league through the pool */
+            uint32_t nn=e->nentrants,xin[4],nxin=0u;
+            if(xch_region_adjust(d,xa,e,xp,xsx,nxm,&nn,e->nentrants,ranked,e->nentrants,pool,np,xin,&nxin)<0) {
+                ed_block(r,host,n,EXP_CE_BLOCK_DATA_MISSING,"league exchange: no free club available for the region");
+                return 1;
+            }
+        }
         for(k=0u;k<e->nentrants;++k) {
             uint32_t q,from=0u;
             for(q=0u;q<e->nentrants;++q)if(e->entrants[q].club.stable_club==nxm[k])from=1u;
             n->entrants[k]=(ExpCeEntrant){(ExpandedClubKey){d->world,nxm[k],EXP_PARTICIPANT_CLUB},
                 from?EXP_CE_SRC_KEPT_NO_MOVEMENT:EXP_CE_SRC_PROMOTED,0u,0u,(uint8_t)(k+1u),0u,d->id,e->key.start_day};
             if(!from)n->entrants[k].source=EXP_CE_SRC_PROMOTED; /* entered from the pool */
+            if(!from && xr==1 && ed_has_club(xp,nxm[k]))n->entrants[k].source=EXP_CE_SRC_RELEGATED; /* from the top league */
         }
         ed_log("EDITION_PARTICIPANTS",n,"bottom pool exchange (direct drops, play-out, roles by CE draw)");
         (void)r;(void)host;
         return 1;
 pool_fail:
+        if(xr==1 && xch_region_affected(d,xa,e,xp,xsx)) {   /* v340: never lose the club that moved */
+            ed_block(r,host,n,EXP_CE_BLOCK_DATA_MISSING,"league exchange: the region pool cannot be applied");
+            return 1;
+        }
         ed_log("EDITION_PARTICIPANTS",n,"bottom pool exchange not possible yet: same clubs");
-    } else
+    } else {
+    if(xr==1 && xch_region_affected(d,xa,e,xp,xsx)) {      /* v340: a region without a pool cannot absorb it */
+        ed_block(r,host,n,EXP_CE_BLOCK_DATA_MISSING,"league exchange: the region has no pool");
+        return 1;
+    }
     ed_log("EDITION_PARTICIPANTS",n,"independent calendar: same clubs, no movement");
+    }
     (void)r;(void)host;
     return 1;
 }
@@ -2643,6 +2867,55 @@ int ExpCe_SetPoolClubs(uint8_t country,uint8_t comp_id,uint8_t division,const ui
 }
 /* "pool": {"direct":N,"playoff":0|1} on a league_calendar.json row; the pool clubs come from
  * ExpCe_SetPoolClubs. A play-out needs the row's "playout" (rules/days). */
+/* v340: "exchange": {"champion_competition": id, "relegate_rank": N, "routing":
+ * [{"division": d, "clubs": ["44:5", ...]}, ...]} on a league_calendar.json row. */
+int ExpCe_LoadLeagueExchanges(const char *json,int len,uint16_t world)
+{
+    const char *arr=NULL;
+    int alen=0,off=0,ko,kl,vo,vl,vt,applied=0;
+    double schema=0;
+    if(!json || mjson_get_number(json,len,"$.schema",&schema)<=0 || schema!=1 ||
+       mjson_find(json,len,"$.leagues",&arr,&alen)!=MJSON_TOK_ARRAY)return -1;
+    while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
+        const char *row=arr+vo,*o=NULL,*rt=NULL;
+        int ol=0,rl=0,roff=0,rko,rkl,rvo,rvl,rvt;
+        double country=0,comp=0,div=0,champ=0,rank=0;
+        ExpCeDef *d;
+        uint32_t n=0u;
+        if(vt!=MJSON_TOK_OBJECT || mjson_find(row,vl,"$.exchange",&o,&ol)!=MJSON_TOK_OBJECT)continue;
+        if(mjson_get_number(row,vl,"$.team_number",&country)<=0 ||
+           mjson_get_number(row,vl,"$.comp_id",&comp)<=0 ||
+           mjson_get_number(row,vl,"$.division",&div)<=0 ||
+           mjson_get_number(o,ol,"$.champion_competition",&champ)<=0 || champ<1 ||
+           mjson_get_number(o,ol,"$.relegate_rank",&rank)<=0 || rank<2 || rank>15 ||
+           mjson_find(o,ol,"$.routing",&rt,&rl)!=MJSON_TOK_ARRAY)return -1;
+        d=(ExpCeDef *)def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)div));
+        if(!d)continue;
+        if(d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE || d->missing[0] || d->nphases<1u)return -1;
+        while((roff=mjson_next(rt,rl,roff,&rko,&rkl,&rvo,&rvl,&rvt))>0) {
+            const char *g=rt+rvo,*cl=NULL;
+            int gl=rvl,cll=0,coff=0,cko,ckl,cvo,cvl,cvt;
+            double dv=0;
+            if(rvt!=MJSON_TOK_OBJECT || mjson_get_number(g,gl,"$.division",&dv)<=0 || dv<0 || dv>15 ||
+               mjson_find(g,gl,"$.clubs",&cl,&cll)!=MJSON_TOK_ARRAY)return -1;
+            while((coff=mjson_next(cl,cll,coff,&cko,&ckl,&cvo,&cvl,&cvt))>0) {
+                char t[24];
+                ExpandedClubKey k;
+                if(cvt!=MJSON_TOK_STRING || cvl<3 || cvl>=(int)sizeof t || n>=16u)return -1;
+                memcpy(t,cl+cvo+1,(size_t)cvl-2u);t[cvl-2]=0;
+                if(!parse_club(t,world,&k))return -1;
+                d->xch_route_club[n]=k.stable_club;d->xch_route_div[n]=(uint8_t)dv;++n;
+            }
+            if(coff<0)return -1;
+        }
+        if(roff<0 || !n)return -1;
+        d->xch_on=1u;d->xch_rank=(uint8_t)rank;d->xch_nroute=(uint8_t)n;d->xch_champ=(uint32_t)champ;
+        d->rules_hash=def_hash(d);
+        ++applied;
+    }
+    if(off<0)return -1;
+    return applied;
+}
 /* v331: "match_override": {bench, subs, windows, halftime_free, et_extra_subs, et_extra_windows,
  * provenance} on a league_calendar.json row: the REAL substitution regulation of that league, applied
  * on top of every phase's OG-native match rules (bench/subs from leagues.json). Only the substitution

@@ -144,6 +144,18 @@ int main(void)
         {   uint32_t z;
             for(z=0u;z<nsw->pool_n;++z)assert((nsw->pool_clubs[z]>>16)==44u && (nsw->pool_clubs[z]&0xffffu)>=80u);
         }
+        {   /* v340: the A-League exchange of the real data: 12 routed clubs, 4 per region, rank 12, Championship id */
+            const ExpCeDef *al=ExpCe_Definition(ExpCe_LeagueCompetitionId(44u,88u,0u));
+            uint32_t z,per[4]={0};
+            assert(al && al->xch_on && al->xch_nroute==12u && al->xch_rank==12u && al->xch_champ==2884098u);
+            for(z=0u;z<al->xch_nroute;++z) {
+                assert(al->xch_route_div[z]>=1u && al->xch_route_div[z]<=3u && (al->xch_route_club[z]>>16)==44u &&
+                       (al->xch_route_club[z]&0xffffu)>=1u && (al->xch_route_club[z]&0xffffu)<=12u);
+                ++per[al->xch_route_div[z]];
+            }
+            assert(per[1]==4u && per[2]==4u && per[3]==4u);
+            puts("AUSTRALIAN_LEAGUE_EXCHANGE_REAL_JSON_12_ROUTES_RANK12_CHAMPIONSHIP=PASS");
+        }
         puts("AUSTRALIAN_REGIONAL_FINALS_FROM_REAL_JSON_NSW_VIC_SIX_TEAMS_QLD_PAGE_BRACKET=PASS");
     }
     {   /* v311: the Australian Championship is defined from the real JSON but BLOCKED by the OG bench

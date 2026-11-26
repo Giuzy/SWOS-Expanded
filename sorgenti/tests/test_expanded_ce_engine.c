@@ -621,6 +621,85 @@ static void scene_run(unsigned finMin,unsigned poMin,SceneOut *o,const SceneOut 
     }
 }
 
+static uint32_t league_rank_at_test(const ExpCeEdition *e,uint32_t i)
+{ return e->nregular?(i<e->nregular?e->regular_order[i]:0u):(i<e->nfinal?e->final_order[i]:0u); }
+
+/* ===== v340 league exchange (top league <-> two regional pyramids through the bottom pools) ===== */
+enum { XCH_COUNTRY=38, XCH_CHAMP=1114114 };
+static uint32_t xch_key(uint32_t slot){return ((uint32_t)XCH_COUNTRY<<16)|slot;}
+/* scenarios: 0 = champion from region 2, A-League relegation routed to region 1 (different regions);
+ * 1 = champion from region 2, routed to region 2 (same region); 2 = the champion is an A-League club;
+ * 3 = different regions but the champion's region has no free club (blocked, nothing invented) */
+static void xch_defs(int scen)
+{
+    static char jx[2048],jc[2048];
+    /* top league Nov..Jun, regions Aug..Oct: a club promoted for the next top-league season has finished its region season */
+    const ExpCeWindow wTop={11,1,6,30,1,1u<<6,1u<<2,3,0,{{0}}};
+    const ExpCeWindow wR1={8,1,10,31,0,1u<<6,1u<<2,3,0,{{0}}};
+    const ExpCeWindow wR2={8,1,10,25,0,1u<<6,1u<<2,3,0,{{0}}};
+    const int to_div=(scen==1)?2:1, other_div=(scen==1)?1:2;
+    const uint32_t pk1[2]={xch_key(101),xch_key(102)},pk2[2]={xch_key(103),xch_key(104)};
+    uint32_t div,k;
+    char clubs[256]="";
+    int n=0,np;
+    for(k=1u;k<=8u;++k)n+=snprintf(clubs+n,sizeof clubs-(size_t)n,"%s\"%d:%u\"",k>1u?",":"",XCH_COUNTRY,k);
+    snprintf(jx,sizeof jx,"{\"schema\":1,\"leagues\":["
+        "{\"team_number\":%d,\"comp_id\":1,\"division\":0,\"exchange\":{\"champion_competition\":%d,\"relegate_rank\":8,"
+        "\"routing\":[{\"division\":%d,\"clubs\":[%s]},{\"division\":%d,\"clubs\":[\"%d:999\"]}]}},"
+        "{\"team_number\":%d,\"comp_id\":1,\"division\":1,\"pool\":{\"direct\":1,\"playoff\":0}},"
+        "{\"team_number\":%d,\"comp_id\":1,\"division\":2,\"pool\":{\"direct\":1,\"playoff\":0}}]}",
+        XCH_COUNTRY,XCH_CHAMP,to_div,clubs,other_div,XCH_COUNTRY,XCH_COUNTRY,XCH_COUNTRY);
+    np=0;
+    {   char ent[512]="";
+        const uint32_t base=(scen==2)?1u:33u;      /* A-League clubs or region-2 clubs */
+        for(k=0u;k<8u;++k)np+=snprintf(ent+np,sizeof ent-(size_t)np,"%s{\"club\":\"%d:%u\",\"source\":\"VERIFIED\"}",
+                                       k?",":"",XCH_COUNTRY,base+k);
+        snprintf(jc,sizeof jc,"{\"schema\":1,\"competitions\":[{\"id\":%d,\"name\":\"XCH CHAMP\",\"country\":%d,\"type\":1,"
+            " \"match\":{\"bench\":5,\"subs\":3,\"discipline\":1,\"provenance\":\"GAME_TEMPLATE\"},"
+            " \"expiry\":{\"date\":\"01-15\",\"year_offset\":1},"
+            " \"phases\":["
+            "  {\"kind\":\"KNOCKOUT\",\"pairing\":\"SEEDED\",\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},"
+            "   \"window\":{\"first\":\"10-21\",\"last\":\"11-04\",\"weekdays\":\"WED\",\"rest\":3}},"
+            "  {\"kind\":\"KNOCKOUT\",\"pairing\":\"BRACKET\",\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},"
+            "   \"window\":{\"first\":\"11-11\",\"last\":\"11-25\",\"weekdays\":\"WED\",\"rest\":3}},"
+            "  {\"kind\":\"KNOCKOUT\",\"pairing\":\"BRACKET\",\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},"
+            "   \"window\":{\"first\":\"12-02\",\"last\":\"12-16\",\"weekdays\":\"WED\",\"rest\":3}}],"
+            " \"first_edition\":{\"year\":2026,\"entrants\":[%s]}}]}",XCH_CHAMP,XCH_COUNTRY,ent);
+    }
+    for(div=0u;div<3u;++div) {
+        ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);
+        assert(d && ExpCe_LeagueDefinition(WORLD_2627,XCH_COUNTRY,1u,(uint8_t)div,3u,8u,2u,3u,3u,5u,0u,0u,0u,0u,
+                                           div==0u?&wTop:div==1u?&wR1:&wR2,d));
+        assert(ExpCe_AddDefinition(d));free(d);
+    }
+    assert(ExpCe_LoadLeaguePools(jx,(int)strlen(jx),WORLD_2627)==2);
+    assert(ExpCe_SetPoolClubs(XCH_COUNTRY,1u,1u,pk1,2u));
+    assert(ExpCe_SetPoolClubs(XCH_COUNTRY,1u,2u,pk2,scen==3?0u:2u));
+    assert(ExpCe_LoadLeagueExchanges(jx,(int)strlen(jx),WORLD_2627)==1);
+    assert(ExpCe_LoadJsonDefinitions(jc,(int)strlen(jc),WORLD_2627,"xch")>=1);
+}
+static void xch_world(int scen)
+{
+    static ExpandedUniversalFixture fx[56];
+    uint32_t div,k;
+    ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+    s_ran_n=s_et=s_pens=s_dupes=0u;
+    assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},4096u));
+    xch_defs(scen);
+    for(div=0u;div<3u;++div) {
+        Rr8 u;
+        memset(&u,0,sizeof u);u.out=fx;u.country=XCH_COUNTRY;u.div=(uint8_t)div;
+        u.comp=ExpCe_LeagueCompetitionId(XCH_COUNTRY,1u,(uint8_t)div);
+        u.start=D(2026,div==0u?11:8,1);u.day0=div==0u?D(2026,11,8):D(2026,8,2); /* Sundays: no clash with the cup's Wednesdays */
+        for(k=0u;k<8u;++k)u.c[k]=C(XCH_COUNTRY,1u+div*16u+k);
+        assert(ExpandedUniversal_GenerateRoundRobin(8u,2u,rr8,&u) && u.n==56u);
+        assert(ExpandedUniversal_CarInsertFixtures(fx,u.n));
+    }
+    assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+}
+static int xch_in(const ExpCeEdition *e,uint32_t club)
+{uint32_t i;if(!e)return 0;for(i=0u;i<e->nentrants;++i)if(e->entrants[i].club.stable_club==club)return 1;return 0;}
+
 int main(void)
 {
     test_bottom_pool_plan();
@@ -1912,6 +1991,98 @@ int main(void)
         }
         assert(!s_dupes && ExpandedUniversal_ValidateRestore(R()));
         puts("BOTTOM_POOL_EXCHANGE_PLAYOUT_VS_POOL_CHALLENGER_THREE_SEASONS_UNIVERSE_CONSTANT=PASS");
+    }
+
+    /* ===== v340 league exchange: promotion of the Australian-Championship-like winner, relegation of the
+     * 12th-like club, region sizes kept through the pool, multi-year, save/continue ===== */
+    {
+        int scen;
+        const uint32_t comp_top=ExpCe_LeagueCompetitionId(XCH_COUNTRY,1u,0u),
+                       comp_r1=ExpCe_LeagueCompetitionId(XCH_COUNTRY,1u,1u),
+                       comp_r2=ExpCe_LeagueCompetitionId(XCH_COUNTRY,1u,2u);
+        for(scen=0;scen<4;++scen) {
+            const ExpCeEdition *a26,*a27,*a28,*c26,*r1,*r2;
+            uint32_t w,x,k,total=0u;
+            xch_world(scen);
+            run_until(D(2028,2,15));
+            a26=edition_of(comp_top,2026);a27=edition_of(comp_top,2027);c26=edition_of(XCH_CHAMP,2026);
+            assert(a26 && a26->state>=EXP_CE_ED_COMPLETED && a27 && !a27->block && a27->nentrants==8u);
+            assert(c26 && c26->state>=EXP_CE_ED_COMPLETED && c26->nfinal>0u);
+            w=c26->final_order[0];x=league_rank_at_test(a26,7u);
+            r1=edition_of(comp_r1,2028);r2=edition_of(comp_r2,2028);
+            assert(r1 && r2);
+            if(scen==2) {                              /* the champion is already an A-League club: nothing moves */
+                assert(xch_in(a26,w));
+                for(k=0u;k<8u;++k)assert(a27->entrants[k].club.stable_club==a26->entrants[k].club.stable_club);
+                assert(xch_in(a27,x) && !r1->block && !r2->block && r1->nentrants==8u && r2->nentrants==8u);
+                puts("LEAGUE_EXCHANGE_CHAMPION_ALREADY_IN_TOP_LEAGUE_NO_MOVEMENT=PASS");
+            } else {
+                assert(!xch_in(a26,w) && xch_in(a26,x));
+                assert(xch_in(a27,w) && !xch_in(a27,x) && a27->nentrants==8u);        /* W in, X out, size kept */
+                if(scen==3) {                          /* region 2 cannot be refilled: blocked, no club invented */
+                    assert(r2->block!=0);
+                    puts("LEAGUE_EXCHANGE_REGION_WITHOUT_FREE_CLUB_BLOCKED_NOTHING_INVENTED=PASS");
+                    continue;
+                }
+                assert(!r1->block && !r2->block && r1->nentrants==8u && r2->nentrants==8u);
+                if(scen==0) {                          /* different regions: X joins region 1, W leaves region 2 */
+                    assert(xch_in(r1,x) && !xch_in(r2,w) && !xch_in(r1,w));
+                    for(k=0u;k<r1->nentrants;++k)if(r1->entrants[k].club.stable_club==x)
+                        assert(r1->entrants[k].source==EXP_CE_SRC_RELEGATED);
+                    puts("LEAGUE_EXCHANGE_DIFFERENT_REGIONS_POOL_COMPENSATES_SIZES_KEPT=PASS");
+                } else {                               /* same region: X joins region 2 where W left */
+                    assert(xch_in(r2,x) && !xch_in(r2,w));
+                    puts("LEAGUE_EXCHANGE_SAME_REGION_NO_POOL_CHANGE_SIZES_KEPT=PASS");
+                }
+            }
+            /* no club in two of the three leagues, the universe (24 members + 4 pool clubs) is constant */
+            {   static const uint32_t slots[24]={1,2,3,4,5,6,7,8,17,18,19,20,21,22,23,24,33,34,35,36,37,38,39,40};
+                for(k=0u;k<24u;++k) {
+                    const uint32_t club=xch_key(slots[k]);
+                    const int c=xch_in(a27,club)+xch_in(r1,club)+xch_in(r2,club);
+                    assert(c<=1);
+                    total+=(uint32_t)c;
+                }
+                for(k=101u;k<=104u;++k) {              /* pool clubs: never in a league twice, only free or in a region */
+                    const uint32_t club=xch_key(k);
+                    assert(xch_in(a27,club)+xch_in(r1,club)+xch_in(r2,club)<=1);
+                    total+=(uint32_t)(xch_in(a27,club)+xch_in(r1,club)+xch_in(r2,club));
+                }
+            }
+            assert(total==24u);   /* 24 league places always filled by 24 distinct clubs of the 28 */
+            /* second year: the champion of 2027 is blocked (no entrants rule) -> no movement, sizes kept */
+            run_until(D(2029,2,15));
+            a28=edition_of(comp_top,2028);
+            assert(a28 && !a28->block && a28->nentrants==8u);
+            for(k=0u;k<8u;++k)assert(xch_in(a27,a28->entrants[k].club.stable_club));
+            {   const ExpCeEdition *r1b=edition_of(comp_r1,2029),*r2b=edition_of(comp_r2,2029);
+                assert(r1b && r2b && !r1b->block && !r2b->block && r1b->nentrants==8u && r2b->nentrants==8u);
+            }
+            if(scen==0) {
+                /* SAVE / CONTINUE after the movement: nothing is repeated, memberships identical */
+                char *disk;int len;
+                uint32_t before[8],j;
+                for(j=0u;j<8u;++j)before[j]=a28->entrants[j].club.stable_club;
+                assert(Expanded_AutoCareer_SaveChecked("xch"));
+                disk=(char *)malloc((size_t)s_disk_len+1u);assert(disk);
+                memcpy(disk,s_disk,(size_t)s_disk_len);len=s_disk_len;disk[len]=0;
+                ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+                xch_defs(0);
+                assert(ExpandedUniversal_CarValidate(disk,len));
+                assert(ExpandedUniversal_CarRestore(disk,len));
+                {   char *hex=ExpandedUniversal_CarTakeLifecycle();
+                    assert(hex && ExpCe_DecodeHex(hex,strlen(hex),WORLD_2627));free(hex);
+                }
+                assert(ExpCe_ValidateAfterRestore(R(),&H)>=0);
+                run_until(D(2029,3,15));
+                a28=edition_of(comp_top,2028);
+                assert(a28 && a28->nentrants==8u);
+                for(j=0u;j<8u;++j)assert(a28->entrants[j].club.stable_club==before[j]);
+                assert(s_dupes==0u);
+                free(disk);
+                puts("LEAGUE_EXCHANGE_SAVE_CONTINUE_NO_REPEAT=PASS");
+            }
+        }
     }
     puts("FASE2_CE_ENGINE_ISOLATED=PASS");
     puts("OG_QUICK_50HZ_SUB_WINDOWS_MENUS_WINDOWS_GAMEPLAY=NOT_TESTED");

@@ -205,6 +205,15 @@ typedef struct ExpCeDef {
      * (direct entrants vs challenger) come from a deterministic CE draw. */
     uint8_t pool_direct,pool_playoff,pool_n;
     uint32_t pool_clubs[8];
+    /* v340 LEAGUE EXCHANGE (row `exchange` of league_calendar.json): the winner of competition
+     * `xch_champ` (same edition year) that is not already a member replaces the club ranked
+     * `xch_rank` of this league at rollover; the relegated club returns to the region (league
+     * division in `xch_route_div`) it belongs to (static routing, or the region it has been a member
+     * of). The regions keep their size through their own bottom pool (pool_roles). */
+    uint8_t xch_on,xch_rank,xch_nroute;
+    uint32_t xch_champ;
+    uint32_t xch_route_club[16];
+    uint8_t xch_route_div[16];
     uint8_t has_playout,playout_hi,playout_lo,playout_relegated_total;
     ExpCePhaseDef playout;
     uint8_t promotion_playoff;    /* v309: league with finals whose WINNER is promoted in
@@ -341,6 +350,8 @@ int ExpCe_PlayoutSkipped(const ExpandedUniversalRegistry *r,const ExpCeDef *d,co
 int ExpCe_LoadParallelLevels(const char *json,int len,uint16_t world);
 /* v311: bottom-pool config rows ("pool": {"direct":N,"playoff":0|1}) of league_calendar.json. */
 int ExpCe_LoadLeaguePools(const char *json,int len,uint16_t world);
+/* v340: "exchange" config rows (see ExpCeDef::xch_*). */
+int ExpCe_LoadLeagueExchanges(const char *json,int len,uint16_t world);
 /* v331: real substitution regulation per league row ("match_override" in league_calendar.json). */
 int ExpCe_LoadLeagueMatchOverrides(const char *json,int len,uint16_t world);
 /* the shared pool clubs of (country, division): stable keys, replaces the list. */

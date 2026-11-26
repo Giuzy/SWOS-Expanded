@@ -230,7 +230,9 @@
 /* v00.13.313: Australian Championship defined in data (blocked only by the OG bench limit), GROUP_TABLE pairing,
  * first edition from sources, catalog-only real clubs, 4 fixed federation clubs in the shared pool. */
 /* v00.13.314: bottom pool integrated (config + shared pool clubs, roles by CE draw), regional finals from sources, first edition from sources. */
-#define SWOS_EXPANDED_VERSION "00.13.314"
+/* v00.13.315: long bench stage 1 (ABI-safe sidecar kernel, common OG cursor,
+ * transparent art and anchored geometry); extended live activation pending. */
+#define SWOS_EXPANDED_VERSION "00.13.315"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

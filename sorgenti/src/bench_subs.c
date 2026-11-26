@@ -25,6 +25,7 @@
 #include "expanded_universal_native_match.h" /* Fase 2 CE substitution windows */
 #endif
 #include "bench_subs.h"
+#include "expanded_match_bench.h"
 #include "dos_sound.h"
 #include "game_types.h"
 #include "game_state.h"
@@ -221,6 +222,12 @@ static void leaveSubsMenu(void);
 static void benchMenuHandleControls(void);
 static void trainingSwapBenchTeams(void);
 static int16_t isThisPlayerOkToSelect(void);
+static int nativeBenchSelectable(void *ctx,unsigned index)
+{
+    (void)ctx;
+    _benchPlayerIndex=(uint16_t)index;
+    return isThisPlayerOkToSelect()>=0;
+}
 static void firePressedInSubsMenu(void);
 static void showFormationMenu(void);
 static void subsBenchOff(void);
@@ -731,14 +738,8 @@ static void benchMenuHandleControls(void)
         if (_gameState == ST_KEEPER_HOLDS_BALL)
             return;
         _subsBlockDirections = 1;
-        if (_benchPlayerIndex == 5)
-            return;
-        /* dead code: clr.w benchPlayerIndex; bra exit_rts removed */
-        do {
-            _benchPlayerIndex++;
-            if (_benchPlayerIndex == 6) goto scan_backward;
-            if (isThisPlayerOkToSelect() >= 0) return;
-        } while (1);
+        _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,EXP_BENCH_OG,1,nativeBenchSelectable,NULL);
+        return;
 
     move_up:
         if (_trainingGame == 0) {
@@ -758,12 +759,8 @@ static void benchMenuHandleControls(void)
             /* dead code: benchPlayerIndex=6, fallthrough removed */
         }
 
-    scan_backward:
-        do {
-            _benchPlayerIndex--;
-            if (_benchPlayerIndex == 0) return;
-            if (isThisPlayerOkToSelect() >= 0) return;
-        } while (1);
+        _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,EXP_BENCH_OG,0,nativeBenchSelectable,NULL);
+        return;
     }
 }
 
@@ -3162,6 +3159,13 @@ void MarkPlayersMenuHandler(void)
  * Routes to state-specific handlers based on subsState.
  * In idle state (0): handles direction, fire, training team swap.
  */
+static int exportedBenchSelectable(void *ctx,unsigned index)
+{
+    (void)ctx;
+    _benchPlayerIndex=(uint16_t)index;
+    return IsThisPlayerOkToSelect()>=0;
+}
+
 __attribute__((used, externally_visible))
 void BenchMenuHandleControls(void)
 {
@@ -3204,13 +3208,7 @@ handle_inc:
     /* Scroll up in bench list (increment benchPlayerIndex) */
     if (_gameState == ST_KEEPER_HOLDS_BALL) return;
     _subsBlockDirections = 1;
-    if (_benchPlayerIndex == 5) return;  /* already at max */
-    goto inc_scan;
-
-inc_scan:
-    _benchPlayerIndex++;
-    if (_benchPlayerIndex == 6) goto dec_scan;  /* wrap around */
-    if (IsThisPlayerOkToSelect() < 0) goto inc_scan;
+    _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,EXP_BENCH_OG,1,exportedBenchSelectable,NULL);
     return;
 
 handle_dec:
@@ -3219,13 +3217,11 @@ handle_dec:
         if (_gameState == ST_KEEPER_HOLDS_BALL) return;
     }
     _subsBlockDirections = 1;
-    if (_benchPlayerIndex != 0) goto dec_scan;
+    if (_benchPlayerIndex != 0) {
+        _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,EXP_BENCH_OG,0,exportedBenchSelectable,NULL);
+        return;
+    }
     /* At index 0 in training: swap teams */
     if (_trainingGame != 0) TrainingSwapBenchTeams();
     return;
-
-dec_scan:
-    _benchPlayerIndex--;
-    if (_benchPlayerIndex == 0) return;
-    if (IsThisPlayerOkToSelect() < 0) goto dec_scan;
 }

@@ -200,3 +200,7 @@ Verificato nel ramo `dev/0.10`:
 - Prima di progettare un menu, determinare dal **codice della schermata attiva** la `charsTable` usata, i valori `spriteIndexOffset`, `charSpacing`, `spaceWidth`, le coordinate effettive e l'eventuale scala. Per una stringa di esempio o con importi lunghi, misurare con la stessa tabella o equivalente esatto; non usare larghezze approssimative.
 - **Regola per asset UI con righe e due bordi orizzontali da 1 px**: `1 bordo + m margine + h glifo + m margine + 1 bordo`, con `m >= 1 px` e uguale sopra e sotto. Font alto 6 px: minimo **10 px** (`1+1+6+1+1`). Font alto 8 px: minimo **12 px** (`1+1+8+1+1`). Se la riga è più alta, ripartire simmetricamente il margine; non estendere questa regola all'intero motore.
 - Per Business Screen pulita: testi, cifre, stadio, faccine e focus/selezione sono elementi dinamici; le icone delle facilities sono statiche. L'asset con testi di prova precede la versione pulita e deve usare coordinate riproducibili, non font inventati.
+
+
+## 26/11/2026 — Long dugout art (stage 1)
+Approved bench panel without players, arrow or grass: data/expanded/bench_long.png, 21x112 RGBA, original generated panel cropped/downsampled nearest-neighbour. Upper bench grows upward from existing lower end, lower bench downward from existing upper end; dynamic OG arrow/coach/seats must share translation. Temporary zoom out while bench open, restore on exit; runtime layering, camera, both bench positions and actual visual QA not implemented/tested. See RG-MATCH-BENCH-EXT.

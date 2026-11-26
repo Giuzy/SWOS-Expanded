@@ -1160,6 +1160,66 @@
           "TEST vs TEST: first club in canonical fixture order wins 1–0 (explicit user decision 25/11/2026); administrative TEST outcome, not OG or historical result. TEST vs real: TEST loses; exact score not specified. Preserve fixture ordering, single CE completion and anti-replay."
         ],
         "source": "Explicit user approval in current conversation, 25/11/2026; previous approved deferred import superseded for temporary testing, eventual real roster import remains."
+      },
+      "matchRegulation20261126": {
+        "date": "2026-11-26",
+        "status": "RESEARCH_DATA_NOT_ACTIVE_MATCH_RULE",
+        "bench": {
+          "minimum": 5,
+          "maximum": 7,
+          "thresholds": [
+            {
+              "eligiblePlayers": 2,
+              "bench": 6
+            },
+            {
+              "eligiblePlayers": 3,
+              "bench": 7
+            }
+          ],
+          "eligibleBornOnOrAfter": "2003-01-01",
+          "eligibleNationality": "AUS",
+          "countIn": "STARTING_LIST",
+          "notOnlyStartingXI": true,
+          "perClub": true
+        },
+        "goalkeeperRequired": true,
+        "ordinarySubstitutions": 5,
+        "ordinaryWindows": 3,
+        "halfTimeFree": true,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "beforeExtraTimeFree": true,
+        "extraTimeHalfTimeFree": true,
+        "carryUnusedSubstitutions": true,
+        "carryUnusedWindows": true,
+        "addBenchAtExtraTime": false,
+        "extraTimeMinutes": 30,
+        "extraTimePeriods": 2,
+        "penaltiesAfterExtraTime": true,
+        "scope": "Australia Cup national rounds; preliminary regional supplement separate",
+        "provenance": "V_TEXT",
+        "sources": [
+          "https://footballtasmania.com.au/sites/tas/files/2026-02/Hahn%20Australia%20Cup%202026%20Competition%20Regulations.pdf",
+          "https://www.theifab.com/laws/latest/the-players/"
+        ],
+        "clauses": "16(a-f)",
+        "concussionAdditionalFinalRounds": 1,
+        "preliminary": {
+          "bench": {
+            "outfieldMaximum": 5,
+            "optionalAdditionalGoalkeeper": 1
+          },
+          "regionalOverrides": true,
+          "nsw": {
+            "bench": 7,
+            "goalkeeperRequired": true,
+            "withoutReserveGoalkeeper": 6,
+            "source": "https://footballnsw.com.au/wp-content/uploads/sites/33/2026/02/Australia-Cup-2026-Supplementary-Regulations-Football-NSW-Preliminary-Rounds.pdf"
+          },
+          "extraTimeWaiver": "exceptional prior FA approval only"
+        },
+        "limits": "No arbitrary fixed 7; preliminary rules subject to regional supplements; screenshot cache miss"
       }
     }
   }

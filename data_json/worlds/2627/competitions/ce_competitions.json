@@ -308,8 +308,61 @@
       "type": 1,
       "source": "25/11/2026 approved research card row 329: 32 national entrants, 31 single-leg knockout games (32/16/8/4/2), GAME_TEMPLATE_2026 round windows from the published schedule, edition change 29/01. 12 entrants are temporary TEST clubs (44:55..44:66, see test_clubs.json). Real regulation has 5 substitutions in 3 windows plus one extra substitution and window in extra time: the extra-time extras exceed the OG bench cap (5) and are NOT represented; home advantage of a member-federation club against an A-League club is NOT represented (first drawn hosts).",
       "authentic_regulation": {
-        "substitutions": 5, "windows": 3, "extra_time_additional_substitution": 1, "extra_time_additional_window": 1,
-        "extra_time_minutes": 30, "penalties": true, "note": "verified real rules (research card row 329), applied since v332; the bench of 7 is the NSW preliminary figure used as game template for the national rounds"
+        "substitutions": 5,
+        "windows": 3,
+        "extra_time_additional_substitution": 1,
+        "extra_time_additional_window": 1,
+        "extra_time_minutes": 30,
+        "penalties": true,
+        "note": "Authentic national bench 5–7 conditional; active v339 uses fixed bench 7 GAME_TEMPLATE, not authentic dynamic nomination. Other active numeric limits 5/3/HT/+1/+1; metadata not consumed by CE.",
+        "status": "RESEARCH_HANDOFF_NOT_CONSUMED_BY_CE",
+        "research": "docs/competition_research/OCEANIA/AUS/2627/NATIONAL_CUP.json#row329",
+        "bench": {
+          "minimum": 5,
+          "maximum": 7,
+          "thresholds": [
+            {
+              "eligiblePlayers": 2,
+              "bench": 6
+            },
+            {
+              "eligiblePlayers": 3,
+              "bench": 7
+            }
+          ],
+          "eligibleBornOnOrAfter": "2003-01-01",
+          "eligibleNationality": "AUS",
+          "countIn": "STARTING_LIST",
+          "notOnlyStartingXI": true,
+          "perClub": true
+        },
+        "goalkeeper_required": true,
+        "subs": 5,
+        "halftime_free": true,
+        "et_extra_subs": 1,
+        "et_extra_windows": 1,
+        "before_et_free": true,
+        "et_halftime_free": true,
+        "carry_unused_subs": true,
+        "carry_unused_windows": true,
+        "add_bench_at_et": false,
+        "scope": "Australia Cup national rounds; preliminary regional supplement separate",
+        "provenance": "V_TEXT",
+        "preliminary": {
+          "bench": {
+            "outfieldMaximum": 5,
+            "optionalAdditionalGoalkeeper": 1
+          },
+          "regionalOverrides": true,
+          "nsw": {
+            "bench": 7,
+            "goalkeeperRequired": true,
+            "withoutReserveGoalkeeper": 6,
+            "source": "https://footballnsw.com.au/wp-content/uploads/sites/33/2026/02/Australia-Cup-2026-Supplementary-Regulations-Football-NSW-Preliminary-Rounds.pdf"
+          },
+          "extraTimeWaiver": "exceptional prior FA approval only"
+        },
+        "concussion_additional_final_rounds": 1
       },
       "og_reference": {
         "competition": "A-League Men (leagues.json _australianLeague, division 0)",
@@ -422,6 +475,33 @@
     {
           "id": 2884098,
           "name": "AUSTRALIAN CHAMPIONSHIP",
+          "authentic_regulation": {
+            "status": "RESEARCH_HANDOFF_NOT_CONSUMED_BY_CE",
+            "research": "docs/competition_research/OCEANIA/AUS/2627/AUSTRALIAN_CHAMPIONSHIP.json",
+            "bench": 7,
+            "goalkeeper_required": true,
+            "subs": 5,
+            "windows": 3,
+            "halftime_free": true,
+            "et_extra_subs": 1,
+            "et_extra_windows": 1,
+            "before_et_free": true,
+            "et_halftime_free": true,
+            "carry_unused_subs": true,
+            "carry_unused_windows": true,
+            "add_bench_at_et": false,
+            "extra_time_minutes": 30,
+            "scope": "Australian Championship approved game template; group draw goes straight to shootout, no ET; ET allowance only knockout",
+            "provenance": "USER_APPROVED_GAME_TEMPLATE",
+            "authentic_confirmation": {
+              "extraTimeAdditionalSubstitution": 1,
+              "status": "P_INDEXED_OFFICIAL_2026_11_26",
+              "limits": "Official indexed notice confirms sixth substitution; full article cache miss; bench and other numerical limits remain approved template, not independently certified",
+              "source": "https://australianchampionship.com.au/news/key-regulatory-updates-confirmed-australian-championship-finals-series"
+            },
+            "group_draw_extra_time": false,
+            "group_draw_penalties": true
+          },
           "country": 44,
           "type": 2,
           "source": "26/11/2026 AUSTRALIAN_CHAMPIONSHIP.json (docs/competition_research/OCEANIA/AUS/2627): 16 clubs (8 foundation + 8 regional qualifiers), 4 groups of 4 by pots (2+2), two meetings, 6 rounds, 3/2/1/0 points with penalties on drawn group matches, quarter-finals (A1-C2, B1-D2, C1-A2, D1-B2, group winner hosts), semi-finals 5 December, final 12 December (GAME_TEMPLATE_2026 dates). Bench 7 is the approved regulation: it exceeds the OG roster bench (5), so the definition is BLOCKED by validation until extended benches exist - no rule is altered to bypass the OG limit.",

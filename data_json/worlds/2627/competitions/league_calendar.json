@@ -351,6 +351,7 @@
       ],
       "division": 0,
       "template_scope": "row207 GAME_TEMPLATE_2026; 26 equivalent rounds, six documented rivalry pairs; finals attached to same edition; split matchweeks pending",
+      "authentic_regulation": {"status":"RESEARCH_HANDOFF_NOT_CONSUMED_BY_CE","research":"docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json#row207","bench":{"minimum":5,"maximum":7,"thresholds":[{"eligiblePlayers":2,"bench":6},{"eligiblePlayers":3,"bench":7}],"eligibleBornOnOrAfter":"2003-01-01","eligibleNationality":"AUS; NZL for New Zealand clubs","countIn":"STARTING_LIST","notOnlyStartingXI":true,"perClub":true},"goalkeeper_required":true,"subs":5,"windows":3,"halftime_free":true,"et_extra_subs":1,"et_extra_windows":1,"before_et_free":true,"et_halftime_free":true,"carry_unused_subs":true,"carry_unused_windows":true,"add_bench_at_et":false,"extra_time_minutes":30,"scope":"A-League Men 2026/27; extra allowances only when ET is played in finals, second leg for two-leg ties","provenance":"V/P","concussion_additional":1},
       "extra_rounds": 4,
       "rivalries": [
         {
@@ -452,6 +453,7 @@
       "breaks": [],
       "division": 1,
       "template_scope": "row208 NPL NSW: regular season + finals series (title) + bottom pool exchange with the League One play-out (pool challenger)",
+      "authentic_regulation": {"status":"RESEARCH_HANDOFF_NOT_CONSUMED_BY_CE","research":"docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json#row208","bench":7,"goalkeeper_required":true,"subs":5,"windows":3,"halftime_free":true,"et_extra_subs":1,"et_extra_windows":1,"before_et_free":true,"et_halftime_free":true,"carry_unused_subs":true,"carry_unused_windows":true,"add_bench_at_et":false,"extra_time_minutes":30,"scope":"NPL NSW senior; finals and two-leg playout ET only after aggregate","provenance":"V_V4_P_V5"},
       "pool": {"direct": 1, "playoff": 1, "provenance": "USER_APPROVED_GAME_POLICY (bottom_pools.json): NSW relegates the last club directly and the 15th plays a two-leg play-out against a pool challenger; roles by deterministic CE draw (no file order)"},
       "playout": {
         "rank_hi": 15, "rank_lo": 16, "relegated_total": 1,
@@ -476,6 +478,7 @@
       "breaks": [],
       "division": 2,
       "template_scope": "row209 NPL Victoria: regular season + finals series (title) + three-club bottom pool exchange (approved simplification of VPL1 promotion/relegation)",
+      "authentic_regulation": {"status":"RESEARCH_HANDOFF_NOT_CONSUMED_BY_CE","research":"docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json#row209","bench":6,"goalkeeper_required":null,"subs":5,"windows":3,"halftime_free":true,"et_extra_subs":0,"et_extra_windows":0,"before_et_free":true,"et_halftime_free":true,"carry_unused_subs":true,"carry_unused_windows":true,"add_bench_at_et":false,"extra_time_minutes":30,"scope":"NPL Victoria senior; regular and finals Competition Fixture; ET only finals","provenance":"V_TEXT_I_STRONG_ET_ZERO"},
       "pool": {"direct": 3, "playoff": 0, "provenance": "USER_APPROVED_GAME_POLICY (bottom_pools.json): three direct exchanges with the reserve pool; roles by deterministic CE draw"},
       "finals": {"qualify":6,"provenance":"GAME_TEMPLATE_2026; row209: 6 qualifiers, 3v6 and 4v5, semi-finals 1 hosts the lowest-ranked surviving seed and 2 the highest, final, extra time 2x15 then penalties; days relative to the end of the regular season are a game template","phases":[{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","byes":2,"higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[3]}},{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[7]}},{"kind":"KNOCKOUT","pairing":"RESEED_TABLE","higher_home":1,"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[14]}}]}
     },
@@ -493,6 +496,7 @@
       "breaks": [],
       "division": 3,
       "template_scope": "row210 NPL Queensland: regular season + finals series with page-system bracket (title) + two-club bottom pool exchange",
+      "authentic_regulation": {"status":"RESEARCH_HANDOFF_NOT_CONSUMED_BY_CE","research":"docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json#row210","bench":6,"goalkeeper_required":false,"subs":5,"windows":3,"halftime_free":true,"et_extra_subs":1,"et_extra_windows":1,"before_et_free":true,"et_halftime_free":true,"carry_unused_subs":true,"carry_unused_windows":true,"add_bench_at_et":false,"extra_time_minutes":30,"scope":"NPL Queensland senior; ET only finals","provenance":"V_TEXT"},
       "pool": {"direct": 2, "playoff": 0, "provenance": "USER_APPROVED_GAME_POLICY (bottom_pools.json): two direct exchanges with the reserve pool; roles by deterministic CE draw"},
       "finals": {"qualify":4,"provenance":"GAME_TEMPLATE_2026; row210 finals: QF 1v2, EF 3v4, PF loser(QF) v winner(EF), GF winner(QF) v winner(PF); extra time 30 and penalties; days relative to the end of the regular season are a game template","phases":[{"kind":"KNOCKOUT","pairing":"SOURCES","higher_home":1,"ties":[{"home":{"rank":1},"away":{"rank":2}},{"home":{"rank":3},"away":{"rank":4}}],"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[7]}},{"kind":"KNOCKOUT","pairing":"SOURCES","higher_home":1,"ties":[{"home":{"loser":[1,1]},"away":{"winner":[1,2]}}],"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[14]}},{"kind":"KNOCKOUT","pairing":"SOURCES","higher_home":1,"ties":[{"home":{"winner":[1,1]},"away":{"winner":[2,1]}}],"match":{"legs":1,"extra_time":1,"penalties":1,"away_goals":0},"after_phase_end":{"phase":0,"days":[21]}}]}
     },

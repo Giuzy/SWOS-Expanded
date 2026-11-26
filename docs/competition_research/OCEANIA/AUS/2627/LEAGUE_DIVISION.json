@@ -6065,6 +6065,52 @@
           "notes": "One up and one down; preserve real federation/country, identity, roster, no pool in A-League, no repeated membership or invented outcomes. Design exception, not official Australian rule."
         },
         "officialEvidenceUnchanged": true
+      },
+      "matchRegulation20261126": {
+        "date": "2026-11-26",
+        "status": "RESEARCH_DATA_NOT_ACTIVE_MATCH_RULE",
+        "bench": {
+          "minimum": 5,
+          "maximum": 7,
+          "thresholds": [
+            {
+              "eligiblePlayers": 2,
+              "bench": 6
+            },
+            {
+              "eligiblePlayers": 3,
+              "bench": 7
+            }
+          ],
+          "eligibleBornOnOrAfter": "2003-01-01",
+          "eligibleNationality": "AUS; NZL for New Zealand clubs",
+          "countIn": "STARTING_LIST",
+          "notOnlyStartingXI": true,
+          "perClub": true
+        },
+        "goalkeeperRequired": true,
+        "ordinarySubstitutions": 5,
+        "ordinaryWindows": 3,
+        "halfTimeFree": true,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "beforeExtraTimeFree": true,
+        "extraTimeHalfTimeFree": true,
+        "carryUnusedSubstitutions": true,
+        "carryUnusedWindows": true,
+        "addBenchAtExtraTime": false,
+        "extraTimeMinutes": 30,
+        "extraTimePeriods": 2,
+        "penaltiesAfterExtraTime": true,
+        "scope": "A-League Men 2026/27; extra allowances only when ET is played in finals, second leg for two-leg ties",
+        "regularDraw": "DRAW",
+        "concussionAdditional": 1,
+        "provenance": "V/P",
+        "sources": [
+          "https://aleagues.com.au/more/official-documents/",
+          "https://www.theifab.com/laws/latest/the-players/"
+        ],
+        "limits": "2026/27 indexed summary cutoff 2003; opened older 25/26 snapshot cutoff 2001 must not be used; detailed 5/3/HT/ET from prior source audit and IFAB; no runtime nomination yet"
       }
     }
   },
@@ -8272,6 +8318,35 @@
           "limits": "No forced region changes or automatic compensation, existing bottom pool rules unchanged."
         },
         "officialEvidenceUnchanged": true
+      },
+      "matchRegulation20261126": {
+        "date": "2026-11-26",
+        "status": "RESEARCH_DATA_NOT_ACTIVE_MATCH_RULE",
+        "bench": 7,
+        "goalkeeperRequired": true,
+        "ordinarySubstitutions": 5,
+        "ordinaryWindows": 3,
+        "halfTimeFree": true,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "beforeExtraTimeFree": true,
+        "extraTimeHalfTimeFree": true,
+        "carryUnusedSubstitutions": true,
+        "carryUnusedWindows": true,
+        "addBenchAtExtraTime": false,
+        "extraTimeMinutes": 30,
+        "extraTimePeriods": 2,
+        "penaltiesAfterExtraTime": true,
+        "scope": "NPL NSW senior; finals and two-leg playout ET only after aggregate",
+        "regularDraw": "DRAW",
+        "provenance": "V_V4_P_V5",
+        "sources": [
+          "https://footballnsw.com.au/wp-content/uploads/sites/33/2026/02/20260207-LEG-2026-Competition-Regulations-Official-v4.pdf",
+          "https://footballnsw.com.au/wp-content/uploads/sites/33/2026/05/20260504-LEG-2026-Competition-Regulations-Official-v5.pdf",
+          "https://www.theifab.com/laws/latest/the-players/"
+        ],
+        "clauses": "22(a)(i-v)",
+        "limits": "v4 text inspected; v5 not reopened, equivalence not certified"
       }
     }
   },
@@ -12548,6 +12623,35 @@
           "limits": "No forced region changes or automatic compensation, existing bottom pool rules unchanged."
         },
         "officialEvidenceUnchanged": true
+      },
+      "matchRegulation20261126": {
+        "date": "2026-11-26",
+        "status": "RESEARCH_DATA_NOT_ACTIVE_MATCH_RULE",
+        "bench": 6,
+        "goalkeeperRequired": null,
+        "ordinarySubstitutions": 5,
+        "ordinaryWindows": 3,
+        "halfTimeFree": true,
+        "extraTimeAdditionalSubstitution": 0,
+        "extraTimeAdditionalWindow": 0,
+        "beforeExtraTimeFree": true,
+        "extraTimeHalfTimeFree": true,
+        "carryUnusedSubstitutions": true,
+        "carryUnusedWindows": true,
+        "addBenchAtExtraTime": false,
+        "extraTimeMinutes": 30,
+        "extraTimePeriods": 2,
+        "penaltiesAfterExtraTime": true,
+        "scope": "NPL Victoria senior; regular and finals Competition Fixture; ET only finals",
+        "regularDraw": "DRAW",
+        "provenance": "V_TEXT_I_STRONG_ET_ZERO",
+        "sources": [
+          "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20ADVANCED%20COMPETITIONS%20RULES%20OF%20COMPETITION_0.pdf",
+          "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20Summary%20of%20Changes%20Advanced%20Comp%20Rules.pdf",
+          "https://www.theifab.com/laws/latest/the-players/"
+        ],
+        "clauses": "definitions Finals / Play Off Match; 4.9.1; 10.4.1–3",
+        "limits": "No explicit sixth substitution or additional window in published regulation; 0/0 derived under IFAB Law 3; no separate derogation or complete match sheets found. Reserve GK requirement not certified here."
       }
     }
   },
@@ -14209,6 +14313,34 @@
           "limits": "No forced region changes or automatic compensation, existing bottom pool rules unchanged."
         },
         "officialEvidenceUnchanged": true
+      },
+      "matchRegulation20261126": {
+        "date": "2026-11-26",
+        "status": "RESEARCH_DATA_NOT_ACTIVE_MATCH_RULE",
+        "bench": 6,
+        "goalkeeperRequired": false,
+        "ordinarySubstitutions": 5,
+        "ordinaryWindows": 3,
+        "halfTimeFree": true,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "beforeExtraTimeFree": true,
+        "extraTimeHalfTimeFree": true,
+        "carryUnusedSubstitutions": true,
+        "carryUnusedWindows": true,
+        "addBenchAtExtraTime": false,
+        "extraTimeMinutes": 30,
+        "extraTimePeriods": 2,
+        "penaltiesAfterExtraTime": true,
+        "scope": "NPL Queensland senior; ET only finals",
+        "regularDraw": "DRAW",
+        "provenance": "V_TEXT",
+        "sources": [
+          "https://footballqueensland.com.au/wp-content/uploads/2025/10/2026-Football-Queensland-Advanced-Leagues-Rules-of-Competition.pdf",
+          "https://www.theifab.com/laws/latest/the-players/"
+        ],
+        "clauses": "5.3.1,5.3.3(d-e)",
+        "limits": "17 on match sheet, reserve GK optional; screenshot cache miss"
       }
     }
   }

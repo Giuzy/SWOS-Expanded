@@ -1,3 +1,7 @@
+## 26/11/2026 — Consultazione selettiva della matrice (regola utente vigente)
+
+Applicare [competition_research/README.md](competition_research/README.md) prima di ogni blocco ricerca: indice e proiezioni mirate, conteggi automatici e output limitato, aggiornamenti dei soli record/aggregati coinvolti. Preservare evidenze e deposito #2. Query tool e migrazione separati, non autorizzati ora.
+
 ## 25/11/2026 — Deposito operativo: sovrascrittura integrale obbligatoria (regola utente vigente)
 
 Unico deposito: [Issue #2](https://github.com/Giuzy/SWOS-Expanded/issues/2). La #1 è stata eliminata: non interrogarla; le citazioni storiche non sono istruzioni operative. Dopo un'interruzione leggere solo il corpo corrente della #2, recuperare i preparati e verificare ramo/HEAD/versione. Nel lavoro continuo non rileggere senza necessità.

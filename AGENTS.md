@@ -1,3 +1,7 @@
+## 26/11/2026 — Consultazione selettiva della matrice (regola utente vigente)
+
+Seguire la regola canonica in [docs/competition_research/README.md](docs/competition_research/README.md): mai l'intera matrice nel contesto; consultazione per record/campo e dipendenze, aggregati automatici, aggiornamenti mirati e deposito #2 unico. Nessuna ristrutturazione o script autorizzato ora.
+
 ## 25/11/2026 — Decisione utente vigente: calendario per turno, accoppiamenti CE
 
 Leggere [GAME_DESIGN.md](docs/GAME_DESIGN.md), sezione «CALENDARIO PER TURNO, ACCOPPIAMENTI CE E CHIUSURA DATI». Sostituisce tutti i precedenti obblighi di ricercare date/accoppiamenti reali singola gara: CE genera in 9697/2627 dal 1 luglio, mantiene risultati e accoppiamenti effettivi precedenti con date di turno e prosegue rispettando storico/andata-ritorno. Profilo giorni di gioco senza rinvii/annullamenti, compresi infrasettimanali; date turno, cambio stagione giorno prima inizio, matrice 12 campi e classi chiusura operativa/storico. Non distruggere fonti/evidenze, non cambiare runtime o schema in questo aggiornamento. Unico deposito #2, #1 eliminata; sovrascrivere integralmente senza append/commenti/copie/archivi. 

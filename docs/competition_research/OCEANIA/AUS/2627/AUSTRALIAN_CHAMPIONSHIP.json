@@ -109,7 +109,12 @@
         "final": "12-12",
         "kind": "USER_APPROVED_GAME_TEMPLATE_2026",
         "scope": "Game dates, not confirmed official fixture dates."
-      }
+      },
+      "beforeExtraTimeFree": true,
+      "extraTimeHalfTimeFree": true,
+      "carryUnusedSubstitutions": true,
+      "carryUnusedWindows": true,
+      "addBenchAtExtraTime": false
     },
     "viewer": {
       "status": "USER_APPROVED_UI_SCOPE_NOT_IMPLEMENTED",
@@ -301,6 +306,12 @@
           }
         ],
         "conclusion": "7 accepted by user as game template, not official Championship proof; requires match-sheet ABI-safe extension."
+      },
+      "finalsSubstitutionUpdate20261126": {
+        "extraTimeAdditionalSubstitution": 1,
+        "status": "P_INDEXED_OFFICIAL_2026_11_26",
+        "limits": "Official indexed notice confirms sixth substitution; full article cache miss; bench and other numerical limits remain approved template, not independently certified",
+        "source": "https://australianchampionship.com.au/news/key-regulatory-updates-confirmed-australian-championship-finals-series"
       }
     },
     "qualification": {
@@ -773,5 +784,39 @@
     "applicable": 11,
     "closed": false,
     "reason": "User approves five substitutions/three windows, additional ET substitution, seven named reserves including GK, points/GD/GF/H2H/lots and SF Dec5/final Dec12 game templates; authentic gaps remain. Non-playable regional eligibility, stable mapping and lifecycle still incomplete. Only existing OG cup viewer button authorized."
+  },
+  "matchRegulation20261126": {
+    "date": "2026-11-26",
+    "status": "RESEARCH_DATA_NOT_ACTIVE_MATCH_RULE",
+    "bench": 7,
+    "goalkeeperRequired": true,
+    "ordinarySubstitutions": 5,
+    "ordinaryWindows": 3,
+    "halfTimeFree": true,
+    "extraTimeAdditionalSubstitution": 1,
+    "extraTimeAdditionalWindow": 1,
+    "beforeExtraTimeFree": true,
+    "extraTimeHalfTimeFree": true,
+    "carryUnusedSubstitutions": true,
+    "carryUnusedWindows": true,
+    "addBenchAtExtraTime": false,
+    "extraTimeMinutes": 30,
+    "extraTimePeriods": 2,
+    "penaltiesAfterExtraTime": true,
+    "scope": "Australian Championship approved game template; group draw goes straight to shootout, no ET; ET allowance only knockout",
+    "regularDraw": "PENALTY_SHOOTOUT_NO_ET",
+    "provenance": "USER_APPROVED_GAME_TEMPLATE",
+    "sources": [
+      "https://australianchampionship.com.au/news/key-regulatory-updates-confirmed-australian-championship-finals-series",
+      "https://www.theifab.com/laws/latest/the-players/",
+      "https://footballaustralia.com.au/news/penalty-shootout-bonus-point-model-2026-australian-championship?page=2"
+    ],
+    "authenticConfirmation": {
+      "extraTimeAdditionalSubstitution": 1,
+      "status": "P_INDEXED_OFFICIAL_2026_11_26",
+      "limits": "Official indexed notice confirms sixth substitution; full article cache miss; bench and other numerical limits remain approved template, not independently certified",
+      "source": "https://australianchampionship.com.au/news/key-regulatory-updates-confirmed-australian-championship-finals-series"
+    },
+    "limits": "Existing CE match is 7/5/3/true/+1/+1; actual extended bench and pause handling not proven"
   }
 }

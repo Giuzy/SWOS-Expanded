@@ -118,6 +118,11 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
                         }
                         ExpCeSharedPool_Free(&sp);
                     }
+                    if(po>=0) {  /* v331: real substitution rules per league */
+                        const int mo=ExpCe_LoadLeagueMatchOverrides(bytes,(int)size,world);
+                        fprintf(stderr,"[ce-engine] LEAGUE_MATCH_OVERRIDES definitions=%d\n",mo);
+                        if(mo<0)po=-1;
+                    }
                     fprintf(stderr,"[ce-engine] LEAGUE_PLAYOUTS definitions=%d",po);
                     fputc(10,stderr);
                     if(po<0)finals=-1;

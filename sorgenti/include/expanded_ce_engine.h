@@ -341,6 +341,8 @@ int ExpCe_PlayoutSkipped(const ExpandedUniversalRegistry *r,const ExpCeDef *d,co
 int ExpCe_LoadParallelLevels(const char *json,int len,uint16_t world);
 /* v311: bottom-pool config rows ("pool": {"direct":N,"playoff":0|1}) of league_calendar.json. */
 int ExpCe_LoadLeaguePools(const char *json,int len,uint16_t world);
+/* v331: real substitution regulation per league row ("match_override" in league_calendar.json). */
+int ExpCe_LoadLeagueMatchOverrides(const char *json,int len,uint16_t world);
 /* the shared pool clubs of (country, division): stable keys, replaces the list. */
 int ExpCe_SetPoolClubs(uint8_t country,uint8_t comp_id,uint8_t division,const uint32_t *keys,uint32_t n);
 int ExpCe_LoadLeaguePlayouts(const char *json,int len,uint16_t world);

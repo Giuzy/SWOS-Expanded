@@ -96,6 +96,8 @@ extern uint16_t TrainingMatch_BSourceCareerSlot(uint16_t bFileIdx);
 extern uint16_t TrainingMatch_SyncBForCareerSwap(uint16_t aSlot, uint16_t bSlot);
 extern uint16_t TrainingMatch_KeepCrossSwapForMatch(uint16_t fileA,
                                                     uint16_t fileB, int swapShirtNumbers);
+/* v332: the competition's REAL bench size (0 = use _maxSubstitutesEntries); set by the CE native prepare. */
+uint16_t g_pmRealBench;
 /* Original pre-match menu: extra true career players 16..31 (SDL only).
  * No synthetic TEAM B, no opponent editing, no second match controller. */
 /* Reserve row footprint: name x=140+S width82, position x=223+S width14.
@@ -1819,11 +1821,14 @@ void DrawPlayerEntries(MenuEntry *a5) {
                 /* the left rows are bench seats 1..5; the right-hand extra squad continues the SAME bench:
                  * with a bench of 7 the first two extras are bench seats 6 and 7 (bench colour), the rest
                  * of that column is excluded. */
-                if (s_extraDrawSlot >= 0) {
-                    if ((int16_t)(5 + (s_extraDrawSlot - 16)) >= (int16_t)_maxSubstitutesEntries)
+                {
+                    const int16_t bench = g_pmRealBench ? (int16_t)g_pmRealBench : (int16_t)_maxSubstitutesEntries;
+                    if (s_extraDrawSlot >= 0) {
+                        if ((int16_t)(5 + (s_extraDrawSlot - 16)) >= bench)
+                            col = BLUE_TO_BLACK_8;
+                    } else if ((d7 - 11) >= bench)
                         col = BLUE_TO_BLACK_8;
-                } else if ((d7 - 11) >= (int16_t)_maxSubstitutesEntries)
-                    col = BLUE_TO_BLACK_8;
+                }
 #else
                 if ((d7 - 11) >= (int16_t)_maxSubstitutesEntries)
                     col = BLUE_TO_BLACK_8;

@@ -248,7 +248,7 @@
       "source": "25/11/2026 approved brief: first edition single final Inter-Lazio, GAME_TEMPLATE date 22/12/2026, edition change 21/12; competition NOT in the original OG catalogue (first competition added entirely through the CE, no OG slot).",
       "authentic_regulation": {
         "bench": 7, "substitutions": 5, "extra_time_minutes": 30, "penalties": true,
-        "note": "modern Supercoppa rules; NOT used by the engine: bench 7 exceeds the OG bench cap (5)"
+        "note": "research card EUROPE/ITA/2627/SUPERCUP.json: 5 substitutions, 3 windows, match list max 26 (= 11 + bench 15); applied by the engine since v333; the older bench-7 figure is superseded"
       },
       "og_reference": {
         "competition": "Serie A (leagues.json _italianLeague, division 0)",
@@ -256,10 +256,12 @@
         "reason": "same country, OG-native substitution limits; modern bench/substitution rules are not representable without changing the OG bench limit (not approved)"
       },
       "match": {
-        "bench": 5,
-        "subs": 3,
+        "bench": 15,
+        "subs": 5,
+        "windows": 3,
+        "halftime_free": 1,
         "discipline": 1,
-        "provenance": "OG_NATIVE"
+        "provenance": "VERIFIED"
       },
       "phases": [
         {
@@ -307,7 +309,7 @@
       "source": "25/11/2026 approved research card row 329: 32 national entrants, 31 single-leg knockout games (32/16/8/4/2), GAME_TEMPLATE_2026 round windows from the published schedule, edition change 29/01. 12 entrants are temporary TEST clubs (44:55..44:66, see test_clubs.json). Real regulation has 5 substitutions in 3 windows plus one extra substitution and window in extra time: the extra-time extras exceed the OG bench cap (5) and are NOT represented; home advantage of a member-federation club against an A-League club is NOT represented (first drawn hosts).",
       "authentic_regulation": {
         "substitutions": 5, "windows": 3, "extra_time_additional_substitution": 1, "extra_time_additional_window": 1,
-        "extra_time_minutes": 30, "penalties": true, "note": "verified real rules (research card row 329); NOT used by the engine: they exceed the OG bench cap"
+        "extra_time_minutes": 30, "penalties": true, "note": "verified real rules (research card row 329), applied since v332; the bench of 7 is the NSW preliminary figure used as game template for the national rounds"
       },
       "og_reference": {
         "competition": "A-League Men (leagues.json _australianLeague, division 0)",
@@ -315,10 +317,14 @@
         "reason": "same country, OG-native substitution limits; the real 5 substitutions / 3 windows / extra-time extras are not representable without changing the OG bench limit (not approved)"
       },
       "match": {
-        "bench": 5,
-        "subs": 3,
+        "bench": 7,
+        "subs": 5,
+        "windows": 3,
+        "halftime_free": 1,
+        "et_extra_subs": 1,
+        "et_extra_windows": 1,
         "discipline": 1,
-        "provenance": "OG_NATIVE"
+        "provenance": "GAME_TEMPLATE"
       },
       "phases": [
         {

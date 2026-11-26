@@ -19,6 +19,7 @@
     {
       "id": "_italianLeague",
       "team_number": 20,
+      "match_override": {"bench": 12, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "VERIFIED", "source": "FIGC CU299/A permanent rule (5 substitutions in 3 windows + half-time, +1 in extra time) and AIA Regolamento 01/07/2025 Regola 3 (bench max 12); see docs/competition_research/EUROPE/ITA/2627/LEAGUE_DIVISION.json matchRulesAudit"},
       "comp_id": 61,
       "first_match": "08-22",
       "last_match": "05-30",
@@ -54,6 +55,7 @@
     {
       "id": "_italianLeague",
       "team_number": 20,
+      "match_override": {"bench": 12, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "VERIFIED", "source": "FIGC CU299/A permanent rule (5 substitutions in 3 windows + half-time, +1 in extra time) and AIA Regolamento 01/07/2025 Regola 3 (bench max 12); see docs/competition_research/EUROPE/ITA/2627/LEAGUE_DIVISION.json matchRulesAudit"},
       "comp_id": 61,
       "first_match": "09-01",
       "last_match": "05-03",
@@ -110,6 +112,7 @@
     {
       "id": "_italianLeague",
       "team_number": 20,
+      "match_override": {"bench": 12, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "VERIFIED", "source": "FIGC CU299/A permanent rule (5 substitutions in 3 windows + half-time, +1 in extra time) and AIA Regolamento 01/07/2025 Regola 3 (bench max 12); see docs/competition_research/EUROPE/ITA/2627/LEAGUE_DIVISION.json matchRulesAudit"},
       "comp_id": 61,
       "first_match": "09-01",
       "last_match": "05-03",
@@ -123,6 +126,7 @@
     {
       "id": "_italianLeague",
       "team_number": 20,
+      "match_override": {"bench": 12, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "VERIFIED", "source": "FIGC CU299/A permanent rule (5 substitutions in 3 windows + half-time, +1 in extra time) and AIA Regolamento 01/07/2025 Regola 3 (bench max 12); see docs/competition_research/EUROPE/ITA/2627/LEAGUE_DIVISION.json matchRulesAudit"},
       "comp_id": 61,
       "first_match": "09-01",
       "last_match": "05-03",
@@ -136,6 +140,7 @@
     {
       "id": "_italianLeague",
       "team_number": 20,
+      "match_override": {"bench": 12, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "VERIFIED", "source": "FIGC CU299/A permanent rule (5 substitutions in 3 windows + half-time, +1 in extra time) and AIA Regolamento 01/07/2025 Regola 3 (bench max 12); see docs/competition_research/EUROPE/ITA/2627/LEAGUE_DIVISION.json matchRulesAudit"},
       "comp_id": 61,
       "first_match": "09-01",
       "last_match": "05-03",
@@ -326,6 +331,7 @@
     {
       "id": "_australianLeague",
       "team_number": 44,
+      "match_override": {"bench": 7, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "GAME_TEMPLATE", "source": "A-League Men 2026/27 (docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json row207 ruleEvidence): 5 substitutions, +1 in extra time, bench minimum 5 and 6/7 with 2/3 eligible young players; the maximum 7 is used because the youth condition is not modelled; 3 windows with a free half-time is the Australian pattern of the other cards"},
       "comp_id": 88,
       "first_match": "10-16",
       "last_match": "05-09",
@@ -435,6 +441,7 @@
     {
       "id": "_australianLeague",
       "team_number": 44,
+      "match_override": {"bench": 7, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "GAME_TEMPLATE", "source": "NPL NSW 2026 (Football NSW 2026 regulations v5, row208 + benchComparison20261125): bench 7; substitution clauses not fully audited, 5 in 3 windows with a free half-time as the Australian cup/Championship pattern"},
       "comp_id": 88,
       "first_match": "02-06",
       "last_match": "08-30",
@@ -458,6 +465,7 @@
     {
       "id": "_australianLeague",
       "team_number": 44,
+      "match_override": {"bench": 6, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 0, "et_extra_windows": 0, "provenance": "VERIFIED", "source": "NPL Victoria 2026 (Football Victoria Advanced Competitions Rules art 4.9.1, row209): 6 named, 5 used, 3 opportunities, half-time free"},
       "comp_id": 88,
       "first_match": "02-13",
       "last_match": "08-29",
@@ -474,6 +482,7 @@
     {
       "id": "_australianLeague",
       "team_number": 44,
+      "match_override": {"bench": 6, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "VERIFIED", "source": "NPL Queensland 2026 (row210 regulation): 5 substitutions, 3 windows, match sheet 17 (11+6), +1 in extra time; half-time and extra-time window per the decided table of 26/11/2026"},
       "comp_id": 88,
       "first_match": "02-20",
       "last_match": "08-14",

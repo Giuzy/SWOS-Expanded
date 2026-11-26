@@ -27,6 +27,7 @@
 #include "bench_subs.h"
 #include "expanded_match_bench.h"
 extern int ExpBenchLongSprite(unsigned count,int upper);
+extern void ExpBench_CoverWithGrass(int x0,int y0,int w,int h,int sx,int sy);
 extern void ExpNameSprite_RenderAt(uint16_t spriteIdx,uint16_t shirt,const uint8_t *shortName,uint8_t *lenOut);
 #include "dos_sound.h"
 #include "game_types.h"
@@ -1806,7 +1807,9 @@ skip_opponent_1:
     d0 = _benchPlayerIndex;
     d1 -= 12;
     if (_trainingGame == 0)
-        d0 = (uint16_t)ExpBench_SeatY(0,xbCount(),_benchY < _opponentBenchY,d0);
+        /* v336: the arrow follows the same anchoring as coach and seats (drawBenchPlayersAndCoach):
+         * upper bench coach = legacy - 54, lower = legacy - 5, seat i = coach + 7 i */
+        d0 = (uint16_t)((_benchY < _opponentBenchY ? -54 : -5) + 7 * (int)d0);
     else
         d0 *= 7;
 
@@ -1823,16 +1826,16 @@ skip_opponent_1:
 
     d2 += d0;
 
-    if (_goToSubsTimer == 0 && _substituteInProgress == 0 && _subsState == 0) {
-        uint16_t save_d1 = d1;
-        DrawSpriteInCameraView(SPR_SELECT_SUBSTITUTE_ARROW, d1, d2);
-        d1 = save_d1;
-    }
+    /* v336: the arrow is drawn AFTER the bench art (below), or the long bench would hide it */
+    const int drawArrow = (_goToSubsTimer == 0 && _substituteInProgress == 0 && _subsState == 0);
+    const uint16_t arrowX = d1, arrowY = d2;
 
     d1 += 12;
     d2 = _benchY;
     _drawTrainingTopHalfOfTheBench = _subsTrainingTopTeam;
     drawBenchPlayersAndCoach((TeamGame *)_benchTeamGame, (TeamGeneralInfo *)_benchTeam, d1, d2);
+    if (drawArrow)
+        DrawSpriteInCameraView(SPR_SELECT_SUBSTITUTE_ARROW, arrowX, arrowY);
 
     if (_trainingGame != 0) {
         if (_subsTrainingTopTeam != 0)
@@ -1901,19 +1904,19 @@ static void drawBenchPlayersAndCoach(TeamGame *teamGame, TeamGeneralInfo *team, 
     d2 -= 0x13;
     d2 += 4;
     if (_trainingGame == 0) {
-        /* v323 extended bench (RG-MATCH-BENCH-EXT): the player's (upper) bench grows UPWARDS keeping its
-         * lower end, the CPU's (lower) bench grows DOWNWARDS keeping its upper end; the approved long
-         * bench art is drawn BEHIND the coach and the seats with the same ends. */
-        const unsigned cnt = EXP_BENCH_MAX;   /* the long bench is always shown */
-        if (cnt > EXP_BENCH_OG) {
-            const int upper = _benchY < _opponentBenchY ? ((uint16_t)(d2 + 0x13 - 4) == _benchY)
-                                                         : ((uint16_t)(d2 + 0x13 - 4) == _opponentBenchY);
-            d2 = (uint16_t)(d2 - (upper ? 7u * (cnt - EXP_BENCH_OG) : 0u));
-            {
-                const int art = ExpBenchLongSprite(cnt, upper);
-                if (art >= 0)
-                    DrawSpriteHotspotInCameraView((uint16_t)art, (uint16_t)(d1 - 10), (uint16_t)(d2 - 4));
-            }
+        /* v335 extended bench (RG-MATCH-BENCH-EXT): the long bench is always shown. Its ENDS coincide with
+         * the ends of the original (tile) bench it replaces: the player's (upper) bench keeps its LOWER
+         * end (old bottom = legacy coach y + 54), the CPU's (lower) bench keeps its UPPER end (old top =
+         * legacy coach y - 9); the art starts 4 px above the coach, 112 px tall, and has the SAME width as
+         * the old shell (21 px incl. its shadow), so it simply overlays and hides it (user: no fake grass). */
+        const int upper = (uint16_t)(d2 + 0x13 - 4) == (_benchY < _opponentBenchY ? _benchY : _opponentBenchY);
+        const int legacyCoachY = (int)(int16_t)d2;
+        const int newCoachY = upper ? legacyCoachY - 54 : legacyCoachY - 5;
+        d2 = (uint16_t)newCoachY;
+        {
+            const int art = ExpBenchLongSprite(EXP_BENCH_MAX, upper);
+            if (art >= 0)
+                DrawSpriteHotspotInCameraView((uint16_t)art, (uint16_t)(d1 - 16), (uint16_t)(d2 - 4));   /* v338: x so that the art covers the old shell exactly (21 px incl. shadow) */
         }
     }
 

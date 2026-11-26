@@ -289,7 +289,7 @@ bench_camera_mode:
 
 bench_camera_target_and_zero_vel:
     targetX = (int16_t)_benchXLimit;
-    targetY = (int16_t)(0x1C1 + ExpBench_CameraShiftY());   /* v324 extended bench (0 for the OG 5 seats) */
+    targetY = 0x1C1;   /* v329: the v324 extended-bench pan is removed (the view lost both benches, report 15:07) */
     _cameraXVelocity = 0;
     _cameraYVelocity = 0;
     /* fall through to offset_and_clamp_to_view */

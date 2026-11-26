@@ -3,6 +3,7 @@
  * SWOS Amiga C/68000 Reversed by Ben Baker (https://github.com/benbaker76)
  * SWOS DOS Reversed by Zlatko Karakaš (https://github.com/zlatkok)
  */
+#include <stdio.h>
 #include "sprites.h"
 #include "math68k.h"
 #include "game_types.h"
@@ -942,6 +943,35 @@ static void blitChunkySprite(SpriteGraphics *a0, int16_t dstX, int16_t dstY)
             if (dx < 0 || dx >= _screen_width) continue;
             uint8_t src = srcRow[px];
             if (src) dstRow[dx] = src;
+        }
+    }
+}
+#endif
+
+#ifdef SWOS_SDL_BUILD
+/* v335 (user, 26/11): the original bench tiles are part of the pitch backdrop and cannot be removed
+ * from the tile map, so the long bench REPLACES them visually: the rectangle (screen coords, clipped)
+ * is repainted with grass. The grass is not a flat colour: it samples a clean 10x10 block of this very
+ * frame (`sx,sy`, left of the bench) and fills the rectangle with pseudo-random picks from it, which
+ * reproduces the dither of the apron. No effect when the sample block is off screen. */
+void ExpBench_CoverWithGrass(int x0,int y0,int w,int h,int sx,int sy)
+{
+    uint8_t *base=(uint8_t *)(uintptr_t)_frontbufferBasePtr;
+    uint8_t sample[100];
+    int i,j,n=0;
+    if(!base || w<=0 || h<=0 || sx<0 || sy<0 || sx+10>_screen_width || sy+10>_screen_height)return;
+    for(j=0;j<10;++j)for(i=0;i<10;++i)
+        sample[n++]=base[(size_t)(sy+j)*FRONTBUFFER_ROW_STRIDE_BYTES+(size_t)(sx+i)+(size_t)_menu_draw_x_offset];
+    for(j=0;j<h;++j) {
+        const int y=y0+j;
+        if(y<0 || y>=_screen_height)continue;
+        for(i=0;i<w;++i) {
+            const int x=x0+i;
+            uint32_t hsh;
+            if(x<0 || x>=_screen_width)continue;
+            hsh=(uint32_t)(x*73856093u)^(uint32_t)(y*19349663u);
+            hsh^=hsh>>13;hsh*=0x5bd1e995u;hsh^=hsh>>15;
+            base[(size_t)y*FRONTBUFFER_ROW_STRIDE_BYTES+(size_t)x+(size_t)_menu_draw_x_offset]=sample[hsh%100u];
         }
     }
 }
@@ -2490,6 +2520,23 @@ void BuildSpriteBandAndGeneralRenderStacks(void)
         /* Look up sprite graphics */
         SpriteGraphics **sprGfxTable = (SpriteGraphics **)_spriteGraphicsPtr;
         SpriteGraphics *a0 = sprGfxTable[(uint16_t)sprIdx];
+#ifdef SWOS_SDL_BUILD
+        {   /* v336 DIAGNOSTIC (RG-MATCH-BENCH-EXT): which world sprites sit at the left touchline, where the
+             * original bench shell is drawn; one log line per distinct image index (max 48). */
+            static uint16_t seen[48];
+            static int nseen;
+            if (a1->x.s.i < 90 && a1->y.s.i > 300 && a1->y.s.i < 620 && nseen < 48) {
+                int q, dup = 0;
+                for (q = 0; q < nseen; ++q) if (seen[q] == (uint16_t)sprIdx) dup = 1;
+                if (!dup) {
+                    seen[nseen++] = (uint16_t)sprIdx;
+                    fprintf(stderr, "[bench-diag] world sprite img=%d x=%d y=%d w=%d h=%d cx=%d cy=%d\n",
+                            (int)sprIdx, (int)a1->x.s.i, (int)a1->y.s.i, (int)a0->pixWidth, (int)a0->nlines,
+                            (int)a0->centerX, (int)a0->centerY);
+                }
+            }
+        }
+#endif
 
         /* Camera-relative position with hotspot adjustment */
         /* The cull is measured from the GAME camera, the placement from the

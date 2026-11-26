@@ -2643,6 +2643,42 @@ int ExpCe_SetPoolClubs(uint8_t country,uint8_t comp_id,uint8_t division,const ui
 }
 /* "pool": {"direct":N,"playoff":0|1} on a league_calendar.json row; the pool clubs come from
  * ExpCe_SetPoolClubs. A play-out needs the row's "playout" (rules/days). */
+/* v331: "match_override": {bench, subs, windows, halftime_free, et_extra_subs, et_extra_windows,
+ * provenance} on a league_calendar.json row: the REAL substitution regulation of that league, applied
+ * on top of every phase's OG-native match rules (bench/subs from leagues.json). Only the substitution
+ * fields are read; a malformed or invalid override fails the whole load (no silent default). */
+int ExpCe_LoadLeagueMatchOverrides(const char *json,int len,uint16_t world)
+{
+    const char *arr=NULL;
+    int alen=0,off=0,ko,kl,vo,vl,vt,applied=0;
+    double schema=0;
+    if(!json || mjson_get_number(json,len,"$.schema",&schema)<=0 || schema!=1 ||
+       mjson_find(json,len,"$.leagues",&arr,&alen)!=MJSON_TOK_ARRAY)return -1;
+    while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
+        const char *row=arr+vo,*o=NULL;
+        int ol=0;
+        double country=0,comp=0,div=0;
+        ExpCeDef *d;
+        unsigned i;
+        if(vt!=MJSON_TOK_OBJECT || mjson_find(row,vl,"$.match_override",&o,&ol)!=MJSON_TOK_OBJECT)continue;
+        if(mjson_get_number(row,vl,"$.team_number",&country)<=0 ||
+           mjson_get_number(row,vl,"$.comp_id",&comp)<=0 ||
+           mjson_get_number(row,vl,"$.division",&div)<=0)return -1;
+        d=(ExpCeDef *)def_find(ExpCe_LeagueCompetitionId((uint8_t)country,(uint8_t)comp,(uint8_t)div));
+        if(!d)continue;
+        if(d->world!=world || d->origin!=EXP_CE_ORIGIN_LEAGUE || d->missing[0] || d->nphases<1u)return -1;
+        for(i=0u;i<d->nphases;++i) {
+            ExpCeMatchRules m;
+            ExpCeRuleError err;
+            if(!ExpCeRules_ParseMatch(o,ol,&d->phases[i].match,&m,&err))return -1;
+            d->phases[i].match=m;
+        }
+        d->rules_hash=def_hash(d);
+        ++applied;
+    }
+    if(off<0)return -1;
+    return applied;
+}
 int ExpCe_LoadLeaguePools(const char *json,int len,uint16_t world)
 {
     const char *arr=NULL;

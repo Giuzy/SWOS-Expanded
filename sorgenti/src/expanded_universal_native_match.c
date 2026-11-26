@@ -166,6 +166,7 @@ void ExpandedUniversal_NativeSetResultPrompt(int on)
 {
     s_result_prompt=on!=0;
 }
+extern uint16_t g_pmRealBench;   /* v332: the squad screen has OG rows for 5 seats; the real bench only drives its colours */
 int ExpandedUniversal_NativePrepare(
     ExpandedUniversalNativeMatch *context,
     const ExpandedUniversalFixture *fixture)
@@ -173,6 +174,7 @@ int ExpandedUniversal_NativePrepare(
     if(!context)return 0;
     context->lineup_ready=0u;context->abandoned=0u;
     if(!exp_universal_native_match_valid(context,fixture))return 0;
+    g_pmRealBench=(uint16_t)context->maximum_substitutes;
     if(!context->interactive && s_result_prompt &&
        (context->home==&_careerTeam || context->away==&_careerTeam)) {
         /* OG career RESULT on the manager's fixture: the original team
@@ -188,8 +190,10 @@ int ExpandedUniversal_NativePrepare(
         _exitGameFlag=0;
         Expanded_CareerNativeOGResultPromptSet(1);
         SetupPlayers(context->home,context->away,
-                     context->maximum_substitutes,context->match_parameters,
+                     (int16_t)(context->maximum_substitutes>5?5:context->maximum_substitutes),
+                     context->match_parameters,
                      0,0);
+        g_pmRealBench=0u;
         Expanded_CareerNativeOGResultPromptSet(0);
         if(context->home!=&_careerTeam)
             context->home->team.teamControls=savedHome;
@@ -226,8 +230,10 @@ int ExpandedUniversal_NativePrepare(
             context->away->team.teamControls=TEAM_COMPUTER;
         _exitGameFlag=0;
         SetupPlayers(context->home,context->away,
-                     context->maximum_substitutes,context->match_parameters,
+                     (int16_t)(context->maximum_substitutes>5?5:context->maximum_substitutes),
+                     context->match_parameters,
                      1,0);
+        g_pmRealBench=0u;
         if(context->home!=&_careerTeam)
             context->home->team.teamControls=savedHome;
         if(context->away!=&_careerTeam)

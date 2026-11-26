@@ -9144,7 +9144,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 24, 82, 8 },
             { MENU_CMD_NAV, 13, -1, 68, 70 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9153,7 +9153,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 33, 82, 8 },
             { MENU_CMD_NAV, 14, -1, 69, 71 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9162,7 +9162,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 42, 82, 8 },
             { MENU_CMD_NAV, 15, -1, 70, 72 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9171,7 +9171,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 51, 82, 8 },
             { MENU_CMD_NAV, 16, -1, 71, 73 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9180,7 +9180,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 60, 82, 8 },
             { MENU_CMD_NAV, 17, -1, 72, 74 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9189,7 +9189,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 69, 82, 8 },
             { MENU_CMD_NAV, 18, -1, 73, 75 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9198,7 +9198,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 78, 82, 8 },
             { MENU_CMD_NAV, 19, -1, 74, 76 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9207,7 +9207,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 87, 82, 8 },
             { MENU_CMD_NAV, 20, -1, 75, 77 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9216,7 +9216,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 96, 82, 8 },
             { MENU_CMD_NAV, 21, -1, 76, 78 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9225,7 +9225,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 105, 82, 8 },
             { MENU_CMD_NAV, 22, -1, 77, 79 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9234,7 +9234,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 114, 82, 8 },
             { MENU_CMD_NAV, 23, -1, 78, 80 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9243,7 +9243,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, 123, 82, 8 },
             { MENU_CMD_NAV, 24, -1, 79, 81 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9252,7 +9252,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, -124, 82, 8 },
             { MENU_CMD_NAV, 25, -1, 80, 82 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9261,7 +9261,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, -115, 82, 8 },
             { MENU_CMD_NAV, 26, -1, 81, 83 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9270,7 +9270,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, -106, 82, 8 },
             { MENU_CMD_NAV, 27, -1, 82, 84 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
@@ -9279,7 +9279,7 @@ Menu_PlayMatch _playMatchMenu = {
         {
             { 116, -97, 82, 8 },
             { MENU_CMD_NAV, 28, -1, 83, 9 },
-            MENU_CMD_INVISIBLE,
+            { MENU_CMD_INVISIBLE },
             { MENU_CMD_COLORS, 0xB },
             { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
             { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },

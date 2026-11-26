@@ -250,7 +250,17 @@
 /* v00.13.327: long bench (15 seats) always, unused seats empty; test_bench.txt hook removed. */
 /* v00.13.328: squad screen bench colour = seats admitted by the competition, others excluded colour. */
 /* v00.13.329: right-hand extra column continues the bench colour (bench N = 5 left + N-5 right). */
-#define SWOS_EXPANDED_VERSION "00.13.329"
+/* v00.13.330: bench camera pan removed (both benches left the view). */
+/* v00.13.331: manager cup/non-league fixture opens the OG team screen with PLAY/COACH MATCH (was VIEW RESULT only). */
+/* v00.13.332: real Italian substitution regulation (bench 12, 5 subs in 3 windows + half-time) via league match_override; manager cup fixture opens PLAY/COACH MATCH. */
+/* v00.13.333: real substitution rules for the Australian leagues, Australia Cup and Supercoppa. */
+/* v00.13.334: Supercoppa match list 26 (bench 15, 5 substitutions, 3 windows) from the research card. */
+/* v00.13.335: long bench ends aligned with the old bench, old bench repainted with grass. */
+/* v00.13.336: selection arrow drawn over the long bench and aligned to the new seat positions. */
+/* v00.13.337: DIAGNOSTIC [bench-diag] world sprites at the left touchline (finding the old bench sprite). */
+/* v00.13.338: grass cover removed; the long bench art overlays the old shell (x shifted 6 px). */
+/* v00.13.339: NPL Queensland half-time and extra-time window per the decided table. */
+#define SWOS_EXPANDED_VERSION "00.13.339"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

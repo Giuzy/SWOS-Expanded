@@ -3982,7 +3982,10 @@ static int exp_universal_contest_action(MenuEntry *entry)
              * fixture; FORWARD never plays it. */
             fprintf(stderr,"[universal-manager-menu] NON_LEAGUE_FIXTURE "
                 "og-team-screen=1\n");
-            result=ExpandedUniversalLive_ViewManagerResult()==2?2:1;
+            /* v331 (user, 26/11, Australia Cup): PLAY MATCH must play. The OG team screen opens with
+             * squad changes (PLAY/COACH MATCH -> OG 50 Hz); the old VIEW-RESULT-only screen could never
+             * start the match by hand. The OG quick result of a cup fixture needs the cup board. */
+            result=ExpandedUniversalLive_PlayManager()==2?2:1;
         }
         if(result==2) {
             fprintf(stderr,"[universal-manager-menu] MATCH_COMMITTED "

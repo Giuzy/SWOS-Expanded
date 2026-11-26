@@ -1117,6 +1117,7 @@ void InitializeInGameTeamsAndStartGame(int16_t randomizePitch, int16_t minSubs,
     _plgD0Param = (uint16_t)randomizePitch;
     _maxSubsPerTeam = (uint16_t)minSubs;
     _gameMaxSubstitutes = (uint16_t)maxSubs;
+    fprintf(stderr, "[bench] match bench=%u\n", (unsigned)_gameMaxSubstitutes);
     _plgD3Param = (uint16_t)paramD3;
     _gameTeam1 = team1;
     _gameTeam2 = team2;

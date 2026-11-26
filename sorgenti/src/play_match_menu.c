@@ -1811,8 +1811,25 @@ void DrawPlayerEntries(MenuEntry *a5) {
                 bgE->bgColor = (bgE->bgColor & 0xFFF0) | YELLOW_GREEN_BLACK_14;
                 numE->bgColor = (numE->bgColor & 0xFFF0) | YELLOW_GREEN_BLACK_14;
             } else {
-                bgE->bgColor = (bgE->bgColor & 0xFFF0) | BLUE_TO_PURPLE_11;
-                numE->bgColor = (numE->bgColor & 0xFFF0) | BLUE_TO_PURPLE_11;
+                /* v327 (user, 26/11): the bench colour only marks the seats the competition admits
+                 * (first _maxSubstitutesEntries rows after the eleven); every other player, the extra
+                 * squad of the right-hand column included, gets the EXCLUDED colour. */
+                int16_t col = BLUE_TO_PURPLE_11;
+#ifdef SWOS_SDL_BUILD
+                /* the left rows are bench seats 1..5; the right-hand extra squad continues the SAME bench:
+                 * with a bench of 7 the first two extras are bench seats 6 and 7 (bench colour), the rest
+                 * of that column is excluded. */
+                if (s_extraDrawSlot >= 0) {
+                    if ((int16_t)(5 + (s_extraDrawSlot - 16)) >= (int16_t)_maxSubstitutesEntries)
+                        col = BLUE_TO_BLACK_8;
+                } else if ((d7 - 11) >= (int16_t)_maxSubstitutesEntries)
+                    col = BLUE_TO_BLACK_8;
+#else
+                if ((d7 - 11) >= (int16_t)_maxSubstitutesEntries)
+                    col = BLUE_TO_BLACK_8;
+#endif
+                bgE->bgColor = (bgE->bgColor & 0xFFF0) | col;
+                numE->bgColor = (numE->bgColor & 0xFFF0) | col;
             }
         } else {
             bgE->bgColor = (bgE->bgColor & 0xFFF0) | ORANGE_TO_BROWN_12;

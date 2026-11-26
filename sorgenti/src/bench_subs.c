@@ -185,7 +185,11 @@ static inline PlayerInfo *piFromOffset(TeamGame *tg, uint16_t off)
 ExpMatchBench _expBenchSidecar[2];   /* snapshot region in sim_state.c (replay/rollback) */
 #define s_xbench _expBenchSidecar
 static inline int xbSideOf(const TeamGame *tg){ return (uintptr_t)tg==(uintptr_t)&_topTeamInGame ? 0 : 1; }
-static inline unsigned xbCount(void){ return _trainingGame ? EXP_BENCH_OG : ExpBench_Count(&s_xbench[xbSideOf((TeamGame *)_benchTeamGame)]); }
+/* v326 (user): the LONG bench (15 seats) is always the match bench, in every competition; the seats the
+ * competition does not use stay EMPTY (native seats beyond the rule are skip/position -1 from
+ * InitInGamePlayer, sidecar seats not nominated do not exist), so they are neither drawn nor selectable.
+ * Training keeps the OG 5. */
+static inline unsigned xbCount(void){ return _trainingGame ? EXP_BENCH_OG : EXP_BENCH_MAX; }
 /* a match slot (0..15 native, 16.. sidecar) -> its record; NULL when the slot does not exist */
 static inline PlayerInfo *slotPI(TeamGame *tg,unsigned slot)
 {
@@ -1900,7 +1904,7 @@ static void drawBenchPlayersAndCoach(TeamGame *teamGame, TeamGeneralInfo *team, 
         /* v323 extended bench (RG-MATCH-BENCH-EXT): the player's (upper) bench grows UPWARDS keeping its
          * lower end, the CPU's (lower) bench grows DOWNWARDS keeping its upper end; the approved long
          * bench art is drawn BEHIND the coach and the seats with the same ends. */
-        const unsigned cnt = ExpBench_Count(&s_xbench[xbSideOf(teamGame)]);
+        const unsigned cnt = EXP_BENCH_MAX;   /* the long bench is always shown */
         if (cnt > EXP_BENCH_OG) {
             const int upper = _benchY < _opponentBenchY ? ((uint16_t)(d2 + 0x13 - 4) == _benchY)
                                                          : ((uint16_t)(d2 + 0x13 - 4) == _opponentBenchY);

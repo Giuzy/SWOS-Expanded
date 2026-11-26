@@ -246,7 +246,11 @@
 /* v00.13.323: QUICK extended bench rows 6..15 + extra-player readers, field-player card state 2 fix. */
 /* v00.13.324: long bench art sprites (bench_long.png) anchored by player/CPU bench end, bench seats shift for the upper bench. */
 /* v00.13.325: bench camera pan for the extended bench, coach name hidden in the squad screen. */
-#define SWOS_EXPANDED_VERSION "00.13.325"
+/* v00.13.326: test_bench.txt hook to force the bench size (6..15) for trying the extended bench. */
+/* v00.13.327: long bench (15 seats) always, unused seats empty; test_bench.txt hook removed. */
+/* v00.13.328: squad screen bench colour = seats admitted by the competition, others excluded colour. */
+/* v00.13.329: right-hand extra column continues the bench colour (bench N = 5 left + N-5 right). */
+#define SWOS_EXPANDED_VERSION "00.13.329"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

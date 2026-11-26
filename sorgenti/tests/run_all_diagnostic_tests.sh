@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Current OG contracts only. Obsolete isolated LWE/world replay tests remain
+# Current CE, shared and legacy OG contracts. Obsolete isolated LWE/world replay tests remain
 # in Git for provenance but are deliberately NOT EXECUTED by this runner.
 # Not an engine, not a replacement for real Windows gameplay.
 set -uo pipefail
@@ -19,6 +19,40 @@ run_one() {
     logfile="$out/${name}.log"
     local scope="OG_CURRENT"
     case "$name" in
+        run_test_bolivia_227|\
+        run_test_bolivia_calendar_viewport|\
+        run_test_bolivia_career_action|\
+        run_test_bolivia_career_offer_gate|\
+        run_test_bolivia_country_edition_boundary|\
+        run_test_bolivia_cup_sequence|\
+        run_test_bolivia_event_registry|\
+        run_test_bolivia_ko_modal_invariants|\
+        run_test_bolivia_ko_sequence|\
+        run_test_bolivia_manager_calendar_gate|\
+        run_test_bolivia_modal_invariants|\
+        run_test_bolivia_og_league_completion|\
+        run_test_competition_expiry_gate|\
+        run_test_competition_finish_week|\
+        run_test_country_season_policy|\
+        run_test_country_season_year|\
+        run_test_expanded_cup_keycache_owner|\
+        run_test_expanded_native_timeline|\
+        run_test_og_car_country_edition|\
+        run_test_og_country_edition_transition|\
+        run_test_og_type0_completion|\
+        run_test_og_view_edition)
+            scope="LEGACY_OG_ISOLATED" ;;
+        run_test_car_writer|\
+        run_test_career_job_offer_flash)
+            scope="SHARED_ISOLATED" ;;
+        run_test_expanded_car_compact|\
+        run_test_expanded_ce_admin|\
+        run_test_expanded_ce_real_competitions|\
+        run_test_expanded_edition_archive|\
+        run_test_expanded_round_robin_home_away|\
+        run_test_expanded_universal_league_calendar|\
+        run_test_expanded_world_clock_mirror)
+            scope="COMPETITION_ENGINE_ISOLATED" ;;
         run_test_expanded_event_scheduler|run_test_expanded_competition_history|\
         run_test_expanded_og_cache_match|run_test_expanded_og_league_bridge|\
         run_test_expanded_qualification_transition|\
@@ -56,6 +90,38 @@ exclude_one() {
 shopt -s nullglob
 for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_formats.sh; do
     case "${script##*/}" in
+        run_test_expanded_car_compact.sh|\
+        run_test_expanded_ce_admin.sh|\
+        run_test_expanded_ce_real_competitions.sh|\
+        run_test_expanded_edition_archive.sh|\
+        run_test_expanded_round_robin_home_away.sh|\
+        run_test_expanded_universal_league_calendar.sh|\
+        run_test_expanded_world_clock_mirror.sh|\
+        run_test_car_writer.sh|\
+        run_test_career_job_offer_flash.sh|\
+        run_test_bolivia_227.sh|\
+        run_test_bolivia_calendar_viewport.sh|\
+        run_test_bolivia_career_action.sh|\
+        run_test_bolivia_career_offer_gate.sh|\
+        run_test_bolivia_country_edition_boundary.sh|\
+        run_test_bolivia_cup_sequence.sh|\
+        run_test_bolivia_event_registry.sh|\
+        run_test_bolivia_ko_modal_invariants.sh|\
+        run_test_bolivia_ko_sequence.sh|\
+        run_test_bolivia_manager_calendar_gate.sh|\
+        run_test_bolivia_modal_invariants.sh|\
+        run_test_bolivia_og_league_completion.sh|\
+        run_test_competition_expiry_gate.sh|\
+        run_test_competition_finish_week.sh|\
+        run_test_country_season_policy.sh|\
+        run_test_country_season_year.sh|\
+        run_test_expanded_cup_keycache_owner.sh|\
+        run_test_expanded_native_timeline.sh|\
+        run_test_og_car_country_edition.sh|\
+        run_test_og_country_edition_transition.sh|\
+        run_test_og_type0_completion.sh|\
+        run_test_og_view_edition.sh)
+            run_one "$script" ;;
         run_test_database_inventory.sh|run_test_expanded_debug_only.sh|\
         run_test_expanded_midseason_join.sh|run_test_expanded_world_time.sh|\
         run_test_native_history_occurrence.sh|run_test_og_runtime_parser.sh|\

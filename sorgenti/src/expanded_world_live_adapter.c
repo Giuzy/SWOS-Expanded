@@ -147,10 +147,14 @@ static unsigned import_file(uint8_t file, uint8_t country,
                 EXP_PARTICIPANT_CLUB};
             if(World_Current()==WORLD_2627 &&
                (ExpCeAdmin_IsTest(tk) || ExpCeAdmin_IsRealWithTestPlayers(tk))) {
-                if(!ExpandedUniversalCatalog_AddClub(t))
+                if(ExpandedUniversalCatalog_AddClub(t))
+                    ++s_import_runtime.ce_only;
+                else {
+                    ++s_import_runtime.ce_only_rejected;
                     fprintf(stderr,"[universal-catalog] TEST_CLUB_ROSTER_REJECTED "
                         "file=%u ordinal=%u\n",(unsigned)file,
                         (unsigned)t->team.teamOrdinal);
+                }
                 continue;
             }
             track_rejection(t,file,LIVE_IMPORT_OUTSIDE);
@@ -174,10 +178,12 @@ static unsigned import_file(uint8_t file, uint8_t country,
             /* Copy the real writable TeamFileEx while the shared TEAM
              * buffer is still valid. No extra loader or country switch. */
             imported++;
-            if(!ExpandedUniversalCatalog_AddClub(t))
+            if(!ExpandedUniversalCatalog_AddClub(t)) {
+                ++s_import_runtime.catalog_rejected;
                 fprintf(stderr,"[universal-catalog] MISSING_ROSTER "
                                "file=%u ordinal=%u\n",(unsigned)file,
                         (unsigned)t->team.teamOrdinal);
+            }
         } else track_rejection(t,file,LIVE_IMPORT_LWE_REJECTED);
     }
     return imported;
@@ -338,7 +344,7 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
         s_import_runtime.excluded+=s_import_reasons[r];
     s_import_runtime.cups_registered=s_import_cup_records[0]+s_import_cup_records[1];
     s_import_runtime.rows_accounted=
-        (s_import_runtime.rows==s_import_runtime.accepted+s_import_runtime.excluded);
+        (uint8_t)ExpandedWorldLive_ImportRowsAccounted(&s_import_runtime);
     if (!ExpandedWorldLive_Seal()) {
         s_import_runtime.status=3;
         fprintf(stderr,"[world-import-error] stage=SEAL attempt=%lu result=FAIL\n",
@@ -347,20 +353,23 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     } else {
         /* One input catalogue after ALL countries/TEAM files. Do NOT
          * activate CAR while old OG Career is still the runtime writer. */
-        if(!ExpandedUniversalCatalog_Seal())
+        const int catalog_sealed=ExpandedUniversalCatalog_Seal();
+        if(!catalog_sealed)
             fprintf(stderr,"[universal-catalog] SEAL_FAILED world=%s\n",
                     World_Tag());
         s_import_audit.scheduled_leagues=ExpandedWorldLive_NativeScheduleLeagues();
-        s_import_runtime.status=(s_import_runtime.rows_accounted &&
-                                 s_import_runtime.failed_files==0u)?2u:3u;
+        s_import_runtime.status=ExpandedWorldLive_ImportComplete(&s_import_runtime,catalog_sealed)?2u:3u;
         s_import_runtime.cups_matches_after=
             ExpandedWorldLive_CupArchivedMatches()+ExpandedWorldLive_CupResidentMatches();
         s_import_runtime.cups_titles_after=ExpandedWorldLive_CupHistoricalTitles();
-        fprintf(stderr,"[world-import-end] attempt=%lu status=%s rows=%lu accepted=%lu excluded=%lu failures=%lu last-file=%lu country=%lu\n",
+        fprintf(stderr,"[world-import-end] attempt=%lu status=%s rows=%lu accepted=%lu excluded=%lu failures=%lu last-file=%lu country=%lu ce-only=%lu ce-only-rejected=%lu catalog-rejected=%lu rows-accounted=%u catalog-sealed=%u\n",
                 (unsigned long)attempt,s_import_runtime.status==2u?"COMPLETE":"ERROR",
                 (unsigned long)s_import_runtime.rows,(unsigned long)s_import_runtime.accepted,
                 (unsigned long)s_import_runtime.excluded,(unsigned long)s_import_runtime.failed_files,
-                (unsigned long)s_import_runtime.last_file,(unsigned long)s_import_runtime.last_country);
+                (unsigned long)s_import_runtime.last_file,(unsigned long)s_import_runtime.last_country,
+                (unsigned long)s_import_runtime.ce_only,(unsigned long)s_import_runtime.ce_only_rejected,
+                (unsigned long)s_import_runtime.catalog_rejected,(unsigned)s_import_runtime.rows_accounted,
+                (unsigned)(catalog_sealed!=0));
         fprintf(stderr,"[world-cup-load-audit] attempt=%lu registered=%lu matches-before=%lu after=%lu titles-before=%lu after=%lu note=registered-not-simulated\n",
                 (unsigned long)attempt,(unsigned long)s_import_runtime.cups_registered,
                 (unsigned long)s_import_runtime.cups_matches_before,

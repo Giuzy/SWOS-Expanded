@@ -218,7 +218,21 @@ typedef struct ExpandedLiveImportRuntime {
     uint32_t cups_matches_before,cups_matches_after;
     uint32_t cups_titles_before,cups_titles_after;
     uint8_t status,rows_accounted;
+    /* CE-only TEAM rows are neither league members nor exclusions.
+     * catalog_rejected is a subset of accepted league rows. */
+    uint32_t ce_only,ce_only_rejected,catalog_rejected;
 } ExpandedLiveImportRuntime;
+static inline int ExpandedWorldLive_ImportRowsAccounted(const ExpandedLiveImportRuntime *a)
+{
+    return a && (uint64_t)a->rows==(uint64_t)a->accepted+a->excluded+
+                                  a->ce_only+a->ce_only_rejected;
+}
+static inline int ExpandedWorldLive_ImportComplete(const ExpandedLiveImportRuntime *a,
+                                                    int catalog_sealed)
+{
+    return ExpandedWorldLive_ImportRowsAccounted(a) && catalog_sealed &&
+           !a->failed_files && !a->ce_only_rejected && !a->catalog_rejected;
+}
 /* Runtime status: 0=never 1=loading 2=completed 3=error. */
 int ExpandedWorldLive_ImportRuntime(ExpandedLiveImportRuntime *out);
 int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out);

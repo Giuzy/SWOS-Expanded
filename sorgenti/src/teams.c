@@ -3523,7 +3523,10 @@ loc_E2D0:
             for(k=0u;k<ceN;++k) {
                 uint32_t j;
                 const void *rec=ExpCeViewer_ButtonRecord(ceIds[k]);
-                if(!rec)break;
+                if(!rec) {
+                    fprintf(stderr,"[ce-viewer] WORLD_ROW_NO_RECORD country=%u def=%u\n",(unsigned)d7,(unsigned)ceIds[k]);
+                    continue;
+                }
                 /* Same row, same layout; never display the same cup twice. */
                 for(j=0u;j<(uint32_t)d1;++j)
                     if(ExpCeViewer_MatchesNative(ceIds[k],(uint8_t)d7,_leaguesPtrTable[j]))break;
@@ -3531,12 +3534,14 @@ loc_E2D0:
                     _teamNames[j]=(void *)ceBtnName[k];
                     _leaguesPtrTable[j]=(void *)rec;
                     _leagueNumbersTable[j]=0xFFFF;
+                    fprintf(stderr,"[ce-viewer] WORLD_ROW_ALIAS country=%u def=%u row=%u\n",(unsigned)d7,(unsigned)ceIds[k],(unsigned)j);
                 } else if(d1<10) {
                     *teamNamesPtr++=(void *)ceBtnName[k];
                     *leaguesPtrOut++=(void *)rec;
                     *leagueNumsOut++=0xFFFF;
+                    fprintf(stderr,"[ce-viewer] WORLD_ROW_APPEND country=%u def=%u row=%u\n",(unsigned)d7,(unsigned)ceIds[k],(unsigned)d1);
                     d1++;
-                }
+                } else fprintf(stderr,"[ce-viewer] WORLD_ROW_FULL country=%u def=%u rows=%u\n",(unsigned)d7,(unsigned)ceIds[k],(unsigned)d1);
             }
         }
     }

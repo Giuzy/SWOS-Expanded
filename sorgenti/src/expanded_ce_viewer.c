@@ -82,6 +82,23 @@ static void cv_upper(char *s)
     for(;*s;++s)
         if(*s>='a' && *s<='z')*s=(char)(*s-'a'+'A');
 }
+/* Country catalogue visibility does not depend on sporting readiness. */
+static uint32_t cv_world_buttons(uint8_t country,uint32_t *ids,
+                                  char (*names)[40],uint32_t cap)
+{
+    uint32_t i,n=0u;
+    if(!ids || !names || World_Current()!=WORLD_2627)return 0u;
+    for(i=0u;i<ExpCe_DefinitionCount() && n<cap;++i) {
+        const ExpCeDef *d=ExpCe_DefinitionAt(i);
+        if(!d || !d->viewer_button || d->country!=country ||
+           d->world!=(uint16_t)World_Current())continue;
+        ids[n]=d->id;
+        snprintf(names[n],40u,"%s",d->name);
+        cv_upper(names[n]);
+        ++n;
+    }
+    return n;
+}
 static CvLine *cv_add(const char *left,const char *right,unsigned color)
 {
     CvLine *l;
@@ -600,16 +617,21 @@ int ExpCeViewer_MatchesNative(uint32_t def_id,uint8_t country,const void *rec)
 uint32_t ExpCeViewer_WorldButtons(uint8_t country,uint32_t *ids,
                                   char (*names)[40],uint32_t cap)
 {
-    uint32_t i,n=0u;
-    if(!ExpCeViewer_Active())return 0u;
-    for(i=0u;i<ExpCe_DefinitionCount() && n<cap;++i) {
-        const ExpCeDef *d=ExpCe_DefinitionAt(i);
-        if(!d || !d->viewer_button || d->country!=country ||
-           d->world!=(uint16_t)World_Current() || !cv_pick_edition(d->id))continue;
-        ids[n]=d->id;
-        snprintf(names[n],40u,"%s",d->name);
-        cv_upper(names[n]);
-        ++n;
+    uint32_t n;
+    if(!ExpCeViewer_Active()) {
+        fprintf(stderr,"[ce-viewer] WORLD_BUTTONS_INACTIVE country=%u world=%u game-type=%u\n",
+                (unsigned)country,(unsigned)World_Current(),(unsigned)_gameType);
+        return 0u;
+    }
+    n=cv_world_buttons(country,ids,names,cap);
+    fprintf(stderr,"[ce-viewer] WORLD_BUTTONS country=%u count=%u readonly=1\n",
+            (unsigned)country,(unsigned)n);
+    for(uint32_t i=0u;i<n;++i) {
+        const ExpCeEdition *e=cv_pick_edition(ids[i]);
+        const ExpCeDef *d=ExpCe_Definition(ids[i]);
+        fprintf(stderr,"[ce-viewer] WORLD_BUTTON def=%u name=%s edition=%s missing=%s\n",
+            (unsigned)ids[i],names[i],e?ExpCe_StateName(e->state):"NONE",
+            d && d->missing[0]?d->missing:"-");
     }
     return n;
 }
@@ -640,7 +662,10 @@ uint32_t ExpCeViewer_ClubButtons(uint32_t *ids,char (*names)[40],uint32_t cap)
 }
 #endif /* !EXP_CE_VIEWER_PURE */
 #ifdef EXP_CE_VIEWER_PURE
-/* isolated tests: the same content builder, no menu */
+/* isolated tests: the same content builder and country enumeration, no menu */
+uint32_t ExpCeViewer_TestWorldButtons(uint8_t country,uint32_t *ids,
+                                     char (*names)[40],uint32_t cap)
+{return cv_world_buttons(country,ids,names,cap);}
 uint32_t ExpCeViewer_TestBuild(uint32_t def_id,char *title,size_t n)
 {
     const ExpCeDef *d=ExpCe_Definition(def_id);

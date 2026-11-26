@@ -1538,3 +1538,7 @@ Decisione utente 26/11: i 5 club fissi delle federazioni senza campionato giocab
 - **Prima edizione da fonti** (`first_edition.from_sources`): attende la lega, salta club ineleggibili senza consumare slot (Championship: 8 fondatori + 5 fissi + 3 dinamici, avvio 16 ottobre).
 - **Australia Cup**: test reale `AUSTRALIA_CUP_REAL_JSON_32_ENTRANTS_31_GAMES_TEST_ADMIN_RESULTS=PASS`; analisi `NATIONAL_CUP.json` (32 entranti 2026, 20 mappati / 12 mancanti nel DB, ACT/NNSW assenti dal file squadre 44, `PARTIAL_RESEARCH_NOT_RUNTIME`).
 **Limiti / aperti:** Australian Championship bloccata dal limite panchina OG (7>5, nessuna panchina estesa, regolamento non alterato); scambio A-League ↔ regionali (2 su/2 giù) NON implementato (kernel `ExpCePool_CrossRegion/Balance` pronto, non collegato); Australia Cup: rinnovo/qualificazioni oltre la prima edizione e 12 club mancanti NON integrati; qualificati dinamici Championship non verificati su dati reali di stagione; Serie B: 4 retrocessioni approvate, ma non conclusa finché la dipendenza Serie C resta aperta; viewer/pulsanti (CHAMPIONSHIP, QUAL, SPAREGGI, PLAYOFF, PLAYOUT, POOL) non toccati (ChatGPT). Nessun commit. Windows gameplay/SAVE/CONTINUE NON PROVATI.
+
+
+## 26/11/2026 — Classificazione diagnostica CE/legacy
+Vedi RG-QA-CE-CLASSIFICATION: 58 runner ammessi in 3 scope, 10 esclusi storici, zero sconosciuti attuali. CE START e LOAD distinti nel parser; CONTINUE-only non richiede residenti OG. Esecuzione C/Windows da provare; nessun PASS implicito.

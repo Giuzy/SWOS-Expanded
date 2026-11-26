@@ -16,6 +16,7 @@
 #include "expanded_universal_live.h"
 /* v305 viewer model: roster names are mocked, everything else is the real CE */
 uint32_t ExpCeViewer_TestBuild(uint32_t def_id,char *title,size_t n);
+uint32_t ExpCeViewer_TestWorldButtons(uint8_t country,uint32_t *ids,char (*names)[40],uint32_t cap);
 const char *ExpCeViewer_TestLine(uint32_t i,char *b,size_t n);
 TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey k)
 {
@@ -209,7 +210,31 @@ int main(void)
     assert(def->viewer_button==1u && def->viewer_native_id_plus_one==0u);
     assert(ExpCe_Definition(2884866u)->viewer_button==1u &&
            ExpCe_Definition(2884866u)->viewer_native_id_plus_one==158u); /* OG row ID 157 */
+    { /* Real definitions before any edition: both Australian rows, once each. */
+        uint32_t ids[4]={0},n,ac=0,ch=0;
+        char names[4][40];
+        const ExpCeDef *champ=ExpCe_Definition(2884098u);
+        assert(champ && champ->viewer_button && champ->missing[0]);
+        n=ExpCeViewer_TestWorldButtons(44u,ids,names,4u);
+        assert(n==2u);
+        for(uint32_t j=0;j<n;++j) {
+            if(ids[j]==2884866u){++ac;assert(!strcmp(names[j],"AUSTRALIA CUP"));}
+            if(ids[j]==2884098u){++ch;assert(!strcmp(names[j],"AUSTRALIAN CHAMPIONSHIP"));}
+        }
+        assert(ac==1u && ch==1u);
+        assert(ExpCeViewer_TestWorldButtons(20u,ids,names,4u)==1u && ids[0]==SUPERCOPPA);
+        assert(ExpCeViewer_TestWorldButtons(44u,ids,names,0u)==0u);
+        assert(ExpCeViewer_TestWorldButtons(44u,ids,names,1u)==1u);
+        s_world=WORLD_9697;
+        assert(ExpCeViewer_TestWorldButtons(44u,ids,names,4u)==0u);
+        s_world=WORLD_2627;
+        puts("CE_WORLD_BUTTONS_REAL_JSON_BEFORE_EDITION=PASS");
+    }
     assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+    {uint32_t ids[4];char names[4][40];
+     assert(ExpCeViewer_TestWorldButtons(44u,ids,names,4u)==2u);
+     assert(view_count(2884098u,"BLOCKED",NULL)==1u);
+     puts("CE_WORLD_CHAMPIONSHIP_BLOCKED_BUT_VISIBLE=PASS");}
 
     /* ===== Supercoppa Italiana: first competition added only through data */
     e=edition_of(SUPERCOPPA,2026);

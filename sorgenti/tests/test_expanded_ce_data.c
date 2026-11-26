@@ -12,6 +12,7 @@
 #include "expanded_universal_json_leagues.h"
 #include "world.h"
 #include "expanded_ce_shared_pool_data.h"
+#include "expanded_world_live.h"
 void *swos_io_realloc(void *p,uint32_t n){return realloc(p,n);}
 WorldId World_Current(void){return WORLD_2627;}
 /* v311: definitions.c loads the shared pool (identity helpers of the native world) */
@@ -30,6 +31,26 @@ int main(void)
 {
     uint32_t i,ready=0,missing=0,leagues=0,json=0,chain_ok=0,chain_bad=0;
     int n;
+    {
+        ExpandedLiveImportRuntime a={0};
+        a.rows=2147u;a.accepted=2003u;a.excluded=119u;
+        assert(!ExpandedWorldLive_ImportComplete(&a,1));
+        a.ce_only=25u;
+        assert(ExpandedWorldLive_ImportComplete(&a,1));
+        assert(!ExpandedWorldLive_ImportComplete(&a,0));
+        a.ce_only=24u;a.ce_only_rejected=1u;
+        assert(ExpandedWorldLive_ImportRowsAccounted(&a));
+        assert(!ExpandedWorldLive_ImportComplete(&a,1));
+        a.ce_only=25u;a.ce_only_rejected=0u;a.catalog_rejected=1u;
+        assert(!ExpandedWorldLive_ImportComplete(&a,1));
+        a.catalog_rejected=0u;a.failed_files=1u;
+        assert(!ExpandedWorldLive_ImportComplete(&a,1));
+        a.failed_files=0u;a.ce_only=26u;
+        assert(!ExpandedWorldLive_ImportComplete(&a,1));
+        a.rows=2122u;a.ce_only=0u;
+        assert(ExpandedWorldLive_ImportComplete(&a,1));
+        puts("WORLD_IMPORT_ACCOUNTING_CE_ONLY_AND_NEGATIVES=PASS");
+    }
     {
         ExpCeSharedPoolData sp={0};
         assert(ExpCeSharedPool_Load(&sp) && sp.n==14u);

@@ -109,5 +109,30 @@ grep -q '^OG_70_NATIVE_SEASONS=FAIL ' "$work/negative.out"
 grep -q '^OG_MANUAL_SEASON_SYNC=FAIL synced=1 blocked=1 ' "$work/negative.out"
 grep -q '^OG_UNEMPLOYED_QUALIFICATION=INCOMPLETE world9697-fields=1 world2627-fields=1 incomplete=1 ' "$work/negative.out"
 grep -q '^OG_LAST_WORLD_STEP=NO_END_RECORDED year=2096 phase=48 country=28 division=0' "$work/negative.out"
+# CONTINUE-only CE process: no native START is expected. Never manufacture a PASS.
+{
+    echo "[build] SWOS Expanded $version"
+    echo "[competition-coordinator] LOAD_READY world=2627 owner=UNIVERSAL_JSON civil=EXPANDED no-replay=1"
+    echo "[ce-engine] DEFINITIONS world=2627 leagues=134 json=5"
+    echo "[ce-engine] RESTORED editions=151 source=UL01 changed=0"
+    echo "[universal-manager-menu] FORWARD_OK target=2026-10-18"
+} > "$work/ce-load.log"
+set +e
+"$work/audit" "$work/ce-load.log" "$version" > "$work/ce-load.out"
+rc=$?
+set -e
+[[ "$rc" -eq 2 ]]
+grep -q '^CE_RUNTIME starts=0 loads=1 definitions_logs=1 .*restored=1 manager_forward_ok=1 ' "$work/ce-load.out"
+grep -q '^WINDOWS_OG_INTEGRATION=NOT_APPLICABLE reason=CE_WORLD' "$work/ce-load.out"
+grep -q '^OVERALL=INCOMPLETE ' "$work/ce-load.out"
+echo '[universal-live] CPU_FAULT event=1' >> "$work/ce-load.log"
+set +e
+"$work/audit" "$work/ce-load.log" "$version" > "$work/ce-fault.out"
+rc=$?
+set -e
+[[ "$rc" -eq 1 ]]
+grep -q '^CE_VERDICT=FAIL' "$work/ce-fault.out"
+grep -q '^OVERALL=FAIL' "$work/ce-fault.out"
+echo "CE_CONTINUE_ONLY_RUNTIME_PARSER=PASS"
 echo "OG_RUNTIME_PARSER_STATIC_FIXTURES=PASS"
 echo "OG_REAL_WINDOWS_GAMEPLAY=NOT_TESTED_BY_THESE_FIXTURES"

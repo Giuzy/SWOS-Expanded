@@ -168,7 +168,7 @@ int main(int argc,char **argv)
     }
     /* Fase 2/3: Competition Engine (WORLD2627) evidence, kept SEPARATE from
      * the native OG world checks above (which do not apply to a CE career). */
-    long ce_start=0,ce_defs=0,ce_blocked=0,ce_block_kind[12]={0},ce_faults=0;
+    long ce_start=0,ce_load=0,ce_defs=0,ce_blocked=0,ce_block_kind[12]={0},ce_faults=0;
     long ce_completed=0,ce_archived=0,ce_phases=0,ce_participants=0;
     long ce_restored=0,ce_insert_rejected=0,ce_prune_invalid=0;
     long ce_claim_not_releasable=0,ce_car_failed=0,ce_forward_ok=0;
@@ -176,6 +176,8 @@ int main(int argc,char **argv)
     while(fgets(line,sizeof line,in)) {
         if(strstr(line,"[competition-coordinator] START_READY") &&
            strstr(line,"owner=UNIVERSAL_JSON"))++ce_start;
+        if(strstr(line,"[competition-coordinator] LOAD_READY") &&
+           strstr(line,"owner=UNIVERSAL_JSON"))++ce_load;
         if(tag(line,"[ce-engine] DEFINITIONS"))++ce_defs;
         if(tag(line,"[ce-engine] EDITION_BLOCKED")) {
             static const char *const kinds[12]={"NONE","DATA_MISSING",
@@ -1108,11 +1110,11 @@ int main(int argc,char **argv)
            "scope=ALL_CAREERS\n",
            all_faults,all_regressions,all_season_failures,all_offer_failures,
            all_title_save_failures,all_unsupported);
-    if(ce_start) {
-        printf("CE_RUNTIME starts=%ld definitions_logs=%ld participants=%ld "
+    if(ce_start || ce_load) {
+        printf("CE_RUNTIME starts=%ld loads=%ld definitions_logs=%ld participants=%ld "
                "phases_generated=%ld completed=%ld archived=%ld restored=%ld "
                "manager_forward_ok=%ld scope=LOG_OBSERVATION_NOT_GAMEPLAY_VALIDATION\n",
-               ce_start,ce_defs,ce_participants,ce_phases,ce_completed,
+               ce_start,ce_load,ce_defs,ce_participants,ce_phases,ce_completed,
                ce_archived,ce_restored,ce_forward_ok);
         printf("CE_BLOCKS total=%ld DATA_MISSING=%ld RULES_INVALID=%ld "
                "RULES_CHANGED=%ld DATE_PLAN=%ld COLLISION=%ld DEPENDENCY=%ld "
@@ -1133,8 +1135,7 @@ int main(int argc,char **argv)
                (ce_block_kind[4]||ce_block_kind[5]||ce_block_kind[7]||
                 ce_block_kind[2]||ce_block_kind[11])?"ENGINE_OR_DATA_BLOCKS_PRESENT":
                "NO_WORLD_FAULT_OBSERVED (gameplay not validated by this audit)");
-        puts("OG_NATIVE_WORLD_CHECKS=NOT_APPLICABLE_CE_WORLD (2627 career owned "
-             "by the Competition Engine; OG start/resident counters stay 0 by design)");
+        puts("OG_NATIVE_WORLD_CHECKS=SEPARATE_FROM_CE_WORLD (2627 CE career does not require native resident START; legacy checks remain separate)");
     }
     if(historical_first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",historical_first);
     else if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
@@ -1149,7 +1150,7 @@ int main(int argc,char **argv)
         puts("OVERALL=FAIL");
         return 1;
     }
-    if(ce_start && (!start_ready||!start_audit||!have_audit||leagues<=0)) {
+    if((ce_start || ce_load) && (!start_ready||!start_audit||!have_audit||leagues<=0)) {
         /* CE career: the OG-native START evidence does not exist by design */
         puts("WINDOWS_OG_INTEGRATION=NOT_APPLICABLE reason=CE_WORLD");
         puts(ce_faults||ce_prune_invalid||ce_car_failed||ce_claim_not_releasable?

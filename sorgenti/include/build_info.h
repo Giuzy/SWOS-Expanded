@@ -240,7 +240,13 @@
  * and Windows Switch Pro exit sleep. Extended live bench/QUICK still pending. */
 /* v00.13.318: Australia Cup and CE-only Supercoppa native OG readonly viewer; Championship list button. */
 /* v00.13.319: CE country catalogue visibility independent of edition readiness; import audit and runner classification. */
-#define SWOS_EXPANDED_VERSION "00.13.319"
+/* v00.13.320: DIAGNOSTIC ONLY - one-shot sprite slot map ([sprite-map] on stderr) for the bench name-sprite extension; no behavior change. */
+/* v00.13.321: bench extension step 1 - sprite table 1704 slots, 20 extra name sprites (1684..1703) built at match start, not yet used by the live bench. */
+/* v00.13.322: extended bench in the 50 Hz path (sidecar nomination, slot swap, bench menu/draw), CE bench cap 15, QUICK clamped to the native 5 seats. */
+/* v00.13.323: QUICK extended bench rows 6..15 + extra-player readers, field-player card state 2 fix. */
+/* v00.13.324: long bench art sprites (bench_long.png) anchored by player/CPU bench end, bench seats shift for the upper bench. */
+/* v00.13.325: bench camera pan for the extended bench, coach name hidden in the squad screen. */
+#define SWOS_EXPANDED_VERSION "00.13.325"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

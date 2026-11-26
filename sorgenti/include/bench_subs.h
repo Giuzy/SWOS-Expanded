@@ -57,4 +57,10 @@ void MarkPlayersMenuHandler(void);
 /* --- Chunk 159: Main bench menu dispatcher --- */
 void BenchMenuHandleControls(void);
 
+/* v00.13.322 extended bench: the players beyond the native 16 records of one side (0 top, 1 bottom);
+ * n=0 clears. RecordCount/RecordAt iterate every record of a side (native 16 + sidecar). */
+int ExpBench_SetMatchExtra(int side,const PlayerInfo *extra,unsigned n);
+unsigned ExpBench_RecordCount(const TeamGame *tg);
+PlayerInfo *ExpBench_RecordAt(TeamGame *tg,unsigned i);
+
 #endif

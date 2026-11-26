@@ -178,6 +178,8 @@ extern uint16_t _formationMenuX, _subsMenuX[1];
 extern uint16_t _subsMenuBackgroundColor[1], _subsMenuEntryFrameColor[1], _subsMenuHighlightColor[1];
 extern uint16_t _plComingX[1], _plComingY[1], _plComingYTmp[1], _plLeavingX[1];
 extern uint8_t  _plNamesLengthTableCopy[32], _plOrdinalsTable[32];
+#include "expanded_match_bench.h"
+extern ExpMatchBench _expBenchSidecar[2];
 extern uintptr_t _plPositions[1], _teamThatSubstitutes[1];
 extern uint16_t _plSubstitutedX[1], _plSubstitutedY[1];
 extern Sprite  *_substitutedPlSprite;
@@ -504,6 +506,7 @@ const SimStateRegion g_simStateRegions[] = {
     REGION(_subsMenuHighlightColor, S, k_word16),
     REGION(_plComingX, S, k_word16), REGION(_plComingY, S, k_word16), REGION(_plComingYTmp, S, k_word16), REGION(_plLeavingX, S, k_word16),
     REGION(_plNamesLengthTableCopy, S, k_bytes), REGION(_plOrdinalsTable, S, k_bytes),
+    REGION(_expBenchSidecar, S, k_bytes),   /* v322 extended bench: players beyond the native 16 records */
     REGION(_plPositions, S, k_ptrTactics), REGION(_teamThatSubstitutes, S, k_ptrTeamInfo),
     REGION(_plSubstitutedX, S, k_word16), REGION(_plSubstitutedY, S, k_word16), REGION(_substitutedPlSprite, S, k_ptrSprite),
     REGION(_initialSubsState, S, k_word16), REGION(_selectedPlayerInSubs, S, k_word16), REGION(_showingUserStats, S, k_word16),

@@ -4,6 +4,7 @@
  * SWOS DOS Reversed by Zlatko Karakaš (https://github.com/zlatkok)
  */
 #include "camera.h"
+extern int ExpBench_CameraShiftY(void);
 #include "game_types.h"
 #include "display.h"
 #include "dos_mode.h"   /* _gDosGameplay: SIM_CAM_AIM_* */
@@ -288,7 +289,7 @@ bench_camera_mode:
 
 bench_camera_target_and_zero_vel:
     targetX = (int16_t)_benchXLimit;
-    targetY = 0x1C1;
+    targetY = (int16_t)(0x1C1 + ExpBench_CameraShiftY());   /* v324 extended bench (0 for the OG 5 seats) */
     _cameraXVelocity = 0;
     _cameraYVelocity = 0;
     /* fall through to offset_and_clamp_to_view */

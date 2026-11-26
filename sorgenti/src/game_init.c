@@ -8,6 +8,10 @@
 #include <stdlib.h>
 #endif
 #include "game_init.h"
+#include <string.h>
+#include "bench_subs.h"
+#include "squad_extras.h"
+#include "expanded_match_bench.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_native_match.h" /* silent CPU OG 50Hz scope only */
 #endif
@@ -340,8 +344,8 @@ void UpdatePlayerInjuries(TeamGame *tg, TeamFileEx *teamFileBase)
     if (teamFileBase->team.teamControls == 1)  /* TEAM_COMPUTER */
         return;
 
-    for (int16_t i = 15; i >= 0; i--) {
-        PlayerInfo *pi = &tg->players[i];
+    for (int16_t i = (int16_t)ExpBench_RecordCount(tg) - 1; i >= 0; i--) {
+        PlayerInfo *pi = ExpBench_RecordAt(tg, (unsigned)i);
         if (pi->skip != 0)     /* substituted */
             continue;
         if (pi->isInjured == 0)
@@ -375,8 +379,8 @@ void AccumulateMatchGoalsIntoTeamFile(TeamGame *tg, TeamFileEx *teamFileBase,
 {
     teamFileBase->team.writesZeroHere += (uint8_t)tg->numOwnGoals;
 
-    for (int16_t i = 15; i >= 0; i--) {
-        PlayerInfo *pi = &tg->players[i];
+    for (int16_t i = (int16_t)ExpBench_RecordCount(tg) - 1; i >= 0; i--) {
+        PlayerInfo *pi = ExpBench_RecordAt(tg, (unsigned)i);
         int8_t goals = pi->goalsScored;
         if (goals == 0)
             continue;
@@ -515,8 +519,8 @@ void ApplyPlayerStatusAfterSim(TeamGame *tg, TeamFileEx *teamFileBase)
     if (teamFileBase->team.teamControls == 1)  /* TEAM_COMPUTER */
         return;
 
-    for (int16_t i = 15; i >= 0; i--) {
-        PlayerInfo *pi = &tg->players[i];
+    for (int16_t i = (int16_t)ExpBench_RecordCount(tg) - 1; i >= 0; i--) {
+        PlayerInfo *pi = ExpBench_RecordAt(tg, (unsigned)i);
         if (pi->skip != 0)        /* substituted */
             continue;
         if (pi->numYellowCards == 0)  /* cards field */
@@ -570,8 +574,8 @@ void UpdateCareerPlayerStatsAfterMatch(TeamGame *tg, TeamFileEx *teamFileBase)
     if (teamFileBase != &_careerTeam)
         return;
 
-    for (int16_t i = 15; i >= 0; i--) {
-        PlayerInfo *pi = &tg->players[i];
+    for (int16_t i = (int16_t)ExpBench_RecordCount(tg) - 1; i >= 0; i--) {
+        PlayerInfo *pi = ExpBench_RecordAt(tg, (unsigned)i);
         if (pi->skip != 0)      /* substituted */
             continue;
         if (pi->halfPlayed != 2)  /* didn't play full match */
@@ -581,6 +585,36 @@ void UpdateCareerPlayerStatsAfterMatch(TeamGame *tg, TeamFileEx *teamFileBase)
         uint8_t *playerBase = GetPlayer(teamNum, (uint16_t)(int8_t)pi->playerIndex);
         Career_UpdateSinglePlayerPostMatchStats(playerBase);
     }
+}
+
+/* v00.13.322 extended bench nomination (RG-MATCH-BENCH-EXT): the OG bench is 5 (_gameMaxSubstitutes
+ * <= 5 -> nothing happens, byte-identical). With a larger bench (CE rule) the club's players 17..
+ * (SquadExtras_BenchPlayer, the long-bench roster that is saved in the CAR) fill the seats beyond
+ * the native 16 records, in roster order; a club with fewer real players has a shorter bench
+ * (no invented players). Same call for the manager and every CPU team. */
+static void ExpBench_NominateExtras(TeamFileEx *tf, int side)
+{
+    PlayerInfo ex[EXP_BENCH_EXTRA];
+    unsigned want = _gameMaxSubstitutes > 5u ? (unsigned)_gameMaxSubstitutes - 5u : 0u, n = 0u;
+    const uint16_t teamNum = (uint16_t)(((uint16_t)tf->team.countryNumber << 8) | tf->team.teamOrdinal);
+    if (_trainingGame != 0 || want > EXP_BENCH_EXTRA)
+        want = want > EXP_BENCH_EXTRA ? EXP_BENCH_EXTRA : 0u;
+    memset(ex, 0, sizeof ex);
+    while (n < want) {
+        uint16_t idx = 0;
+        PlayerFile *pf = SquadExtras_BenchPlayer(teamNum, (int32_t)n, &idx);
+        uint8_t *base;
+        if (!pf || idx < 16 || idx >= 32)
+            break;
+        base = (uint8_t *)pf - sizeof(TeamFile);
+        InitInGamePlayer(idx, (uint16_t)(16u + n), base, &ex[n]);
+        SetPlayerNameAndFace(base, &ex[n]);
+        ex[n].passing = ex[n].shooting = ex[n].heading = ex[n].tackling = 0;
+        ex[n].ballControl = ex[n].speed = ex[n].finishing = ex[n].goalieSkill = 0;
+        ++n;
+    }
+    if (!ExpBench_SetMatchExtra(side, ex, n))
+        (void)ExpBench_SetMatchExtra(side, NULL, 0);
 }
 
 /* ================================================================
@@ -1167,6 +1201,8 @@ void InitializeInGameTeamsAndStartGame(int16_t randomizePitch, int16_t minSubs,
     /* Initialize in-game team structures */
     InitInGameTeamStructure((TeamFileEx *)team1, &_topTeamInGame, &_team1AppPercent);
     InitInGameTeamStructure((TeamFileEx *)team2, &_bottomTeamInGame, &_team2AppPercent);
+    ExpBench_NominateExtras((TeamFileEx *)team1, 0);
+    ExpBench_NominateExtras((TeamFileEx *)team2, 1);
 #ifdef SWOS_SDL_BUILD
     /* The eleven each side kicks off with, in line-up order, for SWOS.log: a match
      * report then says who was where (the roll for a contested ball goes by line-up

@@ -362,7 +362,7 @@ static const char *k_json =
 " \"phases\":[{\"kind\":\"KNOCKOUT\",\"pairing\":\"SEEDED\",\"higher_home\":1}]},"
 /* invalid rules: knockout without penalties, bench over OG */
 "{\"id\":655362,\"name\":\"BAD RULES\",\"country\":16,\"type\":1,"
-" \"match\":{\"bench\":7,\"subs\":3,\"provenance\":\"GAME_TEMPLATE\"},"
+" \"match\":{\"bench\":16,\"subs\":3,\"provenance\":\"GAME_TEMPLATE\"},"
 " \"phases\":[{\"kind\":\"KNOCKOUT\",\"pairing\":\"SEEDED\",\"higher_home\":1,"
 "   \"match\":{\"legs\":1,\"penalties\":0},"
 "   \"window\":{\"first\":\"09-01\",\"last\":\"09-30\",\"weekdays\":\"WED\"}}],"

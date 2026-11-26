@@ -26,6 +26,8 @@
 #endif
 #include "bench_subs.h"
 #include "expanded_match_bench.h"
+extern int ExpBenchLongSprite(unsigned count,int upper);
+extern void ExpNameSprite_RenderAt(uint16_t spriteIdx,uint16_t shirt,const uint8_t *shortName,uint8_t *lenOut);
 #include "dos_sound.h"
 #include "game_types.h"
 #include "game_state.h"
@@ -176,6 +178,49 @@ extern AnimTable _playerNormalStandingAnimTable;
 static inline PlayerInfo *piFromOffset(TeamGame *tg, uint16_t off)
 {
     return &tg->players[off / sizeof(PlayerInfo)];
+}
+
+/* ---- v00.13.322 extended bench (RG-MATCH-BENCH-EXT): per-side sidecar of the players beyond the
+ * native 16 records. Empty (extra_count 0) = the native 5-player bench, byte-identical OG behaviour. */
+ExpMatchBench _expBenchSidecar[2];   /* snapshot region in sim_state.c (replay/rollback) */
+#define s_xbench _expBenchSidecar
+static inline int xbSideOf(const TeamGame *tg){ return (uintptr_t)tg==(uintptr_t)&_topTeamInGame ? 0 : 1; }
+static inline unsigned xbCount(void){ return _trainingGame ? EXP_BENCH_OG : ExpBench_Count(&s_xbench[xbSideOf((TeamGame *)_benchTeamGame)]); }
+/* a match slot (0..15 native, 16.. sidecar) -> its record; NULL when the slot does not exist */
+static inline PlayerInfo *slotPI(TeamGame *tg,unsigned slot)
+{
+    if(slot<EXP_BENCH_NATIVE)return &tg->players[slot];
+    return ExpBench_Player(tg,&s_xbench[xbSideOf(tg)],slot);
+}
+int ExpBench_SetMatchExtra(int side,const PlayerInfo *extra,unsigned n)
+{
+    TeamGame *tg=side?&_bottomTeamInGame:&_topTeamInGame;
+    return ExpBench_Init(&s_xbench[side?1:0],tg,extra,n);
+}
+/* v324: vertical camera shift (pixels, signed) while the extended bench is open, so the part of the
+ * bench that grew away from its fixed end stays in view: the player's (upper) bench grows up and the
+ * camera follows half of the growth, the CPU's (lower) bench grows down. 0 for the OG 5-seat bench. */
+int ExpBench_CameraShiftY(void)
+{
+    unsigned cnt;
+    int grow;
+    if (_trainingGame != 0)return 0;
+    cnt = xbCount();
+    if (cnt <= EXP_BENCH_OG)return 0;
+    grow = 7 * (int)(cnt - EXP_BENCH_OG);
+    return _benchY < _opponentBenchY ? -grow / 2 : grow / 2;
+}
+unsigned ExpBench_RecordCount(const TeamGame *tg){ return EXP_BENCH_NATIVE+s_xbench[xbSideOf(tg)].extra_count; }
+PlayerInfo *ExpBench_RecordAt(TeamGame *tg,unsigned i){ return slotPI(tg,i); }
+
+/* v322 discipline (RG-MATCH-BENCH-EXT, user-approved fix from the 9697 mod's subcard): a FIELD player whose
+ * card state is >=2 may only be suspended for the next match and still on the pitch; he is out of the
+ * game only when his sprite says so (sent away / red). Bench players keep the >=2 = unavailable rule. */
+static int fieldPlayerSentOff(uint16_t slot)
+{
+    TeamGeneralInfo *tgi = (TeamGeneralInfo *)_benchTeam;
+    Sprite *spr = slot < EXP_BENCH_XI ? tgi->spritesTable[slot] : NULL;
+    return spr && (spr->sentAway != 0 || spr->cards < 0);
 }
 
 /* ---- external data ---- */
@@ -738,7 +783,7 @@ static void benchMenuHandleControls(void)
         if (_gameState == ST_KEEPER_HOLDS_BALL)
             return;
         _subsBlockDirections = 1;
-        _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,EXP_BENCH_OG,1,nativeBenchSelectable,NULL);
+        _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,xbCount(),1,nativeBenchSelectable,NULL);
         return;
 
     move_up:
@@ -759,7 +804,7 @@ static void benchMenuHandleControls(void)
             /* dead code: benchPlayerIndex=6, fallthrough removed */
         }
 
-        _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,EXP_BENCH_OG,0,nativeBenchSelectable,NULL);
+        _benchPlayerIndex=(uint16_t)ExpBench_Move(_benchPlayerIndex,xbCount(),0,nativeBenchSelectable,NULL);
         return;
     }
 }
@@ -838,7 +883,9 @@ static int16_t isThisPlayerOkToSelect(void)
     {
         uint16_t idx = _benchPlayerIndex + 10;
         TeamGame *btg = (TeamGame *)_benchTeamGame;
-        PlayerInfo *pi = &btg->players[idx];
+        PlayerInfo *pi = slotPI(btg, idx);
+        if (!pi)
+            return -1;
 
         if (pi->skip != 0)
             return -1;
@@ -866,9 +913,10 @@ static void firePressedInSubsMenu(void)
         return;
 
     {
-        uint16_t offset = _ingameTeamPlayerOffsets[d0 + 11];
-        PlayerInfo *pi = piFromOffset((TeamGame *)_benchTeamGame, offset);
+        PlayerInfo *pi = slotPI((TeamGame *)_benchTeamGame, (unsigned)d0 + 11u);
 
+        if (!pi)
+            return;
         if ((int8_t)pi->position < 0)
             return;
         if ((uint8_t)pi->numYellowCards >= 2)
@@ -1027,14 +1075,31 @@ substitutePlayer(void)
             a0->markedPlayer = (int16_t)(uint16_t)d7;
     }
 
+    a0 = (TeamGame *)_benchTeamGame;
+    if (d6 >= EXP_BENCH_NATIVE) {
+        /* v322: the entering player lives in the sidecar. He takes the leaver's on-field record
+         * slot (so every OG reader indexed by field ordinal keeps working) and the leaver's
+         * record goes to the sidecar with position -1 (never re-enters). His name is redrawn in
+         * the leaver's own name sprite. */
+        PlayerInfo *in = slotPI(a0, (unsigned)d6), *out = slotPI(a0, (unsigned)d7);
+        if (in && out) {
+            const int side = xbSideOf(a0);
+            uint8_t *ord = _plOrdinalsTable + (side ? 16 : 0);
+            uint8_t *len = _plNamesLengthTableCopy + (side ? 16 : 0);
+            ExpBench_SwapPlayerRecords(in, out);
+            ExpNameSprite_RenderAt((uint16_t)((side ? 0x9D : 0x8D) + ord[d7]),
+                                   (uint16_t)(uint8_t)out->shirtNumber,
+                                   (const uint8_t *)out->shortName, &len[d7]);
+        }
+    } else {
     swapPlayerNameData(d6, d7);
 
     off6 = _ingameTeamPlayerOffsets[d6];
     off7 = _ingameTeamPlayerOffsets[d7];
-    a0 = (TeamGame *)_benchTeamGame;
 
     /* Same full-record swap as the extended bench kernel. */
     ExpBench_SwapPlayerRecords(piFromOffset(a0,off6),piFromOffset(a0,off7));
+    }
 
     InitializePlayerSpriteFrameIndices();
     ApplyTeamTactics((TeamGame *)_benchTeamGame);
@@ -1361,8 +1426,9 @@ static uint16_t isPlayerOkToSubstitute(void)
         uint16_t off = _ingameTeamPlayerOffsets[_plToBeSubstitutedPos];
         PlayerInfo *pi = piFromOffset(btg, off);
 
-        /* sent-off players (2+ yellows) can't be substituted — skip */
-        if ((uint8_t)pi->numYellowCards >= 2)
+        /* sent-off players can't be substituted — skip (a field player on card state 2 that
+         * is still on the pitch can: v322 discipline fix) */
+        if ((uint8_t)pi->numYellowCards >= 2 && fieldPlayerSentOff(_plToBeSubstitutedPos))
             return 1;
 
         /* in state 3: disallowSubs flag set — skip */
@@ -1423,14 +1489,16 @@ static void findInitialPlayerToBeSubstituted(void)
     int16_t groupMatch = -1;   /* d4 */
     int16_t d1;
 
-    enterOff = _ingameTeamPlayerOffsets[_plToEnterGameIndex];
-    targetPos = piFromOffset(btg, enterOff)->position;
+    {   PlayerInfo *enterPi = slotPI(btg, _plToEnterGameIndex);
+        targetPos = enterPi ? enterPi->position : 0;
+    }
+    (void)enterOff;
 
     for (d1 = 0; d1 < 11; d1++) {
         uint16_t ordinal;
         PlayerInfo *pi = getBenchPlayerPointer((uint16_t)d1, &ordinal);
 
-        if ((uint8_t)pi->numYellowCards >= 2)
+        if ((uint8_t)pi->numYellowCards >= 2 && fieldPlayerSentOff(ordinal))
             goto next_player;
 
         /* record first available if not yet found */
@@ -1734,7 +1802,7 @@ skip_opponent_1:
     d0 = _benchPlayerIndex;
     d1 -= 12;
     if (_trainingGame == 0)
-        d0 = (uint16_t)ExpBench_SeatY(0,EXP_BENCH_OG,_benchY < _opponentBenchY,d0);
+        d0 = (uint16_t)ExpBench_SeatY(0,xbCount(),_benchY < _opponentBenchY,d0);
     else
         d0 *= 7;
 
@@ -1828,6 +1896,22 @@ static void drawBenchPlayersAndCoach(TeamGame *teamGame, TeamGeneralInfo *team, 
 
     d2 -= 0x13;
     d2 += 4;
+    if (_trainingGame == 0) {
+        /* v323 extended bench (RG-MATCH-BENCH-EXT): the player's (upper) bench grows UPWARDS keeping its
+         * lower end, the CPU's (lower) bench grows DOWNWARDS keeping its upper end; the approved long
+         * bench art is drawn BEHIND the coach and the seats with the same ends. */
+        const unsigned cnt = ExpBench_Count(&s_xbench[xbSideOf(teamGame)]);
+        if (cnt > EXP_BENCH_OG) {
+            const int upper = _benchY < _opponentBenchY ? ((uint16_t)(d2 + 0x13 - 4) == _benchY)
+                                                         : ((uint16_t)(d2 + 0x13 - 4) == _opponentBenchY);
+            d2 = (uint16_t)(d2 - (upper ? 7u * (cnt - EXP_BENCH_OG) : 0u));
+            {
+                const int art = ExpBenchLongSprite(cnt, upper);
+                if (art >= 0)
+                    DrawSpriteHotspotInCameraView((uint16_t)art, (uint16_t)(d1 - 10), (uint16_t)(d2 - 4));
+            }
+        }
+    }
 
     /* select coach sprite base */
     d3 = 0x49E;
@@ -1880,7 +1964,12 @@ skip_coach:
         pi += 4; /* advance by 4 more players = player 15 */
     }
 
-    for (d7 = 1; d7 <= EXP_BENCH_OG; d7++) {
+    for (d7 = 1; d7 <= xbCount(); d7++) {
+        if (_trainingGame == 0) {
+            pi = slotPI(teamGame, 10u + d7);
+            if (!pi)
+                break;
+        }
         /* check if player is valid to draw */
         if (pi->skip != 0)
             goto next_player;
@@ -2112,12 +2201,12 @@ static void drawSubstitutesMenuEntry(uint16_t y, uint16_t baseColor, int16_t sel
         return;
     }
 
-    /* get player offset from offsets table */
-    d6 = playerOffsets[(uint16_t)d7];
+    /* get player offset from offsets table (extended bench slots have no native offset) */
+    d6 = (uint16_t)d7 < EXP_BENCH_NATIVE ? playerOffsets[(uint16_t)d7] : 0;
 
     /* get shirt number — PlayerInfo is at offset (d6 + 42) from TeamGame base */
     {
-        PlayerInfo *pi = piFromOffset(teamGame, d6);
+        PlayerInfo *pi = slotPI(teamGame, (uint16_t)d7);
         d5 = (uint16_t)(int16_t)(int8_t)pi->shirtNumber;
 
         /* draw face sprite if individual skin color enabled */
@@ -2143,8 +2232,8 @@ static void drawSubstitutesMenuEntry(uint16_t y, uint16_t baseColor, int16_t sel
     {
         TeamGeneralInfo *bt = (TeamGeneralInfo *)_benchTeam;
         Sprite **sprites = bt->spritesTable;
-        Sprite *spr = sprites[(uint16_t)d7];
-        if (spr->injuryLevel == (int16_t)0xFFFE) {
+        Sprite *spr = (uint16_t)d7 < EXP_BENCH_NATIVE ? sprites[(uint16_t)d7] : NULL;
+        if (spr && spr->injuryLevel == (int16_t)0xFFFE) {
             uint16_t ix = _subsMenuX - Render_CameraX();
             if (_useIndividualPlayerSkinColor != 0)
                 ix += 9;
@@ -2203,7 +2292,7 @@ static void drawSubstitutesMenuEntry(uint16_t y, uint16_t baseColor, int16_t sel
 draw_name:
     /* draw player short name */
     {
-        PlayerInfo *pi = piFromOffset(teamGame, d6);
+        PlayerInfo *pi = slotPI(teamGame, (uint16_t)d7);
         uint16_t nameX = _subsMenuX - Render_CameraX() + 9;
         if (_useIndividualPlayerSkinColor != 0)
             nameX += 9;
@@ -2212,7 +2301,7 @@ draw_name:
 
     /* draw position string */
     {
-        PlayerInfo *pi = piFromOffset(teamGame, d6);
+        PlayerInfo *pi = slotPI(teamGame, (uint16_t)d7);
         uint8_t *posStr = (uint8_t *)_playerPositionsStringTable[(uint16_t)(int16_t)(int8_t)pi->position];
         uint16_t posX = _subsMenuX - Render_CameraX() + 116;
         DrawMenuTextCentered(posX, y, 2, posStr, charsTable);
@@ -2221,7 +2310,7 @@ draw_name:
 
     /* draw injury indicator */
     {
-        PlayerInfo *pi = piFromOffset(teamGame, d6);
+        PlayerInfo *pi = slotPI(teamGame, (uint16_t)d7);
         uint8_t injByte = (uint8_t)pi->injuriesBitfield;
         if (injByte == 0)
             return;

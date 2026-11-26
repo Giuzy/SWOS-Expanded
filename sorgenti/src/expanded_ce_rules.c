@@ -122,7 +122,7 @@ int ExpCeRules_ValidateMatch(const ExpCeMatchRules *m,ExpCeRuleError *err)
         return rule_fail(err,"match","no verified source");
     if(m->legs<1u || m->legs>2u)return rule_fail(err,"match.legs","1 or 2");
     if(m->bench>EXP_CE_OG_MAX_BENCH)
-        return rule_fail(err,"match.bench","exceeds OG roster bench (5)");
+        return rule_fail(err,"match.bench","exceeds the 15-seat bench");
     if(m->subs>m->bench)return rule_fail(err,"match.subs","subs > bench");
     if(m->subs+m->et_extra_subs>m->bench)
         return rule_fail(err,"match.et_extra_subs","total subs > bench");

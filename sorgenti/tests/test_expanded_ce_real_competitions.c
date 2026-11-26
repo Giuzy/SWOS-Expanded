@@ -214,7 +214,7 @@ int main(void)
         uint32_t ids[4]={0},n,ac=0,ch=0;
         char names[4][40];
         const ExpCeDef *champ=ExpCe_Definition(2884098u);
-        assert(champ && champ->viewer_button && champ->missing[0]);
+        assert(champ && champ->viewer_button && !champ->missing[0]);
         n=ExpCeViewer_TestWorldButtons(44u,ids,names,4u);
         assert(n==2u);
         for(uint32_t j=0;j<n;++j) {
@@ -233,8 +233,8 @@ int main(void)
     assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
     {uint32_t ids[4];char names[4][40];
      assert(ExpCeViewer_TestWorldButtons(44u,ids,names,4u)==2u);
-     assert(view_count(2884098u,"BLOCKED",NULL)==1u);
-     puts("CE_WORLD_CHAMPIONSHIP_BLOCKED_BUT_VISIBLE=PASS");}
+     assert(view_count(2884098u,"BLOCKED",NULL)==0u);
+     puts("CE_WORLD_CHAMPIONSHIP_VISIBLE_NOT_BLOCKED=PASS");}
 
     /* ===== Supercoppa Italiana: first competition added only through data */
     e=edition_of(SUPERCOPPA,2026);
@@ -429,7 +429,7 @@ int main(void)
          * everything else is valid, so only the bench limit stands in the way. */
         char *cj;int cl=0,k;
         char *p7;
-        assert(ExpCe_Definition(2884098u) && strstr(ExpCe_Definition(2884098u)->missing,"bench"));
+        assert(ExpCe_Definition(2884098u) && !ExpCe_Definition(2884098u)->missing[0]);   /* v322: bench 7 is valid now */
         cj=slurp("../data_json/worlds/2627/competitions/ce_competitions.json",&cl);
         p7=strstr(cj,"\"AUSTRALIAN CHAMPIONSHIP\"");
         assert(p7);

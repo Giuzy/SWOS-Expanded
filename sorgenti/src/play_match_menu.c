@@ -890,7 +890,7 @@ void SetVariableButtons(void) {
 
     if (_viewingOpponentTeam) {
         /* Viewing opponent */
-        _menuEntries[4].isInvisible = 0;
+        _menuEntries[4].isInvisible = 1;   /* v324: coach name hidden (user, 26/11) */
         _menuEntries[3].isInvisible = 0;
         _menuEntries[3].y = 204;
         _menuEntries[4].y = 204;
@@ -909,7 +909,7 @@ void SetVariableButtons(void) {
         _menuEntries[30].isInvisible = 1;
     } else {
         /* Viewing own team */
-        _menuEntries[4].isInvisible = 0;
+        _menuEntries[4].isInvisible = 1;   /* v324: coach name hidden (user, 26/11) */
         _menuEntries[3].isInvisible = 1;
         _menuEntries[3].y = 204;
         _menuEntries[4].y = 204;

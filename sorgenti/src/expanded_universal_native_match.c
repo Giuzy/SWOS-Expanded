@@ -204,7 +204,7 @@ int ExpandedUniversal_NativePrepare(
          * checks the same values again after the durable claim. */
         unsigned i;
         if(context->maximum_substitutes<1 ||
-           context->maximum_substitutes>5 ||
+           context->maximum_substitutes>15 ||
            context->minimum_substitutes<0 ||
            context->minimum_substitutes>context->maximum_substitutes)
             return 0;
@@ -272,7 +272,7 @@ static int exp_universal_native_quick_result(
      * Universal league config currently uses exactly 0/5. */
     if(!ExpandedWorld_IndexToDate(fixture->day_index,&day) ||
        _quitToDos || c->maximum_substitutes<1 ||
-       c->maximum_substitutes>5 ||
+       c->maximum_substitutes>15 ||
        c->minimum_substitutes<0 ||
        c->minimum_substitutes>c->maximum_substitutes)
         return 0;
@@ -291,8 +291,12 @@ static int exp_universal_native_quick_result(
     scoring.base.substitutesCount=c->match_parameters;
     scoring.base.viewRandomPhase=day.month;
     _viewRandomPhase=day.month;
+    /* v322 QUICK with a bench above the OG 5 (RG-MATCH-BENCH-EXT): the candidate table has rows
+     * for 6..15 seats (ascending/descending/rotated orders of lineup slots 11..), seats >= 16 are the
+     * club's extra players (match_sim.c quickSlotFile/quickRec). The pick-count table is indexed by
+     * the ALLOWED substitutions (rows 0..5 only), so that one is capped at 5. */
     CalculateViewResult(&scoring.base,(uint16_t)c->og_mode_flag,
-        (uint16_t)c->minimum_substitutes,
+        (uint16_t)(c->minimum_substitutes>5?5:c->minimum_substitutes),
         (uint16_t)c->maximum_substitutes,0u,
         c->home,c->away,&home,&away);
     {

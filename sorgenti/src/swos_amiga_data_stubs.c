@@ -1611,9 +1611,9 @@ SWOS_CHIP_BSS IntroChipRam g_introChipRam;
  * mode as well as Amiga. Then 1310..1480, the shirt numbers: a match's 17..99, the menus' 12..99 (shirt_numbers.c);
  * 1481..1683 face 3's two sets and its menu icon (player_face3.c). */
 #if UINTPTR_MAX == 0xFFFFFFFFu
-SWOS_CHIP_BSS char _spriteGraphics[1684 * 4];          /* 1684 ptrs × 4 B (32-bit) */
+SWOS_CHIP_BSS char _spriteGraphics[1724 * 4];          /* 1704 ptrs × 4 B (32-bit); 1684..1703 = bench extra name sprites (v320) */
 #else
-SWOS_CHIP_BSS char _spriteGraphics[1684 * 8];          /* 1684 ptrs × 8 B */
+SWOS_CHIP_BSS char _spriteGraphics[1724 * 8];          /* 1704 ptrs × 8 B; 1684..1703 = bench extra name sprites (v320) */
 #endif
 /* spriteGraphicsPtr: real data in swos_amiga_data_imports.c */
 /* squadChangesAllowed: real data in swos_amiga_data_imports.c */

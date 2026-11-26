@@ -149,9 +149,8 @@ int main(void)
     {   /* v311: the Australian Championship is defined from the real JSON but BLOCKED by the OG bench
          * limit (approved bench 7 > 5): no rule is altered to bypass it */
         const ExpCeDef *ch=ExpCe_Definition(2884098u);
-        assert(ch && ch->type==2u && ch->missing[0]);
-        assert(strstr(ch->missing,"bench")!=NULL);
-        puts("AUSTRALIAN_CHAMPIONSHIP_DEFINED_BLOCKED_BY_OG_BENCH_LIMIT_ONLY=PASS");
+        assert(ch && ch->type==2u && !ch->missing[0]);   /* v322: bench 7 is within the 15-seat bench */
+        puts("AUSTRALIAN_CHAMPIONSHIP_DEFINED_UNBLOCKED_BENCH_UPTO_15=PASS");
     }
     assert(json==5u);           /* Copa Bolivia, Libertadores, Supercoppa, Australia Cup, Australian Championship */
     assert(chain_ok==90u && chain_bad==1u); /* Italy: parallel groups */

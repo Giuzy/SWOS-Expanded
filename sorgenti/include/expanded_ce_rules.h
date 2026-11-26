@@ -32,7 +32,7 @@
 
 #define EXP_CE_MAX_TIEBREAK 10u
 /* OG roster: 16 players, 11 starters -> at most 5 on the bench. */
-#define EXP_CE_OG_MAX_BENCH 5u
+#define EXP_CE_OG_MAX_BENCH 15u   /* v322: 11+15 match squad (extended bench, RG-MATCH-BENCH-EXT) */
 
 typedef enum ExpCeProvenance {
     EXP_CE_PROV_MISSING = 0,

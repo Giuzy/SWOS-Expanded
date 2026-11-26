@@ -29,6 +29,8 @@
 #include "auto_skip_debug.h"
 #include "expanded_team_mood.h"
 #include <string.h> /* memcpy: aligned snapshot of packed competition fields */
+#include "squad_extras.h"
+
 
 /* Team control type constants (matching play_match_menu.h) */
 #ifndef TEAM_COMPUTER
@@ -57,6 +59,32 @@ extern uint16_t IsPlayerInjured(PlayerFile *playerFile, int16_t mode);
 
 /* ---- Data externs (still in asm) ---- */
 extern TeamFileEx _careerTeam;
+
+/* ---- v00.13.322 QUICK with an extended bench (RG-MATCH-BENCH-EXT) --------------------------
+ * The original tables/readers see only the 16 PlayerFile records of a TeamFileEx (the manager's
+ * _careerTeam has 32). With a bench above the OG 5 the lineup is virtually extended: slots 16..25
+ * are the club's players 17.. (SquadExtras_BenchPlayer, the same order the 50 Hz nomination uses),
+ * file indices 16..29. These two helpers are the ONLY readers of that extension; every legacy path
+ * (slot < 16, index < 16) is byte-identical to before. */
+static int quickSlotFile(TeamFileEx *team,const uint8_t *playerNums,unsigned slot)
+{
+    uint16_t idx=0;
+    if(slot<16u)return (int)playerNums[slot];
+    if(team==&_careerTeam || slot>=26u)return -1;     /* the manager's own club: his 32 records are in playerNums */
+    if(!SquadExtras_BenchPlayer((uint16_t)(((uint16_t)team->team.countryNumber<<8)|team->team.teamOrdinal),
+                                (int32_t)(slot-16u),&idx) || idx<16u || idx>=32u)return -1;
+    return (int)idx;
+}
+static PlayerFile *quickRec(TeamFileEx *team,unsigned idx)
+{
+    static PlayerFile s_blank;
+    PlayerFile *r;
+    if(idx<16u || team==&_careerTeam)return &team->players[idx];
+    r=SquadExtras_BenchRecord((uint16_t)(((uint16_t)team->team.countryNumber<<8)|team->team.teamOrdinal),(uint16_t)idx);
+    if(r)return r;
+    memset(&s_blank,0,sizeof s_blank);
+    return &s_blank;
+}
 extern uint8_t    _currentMatchPlayers[32];
 extern uint16_t   _careerNumPlayers;
 extern uint16_t   _trainingGame;
@@ -403,7 +431,7 @@ static void AssignSimulatedGoalsToScorers(TeamFileEx *team, uint8_t *remapTable,
         goalCounters[(uint8_t)d6]++;
 
         /* Update player's per-stat-column goal count */
-        PlayerFile *playerRec = &team->players[(uint8_t)d6];
+        PlayerFile *playerRec = quickRec(team,(uint8_t)d6);
         uint16_t statCol = viewResultStatColumnIndex;
         playerRec->goalStats[statCol]++;
     }
@@ -452,7 +480,7 @@ static void ApplyRandomPlayerStatusAfterSim(TeamFileEx *team, uint8_t *remapTabl
         }
 
         uint16_t d2 = (uint16_t)d6;
-        PlayerFile *playerRec = &team->players[d2];
+        PlayerFile *playerRec = quickRec(team,d2);
 
         uint8_t cardsInj = playerRec->cardsInjuries;
         uint16_t d1 = cardsInj & 0x1C;  /* injury bits */
@@ -631,7 +659,7 @@ loop_start:
         }
 
         uint16_t d2 = (uint16_t)d6;
-        PlayerFile *playerRec = &team->players[d2];
+        PlayerFile *playerRec = quickRec(team,d2);
 
         /* Goalkeeper skip check */
         if (d7 == 0) {
@@ -738,10 +766,14 @@ static void BuildAvailablePlayersRemapAndMask(TeamFileEx *team, uint8_t *remapTa
         if (candidateIdx == 0) break;
 
         int16_t d2 = (int8_t)candidateIdx;
-        d2 = playerNums[d2];
+        {   /* slots >=16 (extended bench) come from the club's extra players */
+            int f2 = quickSlotFile(team,playerNums,(unsigned)d2);
+            if (f2 < 0) continue;
+            d2 = (int16_t)f2;
+        }
 
         /* Check player record */
-        PlayerFile *playerRec = &team->players[(uint16_t)d2];
+        PlayerFile *playerRec = quickRec(team,(uint16_t)d2);
 
         /* Check status bucket (bits 5-7 of cardsInjuries) - must be 0 */
         if (playerRec->cardsInjuries & 0xE0) continue;
@@ -824,6 +856,11 @@ uint16_t ComputeOldPlayerSkillForViewResult(TeamFileEx *team, uint16_t goalsCoun
         uint16_t d7 = 11;  /* start from player index 11 */
 
         for (; d3 >= 0; d3--) {
+            if (d7 >= 16 && team != &_careerTeam &&
+                quickSlotFile(team, team->team.playerNumbers, d7) < 0) {
+                d7++;           /* extended-bench seat with no real player: not counted */
+                continue;
+            }
             /* Call UpdatePlayerPositionAndReturnRole */
             uint32_t res = UpdatePlayerPositionAndReturnRole(team, d7);
             uint16_t posValue = (uint16_t)(res & 0xFFFF);       /* d0 = position value */
@@ -2168,8 +2205,11 @@ uint32_t UpdatePlayerPositionAndReturnRole(TeamFileEx *team, uint16_t playerIdx)
     int16_t slotIdx;
     if (team == &_careerTeam) {
         slotIdx = (int8_t)_currentMatchPlayers[playerIdx];
-    } else {
+    } else if (playerIdx < 16) {
         slotIdx = (int8_t)team->team.playerNumbers[playerIdx];
+    } else {
+        int f2 = quickSlotFile(team, team->team.playerNumbers, playerIdx);
+        slotIdx = f2 < 0 ? 0 : (int16_t)f2;     /* none: his value is never used (caller skips) */
     }
 
     int16_t d6 = slotIdx;  /* save slot for playerPositionsArray indexing */
@@ -2178,6 +2218,10 @@ uint32_t UpdatePlayerPositionAndReturnRole(TeamFileEx *team, uint16_t playerIdx)
     uint8_t *playerBase = (uint8_t *)team + (uint16_t)((uint16_t)slotIdx * PLAYERFILE_SIZE);
     /* Player file data starts after TeamFile header */
     PlayerFile *pf = (PlayerFile *)(playerBase + sizeof(TeamFile));
+    if (team != &_careerTeam && slotIdx >= 16) {   /* extended bench: the club's extra record */
+        pf = quickRec(team, (unsigned)slotIdx);
+        playerBase = (uint8_t *)pf - sizeof(TeamFile);
+    }
 
     /* Check playerValuesDirty in TeamFile header */
     if (team->team.playerValuesDirty == TEAM_VALUES_CLEAN) {

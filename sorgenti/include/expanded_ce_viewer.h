@@ -12,6 +12,7 @@
 #define EXPANDED_CE_VIEWER_H
 #ifdef SWOS_SDL_BUILD
 #include <stdint.h>
+#include "expanded_competition_identity.h"
 /* 1 = the CE owns the competition viewers (WORLD2627 career, CE active). */
 int ExpCeViewer_Active(void);
 /* Competitions with the JSON flag "viewer_button" (no OG slot): a country's
@@ -28,5 +29,7 @@ int ExpCeViewer_OpenRecord(const void *rec);
 int ExpCeViewer_MatchesNative(uint32_t def_id,uint8_t country,const void *rec);
 /* Opens the viewer of a competition definition (edition chosen by the CE). */
 int ExpCeViewer_OpenDefinition(uint32_t def_id);
+/* Actual native OG cup renderer for a materialised, all-KO CE button or native alias. */
+int ExpCeViewer_OpenNativeCup(ExpandedEditionKey key);
 #endif
 #endif

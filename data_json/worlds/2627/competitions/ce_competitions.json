@@ -419,7 +419,7 @@
           "country": 44,
           "type": 2,
           "source": "26/11/2026 AUSTRALIAN_CHAMPIONSHIP.json (docs/competition_research/OCEANIA/AUS/2627): 16 clubs (8 foundation + 8 regional qualifiers), 4 groups of 4 by pots (2+2), two meetings, 6 rounds, 3/2/1/0 points with penalties on drawn group matches, quarter-finals (A1-C2, B1-D2, C1-A2, D1-B2, group winner hosts), semi-finals 5 December, final 12 December (GAME_TEMPLATE_2026 dates). Bench 7 is the approved regulation: it exceeds the OG roster bench (5), so the definition is BLOCKED by validation until extended benches exist - no rule is altered to bypass the OG limit.",
-          "viewer_button": false,
+          "viewer_button": true,
           "match": {
                 "bench": 7,
                 "subs": 5,

@@ -313,7 +313,7 @@ static void cv_build_view(const ExpCeDef *d,const ExpCeEdition *ed)
     }
     {
         char s[32];
-        snprintf(s,sizeof s,"%s",ExpCe_StateName(ed->state));
+        snprintf(s,sizeof s,"%s",ed->block?"BLOCKED":ExpCe_StateName(ed->state));
         cv_add("STATUS",s,CV_COLOR_NORMAL);
         snprintf(s,sizeof s,"%u",(unsigned)ed->nentrants);
         cv_add("PARTICIPANTS",s,CV_COLOR_NORMAL);
@@ -543,6 +543,10 @@ int ExpCeViewer_OpenDefinition(uint32_t def_id)
     s_reg=ExpandedUniversal_CarRegistry();
     if(!s_reg)return 0;
     e=cv_pick_edition(def_id);
+    /* CE cup buttons and native aliases with real fixtures use the original cup menu.
+     * Mixed tournaments and non-materialised/archive views retain the
+     * existing CE reader; never fabricate a native bracket. */
+    if(e && ExpCeViewer_OpenNativeCup(e->key))return 1;
     cv_build_view(d,e);
     s_listMode=0;
     fprintf(stderr,"[ce-viewer] OPEN def=%u name=%s edition=%s lines=%u "

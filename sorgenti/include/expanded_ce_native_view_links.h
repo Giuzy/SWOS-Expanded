@@ -5,6 +5,7 @@
  * file identifies display roles only; an empty phase array is pending.
  * A phase index is never a fixture id. The original cup menu supplies
  * its six-row renderer and scrolling; no fake packed cup is created. */
+#include "expanded_ce_viewer.h"
 #include "mjson.h"
 #include "swos_io.h"
 #include <stdio.h>
@@ -259,8 +260,10 @@ static void ce_native_cup_open(ExpandedEditionKey key,uint8_t mask,
     }
     if(n>1u)qsort(rows,n,sizeof *rows,ce_native_cup_cmp);
     s_ceNativeCup.rows=rows;
-    snprintf(s_ceNativeCup.title,sizeof s_ceNativeCup.title,"%.26s %.9s %u",
-             label,role,(unsigned)ed->year);
+    if(role && *role)
+        snprintf(s_ceNativeCup.title,sizeof s_ceNativeCup.title,"%.26s %.9s %u",
+                 label,role,(unsigned)ed->year);
+    else snprintf(s_ceNativeCup.title,sizeof s_ceNativeCup.title,"%.47s",label);
     snprintf(s_ceNativeCup.status,sizeof s_ceNativeCup.status,"%s",
         !mask || ed->block || ed->state>=EXP_CE_ED_COMPLETED?
         "FIXTURE DATA UNAVAILABLE":"COMPETITION NOT STARTED - START DATE UNAVAILABLE");
@@ -268,6 +271,44 @@ static void ce_native_cup_open(ExpandedEditionKey key,uint8_t mask,
     ShowMenu(_diyCupMenu);
     s_ceNativeCup.active=0;
     free(rows);memset(&s_ceNativeCup,0,sizeof s_ceNativeCup);
+}
+/* Same original cup renderer as the phase links, without a synthetic
+ * role suffix. No sporting mutation, legacy slot or fake packed cup. */
+int ExpCeViewer_OpenNativeCup(ExpandedEditionKey key)
+{
+    const ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    const ExpCeDef *d=ExpCe_Definition(key.competition.stable_competition);
+    const ExpCeEdition *ed=ExpCe_Edition(key);
+    uint8_t mask=0;
+    uint32_t i;
+    char title[48];
+    ExpandedWorldDate expiry={0};
+    if(!ExpCeViewer_Active() || !r || !d || !ed ||
+       d->world!=key.competition.world ||
+       (!d->viewer_button && !d->viewer_native_id_plus_one) ||
+       d->type!=1u || !d->nphases || d->nphases>EXP_CE_MAX_PHASES ||
+       ed->state>=EXP_CE_ED_ARCHIVED)return 0;
+    for(i=0;i<d->nphases;++i) {
+        if(d->phases[i].kind!=EXP_CE_PHASE_KNOCKOUT)return 0;
+        mask|=(uint8_t)(1u<<i);
+    }
+    for(i=0;i<r->fixture_count;++i)
+        if(ExpandedEditionKey_Equal(r->fixtures[i].key.edition,key))break;
+    if(i==r->fixture_count)return 0;
+    if(r->recovery_required || r->fixture_count!=r->ledger.count ||
+       s_ceNativeCup.active) {
+        ce_x_error("FIXTURE DATA UNAVAILABLE");
+        return 1;
+    }
+    if(ed->expiry_day && ExpandedWorld_IndexToDate(ed->expiry_day,&expiry) &&
+       expiry.year>ed->year)
+        snprintf(title,sizeof title,"%.32s %u/%02u",d->name,
+                 (unsigned)ed->year,(unsigned)(expiry.year%100u));
+    else snprintf(title,sizeof title,"%.36s %u",d->name,(unsigned)ed->year);
+    fprintf(stderr,"[ce-viewer] NATIVE_CUP def=%u year=%u readonly=1\n",
+            (unsigned)d->id,(unsigned)ed->year);
+    ce_native_cup_open(key,mask,title,NULL);
+    return 1;
 }
 static void ce_x_pool_open(void)
 {

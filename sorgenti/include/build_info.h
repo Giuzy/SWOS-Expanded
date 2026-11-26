@@ -238,7 +238,8 @@
  * capacity, collision checks and CAR roster validation. */
 /* v317 also includes stable CPU extra-player CAR state, readonly phase links
  * and Windows Switch Pro exit sleep. Extended live bench/QUICK still pending. */
-#define SWOS_EXPANDED_VERSION "00.13.317"
+/* v00.13.318: Australia Cup and CE-only Supercoppa native OG readonly viewer; Championship list button. */
+#define SWOS_EXPANDED_VERSION "00.13.318"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

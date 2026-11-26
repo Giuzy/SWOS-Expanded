@@ -1009,7 +1009,6 @@ substitutePlayer(void)
     int16_t d7, d6;
     TeamGame *a0;
     uint16_t off7, off6;
-    int16_t i;
 
     sprPtr->injuryLevel = 0;
     sprPtr->sentAway = 0;
@@ -1034,23 +1033,8 @@ substitutePlayer(void)
     off7 = _ingameTeamPlayerOffsets[d7];
     a0 = (TeamGame *)_benchTeamGame;
 
-    /* mark leaving player as unavailable:
-     * ingameTeamPlayerOffsets[p] + 42 = start of PlayerInfo p in TeamGame;
-     * position field is at offset 4 within PlayerInfo */
-    {
-        uint8_t *tgBytes = (uint8_t *)a0;
-        tgBytes[off7 + 42 + 4] = 0xFF;  /* PlayerInfo.position = 0xFF */
-    }
-
-    /* swap player info data (61 bytes) */
-    {
-        uint8_t *tgBytes = (uint8_t *)a0;
-        for (i = 60; i >= 0; i--) {
-            uint8_t tmp = tgBytes[off6 + 42 + i];
-            tgBytes[off6 + 42 + i] = tgBytes[off7 + 42 + i];
-            tgBytes[off7 + 42 + i] = tmp;
-        }
-    }
+    /* Same full-record swap as the extended bench kernel. */
+    ExpBench_SwapPlayerRecords(piFromOffset(a0,off6),piFromOffset(a0,off7));
 
     InitializePlayerSpriteFrameIndices();
     ApplyTeamTactics((TeamGame *)_benchTeamGame);
@@ -1749,7 +1733,10 @@ skip_opponent_1:
     d2 += 4;
     d0 = _benchPlayerIndex;
     d1 -= 12;
-    d0 *= 7;
+    if (_trainingGame == 0)
+        d0 = (uint16_t)ExpBench_SeatY(0,EXP_BENCH_OG,_benchY < _opponentBenchY,d0);
+    else
+        d0 *= 7;
 
     if (_trainingGame != 0) {
         if (_subsTrainingTopTeam != 0)
@@ -1893,7 +1880,7 @@ skip_coach:
         pi += 4; /* advance by 4 more players = player 15 */
     }
 
-    for (d7 = 1; d7 < 6; d7++) {
+    for (d7 = 1; d7 <= EXP_BENCH_OG; d7++) {
         /* check if player is valid to draw */
         if (pi->skip != 0)
             goto next_player;
@@ -3020,18 +3007,8 @@ void SubstitutePlayer(void)
     uint16_t enterOff = _ingameTeamPlayerOffsets[entering];
     uint16_t leaveOff = _ingameTeamPlayerOffsets[leaving];
 
-    /* Mark leaving player's position as inactive before swap */
-    uint8_t *base = (uint8_t *)tg;
-    base[leaveOff + 46] = 0xFF;  /* PLAYERINFOHEADER_POSITION */
-
-    /* Swap 61 bytes of PlayerInfo data (offset 42 from player block start) */
-    uint8_t *pE = base + enterOff + 42;
-    uint8_t *pL = base + leaveOff + 42;
-    for (int16_t i = 0; i < 61; i++) {
-        uint8_t tmp = pE[i];
-        pE[i] = pL[i];
-        pL[i] = tmp;
-    }
+    /* Same full-record swap as the internal OG handler. */
+    ExpBench_SwapPlayerRecords(piFromOffset(tg,enterOff),piFromOffset(tg,leaveOff));
 
     InitializePlayerSpriteFrameIndices();
     ApplyTeamTactics((TeamGame *)_benchTeamGame);

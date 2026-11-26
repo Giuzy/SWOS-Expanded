@@ -232,7 +232,9 @@
 /* v00.13.314: bottom pool integrated (config + shared pool clubs, roles by CE draw), regional finals from sources, first edition from sources. */
 /* v00.13.315: long bench stage 1 (ABI-safe sidecar kernel, common OG cursor,
  * transparent art and anchored geometry); extended live activation pending. */
-#define SWOS_EXPANDED_VERSION "00.13.315"
+/* v00.13.316: common typed record swap and seat geometry wired into OG;
+ * still five native reserves; extended nomination, renderer and QUICK pending. */
+#define SWOS_EXPANDED_VERSION "00.13.316"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

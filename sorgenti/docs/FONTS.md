@@ -204,3 +204,7 @@ Verificato nel ramo `dev/0.10`:
 
 ## 26/11/2026 — Long dugout art (stage 1)
 Approved bench panel without players, arrow or grass: data/expanded/bench_long.png, 21x112 RGBA, original generated panel cropped/downsampled nearest-neighbour. Upper bench grows upward from existing lower end, lower bench downward from existing upper end; dynamic OG arrow/coach/seats must share translation. Temporary zoom out while bench open, restore on exit; runtime layering, camera, both bench positions and actual visual QA not implemented/tested. See RG-MATCH-BENCH-EXT.
+
+
+### 26/11/2026 — Dipendenza zoom e layering, audit v315
+V move_camera.c targetY449 e metà altezza aim, platform_sdl.c draw_world_and_hud presenta il solo worldSrc già renderizzato; semplice riduzione texture non mostra altro pitch. game_loop.c DrawSprites precede DrawBenchAndSubsMenu: pannello trasparente dietro gli occupanti, non overlay finale sopra i giocatori. 15 posti e ancoraggio approvati: Y304..575 per centri estremi, prima di margini; 272px nominali non bastano necessariamente, 200px DOS no. Zoom temporaneo reale o layout entro viewport da realizzare preservando camera simulata/controlli. Nessuna modifica asset, rendering o visual QA in questo audit. RG-MATCH-BENCH-EXT.

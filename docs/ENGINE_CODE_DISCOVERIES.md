@@ -2153,3 +2153,7 @@ Decisione utente 26/11: i 5 club fissi delle federazioni senza campionato giocab
 
 ## 26/11/2026 — v00.13.315 long bench stage 1
 See RG-MATCH-BENCH-EXT in REGRESSION_HISTORY_AND_DEPENDENCIES.md for source map, test and limits. ABI unchanged; common cursor still uses native 5, sidecar 10 extra records and 15-seat geometry tested in isolation only. Approved RGBA asset imported, no rendering/zoom hookup or >5 runtime activation yet. QUICK/50 Hz roster and postmatch identity, replay/name sprites and camera pending; no relaxed CE gate. Windows not tested.
+
+
+## 26/11/2026 — Audit dipendenze panchina lunga dopo v315
+V: catalogo CE CPU conserva copie TeamFileEx da 16, GetPlayerAtIndex generico rifiuta ordinal>=16; extra roster e relativa persistenza da collegare. QUICK usa tabelle candidate indicizzate da cambi/bench e skill su ordinali11+, non basta ampliare remap da 32. Nome/sprite stride16, snapshot1018 e postmatch 16 devono seguire identità sidecar. Il renderer SDL scala solo i pixel già disegnati: per lo zoom out servono nuovi pixel del mondo (o layout contenuto nel viewport con approvazione), e asset prima degli occupanti. Dettagli V/I, routine, linee, RG-T e limiti nel sottocaso RG-MATCH-BENCH-EXT. Audit documentale, v00.13.315 invariata, nessun nuovo runtime o test; Windows/GP/CAR NP.

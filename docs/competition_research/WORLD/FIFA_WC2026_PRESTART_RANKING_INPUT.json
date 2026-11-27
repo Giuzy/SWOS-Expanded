@@ -5,7 +5,7 @@
   "baselineBlob": "9d056cb948237657620015b5fc8a86ea577332b5",
   "baselineDate": "2026-06-11",
   "cutoff": "2026-07-01",
-  "dateBasis": "Official venue-local calendar date (user decision 26/11/2026). Pre-START includes matches dated through 2026-06-30 inclusive; 2026-07-01 and later excluded even if UTC dates differ. Group records ordered by group matchday; exact dates remain to verify.",
+  "dateBasis": "Official venue-local date through 2026-06-30 inclusive. Group scores verified against FIFA Training Centre; dates from independent schedule (ET) converted to venue-local date, three midnight ET exceptions confirmed by FIFA official schedule.",
   "sources": [
     "https://www.fifatrainingcentre.com/en/fifa-world-cup-2026/match-report-hub.php",
     "https://www.fifatrainingcentre.com/en/fifa-world-cup-2026/match-report-hub-knockout-stage.php",
@@ -13,14 +13,16 @@
     "https://wc26.warren-rice.com/en/schedule/",
     "https://www.11v11.com/competitions/international-friendly/2026/matches/",
     "https://football-ranking.com/fifa-world-matchs?period=11+June+2026&tournament=",
-    "https://football-ranking.com/fifa-world-matchs?period=20+July+2026&tournament="
+    "https://football-ranking.com/fifa-world-matchs?period=20+July+2026&tournament=",
+    "https://worldcupstats.football/schedule/",
+    "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums"
   ],
   "limitations": [
-    "Group rows are ranking inputs, not CE fixture seeds; exact local dates need separate fixture verification.",
+    "Group rows are ranking inputs, not active CE fixtures; 72 venue-local dates now populated, independent schedule and three FIFA midnight corrections. Complete official date-by-date crosscheck not yet performed.",
     "79 World Cup matches by approved venue-local cutoff; match 79 is 30 June local and included although 1 July UTC.",
     "Two secondary sources corroborate no extra A matches identified after 11 June publication through June 30: 11v11 June friendlies end June 10 local, football-ranking lists last three in previous period. Official exhaustive ledger and exact publication boundary not independently certified; no extras applied.",
     "Published baseline rounded; projection is not official FIFA ranking or actual runtime seed.",
-    "External nation codes pending mapping. No import of future results or OG execution."
+    "All 211 external codes match current packed NATIONAL identities (v348 static crosscheck); not runtime seed."
   ],
   "matches": [
     {
@@ -33,7 +35,8 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-11"
     },
     {
       "id": "WC2026-GA-2",
@@ -45,7 +48,8 @@
       "homeGoals": 2,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-11"
     },
     {
       "id": "WC2026-GA-3",
@@ -57,7 +61,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-18"
     },
     {
       "id": "WC2026-GA-4",
@@ -69,7 +74,8 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-18"
     },
     {
       "id": "WC2026-GA-5",
@@ -81,7 +87,8 @@
       "homeGoals": 0,
       "awayGoals": 3,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-24"
     },
     {
       "id": "WC2026-GA-6",
@@ -93,7 +100,8 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-24"
     },
     {
       "id": "WC2026-GB-1",
@@ -105,7 +113,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-12"
     },
     {
       "id": "WC2026-GB-2",
@@ -117,7 +126,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-13"
     },
     {
       "id": "WC2026-GB-3",
@@ -129,7 +139,8 @@
       "homeGoals": 4,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-18"
     },
     {
       "id": "WC2026-GB-4",
@@ -141,7 +152,8 @@
       "homeGoals": 6,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-18"
     },
     {
       "id": "WC2026-GB-5",
@@ -153,7 +165,8 @@
       "homeGoals": 2,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-24"
     },
     {
       "id": "WC2026-GB-6",
@@ -165,7 +178,8 @@
       "homeGoals": 3,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-24"
     },
     {
       "id": "WC2026-GC-1",
@@ -177,7 +191,8 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-13"
     },
     {
       "id": "WC2026-GC-2",
@@ -189,7 +204,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-13"
     },
     {
       "id": "WC2026-GC-3",
@@ -201,7 +217,8 @@
       "homeGoals": 3,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-19"
     },
     {
       "id": "WC2026-GC-4",
@@ -213,7 +230,8 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-19"
     },
     {
       "id": "WC2026-GC-5",
@@ -225,7 +243,8 @@
       "homeGoals": 0,
       "awayGoals": 3,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-24"
     },
     {
       "id": "WC2026-GC-6",
@@ -237,7 +256,8 @@
       "homeGoals": 4,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-24"
     },
     {
       "id": "WC2026-GD-1",
@@ -249,7 +269,8 @@
       "homeGoals": 4,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-12"
     },
     {
       "id": "WC2026-GD-2",
@@ -261,7 +282,8 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-13"
     },
     {
       "id": "WC2026-GD-3",
@@ -273,7 +295,8 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-19"
     },
     {
       "id": "WC2026-GD-4",
@@ -285,7 +308,8 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-19"
     },
     {
       "id": "WC2026-GD-5",
@@ -297,7 +321,8 @@
       "homeGoals": 3,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-25"
     },
     {
       "id": "WC2026-GD-6",
@@ -309,7 +334,8 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-25"
     },
     {
       "id": "WC2026-GE-1",
@@ -321,7 +347,8 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-14"
     },
     {
       "id": "WC2026-GE-2",
@@ -333,7 +360,8 @@
       "homeGoals": 7,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-14"
     },
     {
       "id": "WC2026-GE-3",
@@ -345,7 +373,8 @@
       "homeGoals": 2,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-20"
     },
     {
       "id": "WC2026-GE-4",
@@ -357,7 +386,8 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-20"
     },
     {
       "id": "WC2026-GE-5",
@@ -369,7 +399,8 @@
       "homeGoals": 0,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-25"
     },
     {
       "id": "WC2026-GE-6",
@@ -381,7 +412,8 @@
       "homeGoals": 2,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-25"
     },
     {
       "id": "WC2026-GF-1",
@@ -393,7 +425,8 @@
       "homeGoals": 2,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-14"
     },
     {
       "id": "WC2026-GF-2",
@@ -405,7 +438,8 @@
       "homeGoals": 5,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-14"
     },
     {
       "id": "WC2026-GF-3",
@@ -417,7 +451,8 @@
       "homeGoals": 5,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-20"
     },
     {
       "id": "WC2026-GF-4",
@@ -429,7 +464,8 @@
       "homeGoals": 0,
       "awayGoals": 4,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-20"
     },
     {
       "id": "WC2026-GF-5",
@@ -441,7 +477,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-25"
     },
     {
       "id": "WC2026-GF-6",
@@ -453,7 +490,8 @@
       "homeGoals": 1,
       "awayGoals": 3,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-25"
     },
     {
       "id": "WC2026-GG-1",
@@ -465,7 +503,8 @@
       "homeGoals": 2,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-15"
     },
     {
       "id": "WC2026-GG-2",
@@ -477,7 +516,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-15"
     },
     {
       "id": "WC2026-GG-3",
@@ -489,7 +529,8 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-21"
     },
     {
       "id": "WC2026-GG-4",
@@ -501,7 +542,8 @@
       "homeGoals": 1,
       "awayGoals": 3,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-21"
     },
     {
       "id": "WC2026-GG-5",
@@ -513,7 +555,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-26"
     },
     {
       "id": "WC2026-GG-6",
@@ -525,7 +568,8 @@
       "homeGoals": 1,
       "awayGoals": 5,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-26"
     },
     {
       "id": "WC2026-GH-1",
@@ -537,7 +581,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-15"
     },
     {
       "id": "WC2026-GH-2",
@@ -549,7 +594,8 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-15"
     },
     {
       "id": "WC2026-GH-3",
@@ -561,7 +607,8 @@
       "homeGoals": 2,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-21"
     },
     {
       "id": "WC2026-GH-4",
@@ -573,7 +620,8 @@
       "homeGoals": 4,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-21"
     },
     {
       "id": "WC2026-GH-5",
@@ -585,7 +633,8 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-26"
     },
     {
       "id": "WC2026-GH-6",
@@ -597,7 +646,8 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-26"
     },
     {
       "id": "WC2026-GI-1",
@@ -609,7 +659,8 @@
       "homeGoals": 3,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-16"
     },
     {
       "id": "WC2026-GI-2",
@@ -621,7 +672,8 @@
       "homeGoals": 1,
       "awayGoals": 4,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-16"
     },
     {
       "id": "WC2026-GI-3",
@@ -633,7 +685,8 @@
       "homeGoals": 3,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-22"
     },
     {
       "id": "WC2026-GI-4",
@@ -645,7 +698,8 @@
       "homeGoals": 3,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-22"
     },
     {
       "id": "WC2026-GI-5",
@@ -657,7 +711,8 @@
       "homeGoals": 1,
       "awayGoals": 4,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-26"
     },
     {
       "id": "WC2026-GI-6",
@@ -669,7 +724,8 @@
       "homeGoals": 5,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-26"
     },
     {
       "id": "WC2026-GJ-1",
@@ -681,7 +737,8 @@
       "homeGoals": 3,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-16"
     },
     {
       "id": "WC2026-GJ-2",
@@ -693,7 +750,8 @@
       "homeGoals": 3,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-16"
     },
     {
       "id": "WC2026-GJ-3",
@@ -705,7 +763,8 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-22"
     },
     {
       "id": "WC2026-GJ-4",
@@ -717,7 +776,8 @@
       "homeGoals": 1,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-22"
     },
     {
       "id": "WC2026-GJ-5",
@@ -729,7 +789,8 @@
       "homeGoals": 3,
       "awayGoals": 3,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-27"
     },
     {
       "id": "WC2026-GJ-6",
@@ -741,7 +802,8 @@
       "homeGoals": 1,
       "awayGoals": 3,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-27"
     },
     {
       "id": "WC2026-GK-1",
@@ -753,7 +815,8 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-17"
     },
     {
       "id": "WC2026-GK-2",
@@ -765,7 +828,8 @@
       "homeGoals": 1,
       "awayGoals": 3,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-17"
     },
     {
       "id": "WC2026-GK-3",
@@ -777,7 +841,8 @@
       "homeGoals": 5,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-23"
     },
     {
       "id": "WC2026-GK-4",
@@ -789,7 +854,8 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-23"
     },
     {
       "id": "WC2026-GK-5",
@@ -801,7 +867,8 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-27"
     },
     {
       "id": "WC2026-GK-6",
@@ -813,7 +880,8 @@
       "homeGoals": 3,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-27"
     },
     {
       "id": "WC2026-GL-1",
@@ -825,7 +893,8 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-17"
     },
     {
       "id": "WC2026-GL-2",
@@ -837,7 +906,8 @@
       "homeGoals": 4,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-17"
     },
     {
       "id": "WC2026-GL-3",
@@ -849,7 +919,8 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-23"
     },
     {
       "id": "WC2026-GL-4",
@@ -861,7 +932,8 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-23"
     },
     {
       "id": "WC2026-GL-5",
@@ -873,7 +945,8 @@
       "homeGoals": 0,
       "awayGoals": 2,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-27"
     },
     {
       "id": "WC2026-GL-6",
@@ -885,7 +958,8 @@
       "homeGoals": 2,
       "awayGoals": 1,
       "importance": 50,
-      "protect": false
+      "protect": false,
+      "venueLocalDate": "2026-06-27"
     },
     {
       "id": "WC2026-73",
@@ -2050,6 +2124,150 @@
       "Next ranking period has World Cup matches and Vietnam–Myanmar friendly on 18 July outside cutoff; no additional June A friendly identified in consulted sources.",
       "Filtered friendly view cache miss; no FIFA exhaustive official match ledger retrieved. Keep status provisional. No new results or points imported."
     ],
-    "extraMatchesImported": 0
+    "extraMatchesImported": 0,
+    "filteredFriendlyCheck": {
+      "source": "https://football-ranking.com/fifa_world_matchs?period=20+July+2026&tournament=Friendly+International",
+      "checked": "2026-11-27",
+      "result": "Filtered page opens but has empty match table even though previous unfiltered source lists July friendly; absence is not reliable evidence. Official exhaustive ledger remains missing."
+    }
+  },
+  "dateAudit": {
+    "checked": "2026-11-27",
+    "groupScoresMatched": 72,
+    "groupDatesPopulated": 72,
+    "allDatesPopulated": 79,
+    "perNationMatchOrderPreserved": 211,
+    "midnightETCorrections": [
+      "AUS-TUR June 13",
+      "AUT-JOR June 16",
+      "TUN-JPN June 20"
+    ],
+    "status": "DATES_CORROBORATED_NOT_FULL_OFFICIAL_LEDGER"
+  },
+  "cutoffSnapshotAudit": {
+    "checked": "2026-11-27",
+    "target": "2026-07-01 pre-START, after all 30 June venue-local fixtures",
+    "status": "PARTIAL_DATED_SNAPSHOT_CORROBORATION",
+    "officialReleaseDates": [
+      "2026-06-11",
+      "2026-07-20"
+    ],
+    "officialSource": "https://inside.fifa.com/fifa-rankings/world-ranking/men/news/argentina-reclaim-top-spot-mens-world-ranking-fifa-coca-cola",
+    "archiveSource": "https://footballrankingsarchive.com/faq/",
+    "archiveLimit": "Published official releases only, no archived provisional live ranks.",
+    "datedEvidence": [
+      {
+        "url": "https://news-tunisia.tunisienumerique.com/fifa-ranking-tunisia-suffers-sharp-drop-after-world-cup-setback/",
+        "publication": "2026-07-01",
+        "ranks": {
+          "FRA": 1,
+          "ARG": 2,
+          "ESP": 3,
+          "TUN": 57
+        },
+        "points": {
+          "TUN": 1426.58
+        }
+      },
+      {
+        "url": "https://cornerflick.com/football/news/tunisia-suffer-biggest-fifa-ranking-slide-after-group-stage",
+        "publication": "2026-07-01",
+        "ranks": {
+          "TUN": 57,
+          "PAN": 44,
+          "UZB": 60,
+          "JOR": 73,
+          "CZE": 48,
+          "KOR": 32,
+          "IRQ": 63,
+          "TUR": 27,
+          "HAI": 88
+        }
+      }
+    ],
+    "comparison": [
+      {
+        "code": "FRA",
+        "projectedRank": 1,
+        "reportedRank": 1,
+        "projectedPoints": 1916.2439443001103
+      },
+      {
+        "code": "ARG",
+        "projectedRank": 2,
+        "reportedRank": 2,
+        "projectedPoints": 1907.4075621726547
+      },
+      {
+        "code": "ESP",
+        "projectedRank": 3,
+        "reportedRank": 3,
+        "projectedPoints": 1879.5826895566154
+      },
+      {
+        "code": "TUR",
+        "projectedRank": 27,
+        "reportedRank": 27,
+        "projectedPoints": 1582.543653046187
+      },
+      {
+        "code": "KOR",
+        "projectedRank": 32,
+        "reportedRank": 32,
+        "projectedPoints": 1558.7187747813743
+      },
+      {
+        "code": "PAN",
+        "projectedRank": 44,
+        "reportedRank": 44,
+        "projectedPoints": 1478.4155551923366
+      },
+      {
+        "code": "CZE",
+        "projectedRank": 48,
+        "reportedRank": 48,
+        "projectedPoints": 1467.2620149184959
+      },
+      {
+        "code": "TUN",
+        "projectedRank": 57,
+        "reportedRank": 57,
+        "projectedPoints": 1426.5885912888089,
+        "reportedPoints": 1426.58
+      },
+      {
+        "code": "UZB",
+        "projectedRank": 60,
+        "reportedRank": 60,
+        "projectedPoints": 1409.7260754016404
+      },
+      {
+        "code": "IRQ",
+        "projectedRank": 63,
+        "reportedRank": 63,
+        "projectedPoints": 1404.1733536474014
+      },
+      {
+        "code": "JOR",
+        "projectedRank": 73,
+        "reportedRank": 73,
+        "projectedPoints": 1350.4132666028283
+      },
+      {
+        "code": "HAI",
+        "projectedRank": 88,
+        "reportedRank": 88,
+        "projectedPoints": 1264.581620919226
+      }
+    ],
+    "limits": "12 distinct ranks agree, one point comparison 0.01 displayed difference. Dated articles are secondary and independence not proven; no full 211-row live snapshot recovered, no official 1 July release. Do not import 20 July or replace projected values on this evidence. User asks prioritize direct 1 July snapshot, not baseline search."
+  },
+  "gameSeedApproval": {
+    "date": "2026-11-27",
+    "scope": "WORLD_2627 initial FIFA seed at 2026-07-01 before START",
+    "status": "USER_ACCEPTED_APPROXIMATE_RECONSTRUCTION_FOR_GAMEPLAY",
+    "decision": "User accepted the reconstructed 211-row ranking with 12/12 July 1 rank checks and 0.01 displayed discrepancy for Tunisia. Preserve raw precision and source status; do not claim an official full July 1 snapshot.",
+    "runtime": "NOT_LOADED_OR_ACTIVATED",
+    "limitations": "No exhaustive official ledger; no future results; use accepted projection as initial seed only, subsequent points computed by CE from played OG results."
   }
 }

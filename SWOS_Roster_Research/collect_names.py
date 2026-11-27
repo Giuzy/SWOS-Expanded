@@ -25,6 +25,44 @@ def write_json(path, data):
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
     tmp.replace(path)
 
+def update_changed(mapping, **fields):
+    changed = False
+    for key, value in fields.items():
+        if key not in mapping or mapping[key] != value:
+            mapping[key] = value
+            changed = True
+    return changed
+
+class Checkpoint:
+    """Avoid encoding, reading or replacing the full matrix on no-op steps."""
+    def __init__(self, path, data, expected):
+        self.path, self.data, self.expected = path, data, expected
+        self.dirty = False
+
+    def update(self, mapping, **fields):
+        if update_changed(mapping, **fields):
+            self.dirty = True
+
+    def ensure(self, mapping, key, default):
+        if key not in mapping:
+            self.dirty = True
+            mapping[key] = default
+        return mapping[key]
+
+    def append(self, seq, value):
+        self.dirty = True
+        seq.append(value)
+
+    def save(self):
+        if not self.dirty:
+            return False
+        if self.path.read_bytes() != self.expected:
+            raise RuntimeError("Concurrent matrix change")
+        write_json(self.path, self.data)
+        self.expected = self.path.read_bytes()
+        self.dirty = False
+        return True
+
 def chunks(items, size):
     for i in range(0, len(items), size):
         yield items[i:i+size]
@@ -135,8 +173,7 @@ def merge_players(club,rows,known):
     for p in rows:
         if p.get("playerLabel") and p.get("start") and p["start"]<=CUTOFF and (not p.get("end") or p["end"]>CUTOFF):
             if norm(p["playerLabel"]) not in known:saved.setdefault(p["player"],p)
-    club["players"]=list(saved.values())
-    club["status"]="P" if saved else "NO DATA"
+    return update_changed(club, players=list(saved.values()), status="P" if saved else "NO DATA")
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--self-test",action="store_true")
@@ -145,27 +182,48 @@ def main():
     assert placeholder("TEST 1") and placeholder("RESERVE 2") and not placeholder("A B")
     assert "P2094 ?class" in league_query(["BHU"])
     c={};sample={"player":"Q1","playerLabel":"Real Name","start":"2026-01-01"}
-    merge_players(c,[sample,sample],set());assert len(c["players"])==1
-    merge_players(c,[],set());assert c["status"]=="P"
-    if args.self_test:print("Self-test PASS");return
+    assert merge_players(c,[sample,sample],set()) and len(c["players"])==1
+    assert not merge_players(c,[sample,sample],set())
+    assert not merge_players(c,[],set()) and c["status"]=="P"
+    if args.self_test:
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as folder:
+            testpath=Path(folder)/"candidates.json"
+            data={"players":[sample],"status":"P"}
+            write_json(testpath,data)
+            before=testpath.read_bytes()
+            cp=Checkpoint(testpath,data,before)
+            cp.update(data,status="P")
+            assert not cp.save() and testpath.read_bytes()==before
+            cp.update(data,status="NEW")
+            assert cp.save() and json.loads(testpath.read_bytes())["status"]=="NEW"
+            assert not cp.save()
+            cp.update(data,status="NEXT")
+            testpath.write_bytes(before)
+            try:
+                cp.save()
+            except RuntimeError:
+                assert testpath.read_bytes()==before
+            else:
+                raise AssertionError("Concurrent modification not detected")
+        print("Self-test PASS");return
     root=args.repo_root.resolve();raw=(root/MAP).read_bytes();national=json.loads(raw)["records"]
     targets=[dict(fifa=r["fifa"],name=r["source"]["name"],new=r["expanded"]["globalNumber"]>=2560) for r in national if r["source"]["team_file"]==255]
     targets.sort(key=lambda r:(not r["new"],r["fifa"]))
     index=existing_index(root);path=OUT/"candidates.json";CACHE.mkdir(parents=True,exist_ok=True)
-    results=json.loads(path.read_text(encoding="utf-8-sig"))
-    results["status"]="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME";results["map_sha256"]=hashlib.sha256(raw).hexdigest();results["errors"]=[]
-    results.setdefault("existing_club_gaps",{})
+    expected=path.read_bytes()
+    results=json.loads(expected.decode("utf-8-sig"))
+    cp=Checkpoint(path,results,expected)
+    cp.update(results,status="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",map_sha256=hashlib.sha256(raw).hexdigest(),errors=[])
+    cp.ensure(results,"existing_club_gaps",{})
     bycode={x["fifa"]:x for x in results["targets"]}
-    for t in targets:bycode.setdefault(t["fifa"],dict(t,leagues=[],status="NO DATA"))
-    results["targets"]=list(bycode.values());expected=path.read_bytes()
-    def save():
-        nonlocal expected
-        if path.read_bytes()!=expected:raise RuntimeError("Concurrent matrix change")
-        write_json(path,results);expected=path.read_bytes()
+    for t in targets:cp.ensure(bycode,t["fifa"],dict(t,leagues=[],status="NO DATA"))
+    cp.update(results,targets=list(bycode.values()))
+    save=cp.save
     def run(q,phase):
         print(phase,flush=True)
         try:return query(q)
-        except Exception as e:results["errors"].append({"phase":phase,"error":str(e)});save();return []
+        except Exception as e:cp.append(results["errors"],{"phase":phase,"error":str(e)});save();return []
     rawmap={}
     for r in national:
         f=r["source"]["team_file"]
@@ -178,14 +236,14 @@ def main():
             known[uid]=v["players"]
             if len(v["players"])>=30 and not v["test_slots"]:continue
             cs=rawmap.get(v["country"],set()) if not v["file"].startswith("GUESTS_") else set()
-            e=gaps.setdefault(uid,{"name":v["name"],"file":v["file"],"players":[],"status":"NO DATA","identity_candidates":[]})
-            e.update(real_names=len(v["players"]),test_slots=v["test_slots"],extra_count=v["extra_count"],capacity_gap=max(0,30-len(v["players"])),association=next(iter(cs)) if len(cs)==1 else None)
+            e=cp.ensure(gaps,uid,{"name":v["name"],"file":v["file"],"players":[],"status":"NO DATA","identity_candidates":[]})
+            cp.update(e,real_names=len(v["players"]),test_slots=v["test_slots"],extra_count=v["extra_count"],capacity_gap=max(0,30-len(v["players"])),association=next(iter(cs)) if len(cs)==1 else None)
     pool=root/"data_json/worlds/2627/competitions/bottom_pools.json"
     if pool.exists():
         for c in json.loads(pool.read_text(encoding="utf-8-sig")).get("clubs",[]):
             if c.get("administrative_test") or c.get("roster",{}).get("template")!="TEST_ZERO":continue
             key="pool:"+str(c["key"]);cs=rawmap.get(c.get("country"),set());known[key]=set()
-            gaps.setdefault(key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
+            cp.ensure(gaps,key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
     save()
     try:
         for t in targets:
@@ -193,8 +251,8 @@ def main():
             if c.get("leagues"):continue
             for r in run(league_query([t["fifa"]]),"League "+t["fifa"]):
                 if r.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
-                if not any(x["league"]==r["league"] for x in c["leagues"]):c["leagues"].append(dict(r,seasons=[]))
-            c["status"]="P" if c["leagues"] else "NO DATA";save()
+                if not any(x["league"]==r["league"] for x in c["leagues"]):cp.append(c["leagues"],dict(r,seasons=[]))
+            cp.update(c,status="P" if c["leagues"] else "NO DATA");save()
         byleague={}
         for t in results["targets"]:
             for l in t["leagues"]:
@@ -204,8 +262,8 @@ def main():
                 for l in ls:
                     s=next((s for s in l["seasons"] if s["season"]==r["season"]),None)
                     if s is None:
-                        s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];l["seasons"].append(s)
-                    if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):s["clubs"].append({"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"})
+                        s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];cp.append(l["seasons"],s)
+                    if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"})
             save()
         byclub={}
         for t in results["targets"]:
@@ -216,13 +274,14 @@ def main():
         for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
             if uid not in known or not e.get("association"):continue
             if not e.get("identity_candidates"):
-                e["identity_candidates"]=sorted({r["club"] for r in run(existing_query(e["association"],e["name"]),"Club "+e["name"])});save()
+                cp.update(e,identity_candidates=sorted({r["club"] for r in run(existing_query(e["association"],e["name"]),"Club "+e["name"])}));save()
             qs=e["identity_candidates"]
             if len(qs)==1:byclub.setdefault(qs[0],[]).append((e,known[uid]))
         for group in chunks(sorted(byclub),5):
             rr=run(players_query(group),"Players "+",".join(qid(q) for q in group))
             for q in group:
-                for c,k in byclub[q]:merge_players(c,[r for r in rr if qid(r["club"])==qid(q)],k)
+                for c,k in byclub[q]:
+                    if merge_players(c,[r for r in rr if qid(r["club"])==qid(q)],k):cp.dirty=True
             save()
     finally:save()
     print("Canonical nominal matrix updated. NO DATA unresolved; P candidates; runtime unchanged. Errors:",len(results["errors"]))

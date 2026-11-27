@@ -1,0 +1,6836 @@
+{
+  "schema": "research-uefa-ranking-db-reverse-audit-v1",
+  "world": 2627,
+  "baseCommit": "a08874920dd2b74c6cc1d1b26ad8c878d351ddc1",
+  "rankingMapBlob": "4846060f9d75ecd358090c16b49c3d8e8f9e7f46",
+  "status": "COMPLETE_REVERSE_SOURCE_INVENTORY_ACTIVITY_AND_COEFFICIENT_CERTIFICATION_PARTIAL",
+  "scope": "55 UEFA association catalog files plus five separately stored pool files from identity map; raw TEAM source records, not independent sporting eligibility or runtime registration. Do not seed missing coefficients as zero.",
+  "files": [
+    {
+      "association": "ENG",
+      "file": "data_json/worlds/2627/teams/ENGLAND.json",
+      "sha": "b8fe8901e16defbd79bd8e0523f01c2ceba68024",
+      "records": 92,
+      "mappedRankingRows": [
+        4,
+        6,
+        7,
+        12,
+        17,
+        19,
+        21,
+        28,
+        73,
+        85,
+        86,
+        87,
+        88
+      ],
+      "unmappedRawRecords": [
+        [
+          8,
+          5,
+          "BOURNEMOUTH",
+          "d4e290c4-dc8f-5229-bca2-59b5a54e1205"
+        ],
+        [
+          8,
+          6,
+          "SUNDERLAND",
+          "b6457f0e-7a7d-5025-8b11-932c41246d50"
+        ],
+        [
+          8,
+          8,
+          "BRENTFORD",
+          "5b116dac-7832-52f0-81b9-53bddb0a4ad4"
+        ],
+        [
+          8,
+          10,
+          "FULHAM",
+          "dc0c8f71-542d-520a-92fb-18ae331a42b4"
+        ],
+        [
+          8,
+          12,
+          "EVERTON",
+          "34a34b85-17fd-58ba-96c5-877db99703b6"
+        ],
+        [
+          8,
+          13,
+          "LEEDS UNITED",
+          "f5d62a3c-7a7a-58d2-ba4d-7f88bd447c66"
+        ],
+        [
+          8,
+          17,
+          "COVENTRY CITY",
+          "41308e0d-fcd5-5d92-8346-6edd7c19886e"
+        ],
+        [
+          8,
+          18,
+          "IPSWICH TOWN",
+          "a49a66b3-d9f8-5ead-b970-63bfc02ad887"
+        ],
+        [
+          8,
+          19,
+          "HULL CITY",
+          "6e5ee641-a33d-58f6-8933-7809b9a99b65"
+        ],
+        [
+          8,
+          20,
+          "MILLWALL",
+          "a4289455-91cf-5922-aca3-85844d9164d7"
+        ],
+        [
+          8,
+          21,
+          "SOUTHAMPTON",
+          "a91a9c04-fed1-5fb5-bbd6-6fb43948c1c5"
+        ],
+        [
+          8,
+          22,
+          "MIDDLESBROUGH",
+          "f7077daa-fa59-5f8f-883a-dc85875c9af4"
+        ],
+        [
+          8,
+          23,
+          "WREXHAM",
+          "f99ec747-f622-5b8b-9844-0098181ec8a4"
+        ],
+        [
+          8,
+          24,
+          "DERBY COUNTY",
+          "8cfb80f2-bfae-5067-9c0f-81f0e71883ad"
+        ],
+        [
+          8,
+          25,
+          "NORWICH CITY",
+          "360d05ae-983a-51fc-802a-929f5eec201b"
+        ],
+        [
+          8,
+          26,
+          "BIRMINGHAM CITY",
+          "7486f0df-6178-5225-bd6e-03262f086b6e"
+        ],
+        [
+          8,
+          27,
+          "SWANSEA CITY",
+          "b4beff15-9751-523a-a71b-54eee1a4229f"
+        ],
+        [
+          8,
+          28,
+          "BRISTOL CITY",
+          "3c7fd32a-ab5d-571f-8cf7-f5c653827475"
+        ],
+        [
+          8,
+          29,
+          "SHEFFIELD UNITED",
+          "50697f2d-ac64-5307-96c0-3dc918bab7f6"
+        ],
+        [
+          8,
+          30,
+          "PRESTON",
+          "7c450346-12d2-52cd-bb7d-9342bc6134ae"
+        ],
+        [
+          8,
+          31,
+          "QPR",
+          "15cc791a-8b75-5af1-8442-fc283f11849b"
+        ],
+        [
+          8,
+          32,
+          "WATFORD",
+          "1b1dc856-9d05-5f90-86d8-d824f9a91236"
+        ],
+        [
+          8,
+          33,
+          "STOKE CITY",
+          "c2e11dfb-efa4-5680-974a-15dd28f60fb2"
+        ],
+        [
+          8,
+          34,
+          "PORTSMOUTH",
+          "dfd73d0e-8ca8-5c3e-a837-e5091c2575da"
+        ],
+        [
+          8,
+          35,
+          "CHARLTON",
+          "8086a5ec-af61-52f5-ab68-6a035311dbb4"
+        ],
+        [
+          8,
+          36,
+          "BLACKBURN ROVERS",
+          "223edf74-fb31-5c96-a799-6787f18f48b7"
+        ],
+        [
+          8,
+          37,
+          "WEST BROM",
+          "3395db16-1c24-5193-8b06-1531b5b8dea4"
+        ],
+        [
+          8,
+          39,
+          "BURNLEY",
+          "4a1490e9-19de-5d8d-9618-5e3ed9c076cd"
+        ],
+        [
+          8,
+          40,
+          "WOLVES",
+          "5f8fd902-f566-50a4-b209-b170079d8263"
+        ],
+        [
+          8,
+          41,
+          "LINCOLN CITY",
+          "5ff0ffa8-716e-5933-9bd8-48d34c1b2575"
+        ],
+        [
+          8,
+          42,
+          "CARDIFF CITY",
+          "5ee234d9-f519-509f-a08e-dfc76f6683fb"
+        ],
+        [
+          8,
+          43,
+          "BOLTON WANDERERS",
+          "6cca91aa-18e1-5e2e-9d11-016e3e65486e"
+        ],
+        [
+          8,
+          44,
+          "STOCKPORT COUNTY",
+          "3253e994-9a13-55e9-94b2-94de0eff7ca3"
+        ],
+        [
+          8,
+          45,
+          "BRADFORD CITY",
+          "474174e0-a3db-59f0-ba6a-cf8b20cce215"
+        ],
+        [
+          8,
+          46,
+          "STEVENAGE",
+          "691702f5-8834-5f7b-899b-b0acec0a4497"
+        ],
+        [
+          8,
+          47,
+          "LUTON TOWN",
+          "0bf03f1c-8255-5345-8b66-f4877e0db469"
+        ],
+        [
+          8,
+          48,
+          "PLYMOUTH ARGYLE",
+          "377ec545-c59b-504d-922a-23b3a628673d"
+        ],
+        [
+          8,
+          49,
+          "HUDDERSFIELD",
+          "861b4ac2-6a08-5734-96b9-69aceb7c81d3"
+        ],
+        [
+          8,
+          50,
+          "MANSFIELD TOWN",
+          "978342aa-d703-56af-a71b-0ffd839715a4"
+        ],
+        [
+          8,
+          51,
+          "WYCOMBE",
+          "0e9dccc1-9136-5ea8-8961-3a61333ee678"
+        ],
+        [
+          8,
+          52,
+          "READING",
+          "660db6cd-9891-533d-a165-61fff2bb3251"
+        ],
+        [
+          8,
+          53,
+          "BLACKPOOL",
+          "4919677b-f512-5398-829b-09dc9c76aaf1"
+        ],
+        [
+          8,
+          54,
+          "DONCASTER ROVERS",
+          "dc8bd7b4-0ced-53e7-b86f-0d7cd477f6fe"
+        ],
+        [
+          8,
+          55,
+          "BARNSLEY",
+          "98986d6d-0644-597d-96bd-89d4ffb571c6"
+        ],
+        [
+          8,
+          56,
+          "WIGAN",
+          "1e61572f-519d-5a4f-b0ff-985f9b048a5a"
+        ],
+        [
+          8,
+          57,
+          "BURTON ALBION",
+          "751de27c-caa3-5faf-a610-e17a4077d686"
+        ],
+        [
+          8,
+          58,
+          "PETERBOROUGH",
+          "62c73aa7-5cb7-5cb8-9dd3-3d9be04e03d9"
+        ],
+        [
+          8,
+          59,
+          "WIMBLEDON",
+          "25982459-3232-56ff-a1d8-1b43f903a770"
+        ],
+        [
+          8,
+          60,
+          "LEYTON ORIENT",
+          "b8fd55a4-2edd-5761-b845-53a063c1cd1a"
+        ],
+        [
+          8,
+          61,
+          "OXFORD UNITED",
+          "cad344de-de59-50c3-906c-bea90525e1cb"
+        ],
+        [
+          8,
+          63,
+          "SHEFF WED",
+          "e75a61d9-3ab3-5489-a118-fb12c8468518"
+        ],
+        [
+          8,
+          64,
+          "BROMLEY",
+          "47350835-70a8-5e97-aa1c-4af167794d96"
+        ],
+        [
+          8,
+          65,
+          "MK DONS",
+          "b9f1c762-36cb-5adb-a9fe-665287f23e54"
+        ],
+        [
+          8,
+          66,
+          "CAMBRIDGE UNITED",
+          "4d886196-d9cb-5174-906d-700660c47d37"
+        ],
+        [
+          8,
+          67,
+          "NOTTS COUNTY",
+          "0ffcb416-c28e-5893-aa12-8864e4bc217f"
+        ],
+        [
+          8,
+          68,
+          "SALFORD CITY",
+          "db83a49d-9643-5298-9bd4-3d93bd3e3c8e"
+        ],
+        [
+          8,
+          69,
+          "CHESTERFIELD",
+          "7264230a-a716-5307-a004-0f509c888268"
+        ],
+        [
+          8,
+          70,
+          "GRIMSBY TOWN",
+          "dd06458a-e647-5c6f-b671-99e22618c366"
+        ],
+        [
+          8,
+          71,
+          "BARNET",
+          "a7794e3b-4b7c-56c6-93bb-a277ae6763fc"
+        ],
+        [
+          8,
+          72,
+          "SWINDON TOWN",
+          "0c019763-5e57-5507-8c15-680589c9ed72"
+        ],
+        [
+          8,
+          73,
+          "OLDHAM",
+          "51eaf27a-81c7-51da-808b-3abe5aa07ba2"
+        ],
+        [
+          8,
+          74,
+          "CREWE ALEXANDRA",
+          "9a9d5aa7-a29e-5e66-b0e3-0312a1d7ebee"
+        ],
+        [
+          8,
+          75,
+          "COLCHESTER UTD.",
+          "4bf9fa87-e851-547f-a1af-ce992db39fa6"
+        ],
+        [
+          8,
+          76,
+          "WALSALL",
+          "10259b8f-1969-54d2-aea2-03b170f39b90"
+        ],
+        [
+          8,
+          77,
+          "BRISTOL ROVERS",
+          "2f48aaba-abae-5ec2-9604-a629c057a89a"
+        ],
+        [
+          8,
+          78,
+          "FLEETWOOD TOWN",
+          "e74cabe4-1fe6-5d83-9453-5cd2067dd048"
+        ],
+        [
+          8,
+          79,
+          "ACCRINGTON",
+          "53220f98-7a5a-5102-9cde-1bd0978bec77"
+        ],
+        [
+          8,
+          80,
+          "GILLINGHAM",
+          "ba1e54c5-64c3-5039-9c92-d535b7cd5a2b"
+        ],
+        [
+          8,
+          81,
+          "CHELTENHAM TOWN",
+          "833f5625-e5d6-519d-9ee7-d871ba325ca9"
+        ],
+        [
+          8,
+          82,
+          "SHREWSBURY TOWN",
+          "a74b8c61-21db-5173-b90d-c2241f229a77"
+        ],
+        [
+          8,
+          83,
+          "NEWPORT COUNTY",
+          "fea10032-0aa4-5509-a8d7-786dfa2a00af"
+        ],
+        [
+          8,
+          84,
+          "TRANMERE ROVERS",
+          "bd878238-81b9-57c9-afc6-de8e9d78c435"
+        ],
+        [
+          8,
+          85,
+          "CRAWLEY TOWN",
+          "e57de725-5e11-528b-be75-83abfd7c2949"
+        ],
+        [
+          8,
+          86,
+          "EXETER CITY",
+          "b8cf0f86-846f-54a0-95da-d64a8141c0c6"
+        ],
+        [
+          8,
+          87,
+          "PORT VALE",
+          "d4c350d4-9474-5fc9-aaca-36cc0ab1a894"
+        ],
+        [
+          8,
+          88,
+          "ROTHERHAM UNITED",
+          "8f759e95-bc47-518e-a0be-c4e55155622a"
+        ],
+        [
+          8,
+          89,
+          "NORTHAMPTON TOWN",
+          "071a03b4-ba65-53a5-b6f8-fccb1c7a2d09"
+        ],
+        [
+          8,
+          90,
+          "YORK CITY",
+          "323c11d9-0917-5980-bb37-77ef2dec7805"
+        ],
+        [
+          8,
+          91,
+          "ROCHDALE",
+          "8313eba1-7ec7-5814-89f5-367e82fe4cc0"
+        ]
+      ]
+    },
+    {
+      "association": "ITA",
+      "file": "data_json/worlds/2627/teams/ITALY.json",
+      "sha": "d03139fce63f52249222186845fd6e5943aa4bf8",
+      "records": 256,
+      "mappedRankingRows": [
+        5,
+        13,
+        16,
+        22,
+        25,
+        30,
+        34,
+        40,
+        71
+      ],
+      "unmappedRawRecords": [
+        [
+          20,
+          3,
+          "COMO",
+          "eff5ba85-934d-5e0c-aebf-d38858b9576f"
+        ],
+        [
+          20,
+          9,
+          "UDINESE",
+          "5067b719-58bb-5843-86b8-372ab145f72b"
+        ],
+        [
+          20,
+          10,
+          "SASSUOLO",
+          "d4955232-a9b2-5ffa-9de5-5e8d7ff68389"
+        ],
+        [
+          20,
+          11,
+          "TORINO",
+          "b62f2ba1-45d4-5378-a2e9-81a4cc75246c"
+        ],
+        [
+          20,
+          12,
+          "PARMA",
+          "425fe11b-5415-5d58-bb46-a23e4a42c6f5"
+        ],
+        [
+          20,
+          13,
+          "CAGLIARI",
+          "8a99a7aa-d10c-5928-b72c-cc7831fcd9e9"
+        ],
+        [
+          20,
+          15,
+          "GENOA",
+          "a164d132-084c-5ba4-a640-e7067ffadfa0"
+        ],
+        [
+          20,
+          16,
+          "LECCE",
+          "c97b7ac8-1a16-5231-905c-619fa96ae8d8"
+        ],
+        [
+          20,
+          17,
+          "VENEZIA",
+          "0fc4dcde-e332-5568-8cf2-fe55b9639158"
+        ],
+        [
+          20,
+          18,
+          "FROSINONE",
+          "9bcb6abf-4e14-5ec3-8661-e62fd213a6a6"
+        ],
+        [
+          20,
+          19,
+          "MONZA",
+          "f27e7ddb-8932-5769-8f13-f3dccaef2b46"
+        ],
+        [
+          20,
+          20,
+          "PALERMO",
+          "b5e4f29f-5cb0-59af-87a0-89385f384ece"
+        ],
+        [
+          20,
+          21,
+          "CATANZARO",
+          "c4d2c9fa-80fd-51da-acd8-225754e1d32e"
+        ],
+        [
+          20,
+          22,
+          "MODENA",
+          "e0d80974-50a0-55d5-8afb-a356c8ad2acb"
+        ],
+        [
+          20,
+          23,
+          "JUVE STABIA",
+          "b46c264c-faf4-5976-ad82-78dcf51d1c6b"
+        ],
+        [
+          20,
+          24,
+          "AVELLINO",
+          "080b1b93-068c-5cc2-bc74-764d2f411694"
+        ],
+        [
+          20,
+          25,
+          "PADOVA",
+          "b0c6f0ec-6ea2-52c4-abcf-2e7bd2081f83"
+        ],
+        [
+          20,
+          26,
+          "CESENA",
+          "3ab97d03-3479-5a1c-8f39-fbd6286359fc"
+        ],
+        [
+          20,
+          27,
+          "MANTOVA",
+          "9442ca4f-29f1-5856-a883-aedaee7a3ac7"
+        ],
+        [
+          20,
+          28,
+          "CARRARESE",
+          "320ca4e4-dc81-5658-b63d-05bf2cab95e3"
+        ],
+        [
+          20,
+          29,
+          "SAMPDORIA",
+          "5b7f72a5-44a7-5738-aa6e-468b9b189f62"
+        ],
+        [
+          20,
+          30,
+          "VIRTUS ENTELLA",
+          "8ce1ed54-235c-58f6-a097-6fb74fa4d416"
+        ],
+        [
+          20,
+          31,
+          "EMPOLI",
+          "e87914da-7cc1-5f30-a181-2625a12fd892"
+        ],
+        [
+          20,
+          32,
+          "SUDTIROL",
+          "b237a800-ee37-5c59-b0f0-ae92c209b6d7"
+        ],
+        [
+          20,
+          33,
+          "CREMONESE",
+          "4df3a062-d609-518d-959f-41f0ff2b39fc"
+        ],
+        [
+          20,
+          34,
+          "HELLAS VERONA",
+          "d2c95290-e06e-5b08-beec-95b910fe2ad2"
+        ],
+        [
+          20,
+          35,
+          "PISA",
+          "762d2f2e-d821-5399-95af-509499681927"
+        ],
+        [
+          20,
+          36,
+          "VICENZA",
+          "325e48e3-bfad-591d-8f7b-a877135402e4"
+        ],
+        [
+          20,
+          37,
+          "AREZZO",
+          "a76f50b2-0597-5e4e-a993-022129f4f403"
+        ],
+        [
+          20,
+          38,
+          "BENEVENTO",
+          "c2016de0-6738-5b0f-8d77-879e08b7e01e"
+        ],
+        [
+          20,
+          39,
+          "ASCOLI",
+          "42a13fc8-1d6b-5e84-8836-2fbf72769dd9"
+        ],
+        [
+          20,
+          40,
+          "UNION BRESCIA",
+          "73b1d081-22dc-5412-9c7d-6534a0aa6ae0"
+        ],
+        [
+          20,
+          41,
+          "RENATE",
+          "f4fd5936-f910-5c06-939d-fe8017f5c31f"
+        ],
+        [
+          20,
+          42,
+          "LECCO",
+          "d8b7c8e3-61ed-51ad-af72-9cbfd9d6fabc"
+        ],
+        [
+          20,
+          43,
+          "TRENTO",
+          "110c67a9-ba2d-5148-b80f-494d334d77cb"
+        ],
+        [
+          20,
+          44,
+          "JUVENTUS NG",
+          "b466c34d-cef5-5ed3-ba37-eabfba1891f4"
+        ],
+        [
+          20,
+          45,
+          "CITTADELLA",
+          "a6cdc4f9-a2b8-5136-a250-c114b45f8398"
+        ],
+        [
+          20,
+          46,
+          "LUMEZZANE",
+          "7c7af138-92f8-5403-9650-f3b86193aabc"
+        ],
+        [
+          20,
+          47,
+          "ALCIONE MILANO",
+          "21967dd7-869b-5744-8275-26c38c820336"
+        ],
+        [
+          20,
+          48,
+          "ARZIGNANO V.",
+          "a4b862db-521b-5f26-b066-8d59bdecbdf3"
+        ],
+        [
+          20,
+          49,
+          "GIANA ERMINIO",
+          "5e5dc153-cedc-5165-af9e-472ffae3287e"
+        ],
+        [
+          20,
+          50,
+          "ALBINOLEFFE",
+          "2827e5cc-99a6-5b25-895d-2f15673ae056"
+        ],
+        [
+          20,
+          51,
+          "NOVARA",
+          "1b5ae8fa-0d33-5ace-b749-0272eed6454a"
+        ],
+        [
+          20,
+          52,
+          "CARPI",
+          "304e4917-60f1-5d58-bef0-b6bab3b98666"
+        ],
+        [
+          20,
+          53,
+          "PRO VERCELLI",
+          "c8c42235-14a3-5529-b52b-59e21bffdb55"
+        ],
+        [
+          20,
+          54,
+          "OSPITALETTO F.",
+          "18629191-0b83-5e3d-8a2d-ea69dcbe4ed6"
+        ],
+        [
+          20,
+          55,
+          "PERGOLETTESE",
+          "60b30cfd-033b-5048-8996-cc4508d4b635"
+        ],
+        [
+          20,
+          56,
+          "DOLOMITI BELL.",
+          "d9c2302d-1124-5ebc-b12e-bcba5e42a047"
+        ],
+        [
+          20,
+          57,
+          "FOLGORE CARATESE",
+          "053ac368-0145-5e69-8485-54aa79c60d12"
+        ],
+        [
+          20,
+          58,
+          "TREVISO",
+          "250cabfe-5b8a-521f-b6a9-b40db051b59f"
+        ],
+        [
+          20,
+          59,
+          "DESENZANO",
+          "71a32ebd-6442-5745-b36e-999e08cca3e1"
+        ],
+        [
+          20,
+          60,
+          "RAVENNA",
+          "668dedc7-e44c-5394-a6a2-aa31a0e61493"
+        ],
+        [
+          20,
+          61,
+          "CAMPOBASSO",
+          "85ef8e52-97df-569a-9604-0e9547a0b683"
+        ],
+        [
+          20,
+          62,
+          "PIANESE",
+          "4552b098-37de-510a-9d12-994e7e3b35a6"
+        ],
+        [
+          20,
+          63,
+          "PINETO",
+          "10d444b6-27ac-5110-8e8b-d0cda3e14428"
+        ],
+        [
+          20,
+          64,
+          "GUBBIO",
+          "754f7264-7175-581a-a98f-8c7048d67f3a"
+        ],
+        [
+          20,
+          65,
+          "VIS PESARO",
+          "8ecf8b9c-dbc2-5232-962d-5e56f2e42ae4"
+        ],
+        [
+          20,
+          66,
+          "LIVORNO",
+          "8d007b29-4fee-50d5-8e64-62354513b7b0"
+        ],
+        [
+          20,
+          67,
+          "ATALANTA U23",
+          "b1262273-ed9f-540f-a011-699b3ccd1694"
+        ],
+        [
+          20,
+          68,
+          "FORLI",
+          "6eb4365d-22d5-5d81-a3dd-ffb431725831"
+        ],
+        [
+          20,
+          69,
+          "PERUGIA",
+          "67b378cb-bcb9-51c5-98e4-93c405e27b23"
+        ],
+        [
+          20,
+          70,
+          "LATINA",
+          "582b420c-d156-561d-90f4-2ca7678074af"
+        ],
+        [
+          20,
+          71,
+          "GUIDONIA M.",
+          "904fff26-ad56-53cb-a34d-e522a2e7014c"
+        ],
+        [
+          20,
+          72,
+          "SAMBENEDETTESE",
+          "a348088d-0c6e-5bd3-ab43-87678014c412"
+        ],
+        [
+          20,
+          73,
+          "TORRES",
+          "9f59b024-6f85-51ae-8f86-f171cacb9a8a"
+        ],
+        [
+          20,
+          74,
+          "REGGIANA",
+          "2354300e-e760-553c-8974-f6c029629362"
+        ],
+        [
+          20,
+          75,
+          "PESCARA",
+          "9dcd1984-b97d-5d94-bed2-ac63d29d74f5"
+        ],
+        [
+          20,
+          76,
+          "SPEZIA",
+          "f5a4743f-20f4-588e-9685-ed55ea10ef8d"
+        ],
+        [
+          20,
+          77,
+          "VADO",
+          "7ee41739-3289-5e26-99ce-5760c8c47584"
+        ],
+        [
+          20,
+          78,
+          "GROSSETO",
+          "7ca8aa76-7295-52bb-a199-281b4e296ad0"
+        ],
+        [
+          20,
+          79,
+          "OSTIAMARE",
+          "1a5d2f4e-7525-5cea-a98c-d825aa117cc4"
+        ],
+        [
+          20,
+          80,
+          "CATANIA",
+          "ef4c70b1-dc9d-5ae3-ae81-fd2b7ea89c34"
+        ],
+        [
+          20,
+          81,
+          "SALERNITANA",
+          "8eaf6342-2afb-542c-b5c6-211ad19abcbd"
+        ],
+        [
+          20,
+          82,
+          "COSENZA",
+          "0ae797b6-458b-536b-8cbb-62d5cc21cc0d"
+        ],
+        [
+          20,
+          83,
+          "CASERTANA",
+          "e9706cb0-2274-55e5-b3b8-82147739270c"
+        ],
+        [
+          20,
+          84,
+          "CROTONE",
+          "bd17df49-2e7d-5cbd-8e6d-d79c42eb9d12"
+        ],
+        [
+          20,
+          85,
+          "CASARANO",
+          "5d0b2db0-13a8-52ac-b185-cb073db3d9cb"
+        ],
+        [
+          20,
+          86,
+          "MONOPOLI",
+          "2c5a8335-059d-5395-9737-6328d061cec1"
+        ],
+        [
+          20,
+          87,
+          "AUDACE CERIGNOLA",
+          "8908b4bf-5af4-5aa5-8583-cb4a224095de"
+        ],
+        [
+          20,
+          88,
+          "POTENZA",
+          "5f5dad4f-8dc6-5b6d-a81e-38c20a78d694"
+        ],
+        [
+          20,
+          89,
+          "INTER U23",
+          "0a459c91-46be-5b99-baab-af825bdee289"
+        ],
+        [
+          20,
+          90,
+          "ALTAMURA",
+          "929339bf-5193-5c59-9f5b-6456771b34cf"
+        ],
+        [
+          20,
+          91,
+          "CAVESE",
+          "1948cbb9-76fb-5c2f-b3e0-658b19e12fe4"
+        ],
+        [
+          20,
+          92,
+          "PICERNO",
+          "efe6bcb1-6986-56be-920d-40829a255ed6"
+        ],
+        [
+          20,
+          93,
+          "SORRENTO",
+          "4fe9a2fc-de14-58fb-95fd-e8a6414ab036"
+        ],
+        [
+          20,
+          94,
+          "GIUGLIANO",
+          "a7a1ccc1-13bb-5690-955b-71d3c71c4b2a"
+        ],
+        [
+          20,
+          95,
+          "FOGGIA",
+          "281af570-70b7-5f81-9c8d-774f3cb6fc12"
+        ],
+        [
+          20,
+          96,
+          "BARI",
+          "97058738-dc34-551b-9b09-5c360c71522c"
+        ],
+        [
+          20,
+          97,
+          "SCAFATESE",
+          "4d46abfe-ee4c-53e8-8fee-142142516840"
+        ],
+        [
+          20,
+          98,
+          "BARLETTA",
+          "bd256cbb-380a-50a3-a225-9916baf184f1"
+        ],
+        [
+          20,
+          99,
+          "SAVOIA",
+          "5cbc90c5-0a1e-51d7-9480-a6cdd67ebe81"
+        ],
+        [
+          20,
+          100,
+          "LIGORNA",
+          "c6baf3fe-02f2-5faa-b434-73fe88894fd9"
+        ],
+        [
+          20,
+          101,
+          "BIELLESE",
+          "d58ab9fd-aef9-58a8-89ea-0fe03f43f24a"
+        ],
+        [
+          20,
+          102,
+          "CHISOLA",
+          "25be1f66-a92d-5fab-bd2d-658e04cef09e"
+        ],
+        [
+          20,
+          103,
+          "SESTRI LEVANTE",
+          "6146c9df-b96e-5abb-b124-14bb4d2fe6bc"
+        ],
+        [
+          20,
+          104,
+          "SANREMESE",
+          "c2325998-353e-51d0-980c-6a1d78079cd1"
+        ],
+        [
+          20,
+          105,
+          "VALENZANA MADO",
+          "33e87071-ea3a-5505-967a-b9b68c78ecb0"
+        ],
+        [
+          20,
+          106,
+          "CELLE VARAZZE",
+          "53d3fe15-9c49-566a-9566-d27679543ec6"
+        ],
+        [
+          20,
+          107,
+          "SALUZZO",
+          "c71ebdf1-50d8-53b4-933a-62d889fb01c3"
+        ],
+        [
+          20,
+          108,
+          "IMPERIA",
+          "ee177ce5-ac2b-527b-96be-c275fbf4652e"
+        ],
+        [
+          20,
+          109,
+          "DERTHONA",
+          "838b3f26-baf0-5f43-b5c1-2953a8dbecf0"
+        ],
+        [
+          20,
+          110,
+          "GOZZANO",
+          "e779ba4b-4b1a-5e73-93dc-b5df88be4380"
+        ],
+        [
+          20,
+          111,
+          "ASTI",
+          "1bbd1a82-4d11-50d6-895f-1e140551361b"
+        ],
+        [
+          20,
+          112,
+          "BRA",
+          "004b8012-da30-51ed-837d-49e76bb6546a"
+        ],
+        [
+          20,
+          113,
+          "ALESSANDRIA",
+          "40787319-38a7-59b1-9fbe-8c0e30b1bd57"
+        ],
+        [
+          20,
+          114,
+          "BORGOSESIA",
+          "1f43ad3b-7fd6-58a4-8400-e12d3dcf5063"
+        ],
+        [
+          20,
+          115,
+          "FEZZANESE",
+          "882e7360-f1b8-5470-910e-9840fefa81e6"
+        ],
+        [
+          20,
+          116,
+          "MILLESIMO",
+          "e7f5cf4b-c977-5f06-9f5b-ee111adeb800"
+        ],
+        [
+          20,
+          117,
+          "CHIEVOVERONA",
+          "e80188ee-179a-59d6-9267-4bf79344b0e2"
+        ],
+        [
+          20,
+          118,
+          "MILAN FUTURO",
+          "39eb015a-2931-54b5-a34d-a7a3ffd4d23d"
+        ],
+        [
+          20,
+          119,
+          "PIACENZA",
+          "1d2688ba-02a8-5a4d-b529-d461a2a401bd"
+        ],
+        [
+          20,
+          120,
+          "LEON",
+          "def866d9-1761-5db1-9841-bf8e05c82b30"
+        ],
+        [
+          20,
+          121,
+          "PALAZZOLO",
+          "1315f8ae-4d12-552f-a0db-0fb85164ba80"
+        ],
+        [
+          20,
+          122,
+          "BRUSAPORTO",
+          "093f06c8-24fb-5f99-8f03-053221997ad0"
+        ],
+        [
+          20,
+          123,
+          "SCANZOROSCIATE",
+          "2e9662dd-bcc7-5d4d-aef5-a807a02daab2"
+        ],
+        [
+          20,
+          124,
+          "ROVATO",
+          "2668dde4-d947-56ad-a8fc-e2f93a23f381"
+        ],
+        [
+          20,
+          125,
+          "VILLA VALLE",
+          "b7fb682a-5d43-5112-8005-6316ead49ad3"
+        ],
+        [
+          20,
+          126,
+          "VIRTUS CISERANO",
+          "757c052d-2879-50ee-a199-992e50dd0702"
+        ],
+        [
+          20,
+          127,
+          "CLUB MILANO",
+          "30596d6e-b5db-5cac-ae55-bc4e8fbbf5bc"
+        ],
+        [
+          20,
+          128,
+          "CALDIERO TERME",
+          "64245b42-b6d0-5ea4-aa44-9628d669c0f0"
+        ],
+        [
+          20,
+          129,
+          "REAL CALEPINA",
+          "affde13a-514e-5d5d-bcc8-1e2a9751c1db"
+        ],
+        [
+          20,
+          130,
+          "VIRTUS VERONA",
+          "7c4b88d8-c368-58e1-aefd-102c528a8499"
+        ],
+        [
+          20,
+          131,
+          "FIORENZUOLA",
+          "2a6fcf37-2954-51ef-a8be-acc0073bf122"
+        ],
+        [
+          20,
+          132,
+          "NIBBIANO VALT.",
+          "35087c5a-1fc5-52c2-a134-77fb25727205"
+        ],
+        [
+          20,
+          133,
+          "TRITIUM",
+          "b4dcb708-d8bd-5d65-85ee-a1a5ecd99f4e"
+        ],
+        [
+          20,
+          134,
+          "LEGNAGO SALUS",
+          "0bc61e78-0aab-54d1-9c46-7149e5fb5b9a"
+        ],
+        [
+          20,
+          135,
+          "UNION CLODIENSE",
+          "8226a185-6d11-5789-9223-4215043caa45"
+        ],
+        [
+          20,
+          136,
+          "ESTE",
+          "45084505-4d03-577c-8ec6-fdc95045ac5c"
+        ],
+        [
+          20,
+          137,
+          "MESTRE",
+          "c281dd40-f4f4-5c3d-bdaa-b8b90bdaa672"
+        ],
+        [
+          20,
+          138,
+          "BRIAN LIGNANO",
+          "2f33a46f-dea6-5a16-9fae-6d35e2ce66c2"
+        ],
+        [
+          20,
+          139,
+          "CJARLINS MUZANE",
+          "84c370e7-d78e-5d6d-a036-eab97d129e0e"
+        ],
+        [
+          20,
+          140,
+          "BASSANO",
+          "d061b560-ccb8-5fb2-9547-291d67f1000e"
+        ],
+        [
+          20,
+          141,
+          "CONEGLIANO",
+          "26ccd9d2-4a86-51b8-ac02-0751a62c0f24"
+        ],
+        [
+          20,
+          142,
+          "CAMPODARSEGO",
+          "51739d6d-a9d6-5057-bc47-1545ad29f6ac"
+        ],
+        [
+          20,
+          143,
+          "LA ROCCA ALTAV.",
+          "2be2a838-c6c6-5cca-806e-2727f190616a"
+        ],
+        [
+          20,
+          144,
+          "CALVI NOALE",
+          "2e693034-cd45-5c58-9e2b-913f1b22125d"
+        ],
+        [
+          20,
+          145,
+          "LUPARENSE",
+          "a8d770b4-f213-5384-8e53-998144ba9960"
+        ],
+        [
+          20,
+          146,
+          "OBERMAIS",
+          "d923a9f9-1e30-5b07-aed5-e3c8c80ce640"
+        ],
+        [
+          20,
+          147,
+          "TRIESTINA",
+          "97892d57-d302-5edc-9481-cf4d1540cd22"
+        ],
+        [
+          20,
+          148,
+          "SANDONA",
+          "54022cad-036c-5e91-bfad-70e91eb7a95e"
+        ],
+        [
+          20,
+          149,
+          "LME",
+          "37dfa798-47f6-5975-8c67-5a59d3f8c9de"
+        ],
+        [
+          20,
+          150,
+          "SCHIO",
+          "8a25749b-5ebc-5799-af5b-5c854051c1be"
+        ],
+        [
+          20,
+          151,
+          "CASATESE MERATE",
+          "51a45b59-ab2a-5cf8-b11e-5cbe525ae4dd"
+        ],
+        [
+          20,
+          152,
+          "LENTIGIONE",
+          "765c30d5-b207-5fe7-ad37-902518602cae"
+        ],
+        [
+          20,
+          153,
+          "PISTOIESE",
+          "eb303aaa-bace-5b83-9527-c718d8c0da55"
+        ],
+        [
+          20,
+          154,
+          "VARESE",
+          "2a73a5c6-794a-5521-8bc3-520e8a5a8466"
+        ],
+        [
+          20,
+          155,
+          "OLTREPO",
+          "f760287e-e07e-5b8d-9360-34bf65e45a66"
+        ],
+        [
+          20,
+          156,
+          "PRO SESTO",
+          "b6ab2b82-46fc-52bd-9066-f31b68054cdb"
+        ],
+        [
+          20,
+          157,
+          "CITTADELLA MOD.",
+          "a56b2cbd-d002-5a84-aeee-504acdf1677a"
+        ],
+        [
+          20,
+          158,
+          "CORREGGESE",
+          "8e0e1cbb-72ff-5d68-b648-518e35401919"
+        ],
+        [
+          20,
+          159,
+          "SANT'ANGELO",
+          "3a17d65d-5d27-5eda-9faf-fffce9c71cce"
+        ],
+        [
+          20,
+          160,
+          "CASTELLANZESE",
+          "5dbd614d-a154-5d00-a4d8-44864a7a5c70"
+        ],
+        [
+          20,
+          161,
+          "CREMA",
+          "5b2f11d4-e6ee-534b-b8a0-73f2a12d3909"
+        ],
+        [
+          20,
+          162,
+          "PAVIA",
+          "189dc2e0-2451-5cca-89a1-b03bf0d019b8"
+        ],
+        [
+          20,
+          163,
+          "VARESINA",
+          "95231df8-256f-5df4-aa06-7a8d57acc784"
+        ],
+        [
+          20,
+          164,
+          "TROPICAL CORIANO",
+          "5fd989c5-1b3f-57a0-8915-c63bb79cf9b4"
+        ],
+        [
+          20,
+          165,
+          "PRO PATRIA",
+          "305be227-672d-5e52-b0d0-d2342534859c"
+        ],
+        [
+          20,
+          166,
+          "PONTEDERA",
+          "0ce31cf9-bb4f-5f8a-ba68-a01f690a90df"
+        ],
+        [
+          20,
+          167,
+          "SOLBIATESE",
+          "d8d43e7f-7ebd-5696-bb64-b7510b72ea4d"
+        ],
+        [
+          20,
+          168,
+          "ARCONATESE",
+          "b5824f6e-fbf9-589e-aa1d-e711c9c334dc"
+        ],
+        [
+          20,
+          169,
+          "TAU ALTOPASCIO",
+          "4e522848-9f3f-5dc4-bcf0-0019170b1067"
+        ],
+        [
+          20,
+          170,
+          "PRATO",
+          "85d221f1-804c-5ebd-8c32-2ff9481fbd6c"
+        ],
+        [
+          20,
+          171,
+          "SIENA",
+          "850cc89e-cd58-5ffa-9fdb-9cd7e6c0cb61"
+        ],
+        [
+          20,
+          172,
+          "FLAMINIA",
+          "01153d28-0023-5550-9451-6617a9038bdc"
+        ],
+        [
+          20,
+          173,
+          "SERAVEZZA",
+          "ee414a8e-8c24-557c-a4a4-96e4c033df32"
+        ],
+        [
+          20,
+          174,
+          "TERRANUOVA T.",
+          "d6cf7aee-a808-5a8c-8966-e804920afaf7"
+        ],
+        [
+          20,
+          175,
+          "SCANDICCI",
+          "6682eb57-9d74-5ee9-81d0-5295e478a814"
+        ],
+        [
+          20,
+          176,
+          "MONTEVARCHI",
+          "054e4012-b937-59c9-a50b-b1a29f4e24b1"
+        ],
+        [
+          20,
+          177,
+          "PROGRESSO",
+          "5d64377b-d295-5493-95e7-760e9c0789e2"
+        ],
+        [
+          20,
+          178,
+          "GHIVIBORGO",
+          "c88db551-7341-56fb-8f3e-bbb57cdd573a"
+        ],
+        [
+          20,
+          179,
+          "SAN DONATO TAV.",
+          "0fb222e7-db3e-5251-86e4-42f9533301a9"
+        ],
+        [
+          20,
+          180,
+          "FOLL. GAVORRANO",
+          "6ee03238-8d67-5125-bedd-e5eb7ae44a74"
+        ],
+        [
+          20,
+          181,
+          "SASSO MARCONI",
+          "547d88d2-bc30-568f-87db-9022b97cd2e4"
+        ],
+        [
+          20,
+          182,
+          "NUOVA TERNANA",
+          "e491687a-91bb-502c-8857-aec1f5122a89"
+        ],
+        [
+          20,
+          183,
+          "LUCCHESE",
+          "5a39e5fd-4dcc-5bb6-8075-da634978d2b2"
+        ],
+        [
+          20,
+          184,
+          "MEZZOLARA",
+          "7023d5cf-7912-5b9f-a58a-609e99e01b82"
+        ],
+        [
+          20,
+          185,
+          "RONDINELLA",
+          "eb4727d1-b3e8-59cd-980f-4ff600cbeb0a"
+        ],
+        [
+          20,
+          186,
+          "ANCONA",
+          "6f93ad41-2dc7-54b0-9ad2-b6644c0d5c70"
+        ],
+        [
+          20,
+          187,
+          "TERAMO",
+          "c71ba7eb-8ae9-5a3c-a79e-67ec34fbbe34"
+        ],
+        [
+          20,
+          188,
+          "ATLETICO ASCOLI",
+          "d99a2305-c924-5aeb-b3fb-0421e742386b"
+        ],
+        [
+          20,
+          189,
+          "NOTARESCO",
+          "433ed92a-b549-5a3e-a47b-304bb4266e0d"
+        ],
+        [
+          20,
+          190,
+          "FOLIGNO",
+          "992bfa28-913d-5e3d-84be-1701ecdc8ec0"
+        ],
+        [
+          20,
+          191,
+          "L'AQUILA",
+          "1e69e009-2818-535e-9ddd-34fa6e6574d4"
+        ],
+        [
+          20,
+          192,
+          "GIULIANOVA",
+          "a09c6b3c-cca6-5ae5-b663-7dd89d4ba6be"
+        ],
+        [
+          20,
+          193,
+          "VIGOR SENIGALLIA",
+          "aa41a489-6f70-5bbe-a204-0d215d4204ad"
+        ],
+        [
+          20,
+          194,
+          "FORSEMPRONESE",
+          "93e84610-bc28-57a5-b93b-c3be4709862e"
+        ],
+        [
+          20,
+          195,
+          "TRESTINA",
+          "f20cced7-8861-56d9-aeaf-02120da2b93b"
+        ],
+        [
+          20,
+          196,
+          "TERMOLI",
+          "c9bc347b-3140-5af1-bf84-9bd48e02e047"
+        ],
+        [
+          20,
+          197,
+          "MACERATESE",
+          "dce2c6d9-e77d-5490-a408-5705d85cb707"
+        ],
+        [
+          20,
+          198,
+          "RECANATESE",
+          "266da194-db29-51d9-825a-a10b314a0c7a"
+        ],
+        [
+          20,
+          199,
+          "ANGELANA",
+          "4145c26e-f70f-5702-a519-ca65e2910920"
+        ],
+        [
+          20,
+          200,
+          "SANTEGIDIESE",
+          "fb91989f-00c0-5ff3-8ca1-c57bf7bd6f09"
+        ],
+        [
+          20,
+          201,
+          "MONTECCHIO GALLO",
+          "cf4733e5-e720-5905-a14c-bd31ab18e50c"
+        ],
+        [
+          20,
+          202,
+          "LANCIANO",
+          "3eefa9b3-a756-50f7-ae5f-1ec46c56605b"
+        ],
+        [
+          20,
+          203,
+          "PIETRALUNGHESE",
+          "0ea0de4f-b1d9-5fed-9eda-7c9215eefeee"
+        ],
+        [
+          20,
+          204,
+          "TRASTEVERE",
+          "af082d2c-7c0a-5f08-8439-88ae31df630e"
+        ],
+        [
+          20,
+          205,
+          "ASD MONASTIR",
+          "6b100f9a-e383-58ac-8464-395564986e36"
+        ],
+        [
+          20,
+          206,
+          "PAGANESE",
+          "effe13eb-02dd-5b9b-b30d-f782d2e93d81"
+        ],
+        [
+          20,
+          207,
+          "ALBALONGA",
+          "e603504b-267a-589e-bf50-ca6599429392"
+        ],
+        [
+          20,
+          208,
+          "GELBISON",
+          "12b5a799-873b-5271-8427-281d0e142d37"
+        ],
+        [
+          20,
+          209,
+          "LATTE DOLCE",
+          "ecac1584-24fe-5d40-8fa5-d77d1e60ab98"
+        ],
+        [
+          20,
+          210,
+          "AFRAGOLESE",
+          "2567d039-7e80-5a90-9437-0eeb14c80823"
+        ],
+        [
+          20,
+          211,
+          "COS SARRABUS",
+          "b46c63b4-b689-56a9-a3cc-142570f4056d"
+        ],
+        [
+          20,
+          212,
+          "UNIPOMEZIA",
+          "712f2ef1-6167-5d6d-992d-3311ef5e8c37"
+        ],
+        [
+          20,
+          213,
+          "BUDONI",
+          "5b0db06a-679a-5250-8eab-c04cc939fb1c"
+        ],
+        [
+          20,
+          214,
+          "ATL. LODIGIANI",
+          "e06980ac-5cf8-5def-b3d9-7ecd752c6546"
+        ],
+        [
+          20,
+          215,
+          "SARNESE",
+          "b5872842-e268-5b26-b869-f623eafe743a"
+        ],
+        [
+          20,
+          216,
+          "ANZIO",
+          "74478d60-1004-5c9a-8dad-4ca5a80881fd"
+        ],
+        [
+          20,
+          217,
+          "CERTOSA CAMPAGN.",
+          "f1e6190c-7fe0-5539-a227-1baa026455a8"
+        ],
+        [
+          20,
+          218,
+          "ARANOVA",
+          "c20deace-97a4-56ff-885c-0fd27de90c4c"
+        ],
+        [
+          20,
+          219,
+          "OSSESE",
+          "9150cfba-137a-57e8-956e-1b23e4d8d3f3"
+        ],
+        [
+          20,
+          220,
+          "VENAFRO",
+          "7eca434d-9904-51c8-9637-6148e7da02c7"
+        ],
+        [
+          20,
+          221,
+          "MARTINA",
+          "9c33f954-7eaa-5c67-b44e-addd76c0a1e4"
+        ],
+        [
+          20,
+          222,
+          "NARDO",
+          "41ea8d75-c42b-5273-8c60-0dd32a436525"
+        ],
+        [
+          20,
+          223,
+          "GRAVINA",
+          "252c1d6d-abf6-5c0d-97b1-4546eb04bc6b"
+        ],
+        [
+          20,
+          224,
+          "NOCERINA",
+          "aefdba4b-478f-5d6c-8e64-e1c9e91e91b5"
+        ],
+        [
+          20,
+          225,
+          "FIDELIS ANDRIA",
+          "fbce64fb-cda4-577a-a2a1-eacc97b4b4b1"
+        ],
+        [
+          20,
+          226,
+          "V. FRANCAVILLA",
+          "50b52778-85a5-5418-af10-52e616c2da6c"
+        ],
+        [
+          20,
+          227,
+          "FRANCAVILLA",
+          "90308605-780f-5a15-b7e1-9407114eb896"
+        ],
+        [
+          20,
+          228,
+          "PALMESE",
+          "85c1c9c1-8c1a-5ebe-94ad-02abb415fb2e"
+        ],
+        [
+          20,
+          229,
+          "PUTEOLI R.NORM.",
+          "04a71cf6-6c43-5ce7-84df-f7d684ba20f4"
+        ],
+        [
+          20,
+          230,
+          "MANFREDONIA",
+          "7ff53c25-30dc-5c74-8c65-e0bab963594f"
+        ],
+        [
+          20,
+          231,
+          "ISCHIA",
+          "ca8e8306-28f7-5134-9607-02eb5b8c452d"
+        ],
+        [
+          20,
+          232,
+          "TURRIS",
+          "7b7a7699-e321-583b-8338-6b8b467c3de1"
+        ],
+        [
+          20,
+          233,
+          "BRINDISI",
+          "abe31fd4-334f-56be-9f65-3dbda123b1b3"
+        ],
+        [
+          20,
+          234,
+          "BISCEGLIE",
+          "a3328015-a000-5062-905b-a2fc675633bb"
+        ],
+        [
+          20,
+          235,
+          "GLADIATOR",
+          "8b15de82-8a48-54a8-b333-fd5790a8dae8"
+        ],
+        [
+          20,
+          236,
+          "EBOLITANA",
+          "fec36fa0-ae93-5ca2-b330-1265f835b2dd"
+        ],
+        [
+          20,
+          237,
+          "REAL FORIO",
+          "35d84924-3f4f-5811-be11-54b0c2650815"
+        ],
+        [
+          20,
+          238,
+          "NISSA",
+          "c98548e2-ba1e-53ef-9ef1-8fe186c3a8e3"
+        ],
+        [
+          20,
+          239,
+          "REGGINA",
+          "1567d373-12bb-5079-8e32-66074ac484e6"
+        ],
+        [
+          20,
+          240,
+          "ATHLETIC PALERMO",
+          "94ad9692-f457-5399-9c94-34d65dfe6daa"
+        ],
+        [
+          20,
+          241,
+          "IGEA VIRTUS",
+          "456a7d10-00a6-5005-a77d-d8ec73382b11"
+        ],
+        [
+          20,
+          242,
+          "SAMBIASE",
+          "0e435eee-a3b8-59f4-97e2-cd5625275595"
+        ],
+        [
+          20,
+          243,
+          "MILAZZO",
+          "ec8fd25a-88c2-5e46-b60f-d7768506d6a9"
+        ],
+        [
+          20,
+          244,
+          "VIGOR LAMEZIA",
+          "c3c84a60-0794-5f3b-a6d8-37993e84c737"
+        ],
+        [
+          20,
+          245,
+          "GELA",
+          "bbb692d4-330e-56d9-a4b5-6179e79338e7"
+        ],
+        [
+          20,
+          246,
+          "CASTRUMFAVARA",
+          "3c483740-d2e1-5069-bff9-4b040fccd38d"
+        ],
+        [
+          20,
+          247,
+          "ENNA",
+          "8236378b-0509-502c-9a9f-b09be3b65276"
+        ],
+        [
+          20,
+          248,
+          "VIBONESE",
+          "3eebdb75-8168-5f79-8d2f-8f2bfcd76748"
+        ],
+        [
+          20,
+          249,
+          "RAGUSA",
+          "191922ff-3d1a-59d3-982f-75e315cea015"
+        ],
+        [
+          20,
+          250,
+          "SIRACUSA",
+          "7b233834-6240-56d0-b909-82c67c30e072"
+        ],
+        [
+          20,
+          251,
+          "TRAPANI",
+          "51205aa0-3598-5add-9e56-d511407c9771"
+        ],
+        [
+          20,
+          252,
+          "MODICA",
+          "f642d5fb-2711-52c7-b821-20c1e8d99ed5"
+        ],
+        [
+          20,
+          253,
+          "DIGIESSE",
+          "a9b6eef8-6409-5d8b-8bbd-783501fd28c2"
+        ],
+        [
+          20,
+          254,
+          "AVOLA",
+          "924f88cc-2368-511c-a989-985cde28d0e3"
+        ],
+        [
+          20,
+          255,
+          "LICATA",
+          "465f3402-4690-5c85-9182-a7e6fe7b2437"
+        ]
+      ]
+    },
+    {
+      "association": "ITA",
+      "file": "data_json/worlds/2627/teams/ITALY_POOL.json",
+      "sha": "ee3dc2904cc630d13212770283e6cf31d7b6c0fc",
+      "records": 42,
+      "mappedRankingRows": [],
+      "unmappedRawRecords": [
+        [
+          194,
+          0,
+          "PAVONESE",
+          "a9950d63-2f32-526b-9cd1-54964bf579c4"
+        ],
+        [
+          194,
+          1,
+          "VIRTUS BOLZANO",
+          "99a61c59-7f67-5ee3-961c-9e48810db8ac"
+        ],
+        [
+          194,
+          2,
+          "CITTA DI ANAGNI",
+          "ff4af1d1-4016-5773-8943-931425c4a0ca"
+        ],
+        [
+          194,
+          3,
+          "GRASSINA",
+          "6a05955e-08f2-5d60-a991-a2fdb1b8fbb7"
+        ],
+        [
+          194,
+          4,
+          "LASCARIS",
+          "1e2b0a70-2e0f-57a9-903a-f41939cdbd60"
+        ],
+        [
+          194,
+          5,
+          "MELFI",
+          "d4b110db-2f00-5091-85bb-2d9ba4f15a1b"
+        ],
+        [
+          194,
+          6,
+          "CAIRESE",
+          "090a7c6f-3569-511e-b48c-575758046104"
+        ],
+        [
+          194,
+          7,
+          "ORVIETANA",
+          "2ff9b1bc-86dd-5b4c-9caf-b8e35d0b6650"
+        ],
+        [
+          194,
+          8,
+          "SORA",
+          "1549bc8e-c279-57f1-8d70-f3230759b2f1"
+        ],
+        [
+          194,
+          9,
+          "BRENO",
+          "61303fc4-a473-5c27-a174-d469d2c30e0e"
+        ],
+        [
+          194,
+          10,
+          "VIGASIO",
+          "cff67749-34e4-57bc-86e4-63d5fa81d87e"
+        ],
+        [
+          194,
+          11,
+          "IMOLESE",
+          "e7a91548-1f1b-524b-b165-1c33ae187fdb"
+        ],
+        [
+          194,
+          12,
+          "NOLA",
+          "fdd999e3-d5c4-5b7b-ba7d-98a7071150fc"
+        ],
+        [
+          194,
+          13,
+          "CAMAIORE",
+          "3ceb35b5-131c-50ec-8576-8aa25b929ee1"
+        ],
+        [
+          194,
+          14,
+          "SAN MARINO",
+          "1ea00fdc-ca86-5d05-9357-ad8698571f4d"
+        ],
+        [
+          194,
+          15,
+          "OLBIA",
+          "14d10ff1-b31f-553d-8d97-69746df14cc1"
+        ],
+        [
+          194,
+          16,
+          "HERACLEA",
+          "dc59c706-1c9d-5612-bcec-93e27c827801"
+        ],
+        [
+          194,
+          17,
+          "ACR MESSINA",
+          "94e5b03e-84ef-5d10-8d53-71535834cca9"
+        ],
+        [
+          194,
+          18,
+          "SAN LUIGI",
+          "81acfdc6-331e-5586-bab6-ae1c8b662e61"
+        ],
+        [
+          194,
+          19,
+          "POGGIBONSI",
+          "b4cf0daa-d8b0-53bd-9e2c-f7addfab0ee7"
+        ],
+        [
+          194,
+          20,
+          "CHIETI",
+          "7b906621-0073-562b-9037-ef648f9ce02a"
+        ],
+        [
+          194,
+          21,
+          "R. MONTEROTONDO",
+          "22ba3519-bbbb-599a-bf16-6c22b84a8b7e"
+        ],
+        [
+          194,
+          22,
+          "POMPEI",
+          "bcd3db0d-fa16-54ac-b603-963df871fb52"
+        ],
+        [
+          194,
+          23,
+          "ACIREALE",
+          "4e9a10b9-20e1-54a1-b037-eb8d8577940d"
+        ],
+        [
+          194,
+          24,
+          "LAVAGNESE",
+          "979fb31d-a9f1-5d14-8bfa-473ac2d1d402"
+        ],
+        [
+          194,
+          25,
+          "SONDRIO",
+          "29254f0f-f777-5e8f-99ea-0f29d29d0db8"
+        ],
+        [
+          194,
+          26,
+          "ADRIESE",
+          "28f49467-8680-5a7f-a1e0-9bbf8b05a96e"
+        ],
+        [
+          194,
+          27,
+          "TREVIGLIESE",
+          "00362b6d-9300-5bc9-9380-108e1e0b9906"
+        ],
+        [
+          194,
+          28,
+          "CANNARA",
+          "df5c1bf0-068e-5902-a8c8-1ca1f0bd07b2"
+        ],
+        [
+          194,
+          29,
+          "CASTELFIDARDO",
+          "16e1fe5e-2638-5f08-885d-d36e2f5b03fc"
+        ],
+        [
+          194,
+          30,
+          "MONTESPACCATO",
+          "b8702027-7ba5-53f8-b030-9f8b91df49c2"
+        ],
+        [
+          194,
+          31,
+          "FERRANDINA",
+          "fe4a74ef-cc07-5f55-b42b-374d59424191"
+        ],
+        [
+          194,
+          32,
+          "SANCATALDESE",
+          "fbe2ac7c-3a44-5448-974b-8c02603a7b03"
+        ],
+        [
+          194,
+          33,
+          "NOVAROMENTIN",
+          "2bda5f17-e3f2-51eb-94c0-5e54d7c52fc9"
+        ],
+        [
+          194,
+          34,
+          "AVC VOGHERESE",
+          "1f09109c-9f0f-59ea-a5ac-ae2b64cccb14"
+        ],
+        [
+          194,
+          35,
+          "PORTOGRUARO",
+          "ca6e2df4-d20b-5286-82b1-9b9d0017664d"
+        ],
+        [
+          194,
+          36,
+          "TUTTOCUOIO",
+          "f91b13a5-b1c6-5881-bfe2-264a12c2da83"
+        ],
+        [
+          194,
+          37,
+          "SANSEPOLCRO",
+          "0f8d1cf6-b51d-5b2c-b3ae-5c25ac102712"
+        ],
+        [
+          194,
+          38,
+          "SAMMAURESE",
+          "0c9932bb-c2d5-558e-ac65-641ff85a01b4"
+        ],
+        [
+          194,
+          39,
+          "CASSINO",
+          "f30ebe9a-146c-5158-be3f-3cdf05ba8f03"
+        ],
+        [
+          194,
+          40,
+          "ACERRANA",
+          "c859eb12-7c7e-5c74-ba9f-8f67128d67b7"
+        ],
+        [
+          194,
+          41,
+          "PATERNO",
+          "4260a1a2-6a17-5bc1-bab0-1b8fe6351300"
+        ]
+      ]
+    },
+    {
+      "association": "ESP",
+      "file": "data_json/worlds/2627/teams/SPAIN.json",
+      "sha": "d04730535b402a1871396c623e0e11652dd485ef",
+      "records": 42,
+      "mappedRankingRows": [
+        2,
+        8,
+        10,
+        24,
+        39,
+        43,
+        62,
+        63,
+        92,
+        104,
+        105,
+        106
+      ],
+      "unmappedRawRecords": [
+        [
+          35,
+          6,
+          "GETAFE",
+          "baa53382-1397-559c-8b7b-2ac9a4c18e34"
+        ],
+        [
+          35,
+          8,
+          "VALENCIA",
+          "e92cf714-7562-516f-899a-d44866b6917d"
+        ],
+        [
+          35,
+          10,
+          "ESPANYOL",
+          "121ea1fc-87fa-5c34-92e6-8bc948dd51fa"
+        ],
+        [
+          35,
+          13,
+          "ALAVES",
+          "43dea872-6f08-59b3-a850-2f60cacfa755"
+        ],
+        [
+          35,
+          14,
+          "ELCHE",
+          "fa635975-0625-5205-959b-43781912099d"
+        ],
+        [
+          35,
+          15,
+          "LEVANTE",
+          "b94f50a5-0824-52da-906e-af411207056e"
+        ],
+        [
+          35,
+          17,
+          "RACING SANTANDER",
+          "2d649353-1fb8-5e27-8a3e-55611d82fc0b"
+        ],
+        [
+          35,
+          18,
+          "DEPORTIVO",
+          "868cb319-c427-538a-b445-634cb54c7eae"
+        ],
+        [
+          35,
+          19,
+          "MALAGA",
+          "fac3b468-1658-51f6-808a-3575a5a18f5e"
+        ],
+        [
+          35,
+          20,
+          "ALMERIA",
+          "6b1a3758-bffc-5e26-b657-6cfb9800dc72"
+        ],
+        [
+          35,
+          21,
+          "LAS PALMAS",
+          "d9b07a5d-f5d0-58e5-824e-dd230d326e9b"
+        ],
+        [
+          35,
+          22,
+          "CASTELLON",
+          "2c672a57-ed9d-5556-adaa-6515b5a0798e"
+        ],
+        [
+          35,
+          23,
+          "BURGOS",
+          "87f93f15-1420-561c-901e-4793451746a8"
+        ],
+        [
+          35,
+          24,
+          "EIBAR",
+          "74f0ff6d-e37f-5ac7-96ac-ff3507cb1a74"
+        ],
+        [
+          35,
+          25,
+          "SPORTING GIJON",
+          "73e910a6-596e-501e-9bcd-229763518bb2"
+        ],
+        [
+          35,
+          26,
+          "CORDOBA",
+          "3ea555c7-b059-5147-811a-6b390ffdfbcc"
+        ],
+        [
+          35,
+          27,
+          "CEUTA",
+          "172832df-66b3-5584-9d06-41364ffd0a06"
+        ],
+        [
+          35,
+          28,
+          "ALBACETE",
+          "3bfa27d6-edd4-5e84-bdb9-b4c9eeebf6b4"
+        ],
+        [
+          35,
+          29,
+          "ANDORRA",
+          "40aad9b9-492a-506d-97bc-27dc16ee9a3f"
+        ],
+        [
+          35,
+          30,
+          "GRANADA",
+          "989d1152-9a46-521a-b6df-6a69ecb30eee"
+        ],
+        [
+          35,
+          31,
+          "REAL SOCIEDAD B",
+          "045c3844-7b89-54f2-95c7-31546b85c509"
+        ],
+        [
+          35,
+          32,
+          "LEGANES",
+          "f29da6b1-7ee1-55b7-821f-0af9595c313e"
+        ],
+        [
+          35,
+          33,
+          "REAL VALLADOLID",
+          "bbc985c2-e237-5f61-b8e0-6b49d9e94c70"
+        ],
+        [
+          35,
+          34,
+          "CADIZ",
+          "175291bc-b4e8-50da-bd26-5c2ea62aee94"
+        ],
+        [
+          35,
+          35,
+          "MALLORCA",
+          "c28cb349-f854-5a0e-93ca-5a64b79af5d5"
+        ],
+        [
+          35,
+          37,
+          "REAL OVIEDO",
+          "bb49c78d-216f-5369-9714-4583d8b63c7d"
+        ],
+        [
+          35,
+          38,
+          "TENERIFE",
+          "f42dd7fa-a92c-5f68-b35b-58f8d8819952"
+        ],
+        [
+          35,
+          39,
+          "ELDENSE",
+          "3f364d67-0d54-57e8-ad41-0550127cbab4"
+        ],
+        [
+          35,
+          40,
+          "CELTA FORTUNA",
+          "569369cf-b175-58c0-b005-3e6884dd99fb"
+        ],
+        [
+          35,
+          41,
+          "SABADELL",
+          "6c40b159-b6f0-59c5-978f-f1ddff5c8d0f"
+        ]
+      ]
+    },
+    {
+      "association": "ESP",
+      "file": "data_json/worlds/2627/teams/SPAIN_POOL.json",
+      "sha": "75fa2ff45838f1d3953eabb9f84a112b42b41723",
+      "records": 4,
+      "mappedRankingRows": [],
+      "unmappedRawRecords": [
+        [
+          192,
+          0,
+          "LUGO",
+          "fa3a4a4d-2912-5330-aa9e-9b6436ddaf09"
+        ],
+        [
+          192,
+          1,
+          "LOGRONES",
+          "9f91d0a7-81ac-58c8-81f9-8f944e092867"
+        ],
+        [
+          192,
+          2,
+          "REAL ZARAGOZA",
+          "9c9a02ae-899c-5a87-aba5-ed1978204139"
+        ],
+        [
+          192,
+          3,
+          "RACING FERROL",
+          "47f6390d-ba39-5749-b660-6831e62e529e"
+        ]
+      ]
+    },
+    {
+      "association": "GER",
+      "file": "data_json/worlds/2627/teams/GERMANY.json",
+      "sha": "165afdf3394e4d11c4ad72d83f71b8bf28d665b3",
+      "records": 56,
+      "mappedRankingRows": [
+        1,
+        9,
+        11,
+        18,
+        37,
+        44,
+        80,
+        90,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "unmappedRawRecords": [
+        [
+          14,
+          8,
+          "AUGSBURG",
+          "9fa2074a-f877-5014-a3d8-b93d0834d92a"
+        ],
+        [
+          14,
+          11,
+          "M'GLADBACH",
+          "29f128f7-1e63-5620-8289-6e36a5f5aaf5"
+        ],
+        [
+          14,
+          12,
+          "HAMBURGER SV",
+          "af2886ab-88bf-5c64-8a0d-86d361a76160"
+        ],
+        [
+          14,
+          14,
+          "BREMEN",
+          "f26b1567-613e-53ab-a7a2-c0aa24903f0f"
+        ],
+        [
+          14,
+          15,
+          "SCHALKE",
+          "63782026-b22f-5a45-80b4-ecb92381cc65"
+        ],
+        [
+          14,
+          16,
+          "ELVERSBERG",
+          "5d8bef72-caa4-5d7b-bb63-75faed75d83f"
+        ],
+        [
+          14,
+          17,
+          "PADERBORN",
+          "7278232f-b513-5c87-9fcc-c3241bd3dd1f"
+        ],
+        [
+          14,
+          18,
+          "HANNOVER 96",
+          "e604c6e0-8513-5905-ba3a-88ae1da89bdc"
+        ],
+        [
+          14,
+          19,
+          "DARMSTADT 98",
+          "62e5f84e-e4f5-54f2-82c3-24515e9e9fb8"
+        ],
+        [
+          14,
+          20,
+          "1.FC K'LAUTERN",
+          "0374c97f-4c0f-51e9-b400-0961f9297d97"
+        ],
+        [
+          14,
+          21,
+          "HERTHA",
+          "9da92b81-1bc6-53a1-8863-a5c7f0cc203c"
+        ],
+        [
+          14,
+          22,
+          "1.FC NUREMBERG",
+          "8c81d161-2d69-51d0-9587-db39d3973b2b"
+        ],
+        [
+          14,
+          23,
+          "BOCHUM",
+          "49379f34-01e6-5b4d-b128-33fe7e8377b3"
+        ],
+        [
+          14,
+          24,
+          "KARLSRUHER",
+          "ec0da015-eadc-5522-8da3-46d53e09f87f"
+        ],
+        [
+          14,
+          25,
+          "DYNAMO DRESDEN",
+          "21826db2-789e-5ee8-8378-5c4845d89eac"
+        ],
+        [
+          14,
+          26,
+          "HOLSTEIN KIEL",
+          "9577b5c0-ce9e-5e76-b591-7672c72d4345"
+        ],
+        [
+          14,
+          27,
+          "ARM. BIELEFELD",
+          "36cbfd58-f679-5ee1-98cd-f873e2435f5f"
+        ],
+        [
+          14,
+          28,
+          "1.FC MAGDEBURG",
+          "a13afdbb-4607-5b10-b2ae-d78a23c9ceed"
+        ],
+        [
+          14,
+          29,
+          "E. BRAUNSCHWEIG",
+          "920f0d4e-63ec-5f4b-8f65-5f9f12db873f"
+        ],
+        [
+          14,
+          30,
+          "GREUTHER FURTH",
+          "ab4baffa-28c1-5737-9ea5-89aca5cac51c"
+        ],
+        [
+          14,
+          33,
+          "ST. PAULI",
+          "50d466cd-ab49-5c11-a44b-ebe95b55f00f"
+        ],
+        [
+          14,
+          34,
+          "OSNABRUCK",
+          "56604880-47ed-54de-b079-788097cf16d0"
+        ],
+        [
+          14,
+          35,
+          "ENERGIE COTTBUS",
+          "aca790b7-f386-56b4-9d5d-3d826723cc0e"
+        ],
+        [
+          14,
+          36,
+          "ROT-WEISS ESSEN",
+          "28f32df0-8d52-5c1b-9769-6ac0012b8f17"
+        ],
+        [
+          14,
+          37,
+          "MSV DUISBURG",
+          "0bcff9f9-b1a2-511b-a4f6-5405124b158b"
+        ],
+        [
+          14,
+          38,
+          "HANSA ROSTOCK",
+          "98cc1ca3-72ca-588d-9c42-ac1a799b4af5"
+        ],
+        [
+          14,
+          39,
+          "VERL",
+          "1ae67c12-a15f-5f67-98f4-d73eb0d43310"
+        ],
+        [
+          14,
+          40,
+          "ALEMANNIA AACHEN",
+          "fcd7385f-03ba-5966-9fa5-ff04a36e9bb6"
+        ],
+        [
+          14,
+          41,
+          "WEHEN WIESBADEN",
+          "eb64ffef-6a64-5c2c-b177-bf4b79d3f5a9"
+        ],
+        [
+          14,
+          42,
+          "WALDHOF MANNHEIM",
+          "88e7ac28-cbbc-5217-b412-f08cfb0fbe02"
+        ],
+        [
+          14,
+          43,
+          "VIKTORIA KOLN",
+          "8e243f85-984c-50c2-b9e8-2aeec6e09ece"
+        ],
+        [
+          14,
+          44,
+          "INGOLSTADT 04",
+          "9961af80-5d81-5f8b-9d43-60d3d9c40d9c"
+        ],
+        [
+          14,
+          45,
+          "JAHN REGENSBURG",
+          "1849c03d-f54c-5929-8ab5-ffe7f702afaa"
+        ],
+        [
+          14,
+          46,
+          "STUTTGART II",
+          "b3c8a712-8b53-5c8b-80b8-384b83e205a9"
+        ],
+        [
+          14,
+          47,
+          "1.FC SAARBRUCKEN",
+          "732eb693-2e2b-5b18-8a0b-628d6fe695ee"
+        ],
+        [
+          14,
+          48,
+          "HOFFENHEIM II",
+          "d96febef-3492-58c1-b013-b37b34bf1460"
+        ],
+        [
+          14,
+          49,
+          "HAVELSE",
+          "41cfc81e-9290-5f92-be13-87179610d2b4"
+        ],
+        [
+          14,
+          50,
+          "F. DUSSELDORF",
+          "bf489204-c5b5-5719-a544-e27220bba2bb"
+        ],
+        [
+          14,
+          51,
+          "PREUSSEN MUNSTER",
+          "ddfa17f0-d1e0-58fa-927f-9eb9dfa27f2f"
+        ],
+        [
+          14,
+          52,
+          "SONNENHOF-GR.",
+          "2dfd1f81-4b30-51df-9724-4b33d3a13a24"
+        ],
+        [
+          14,
+          53,
+          "FORTUNA KOLN",
+          "b9266b58-52b0-576d-9691-92b1cb94cd68"
+        ],
+        [
+          14,
+          54,
+          "MEPPEN",
+          "2b068266-77e7-5f1c-988e-6725c229aaf4"
+        ],
+        [
+          14,
+          55,
+          "WURZB. KICKERS",
+          "26a166a5-5384-5df2-96c8-76d81468333a"
+        ]
+      ]
+    },
+    {
+      "association": "GER",
+      "file": "data_json/worlds/2627/teams/GERMANY_POOL.json",
+      "sha": "019b1f19a5359ae51f62c714026ab0c6d73da3f7",
+      "records": 4,
+      "mappedRankingRows": [],
+      "unmappedRawRecords": [
+        [
+          193,
+          0,
+          "SGV FREIBERG",
+          "6cb7726d-808b-5f5a-985e-99ed8e79a426"
+        ],
+        [
+          193,
+          1,
+          "MEMMINGEN",
+          "29936fa0-02b2-5f1b-ac48-da6d967e2c72"
+        ],
+        [
+          193,
+          2,
+          "RW OBERHAUSEN",
+          "502fce3c-4780-5d73-9a4a-0f6a392401b1"
+        ],
+        [
+          193,
+          3,
+          "SC WEICHE 08",
+          "353c77f1-663a-599c-8297-ccddf4f9cd4c"
+        ]
+      ]
+    },
+    {
+      "association": "FRA",
+      "file": "data_json/worlds/2627/teams/FRANCE.json",
+      "sha": "aa64441a6ae2bc9625d50f09816614d7027cb485",
+      "records": 36,
+      "mappedRankingRows": [
+        3,
+        29,
+        31,
+        46,
+        48,
+        66,
+        96,
+        101,
+        119,
+        120,
+        121,
+        122
+      ],
+      "unmappedRawRecords": [
+        [
+          13,
+          9,
+          "LORIENT",
+          "99c12f31-ec10-589a-8a11-0903b53c4237"
+        ],
+        [
+          13,
+          10,
+          "PARIS FC",
+          "3e538a97-6aaf-5e86-af48-806460577210"
+        ],
+        [
+          13,
+          12,
+          "ANGERS",
+          "975ba728-c453-522e-b017-c88439d97216"
+        ],
+        [
+          13,
+          13,
+          "LE HAVRE",
+          "1a7da858-331e-506f-8146-7026943ad36a"
+        ],
+        [
+          13,
+          14,
+          "AUXERRE",
+          "b4853d61-7781-5791-b131-5661aa645250"
+        ],
+        [
+          13,
+          16,
+          "TROYES",
+          "a5e975fe-7615-5ad2-be49-b97247c72355"
+        ],
+        [
+          13,
+          17,
+          "LE MANS",
+          "92e9f0a3-790b-5e29-b103-8f4ee1bdb801"
+        ],
+        [
+          13,
+          18,
+          "SAINT-ETIENNE",
+          "3c7d220b-da28-5896-94c3-37513f895349"
+        ],
+        [
+          13,
+          19,
+          "RED STAR",
+          "78cf06e8-dd2b-53ef-8fb2-eb7b39f05890"
+        ],
+        [
+          13,
+          20,
+          "RODEZ AF",
+          "64b2d1f4-8437-50dc-b322-6d2d502de429"
+        ],
+        [
+          13,
+          21,
+          "STADE REIMS",
+          "14489498-aeb8-5f69-863c-ff9ea6a7a2d1"
+        ],
+        [
+          13,
+          22,
+          "ANNECY",
+          "8a201c85-cfab-57b7-869e-62f055e14718"
+        ],
+        [
+          13,
+          23,
+          "MONTPELLIER HSC",
+          "58586c58-574c-53e1-9cb3-a7c3bb7f391d"
+        ],
+        [
+          13,
+          24,
+          "PAU",
+          "d2a82704-4898-57ad-a5c3-cd5644b1cdca"
+        ],
+        [
+          13,
+          25,
+          "USL DUNKERQUE",
+          "4d467beb-2a4c-52ca-8b51-cefb71b8d83e"
+        ],
+        [
+          13,
+          26,
+          "EA GUINGAMP",
+          "a59e685a-02b8-51b9-861a-4c2197935cf4"
+        ],
+        [
+          13,
+          27,
+          "GRENOBLE FOOT 38",
+          "c2f1bd19-3a7d-5e85-8c90-dc27bf7aefd5"
+        ],
+        [
+          13,
+          28,
+          "CLERMONT FOOT 63",
+          "87e04a3e-f4d3-5ab5-b824-a722d25ceed5"
+        ],
+        [
+          13,
+          29,
+          "NANCY-LORRAINE",
+          "1927362f-7581-5310-8507-65c8ba68d74c"
+        ],
+        [
+          13,
+          30,
+          "BOULOGNE",
+          "583a412a-1115-5464-baf3-f09388cd6860"
+        ],
+        [
+          13,
+          31,
+          "STADE LAVALLOIS",
+          "3af3e43e-c0d6-5754-9099-5969ecc19e52"
+        ],
+        [
+          13,
+          33,
+          "METZ",
+          "eaff48af-ae4c-5e22-a2b7-48f562204aa0"
+        ],
+        [
+          13,
+          34,
+          "DIJON FCO",
+          "b79dc34d-92bf-5aa0-abc7-3c2dd0674d27"
+        ],
+        [
+          13,
+          35,
+          "SOCHAUX",
+          "346a153e-2fda-5e67-b817-ecbf018fbef1"
+        ]
+      ]
+    },
+    {
+      "association": "POR",
+      "file": "data_json/worlds/2627/teams/PORTUGAL.json",
+      "sha": "18530f86c027fdeade05cde5f3d8bf950ff70e30",
+      "records": 36,
+      "mappedRankingRows": [
+        14,
+        15,
+        20,
+        33,
+        108,
+        126,
+        127,
+        128
+      ],
+      "unmappedRawRecords": [
+        [
+          29,
+          4,
+          "FAMALICAO",
+          "85279f72-904a-533f-b982-e53128100fcd"
+        ],
+        [
+          29,
+          6,
+          "MOREIRENSE",
+          "b01778f8-2a0a-5de3-8688-740e972db237"
+        ],
+        [
+          29,
+          9,
+          "ESTORIL PRAIA",
+          "5e9bce8c-a107-5ec5-a6ef-33750d1a01b6"
+        ],
+        [
+          29,
+          10,
+          "ALVERCA",
+          "556f5fe0-2e24-5ed4-85b0-7ae3e42f3551"
+        ],
+        [
+          29,
+          11,
+          "RIO AVE",
+          "fc94b508-bb00-5c1c-b9aa-bc75d70b8202"
+        ],
+        [
+          29,
+          13,
+          "NACIONAL",
+          "524f6b23-afa3-5c57-934e-3ac4fd236b12"
+        ],
+        [
+          29,
+          14,
+          "ESTRELA AMADORA",
+          "a3d94121-40fb-559b-b348-1af6a9e1caa0"
+        ],
+        [
+          29,
+          15,
+          "CASA PIA",
+          "3a6876cf-9d39-5681-8970-dc989fa1b465"
+        ],
+        [
+          29,
+          16,
+          "MARITIMO",
+          "34917879-50d0-5963-a3ae-2972d261afd8"
+        ],
+        [
+          29,
+          17,
+          "ACADEMICO VISEU",
+          "4d3ef16c-22b0-554b-ac92-133c12d552af"
+        ],
+        [
+          29,
+          18,
+          "UNIAO TORREENSE",
+          "ae3137de-503f-5311-bcef-9ce981688490"
+        ],
+        [
+          29,
+          19,
+          "VIZELA",
+          "959b7c26-92c2-5b0a-a21e-b673149f7824"
+        ],
+        [
+          29,
+          20,
+          "PORTO B",
+          "e8a0bd0a-4245-5032-b401-62a3d4432906"
+        ],
+        [
+          29,
+          21,
+          "LEIRIA",
+          "7ad9fe4d-46cb-5710-95f5-96da70033314"
+        ],
+        [
+          29,
+          22,
+          "LEIXOES",
+          "ad1e9515-4b12-511c-a718-d5338f642f33"
+        ],
+        [
+          29,
+          23,
+          "FEIRENSE",
+          "c9528da9-69e7-5f94-93a6-aa0d89f1bbdd"
+        ],
+        [
+          29,
+          24,
+          "CHAVES",
+          "089a3666-56a2-51fa-be4e-03be903b8d15"
+        ],
+        [
+          29,
+          25,
+          "BENFICA B",
+          "89f71e32-4589-594e-b85d-324dd4099ff0"
+        ],
+        [
+          29,
+          26,
+          "FELGUEIRAS",
+          "ab6f06c6-756b-5451-bde8-671b14e30bb6"
+        ],
+        [
+          29,
+          27,
+          "LUS. LOUROSA",
+          "388d97e4-c2f1-5fae-a2d0-01ac3a5531bd"
+        ],
+        [
+          29,
+          28,
+          "SPORTING B",
+          "de5b6dd7-9f84-57f3-9b7a-9195e4f5b392"
+        ],
+        [
+          29,
+          29,
+          "PENAFIEL",
+          "e7acb1f4-1c9a-5b95-8814-6aac1da91eda"
+        ],
+        [
+          29,
+          30,
+          "PORTIMONENSE SAD",
+          "ffc809ff-34c9-50e7-9a8c-d321998f815e"
+        ],
+        [
+          29,
+          31,
+          "FARENSE",
+          "9abf1148-32af-5ab3-8372-53649f8c5035"
+        ],
+        [
+          29,
+          32,
+          "TONDELA",
+          "18805907-9415-5a4e-b57b-6df8a3668b28"
+        ],
+        [
+          29,
+          33,
+          "AVS",
+          "8b20e2a0-0a6e-551d-aaf6-f89c8caf702d"
+        ],
+        [
+          29,
+          34,
+          "AMARANTE",
+          "8e9d898e-d076-5182-ac28-8f1f0b20e451"
+        ],
+        [
+          29,
+          35,
+          "COIMBRA",
+          "4af664f8-79b5-51b1-90f1-15f023fd89c3"
+        ]
+      ]
+    },
+    {
+      "association": "POR",
+      "file": "data_json/worlds/2627/teams/PORTUGAL_POOL.json",
+      "sha": "c37cf72511357f550bc95151154836c07e0e7584",
+      "records": 5,
+      "mappedRankingRows": [],
+      "unmappedRawRecords": [
+        [
+          196,
+          0,
+          "USC PAREDES",
+          "ea1a2c9e-b001-5a18-b76a-e271a7b94ba1"
+        ],
+        [
+          196,
+          1,
+          "OS BELENENSES",
+          "69ece47c-ef78-5dbc-98c4-1788ab9bffb2"
+        ],
+        [
+          196,
+          2,
+          "LECA",
+          "0a000c6c-6f52-5690-a8a3-06f0beed8e77"
+        ],
+        [
+          196,
+          3,
+          "ATLETICO",
+          "a998222f-9dc2-5255-8ae7-80647d3c9f49"
+        ],
+        [
+          196,
+          4,
+          "MARCO 09",
+          "aeb039aa-2750-5698-8ff1-d0b6a7284799"
+        ]
+      ]
+    },
+    {
+      "association": "NED",
+      "file": "data_json/worlds/2627/teams/HOLLAND.json",
+      "sha": "0a7f7191818c616804789d7a5ac519ec64a49f51",
+      "records": 38,
+      "mappedRankingRows": [
+        26,
+        27,
+        35,
+        41,
+        134,
+        135,
+        136,
+        137
+      ],
+      "unmappedRawRecords": [
+        [
+          25,
+          2,
+          "NEC NIJMEGEN",
+          "b9dd867d-2d5b-5331-894a-5cd117c36a7e"
+        ],
+        [
+          25,
+          7,
+          "HEERENVEEN",
+          "d6f006e8-014d-52b8-8f2c-2eb2348efe27"
+        ],
+        [
+          25,
+          8,
+          "GRONINGEN",
+          "65f5971c-ffab-50d2-b486-5315c9e5fa0d"
+        ],
+        [
+          25,
+          9,
+          "SPARTA ROTTERDAM",
+          "0bcdadd5-ba91-5526-a78f-72576924abab"
+        ],
+        [
+          25,
+          10,
+          "FORTUNA SITTARD",
+          "0649e6ca-f9e8-58fb-a8d2-e4caf0bec7c6"
+        ],
+        [
+          25,
+          12,
+          "EXCELSIOR",
+          "7ddc0020-116b-5136-b83f-2b62971f909c"
+        ],
+        [
+          25,
+          13,
+          "TELSTAR",
+          "14343f64-6b2d-5c2a-9f8d-ac5bc3571f24"
+        ],
+        [
+          25,
+          14,
+          "PEC ZWOLLE",
+          "e7a2539c-fd23-505b-86d2-a51b9de7daca"
+        ],
+        [
+          25,
+          15,
+          "ADO DEN HAAG",
+          "b48ad177-342a-5b13-bc91-1e4dc2ee111a"
+        ],
+        [
+          25,
+          16,
+          "CAMBUUR",
+          "26b12ad9-9299-5b27-b792-7a4df5b0d491"
+        ],
+        [
+          25,
+          17,
+          "WILLEM II",
+          "8344929e-e780-57e1-8fed-5592344cd5c4"
+        ],
+        [
+          25,
+          18,
+          "DE GRAAFSCHAP",
+          "4f284f2c-b896-5cef-a9d5-c3f9259b6622"
+        ],
+        [
+          25,
+          19,
+          "ALMERE CITY",
+          "d2635a95-f4d8-559d-8492-ed9e707329e3"
+        ],
+        [
+          25,
+          20,
+          "RKC WAALWIJK",
+          "bef5c39a-c929-5487-87a9-d692154c32af"
+        ],
+        [
+          25,
+          21,
+          "PSV U21",
+          "63288c90-11a9-5016-9bff-7e9471637d83"
+        ],
+        [
+          25,
+          22,
+          "RODA JC KERKRADE",
+          "dbb1cba7-c7cc-5be5-8637-ecafa332dda2"
+        ],
+        [
+          25,
+          23,
+          "DEN BOSCH",
+          "293aa403-2f96-5c8f-b6ed-b7f84db4f088"
+        ],
+        [
+          25,
+          24,
+          "DORDRECHT",
+          "92f9ed04-a034-5812-8a23-5b9f640e88cb"
+        ],
+        [
+          25,
+          25,
+          "EINDHOVEN",
+          "ff0944cc-08a5-51bd-852d-dbda840c581b"
+        ],
+        [
+          25,
+          26,
+          "UTRECHT U21",
+          "d75ddffc-185e-5771-98bb-aecf63b30138"
+        ],
+        [
+          25,
+          27,
+          "VVV-VENLO",
+          "41484f62-6124-5a73-a401-a702d9b0fffe"
+        ],
+        [
+          25,
+          28,
+          "EMMEN",
+          "48ed73ff-7c80-5b23-9d8e-854f7725534f"
+        ],
+        [
+          25,
+          30,
+          "TOP OSS",
+          "51de7337-b375-510b-8322-79b41bac0b3a"
+        ],
+        [
+          25,
+          31,
+          "AZ ALKMAAR U21",
+          "40eb9485-db60-5483-bcaf-47c1d183bbac"
+        ],
+        [
+          25,
+          32,
+          "HELMOND",
+          "45a10b59-a350-5e06-8ee7-4696c5fca1f3"
+        ],
+        [
+          25,
+          33,
+          "MVV MAASTRICHT",
+          "49f8f188-ecce-56d8-8f78-20c21db4c1ce"
+        ],
+        [
+          25,
+          34,
+          "AJAX U21",
+          "76536d59-7dc7-512b-ad90-885f0a7d7681"
+        ],
+        [
+          25,
+          35,
+          "VOLENDAM",
+          "9f9df71d-7409-585b-bc93-fc2728723a12"
+        ],
+        [
+          25,
+          36,
+          "NAC BREDA",
+          "ce17c770-14d2-5e45-8fe7-c787ed092f3d"
+        ],
+        [
+          25,
+          37,
+          "HERACLES ALMELO",
+          "f27a1c1c-68d0-520d-9943-247d16cacee1"
+        ]
+      ]
+    },
+    {
+      "association": "NED",
+      "file": "data_json/worlds/2627/teams/HOLLAND_POOL.json",
+      "sha": "039f29720f25379989e1902b078c1759920c4c22",
+      "records": 6,
+      "mappedRankingRows": [],
+      "unmappedRawRecords": [
+        [
+          195,
+          0,
+          "KVV QUICK BOYS",
+          "75efc34f-c65c-5628-b5d2-9f5ac5ad88fa"
+        ],
+        [
+          195,
+          1,
+          "TREFFERS",
+          "96ea2bfc-3a7a-5cbd-a4bc-48b9b85aa86f"
+        ],
+        [
+          195,
+          2,
+          "KOZAKKEN BOYS",
+          "8d0e3fa2-19bd-5656-a863-89ec969315a2"
+        ],
+        [
+          195,
+          3,
+          "IJSSELMEERVOGELS",
+          "bd6ff208-afbd-5a8b-b83f-599cd3398706"
+        ],
+        [
+          195,
+          4,
+          "HHC HARDENBERG",
+          "35691499-bde4-5ba9-b76c-8f264702e99f"
+        ],
+        [
+          195,
+          5,
+          "BVV BARENDRECHT",
+          "fc78e3a9-b537-5489-8076-76ae3b2a85a9"
+        ]
+      ]
+    },
+    {
+      "association": "BEL",
+      "file": "data_json/worlds/2627/teams/BELGIUM.json",
+      "sha": "65370bd52f4e0f5bb1573d7addff29621ca0dfaf",
+      "records": 18,
+      "mappedRankingRows": [
+        23,
+        54,
+        61,
+        72,
+        77,
+        141,
+        145,
+        147
+      ],
+      "unmappedRawRecords": [
+        [
+          2,
+          2,
+          "SINT-TRUIDENSE",
+          "b7303140-82e0-56c7-8568-bdff7f092c37"
+        ],
+        [
+          2,
+          4,
+          "MECHELEN",
+          "e4392b7c-b068-5f54-becf-7457d472e602"
+        ],
+        [
+          2,
+          7,
+          "STANDARD LIEGE",
+          "197a524a-00ea-5b1c-bcf1-723daf21deda"
+        ],
+        [
+          2,
+          8,
+          "KVC WESTERLO",
+          "56288303-133f-5b57-b027-139c01835564"
+        ],
+        [
+          2,
+          11,
+          "OH LEUVEN",
+          "5e92fe09-0f0b-5edc-8b32-f562fb27aca5"
+        ],
+        [
+          2,
+          12,
+          "ZULTE WAREGEM",
+          "f7b84157-11b2-5f1c-9433-083fdc5acc75"
+        ],
+        [
+          2,
+          14,
+          "RAAL LOUVIERE",
+          "406b0f81-fa14-5cb2-89c6-419102749262"
+        ],
+        [
+          2,
+          15,
+          "BEVEREN",
+          "694088d5-7128-5a55-9e37-92233d3a111e"
+        ],
+        [
+          2,
+          16,
+          "KORTRIJK",
+          "23865bfa-838d-57cd-9ad6-cb44f6a350c0"
+        ],
+        [
+          2,
+          17,
+          "LOMMEL",
+          "88917242-737b-5e00-8398-6f5c9af509c2"
+        ]
+      ]
+    },
+    {
+      "association": "SCO",
+      "file": "data_json/worlds/2627/teams/SCOTLAND.json",
+      "sha": "0c45d8da54f51b488a745ab996d4031582b7c9b0",
+      "records": 42,
+      "mappedRankingRows": [
+        38,
+        58,
+        155,
+        170,
+        223,
+        238,
+        239,
+        240,
+        241,
+        242
+      ],
+      "unmappedRawRecords": [
+        [
+          33,
+          5,
+          "FALKIRK",
+          "d1082edd-e9fd-51d5-bcf4-0b07a96eeafa"
+        ],
+        [
+          33,
+          8,
+          "DUNDEE",
+          "72c44c52-da0f-5fa6-ae7a-a1b3ca5ca6a3"
+        ],
+        [
+          33,
+          12,
+          "PARTICK THISTLE",
+          "c9544496-4dbe-5dd6-811f-7a9fb553c4e7"
+        ],
+        [
+          33,
+          13,
+          "ARBROATH",
+          "b33dbd34-2743-54b1-af01-f8f5184c5458"
+        ],
+        [
+          33,
+          14,
+          "DUNFERMLINE",
+          "194cdf1f-05fe-5b02-a197-b843823df9eb"
+        ],
+        [
+          33,
+          15,
+          "RAITH ROVERS",
+          "d558041d-f24d-509d-9b5a-72b75441b0d6"
+        ],
+        [
+          33,
+          16,
+          "QUEEN'S PARK",
+          "1bee6bb5-875f-57cc-aa15-2e0c8f3b1795"
+        ],
+        [
+          33,
+          17,
+          "AYR UNITED",
+          "e5aff9dc-a15f-5e6f-832c-dda6ff78124d"
+        ],
+        [
+          33,
+          18,
+          "GREENOCK MORTON",
+          "1c933057-c6f9-557c-8415-fc97ac01eac7"
+        ],
+        [
+          33,
+          19,
+          "LIVINGSTON",
+          "be9f5330-ccab-51b6-bce6-49a6621d0a04"
+        ],
+        [
+          33,
+          20,
+          "INVERNESS CT",
+          "dd9137db-51cc-5bdf-ba23-6b5ec15898a4"
+        ],
+        [
+          33,
+          21,
+          "STENHOUSEMUIR",
+          "df1f9028-9845-5cc1-989a-0f52c937cc9a"
+        ],
+        [
+          33,
+          22,
+          "QUEEN OF SOUTH",
+          "c00080ae-e685-56bb-94ef-8130e8a10cc6"
+        ],
+        [
+          33,
+          23,
+          "ALLOA",
+          "06c95b72-8dc5-5214-81a5-c18c8286781a"
+        ],
+        [
+          33,
+          24,
+          "PETERHEAD",
+          "d8cb924e-cdda-5154-96f7-3dada7c1072e"
+        ],
+        [
+          33,
+          25,
+          "MONTROSE",
+          "bf519889-a960-5fb0-bff1-9720c5f227c9"
+        ],
+        [
+          33,
+          26,
+          "COVE RANGERS",
+          "94efebde-7627-54ff-a6b6-920fb93f3b84"
+        ],
+        [
+          33,
+          27,
+          "EAST FIFE",
+          "eb075729-0464-5547-b470-d2c2b66bf056"
+        ],
+        [
+          33,
+          28,
+          "HAMILTON ACAD.",
+          "009ee5f9-0409-51a5-9b78-c07881bf1cc9"
+        ],
+        [
+          33,
+          29,
+          "AIRDRIEONIANS",
+          "9af0eae7-0dc9-52b9-b9f0-efc2d0659caa"
+        ],
+        [
+          33,
+          30,
+          "ROSS COUNTY",
+          "6e624742-396b-5b96-8974-790138b2eafa"
+        ],
+        [
+          33,
+          31,
+          "EAST KILBRIDE",
+          "a1b0d611-58de-5afe-bf15-b24d8786fdc2"
+        ],
+        [
+          33,
+          32,
+          "THE SPARTANS",
+          "67cb6c2f-8b81-5448-96df-f9e2f0574066"
+        ],
+        [
+          33,
+          33,
+          "CLYDE",
+          "dbd44506-72df-5762-b280-97bea6304705"
+        ],
+        [
+          33,
+          34,
+          "FORFAR",
+          "ce5787ea-a500-5820-b988-5250e2751558"
+        ],
+        [
+          33,
+          35,
+          "STRANRAER",
+          "4c570d77-279e-5489-a145-5d26674d66c0"
+        ],
+        [
+          33,
+          36,
+          "ELGIN CITY",
+          "223f7134-2795-5d84-bcc5-85b214d81731"
+        ],
+        [
+          33,
+          37,
+          "ANNAN",
+          "66259389-6894-5c54-a55b-e607d610689c"
+        ],
+        [
+          33,
+          38,
+          "STIRLING ALBION",
+          "6d56f223-29cf-5630-bd7f-75330cdd4313"
+        ],
+        [
+          33,
+          39,
+          "DUMBARTON",
+          "8330d96a-b78a-55fa-bcd2-6e9e2042ae07"
+        ],
+        [
+          33,
+          40,
+          "EDINBURGH CITY",
+          "91402aa7-5178-5596-a0df-a4801bed0856"
+        ],
+        [
+          33,
+          41,
+          "KELTY HEARTS",
+          "7a1a4fdb-6187-5816-8580-325d30268ef9"
+        ]
+      ]
+    },
+    {
+      "association": "TUR",
+      "file": "data_json/worlds/2627/teams/TURKEY.json",
+      "sha": "c0b2a9eb2187c3cf1bdcfb8c530ee4edf076f73f",
+      "records": 38,
+      "mappedRankingRows": [
+        42,
+        49,
+        103,
+        123,
+        146,
+        156,
+        159,
+        167
+      ],
+      "unmappedRawRecords": [
+        [
+          38,
+          5,
+          "GOZTEPE",
+          "4d95f1d7-70bb-5ad6-b7f3-5267ba80b5c0"
+        ],
+        [
+          38,
+          7,
+          "CAYKUR RIZESPOR",
+          "7a3fb513-a6da-5387-8748-e10d211a64c2"
+        ],
+        [
+          38,
+          9,
+          "KOCAELISPOR",
+          "99b78dcc-3718-5017-9c85-c7a7de36e6c9"
+        ],
+        [
+          38,
+          10,
+          "ALANYASPOR",
+          "57fae015-094f-5b53-9923-8f440ac3f3af"
+        ],
+        [
+          38,
+          11,
+          "GAZIANTEP",
+          "e4a25b2f-2456-5dc3-8d48-0f813181e891"
+        ],
+        [
+          38,
+          12,
+          "KASIMPASA",
+          "4ca22b68-3ee0-5d11-8919-beb89843620d"
+        ],
+        [
+          38,
+          13,
+          "GENCLERBIRLIGI",
+          "2e0139d7-a806-525c-84cf-be1b761400d6"
+        ],
+        [
+          38,
+          14,
+          "EYUPSPOR",
+          "9a1a0707-b31a-51e3-ae24-918a33534d6e"
+        ],
+        [
+          38,
+          15,
+          "ERZURUMSPOR",
+          "c49fda41-e6ae-5598-96c9-992b1c691505"
+        ],
+        [
+          38,
+          16,
+          "AMED",
+          "ad07fa2d-e184-5d87-b0f2-6bc1c5f0de0c"
+        ],
+        [
+          38,
+          17,
+          "CORUM",
+          "227cb755-98b2-5690-97f6-d786eb7a5b9e"
+        ],
+        [
+          38,
+          18,
+          "ESENLER EROKSPOR",
+          "b386b81f-36ab-5917-9c60-63f054d64d68"
+        ],
+        [
+          38,
+          19,
+          "BODRUM",
+          "af9cc7d5-d053-5d08-86c1-90658d2d908e"
+        ],
+        [
+          38,
+          20,
+          "PENDIKSPOR",
+          "a49cec62-9a98-5950-8475-df0e55ae2b05"
+        ],
+        [
+          38,
+          21,
+          "A. KECIORENGUCU",
+          "aeb8ea60-6250-5f08-b6c3-00465cdd30fd"
+        ],
+        [
+          38,
+          22,
+          "BANDIRMA SPOR",
+          "c01a6e35-ac98-5832-b506-f888e40875ff"
+        ],
+        [
+          38,
+          23,
+          "MANISA",
+          "8bd0fc2f-28c4-507d-8b39-a52e71c3fec8"
+        ],
+        [
+          38,
+          25,
+          "ISTANBULSPOR",
+          "dd77d699-f407-5b7c-beda-6de2837dda1c"
+        ],
+        [
+          38,
+          26,
+          "SARIYER",
+          "d1837842-0127-519d-9047-69aa4aa06a34"
+        ],
+        [
+          38,
+          27,
+          "IGDIR",
+          "bb3b2f9e-ce62-5a8f-aeea-3bdc7b4bd3fe"
+        ],
+        [
+          38,
+          28,
+          "VAN SPOR",
+          "d6a7203c-439e-5060-a6cf-dc91f9e94e44"
+        ],
+        [
+          38,
+          29,
+          "BOLUSPOR",
+          "8bb71630-fd16-57fa-aef6-337326e9dd8d"
+        ],
+        [
+          38,
+          30,
+          "UMRANIYESPOR",
+          "e3bad58f-1af4-52cb-9383-1abdb3284c22"
+        ],
+        [
+          38,
+          31,
+          "ANTALYASPOR",
+          "c733fce4-547d-5579-b6d7-7d0482ab63da"
+        ],
+        [
+          38,
+          32,
+          "KAYSERISPOR",
+          "555e394f-0846-57e7-ba98-558d0917c549"
+        ],
+        [
+          38,
+          33,
+          "FATIH KARAGUMRUK",
+          "f76ee1ff-d31b-5bce-a0b2-bf7c95ec1283"
+        ],
+        [
+          38,
+          34,
+          "BATMAN PETROL",
+          "fa5d76f1-6bf1-5693-ac83-1f1d0b26d7a6"
+        ],
+        [
+          38,
+          35,
+          "BURSASPOR",
+          "55d57544-24dc-54d6-bde6-12ba63281a63"
+        ],
+        [
+          38,
+          36,
+          "MUGLASPOR",
+          "ab5ba0a0-a381-5d5f-9183-66dfc705f57f"
+        ],
+        [
+          38,
+          37,
+          "MARDIN SPOR",
+          "489da75c-9c9a-5ad6-af60-eeb4f2100349"
+        ]
+      ]
+    },
+    {
+      "association": "NOR",
+      "file": "data_json/worlds/2627/teams/NORWAY.json",
+      "sha": "0da82870308a224f8543c0264d55b8ee354b4650",
+      "records": 16,
+      "mappedRankingRows": [
+        32,
+        95,
+        148,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205
+      ],
+      "unmappedRawRecords": [
+        [
+          27,
+          4,
+          "SANDEFJORD",
+          "4f591479-9e8c-5100-ad4a-21b4004c1e2e"
+        ],
+        [
+          27,
+          8,
+          "SARPSBORG 08",
+          "08524436-05e1-54a1-b90c-7f37f9e89eec"
+        ],
+        [
+          27,
+          10,
+          "HAMARKAMERATENE",
+          "ce00d7bb-7012-536b-9dc9-677237b152d3"
+        ],
+        [
+          27,
+          11,
+          "KFUM OSLO",
+          "d63c2c54-bffb-5f37-a7f0-b61248dff62e"
+        ],
+        [
+          27,
+          12,
+          "KRISTIANSUND",
+          "37bf52b6-5c55-56ba-958b-85e2e8a60bdf"
+        ],
+        [
+          27,
+          14,
+          "START",
+          "9e6f8612-4603-5236-a2e4-1f9afff54ede"
+        ],
+        [
+          27,
+          15,
+          "AALESUNDS",
+          "1f571d5a-cb1e-59b6-9a20-efcb9afe42f7"
+        ]
+      ]
+    },
+    {
+      "association": "GRE",
+      "file": "data_json/worlds/2627/teams/GREECE.json",
+      "sha": "78b15282f122ab989b8840d9328090abf4e4d4d8",
+      "records": 14,
+      "mappedRankingRows": [
+        36,
+        53,
+        76,
+        84,
+        182
+      ],
+      "unmappedRawRecords": [
+        [
+          15,
+          4,
+          "LEVADIAKOS",
+          "0a5c6afc-c6fd-5c20-8cf9-7a5af38a765a"
+        ],
+        [
+          15,
+          5,
+          "OFI CRETE",
+          "354262b1-68ad-55e1-8e4b-ae825f339026"
+        ],
+        [
+          15,
+          6,
+          "VOLOS",
+          "83a523d9-2ee8-5319-9ed0-ebc63436ac7c"
+        ],
+        [
+          15,
+          8,
+          "ATROMITOS ATHENS",
+          "43b807fb-8ac5-5870-a759-46f46f6349f7"
+        ],
+        [
+          15,
+          9,
+          "KIFISIA",
+          "3537f9a9-5888-5813-a208-813e44bdae72"
+        ],
+        [
+          15,
+          10,
+          "PANETOLIKOS",
+          "afa7d3d4-fc34-5967-abd9-66bf083282ea"
+        ],
+        [
+          15,
+          11,
+          "ASTERAS AKTOR",
+          "aa040fd0-e4f5-570e-bf15-9c33b2dac1df"
+        ],
+        [
+          15,
+          12,
+          "IRAKLIS",
+          "d207963b-ea6b-5a3f-a90e-217439d8ae1e"
+        ],
+        [
+          15,
+          13,
+          "KALAMATA",
+          "c07e52cb-7d59-5dad-8b07-0d561e4ce8a1"
+        ]
+      ]
+    },
+    {
+      "association": "UKR",
+      "file": "data_json/worlds/2627/teams/UKRAINE.json",
+      "sha": "0bfba94e62d2c3afaf35ef413cdac82ddab568d8",
+      "records": 16,
+      "mappedRankingRows": [
+        45,
+        116,
+        152,
+        278,
+        280,
+        282
+      ],
+      "unmappedRawRecords": [
+        [
+          39,
+          1,
+          "LNZ CHERKASY",
+          "a99dd48e-5377-501d-b342-c313ace64c7d"
+        ],
+        [
+          39,
+          4,
+          "KHARKIV",
+          "12cf1926-e815-5b11-8049-68de5caf4491"
+        ],
+        [
+          39,
+          8,
+          "KARPATY LVIV",
+          "a41afaa4-b311-50da-bdaa-4282bb1128f6"
+        ],
+        [
+          39,
+          9,
+          "EPITSENTR",
+          "855401a1-6024-5ce2-84c3-161834d70adf"
+        ],
+        [
+          39,
+          10,
+          "VERES RIVNE",
+          "3490c9ef-f12c-56a0-b171-fd513e6637a6"
+        ],
+        [
+          39,
+          11,
+          "OBOLON KYIV",
+          "9385fcbf-d8e2-5064-bf91-2a209df2f0fc"
+        ],
+        [
+          39,
+          12,
+          "KUDRIVKA",
+          "b85ec861-2998-5459-a660-772e5631c26a"
+        ],
+        [
+          39,
+          13,
+          "BUKOVYNA",
+          "ae1d0357-3f87-5d65-a1d9-0b9c1e57ad3d"
+        ],
+        [
+          39,
+          14,
+          "CHORNOMORETS",
+          "80943585-b743-5c5e-9694-cc7942d07669"
+        ],
+        [
+          39,
+          15,
+          "LIVYI BEREG KYIV",
+          "8fe5d607-01d2-572e-9de1-ebe39a23469a"
+        ]
+      ]
+    },
+    {
+      "association": "DEN",
+      "file": "data_json/worlds/2627/teams/DENMARK.json",
+      "sha": "02c91072e235f1d2c12a53ea375f89a704b2a93b",
+      "records": 12,
+      "mappedRankingRows": [
+        47,
+        52,
+        183,
+        195,
+        196,
+        197,
+        198,
+        199
+      ],
+      "unmappedRawRecords": [
+        [
+          7,
+          2,
+          "SONDERJYSKE",
+          "f7187d02-a767-5af2-9620-249c8a8e7456"
+        ],
+        [
+          7,
+          7,
+          "ODENSE BOLDKLUB",
+          "98b6957f-fa61-5a10-8e1d-601f6ed1919a"
+        ],
+        [
+          7,
+          10,
+          "LYNGBY BOLDKLUB",
+          "96f7878a-e472-5abe-8c54-c643b49c18f5"
+        ],
+        [
+          7,
+          11,
+          "HORSENS",
+          "d78cec8a-f92c-5c20-8b93-1339d2f00485"
+        ]
+      ]
+    },
+    {
+      "association": "HUN",
+      "file": "data_json/worlds/2627/teams/HUNGARY.json",
+      "sha": "6e7b07f890a1e5d1f65f29d331c4e935baa1e1d3",
+      "records": 12,
+      "mappedRankingRows": [
+        50,
+        225,
+        271,
+        272,
+        273,
+        275,
+        276,
+        277
+      ],
+      "unmappedRawRecords": [
+        [
+          16,
+          7,
+          "NYIREGYHAZA",
+          "4e8b4a95-d365-50cb-ad17-feeb8f81fd75"
+        ],
+        [
+          16,
+          9,
+          "MTK BUDAPEST",
+          "af77c298-ba09-593b-8a04-7d137b66a2d2"
+        ],
+        [
+          16,
+          10,
+          "VASAS",
+          "bbc38427-1a0e-5ddf-8088-cac23d5a41d0"
+        ],
+        [
+          16,
+          11,
+          "KISPESTHONVED",
+          "d4676b77-db44-59c2-92ab-64dcc3807ba8"
+        ]
+      ]
+    },
+    {
+      "association": "CZE",
+      "file": "data_json/worlds/2627/teams/CZECH_REPUBLIC.json",
+      "sha": "ac000848bac009932e5611948d8762802a20292a",
+      "records": 16,
+      "mappedRankingRows": [
+        51,
+        59,
+        64,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "unmappedRawRecords": [
+        [
+          6,
+          4,
+          "HRADEC KRALOVE",
+          "87bb2985-e80a-5a9c-8cdb-65d9376e1944"
+        ],
+        [
+          6,
+          5,
+          "SLOVAN LIBEREC",
+          "c63d2917-d9f3-51ef-9c5c-e095c0908553"
+        ],
+        [
+          6,
+          7,
+          "PARDUBICE",
+          "c6a1b02b-2c3a-5406-8a79-28c2ae02f253"
+        ],
+        [
+          6,
+          10,
+          "ZLIN",
+          "e2adfcd7-0fa4-59f8-9caf-9ea64ba7708a"
+        ],
+        [
+          6,
+          11,
+          "TEPLICE",
+          "9b98f00a-e34b-53bf-9abf-21014a567d34"
+        ],
+        [
+          6,
+          14,
+          "ZBROJOVKA BRNO",
+          "d1cb564a-cfca-56bc-bbc3-746ca2b08db6"
+        ],
+        [
+          6,
+          15,
+          "ARTIS BRNO",
+          "7cdf8ebd-b2b8-5409-9d86-a9ca4084acc4"
+        ]
+      ]
+    },
+    {
+      "association": "SRB",
+      "file": "data_json/worlds/2627/teams/YUGOSLAVIA.json",
+      "sha": "a5a34900ca294affcab08c4a8a3ab5d2f08c0b43",
+      "records": 14,
+      "mappedRankingRows": [
+        55,
+        94,
+        235,
+        263,
+        283,
+        284,
+        285
+      ],
+      "unmappedRawRecords": [
+        [
+          41,
+          3,
+          "ZELEZ. PANCEVO",
+          "b06cd6fa-900e-5009-8949-aefa72efa695"
+        ],
+        [
+          41,
+          5,
+          "BEOGRAD",
+          "9180fcf9-5b2d-59af-8fc6-efac4754640f"
+        ],
+        [
+          41,
+          7,
+          "RADNIK SURDULICA",
+          "5f69cc3e-e2a2-51d4-ba40-94eeb3bfc713"
+        ],
+        [
+          41,
+          8,
+          "IMT BELGRAD",
+          "48403b4e-66a5-5734-a410-2c7178a55dde"
+        ],
+        [
+          41,
+          11,
+          "MLADOST LUCANI",
+          "76c2464f-2507-5697-8295-7b1e8a39bc0a"
+        ],
+        [
+          41,
+          12,
+          "ZEMUN",
+          "5c0db731-2e8b-5e83-916c-c8c80be04329"
+        ],
+        [
+          41,
+          13,
+          "MACVA SABAC",
+          "350985ed-89f8-51f1-adac-da403b6bce2d"
+        ]
+      ]
+    },
+    {
+      "association": "CRO",
+      "file": "data_json/worlds/2627/teams/CROATIA.json",
+      "sha": "043e6fdea2ffae1d0310ec1e3209ac0baa0bdd0d",
+      "records": 10,
+      "mappedRankingRows": [
+        56,
+        109,
+        172,
+        217,
+        255
+      ],
+      "unmappedRawRecords": [
+        [
+          4,
+          4,
+          "LOKOMOTIVA",
+          "80659bd6-b210-5b95-bf5e-41a97da62e98"
+        ],
+        [
+          4,
+          5,
+          "ISTRA",
+          "75e310f9-356b-5628-b6ce-2aed92e5d847"
+        ],
+        [
+          4,
+          6,
+          "GORICA",
+          "89a98cd4-0237-5052-a7b1-fefc1d8887b4"
+        ],
+        [
+          4,
+          7,
+          "SLAVEN BELUPO",
+          "62053a24-3112-5257-b16a-26e75759d0bb"
+        ],
+        [
+          4,
+          9,
+          "RUDES",
+          "6d57547f-a637-5478-b1cb-0fd4c7097286"
+        ]
+      ]
+    },
+    {
+      "association": "AUT",
+      "file": "data_json/worlds/2627/teams/AUSTRIA.json",
+      "sha": "1627daf12306eabfe777c70417e2acf7c2321cf4",
+      "records": 12,
+      "mappedRankingRows": [
+        57,
+        74,
+        79,
+        99,
+        185,
+        230
+      ],
+      "unmappedRawRecords": [
+        [
+          1,
+          1,
+          "RIED",
+          "b8d23ada-9bf1-5114-aff1-a3771471ca02"
+        ],
+        [
+          1,
+          5,
+          "SCR ALTACH",
+          "1e3d40db-8a6e-516b-8273-e681854d037b"
+        ],
+        [
+          1,
+          7,
+          "GRAZER AK",
+          "fe7d1fe8-27ab-580f-af4f-c2fbd8dce23c"
+        ],
+        [
+          1,
+          9,
+          "WSG TIROL",
+          "cefdd0ef-123e-546f-8e80-7131e72bd800"
+        ],
+        [
+          1,
+          10,
+          "HARTBERG",
+          "1c74f892-2d50-5682-9467-e2d2e09f905a"
+        ],
+        [
+          1,
+          11,
+          "AUSTRIA LUSTENAU",
+          "6147e660-42b5-5b25-84de-93d92a0b8ae1"
+        ]
+      ]
+    },
+    {
+      "association": "AZE",
+      "file": "data_json/worlds/2627/teams/AZERBAIJAN.json",
+      "sha": "ad88211cc469e3f10b456ce967b648ee1e63cdcf",
+      "records": 12,
+      "mappedRankingRows": [
+        60,
+        236,
+        244,
+        257,
+        303,
+        304,
+        305,
+        306
+      ],
+      "unmappedRawRecords": [
+        [
+          53,
+          2,
+          "TURAN-TOVUZ",
+          "c48989d5-b541-576a-a126-96cb9c4de57f"
+        ],
+        [
+          53,
+          8,
+          "IMISHLI",
+          "7c5ec754-e321-5c33-b09b-57a222768fe7"
+        ],
+        [
+          53,
+          9,
+          "KAPAZ",
+          "bc690c23-eead-5ebb-80a0-ddb6bd8ffc2c"
+        ],
+        [
+          53,
+          11,
+          "SHAFA BAKU",
+          "462f0404-a748-54aa-85b1-85188f7a1bce"
+        ]
+      ]
+    },
+    {
+      "association": "SVK",
+      "file": "data_json/worlds/2627/teams/SLOVAKIA.json",
+      "sha": "374c85c398ae49484f00dc52ed8b4458b4616d40",
+      "records": 12,
+      "mappedRankingRows": [
+        65,
+        165,
+        250,
+        261,
+        321,
+        322
+      ],
+      "unmappedRawRecords": [
+        [
+          78,
+          4,
+          "PODBREZOVA",
+          "23c297f0-88ed-559f-9e22-88d57d785a6e"
+        ],
+        [
+          78,
+          5,
+          "MICHALOVCE",
+          "9d55be64-909a-50a3-b736-d7d42ace9e18"
+        ],
+        [
+          78,
+          8,
+          "TRENCIN",
+          "6b9022f3-52d5-55b0-8c9a-f6a73ebd2ba5"
+        ],
+        [
+          78,
+          9,
+          "KFC KOMARNO",
+          "d91687c7-eb4f-5e7c-ab7f-5a1817911d5f"
+        ],
+        [
+          78,
+          10,
+          "MFK SKALICA",
+          "81d79467-452e-5b6d-a04a-a3cd7d3dc76d"
+        ],
+        [
+          78,
+          11,
+          "BANSKA BYSTRICA",
+          "047fd67d-2a7c-5eed-a9ed-f408869982ca"
+        ]
+      ]
+    },
+    {
+      "association": "SUI",
+      "file": "data_json/worlds/2627/teams/SWITZERLAND.json",
+      "sha": "ae9f5ce05bdf6512961ea8981b719cc4cfcdd6bb",
+      "records": 12,
+      "mappedRankingRows": [
+        67,
+        75,
+        98,
+        143,
+        168,
+        194,
+        227,
+        228,
+        229
+      ],
+      "unmappedRawRecords": [
+        [
+          37,
+          0,
+          "THUN",
+          "0574d1da-dbe5-5119-802a-d86e05086c69"
+        ],
+        [
+          37,
+          3,
+          "SION",
+          "1b5fc5f9-2a09-5cf8-958d-ee06433c1f30"
+        ],
+        [
+          37,
+          10,
+          "GRASSHOPPERS",
+          "3c1b7edf-043f-5763-b79a-1baaeb235b51"
+        ]
+      ]
+    },
+    {
+      "association": "POL",
+      "file": "data_json/worlds/2627/teams/POLAND.json",
+      "sha": "4c845e039caa915250ba34b9360e5986185182bf",
+      "records": 18,
+      "mappedRankingRows": [
+        68,
+        81,
+        91,
+        93,
+        186,
+        187,
+        188
+      ],
+      "unmappedRawRecords": [
+        [
+          28,
+          1,
+          "GORNIK ZABRZE",
+          "38014f57-f7ea-5d60-9464-1ddc3ee6a269"
+        ],
+        [
+          28,
+          4,
+          "KATOWICE",
+          "f230ef07-463f-51f7-a69b-c338b7332c0c"
+        ],
+        [
+          28,
+          6,
+          "ZAGLEBIE LUBIN",
+          "95ce121f-2402-53c1-8d28-70bddd085b92"
+        ],
+        [
+          28,
+          7,
+          "WISLA PLOCK",
+          "8625a54e-a973-5193-a506-9c747b2844aa"
+        ],
+        [
+          28,
+          9,
+          "RADOMIAK RADOM",
+          "ee1a7e1a-ff46-5bd5-a010-7f0dc9b5d5f3"
+        ],
+        [
+          28,
+          10,
+          "KORONA KIELCE",
+          "66f89ecf-c1d4-50d9-afb8-318dd2ba00bc"
+        ],
+        [
+          28,
+          11,
+          "MOTOR LUBLIN",
+          "7bb8aa3c-3f32-5927-90ec-5fd1918ccdd8"
+        ],
+        [
+          28,
+          12,
+          "CRACOVIA",
+          "a12bbf4b-483f-5eee-813b-55582cc13ae4"
+        ],
+        [
+          28,
+          13,
+          "WIDZEW LODZ",
+          "6b36a467-cad0-5855-8fca-a3c67ae3397e"
+        ],
+        [
+          28,
+          14,
+          "PIAST GLIWICE",
+          "6a8a44a8-77a2-5eca-9ece-9e2bf35bb0f1"
+        ],
+        [
+          28,
+          17,
+          "WIECZYSTA KRAKOW",
+          "12fee92c-9846-5ecf-a90f-fe7f6929367c"
+        ]
+      ]
+    },
+    {
+      "association": "ISR",
+      "file": "data_json/worlds/2627/teams/ISRAEL.json",
+      "sha": "1a86f28ee9b0a57fb0c54315db892cdf3a5ca537",
+      "records": 14,
+      "mappedRankingRows": [
+        69,
+        118,
+        132,
+        256,
+        265,
+        269
+      ],
+      "unmappedRawRecords": [
+        [
+          19,
+          3,
+          "HAPOEL TEL AVIV",
+          "21dd1666-7906-5100-90dc-cb0491c60661"
+        ],
+        [
+          19,
+          5,
+          "H. PETAH TIKVA",
+          "55bb0a24-4d04-5fdb-b60a-f6fe0364ad19"
+        ],
+        [
+          19,
+          7,
+          "BNEI SAKHNIN",
+          "8cdde4ef-a2ee-5f96-8d4d-e14920be8e5d"
+        ],
+        [
+          19,
+          8,
+          "KIRYAT SHMONA",
+          "877e6e85-4b86-508b-baa3-d2d8d619a4f9"
+        ],
+        [
+          19,
+          9,
+          "HAPOEL HAIFA",
+          "599ad05d-5f86-5151-b438-ca3da44fcaf4"
+        ],
+        [
+          19,
+          10,
+          "HAPOEL JERUSALEM",
+          "7c249cb2-5184-5f75-adbf-10bbe7fb1cec"
+        ],
+        [
+          19,
+          11,
+          "IRONI TIBERIAS",
+          "8fbdb747-4adb-5091-99f1-be9a4198a48d"
+        ],
+        [
+          19,
+          13,
+          "HAPOEL RAMAT GAN",
+          "a4e38e92-8944-5ff7-8d9e-b6462096d53e"
+        ]
+      ]
+    },
+    {
+      "association": "SWE",
+      "file": "data_json/worlds/2627/teams/SWEDEN.json",
+      "sha": "2f4daed94450efd8c8525433825f320a2e5a3ecc",
+      "records": 16,
+      "mappedRankingRows": [
+        70,
+        124,
+        158,
+        169,
+        247,
+        253,
+        254
+      ],
+      "unmappedRawRecords": [
+        [
+          36,
+          0,
+          "MJALLBY AIF",
+          "e00ba950-a92d-512b-bb96-5c5edc8502ac"
+        ],
+        [
+          36,
+          2,
+          "GAIS",
+          "31013521-9f5f-51d9-abc1-ac0d2daa8921"
+        ],
+        [
+          36,
+          3,
+          "IFK GOTEBORG",
+          "d682e350-b2ad-51b4-907d-52709d9b684a"
+        ],
+        [
+          36,
+          8,
+          "SIRIUS",
+          "5b495402-b6d0-5c4b-ba40-3a4b2674a989"
+        ],
+        [
+          36,
+          10,
+          "HALMSTADS",
+          "d7acad49-b055-589b-94a8-115d1b7074e5"
+        ],
+        [
+          36,
+          11,
+          "BROMMAPOJKARNA",
+          "134b3a4c-7135-5c7f-9a4e-4a3dffc984fa"
+        ],
+        [
+          36,
+          12,
+          "DEGERFORS",
+          "7bd23d2c-10cb-5378-aa84-2093ce72a008"
+        ],
+        [
+          36,
+          13,
+          "VASTERAS",
+          "1da54ef4-86fa-5227-a703-9065fa356e31"
+        ],
+        [
+          36,
+          15,
+          "ORGRYTE IS",
+          "90691695-e639-5290-a387-c7809da4d8e7"
+        ]
+      ]
+    },
+    {
+      "association": "BUL",
+      "file": "data_json/worlds/2627/teams/BULGARIA.json",
+      "sha": "1cbb5871c7a1d5fe910d1dc39023497a1fbd5b73",
+      "records": 14,
+      "mappedRankingRows": [
+        78,
+        222,
+        237,
+        323,
+        324,
+        325,
+        326,
+        327
+      ],
+      "unmappedRawRecords": [
+        [
+          3,
+          2,
+          "BOTEV VRATSA",
+          "f5d22559-5a4e-503b-8eec-ef0bc24834d7"
+        ],
+        [
+          3,
+          5,
+          "LOKOMOTIV SOFIA",
+          "92b7c1c8-01e7-5bea-898a-83e9a4183f6a"
+        ],
+        [
+          3,
+          8,
+          "SLAVIA SOFIA",
+          "ee4747dd-cfde-5a84-98cb-b33bb3b83d5c"
+        ],
+        [
+          3,
+          11,
+          "SPARTAK VARNA",
+          "fee65672-429b-5539-b9af-cf0c94a51737"
+        ],
+        [
+          3,
+          12,
+          "SEPTEMVRI SOFIA",
+          "de624407-4039-56e9-a919-25d6094c0398"
+        ],
+        [
+          3,
+          13,
+          "DUNAV RUSE",
+          "9f2480cc-b824-5329-9a35-315f3de5f75d"
+        ]
+      ]
+    },
+    {
+      "association": "ROU",
+      "file": "data_json/worlds/2627/teams/ROMANIA.json",
+      "sha": "28daf205e1ff9d959350f7e2c1364111c8f03d42",
+      "records": 16,
+      "mappedRankingRows": [
+        82,
+        117,
+        162,
+        252,
+        286,
+        287,
+        288
+      ],
+      "unmappedRawRecords": [
+        [
+          30,
+          1,
+          "RAPID",
+          "13a46f8e-c0d6-5a79-a86f-d3e6d76cf89b"
+        ],
+        [
+          30,
+          4,
+          "DINAMO",
+          "1d6277ce-e7fd-56c0-a942-9b964c40033b"
+        ],
+        [
+          30,
+          5,
+          "ACSC ARGES",
+          "c6b3ece5-8c6c-51e4-b675-fe63aa545a95"
+        ],
+        [
+          30,
+          7,
+          "UTA ARAD",
+          "5d4d5f06-2f24-56c1-a550-2cc42b0abdd8"
+        ],
+        [
+          30,
+          8,
+          "BOTOSANI",
+          "8d729373-b06c-5495-98fb-c8be24f58144"
+        ],
+        [
+          30,
+          9,
+          "OTELUL GALATI",
+          "e56753cd-fbf8-5f3a-8fd0-eba8a0fdd81e"
+        ],
+        [
+          30,
+          11,
+          "PETROLUL",
+          "02e45745-b488-5ef2-a8e1-0dddd8bf7af9"
+        ],
+        [
+          30,
+          12,
+          "CSIKSZEREDA",
+          "21a04c4a-5941-5213-ab52-2fdfe7f79136"
+        ],
+        [
+          30,
+          15,
+          "VOLUNTARI",
+          "87a0d95d-0e09-5a27-bfd6-216271dede6a"
+        ]
+      ]
+    },
+    {
+      "association": "CYP",
+      "file": "data_json/worlds/2627/teams/CYPRUS.json",
+      "sha": "e011ed534294d7e4c5f555794a10ca40f072905a",
+      "records": 14,
+      "mappedRankingRows": [
+        83,
+        97,
+        100,
+        125,
+        218,
+        219,
+        220,
+        221
+      ],
+      "unmappedRawRecords": [
+        [
+          5,
+          8,
+          "OMONIA ARADIPPOU",
+          "7f8be5cd-85a8-5880-81e2-30aa216de15f"
+        ],
+        [
+          5,
+          9,
+          "KRASAVA ENY",
+          "8e43a194-9647-5fc4-b51f-25ccbf602712"
+        ],
+        [
+          5,
+          10,
+          "OLYMPIAKOS N.",
+          "cba40ce5-5518-5a5a-bcb9-db43b8b787ce"
+        ],
+        [
+          5,
+          11,
+          "NEA SALAMIS",
+          "3244cf4a-8564-5d86-ae79-943c88479fef"
+        ],
+        [
+          5,
+          12,
+          "OMONIA 29TH MAY",
+          "c813ebec-9a7a-5b0f-9e69-7c7840e4b988"
+        ],
+        [
+          5,
+          13,
+          "KARMIOTISSA",
+          "2a5fb088-724b-5586-a308-72ab32802771"
+        ]
+      ]
+    },
+    {
+      "association": "SVN",
+      "file": "data_json/worlds/2627/teams/SLOVENIA.json",
+      "sha": "59649463a90fde12f345f4aaee11256e4b9803fa",
+      "records": 10,
+      "mappedRankingRows": [
+        89,
+        115,
+        174,
+        299,
+        300,
+        302
+      ],
+      "unmappedRawRecords": [
+        [
+          34,
+          5,
+          "RADOMLJE",
+          "4c85ab90-7056-5099-9807-e1287cddeb5d"
+        ],
+        [
+          34,
+          6,
+          "ALUMINIJ",
+          "88d9751a-15aa-51f2-8f60-978bd7cde806"
+        ],
+        [
+          34,
+          8,
+          "BRINJE GROSUPLJE",
+          "0dc2a0a2-fb91-5cfd-a20d-f368079d8e10"
+        ],
+        [
+          34,
+          9,
+          "NAFTA",
+          "d48f2c0f-eb30-5c6c-9edd-f089568b088b"
+        ]
+      ]
+    },
+    {
+      "association": "MDA",
+      "file": "data_json/worlds/2627/teams/MOLDOVA.json",
+      "sha": "3d73f095f8eb5356a41ae1e68d72027814fb7b3a",
+      "records": 8,
+      "mappedRankingRows": [
+        102,
+        191,
+        211,
+        311
+      ],
+      "unmappedRawRecords": [
+        [
+          92,
+          4,
+          "BALTI",
+          "03946d2c-669f-5472-aee0-06cdf6ed4dae"
+        ],
+        [
+          92,
+          5,
+          "DACIA BUIUCANI",
+          "f4afed82-0248-5a2d-a7c5-b1f724367537"
+        ],
+        [
+          92,
+          6,
+          "POLITEHNICA UTM",
+          "37c3c199-8198-51b2-a0c9-aa0110d8392f"
+        ],
+        [
+          92,
+          7,
+          "REAL SIRETI",
+          "2e2e1603-57f2-55e4-851c-713b035eae4e"
+        ]
+      ]
+    },
+    {
+      "association": "IRL",
+      "file": "data_json/worlds/2627/teams/REPUBLIC_IRELAND.json",
+      "sha": "829061e528f9ee918eee4bbf3dcd5afdd7ffb10a",
+      "records": 10,
+      "mappedRankingRows": [
+        107,
+        210,
+        328,
+        331,
+        344,
+        348,
+        349
+      ],
+      "unmappedRawRecords": [
+        [
+          18,
+          5,
+          "DROGHEDA UNITED",
+          "266ce4e3-ebe7-5e1b-900b-aae71e82d0ab"
+        ],
+        [
+          18,
+          7,
+          "GALWAY UNITED",
+          "59f70556-3aa9-5a8e-a8a4-f8106cbd05e3"
+        ],
+        [
+          18,
+          8,
+          "WATERFORD",
+          "e93ed697-33f2-5e8b-91d4-66fdfecd2ad5"
+        ]
+      ]
+    },
+    {
+      "association": "FIN",
+      "file": "data_json/worlds/2627/teams/FINLAND.json",
+      "sha": "b991426bf877297c4fccd4c03a68ffd8a85dfaff",
+      "records": 12,
+      "mappedRankingRows": [
+        130,
+        131,
+        335,
+        360,
+        361,
+        364
+      ],
+      "unmappedRawRecords": [
+        [
+          12,
+          5,
+          "GNISTAN",
+          "8fd05a10-6439-5c58-a203-8d5520f70862"
+        ],
+        [
+          12,
+          7,
+          "JARO",
+          "6dc0d3a9-7429-59fc-9576-07c6acd63ccf"
+        ],
+        [
+          12,
+          8,
+          "IFK MARIEHAMN",
+          "74564a01-c61a-5641-9a86-a7a6eecbfaee"
+        ],
+        [
+          12,
+          9,
+          "OULU",
+          "ba9dd0e7-4f22-5d63-887a-7a82fd83d869"
+        ],
+        [
+          12,
+          10,
+          "LAHTI",
+          "d35df2a7-c18c-5f7c-88df-eb60c7767454"
+        ],
+        [
+          12,
+          11,
+          "TURUN PALLOSEURA",
+          "6d9a4ef9-f6f3-5932-a246-73850d3a2b92"
+        ]
+      ]
+    },
+    {
+      "association": "KOS",
+      "file": "data_json/worlds/2627/teams/KOSOVO.json",
+      "sha": "0ac5425101e8d99552efd7bb15a746ce3a2df3d7",
+      "records": 10,
+      "mappedRankingRows": [
+        133,
+        171,
+        337,
+        342,
+        365,
+        366,
+        367
+      ],
+      "unmappedRawRecords": [
+        [
+          88,
+          5,
+          "DRENICA",
+          "6cf01914-b596-5493-83e8-eddb50b4b0a4"
+        ],
+        [
+          88,
+          8,
+          "FERONIKELI 74",
+          "74324d65-fb6c-5c50-a1cf-74852c8ffd67"
+        ],
+        [
+          88,
+          9,
+          "VUSHTRRIA",
+          "62f8e13f-4876-5b11-ad72-cfb9cf2a463f"
+        ]
+      ]
+    },
+    {
+      "association": "GIB",
+      "file": "data_json/worlds/2627/teams/GIBRALTAR.json",
+      "sha": "c92a8b2da738edcb51d1e74e4374fe283eb34b5f",
+      "records": 11,
+      "mappedRankingRows": [
+        138,
+        292,
+        317,
+        357,
+        408
+      ],
+      "unmappedRawRecords": [
+        [
+          63,
+          4,
+          "LIONS GIBRALTAR",
+          "0db6b549-35af-586e-914e-9e726e7e1cb7"
+        ],
+        [
+          63,
+          5,
+          "LYNX",
+          "3bab9a65-bb38-5d0c-a950-974535261784"
+        ],
+        [
+          63,
+          7,
+          "EUROPA POINT",
+          "8d7bcee3-61c0-5805-aedb-bb4f7edac6c6"
+        ],
+        [
+          63,
+          8,
+          "COLLEGE",
+          "71a38e3e-9793-5a4a-8e6a-54fab5de2a67"
+        ],
+        [
+          63,
+          9,
+          "GLACIS UNITED",
+          "087a72d9-9780-5626-82d9-ebccb77c47c1"
+        ],
+        [
+          63,
+          10,
+          "HOUND DOGS",
+          "c8d81d74-dcda-57ab-b28e-56d394377f6b"
+        ]
+      ]
+    },
+    {
+      "association": "BIH",
+      "file": "data_json/worlds/2627/teams/BOSNIA_HERZ.json",
+      "sha": "9bfef902d61ca17d7560aaf03975afff90e43887",
+      "records": 10,
+      "mappedRankingRows": [
+        139,
+        140,
+        290,
+        319,
+        370,
+        372
+      ],
+      "unmappedRawRecords": [
+        [
+          54,
+          6,
+          "RADNIK BIJELJINA",
+          "5f57f651-9964-57d8-9ec7-283745b4e4c8"
+        ],
+        [
+          54,
+          7,
+          "SLOGA MERIDIAN",
+          "600f53db-df42-52ae-9f03-da02fa948ebc"
+        ],
+        [
+          54,
+          8,
+          "CELIK ZENICA",
+          "76b9e67d-7dae-578c-bfa4-e7b72b2a9d0f"
+        ],
+        [
+          54,
+          9,
+          "BSK BANJA LUKA",
+          "cd67ccbf-1954-5ac1-834d-de19c6dd47a2"
+        ]
+      ]
+    },
+    {
+      "association": "LVA",
+      "file": "data_json/worlds/2627/teams/LATVIA.json",
+      "sha": "d3e278bead1ad50a1ce7097132b082bec4bd6771",
+      "records": 10,
+      "mappedRankingRows": [
+        142,
+        163,
+        316,
+        334,
+        373
+      ],
+      "unmappedRawRecords": [
+        [
+          21,
+          5,
+          "FS JELGAVA",
+          "32989e13-c6bf-5085-aa64-0e7f656c6ea6"
+        ],
+        [
+          21,
+          6,
+          "TUKUMS",
+          "23d02adb-ad02-55aa-9505-2c1441f342fe"
+        ],
+        [
+          21,
+          7,
+          "SUPER NOVA",
+          "79d6f035-11cc-57d6-908f-60aaa98b86e9"
+        ],
+        [
+          21,
+          8,
+          "GROBINA",
+          "65102b3f-0688-5f29-88a1-6d9ea50201c2"
+        ],
+        [
+          21,
+          9,
+          "OGRE UNITED",
+          "2db9b209-493d-5187-a2be-973cbc69a051"
+        ]
+      ]
+    },
+    {
+      "association": "KAZ",
+      "file": "data_json/worlds/2627/teams/KAZAKHSTAN.json",
+      "sha": "d2a64d4664db0ecf59b63c64835d60967ac666e7",
+      "records": 16,
+      "mappedRankingRows": [
+        144,
+        157,
+        208,
+        314,
+        315,
+        368
+      ],
+      "unmappedRawRecords": [
+        [
+          86,
+          3,
+          "YELIMAY SEMEY",
+          "e060cf70-87b2-54b3-8757-663e5b51d0d3"
+        ],
+        [
+          86,
+          5,
+          "ZHENIS ASTANA",
+          "fa93ab49-5e6b-5cae-aff7-6f1bccff4a10"
+        ],
+        [
+          86,
+          7,
+          "OKZHETPES",
+          "b814d54b-8685-55b7-82a3-845afc8a7617"
+        ],
+        [
+          86,
+          9,
+          "ULYTAU ZH.",
+          "539172e3-63cc-52bd-94f9-f38e6dddac62"
+        ],
+        [
+          86,
+          10,
+          "KAYSAR KYZYLORDA",
+          "f2012d2e-a114-5e99-bf39-ef3f8c320758"
+        ],
+        [
+          86,
+          11,
+          "ZHETYSU",
+          "b2e2b7a6-3a5a-59d2-95ef-c4cebf6b133c"
+        ],
+        [
+          86,
+          12,
+          "ATYRAU",
+          "4b202cb6-04f2-5f08-b3e0-baa6f0d11df1"
+        ],
+        [
+          86,
+          13,
+          "KASPIY AKTAU",
+          "b20e7ba6-76d3-5e17-aa3a-781399a3ba90"
+        ],
+        [
+          86,
+          14,
+          "IRTYSH PAVLODAR",
+          "bdd65959-9543-526b-8502-e0d5e77bae1b"
+        ],
+        [
+          86,
+          15,
+          "ALTAY OSKEMEN",
+          "c02c1114-fdef-5122-afc0-48481c62c0b1"
+        ]
+      ]
+    },
+    {
+      "association": "ISL",
+      "file": "data_json/worlds/2627/teams/ICELAND.json",
+      "sha": "a41eb90ff9a3bc289cf604606c5dd71c1663daa4",
+      "records": 12,
+      "mappedRankingRows": [
+        149,
+        154,
+        313,
+        336,
+        350,
+        351,
+        352
+      ],
+      "unmappedRawRecords": [
+        [
+          17,
+          5,
+          "FRAM REYKJAVIK",
+          "7128a375-da6a-5f17-809a-60a38a4bf78b"
+        ],
+        [
+          17,
+          6,
+          "IBV",
+          "27697fd0-e76f-5a74-aa6a-6c89878d32dd"
+        ],
+        [
+          17,
+          9,
+          "IA AKRANES",
+          "8e60efc6-e367-5aee-839e-5541cbdf8914"
+        ],
+        [
+          17,
+          10,
+          "THOR AKUREYRI",
+          "72cdf189-ace8-5429-a37b-dce7a1d8a1b8"
+        ],
+        [
+          17,
+          11,
+          "KEFLAVIK",
+          "626c2e55-8d87-5572-ad16-6991a1fb34fa"
+        ]
+      ]
+    },
+    {
+      "association": "LTU",
+      "file": "data_json/worlds/2627/teams/LITHUANIA.json",
+      "sha": "32e8c4b391d59ffeda8145416a54013e08fbc3ea",
+      "records": 10,
+      "mappedRankingRows": [
+        150,
+        234,
+        246,
+        358,
+        381,
+        399,
+        400,
+        401
+      ],
+      "unmappedRawRecords": [
+        [
+          22,
+          6,
+          "DZIUGAS TELSIAI",
+          "83f24e30-74f2-588b-b5aa-523eaec935bb"
+        ],
+        [
+          22,
+          8,
+          "RITERIAI",
+          "afa3feb2-7716-5917-84d2-12c8be306e9b"
+        ]
+      ]
+    },
+    {
+      "association": "RUS",
+      "file": "data_json/worlds/2627/teams/RUSSIA.json",
+      "sha": "5adbf43c985e909a9d588ae875302fe602ef7c68",
+      "records": 16,
+      "mappedRankingRows": [
+        153,
+        209,
+        307,
+        309
+      ],
+      "unmappedRawRecords": [
+        [
+          31,
+          1,
+          "KRASNODAR",
+          "864e1a57-0ec9-51fc-9bd8-aea6290b88f8"
+        ],
+        [
+          31,
+          4,
+          "CSKA MOSCOW",
+          "b66bff12-7ee0-5636-8b15-9e37082b67bc"
+        ],
+        [
+          31,
+          5,
+          "BALTIKA",
+          "1dfa4200-bba6-595b-a8ec-c3d8156c62c2"
+        ],
+        [
+          31,
+          6,
+          "DYNAMO MOSCOW",
+          "046ecc6a-bbd7-5cd8-a6be-5a2773464f3d"
+        ],
+        [
+          31,
+          8,
+          "AKHMAT GROZNY",
+          "70489b2c-6d8f-59c4-b9c3-d6cd4c12f6a1"
+        ],
+        [
+          31,
+          9,
+          "ROSTOV",
+          "ed0735eb-5f56-5af6-8217-ef5b343c1db7"
+        ],
+        [
+          31,
+          10,
+          "KS SAMARA",
+          "df0f3f8e-ec6d-5aaa-8ba4-7ea9036d7f20"
+        ],
+        [
+          31,
+          11,
+          "ORENBURG",
+          "cb8915b5-5e63-5550-b79d-f17b4ba7a606"
+        ],
+        [
+          31,
+          12,
+          "AKRON TOLYATTI",
+          "a38bb7d8-d051-5413-b262-f9deeceace9d"
+        ],
+        [
+          31,
+          13,
+          "DINAMO MAKHACH.",
+          "82982eee-8d53-565b-92cf-41ea8d75130b"
+        ],
+        [
+          31,
+          14,
+          "RODINA MOSCOW",
+          "8ff0e2fa-fb93-59d3-ada8-c65df86d8b14"
+        ],
+        [
+          31,
+          15,
+          "FAKEL VORONEZH",
+          "c1e553aa-2df0-51dc-8963-f7a79f3f8abc"
+        ]
+      ]
+    },
+    {
+      "association": "MKD",
+      "file": "data_json/worlds/2627/teams/N_MACEDONIA.json",
+      "sha": "fa476df23ada0ee9109bc10b9c40175431257efe",
+      "records": 10,
+      "mappedRankingRows": [
+        160,
+        295,
+        384,
+        395,
+        397
+      ],
+      "unmappedRawRecords": [
+        [
+          93,
+          5,
+          "ARSIMI",
+          "166483a9-2bd4-5353-b1e2-7c83a7557969"
+        ],
+        [
+          93,
+          6,
+          "BASHKIMI",
+          "c3edad01-4f74-5d25-bef6-8bcb8cc42134"
+        ],
+        [
+          93,
+          7,
+          "HARACINE",
+          "345ed750-ce81-5efb-a34f-7d2d2291c257"
+        ],
+        [
+          93,
+          8,
+          "BREGALNICA STIP",
+          "3904a540-e234-568f-a655-6966e1db0de8"
+        ],
+        [
+          93,
+          9,
+          "SKOPJE",
+          "00d81652-289b-5abc-bbf6-7d473c2d61a1"
+        ]
+      ]
+    },
+    {
+      "association": "ARM",
+      "file": "data_json/worlds/2627/teams/ARMENIA.json",
+      "sha": "68d845685d342a326a83b7f0c693e187deed9d0d",
+      "records": 12,
+      "mappedRankingRows": [
+        161,
+        173,
+        224,
+        294,
+        298,
+        353
+      ],
+      "unmappedRawRecords": [
+        [
+          52,
+          5,
+          "VAN",
+          "22da8707-a3b8-5739-aabb-2fe1a0059721"
+        ],
+        [
+          52,
+          6,
+          "BKMA YEREVAN",
+          "ea526298-8f76-54f7-9a71-fc11adeb7b49"
+        ],
+        [
+          52,
+          7,
+          "GANDZASAR KAPAN",
+          "e1a5f608-ebf1-56ee-8b3b-4bc8973a0e5e"
+        ],
+        [
+          52,
+          9,
+          "SHIRAK GYUMRI",
+          "e1f6eb28-31b6-5060-b397-7f1ae0f4c750"
+        ],
+        [
+          52,
+          10,
+          "SARDARAPAT",
+          "5dcd4d6a-02c6-52fb-8a1d-fc56366d809f"
+        ],
+        [
+          52,
+          11,
+          "SYUNIK",
+          "e2e518fd-faaa-54df-a5a5-b989074f3dca"
+        ]
+      ]
+    },
+    {
+      "association": "FRO",
+      "file": "data_json/worlds/2627/teams/FAROE_ISLANDS.json",
+      "sha": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b",
+      "records": 10,
+      "mappedRankingRows": [
+        164,
+        226,
+        245,
+        296,
+        383
+      ],
+      "unmappedRawRecords": [
+        [
+          11,
+          5,
+          "B68 TOFTIR",
+          "557b34a1-05ac-567c-b05c-16641f46ab49"
+        ],
+        [
+          11,
+          6,
+          "EB/STREYMUR",
+          "88c2bd7a-0e44-5040-adc4-6cc26bc4e30b"
+        ],
+        [
+          11,
+          7,
+          "07 VESTUR",
+          "38ff1905-e591-5560-bd48-fdf7b1443e31"
+        ],
+        [
+          11,
+          8,
+          "SKALA",
+          "d7f884e1-3547-5c9a-95ac-434d6bfc9dbd"
+        ],
+        [
+          11,
+          9,
+          "AB ARGIR",
+          "1e3a7e47-0846-5e09-9fdb-50ae8c84ef56"
+        ]
+      ]
+    },
+    {
+      "association": "EST",
+      "file": "data_json/worlds/2627/teams/ESTONIA.json",
+      "sha": "bee26f318b325985e12e360669e9eaa29e15aeb1",
+      "records": 10,
+      "mappedRankingRows": [
+        175,
+        212,
+        213,
+        392,
+        394
+      ],
+      "unmappedRawRecords": [
+        [
+          10,
+          5,
+          "PARNU VAPRUS",
+          "13c09845-65da-5729-b739-1339c8d534ce"
+        ],
+        [
+          10,
+          6,
+          "HARJU LAAGRI",
+          "744809e9-a799-5c2a-a689-a0d4d1f432b2"
+        ],
+        [
+          10,
+          7,
+          "TAMMEKA",
+          "9594bf06-d6b2-566d-bd94-68607eca17fe"
+        ],
+        [
+          10,
+          8,
+          "KURESSAARE",
+          "afe8efd4-ed3c-5efe-9ab7-f04ef78b96f9"
+        ],
+        [
+          10,
+          9,
+          "NOMME UNITED",
+          "d8f1cf16-0516-599b-855f-0b348b168105"
+        ]
+      ]
+    },
+    {
+      "association": "NIR",
+      "file": "data_json/worlds/2627/teams/NORTHERN_IRELAND.json",
+      "sha": "7a19bc0fae91092ee24a80397928419a76629064",
+      "records": 12,
+      "mappedRankingRows": [
+        184,
+        190,
+        333,
+        338,
+        386,
+        402,
+        407
+      ],
+      "unmappedRawRecords": [
+        [
+          26,
+          6,
+          "CARRICK RANGERS",
+          "52be6023-5867-5ef5-a243-b8420a1e4ebc"
+        ],
+        [
+          26,
+          7,
+          "BANGOR",
+          "973ee4b4-580a-5752-9cfa-cebe8f332c83"
+        ],
+        [
+          26,
+          8,
+          "PORTADOWN",
+          "4b4080b2-92f5-5ead-8e02-f475bb3a3fcc"
+        ],
+        [
+          26,
+          9,
+          "BALLYMENA UNITED",
+          "a1863975-39d2-5779-954d-fec9ab74e947"
+        ],
+        [
+          26,
+          11,
+          "LIMAVADY UNITED",
+          "0de50c5c-37ea-58f9-8f12-81bbe7067fbf"
+        ]
+      ]
+    },
+    {
+      "association": "WAL",
+      "file": "data_json/worlds/2627/teams/WALES.json",
+      "sha": "5ce10b168fdcd75622767d51ce762716660ea4e4",
+      "records": 16,
+      "mappedRankingRows": [
+        192,
+        343,
+        376,
+        382,
+        404
+      ],
+      "unmappedRawRecords": [
+        [
+          40,
+          3,
+          "BARRY TOWN",
+          "4153b96e-c571-5a90-8f62-6e8942e14cea"
+        ],
+        [
+          40,
+          5,
+          "COLWYN BAY",
+          "a6db5402-d940-517f-9162-c1fdb8b02a79"
+        ],
+        [
+          40,
+          6,
+          "BRITON FERRY",
+          "f0d64a21-cde7-5911-9ca2-3af3f3f201bf"
+        ],
+        [
+          40,
+          8,
+          "CARDIFF MET",
+          "fd77aa8d-90f8-5dc9-81dc-7adf90cb13d6"
+        ],
+        [
+          40,
+          9,
+          "FLINT TOWN",
+          "cd984e6e-9f73-507c-a823-cf7bc4d4fc5b"
+        ],
+        [
+          40,
+          10,
+          "LLANDUDNO",
+          "0ab6dd3a-1be8-5c4b-a679-dd6d0d63a8a4"
+        ],
+        [
+          40,
+          11,
+          "AIRBUS UK",
+          "79364ac7-5265-596f-b952-f5a02e48d2e9"
+        ],
+        [
+          40,
+          12,
+          "TREFELIN B & G",
+          "50f90704-2129-5366-9be1-ed76b65208d4"
+        ],
+        [
+          40,
+          13,
+          "CAMBRIAN UNITED",
+          "d039e647-4770-5b7c-baa6-057adc11fadc"
+        ],
+        [
+          40,
+          14,
+          "AMMANFORD",
+          "420b4cd5-9e0f-5c75-8642-f39da8f64ded"
+        ],
+        [
+          40,
+          15,
+          "HOLYWELL TOWN",
+          "5f69aded-6e88-5917-9d81-7a63fbfb4827"
+        ]
+      ]
+    },
+    {
+      "association": "MLT",
+      "file": "data_json/worlds/2627/teams/MALTA.json",
+      "sha": "427d005b060f00477c85647211cf9806aeb3e29c",
+      "records": 12,
+      "mappedRankingRows": [
+        193,
+        262,
+        267,
+        330,
+        339,
+        388,
+        389,
+        390,
+        391
+      ],
+      "unmappedRawRecords": [
+        [
+          24,
+          2,
+          "VALLETTA",
+          "60b219c7-2d59-5d45-9ac5-d432e61f2e90"
+        ],
+        [
+          24,
+          7,
+          "ZABBAR SP",
+          "0c8354eb-e135-561f-96bb-d88a9eda581c"
+        ],
+        [
+          24,
+          11,
+          "BIRZEBBUGA",
+          "cf47f67c-a694-5be3-9c1d-b9190442b229"
+        ]
+      ]
+    },
+    {
+      "association": "LIE",
+      "file": "data_json/worlds/2627/teams/LIECHTENSTEIN.json",
+      "sha": "55736b21e36629f5aeb7ceb2435fd35b3817e7ef",
+      "records": 6,
+      "mappedRankingRows": [],
+      "unmappedRawRecords": [
+        [
+          90,
+          0,
+          "VADUZ",
+          "ed60567c-9df8-5fb4-b1e2-f777f535fc16"
+        ],
+        [
+          90,
+          1,
+          "BALZERS",
+          "0d34ed40-ec0f-5802-a194-1b3bb3cc6687"
+        ],
+        [
+          90,
+          2,
+          "ESCHEN/MAUREN",
+          "724738a2-df5e-5774-a529-25102a2811b0"
+        ],
+        [
+          90,
+          3,
+          "RUGGELL",
+          "1394ef20-0e30-5ab1-9631-be2237bcd926"
+        ],
+        [
+          90,
+          4,
+          "SCHAAN",
+          "095d86b5-2db9-5258-b65f-850be6efadcb"
+        ],
+        [
+          90,
+          5,
+          "TRIESEN",
+          "1da0b40a-6914-5a31-a9b5-9b48278441ed"
+        ]
+      ]
+    },
+    {
+      "association": "LUX",
+      "file": "data_json/worlds/2627/teams/LUXEMBOURG.json",
+      "sha": "383f4cfb8f32c699a5fc65ac9401bbae28317dad",
+      "records": 16,
+      "mappedRankingRows": [
+        207,
+        231,
+        340,
+        354,
+        356,
+        375
+      ],
+      "unmappedRawRecords": [
+        [
+          23,
+          0,
+          "ATERT BISSEN",
+          "4b83bf47-9b44-51fe-bc86-b527122e1a8e"
+        ],
+        [
+          23,
+          2,
+          "MONDORF",
+          "b7def145-6ce2-5139-bd70-7ee9bee92e10"
+        ],
+        [
+          23,
+          5,
+          "JEUNESSE ESCH",
+          "be4ea0fd-f394-59b7-91a8-67dcde3a7125"
+        ],
+        [
+          23,
+          7,
+          "UN KAERJENG 97",
+          "f892f9b9-3ffd-58de-8384-71c50c6e82c5"
+        ],
+        [
+          23,
+          8,
+          "HOSTERT",
+          "f1ee1487-0df8-53d8-be47-3f448c32b802"
+        ],
+        [
+          23,
+          9,
+          "VICTORIA ROSPORT",
+          "78209793-582a-59d6-a7de-ef68671151e4"
+        ],
+        [
+          23,
+          12,
+          "RUMELANGE",
+          "1c1edf96-5c69-51f5-9624-b2fc559d8045"
+        ],
+        [
+          23,
+          13,
+          "E. ETTELBRUCK",
+          "d831ace4-2372-53f0-8fae-e475e714d650"
+        ],
+        [
+          23,
+          14,
+          "WILTZ 71",
+          "a051bc73-70d4-5f56-a7a7-6bdf457cf4f2"
+        ],
+        [
+          23,
+          15,
+          "WALFERDANGE",
+          "182aef01-c5fd-5c67-b0f9-70d8dff848ba"
+        ]
+      ]
+    },
+    {
+      "association": "AND",
+      "file": "data_json/worlds/2627/teams/ANDORRA.json",
+      "sha": "88d2c98c48972aab08c15eef8917fdc9f411f855",
+      "records": 10,
+      "mappedRankingRows": [
+        214,
+        291,
+        293
+      ],
+      "unmappedRawRecords": [
+        [
+          47,
+          1,
+          "RANGER'S",
+          "e5a72a06-bd00-5d11-aad3-919e0119d9a0"
+        ],
+        [
+          47,
+          4,
+          "PENYA ENCARNADA",
+          "6acd40f5-cb06-5735-be47-0abba7a1767d"
+        ],
+        [
+          47,
+          5,
+          "ORDINO",
+          "de95effe-73bd-5746-be17-55fe24dd095b"
+        ],
+        [
+          47,
+          6,
+          "ESPORTIU CARROI",
+          "b4432731-7633-55a0-93b5-84cf0b499983"
+        ],
+        [
+          47,
+          7,
+          "ESPERANCA",
+          "6630ddc0-fe44-500c-9519-484af519f821"
+        ],
+        [
+          47,
+          8,
+          "CASA PORTUGAL",
+          "233233ed-6fae-5500-9e5b-68c7abbcd63b"
+        ],
+        [
+          47,
+          9,
+          "ESCALDES",
+          "2dc3bf0a-deff-5295-b394-9b6b17e17258"
+        ]
+      ]
+    },
+    {
+      "association": "MNE",
+      "file": "data_json/worlds/2627/teams/MONTENEGRO.json",
+      "sha": "87d1b476ed9e159fc66ddd6196c417588ca996a4",
+      "records": 10,
+      "mappedRankingRows": [
+        215,
+        248,
+        258,
+        385,
+        411
+      ],
+      "unmappedRawRecords": [
+        [
+          94,
+          2,
+          "PETROVAC",
+          "435347b2-ebee-583f-80b7-f5feb346e77f"
+        ],
+        [
+          94,
+          5,
+          "MLADOST DG",
+          "c651cf74-9ffd-5cb7-9dae-ec73b2bdbbb1"
+        ],
+        [
+          94,
+          7,
+          "JEZERO",
+          "ca08efb0-5e50-50ea-80d7-3a45ebdbdda2"
+        ],
+        [
+          94,
+          8,
+          "BOKELJ",
+          "49d11791-4f5d-5a16-9c8c-98bdb6d3e605"
+        ],
+        [
+          94,
+          9,
+          "ULCINJ",
+          "ec8c6901-1cff-54b4-96d1-f7e5c2f2a5d9"
+        ]
+      ]
+    },
+    {
+      "association": "ALB",
+      "file": "data_json/worlds/2627/teams/ALBANIA.json",
+      "sha": "07dca3734ac57cd066cf2f2e6485c23f4f70537e",
+      "records": 10,
+      "mappedRankingRows": [
+        216,
+        233,
+        310,
+        332,
+        346,
+        374,
+        387
+      ],
+      "unmappedRawRecords": [
+        [
+          0,
+          1,
+          "AF ELBASANI",
+          "70331a80-d72e-5b0b-ad70-f5d8c9f3b246"
+        ],
+        [
+          0,
+          6,
+          "VORA",
+          "19fc3a0b-fc65-513a-bd19-76fdcd4836d4"
+        ],
+        [
+          0,
+          9,
+          "SKENDERBEU",
+          "1a2867f7-1361-54e4-a255-5e2f73a02ea5"
+        ]
+      ]
+    },
+    {
+      "association": "BLR",
+      "file": "data_json/worlds/2627/teams/BELARUS.json",
+      "sha": "910fd851fdf6551c437f51a48a966bdf58346d19",
+      "records": 16,
+      "mappedRankingRows": [
+        232,
+        243,
+        259,
+        266,
+        378,
+        405,
+        410
+      ],
+      "unmappedRawRecords": [
+        [
+          76,
+          0,
+          "ML VITEBSK",
+          "16c033ac-f284-5c49-8164-19672cce29eb"
+        ],
+        [
+          76,
+          2,
+          "SLAVIA MOZYR",
+          "afd81ccb-2023-5f52-b1ec-703485db3b92"
+        ],
+        [
+          76,
+          4,
+          "MINSK",
+          "2df536d8-93cd-5d86-8dce-01afa4678f8d"
+        ],
+        [
+          76,
+          10,
+          "DZERZHINSK",
+          "02fb0939-069e-56a4-b43b-22e6cfbf6fd7"
+        ],
+        [
+          76,
+          11,
+          "VITEBSK",
+          "022b1ee3-ef42-5ac8-87e8-ca0e592ab67b"
+        ],
+        [
+          76,
+          12,
+          "NAFTAN",
+          "de61ccc8-dbf1-5346-a4a8-bb95460c27f5"
+        ],
+        [
+          76,
+          13,
+          "BARANOVICHI",
+          "be08f5eb-3dd5-54b0-9113-7e08d1ef387b"
+        ],
+        [
+          76,
+          14,
+          "DNEPR MOGILEV",
+          "f2fc89e6-0f5d-5d59-8631-e23db038f036"
+        ],
+        [
+          76,
+          15,
+          "BELSHINA",
+          "33163f8f-d126-5e6c-810e-1ce53c4998c7"
+        ]
+      ]
+    },
+    {
+      "association": "SMR",
+      "file": "data_json/worlds/2627/teams/SAN_MARINO.json",
+      "sha": "9d7ba2e4d963cce682c89901f7fbf16db0807404",
+      "records": 16,
+      "mappedRankingRows": [
+        249,
+        318,
+        329,
+        377,
+        406,
+        415
+      ],
+      "unmappedRawRecords": [
+        [
+          32,
+          5,
+          "DOMAGNANO",
+          "a9950807-836d-554e-940b-f4b2c36ee895"
+        ],
+        [
+          32,
+          6,
+          "FIORENTINO",
+          "6385e12a-4325-531d-a025-63c92a9262d0"
+        ],
+        [
+          32,
+          8,
+          "JUVENES-DOGANA",
+          "bbdf449c-7ec8-5af3-adbe-03e1234905bf"
+        ],
+        [
+          32,
+          9,
+          "LIBERTAS",
+          "3d163510-c485-5156-8c6a-cb72c3d87893"
+        ],
+        [
+          32,
+          10,
+          "PENNAROSSA",
+          "b2cee653-acf4-5327-919e-4c42c6f933b3"
+        ],
+        [
+          32,
+          11,
+          "SAN GIOVANNI",
+          "b013b6f3-439a-5dab-868e-59cf993f0703"
+        ],
+        [
+          32,
+          12,
+          "FAETANO",
+          "df7731f3-2bbd-588c-87f2-13ab0fe4d5c3"
+        ],
+        [
+          32,
+          13,
+          "SAN MARINO AC.",
+          "e59e9e24-1f95-5d9a-bb4b-f9c275b18c32"
+        ],
+        [
+          32,
+          14,
+          "CAILUNGO",
+          "1b543035-0983-5805-9883-cce5761df6df"
+        ],
+        [
+          32,
+          15,
+          "MURATA",
+          "f0d6b5ea-7b0e-5a1e-8b55-6e625bf54bc7"
+        ]
+      ]
+    },
+    {
+      "association": "GEO",
+      "file": "data_json/worlds/2627/teams/GEORGIA.json",
+      "sha": "c535cd638451f0072fef8179c6500a741e91f365",
+      "records": 10,
+      "mappedRankingRows": [
+        251,
+        260,
+        289,
+        297,
+        312,
+        403,
+        414
+      ],
+      "unmappedRawRecords": [
+        [
+          61,
+          6,
+          "SAMGURALI",
+          "2391426c-443b-54d1-b2e8-a8b3a3262250"
+        ],
+        [
+          61,
+          7,
+          "RUSTAVI",
+          "5aff58e8-e23d-553e-906d-51a637d7199a"
+        ],
+        [
+          61,
+          8,
+          "TKIBULI",
+          "0a0b90c3-a949-58df-a0a6-eafe89cc9e7b"
+        ]
+      ]
+    }
+  ],
+  "sharedPool": {
+    "file": "data_json/worlds/2627/competitions/bottom_pools.json",
+    "sha": "8321c3ce464c7869c716fdb499f8cf3555bc27ef",
+    "mappedRankingRows": [
+      189,
+      206,
+      308
+    ],
+    "scope": "Three European ranking-associated pool records; other 14 pool records are Australia, outside UEFA reverse scope."
+  },
+  "aliasPending": [
+    {
+      "file": "data_json/worlds/2627/teams/LIECHTENSTEIN.json",
+      "row": [
+        90,
+        0,
+        "VADUZ",
+        "ed60567c-9df8-5fb4-b1e2-f777f535fc16"
+      ]
+    }
+  ],
+  "coverage": {
+    "files": 60,
+    "associations": 55,
+    "rawCatalogRecords": 1276,
+    "matchedRankingRawRecords": 384,
+    "unmatchedRawRecords": 892,
+    "sharedPoolMappedRecords": 3,
+    "mappedRankingRows": 387,
+    "sourceRankingRows": 415,
+    "activeUnregisteredCandidates": 23,
+    "historicalOnly": 5,
+    "activityEvidenceMapped": 215,
+    "activityNotIndividuallyCheckedMapped": 172,
+    "unmappedRawActivityEvidence": 26,
+    "unmappedRawActivityNotIndividuallyChecked": 866
+  },
+  "notes": [
+    "Every raw file row is either exact source-file/ordinal/UUID matched or enumerated as unmatched. This is not a unique-club count; duplicate aliases and physically separate pool source rows can exist.",
+    "Absence from the 415-row seed is not proof of zero own points; no club may enter UEFA competition solely by catalog or ranking presence. Existing historical activity evidence and game membership separate. Vaduz LIE alias pending; no deletes or slot edits.",
+    "215 mapped cases have positive evidence, including 209 official provisional UEFA club-list matches; 172 mapped cases without individual evidence remain unverified. 26 raw unmatched records have positive official list evidence; absence from seed is not certified zero. All 23 missing active candidates have recorded evidence in ranking map. Historical-only not activated. Evidence of 2026/27 participation is not an imported result, cutoff membership or licensing guarantee.",
+    "ML Vitebsk raw 76:0 is distinct from FC Vitebsk raw 76:11. Vestri and Elimai listed by UEFA but not found under exact normalized names in the corresponding source file; no invented mapping. Official lists are provisional and no later results or fixtures are imported."
+  ],
+  "unmappedActivityEvidence": [
+    {
+      "country": 8,
+      "ordinal": 5,
+      "nativeName": "BOURNEMOUTH",
+      "association": "ENG",
+      "file": "data_json/worlds/2627/teams/ENGLAND.json",
+      "uuid": "d4e290c4-dc8f-5229-bca2-59b5a54e1205",
+      "evidence": [
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 8,
+      "ordinal": 6,
+      "nativeName": "SUNDERLAND",
+      "association": "ENG",
+      "file": "data_json/worlds/2627/teams/ENGLAND.json",
+      "uuid": "b6457f0e-7a7d-5025-8b11-932c41246d50",
+      "evidence": [
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 20,
+      "ordinal": 3,
+      "nativeName": "COMO",
+      "association": "ITA",
+      "file": "data_json/worlds/2627/teams/ITALY.json",
+      "uuid": "eff5ba85-934d-5e0c-aebf-d38858b9576f",
+      "evidence": [
+        {
+          "competition": "UCL",
+          "source": "https://www.uefa.com/uefachampionsleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 35,
+      "ordinal": 6,
+      "nativeName": "GETAFE",
+      "association": "ESP",
+      "file": "data_json/worlds/2627/teams/SPAIN.json",
+      "uuid": "baa53382-1397-559c-8b7b-2ac9a4c18e34",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 29,
+      "ordinal": 18,
+      "nativeName": "UNIAO TORREENSE",
+      "association": "POR",
+      "file": "data_json/worlds/2627/teams/PORTUGAL.json",
+      "uuid": "ae3137de-503f-5311-bcef-9ce981688490",
+      "evidence": [
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 25,
+      "ordinal": 2,
+      "nativeName": "NEC NIJMEGEN",
+      "association": "NED",
+      "file": "data_json/worlds/2627/teams/HOLLAND.json",
+      "uuid": "b9dd867d-2d5b-5331-894a-5cd117c36a7e",
+      "evidence": [
+        {
+          "competition": "UCL",
+          "source": "https://www.uefa.com/uefachampionsleague/clubs/",
+          "season": "2026/27"
+        },
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 2,
+      "ordinal": 2,
+      "nativeName": "SINT-TRUIDENSE",
+      "association": "BEL",
+      "file": "data_json/worlds/2627/teams/BELGIUM.json",
+      "uuid": "b7303140-82e0-56c7-8568-bdff7f092c37",
+      "evidence": [
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 15,
+      "ordinal": 5,
+      "nativeName": "OFI CRETE",
+      "association": "GRE",
+      "file": "data_json/worlds/2627/teams/GREECE.json",
+      "uuid": "354262b1-68ad-55e1-8e4b-ae825f339026",
+      "evidence": [
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 39,
+      "ordinal": 1,
+      "nativeName": "LNZ CHERKASY",
+      "association": "UKR",
+      "file": "data_json/worlds/2627/teams/UKRAINE.json",
+      "uuid": "a99dd48e-5377-501d-b342-c313ace64c7d",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 6,
+      "ordinal": 4,
+      "nativeName": "HRADEC KRALOVE",
+      "association": "CZE",
+      "file": "data_json/worlds/2627/teams/CZECH_REPUBLIC.json",
+      "uuid": "87bb2985-e80a-5a9c-8cdb-65d9376e1944",
+      "evidence": [
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 41,
+      "ordinal": 3,
+      "nativeName": "ZELEZ. PANCEVO",
+      "association": "SRB",
+      "file": "data_json/worlds/2627/teams/YUGOSLAVIA.json",
+      "uuid": "b06cd6fa-900e-5009-8949-aefa72efa695",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 37,
+      "ordinal": 0,
+      "nativeName": "THUN",
+      "association": "SUI",
+      "file": "data_json/worlds/2627/teams/SWITZERLAND.json",
+      "uuid": "0574d1da-dbe5-5119-802a-d86e05086c69",
+      "evidence": [
+        {
+          "competition": "UCL",
+          "source": "https://www.uefa.com/uefachampionsleague/clubs/",
+          "season": "2026/27"
+        },
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 37,
+      "ordinal": 3,
+      "nativeName": "SION",
+      "association": "SUI",
+      "file": "data_json/worlds/2627/teams/SWITZERLAND.json",
+      "uuid": "1b5fc5f9-2a09-5cf8-958d-ee06433c1f30",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 28,
+      "ordinal": 1,
+      "nativeName": "GORNIK ZABRZE",
+      "association": "POL",
+      "file": "data_json/worlds/2627/teams/POLAND.json",
+      "uuid": "38014f57-f7ea-5d60-9464-1ddc3ee6a269",
+      "evidence": [
+        {
+          "competition": "UCL",
+          "source": "https://www.uefa.com/uefachampionsleague/clubs/",
+          "season": "2026/27"
+        },
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 28,
+      "ordinal": 4,
+      "nativeName": "KATOWICE",
+      "association": "POL",
+      "file": "data_json/worlds/2627/teams/POLAND.json",
+      "uuid": "f230ef07-463f-51f7-a69b-c338b7332c0c",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 19,
+      "ordinal": 3,
+      "nativeName": "HAPOEL TEL AVIV",
+      "association": "ISR",
+      "file": "data_json/worlds/2627/teams/ISRAEL.json",
+      "uuid": "21dd1666-7906-5100-90dc-cb0491c60661",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 36,
+      "ordinal": 0,
+      "nativeName": "MJALLBY AIF",
+      "association": "SWE",
+      "file": "data_json/worlds/2627/teams/SWEDEN.json",
+      "uuid": "e00ba950-a92d-512b-bb96-5c5edc8502ac",
+      "evidence": [
+        {
+          "competition": "UCL",
+          "source": "https://www.uefa.com/uefachampionsleague/clubs/",
+          "season": "2026/27"
+        },
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 36,
+      "ordinal": 3,
+      "nativeName": "IFK GOTEBORG",
+      "association": "SWE",
+      "file": "data_json/worlds/2627/teams/SWEDEN.json",
+      "uuid": "d682e350-b2ad-51b4-907d-52709d9b684a",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 36,
+      "ordinal": 2,
+      "nativeName": "GAIS",
+      "association": "SWE",
+      "file": "data_json/worlds/2627/teams/SWEDEN.json",
+      "uuid": "31013521-9f5f-51d9-abc1-ac0d2daa8921",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 34,
+      "ordinal": 6,
+      "nativeName": "ALUMINIJ",
+      "association": "SVN",
+      "file": "data_json/worlds/2627/teams/SLOVENIA.json",
+      "uuid": "88d9751a-15aa-51f2-8f60-978bd7cde806",
+      "evidence": [
+        {
+          "competition": "UEL",
+          "source": "https://www.uefa.com/uefaeuropaleague/clubs/",
+          "season": "2026/27"
+        },
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 24,
+      "ordinal": 2,
+      "nativeName": "VALLETTA",
+      "association": "MLT",
+      "file": "data_json/worlds/2627/teams/MALTA.json",
+      "uuid": "60b219c7-2d59-5d45-9ac5-d432e61f2e90",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 23,
+      "ordinal": 0,
+      "nativeName": "ATERT BISSEN",
+      "association": "LUX",
+      "file": "data_json/worlds/2627/teams/LUXEMBOURG.json",
+      "uuid": "4b83bf47-9b44-51fe-bc86-b527122e1a8e",
+      "evidence": [
+        {
+          "competition": "UCL",
+          "source": "https://www.uefa.com/uefachampionsleague/clubs/",
+          "season": "2026/27"
+        },
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 23,
+      "ordinal": 2,
+      "nativeName": "MONDORF",
+      "association": "LUX",
+      "file": "data_json/worlds/2627/teams/LUXEMBOURG.json",
+      "uuid": "b7def145-6ce2-5139-bd70-7ee9bee92e10",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 94,
+      "ordinal": 2,
+      "nativeName": "PETROVAC",
+      "association": "MNE",
+      "file": "data_json/worlds/2627/teams/MONTENEGRO.json",
+      "uuid": "435347b2-ebee-583f-80b7-f5feb346e77f",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 0,
+      "ordinal": 1,
+      "nativeName": "AF ELBASANI",
+      "association": "ALB",
+      "file": "data_json/worlds/2627/teams/ALBANIA.json",
+      "uuid": "70331a80-d72e-5b0b-ad70-f5d8c9f3b246",
+      "evidence": [
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    },
+    {
+      "country": 76,
+      "ordinal": 0,
+      "nativeName": "ML VITEBSK",
+      "association": "BLR",
+      "file": "data_json/worlds/2627/teams/BELARUS.json",
+      "uuid": "16c033ac-f284-5c49-8164-19672cce29eb",
+      "evidence": [
+        {
+          "competition": "UCL",
+          "source": "https://www.uefa.com/uefachampionsleague/clubs/",
+          "season": "2026/27"
+        },
+        {
+          "competition": "UECL",
+          "source": "https://www.uefa.com/uefaconferenceleague/clubs/",
+          "season": "2026/27"
+        }
+      ],
+      "status": "OFFICIAL_UEFA_LIST_POSITIVE_ACTIVITY_EVIDENCE_NO_HISTORICAL_SEED_MATCH"
+    }
+  ]
+}

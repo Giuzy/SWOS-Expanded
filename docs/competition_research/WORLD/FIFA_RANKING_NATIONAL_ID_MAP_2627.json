@@ -3,11 +3,12 @@
   "world": 2627,
   "baseCommit": "55f6824eee55ff204fd001d12b55b514b12ebfb2",
   "seedBlob": "9d056cb948237657620015b5fc8a86ea577332b5",
-  "status": "REGISTERED_IN_SOURCE_NOT_GAMEPLAY_TESTED",
+  "status": "ALL_211_CURRENT_SOURCE_IDENTITIES_VERIFIED_NOT_GAMEPLAY_TESTED",
   "identityContract": "expanded_competition_identity.h: NATIONAL stable_club = (team file << 8 | ordinal)+1, not global_team_number",
   "notes": [
     "No dedicated modern national files for 80–85 found in tree. Shared catalog evidence is not proof of active 2627 selection/roster; original binary references recorded but not decoded in this audit.",
-    "FIFA ranking retains 211 codes including reference-only. No new playable team, no automatic Yugoslavia→Serbia or CONGO→CGO/COD mapping. National file grouping is not confederation membership (e.g. AUS, PNG, MRI)."
+    "FIFA ranking retains 211 codes including reference-only. No new playable team, no automatic Yugoslavia→Serbia or CONGO→CGO/COD mapping. National file grouping is not confederation membership (e.g. AUS, PNG, MRI).",
+    "Earlier shared-file evidence and addition/TEST registration plan retained as history only; superseded by currentIdentityAudit and currentRoster. v348 modern six national JSONs contain 211 real rosters."
   ],
   "evidence": [
     {
@@ -77,7 +78,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "7c91a1af-f177-534b-bfbf-6a6c72abee8d",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7c91a1af-f177-534b-bfbf-6a6c72abee8d",
+        "globalNumber": 394,
+        "nationality": 68,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ESP",
@@ -90,7 +98,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "b52ac2ca-0a47-59c7-9c09-c2790be10bf8",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b52ac2ca-0a47-59c7-9c09-c2790be10bf8",
+        "globalNumber": 261,
+        "nationality": 40,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "FRA",
@@ -103,7 +118,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "203075df-1393-56ba-aa82-a6dc212e7219",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "203075df-1393-56ba-aa82-a6dc212e7219",
+        "globalNumber": 234,
+        "nationality": 12,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ENG",
@@ -116,7 +138,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "fad1a2cf-b275-5972-a3fa-35bda74afa6f",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fad1a2cf-b275-5972-a3fa-35bda74afa6f",
+        "globalNumber": 230,
+        "nationality": 8,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "POR",
@@ -129,7 +158,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "d64d78ab-e24c-547f-b952-a0e221d9b56a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d64d78ab-e24c-547f-b952-a0e221d9b56a",
+        "globalNumber": 253,
+        "nationality": 27,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BRA",
@@ -142,7 +178,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "30e26617-4001-56c3-a068-8d88849c8398",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "30e26617-4001-56c3-a068-8d88849c8398",
+        "globalNumber": 396,
+        "nationality": 70,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MAR",
@@ -155,7 +198,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "b7b4a776-545d-5b0b-b06a-c148254e88bb",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b7b4a776-545d-5b0b-b06a-c148254e88bb",
+        "globalNumber": 813,
+        "nationality": 115,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NED",
@@ -168,7 +218,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "1038aa79-ea25-56de-b729-559f21fbca47",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1038aa79-ea25-56de-b729-559f21fbca47",
+        "globalNumber": 238,
+        "nationality": 23,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BEL",
@@ -181,7 +238,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "d0f7a81d-5cb7-52de-b4a5-b0014af2f225",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d0f7a81d-5cb7-52de-b4a5-b0014af2f225",
+        "globalNumber": 224,
+        "nationality": 2,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GER",
@@ -194,7 +258,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "2bb28358-8981-5501-bee3-0916d4b736cc",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "2bb28358-8981-5501-bee3-0916d4b736cc",
+        "globalNumber": 236,
+        "nationality": 13,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CRO",
@@ -207,7 +278,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "7eece36b-9ebd-54ec-8d31-168fc113a555",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7eece36b-9ebd-54ec-8d31-168fc113a555",
+        "globalNumber": 226,
+        "nationality": 4,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ITA",
@@ -220,7 +298,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "8250fcaa-bcdf-5f40-836a-87614846de84",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "8250fcaa-bcdf-5f40-836a-87614846de84",
+        "globalNumber": 242,
+        "nationality": 18,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "COL",
@@ -233,7 +318,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "1bdc737f-0b1d-54bc-87d0-f46b4782e097",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1bdc737f-0b1d-54bc-87d0-f46b4782e097",
+        "globalNumber": 398,
+        "nationality": 72,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MEX",
@@ -246,7 +338,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "f5b5fba3-6d5b-593a-b557-942e299bb572",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f5b5fba3-6d5b-593a-b557-942e299bb572",
+        "globalNumber": 887,
+        "nationality": 56,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SEN",
@@ -259,7 +358,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "83b11881-c315-535d-8aa9-c05b50612982",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "83b11881-c315-535d-8aa9-c05b50612982",
+        "globalNumber": 817,
+        "nationality": 89,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "URU",
@@ -272,7 +378,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "75593d4b-1978-5c8a-b690-87a6fe2e70f0",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "75593d4b-1978-5c8a-b690-87a6fe2e70f0",
+        "globalNumber": 402,
+        "nationality": 76,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "USA",
@@ -285,7 +398,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "ff09d11e-769a-57db-bc65-6d1eb1a9cc11",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ff09d11e-769a-57db-bc65-6d1eb1a9cc11",
+        "globalNumber": 892,
+        "nationality": 58,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "JPN",
@@ -298,7 +418,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "90354260-0987-5ed3-baff-2a731304b9e5",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "90354260-0987-5ed3-baff-2a731304b9e5",
+        "globalNumber": 492,
+        "nationality": 118,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SUI",
@@ -311,7 +438,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "0bf7563a-fa56-5ffa-a685-906ab5cacff3",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "0bf7563a-fa56-5ffa-a685-906ab5cacff3",
+        "globalNumber": 263,
+        "nationality": 45,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "IRN",
@@ -324,7 +458,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "2900a72b-68ea-5c0c-960f-71544e17e40a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "2900a72b-68ea-5c0c-960f-71544e17e40a",
+        "globalNumber": 490,
+        "nationality": 128,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "DEN",
@@ -337,7 +478,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "b9cc141c-dd87-58a0-85d1-21bc00af4a14",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b9cc141c-dd87-58a0-85d1-21bc00af4a14",
+        "globalNumber": 229,
+        "nationality": 7,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TUR",
@@ -350,7 +498,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "5f210819-63a9-5dd5-ab19-ab32e383533c",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "5f210819-63a9-5dd5-ab19-ab32e383533c",
+        "globalNumber": 264,
+        "nationality": 34,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ECU",
@@ -363,7 +518,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "236c9c69-c7f7-5d8d-bb57-5825d0dc890a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "236c9c69-c7f7-5d8d-bb57-5825d0dc890a",
+        "globalNumber": 399,
+        "nationality": 73,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "AUT",
@@ -376,7 +538,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "32feffa9-c6c9-5a16-ac8e-2199172dfa8a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "32feffa9-c6c9-5a16-ac8e-2199172dfa8a",
+        "globalNumber": 221,
+        "nationality": 1,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "KOR",
@@ -389,7 +558,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "cc2f7e57-f8c7-53e5-abae-e0abd20761f2",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "cc2f7e57-f8c7-53e5-abae-e0abd20761f2",
+        "globalNumber": 507,
+        "nationality": 127,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NGA",
@@ -402,7 +578,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "49d52c84-0d45-56b0-aa66-1423a701e79e",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "49d52c84-0d45-56b0-aa66-1423a701e79e",
+        "globalNumber": 816,
+        "nationality": 107,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "AUS",
@@ -415,7 +598,14 @@
       "sourceFile": "data_json/teams/OCEANIA.json",
       "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
       "uuid": "d9f05a33-2eb2-530b-bed7-e20c404e9cc1",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d9f05a33-2eb2-530b-bed7-e20c404e9cc1",
+        "globalNumber": 844,
+        "nationality": 148,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ALG",
@@ -428,7 +618,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "79402dc5-a0c3-5057-8932-50467b044329",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "79402dc5-a0c3-5057-8932-50467b044329",
+        "globalNumber": 794,
+        "nationality": 80,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "EGY",
@@ -441,7 +638,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "cb0522ed-d58e-5c69-863a-cd7437d46b10",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "cb0522ed-d58e-5c69-863a-cd7437d46b10",
+        "globalNumber": 802,
+        "nationality": 105,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CAN",
@@ -454,7 +658,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "43c35e09-d086-5f6c-a6a3-57ef41238fe3",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "43c35e09-d086-5f6c-a6a3-57ef41238fe3",
+        "globalNumber": 880,
+        "nationality": 64,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NOR",
@@ -467,7 +678,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "620a07cb-0c2a-5f87-980a-1074cfc45786",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "620a07cb-0c2a-5f87-980a-1074cfc45786",
+        "globalNumber": 251,
+        "nationality": 25,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "UKR",
@@ -480,7 +698,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "ae4c166a-55cc-5769-a793-d7580dee5ecf",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ae4c166a-55cc-5769-a793-d7580dee5ecf",
+        "globalNumber": 265,
+        "nationality": 35,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CIV",
@@ -493,7 +718,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "4ef57642-16fc-5e70-bbf3-f77d7dcac7fe",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4ef57642-16fc-5e70-bbf3-f77d7dcac7fe",
+        "globalNumber": 807,
+        "nationality": 90,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PAN",
@@ -506,7 +738,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "41691b6e-d4a1-5da6-8144-920da903fb42",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "41691b6e-d4a1-5da6-8144-920da903fb42",
+        "globalNumber": 889,
+        "nationality": 57,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "RUS",
@@ -519,7 +758,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "46632cd9-3298-5ec6-b59f-ab47d38ed4a6",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "46632cd9-3298-5ec6-b59f-ab47d38ed4a6",
+        "globalNumber": 256,
+        "nationality": 29,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "POL",
@@ -532,7 +778,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "9acbdcbe-8d18-58a7-9ba1-f3cac7a47036",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9acbdcbe-8d18-58a7-9ba1-f3cac7a47036",
+        "globalNumber": 252,
+        "nationality": 26,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "WAL",
@@ -545,7 +798,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "47a64604-70c3-54c2-a21b-8bf8a575adbb",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "47a64604-70c3-54c2-a21b-8bf8a575adbb",
+        "globalNumber": 266,
+        "nationality": 36,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SWE",
@@ -558,7 +818,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "0e061d0f-f6a1-5da4-b64b-e2ae4cb2f373",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "0e061d0f-f6a1-5da4-b64b-e2ae4cb2f373",
+        "globalNumber": 262,
+        "nationality": 33,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "HUN",
@@ -571,7 +838,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "a52c5324-61c4-5818-9216-c12d9ea56e10",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "a52c5324-61c4-5818-9216-c12d9ea56e10",
+        "globalNumber": 239,
+        "nationality": 15,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CZE",
@@ -584,7 +858,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "25fd142c-d617-5148-90f9-2e5d09919a82",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "25fd142c-d617-5148-90f9-2e5d09919a82",
+        "globalNumber": 228,
+        "nationality": 6,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PAR",
@@ -597,7 +878,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "6f3afb9b-93f0-5a0a-92fb-ee30aa2e8f82",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "6f3afb9b-93f0-5a0a-92fb-ee30aa2e8f82",
+        "globalNumber": 400,
+        "nationality": 74,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SCO",
@@ -610,7 +898,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "ffcdd024-64c5-5134-a1dc-57df93f0f419",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ffcdd024-64c5-5134-a1dc-57df93f0f419",
+        "globalNumber": 258,
+        "nationality": 31,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SRB",
@@ -629,7 +924,14 @@
         "https://www.uefa.com/nationalassociations/srb/"
       ],
       "notes": "UEFA recognizes federation continuity. Modern slot reuse candidate only; do not alter 9697 or use old squad as current Serbia.",
-      "modernName": "Serbia"
+      "modernName": "Serbia",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1309b649-9bf0-503a-840f-dd54780e7a2e",
+        "globalNumber": 267,
+        "nationality": 37,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CMR",
@@ -642,7 +944,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "240d3bc3-424c-5d1e-b0d9-70b260f9a0ad",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "240d3bc3-424c-5d1e-b0d9-70b260f9a0ad",
+        "globalNumber": 800,
+        "nationality": 94,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TUN",
@@ -655,7 +964,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "9598d1fd-b895-5f89-9d02-fd19b6ec97bf",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9598d1fd-b895-5f89-9d02-fd19b6ec97bf",
+        "globalNumber": 824,
+        "nationality": 91,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "COD",
@@ -683,7 +999,14 @@
       },
       "teamFile": 81,
       "ordinal": 35,
-      "ogTeamNumber": 20771
+      "ogTeamNumber": 20771,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1e691a56-7c70-5145-95f5-b4f14a2172e2",
+        "globalNumber": 2567,
+        "nationality": 86,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SVK",
@@ -696,7 +1019,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "614f3b25-04d5-5687-bf3f-d4e22e88cc8f",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "614f3b25-04d5-5687-bf3f-d4e22e88cc8f",
+        "globalNumber": 259,
+        "nationality": 39,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GRE",
@@ -709,7 +1039,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "f9233b35-615c-5a5a-960b-9388598c4370",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f9233b35-615c-5a5a-960b-9388598c4370",
+        "globalNumber": 237,
+        "nationality": 14,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "VEN",
@@ -722,7 +1059,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "9a3409d0-9a01-5523-8fb8-03e3e32e6d0f",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9a3409d0-9a01-5523-8fb8-03e3e32e6d0f",
+        "globalNumber": 403,
+        "nationality": 77,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "UZB",
@@ -749,7 +1093,14 @@
       },
       "teamFile": 84,
       "ordinal": 46,
-      "ogTeamNumber": 21550
+      "ogTeamNumber": 21550,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d7a66042-1247-5151-b5c7-07805e30a9f1",
+        "globalNumber": 2621,
+        "nationality": 145,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CHI",
@@ -762,7 +1113,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "017eb05b-435d-5dc2-ba1d-f5051a2f0f14",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "017eb05b-435d-5dc2-ba1d-f5051a2f0f14",
+        "globalNumber": 397,
+        "nationality": 71,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PER",
@@ -775,7 +1133,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "fbd4deaa-4d0d-5d14-802f-68f3423b81ee",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fbd4deaa-4d0d-5d14-802f-68f3423b81ee",
+        "globalNumber": 401,
+        "nationality": 79,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CRC",
@@ -788,7 +1153,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "07693799-1cf1-5c79-bdf6-9f590ed09ca6",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "07693799-1cf1-5c79-bdf6-9f590ed09ca6",
+        "globalNumber": 881,
+        "nationality": 51,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ROU",
@@ -801,7 +1173,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "d8e82b6a-dc2c-51f4-b132-a46031c65816",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d8e82b6a-dc2c-51f4-b132-a46031c65816",
+        "globalNumber": 255,
+        "nationality": 28,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MLI",
@@ -814,7 +1193,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "eba8dc70-82bb-5135-b28a-727e4441a423",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "eba8dc70-82bb-5135-b28a-727e4441a423",
+        "globalNumber": 812,
+        "nationality": 92,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "QAT",
@@ -827,7 +1213,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "894db4e3-198d-5084-bfb2-c0ad6f96eab3",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "894db4e3-198d-5084-bfb2-c0ad6f96eab3",
+        "globalNumber": 504,
+        "nationality": 146,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "IRQ",
@@ -840,7 +1233,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "a234f4dd-a04a-5661-883c-8e197f09c05a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "a234f4dd-a04a-5661-883c-8e197f09c05a",
+        "globalNumber": 491,
+        "nationality": 123,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "IRL",
@@ -853,7 +1253,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "874b61d6-56a2-5e8f-b683-7e0d5a4c2ccd",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "874b61d6-56a2-5e8f-b683-7e0d5a4c2ccd",
+        "globalNumber": 254,
+        "nationality": 46,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SVN",
@@ -866,7 +1273,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "f82322f1-b6c8-5b33-a819-e2d24464cb3a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f82322f1-b6c8-5b33-a819-e2d24464cb3a",
+        "globalNumber": 260,
+        "nationality": 32,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "RSA",
@@ -879,7 +1293,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "9cebafd9-4435-5eb5-8de7-7d5603daa915",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9cebafd9-4435-5eb5-8de7-7d5603daa915",
+        "globalNumber": 819,
+        "nationality": 81,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "KSA",
@@ -892,7 +1313,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "e125c4ab-fe60-5fa2-889f-e86f37e180cd",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "e125c4ab-fe60-5fa2-889f-e86f37e180cd",
+        "globalNumber": 505,
+        "nationality": 131,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BFA",
@@ -905,7 +1333,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "702205f8-2775-585f-8c0a-dd07fa52e58d",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "702205f8-2775-585f-8c0a-dd07fa52e58d",
+        "globalNumber": 798,
+        "nationality": 83,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "JOR",
@@ -918,7 +1353,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "ad17027a-bc52-5b59-9416-b226955e30d9",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ad17027a-bc52-5b59-9416-b226955e30d9",
+        "globalNumber": 493,
+        "nationality": 124,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BIH",
@@ -945,7 +1387,14 @@
       },
       "teamFile": 80,
       "ordinal": 50,
-      "ogTeamNumber": 20530
+      "ogTeamNumber": 20530,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9c25a2f3-0b60-5180-ae12-23ff1484a6c1",
+        "globalNumber": 2561,
+        "nationality": 42,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "HON",
@@ -958,7 +1407,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "597d30d6-067c-54c2-9829-132a8579cc4b",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "597d30d6-067c-54c2-9829-132a8579cc4b",
+        "globalNumber": 885,
+        "nationality": 54,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ALB",
@@ -971,7 +1427,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "44799e88-90a7-53dc-a733-40ace56ca442",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "44799e88-90a7-53dc-a733-40ace56ca442",
+        "globalNumber": 219,
+        "nationality": 0,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CPV",
@@ -998,7 +1461,14 @@
       },
       "teamFile": 81,
       "ordinal": 37,
-      "ogTeamNumber": 20773
+      "ogTeamNumber": 20773,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b97565e4-feca-5100-a298-0095c0b29089",
+        "globalNumber": 2569,
+        "nationality": 178,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "UAE",
@@ -1011,7 +1481,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "b6683c43-1eeb-5a6f-bc72-fa1cf876de1d",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b6683c43-1eeb-5a6f-bc72-fa1cf876de1d",
+        "globalNumber": 511,
+        "nationality": 147,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MKD",
@@ -1024,7 +1501,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "28bc08a3-27b7-5108-983a-e047938da36e",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "28bc08a3-27b7-5108-983a-e047938da36e",
+        "globalNumber": 247,
+        "nationality": 47,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NIR",
@@ -1037,7 +1521,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "c8fbd165-c431-54ac-82f5-a8a16c8e8e04",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "c8fbd165-c431-54ac-82f5-a8a16c8e8e04",
+        "globalNumber": 250,
+        "nationality": 24,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "JAM",
@@ -1050,7 +1541,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "b40146a7-50f5-5718-8213-c7e8d155ad92",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b40146a7-50f5-5718-8213-c7e8d155ad92",
+        "globalNumber": 886,
+        "nationality": 62,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GEO",
@@ -1063,7 +1561,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "15606ae7-d9c0-53b6-8a7c-979976976e02",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "15606ae7-d9c0-53b6-8a7c-979976976e02",
+        "globalNumber": 235,
+        "nationality": 44,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GHA",
@@ -1076,7 +1581,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "cdefb5d2-d68e-50b4-bd0c-223d8bad4ee5",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "cdefb5d2-d68e-50b4-bd0c-223d8bad4ee5",
+        "globalNumber": 805,
+        "nationality": 88,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ISL",
@@ -1089,7 +1601,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "4e957a31-d065-5a04-a43e-c4cbae373f23",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4e957a31-d065-5a04-a43e-c4cbae373f23",
+        "globalNumber": 240,
+        "nationality": 16,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "FIN",
@@ -1102,7 +1621,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "0786f877-ca94-543b-8977-a32353c5eaf7",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "0786f877-ca94-543b-8977-a32353c5eaf7",
+        "globalNumber": 233,
+        "nationality": 11,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ISR",
@@ -1115,7 +1641,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "5e3731d5-a5c9-5390-af14-49a24dd6242f",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "5e3731d5-a5c9-5390-af14-49a24dd6242f",
+        "globalNumber": 241,
+        "nationality": 17,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BOL",
@@ -1128,7 +1661,14 @@
       "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
       "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
       "uuid": "eebbe73f-02b9-5fef-a947-f0c41e2a6da6",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "eebbe73f-02b9-5fef-a947-f0c41e2a6da6",
+        "globalNumber": 395,
+        "nationality": 69,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "KOS",
@@ -1155,7 +1695,14 @@
       },
       "teamFile": 80,
       "ordinal": 53,
-      "ogTeamNumber": 20533
+      "ogTeamNumber": 20533,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "3c999ccb-72ae-51c4-9a2b-f6b5b4c79caf",
+        "globalNumber": 2564,
+        "nationality": 157,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "OMA",
@@ -1168,7 +1715,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "e8f2489e-bdad-51fa-9830-5ffbd56812ef",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "e8f2489e-bdad-51fa-9830-5ffbd56812ef",
+        "globalNumber": 500,
+        "nationality": 136,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MNE",
@@ -1195,7 +1749,14 @@
       },
       "teamFile": 80,
       "ordinal": 54,
-      "ogTeamNumber": 20534
+      "ogTeamNumber": 20534,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "346880e4-438c-5f9a-a89c-f9a34df48393",
+        "globalNumber": 2565,
+        "nationality": 156,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GUI",
@@ -1208,7 +1769,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "1177a055-c11d-5cc8-a7ff-8efe09887a50",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1177a055-c11d-5cc8-a7ff-8efe09887a50",
+        "globalNumber": 806,
+        "nationality": 113,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CUW",
@@ -1235,7 +1803,14 @@
       },
       "teamFile": 83,
       "ordinal": 22,
-      "ogTeamNumber": 21270
+      "ogTeamNumber": 21270,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "0891e0a3-0d1e-5ee5-928c-618db4d7af15",
+        "globalNumber": 2593,
+        "nationality": 164,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "HAI",
@@ -1262,7 +1837,14 @@
       },
       "teamFile": 83,
       "ordinal": 26,
-      "ogTeamNumber": 21274
+      "ogTeamNumber": 21274,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "3d22ad6f-3c54-5592-845a-dd8ba0983d38",
+        "globalNumber": 2597,
+        "nationality": 163,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SYR",
@@ -1275,7 +1857,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "b45b2ebd-29cd-5b0f-99fc-c601ceb2c42e",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b45b2ebd-29cd-5b0f-99fc-c601ceb2c42e",
+        "globalNumber": 509,
+        "nationality": 126,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NZL",
@@ -1288,7 +1877,14 @@
       "sourceFile": "data_json/teams/OCEANIA.json",
       "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
       "uuid": "d2b0ce09-90e8-58d3-b0e6-ca5050257e42",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d2b0ce09-90e8-58d3-b0e6-ca5050257e42",
+        "globalNumber": 846,
+        "nationality": 149,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GAB",
@@ -1301,7 +1897,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "6c4056c7-9291-504f-b206-ddf348ea8cb4",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "6c4056c7-9291-504f-b206-ddf348ea8cb4",
+        "globalNumber": 804,
+        "nationality": 109,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BUL",
@@ -1314,7 +1917,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "fdb08546-d0f3-5210-bfc5-721576b9e082",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fdb08546-d0f3-5210-bfc5-721576b9e082",
+        "globalNumber": 225,
+        "nationality": 3,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ANG",
@@ -1327,7 +1937,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "db4700e7-676b-5685-b333-a5959c613162",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "db4700e7-676b-5685-b333-a5959c613162",
+        "globalNumber": 795,
+        "nationality": 102,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "UGA",
@@ -1340,7 +1957,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "9f3ac516-40e8-5544-923c-2a195c6db87e",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9f3ac516-40e8-5544-923c-2a195c6db87e",
+        "globalNumber": 825,
+        "nationality": 96,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ZAM",
@@ -1369,7 +1993,14 @@
         "crc16": 17752,
         "all16Nationalities": 87
       },
-      "runtimeName": "ZAMBIA"
+      "runtimeName": "ZAMBIA",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "937b2651-34f2-5af6-bba0-c94e4117dafe",
+        "globalNumber": 826,
+        "nationality": 87,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CHN",
@@ -1382,7 +2013,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "668a116d-2fd9-53e0-a087-2eb3fbf2e232",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "668a116d-2fd9-53e0-a087-2eb3fbf2e232",
+        "globalNumber": 486,
+        "nationality": 139,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BHR",
@@ -1395,7 +2033,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "dc510d2b-6ee6-52a1-a334-b1e7abec62bd",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "dc510d2b-6ee6-52a1-a334-b1e7abec62bd",
+        "globalNumber": 483,
+        "nationality": 197,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BEN",
@@ -1408,7 +2053,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "83d777c6-8f0a-589e-96f5-6dc580887df7",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "83d777c6-8f0a-589e-96f5-6dc580887df7",
+        "globalNumber": 796,
+        "nationality": 111,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "THA",
@@ -1435,7 +2087,14 @@
       },
       "teamFile": 84,
       "ordinal": 42,
-      "ogTeamNumber": 21546
+      "ogTeamNumber": 21546,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d3925659-432a-5be0-9b92-412fcd685dce",
+        "globalNumber": 2617,
+        "nationality": 199,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PLE",
@@ -1462,7 +2121,14 @@
       },
       "teamFile": 84,
       "ordinal": 41,
-      "ogTeamNumber": 21545
+      "ogTeamNumber": 21545,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1476e155-3764-5464-ad0a-afca5c9848d0",
+        "globalNumber": 2616,
+        "nationality": 196,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BLR",
@@ -1475,7 +2141,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "432a8216-6ea4-569a-8a19-b848a0353686",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "432a8216-6ea4-569a-8a19-b848a0353686",
+        "globalNumber": 223,
+        "nationality": 38,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GUA",
@@ -1488,7 +2161,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "4da1239f-df46-51a3-b5b2-0a8f3ba228b3",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4da1239f-df46-51a3-b5b2-0a8f3ba228b3",
+        "globalNumber": 883,
+        "nationality": 53,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LUX",
@@ -1501,7 +2181,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "c5c60571-0563-5ada-8203-b847f2b79f84",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "c5c60571-0563-5ada-8203-b847f2b79f84",
+        "globalNumber": 246,
+        "nationality": 21,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "VIE",
@@ -1514,7 +2201,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "a58d9579-8b2b-5040-ba01-6dcdb2891290",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "a58d9579-8b2b-5040-ba01-6dcdb2891290",
+        "globalNumber": 512,
+        "nationality": 129,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SLV",
@@ -1527,7 +2221,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "c96e194e-ae83-5c31-9eed-8ad9e450676a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "c96e194e-ae83-5c31-9eed-8ad9e450676a",
+        "globalNumber": 882,
+        "nationality": 52,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TJK",
@@ -1554,7 +2255,14 @@
       },
       "teamFile": 84,
       "ordinal": 43,
-      "ogTeamNumber": 21547
+      "ogTeamNumber": 21547,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "33699e49-4b27-5fec-b5c1-bedff11f203d",
+        "globalNumber": 2618,
+        "nationality": 144,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TRI",
@@ -1581,7 +2289,14 @@
       },
       "teamFile": 83,
       "ordinal": 32,
-      "ogTeamNumber": 21280
+      "ogTeamNumber": 21280,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "03d58f41-2977-5ddf-96aa-f2463708bd6e",
+        "globalNumber": 2603,
+        "nationality": 63,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MOZ",
@@ -1594,7 +2309,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "86c197a1-f107-56d5-9a25-4437f82195f2",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "86c197a1-f107-56d5-9a25-4437f82195f2",
+        "globalNumber": 814,
+        "nationality": 98,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MAD",
@@ -1621,7 +2343,14 @@
       },
       "teamFile": 81,
       "ordinal": 45,
-      "ogTeamNumber": 20781
+      "ogTeamNumber": 20781,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "16a2458a-4b76-5d23-8bb6-41f0378d31ec",
+        "globalNumber": 2577,
+        "nationality": 93,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "EQG",
@@ -1648,7 +2377,14 @@
       },
       "teamFile": 81,
       "ordinal": 40,
-      "ogTeamNumber": 20776
+      "ogTeamNumber": 20776,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d8d03169-64b8-5652-a0d4-28e5cff23a88",
+        "globalNumber": 2572,
+        "nationality": 180,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "KGZ",
@@ -1675,7 +2411,14 @@
       },
       "teamFile": 84,
       "ordinal": 35,
-      "ogTeamNumber": 21539
+      "ogTeamNumber": 21539,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "655417fd-419b-55be-814b-1dc035033ce6",
+        "globalNumber": 2610,
+        "nationality": 161,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ARM",
@@ -1688,7 +2431,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "f471ffd8-ad2d-5f99-9fa6-64dc56c4fdf1",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f471ffd8-ad2d-5f99-9fa6-64dc56c4fdf1",
+        "globalNumber": 220,
+        "nationality": 41,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "COM",
@@ -1715,7 +2465,14 @@
       },
       "teamFile": 81,
       "ordinal": 36,
-      "ogTeamNumber": 20772
+      "ogTeamNumber": 20772,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "65e80426-1c43-5add-a212-746ab9a27a76",
+        "globalNumber": 2568,
+        "nationality": 184,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "KEN",
@@ -1728,7 +2485,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "88f6ab07-2bd9-5756-a361-a52b4289b4c6",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "88f6ab07-2bd9-5756-a361-a52b4289b4c6",
+        "globalNumber": 808,
+        "nationality": 99,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LBY",
@@ -1755,7 +2519,14 @@
       },
       "teamFile": 81,
       "ordinal": 44,
-      "ogTeamNumber": 20780
+      "ogTeamNumber": 20780,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "57935814-e37d-5f7a-8b82-a25756718f03",
+        "globalNumber": 2576,
+        "nationality": 190,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "KAZ",
@@ -1782,7 +2553,14 @@
       },
       "teamFile": 80,
       "ordinal": 52,
-      "ogTeamNumber": 20532
+      "ogTeamNumber": 20532,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "5b56be53-236c-5ee9-84dd-73bdaf6c26ca",
+        "globalNumber": 2563,
+        "nationality": 160,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TAN",
@@ -1795,7 +2573,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "ba8234ad-6904-5340-85be-a4057844b776",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ba8234ad-6904-5340-85be-a4057844b776",
+        "globalNumber": 822,
+        "nationality": 106,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MTN",
@@ -1822,7 +2607,14 @@
       },
       "teamFile": 81,
       "ordinal": 46,
-      "ogTeamNumber": 20782
+      "ogTeamNumber": 20782,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "db1fb79a-73ba-5290-b9f8-28cdcea34834",
+        "globalNumber": 2578,
+        "nationality": 181,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NIG",
@@ -1835,7 +2627,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "2e7caabe-ca91-5ca4-b5fc-d7c9f5af197c",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "2e7caabe-ca91-5ca4-b5fc-d7c9f5af197c",
+        "globalNumber": 815,
+        "nationality": 182,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LBN",
@@ -1862,7 +2661,14 @@
       },
       "teamFile": 84,
       "ordinal": 36,
-      "ogTeamNumber": 21540
+      "ogTeamNumber": 21540,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "e64e2a73-759a-5406-95d8-763fda3a78d9",
+        "globalNumber": 2611,
+        "nationality": 195,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GAM",
@@ -1889,7 +2695,14 @@
       },
       "teamFile": 81,
       "ordinal": 42,
-      "ogTeamNumber": 20778
+      "ogTeamNumber": 20778,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "de886b01-d03a-5d85-9a96-4834243b6cfd",
+        "globalNumber": 2574,
+        "nationality": 116,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SDN",
@@ -1902,7 +2715,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "4efb62d1-6306-551e-ab62-497d5a77b573",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4efb62d1-6306-551e-ab62-497d5a77b573",
+        "globalNumber": 820,
+        "nationality": 100,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "IDN",
@@ -1915,7 +2735,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "6b88cacc-95a6-56da-aebd-bb8d647206f9",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "6b88cacc-95a6-56da-aebd-bb8d647206f9",
+        "globalNumber": 489,
+        "nationality": 200,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TOG",
@@ -1928,7 +2755,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "91b8f9a1-08e1-590c-ae7f-7d534e17d7a4",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "91b8f9a1-08e1-590c-ae7f-7d534e17d7a4",
+        "globalNumber": 823,
+        "nationality": 103,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PRK",
@@ -1941,7 +2775,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "8212be9b-68ec-5379-97bb-09eec8869af9",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "8212be9b-68ec-5379-97bb-09eec8869af9",
+        "globalNumber": 499,
+        "nationality": 135,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NAM",
@@ -1968,7 +2809,14 @@
       },
       "teamFile": 81,
       "ordinal": 47,
-      "ogTeamNumber": 20783
+      "ogTeamNumber": 20783,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d3c29943-39c5-56d0-853e-5e2041e44c9d",
+        "globalNumber": 2579,
+        "nationality": 189,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SLE",
@@ -1981,7 +2829,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "fec870ad-aecb-5a16-be06-15dd14c28c5e",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fec870ad-aecb-5a16-be06-15dd14c28c5e",
+        "globalNumber": 818,
+        "nationality": 110,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "FRO",
@@ -1994,7 +2849,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "6046ceda-3ee1-5f56-a449-830bc6128885",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "6046ceda-3ee1-5f56-a449-830bc6128885",
+        "globalNumber": 232,
+        "nationality": 10,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CYP",
@@ -2007,7 +2869,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "bc05604b-1d5f-5e6a-b095-c69332ea0b1c",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "bc05604b-1d5f-5e6a-b095-c69332ea0b1c",
+        "globalNumber": 227,
+        "nationality": 5,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SUR",
@@ -2020,7 +2889,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "af64add4-e344-5669-8bb8-a3a2cd073151",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "af64add4-e344-5669-8bb8-a3a2cd073151",
+        "globalNumber": 891,
+        "nationality": 75,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "AZE",
@@ -2033,7 +2909,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "b1ccf3b8-db7c-541b-9820-17117ccaac9c",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b1ccf3b8-db7c-541b-9820-17117ccaac9c",
+        "globalNumber": 222,
+        "nationality": 43,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "EST",
@@ -2046,7 +2929,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "b70a31f3-0f1f-5b35-9f1a-f17d0e62519b",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b70a31f3-0f1f-5b35-9f1a-f17d0e62519b",
+        "globalNumber": 231,
+        "nationality": 9,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "RWA",
@@ -2073,7 +2963,14 @@
       },
       "teamFile": 81,
       "ordinal": 48,
-      "ogTeamNumber": 20784
+      "ogTeamNumber": 20784,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "15215d22-d4fc-543d-8324-8731dc365aeb",
+        "globalNumber": 2580,
+        "nationality": 183,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MWI",
@@ -2086,7 +2983,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "81319193-7946-5e3c-9de5-add8782ea666",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "81319193-7946-5e3c-9de5-add8782ea666",
+        "globalNumber": 811,
+        "nationality": 117,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ZIM",
@@ -2099,7 +3003,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "83790adc-e373-5eed-aa1e-d92838407e4a",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "83790adc-e373-5eed-aa1e-d92838407e4a",
+        "globalNumber": 827,
+        "nationality": 104,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NCA",
@@ -2112,7 +3023,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "c53d5599-e74b-58a6-9e56-6e1b499a9055",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "c53d5599-e74b-58a6-9e56-6e1b499a9055",
+        "globalNumber": 888,
+        "nationality": 60,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GNB",
@@ -2139,7 +3057,14 @@
       },
       "teamFile": 81,
       "ordinal": 43,
-      "ogTeamNumber": 20779
+      "ogTeamNumber": 20779,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fb3bd6a9-e09f-5312-91dc-94742dd9f362",
+        "globalNumber": 2575,
+        "nationality": 179,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "KUW",
@@ -2152,7 +3077,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "fa9eb2c6-fbb0-562e-8870-c1c19068083c",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fa9eb2c6-fbb0-562e-8870-c1c19068083c",
+        "globalNumber": 494,
+        "nationality": 133,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CGO",
@@ -2180,6 +3112,13 @@
         "unpackedBytes": 23258,
         "crc16": 17752,
         "all16Nationalities": 112
+      },
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7fc69b54-698c-5711-bad7-60036071b26f",
+        "globalNumber": 801,
+        "nationality": 112,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
       }
     },
     {
@@ -2193,7 +3132,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "ec1b1e73-2608-5933-84fd-3670ccef425e",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ec1b1e73-2608-5933-84fd-3670ccef425e",
+        "globalNumber": 503,
+        "nationality": 138,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MAS",
@@ -2206,7 +3152,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "1f1fdb6a-cac5-55f7-a7d6-a6e8d85c6620",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1f1fdb6a-cac5-55f7-a7d6-a6e8d85c6620",
+        "globalNumber": 496,
+        "nationality": 130,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LVA",
@@ -2219,7 +3172,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "1a89ba26-2c86-57c2-b7ee-21dd3d9d7337",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1a89ba26-2c86-57c2-b7ee-21dd3d9d7337",
+        "globalNumber": 243,
+        "nationality": 19,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "IND",
@@ -2232,7 +3192,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "27bb9a03-0f6c-5bbd-8000-bf1abba30172",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "27bb9a03-0f6c-5bbd-8000-bf1abba30172",
+        "globalNumber": 488,
+        "nationality": 120,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CTA",
@@ -2259,7 +3226,14 @@
       },
       "teamFile": 81,
       "ordinal": 38,
-      "ogTeamNumber": 20774
+      "ogTeamNumber": 20774,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d4f86c4c-c8ce-5591-87ed-5d16cf27d23d",
+        "globalNumber": 2570,
+        "nationality": 185,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LBR",
@@ -2272,7 +3246,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "50015e4e-5b00-5a64-bd2b-fd98187a69a6",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "50015e4e-5b00-5a64-bd2b-fd98187a69a6",
+        "globalNumber": 810,
+        "nationality": 97,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TKM",
@@ -2299,7 +3280,14 @@
       },
       "teamFile": 84,
       "ordinal": 44,
-      "ogTeamNumber": 21548
+      "ogTeamNumber": 21548,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "172e71f1-9b9d-5e5e-a0a5-fd81d853358a",
+        "globalNumber": 2619,
+        "nationality": 214,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BDI",
@@ -2312,7 +3300,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "809e5e84-514a-5681-a0f3-e1255822fa36",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "809e5e84-514a-5681-a0f3-e1255822fa36",
+        "globalNumber": 799,
+        "nationality": 84,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ETH",
@@ -2325,7 +3320,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "186aa8cc-7d95-52e3-94c6-ebe043038e41",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "186aa8cc-7d95-52e3-94c6-ebe043038e41",
+        "globalNumber": 803,
+        "nationality": 108,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "DOM",
@@ -2352,7 +3354,14 @@
       },
       "teamFile": 83,
       "ordinal": 24,
-      "ogTeamNumber": 21272
+      "ogTeamNumber": 21272,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "91690bde-8248-5af2-a796-f37059f42b2f",
+        "globalNumber": 2595,
+        "nationality": 166,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "YEM",
@@ -2365,7 +3374,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "7f47920e-1c3e-50cf-82d7-6a1ab60af59c",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7f47920e-1c3e-50cf-82d7-6a1ab60af59c",
+        "globalNumber": 513,
+        "nationality": 132,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LES",
@@ -2378,7 +3394,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "e27cb527-af15-5176-9910-9775310558c1",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "e27cb527-af15-5176-9910-9775310558c1",
+        "globalNumber": 809,
+        "nationality": 85,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BOT",
@@ -2391,7 +3414,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "7b7a5417-d05e-575b-9713-6ad5e72b0c8d",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7b7a5417-d05e-575b-9713-6ad5e72b0c8d",
+        "globalNumber": 797,
+        "nationality": 82,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SGP",
@@ -2404,7 +3434,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "0e5443b4-a8b8-5d0b-a146-be6a8a5a73a7",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "0e5443b4-a8b8-5d0b-a146-be6a8a5a73a7",
+        "globalNumber": 506,
+        "nationality": 140,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LTU",
@@ -2417,7 +3454,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "7e0ba826-b3e7-576f-9717-3047698a609b",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7e0ba826-b3e7-576f-9717-3047698a609b",
+        "globalNumber": 245,
+        "nationality": 20,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GUY",
@@ -2430,7 +3474,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "4328ed23-cbcd-5c35-ab56-e2c2fac3825c",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4328ed23-cbcd-5c35-ab56-e2c2fac3825c",
+        "globalNumber": 884,
+        "nationality": 78,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NCL",
@@ -2457,7 +3508,14 @@
       },
       "teamFile": 85,
       "ordinal": 6,
-      "ogTeamNumber": 21766
+      "ogTeamNumber": 21766,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "53c1242c-4d17-5d7b-8237-0e9095d46fb5",
+        "globalNumber": 2624,
+        "nationality": 209,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SKN",
@@ -2484,7 +3542,14 @@
       },
       "teamFile": 83,
       "ordinal": 30,
-      "ogTeamNumber": 21278
+      "ogTeamNumber": 21278,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f2e36d2e-e3b8-5c5a-8c51-34d3c856c4c2",
+        "globalNumber": 2601,
+        "nationality": 174,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SOL",
@@ -2497,7 +3562,14 @@
       "sourceFile": "data_json/teams/OCEANIA.json",
       "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
       "uuid": "d29bc18c-e22b-5a9a-ac7a-8749b40e4778",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d29bc18c-e22b-5a9a-ac7a-8749b40e4778",
+        "globalNumber": 847,
+        "nationality": 151,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PUR",
@@ -2524,7 +3596,14 @@
       },
       "teamFile": 83,
       "ordinal": 29,
-      "ogTeamNumber": 21277
+      "ogTeamNumber": 21277,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "e07cca73-2f48-5ea6-94d1-74c54a6f2ece",
+        "globalNumber": 2600,
+        "nationality": 168,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "FIJ",
@@ -2537,7 +3616,14 @@
       "sourceFile": "data_json/teams/OCEANIA.json",
       "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
       "uuid": "21e4afd5-98d2-5587-9d11-210118e1b263",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "21e4afd5-98d2-5587-9d11-210118e1b263",
+        "globalNumber": 845,
+        "nationality": 150,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "HKG",
@@ -2550,7 +3636,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "af9c985a-d97e-5e66-909d-a67556ed6be6",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "af9c985a-d97e-5e66-909d-a67556ed6be6",
+        "globalNumber": 487,
+        "nationality": 198,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TAH",
@@ -2577,7 +3670,14 @@
       },
       "teamFile": 85,
       "ordinal": 8,
-      "ogTeamNumber": 21768
+      "ogTeamNumber": 21768,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "6fe44699-c67f-57e0-a9ce-e027631d0878",
+        "globalNumber": 2626,
+        "nationality": 210,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MYA",
@@ -2590,7 +3690,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "f595f500-aa22-5787-b315-2348a427eedf",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f595f500-aa22-5787-b315-2348a427eedf",
+        "globalNumber": 498,
+        "nationality": 142,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MDA",
@@ -2603,7 +3710,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "d8e2d972-abb7-5248-9da3-c7a9fde67be5",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d8e2d972-abb7-5248-9da3-c7a9fde67be5",
+        "globalNumber": 249,
+        "nationality": 50,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "VAN",
@@ -2630,7 +3744,14 @@
       },
       "teamFile": 85,
       "ordinal": 10,
-      "ogTeamNumber": 21770
+      "ogTeamNumber": 21770,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f5309236-a59e-5b09-bd46-876392beefd7",
+        "globalNumber": 2628,
+        "nationality": 211,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MLT",
@@ -2643,7 +3764,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "fc739eb8-1c90-55da-b66a-f92cf53132eb",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fc739eb8-1c90-55da-b66a-f92cf53132eb",
+        "globalNumber": 248,
+        "nationality": 22,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ATG",
@@ -2670,7 +3798,14 @@
       },
       "teamFile": 83,
       "ordinal": 16,
-      "ogTeamNumber": 21264
+      "ogTeamNumber": 21264,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "34dd1274-211a-5bee-bb1b-c4db9fb6646e",
+        "globalNumber": 2587,
+        "nationality": 173,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GRN",
@@ -2697,7 +3832,14 @@
       },
       "teamFile": 83,
       "ordinal": 25,
-      "ogTeamNumber": 21273
+      "ogTeamNumber": 21273,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "bd913c0a-2ec1-5c2f-b978-399b5af4a313",
+        "globalNumber": 2596,
+        "nationality": 169,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CUB",
@@ -2724,7 +3866,14 @@
       },
       "teamFile": 83,
       "ordinal": 21,
-      "ogTeamNumber": 21269
+      "ogTeamNumber": 21269,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "88eef537-d9d0-5378-9042-a8060ae82dcd",
+        "globalNumber": 2592,
+        "nationality": 167,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SWZ",
@@ -2737,7 +3886,14 @@
       "sourceFile": "data_json/teams/AFRICA.json",
       "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
       "uuid": "a276d1dc-821b-54a7-adf3-00007b7cf9d4",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "a276d1dc-821b-54a7-adf3-00007b7cf9d4",
+        "globalNumber": 821,
+        "nationality": 101,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LCA",
@@ -2764,7 +3920,14 @@
       },
       "teamFile": 83,
       "ordinal": 27,
-      "ogTeamNumber": 21275
+      "ogTeamNumber": 21275,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "783cb485-0a4d-5f98-9df0-9f5c100ee9c8",
+        "globalNumber": 2598,
+        "nationality": 175,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BER",
@@ -2777,7 +3940,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "9f142ff2-85a7-5310-a1f7-0bda9e921d1d",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9f142ff2-85a7-5310-a1f7-0bda9e921d1d",
+        "globalNumber": 879,
+        "nationality": 61,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PNG",
@@ -2790,7 +3960,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "98067492-d3a0-5ad5-bfcf-60554bbc6dd9",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "98067492-d3a0-5ad5-bfcf-60554bbc6dd9",
+        "globalNumber": 502,
+        "nationality": 143,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SSD",
@@ -2817,7 +3994,14 @@
       },
       "teamFile": 81,
       "ordinal": 51,
-      "ogTeamNumber": 20787
+      "ogTeamNumber": 20787,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "0cd427e7-364e-5bc4-8bb7-2a5d6595824a",
+        "globalNumber": 2583,
+        "nationality": 186,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "VIN",
@@ -2830,7 +4014,14 @@
       "sourceFile": "data_json/teams/NORTH_AMERICA.json",
       "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
       "uuid": "6c7edb69-bbda-55db-959c-fb38c5a2bb66",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "6c7edb69-bbda-55db-959c-fb38c5a2bb66",
+        "globalNumber": 890,
+        "nationality": 67,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "AFG",
@@ -2857,7 +4048,14 @@
       },
       "teamFile": 84,
       "ordinal": 31,
-      "ogTeamNumber": 21535
+      "ogTeamNumber": 21535,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7630c3bf-35be-5f4b-8f81-3ae396a37b16",
+        "globalNumber": 2606,
+        "nationality": 202,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "AND",
@@ -2884,7 +4082,14 @@
       },
       "teamFile": 80,
       "ordinal": 49,
-      "ogTeamNumber": 20529
+      "ogTeamNumber": 20529,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "3d774ecf-79b1-5e7f-b592-05d127eca855",
+        "globalNumber": 2560,
+        "nationality": 158,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MDV",
@@ -2911,7 +4116,14 @@
       },
       "teamFile": 84,
       "ordinal": 38,
-      "ogTeamNumber": 21542
+      "ogTeamNumber": 21542,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "a925f3ae-b197-5b69-95c5-2f6526d0c063",
+        "globalNumber": 2613,
+        "nationality": 206,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TPE",
@@ -2924,7 +4136,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "8530892b-9c9c-5d26-885e-1538afbad7d8",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "8530892b-9c9c-5d26-885e-1538afbad7d8",
+        "globalNumber": 510,
+        "nationality": 119,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CAM",
@@ -2951,7 +4170,14 @@
       },
       "teamFile": 84,
       "ordinal": 33,
-      "ogTeamNumber": 21537
+      "ogTeamNumber": 21537,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "51accb3b-8a1b-51f1-9fa4-792bc12ca049",
+        "globalNumber": 2608,
+        "nationality": 201,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MSR",
@@ -2978,7 +4204,14 @@
       },
       "teamFile": 83,
       "ordinal": 28,
-      "ogTeamNumber": 21276
+      "ogTeamNumber": 21276,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b8968a46-2103-5437-b5d1-a38647512e8d",
+        "globalNumber": 2599,
+        "nationality": 176,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "NEP",
@@ -3005,7 +4238,14 @@
       },
       "teamFile": 84,
       "ordinal": 40,
-      "ogTeamNumber": 21544
+      "ogTeamNumber": 21544,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "7384edc5-4d33-5ba6-8328-19b7d33ade7f",
+        "globalNumber": 2615,
+        "nationality": 203,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MRI",
@@ -3018,7 +4258,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "ca5ebb7e-cc17-513e-9ffe-7aa229e47464",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ca5ebb7e-cc17-513e-9ffe-7aa229e47464",
+        "globalNumber": 497,
+        "nationality": 141,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BRB",
@@ -3045,7 +4292,14 @@
       },
       "teamFile": 83,
       "ordinal": 19,
-      "ogTeamNumber": 21267
+      "ogTeamNumber": 21267,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "8a254997-695a-5341-bd75-64d75fbc5846",
+        "globalNumber": 2590,
+        "nationality": 65,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BLZ",
@@ -3072,7 +4326,14 @@
       },
       "teamFile": 83,
       "ordinal": 18,
-      "ogTeamNumber": 21266
+      "ogTeamNumber": 21266,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "0906de23-8009-59fc-a33a-54eaa710e9a8",
+        "globalNumber": 2589,
+        "nationality": 162,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BAN",
@@ -3085,7 +4346,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "97ba6fc2-ca99-5c70-8268-e323f2217797",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "97ba6fc2-ca99-5c70-8268-e323f2217797",
+        "globalNumber": 484,
+        "nationality": 121,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "DMA",
@@ -3112,7 +4380,14 @@
       },
       "teamFile": 83,
       "ordinal": 23,
-      "ogTeamNumber": 21271
+      "ogTeamNumber": 21271,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "6c3ba17d-21f8-56fe-bc9e-bd74018280b5",
+        "globalNumber": 2594,
+        "nationality": 215,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CHA",
@@ -3139,7 +4414,14 @@
       },
       "teamFile": 81,
       "ordinal": 34,
-      "ogTeamNumber": 20770
+      "ogTeamNumber": 20770,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "645f80c5-cb12-5f4a-aec3-f043bf4d0bb0",
+        "globalNumber": 2566,
+        "nationality": 95,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ERI",
@@ -3166,7 +4448,14 @@
       },
       "teamFile": 81,
       "ordinal": 41,
-      "ogTeamNumber": 20777
+      "ogTeamNumber": 20777,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "5e3e8d72-2fe3-5671-a185-15623f162cdb",
+        "globalNumber": 2573,
+        "nationality": 187,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LAO",
@@ -3179,7 +4468,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "9133caa2-9591-5cbe-ab1e-e7496d799014",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "9133caa2-9591-5cbe-ab1e-e7496d799014",
+        "globalNumber": 495,
+        "nationality": 134,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "COK",
@@ -3206,7 +4502,14 @@
       },
       "teamFile": 85,
       "ordinal": 5,
-      "ogTeamNumber": 21765
+      "ogTeamNumber": 21765,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ff407c87-3d11-5c55-9831-60f4b991d5dd",
+        "globalNumber": 2623,
+        "nationality": 216,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SRI",
@@ -3219,7 +4522,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "eb9f611b-208c-5a2f-9725-c02e18668d5b",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "eb9f611b-208c-5a2f-9725-c02e18668d5b",
+        "globalNumber": 508,
+        "nationality": 125,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SAM",
@@ -3246,7 +4556,14 @@
       },
       "teamFile": 85,
       "ordinal": 7,
-      "ogTeamNumber": 21767
+      "ogTeamNumber": 21767,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "83cfddf4-22f0-58bc-a6bd-e109f19356a3",
+        "globalNumber": 2625,
+        "nationality": 212,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ARU",
@@ -3273,7 +4590,14 @@
       },
       "teamFile": 83,
       "ordinal": 15,
-      "ogTeamNumber": 21263
+      "ogTeamNumber": 21263,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "8489b01b-ae35-5087-8570-e101d9754f5e",
+        "globalNumber": 2586,
+        "nationality": 165,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MNG",
@@ -3300,7 +4624,14 @@
       },
       "teamFile": 84,
       "ordinal": 39,
-      "ogTeamNumber": 21543
+      "ogTeamNumber": 21543,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4aa39044-1da6-5a36-b00d-6e439cc78ae9",
+        "globalNumber": 2614,
+        "nationality": 205,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "ASA",
@@ -3327,7 +4658,14 @@
       },
       "teamFile": 85,
       "ordinal": 4,
-      "ogTeamNumber": 21764
+      "ogTeamNumber": 21764,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d83e551b-cbde-5c18-b755-6ff4036fb0a4",
+        "globalNumber": 2622,
+        "nationality": 217,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BHU",
@@ -3354,7 +4692,14 @@
       },
       "teamFile": 84,
       "ordinal": 32,
-      "ogTeamNumber": 21536
+      "ogTeamNumber": 21536,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4871f413-f3f2-5d12-bd57-0fe854a3614c",
+        "globalNumber": 2607,
+        "nationality": 218,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "MAC",
@@ -3381,7 +4726,14 @@
       },
       "teamFile": 84,
       "ordinal": 37,
-      "ogTeamNumber": 21541
+      "ogTeamNumber": 21541,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "50e45caa-f3c9-5927-b573-97b4a84a125d",
+        "globalNumber": 2612,
+        "nationality": 204,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BRU",
@@ -3394,7 +4746,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "f5960f74-8f27-5d47-8e6e-3df36231d7d9",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "f5960f74-8f27-5d47-8e6e-3df36231d7d9",
+        "globalNumber": 485,
+        "nationality": 122,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "STP",
@@ -3421,7 +4780,14 @@
       },
       "teamFile": 81,
       "ordinal": 52,
-      "ogTeamNumber": 20788
+      "ogTeamNumber": 20788,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "756916a2-d21b-5805-9d8f-2e5bf956583e",
+        "globalNumber": 2584,
+        "nationality": 192,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "DJI",
@@ -3448,7 +4814,14 @@
       },
       "teamFile": 81,
       "ordinal": 39,
-      "ogTeamNumber": 20775
+      "ogTeamNumber": 20775,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4cbce2ba-6a0e-5b99-acac-9575ea88f93a",
+        "globalNumber": 2571,
+        "nationality": 191,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "CAY",
@@ -3475,7 +4848,14 @@
       },
       "teamFile": 83,
       "ordinal": 20,
-      "ogTeamNumber": 21268
+      "ogTeamNumber": 21268,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "649c7a59-8a2a-5884-ab6a-4402d1b93cbd",
+        "globalNumber": 2591,
+        "nationality": 177,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "PAK",
@@ -3488,7 +4868,14 @@
       "sourceFile": "data_json/teams/ASIA.json",
       "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
       "uuid": "90c20d99-3b9b-5f7c-a2fd-9b7e1215f682",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "90c20d99-3b9b-5f7c-a2fd-9b7e1215f682",
+        "globalNumber": 501,
+        "nationality": 137,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SOM",
@@ -3515,7 +4902,14 @@
       },
       "teamFile": 81,
       "ordinal": 50,
-      "ogTeamNumber": 20786
+      "ogTeamNumber": 20786,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "d416053f-a11c-5200-8383-766b66501ec5",
+        "globalNumber": 2582,
+        "nationality": 188,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TGA",
@@ -3542,7 +4936,14 @@
       },
       "teamFile": 85,
       "ordinal": 9,
-      "ogTeamNumber": 21769
+      "ogTeamNumber": 21769,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "fa41f4ef-72ae-5040-9798-70a7d0297541",
+        "globalNumber": 2627,
+        "nationality": 213,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TLS",
@@ -3569,7 +4970,14 @@
       },
       "teamFile": 84,
       "ordinal": 45,
-      "ogTeamNumber": 21549
+      "ogTeamNumber": 21549,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "1b22bec9-87be-52bc-bf66-2305d62c37cf",
+        "globalNumber": 2620,
+        "nationality": 207,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GIB",
@@ -3596,7 +5004,14 @@
       },
       "teamFile": 80,
       "ordinal": 51,
-      "ogTeamNumber": 20531
+      "ogTeamNumber": 20531,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "8d32f93a-1880-5888-a608-1acb89efe4b3",
+        "globalNumber": 2562,
+        "nationality": 159,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "GUM",
@@ -3623,7 +5038,14 @@
       },
       "teamFile": 84,
       "ordinal": 34,
-      "ogTeamNumber": 21538
+      "ogTeamNumber": 21538,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "a6ad4ab1-9fe8-5e8a-9996-feb69f6976a4",
+        "globalNumber": 2609,
+        "nationality": 208,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SEY",
@@ -3650,7 +5072,14 @@
       },
       "teamFile": 81,
       "ordinal": 49,
-      "ogTeamNumber": 20785
+      "ogTeamNumber": 20785,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "42eafefd-9321-55cd-beff-24dbaa9066c9",
+        "globalNumber": 2581,
+        "nationality": 219,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "TCA",
@@ -3677,7 +5106,14 @@
       },
       "teamFile": 83,
       "ordinal": 31,
-      "ogTeamNumber": 21279
+      "ogTeamNumber": 21279,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "ee552acb-4604-5804-956c-a16ec753a89b",
+        "globalNumber": 2602,
+        "nationality": 220,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "LIE",
@@ -3690,7 +5126,14 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "104683a0-88b5-5ba1-8059-9e34b9997f94",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "104683a0-88b5-5ba1-8059-9e34b9997f94",
+        "globalNumber": 244,
+        "nationality": 49,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "BAH",
@@ -3718,7 +5161,14 @@
       },
       "teamFile": 83,
       "ordinal": 17,
-      "ogTeamNumber": 21265
+      "ogTeamNumber": 21265,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "3f2fd144-d48f-5d64-a3f3-3f58a9afcd70",
+        "globalNumber": 2588,
+        "nationality": 55,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "VIR",
@@ -3745,7 +5195,14 @@
       },
       "teamFile": 83,
       "ordinal": 34,
-      "ogTeamNumber": 21282
+      "ogTeamNumber": 21282,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "00c6cd36-3c86-54b2-8f41-e405ce610c6b",
+        "globalNumber": 2605,
+        "nationality": 221,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "VGB",
@@ -3772,7 +5229,14 @@
       },
       "teamFile": 83,
       "ordinal": 33,
-      "ogTeamNumber": 21281
+      "ogTeamNumber": 21281,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "8aaed366-1149-51c2-af7b-40ecd9a53447",
+        "globalNumber": 2604,
+        "nationality": 222,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "AIA",
@@ -3799,7 +5263,14 @@
       },
       "teamFile": 83,
       "ordinal": 14,
-      "ogTeamNumber": 21262
+      "ogTeamNumber": 21262,
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "b1862396-6c5c-5a11-9f8d-0a6204e934b7",
+        "globalNumber": 2585,
+        "nationality": 223,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     },
     {
       "code": "SMR",
@@ -3812,17 +5283,24 @@
       "sourceFile": "data_json/teams/EUROPE.json",
       "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
       "uuid": "4f610b16-c3b0-5aca-8a20-8f8c34d1da9f",
-      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "currentRoster": {
+        "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+        "teamUuid": "4f610b16-c3b0-5aca-8a20-8f8c34d1da9f",
+        "globalNumber": 257,
+        "nationality": 30,
+        "status": "REAL_SOURCE_REGISTERED_NOT_GAMEPLAY_TESTED"
+      }
     }
   ],
   "ambiguousNativeRecords": [],
   "coverage": {
     "reviewed": 211,
-    "matched": 142,
-    "referenceOnly": 69,
+    "matched": 211,
+    "referenceOnly": 0,
     "ambiguous": 0,
-    "unmatched": 69,
-    "nativeRecords": 142
+    "unmatched": 0,
+    "nativeRecords": 211
   },
   "additionPolicy": {
     "decisionDate": "2026-11-27",
@@ -3902,5 +5380,14 @@
       },
       "limits": "Runtime source wired: OG and TeamDb loaders, original CT START and readonly WORLD, club WORLD inactive buttons. Actual confederation regroup and real national competition data deferred. C/Windows/gameplay/CAR not tested."
     }
+  },
+  "currentIdentityAudit": {
+    "head": "a08874920dd2b74c6cc1d1b26ad8c878d351ddc1",
+    "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+    "matched": 211,
+    "referenceOnly": 0,
+    "ambiguous": 0,
+    "realRosterCount": 211,
+    "oldRegistrationPlan": "Historical evidence only; TEST template no longer active for these national records. Current roster pointer authoritative for source audit; runtime still uses native registry."
   }
 }

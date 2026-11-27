@@ -1,3 +1,6 @@
+## 27/11/2026 — ranking data consolidation (v348, no build)
+FIFA initial seed 01/07 accepted by user as approximate, 211 identities verified, 55 UEFA association links. Reverse inventory 60/60 files, 1276 raw, 384 ranked matches +3 pools, 892 raw without seed; 215/387 mapped activity positive, 172 unchecked; 26 raw unmatched positive, 866 unchecked. No runtime activation. See CE_CALENDAR_GENERATOR and RG for evidence, limits and CE/CAR handoff.
+
 ## 27/11/2026 — v00.13.348: WORLD 211 / inactive tint + ranking research consolidation (source only)
 Both 2627 WORLD lists cover all 211 national identities, 91 active domestic and 120 inactive; approved dark palette on inactive club-country buttons. Preserve OG controls, 9697 and CAR. Ranking candidate map 387/415, 23 active unmatched and 5 historical, no activation. Existing EXTRA/pool and three new clubs preserved, not a new import. Source/tests and limits in RG. Windows/GP/CAR NP; local acquisition still running and separate.
 

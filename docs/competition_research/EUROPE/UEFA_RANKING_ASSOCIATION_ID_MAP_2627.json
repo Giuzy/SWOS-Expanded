@@ -5,7 +5,8 @@
   "seedBlob": "cf2490a0ebc22bf187fc441479fb2a3f250f440e",
   "status": "DB_ASSOCIATION_CANDIDATES_NOT_RUNTIME",
   "notes": [
-    "Federation is not a national-team ID or a pool file number; association code remains canonical research key. Files include pool where applicable. Cross-border eligibility must be separately verified."
+    "Federation is not a national-team ID or a pool file number; association code remains canonical research key. Files include pool where applicable. Cross-border eligibility must be separately verified.",
+    "All 55 association-to-national identity links now match current 2627 national roster map. Federation eligibility and cross-border club membership are separate and not certified by this check."
   ],
   "records": [
     {
@@ -389,8 +390,7 @@
       ],
       "nationalCandidate": {
         "stableClub": 20529,
-        "kind": "NATIONAL",
-        "status": "FEDERATION_SUCCESSOR_MODERN_CANDIDATE_NOT_RUNTIME"
+        "kind": "NATIONAL"
       },
       "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
     },
@@ -568,7 +568,10 @@
           "sha": "0ac5425101e8d99552efd7bb15a746ce3a2df3d7"
         }
       ],
-      "nationalCandidate": null,
+      "nationalCandidate": {
+        "stableClub": 20534,
+        "kind": "NATIONAL"
+      },
       "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
     },
     {
@@ -580,7 +583,10 @@
           "sha": "d2a64d4664db0ecf59b63c64835d60967ac666e7"
         }
       ],
-      "nationalCandidate": null,
+      "nationalCandidate": {
+        "stableClub": 20533,
+        "kind": "NATIONAL"
+      },
       "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
     },
     {
@@ -592,7 +598,10 @@
           "sha": "9bfef902d61ca17d7560aaf03975afff90e43887"
         }
       ],
-      "nationalCandidate": null,
+      "nationalCandidate": {
+        "stableClub": 20531,
+        "kind": "NATIONAL"
+      },
       "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
     },
     {
@@ -739,7 +748,10 @@
           "sha": "c92a8b2da738edcb51d1e74e4374fe283eb34b5f"
         }
       ],
-      "nationalCandidate": null,
+      "nationalCandidate": {
+        "stableClub": 20532,
+        "kind": "NATIONAL"
+      },
       "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
     },
     {
@@ -751,7 +763,10 @@
           "sha": "88d2c98c48972aab08c15eef8917fdc9f411f855"
         }
       ],
-      "nationalCandidate": null,
+      "nationalCandidate": {
+        "stableClub": 20530,
+        "kind": "NATIONAL"
+      },
       "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
     },
     {
@@ -793,7 +808,10 @@
           "sha": "87d1b476ed9e159fc66ddd6196c417588ca996a4"
         }
       ],
-      "nationalCandidate": null,
+      "nationalCandidate": {
+        "stableClub": 20535,
+        "kind": "NATIONAL"
+      },
       "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
     },
     {
@@ -845,6 +863,13 @@
   "coverage": {
     "reviewed": 55,
     "clubCatalogAssociations": 55,
-    "nationalCandidates": 49
+    "nationalCandidates": 55
+  },
+  "currentNationalIdentityAudit": {
+    "head": "a08874920dd2b74c6cc1d1b26ad8c878d351ddc1",
+    "sourceMapBlob": "9984877c8a9c8436ef8649667e3e8d01d23ee7ca",
+    "verified": 55,
+    "filled": 6,
+    "status": "SOURCE_IDENTITY_VERIFIED_NOT_RUNTIME_ASSOCIATION_BIND"
   }
 }

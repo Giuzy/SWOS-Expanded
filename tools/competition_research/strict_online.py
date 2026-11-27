@@ -11,6 +11,7 @@ from research_status import report, outcome, progress, show_progress, WorkTotal
 from competition_sources import Cached, Discovery, fd_route, fd_packet, rsssf_route, rsssf_packet, RSSSF, wanted as gap_fields, selftest as sources_selftest
 from research import COUNTRIES
 from evidence_delta import delta as evidence_delta, selftest as delta_selftest
+from betexplorer_source import route as bet_route, packet as bet_packet
 FIELDS=("name","identity","participants","format","regulation","movement","qualification","july1","roundDates","competitionDays","evolution","seasonChange")
 ROUTES=[
  (186,"ITA","div1","2026-27/it.1.json","Italian Serie A 2026/27",20),
@@ -109,7 +110,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
         if not complete and not changes and matrix_digest(matrix)==baseline:return
         if matrix_digest(read_matrix(mp))!=baseline or cp.read_bytes()!=coverage_baseline:
             raise RuntimeError("Concurrent matrix change; preserve current files and restart")
-        matrix["strictAcquisitionSummary"]={"routes":len(ROUTES),"footballDataRoutes":fd_routes,"rowsScanned":scanned,"inventorySelected":len(selected),"gapCounts":gaps,"newObservations":inserted,"newSourceLeads":lead_count,"rowsWithoutRouteOrLead":no_source,"july1ApplicabilityUnknown":sum(states(r).get("july1","?")=="?" for r in selected),"errors":errors,"archiveIndexErrors":discovery.errors,"runComplete":complete,"rowsProcessed":len(processed),"scope":"OpenFootball exact routes, Football-Data observed league CSV, RSSSF two scoped 2026 participant routes plus archive leads; NO DATA is not absence; UNKNOWN is unreviewed; SOURCE_ERROR and NOT_SEARCHED distinguish missing adapter from a successful search. RSSSF links are not field evidence. No automatic status promotion."}
+        matrix["strictAcquisitionSummary"]={"routes":len(ROUTES),"footballDataRoutes":fd_routes,"rowsScanned":scanned,"inventorySelected":len(selected),"gapCounts":gaps,"newObservations":inserted,"newSourceLeads":lead_count,"rowsWithoutRouteOrLead":no_source,"july1ApplicabilityUnknown":sum(states(r).get("july1","?")=="?" for r in selected),"errors":errors,"archiveIndexErrors":discovery.errors,"runComplete":complete,"rowsProcessed":len(processed),"scope":"OpenFootball exact routes, Football-Data observed league CSV, RSSSF two scoped 2026 participant routes plus archive leads, BetExplorer inspected 2026 first-tier routes; NO DATA is not absence; UNKNOWN is unreviewed; SOURCE_ERROR and NOT_SEARCHED distinguish missing adapter from a successful search. RSSSF links are not field evidence. No automatic status promotion."}
         coverage["strictAcquisitionSummary"]=matrix["strictAcquisitionSummary"]
         stage(cp,coverage)
         pending={p:(old,encode(obj)) for p,(old,obj) in changes.items() if json.loads(old)!=obj}
@@ -214,6 +215,33 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
                 report(source_label,"ACQUIRED" if fresh else "NO NEW DATA",f"{len(fresh.get('participants',[]))} new labels; {len(packet['participants'])} observed")
             except Exception as e:
                 errors.append([rid,"RSSSF: "+str(e)]);report(source_label,"ERROR",str(e))
+        # Exact country and first-tier route; no loose name matching, no cup,
+        # historical edition or noncatalogue insertion. Labels are partial.
+        beurl=bet_route(country,2026) if row["world"]=="2627" and ident.get("category")=="LEAGUE_DIVISION" and ident.get("detail")=="div1" and "row" in row else None
+        if beurl and "participants" in fields:
+            rid=row["row"];attempted[rid].add("participants")
+            try:
+                report("BetExplorer "+label,"SEARCHING","participant labels")
+                from http_retry import time_budget
+                with time_budget(15):be=bet_packet(cache.get(beurl),country,2026)
+                rel=index["rowPath"][str(rid)];sheet=(docs/rel).resolve()
+                if not sheet.is_relative_to(docs.resolve()) or sheet.suffix!=".json":raise ValueError("Bad path")
+                records=changes[sheet][1] if sheet in changes else read(sheet)
+                matches=[r for r in records if r.get("row")==rid]
+                if len(matches)!=1:raise ValueError("Sheet row mismatch")
+                rec=matches[0]
+                if (rec.get("world"),rec.get("country"),rec.get("detail"),rec.get("id"))!=(row["world"],ident.get("country"),ident.get("detail"),ident.get("id")):raise ValueError("Sheet identity mismatch")
+                searched[rid].add("participants")
+                fresh=evidence_delta(rec,{"participants":[v["name"] for v in be["participants"]]},scope(row),quarantine[rid])
+                if fresh:
+                    key="betexplorer:delta:"+hashlib.sha256(encode(fresh)).hexdigest()
+                    rec.setdefault("automaticResearch",{}).setdefault("strictAcquisition",{})[key]={"document":beurl,"fields":fresh,"deltaOnly":True,"scope":"Observed current edition first-tier labels only; no July membership, results or rules"}
+                    stage(sheet,records);inserted+=1
+                    row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(fresh))
+                    row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
+                report("BetExplorer "+label,"ACQUIRED" if fresh else "NO NEW DATA",f"{len(be['participants'])} observed labels")
+            except Exception as e:
+                errors.append([rid,"BetExplorer: "+str(e)]);report("BetExplorer "+label,"ERROR",str(e))
         route=fd_route(row)
         if not route or "row" not in row:
             if not leads and row.get("row") not in attempted:no_source+=1

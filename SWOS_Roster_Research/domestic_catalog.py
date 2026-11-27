@@ -2,9 +2,10 @@
 import hashlib,json,re,time,urllib.parse,urllib.request
 from pathlib import Path
 from alternative_sources import norm,BAD
-from http_retry import fetch
+from http_retry import fetch,time_budget
 from research_status import report
 from transfermarkt_source import Page
+from betexplorer_source import route as bet_route,packet as bet_packet,selftest as bet_selftest
 
 WP="https://en.wikipedia.org/w/api.php"
 WD="https://www.wikidata.org/w/api.php"
@@ -182,7 +183,7 @@ def rsssf_packets(raw,country,year,errors=None):
     return packets
 
 def observation_key(p):
-    return (p.get("source"),p.get("country"),p.get("kind"),p.get("sourceId"),p.get("name"),p.get("season"),p.get("scope"),p.get("wikidataId"),p.get("identityEvidence"),tuple(sorted(x.get("name","") for x in p.get("participants",[]))),tuple(sorted(p.get("officialSourceLeads",[]))),tuple(sorted((x["field"],x["heading"],x["revision"]) for x in p.get("researchSectionLeads",[]))))
+    return (p.get("source"),p.get("country"),p.get("kind"),p.get("sourceId"),p.get("name"),p.get("season"),p.get("scope"),p.get("wikidataId"),p.get("identityEvidence"),tuple(sorted((x.get("name",""),str(x.get("sourceId",""))) for x in p.get("participants",[]))),tuple(sorted(p.get("officialSourceLeads",[]))),tuple(sorted((x["field"],x["heading"],x["revision"],json.dumps(x.get("facts",[]),sort_keys=True)) for x in p.get("researchSectionLeads",[]))))
 
 RULE_SECTIONS={
     "format":("format","competition format","league format","tournament format","competition system","league system"),
@@ -192,18 +193,58 @@ RULE_SECTIONS={
     "roundDates":("schedule","calendar","competition schedule"),
     "evolution":("history","historical background","format history"),
 }
+# Only direct, bounded textual statements in named sections. No inference
+# from results, no automatic sporting status, and no claim of edition adoption.
+def rule_facts(body,field):
+    body=re.sub(r"<!--.*?-->|<ref\b[^>]*>.*?</ref>|<ref\b[^>]*/>"," ",body,flags=re.I|re.S)
+    body=re.sub(r"\{\{[^{}]*\}\}"," ",body)
+    body=re.sub(r"\[\[(?:[^|\]]+\|)?([^\]]+)\]\]",r"\1",body)
+    body=" ".join(body.replace("'''","").replace("''","").split())
+    if re.search(r"\b(women|youth|reserve|under[- ](?:17|18|19|20|21|23))\b",body,re.I):return []
+    numbers={"one":1,"two":2,"three":3,"four":4,"five":5,"six":6,"seven":7,"eight":8,"nine":9,"ten":10}
+    number=r"(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)"
+    def integer(v):return int(v) if v.isdigit() else numbers[v.casefold()]
+    patterns={
+        "format":[("teams",r"\b(?:league|competition|tournament)\s+(?:consists of|is contested by|comprises)\s+"+number+r"\s+(?:teams|clubs)\b"),
+                  ("meetingsPerOpponent",r"\b(?:each team|each club)\s+plays\s+(?:every other|each other)\s+(?:team|club)\s+"+number+r"\s+times\b")],
+        "regulation":[("pointsWin",number+r"\s+points?\s+(?:are awarded\s+)?for\s+(?:a\s+)?win\b"),
+                      ("pointsDraw",number+r"\s+points?\s+(?:are awarded\s+)?for\s+(?:a\s+)?draw\b"),
+                      ("pointsLoss",number+r"\s+points?\s+(?:are awarded\s+)?for\s+(?:a\s+)?(?:loss|defeat)\b"),
+                      ("substitutions",r"\b(?:up to|maximum of)\s+"+number+r"\s+substitutions\b")],
+        "movement":[("relegated",r"\b(?:the\s+)?(?:bottom|last)\s+"+number+r"\s+(?:teams|clubs)\s+(?:are|will be)\s+relegated\b"),
+                    ("promoted",r"\b(?:the\s+)?(?:top|first)\s+"+number+r"\s+(?:teams|clubs)\s+(?:are|will be)\s+promoted\b")],
+    }
+    found={}
+    for key,pattern in patterns.get(field,[]):
+        values={integer(m[1]) for m in re.finditer(pattern,body,re.I)}
+        if len(values)==1:found[key]=next(iter(values))
+    if field=="format":
+        if re.search(r"\b(?:double round[- ]robin|each (?:team|club) plays (?:every other|each other) (?:team|club) twice)\b",body,re.I):found["doubleRoundRobinStated"]=True
+    if field=="regulation":
+        if re.search(r"\b(?:goal difference|head[- ]to[- ]head)\b",body,re.I):
+            # Presence of a criterion is not its precedence or applicability.
+            for key,pattern in (("mentionsGoalDifference",r"\bgoal difference\b"),("mentionsHeadToHead",r"\bhead[- ]to[- ]head\b")):
+                if re.search(pattern,body,re.I):found[key]=True
+    return [{"parameter":key,"value":value,"scope":"ARTICLE_STATEMENT_EDITION_UNVERIFIED"} for key,value in sorted(found.items())]
+
 def section_leads(content,missing):
     result=[];ancestors=[]
-    for depth,title in re.findall(r"(?m)^(={2,6})\s*([^=\n]+?)\s*\1\s*$",content):
-        name=" ".join(title.split()).casefold()
+    sections=list(re.finditer(r"(?m)^(={2,6})\s*([^=\n]+?)\s*\1\s*$",content))
+    for i,m in enumerate(sections):
+        depth,title=m.groups();name=" ".join(title.split()).casefold()
         while ancestors and ancestors[-1][0]>=len(depth):ancestors.pop()
         blocked=any(BAD.search(x) or re.search(r"\b(women|youth|reserve|results|standings|statistics|honours)\b",x) for _,x in ancestors)
         ancestors.append((len(depth),name))
-        if blocked:continue
+        if blocked or BAD.search(name):continue
+        body=content[m.end():sections[i+1].start() if i+1<len(sections) else len(content)]
         for field,labels in RULE_SECTIONS.items():
             if field in missing and name in labels:
-                result.append({"field":field,"heading":title.strip(),"scope":"SECTION_LEAD_EDITION_UNVERIFIED"})
+                lead={"field":field,"heading":title.strip(),"scope":"SECTION_LEAD_EDITION_UNVERIFIED"}
+                facts=rule_facts(body,field)
+                if facts:lead["facts"]=facts
+                result.append(lead)
     return result
+
 
 class Catalogue:
     def __init__(self,cache,national,refresh=False,wikipedia=True,rsssf=True):
@@ -265,6 +306,16 @@ class Catalogue:
         return [dict(x,sourceUrl=url+"#"+urllib.parse.quote(x["heading"].replace(" ","_")),revision=rev["revid"]) for x in section_leads(content,missing)]
     def country(self,country,year,rule_fields=None):
         packets=[];seeds=[];errors=[]
+        url=bet_route(country,year)
+        if self.rsssf and url:
+            try:
+                report("BetExplorer "+country,"SEARCHING","scoped men's league entrant labels only")
+                with time_budget(15):
+                    p=self._download(url,lambda raw:bet_packet(raw,country,year),ttl=86400)
+                packets.append(p)
+                report("BetExplorer "+country,"FOUND",f"{len(p['participants'])} source club labels; not July 1")
+            except Exception as e:
+                errors.append(["BetExplorer",str(e)]);report("BetExplorer "+country,"ERROR",str(e))
         if self.rsssf and (country,year) in RSSSF:
             try:
                 report("RSSSF domestic "+country,"SEARCHING","exact edition/section; entrant names only")
@@ -312,6 +363,11 @@ class Catalogue:
         return packets,seeds,errors
 
 def selftest():
+    bet_selftest()
+    facts=section_leads("==Format==\nThe league consists of 12 teams. Each team plays every other team twice.\n==Regulations==\nThree points for a win and one point for a draw.\n==Women==\n===Format===\nThe league consists of 8 teams.",{"format","regulation"})
+    assert len(facts)==2 and any(x["parameter"]=="teams" and x["value"]==12 for x in facts[0]["facts"])
+    assert any(x["parameter"]=="pointsWin" and x["value"]==3 for x in facts[1]["facts"])
+    assert not rule_facts("Three points for a win. Two points for a win.","regulation")
     sections=section_leads("==Format==\n===Rules===\n==Women==\n===Format===\n==Results==\n===Schedule===\n==History==",{"format","regulation","roundDates"})
     assert [(x["field"],x["heading"]) for x in sections]==[("format","Format"),("regulation","Rules")]
     national=[{"fifa":"BHU","source":{"name":"BHUTAN"}},{"fifa":"AIA","source":{"name":"ANGUILLA"}}]

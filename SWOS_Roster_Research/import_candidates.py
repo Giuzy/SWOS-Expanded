@@ -15,6 +15,28 @@ def valid_name(v):
     return isinstance(v,str) and bool(v.strip()) and not BAD.search(v) and not re.fullmatch(r"(?:TEST|RESERVE)(?:\s+\d+)?",v.strip(),re.I)
 def tm_id(v):
     return str(v) if re.fullmatch(r"[1-9][0-9]*",str(v)) else None
+def archive_club_candidates(target,year=2026):
+    country=target["fifa"];found={}
+    for p in target.get("domestic_source_observations",[]):
+        if p.get("country")!=country or p.get("kind")!="LEAGUE_DIVISION" or p.get("source") not in ("RSSSF","BetExplorer") or p.get("scope")!="SEASON_PARTICIPANT_LABELS_NOT_JULY1" or p.get("identityEvidence") is not True or not season_map(year).get(p.get("season")):continue
+        for x in p.get("participants",[]):
+            name=x.get("name")
+            if not valid_name(name) and not (country=="BHU" and name=="BFF Academy FC"):continue
+            key=norm(name)
+            if not key:continue
+            row=found.setdefault(key,{"name":name,"scope":"ARCHIVE_NAME_REVIEW_NOT_NATIVE_ID","evidence":[]})
+            ev={"source":p["source"],"url":p.get("sourceUrl"),"season":p["season"],"competition":p.get("name"),"sourceLabel":name}
+            if x.get("sourceId"):ev["sourceId"]=x["sourceId"]
+            if ev not in row["evidence"]:row["evidence"].append(ev)
+    return [found[k] for k in sorted(found)]
+
+def needs_club_sources(target,year=2026):
+    # One source candidate is not proof the league is complete. Names are
+    # comparison leads only; they are not merged with source-specific IDs.
+    known=build(target,year)["clubs"]
+    observed=archive_club_candidates(target,year)
+    return not known or any(norm(x["name"]) not in {norm(c["name"]) for c in known} for x in observed)
+
 def build(target,year=2026):
     SEASONS=season_map(year)
     country=target["fifa"]; clubs={}; warnings=[]; leagues={}
@@ -102,7 +124,8 @@ def build(target,year=2026):
             "clubs":result,"competitions":[dict(v,clubs=sorted(v["clubs"])) for k,v in sorted(leagues.items())],
             "warnings":sorted(set(warnings)),"nameMatches":target.get("name_matches",[]),
             "wikiClubIdentityLeads":wiki_leads,"wikiCurrentSquadObservations":wiki_rows,
-            "domesticSourceObservations":target.get("domestic_source_observations",[])}
+            "domesticSourceObservations":target.get("domestic_source_observations",[]),
+            "archiveClubNameCandidates":archive_club_candidates(target,year)}
 def extras_for_club(uid,owner,native,year=2026):
     SEASONS=season_map(year)
     country=owner.get("association")
@@ -201,8 +224,9 @@ def prepare(snapshot,output,only=None,include_extras=True,data=None,year=2026):
         ready=sum(c["status"]=="NOMINAL_ROSTER_16_PLUS" for c in v["clubs"])
         review=sum(c["status"]=="IDENTITY_REVIEW" for c in v["clubs"])
         summary.append({"country":t["fifa"],"clubCandidates":n,"playerObservations":p,"nominal16Plus":ready,"identityReview":review,"competitions":len(v["competitions"]),
-                        "wikiClubIdentityLeads":len(v["wikiClubIdentityLeads"]),"wikiCurrentSquadObservations":len(v["wikiCurrentSquadObservations"])})
-        report("Import "+t["fifa"],"FOUND" if n else "NO DATA",f"{n} club candidates, {p} player observations, {ready} with 16+ names, {review} identity reviews")
+                        "wikiClubIdentityLeads":len(v["wikiClubIdentityLeads"]),"wikiCurrentSquadObservations":len(v["wikiCurrentSquadObservations"]),
+                        "archiveClubNameCandidates":len(v["archiveClubNameCandidates"])})
+        report("Import "+t["fifa"],"FOUND" if n else "NO DATA",f"{n} source-ID club candidates, {len(v['archiveClubNameCandidates'])} archive name leads (may overlap), {p} player observations, {ready} with 16+ names, {review} identity reviews")
     extra_summary=[]
     if include_extras:
         native=native_index(snapshot.parents[2]);groups={}
@@ -222,6 +246,9 @@ def prepare(snapshot,output,only=None,include_extras=True,data=None,year=2026):
     atomic(output/("INDEX_"+only+".json" if only else "INDEX.json"),{"schema":"SWOS_NOMINAL_IMPORT_INDEX_1","researchYear":year,"countries":summary,"extras":extra_summary,"extrasIncluded":include_extras})
     return summary
 def selftest():
+    lead={"source":"BetExplorer","country":"CAM","kind":"LEAGUE_DIVISION","identityEvidence":True,"scope":"SEASON_PARTICIPANT_LABELS_NOT_JULY1","season":"2026/27","participants":[{"name":"Club One"},{"name":"Club One"},{"name":"Women Club"}]}
+    owner={"fifa":"CAM","domestic_source_observations":[lead,dict(lead,season="2025/26"),dict(lead,kind="NATIONAL_CUP")]}
+    assert len(archive_club_candidates(owner))==1 and not build(owner)["clubs"] and needs_club_sources(owner)
     a={"fifa":"BHU","new":True,"transfermarkt_clubs":[],"transfermarkt_players":[]}
     c={"country":"BHU","club":"Paro FC","season":"2026","scope":"SEASON_CANDIDATE_NOT_JULY1","competition":"BH1L","level":1,"transfermarktClubId":"1"}
     a["transfermarkt_clubs"]=[c,dict(c,competition="BH2")]

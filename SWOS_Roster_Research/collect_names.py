@@ -283,6 +283,7 @@ def roster_metrics(results,targets,known,year):
         return 0
     return {"countries_without_club_candidates":len(active)-sum(bool(p["clubs"]) for p in previews),
             "countries":len(active),"club_source_candidates":len(clubs),
+            "archive_club_name_candidates":sum(len(p["archiveClubNameCandidates"]) for p in previews),
             "clubs_without_nominal_players":sum(c["nominalCount"]==0 for c in clubs),
             "nominal_player_observations":sum(c["nominalCount"] for c in clubs),
             "wiki_current_player_observations":sum(len(p["wikiCurrentSquadObservations"]) for p in previews),
@@ -580,10 +581,40 @@ def main(baseline=None):
     try:
         show_progress("Roster phases",0,3)
         print("\nPHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
-        alternative("clubs")
-        from import_candidates import build
-        missing={t["fifa"] for t in targets if not build(bycode[t["fifa"]],YEAR)["clubs"]}
-        total=WorkTotal("Domestic roster countries",len(targets),"without club candidates",len(missing))
+        from import_candidates import build,needs_club_sources,archive_club_candidates
+        from betexplorer_source import route as bet_route
+        from season_config import season_map
+        from alternative_sources import add_unique
+        # The competition BAT is an independent writer. Its atomic per-country
+        # files can be read, never modified here; import only scoped observations.
+        for t in targets:
+            code=t["fifa"];owner=bycode[code];p=OUT/"competition_candidates"/(code+".json")
+            if not p.exists():continue
+            try:
+                other=json.loads(p.read_text(encoding="utf-8-sig"))
+                if other.get("country")!=code or other.get("schema")!="SWOS_DOMESTIC_COMPETITION_CANDIDATES_1":raise ValueError("Competition shard identity mismatch")
+            except (OSError,ValueError) as e:
+                report("Competition candidates "+code,"ERROR",str(e));continue
+            dest=cp.ensure(owner,"domestic_source_observations",[]);keys={domestic_key(v) for v in dest};added=0
+            for packet in other.get("observations",[]):
+                if packet.get("country")!=code or packet.get("kind")!="LEAGUE_DIVISION" or not season_map(YEAR).get(packet.get("season")) or not packet.get("participants"):continue
+                if packet.get("source") in ("RSSSF","BetExplorer") and packet.get("identityEvidence") is True and packet.get("scope")=="SEASON_PARTICIPANT_LABELS_NOT_JULY1":
+                    key=domestic_key(packet)
+                    if key not in keys:cp.append(dest,packet);keys.add(key);added+=1
+                elif packet.get("source")=="Transfermarkt" and packet.get("scope")=="SEASON_CANDIDATE_NOT_JULY1" and packet.get("fields",{}).get("participants") in ("P","V"):
+                    cid=packet.get("sourceId","");url=packet.get("sourceUrl","");country_url=packet.get("countryEvidence","")
+                    if not re.fullmatch(r"[A-Z0-9]+",cid) or url!=f"https://www.transfermarkt.com/-/startseite/wettbewerb/{cid}/saison_id/{YEAR}" or not re.fullmatch(r"https://www\.transfermarkt\.com/wettbewerbe/national/wettbewerbe/[1-9][0-9]*/saison_id/"+str(YEAR),country_url):continue
+                    from transfermarkt_source import NON_LEAGUE
+                    if NON_LEAGUE.search(packet.get("name","")):continue
+                    for v in packet["participants"]:
+                        if not re.fullmatch(r"[1-9][0-9]*",str(v.get("sourceId",""))) or not valid_club_name(v.get("name","")):continue
+                        row={"club":v["name"],"transfermarktClubId":str(v["sourceId"]),"country":code,"competition":cid,"competitionName":packet["name"],"level":1,"season":packet["season"],"source":url,"scope":"SEASON_CANDIDATE_NOT_JULY1"}
+                        added+=int(add_unique(cp,owner,"transfermarkt_clubs",row))
+            save()
+            if added:report("Competition candidates "+code,"ACQUIRED",f"{added} reused scoped source observations")
+        # Independent archives first, even when one previous source has clubs.
+        missing={t["fifa"] for t in targets if needs_club_sources(bycode[t["fifa"]],YEAR) or (bet_route(t["fifa"],YEAR) and not any(p.get("source")=="BetExplorer" for p in bycode[t["fifa"]].get("domestic_source_observations",[])))}
+        total=WorkTotal("Domestic roster countries",len(targets),"missing club coverage or BetExplorer source",len(missing))
         for t in total.walk(targets,lambda t:t["fifa"] in missing):
             code=t["fifa"];owner=bycode[code]
             packets,seeds,errors=catalogue.country(code,YEAR)
@@ -599,16 +630,25 @@ def main(baseline=None):
                 for seed in seeds:
                     if seed.get("kind")=="LEAGUE_DIVISION" and eligible_league(seed) and not any(safe_qid(x["league"])==safe_qid(seed["league"]) for x in owner["leagues"]):
                         cp.append(owner["leagues"],dict(seed,seasons=[]))
-                # Archive entrant names are identity review leads, never a seasonal club binding.
-                labels={v["name"]:p for p in packets if p.get("source")=="RSSSF" and p.get("kind")=="LEAGUE_DIVISION" for v in p.get("participants",[]) if valid_club_name(v.get("name",""))}
-                for group in progress("Archive identity batches "+code,list(chunks(sorted(labels),12))):
-                    rows=run(existing_queries(code,group),"Archive club identities "+code)
-                    for name in group:
-                        matches={safe_qid(row.get("club")):row for row in rows if row.get("input")==name and safe_qid(row.get("club")) and valid_club_name(row.get("clubLabel",""))}
-                        if len(matches)==1:
-                            row=next(iter(matches.values()))
-                            wiki.add(owner,"wiki_club_leads",dict(row,country=code,sourceLabel=name,sourceUrl=labels[name]["sourceUrl"],scope="RSSSF_NAME_IDENTITY_REVIEW_NOT_EDITION"))
             save()
+        alternative("clubs")
+        if not args.alternative_only:
+            # All already collected archive names remain usable on retry, not
+            # only freshly downloaded packets. Name/country bridge stays review.
+            jobs=[]
+            for t in targets:
+                code=t["fifa"];owner=bycode[code]
+                linked={norm(r.get("sourceLabel","")) for r in owner.get("wiki_club_leads",[]) if r.get("country")==code and safe_qid(r.get("club"))}
+                leads={r["name"]:r for r in archive_club_candidates(owner,YEAR) if norm(r["name"]) not in linked}
+                for group in chunks(sorted(leads),12):
+                    jobs.append(((code,owner,leads,group),existing_queries(code,group),"Archive club identities "+code))
+            for (code,owner,leads,group),rows in query_batches(jobs):
+                for name in group:
+                    matches={safe_qid(row.get("club")):row for row in rows if row.get("input")==name and safe_qid(row.get("club")) and valid_club_name(row.get("clubLabel",""))}
+                    if len(matches)==1:
+                        row=next(iter(matches.values()))
+                        wiki.add(owner,"wiki_club_leads",dict(row,country=code,sourceLabel=name,sourceUrl=leads[name]["evidence"][0]["url"],scope="ARCHIVE_NAME_IDENTITY_REVIEW_NOT_EDITION"))
+                save()
         if not args.alternative_only:
             pending=[]
             for t in targets:
@@ -616,8 +656,8 @@ def main(baseline=None):
                 if any(eligible_league(l) for l in bycode[code]["leagues"]) and not args.refresh_wiki:
                     report("Wikidata League "+code,"SKIPPED","existing league candidates")
                 else:pending.append(code)
-            for group in progress("Wikidata league batches",list(chunks(pending,5))):
-                rr=run(league_query(group),"Leagues "+",".join(group))
+            league_jobs=[(group,league_query(group),"Leagues "+",".join(group)) for group in chunks(pending,5)]
+            for group,rr in query_batches(league_jobs):
                 for code in group:
                     owner=bycode[code];added=0;found=0
                     for row in rr:
@@ -633,8 +673,9 @@ def main(baseline=None):
             for t in (bycode[x["fifa"]] for x in targets):
                 for l in t["leagues"]:
                     if eligible_league(l):byleague.setdefault(l["league"],[]).append(l)
-            for league,ls in progress("Wikidata league editions",byleague.items(),overall=True):
-                label="Edition "+qid(league);rr=run(clubs_query([league]),label);added=0
+            edition_jobs=[((league,ls),clubs_query([league]),"Edition "+qid(league)) for league,ls in byleague.items()]
+            for (league,ls),rr in query_batches(edition_jobs):
+                label="Edition "+qid(league);added=0
                 for r in rr:
                     if safe_qid(r.get("league"))!=safe_qid(league) or not safe_qid(r.get("season")) or not edition_label(r.get("seasonLabel",""),YEAR) or not valid_club_name(r.get("seasonLabel","")):continue
                     for l in ls:
@@ -729,7 +770,7 @@ def main(baseline=None):
         try:
             final_metrics=roster_metrics(results,targets,known,YEAR)
             metric_line("RESULT roster net changes (source candidates, not downloads or unique people)",
-                        {k:final_metrics[k]-baseline[k] for k in ("club_source_candidates","nominal_player_observations","wiki_current_player_observations","extra_name_groups","role_evidence_items","recorded_errors")})
+                        {k:final_metrics[k]-baseline[k] for k in ("club_source_candidates","archive_club_name_candidates","nominal_player_observations","wiki_current_player_observations","extra_name_groups","role_evidence_items","recorded_errors")})
             metric_line("RESULT roster remaining",final_metrics)
         except Exception as exc:report("Roster summary","ERROR",str(exc))
     print("\nEXTRA review: distinct missing club/name groups",sum(map(len,groups)),

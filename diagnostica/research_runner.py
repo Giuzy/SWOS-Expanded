@@ -6,6 +6,8 @@ from pathlib import Path
 import signal
 import subprocess
 import sys
+import threading
+import time
 import traceback
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -27,6 +29,11 @@ def lock_log(log):
         fcntl.flock(log.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
 
 
+def elapsed_text(seconds):
+    seconds=max(0,int(seconds));hours,rem=divmod(seconds,3600);minutes,secs=divmod(rem,60)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
+
 class Run:
     def __init__(self, log, mode):
         self.log = log
@@ -34,19 +41,41 @@ class Run:
         self.total = ""
         self.detail = ""
         self.title = ""
+        self.started = time.monotonic()
+        self.timer_stop = threading.Event()
+        self.timer_lock = threading.Lock()
+        self.timer_thread = None
         self.coverage = ""
         self.cancelled = False
         self.env = dict(os.environ, PYTHONUNBUFFERED="1", PYTHONIOENCODING="utf-8", PYTHONUTF8="1")
 
-    def set_title(self,value):
-        if value==self.title:return
-        self.title=value
+    def elapsed(self):
+        return elapsed_text(time.monotonic()-self.started)
+
+    def _render_title(self):
         if os.name=="nt":
-            try:
-                import ctypes
-                ctypes.windll.kernel32.SetConsoleTitleW("SWOS "+value)
-            except (OSError,AttributeError):
-                pass
+            with self.timer_lock:
+                try:
+                    import ctypes
+                    ctypes.windll.kernel32.SetConsoleTitleW("SWOS "+self.title+" | TOTAL TIME "+self.elapsed())
+                except (OSError,AttributeError):
+                    pass
+
+    def set_title(self,value):
+        with self.timer_lock:self.title=value
+        self._render_title()
+
+    def start_timer(self):
+        self.set_title(self.mode)
+        if os.name=="nt":
+            def tick():
+                while not self.timer_stop.wait(1):self._render_title()
+            self.timer_thread=threading.Thread(target=tick,daemon=True)
+            self.timer_thread.start()
+
+    def stop_timer(self):
+        self.timer_stop.set()
+        if self.timer_thread:self.timer_thread.join()
 
     def display_line(self,line):
         clean=line.rstrip("\r\n")
@@ -63,8 +92,8 @@ class Run:
             self.detail=""
         context=" | ".join(x for x in (self.coverage,self.total,self.detail) if x)
         self.set_title(self.mode+(" | "+context if context else ""))
-        if clean and context and not clean.startswith(("TOTAL ","RESULT ")):
-            return "["+context+"] "+line
+        if clean:
+            return "["+"TOTAL TIME "+self.elapsed()+(" | "+context if context and not clean.startswith(("TOTAL ","RESULT ")) else "")+"] "+line
         return line
 
     def interrupt(self, signum, frame):
@@ -160,6 +189,8 @@ def main(argv):
         if hasattr(sys.stdout, "reconfigure"):
             sys.stdout.reconfigure(errors="backslashreplace")
         run = Run(log, mode)
+        assert elapsed_text(0)=="00:00:00" and elapsed_text(3661)=="01:01:01" and elapsed_text(360001)=="100:00:01"
+        run.start_timer()
         previous = signal.signal(signal.SIGINT, run.interrupt)
         rc = 1
         try:
@@ -169,7 +200,8 @@ def main(argv):
             run.write(traceback.format_exc())
         finally:
             signal.signal(signal.SIGINT, previous)
-            run.write(f"\n[END] {stamp()} | EXIT={rc}\n")
+            run.stop_timer()
+            run.write(f"\n[END] {stamp()} | EXIT={rc} | TOTAL TIME={run.elapsed()}\n")
             run.set_title(mode+f" | EXIT={rc}")
         return rc
 

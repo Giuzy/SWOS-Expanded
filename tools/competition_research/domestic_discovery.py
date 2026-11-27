@@ -67,7 +67,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
             seeds=[];covered={p["kind"] for p in obs if p.get("kind") in ("LEAGUE_DIVISION","NATIONAL_CUP") and p.get("participants") and p.get("fields",{}).get("participants")=="V"};seen.update(p["kind"] for p in obs if p.get("kind") in ("LEAGUE_DIVISION","NATIONAL_CUP") and p.get("fields",{}).get("identity") in ("P","V"));review=False
             def rule_fields(packet):
                 related=[p for p in obs if p.get("kind")==packet["kind"] and (p.get("wikidataId")==packet.get("wikidataId") or (p.get("source")=="Wikidata" and p.get("sourceId")==packet.get("wikidataId")))]
-                return {f for f in ("format","regulation","movement","qualification","roundDates","evolution") if not any(p.get("fields",{}).get(f) in ("V","NA") for p in related) and (refresh or not any(x.get("field")==f for p in related for x in p.get("researchSectionLeads",[])))}
+                return {f for f in ("format","regulation","movement","qualification","roundDates","evolution") if not any(p.get("fields",{}).get(f) in ("V","NA") for p in related) and (refresh or not any(x.get("field")==f and x.get("facts") for p in related for x in p.get("researchSectionLeads",[])))}
             if archive is not None:
                 try:
                     with time_budget(10):
@@ -81,7 +81,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                     with time_budget(40):
                         packets,seeds,source_errors=catalogue.country(country,year,rule_fields=rule_fields)
                     if source_errors:errors.extend(source_errors);incomplete=True
-                    keys={observation_key(p) for p in obs if p.get("source") in ("WikipediaDirectory","RSSSF")}
+                    keys={observation_key(p) for p in obs if p.get("source") in ("WikipediaDirectory","RSSSF","BetExplorer")}
                     for p in packets:
                         packet=dict(p,fields={f:"I" for f in FIELDS})
                         packet["fields"]["name"]="P"

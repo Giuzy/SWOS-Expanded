@@ -165,6 +165,16 @@ def season_label(page,kind,identity,expected_id=None,year=2026):
         # Squad headings often omit the year; page title supplies it.
         matching=[t for t in titles if not BAD.search(t) and (norm(identity) in norm(t) or exact)]
         tokens=set().union(*(season_tokens(t) for t in matching))
+    if not tokens and exact:
+        # Selected season text is usable only on the exact canonical entity
+        # and only if primary heading/title did not give a contradictory year.
+        chosen=[]
+        for sel in page.all("select"):
+            hint=" ".join(sel.attrs.get(k,"") for k in ("name","id","class"))
+            if not re.search(r"saison|season",hint,re.I):continue
+            options=[o.text() for o in sel.all("option") if "selected" in o.attrs]
+            if len(options)==1:chosen.extend(options)
+        tokens=set().union(*(season_tokens(t) for t in chosen))
     if tokens=={f"{year%100:02d}/{(year+1)%100:02d}"}:return f"{year}/{(year+1)%100:02d}"
     if tokens=={str(year)}:return str(year)
     raise ValueError("Requested season not evidenced or ambiguous: "+str(sorted(tokens)))
@@ -223,8 +233,11 @@ def table_links(page,pattern,with_positions=False):
                     positions[pid]=merge_positions(positions.get(pid,[]),*[position_evidence(v,"Transfermarkt","SOURCE_SQUAD_POSITION_NOT_JULY1") for v in raw])
                 candidates.append({pid:(name,positions.get(pid,[])) for pid,name in rows.items()})
             else:candidates.append(rows)
-    if len(candidates)!=1:raise ValueError("Primary data table missing or ambiguous: "+str(len(candidates)))
-    return candidates[0]
+    unique=[]
+    for candidate in candidates:
+        if candidate not in unique:unique.append(candidate)
+    if len(unique)!=1:raise ValueError("Primary data table missing or ambiguous: "+str(len(unique)))
+    return unique[0]
 
 def squad_counts(owner):
     counts={}
@@ -263,7 +276,9 @@ class Transfermarkt:
         if self.blocked:raise PermissionError("Transfermarkt paused for this run")
         self.cache.mkdir(parents=True,exist_ok=True)
         p=self.cache/(hashlib.sha256(path.encode()).hexdigest()+".html")
-        if p.exists() and time.time()-p.stat().st_mtime<86400:return parse(p.read_text(encoding="utf-8"))
+        if p.exists() and time.time()-p.stat().st_mtime<86400:
+            try:return parse(p.read_text(encoding="utf-8"))
+            except ValueError:pass # stale/incomplete HTML: one ordinary refresh, never bypass a challenge
         req=urllib.request.Request(BASE+path,headers={"User-Agent":"SWOS-Expanded-Roster-Research/1.0 (https://github.com/Giuzy/SWOS-Expanded/issues/2)","Accept":"text/html","Accept-Language":"en"})
         html=fetch(req,timeout=20,attempts=2,interval=5,total=45,limit=8*1024*1024).decode("utf-8",errors="replace")
         page=parse(html)
@@ -271,6 +286,24 @@ class Transfermarkt:
         return page
     def country_id(self,c):
         if c in SEED:return SEED[c]
+        # Reference metadata before the fragile HTML selector; the destination
+        # page must still independently prove the exact country ID.
+        if self.directory is None:
+            self.directory={}
+            p=self.cache/"country_directory.json"
+            if p.exists():
+                try:self.directory=directory_ids(p.read_bytes())
+                except (ValueError,KeyError,TypeError):pass
+            if not self.directory or not p.exists() or time.time()-p.stat().st_mtime>=86400:
+                try:
+                    req=urllib.request.Request(COUNTRY_DIRECTORY,headers={"User-Agent":"SWOS-Expanded/1.0","Accept":"application/json"})
+                    raw=fetch(req,timeout=15,attempts=2,interval=3,total=30,limit=2*1024*1024)
+                    self.directory=directory_ids(raw)
+                    self.cache.mkdir(parents=True,exist_ok=True)
+                    tmp=p.with_suffix(".part");tmp.write_bytes(raw);tmp.replace(p)
+                except Exception as exc:print("Transfermarkt reference directory unavailable:",exc,flush=True)
+            print("Transfermarkt country IDs:",len(self.directory),flush=True)
+        if c in self.directory:return self.directory[c]
         if self.options is None:
             self.options=[]
             try:self.options=country_options(self.page(COUNTRY+"22"))
@@ -278,23 +311,6 @@ class Transfermarkt:
         names={norm(self.names.get(c,"")),norm(ALIASES.get(c,""))}-{""}
         ids={v for v,n,_ in self.options if norm(n) in names}
         if len(ids)==1:return next(iter(ids))
-        # Third-party public reference metadata only, never an access bypass
-        # for blocked Transfermarkt HTML or evidence of league membership.
-        if self.directory is None:
-            self.directory={}
-            try:
-                p=self.cache/"country_directory.json"
-                if p.exists() and time.time()-p.stat().st_mtime<86400:
-                    raw=p.read_bytes();self.directory=directory_ids(raw)
-                else:
-                    req=urllib.request.Request(COUNTRY_DIRECTORY,headers={"User-Agent":"SWOS-Expanded/1.0","Accept":"application/json"})
-                    raw=fetch(req,timeout=30,attempts=2,interval=3,limit=2*1024*1024)
-                    self.directory=directory_ids(raw)
-                    self.cache.mkdir(parents=True,exist_ok=True)
-                    tmp=p.with_suffix(".part");tmp.write_bytes(raw);tmp.replace(p)
-                print("Transfermarkt country IDs:",len(self.directory),flush=True)
-            except Exception as exc:print("Transfermarkt reference directory unavailable:",exc,flush=True)
-        if c in self.directory:return self.directory[c]
         raise ValueError("Country identity unavailable: "+c)
     def clubs(self,c,maxlevel):
         key=(c,maxlevel)
@@ -340,9 +356,9 @@ class Transfermarkt:
             return
         bycode={t["fifa"]:t for t in self.results["targets"]}
         if phase=="clubs":
-            from import_candidates import build
-            missing={t["fifa"] for t in targets if not build(bycode[t["fifa"]],self.year)["clubs"]}
-            overall=WorkTotal("Transfermarkt club countries",len(targets),"without club candidates",len(missing))
+            from import_candidates import needs_club_sources
+            missing={t["fifa"] for t in targets if needs_club_sources(bycode[t["fifa"]],self.year) or not any(r.get("level")==1 for r in bycode[t["fifa"]].get("transfermarkt_clubs",[]))}
+            overall=WorkTotal("Transfermarkt club countries",len(targets),"without TM tier1 or with unresolved club coverage",len(missing))
             for t in overall.walk(targets,lambda t:t["fifa"] in missing):
                 if self.blocked:break
                 c=t["fifa"]
@@ -429,6 +445,13 @@ def selftest():
     club=parse('<h2>Clubs - Bhutan Premier League 2026</h2><table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/paro/startseite/verein/123">Paro FC</a></td></tr></table>')
     assert season_label(club,"clubs","Bhutan Premier League")=="2026"
     assert table_links(club,r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Paro FC"}
+    copy='<table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/paro/startseite/verein/123">Paro FC</a></td></tr></table>'
+    assert table_links(parse(copy+copy),r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Paro FC"}
+    try:table_links(parse(copy+copy.replace("/123","/124")),r"/startseite/verein/([1-9][0-9]*)(?:/|$)")
+    except ValueError:pass
+    else:raise AssertionError("Different primary club tables accepted")
+    selected=parse('<link rel="canonical" href="/x/startseite/wettbewerb/BH1L"><h2>Clubs - Bhutan Premier League</h2><select name="saison_id"><option selected>2026</option></select><table></table>')
+    assert season_label(selected,"clubs","Bhutan Premier League","BH1L")== "2026"
     squad=parse('<h2>Squad Paro FC 2026</h2><table class="items"><tr><th>Player</th><th>Age</th></tr><tr><td><a href="/a/profil/spieler/456">Real Name</a></td></tr></table>')
     assert season_label(squad,"players","Paro FC")=="2026"
     assert require_squad_season(squad,"Paro FC","123","2026",2026)=="2026"

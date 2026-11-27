@@ -1,0 +1,2055 @@
+{
+  "schema": "research-ranking-worldcup-candidate-v1",
+  "world": 2627,
+  "status": "CANDIDATE_WC_ONLY_NOT_FULL_FIFA_CUTOFF",
+  "baselineBlob": "9d056cb948237657620015b5fc8a86ea577332b5",
+  "baselineDate": "2026-06-11",
+  "cutoff": "2026-07-01",
+  "dateBasis": "Official venue-local calendar date (user decision 26/11/2026). Pre-START includes matches dated through 2026-06-30 inclusive; 2026-07-01 and later excluded even if UTC dates differ. Group records ordered by group matchday; exact dates remain to verify.",
+  "sources": [
+    "https://www.fifatrainingcentre.com/en/fifa-world-cup-2026/match-report-hub.php",
+    "https://www.fifatrainingcentre.com/en/fifa-world-cup-2026/match-report-hub-knockout-stage.php",
+    "https://www.fifa.com/en/tournaments/mens/worldcup/2026/articles/knockout-stage-match-schedule-bracket",
+    "https://wc26.warren-rice.com/en/schedule/",
+    "https://www.11v11.com/competitions/international-friendly/2026/matches/",
+    "https://football-ranking.com/fifa-world-matchs?period=11+June+2026&tournament=",
+    "https://football-ranking.com/fifa-world-matchs?period=20+July+2026&tournament="
+  ],
+  "limitations": [
+    "Group rows are ranking inputs, not CE fixture seeds; exact local dates need separate fixture verification.",
+    "79 World Cup matches by approved venue-local cutoff; match 79 is 30 June local and included although 1 July UTC.",
+    "Two secondary sources corroborate no extra A matches identified after 11 June publication through June 30: 11v11 June friendlies end June 10 local, football-ranking lists last three in previous period. Official exhaustive ledger and exact publication boundary not independently certified; no extras applied.",
+    "Published baseline rounded; projection is not official FIFA ranking or actual runtime seed.",
+    "External nation codes pending mapping. No import of future results or OG execution."
+  ],
+  "matches": [
+    {
+      "id": "WC2026-GA-1",
+      "phase": "GROUP",
+      "group": "A",
+      "round": 1,
+      "home": "MEX",
+      "away": "RSA",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GA-2",
+      "phase": "GROUP",
+      "group": "A",
+      "round": 1,
+      "home": "KOR",
+      "away": "CZE",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GA-3",
+      "phase": "GROUP",
+      "group": "A",
+      "round": 2,
+      "home": "CZE",
+      "away": "RSA",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GA-4",
+      "phase": "GROUP",
+      "group": "A",
+      "round": 2,
+      "home": "MEX",
+      "away": "KOR",
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GA-5",
+      "phase": "GROUP",
+      "group": "A",
+      "round": 3,
+      "home": "CZE",
+      "away": "MEX",
+      "homeGoals": 0,
+      "awayGoals": 3,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GA-6",
+      "phase": "GROUP",
+      "group": "A",
+      "round": 3,
+      "home": "RSA",
+      "away": "KOR",
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GB-1",
+      "phase": "GROUP",
+      "group": "B",
+      "round": 1,
+      "home": "CAN",
+      "away": "BIH",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GB-2",
+      "phase": "GROUP",
+      "group": "B",
+      "round": 1,
+      "home": "QAT",
+      "away": "SUI",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GB-3",
+      "phase": "GROUP",
+      "group": "B",
+      "round": 2,
+      "home": "SUI",
+      "away": "BIH",
+      "homeGoals": 4,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GB-4",
+      "phase": "GROUP",
+      "group": "B",
+      "round": 2,
+      "home": "CAN",
+      "away": "QAT",
+      "homeGoals": 6,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GB-5",
+      "phase": "GROUP",
+      "group": "B",
+      "round": 3,
+      "home": "SUI",
+      "away": "CAN",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GB-6",
+      "phase": "GROUP",
+      "group": "B",
+      "round": 3,
+      "home": "BIH",
+      "away": "QAT",
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GC-1",
+      "phase": "GROUP",
+      "group": "C",
+      "round": 1,
+      "home": "HAI",
+      "away": "SCO",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GC-2",
+      "phase": "GROUP",
+      "group": "C",
+      "round": 1,
+      "home": "BRA",
+      "away": "MAR",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GC-3",
+      "phase": "GROUP",
+      "group": "C",
+      "round": 2,
+      "home": "BRA",
+      "away": "HAI",
+      "homeGoals": 3,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GC-4",
+      "phase": "GROUP",
+      "group": "C",
+      "round": 2,
+      "home": "SCO",
+      "away": "MAR",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GC-5",
+      "phase": "GROUP",
+      "group": "C",
+      "round": 3,
+      "home": "SCO",
+      "away": "BRA",
+      "homeGoals": 0,
+      "awayGoals": 3,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GC-6",
+      "phase": "GROUP",
+      "group": "C",
+      "round": 3,
+      "home": "MAR",
+      "away": "HAI",
+      "homeGoals": 4,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GD-1",
+      "phase": "GROUP",
+      "group": "D",
+      "round": 1,
+      "home": "USA",
+      "away": "PAR",
+      "homeGoals": 4,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GD-2",
+      "phase": "GROUP",
+      "group": "D",
+      "round": 1,
+      "home": "AUS",
+      "away": "TUR",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GD-3",
+      "phase": "GROUP",
+      "group": "D",
+      "round": 2,
+      "home": "TUR",
+      "away": "PAR",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GD-4",
+      "phase": "GROUP",
+      "group": "D",
+      "round": 2,
+      "home": "USA",
+      "away": "AUS",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GD-5",
+      "phase": "GROUP",
+      "group": "D",
+      "round": 3,
+      "home": "TUR",
+      "away": "USA",
+      "homeGoals": 3,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GD-6",
+      "phase": "GROUP",
+      "group": "D",
+      "round": 3,
+      "home": "PAR",
+      "away": "AUS",
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GE-1",
+      "phase": "GROUP",
+      "group": "E",
+      "round": 1,
+      "home": "CIV",
+      "away": "ECU",
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GE-2",
+      "phase": "GROUP",
+      "group": "E",
+      "round": 1,
+      "home": "GER",
+      "away": "CUW",
+      "homeGoals": 7,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GE-3",
+      "phase": "GROUP",
+      "group": "E",
+      "round": 2,
+      "home": "GER",
+      "away": "CIV",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GE-4",
+      "phase": "GROUP",
+      "group": "E",
+      "round": 2,
+      "home": "ECU",
+      "away": "CUW",
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GE-5",
+      "phase": "GROUP",
+      "group": "E",
+      "round": 3,
+      "home": "CUW",
+      "away": "CIV",
+      "homeGoals": 0,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GE-6",
+      "phase": "GROUP",
+      "group": "E",
+      "round": 3,
+      "home": "ECU",
+      "away": "GER",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GF-1",
+      "phase": "GROUP",
+      "group": "F",
+      "round": 1,
+      "home": "NED",
+      "away": "JPN",
+      "homeGoals": 2,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GF-2",
+      "phase": "GROUP",
+      "group": "F",
+      "round": 1,
+      "home": "SWE",
+      "away": "TUN",
+      "homeGoals": 5,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GF-3",
+      "phase": "GROUP",
+      "group": "F",
+      "round": 2,
+      "home": "NED",
+      "away": "SWE",
+      "homeGoals": 5,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GF-4",
+      "phase": "GROUP",
+      "group": "F",
+      "round": 2,
+      "home": "TUN",
+      "away": "JPN",
+      "homeGoals": 0,
+      "awayGoals": 4,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GF-5",
+      "phase": "GROUP",
+      "group": "F",
+      "round": 3,
+      "home": "JPN",
+      "away": "SWE",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GF-6",
+      "phase": "GROUP",
+      "group": "F",
+      "round": 3,
+      "home": "TUN",
+      "away": "NED",
+      "homeGoals": 1,
+      "awayGoals": 3,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GG-1",
+      "phase": "GROUP",
+      "group": "G",
+      "round": 1,
+      "home": "IRN",
+      "away": "NZL",
+      "homeGoals": 2,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GG-2",
+      "phase": "GROUP",
+      "group": "G",
+      "round": 1,
+      "home": "BEL",
+      "away": "EGY",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GG-3",
+      "phase": "GROUP",
+      "group": "G",
+      "round": 2,
+      "home": "BEL",
+      "away": "IRN",
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GG-4",
+      "phase": "GROUP",
+      "group": "G",
+      "round": 2,
+      "home": "NZL",
+      "away": "EGY",
+      "homeGoals": 1,
+      "awayGoals": 3,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GG-5",
+      "phase": "GROUP",
+      "group": "G",
+      "round": 3,
+      "home": "EGY",
+      "away": "IRN",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GG-6",
+      "phase": "GROUP",
+      "group": "G",
+      "round": 3,
+      "home": "NZL",
+      "away": "BEL",
+      "homeGoals": 1,
+      "awayGoals": 5,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GH-1",
+      "phase": "GROUP",
+      "group": "H",
+      "round": 1,
+      "home": "KSA",
+      "away": "URU",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GH-2",
+      "phase": "GROUP",
+      "group": "H",
+      "round": 1,
+      "home": "ESP",
+      "away": "CPV",
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GH-3",
+      "phase": "GROUP",
+      "group": "H",
+      "round": 2,
+      "home": "URU",
+      "away": "CPV",
+      "homeGoals": 2,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GH-4",
+      "phase": "GROUP",
+      "group": "H",
+      "round": 2,
+      "home": "ESP",
+      "away": "KSA",
+      "homeGoals": 4,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GH-5",
+      "phase": "GROUP",
+      "group": "H",
+      "round": 3,
+      "home": "CPV",
+      "away": "KSA",
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GH-6",
+      "phase": "GROUP",
+      "group": "H",
+      "round": 3,
+      "home": "URU",
+      "away": "ESP",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GI-1",
+      "phase": "GROUP",
+      "group": "I",
+      "round": 1,
+      "home": "FRA",
+      "away": "SEN",
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GI-2",
+      "phase": "GROUP",
+      "group": "I",
+      "round": 1,
+      "home": "IRQ",
+      "away": "NOR",
+      "homeGoals": 1,
+      "awayGoals": 4,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GI-3",
+      "phase": "GROUP",
+      "group": "I",
+      "round": 2,
+      "home": "NOR",
+      "away": "SEN",
+      "homeGoals": 3,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GI-4",
+      "phase": "GROUP",
+      "group": "I",
+      "round": 2,
+      "home": "FRA",
+      "away": "IRQ",
+      "homeGoals": 3,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GI-5",
+      "phase": "GROUP",
+      "group": "I",
+      "round": 3,
+      "home": "NOR",
+      "away": "FRA",
+      "homeGoals": 1,
+      "awayGoals": 4,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GI-6",
+      "phase": "GROUP",
+      "group": "I",
+      "round": 3,
+      "home": "SEN",
+      "away": "IRQ",
+      "homeGoals": 5,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GJ-1",
+      "phase": "GROUP",
+      "group": "J",
+      "round": 1,
+      "home": "ARG",
+      "away": "ALG",
+      "homeGoals": 3,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GJ-2",
+      "phase": "GROUP",
+      "group": "J",
+      "round": 1,
+      "home": "AUT",
+      "away": "JOR",
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GJ-3",
+      "phase": "GROUP",
+      "group": "J",
+      "round": 2,
+      "home": "ARG",
+      "away": "AUT",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GJ-4",
+      "phase": "GROUP",
+      "group": "J",
+      "round": 2,
+      "home": "JOR",
+      "away": "ALG",
+      "homeGoals": 1,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GJ-5",
+      "phase": "GROUP",
+      "group": "J",
+      "round": 3,
+      "home": "ALG",
+      "away": "AUT",
+      "homeGoals": 3,
+      "awayGoals": 3,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GJ-6",
+      "phase": "GROUP",
+      "group": "J",
+      "round": 3,
+      "home": "JOR",
+      "away": "ARG",
+      "homeGoals": 1,
+      "awayGoals": 3,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GK-1",
+      "phase": "GROUP",
+      "group": "K",
+      "round": 1,
+      "home": "POR",
+      "away": "COD",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GK-2",
+      "phase": "GROUP",
+      "group": "K",
+      "round": 1,
+      "home": "UZB",
+      "away": "COL",
+      "homeGoals": 1,
+      "awayGoals": 3,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GK-3",
+      "phase": "GROUP",
+      "group": "K",
+      "round": 2,
+      "home": "POR",
+      "away": "UZB",
+      "homeGoals": 5,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GK-4",
+      "phase": "GROUP",
+      "group": "K",
+      "round": 2,
+      "home": "COL",
+      "away": "COD",
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GK-5",
+      "phase": "GROUP",
+      "group": "K",
+      "round": 3,
+      "home": "COL",
+      "away": "POR",
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GK-6",
+      "phase": "GROUP",
+      "group": "K",
+      "round": 3,
+      "home": "COD",
+      "away": "UZB",
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GL-1",
+      "phase": "GROUP",
+      "group": "L",
+      "round": 1,
+      "home": "GHA",
+      "away": "PAN",
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GL-2",
+      "phase": "GROUP",
+      "group": "L",
+      "round": 1,
+      "home": "ENG",
+      "away": "CRO",
+      "homeGoals": 4,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GL-3",
+      "phase": "GROUP",
+      "group": "L",
+      "round": 2,
+      "home": "ENG",
+      "away": "GHA",
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GL-4",
+      "phase": "GROUP",
+      "group": "L",
+      "round": 2,
+      "home": "PAN",
+      "away": "CRO",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GL-5",
+      "phase": "GROUP",
+      "group": "L",
+      "round": 3,
+      "home": "PAN",
+      "away": "ENG",
+      "homeGoals": 0,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-GL-6",
+      "phase": "GROUP",
+      "group": "L",
+      "round": 3,
+      "home": "CRO",
+      "away": "GHA",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": false
+    },
+    {
+      "id": "WC2026-73",
+      "phase": "R32",
+      "matchNumber": 73,
+      "venueLocalDate": "2026-06-28",
+      "home": "RSA",
+      "away": "CAN",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": true
+    },
+    {
+      "id": "WC2026-74",
+      "phase": "R32",
+      "matchNumber": 74,
+      "venueLocalDate": "2026-06-29",
+      "home": "GER",
+      "away": "PAR",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "penaltiesHome": 3,
+      "penaltiesAway": 4,
+      "importance": 50,
+      "protect": true
+    },
+    {
+      "id": "WC2026-75",
+      "phase": "R32",
+      "matchNumber": 75,
+      "venueLocalDate": "2026-06-29",
+      "home": "NED",
+      "away": "MAR",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "penaltiesHome": 2,
+      "penaltiesAway": 3,
+      "importance": 50,
+      "protect": true
+    },
+    {
+      "id": "WC2026-76",
+      "phase": "R32",
+      "matchNumber": 76,
+      "venueLocalDate": "2026-06-29",
+      "home": "BRA",
+      "away": "JPN",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "importance": 50,
+      "protect": true
+    },
+    {
+      "id": "WC2026-77",
+      "phase": "R32",
+      "matchNumber": 77,
+      "venueLocalDate": "2026-06-30",
+      "home": "FRA",
+      "away": "SWE",
+      "homeGoals": 3,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": true
+    },
+    {
+      "id": "WC2026-78",
+      "phase": "R32",
+      "matchNumber": 78,
+      "venueLocalDate": "2026-06-30",
+      "home": "CIV",
+      "away": "NOR",
+      "homeGoals": 1,
+      "awayGoals": 2,
+      "importance": 50,
+      "protect": true
+    },
+    {
+      "id": "WC2026-79",
+      "phase": "R32",
+      "matchNumber": 79,
+      "venueLocalDate": "2026-06-30",
+      "home": "MEX",
+      "away": "ECU",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "importance": 50,
+      "protect": true
+    }
+  ],
+  "projection": [
+    {
+      "code": "FRA",
+      "pointsApprox": 1916.2439443001103,
+      "deltaApprox": 45.5439443001103
+    },
+    {
+      "code": "ARG",
+      "pointsApprox": 1907.4075621726547,
+      "deltaApprox": 30.137562172654725
+    },
+    {
+      "code": "ESP",
+      "pointsApprox": 1879.5826895566154,
+      "deltaApprox": 4.872689556615342
+    },
+    {
+      "code": "ENG",
+      "pointsApprox": 1840.4604099715218,
+      "deltaApprox": 12.44040997152183
+    },
+    {
+      "code": "BRA",
+      "pointsApprox": 1804.926554024277,
+      "deltaApprox": 39.06655402427714
+    },
+    {
+      "code": "MAR",
+      "pointsApprox": 1788.855422564147,
+      "deltaApprox": 33.75542256414701
+    },
+    {
+      "code": "NED",
+      "pointsApprox": 1775.5411240224128,
+      "deltaApprox": 21.971124022412823
+    },
+    {
+      "code": "POR",
+      "pointsApprox": 1764.856595134144,
+      "deltaApprox": -2.9934048658558368
+    },
+    {
+      "code": "MEX",
+      "pointsApprox": 1754.2955980401048,
+      "deltaApprox": 66.81559804010476
+    },
+    {
+      "code": "BEL",
+      "pointsApprox": 1735.4174838722715,
+      "deltaApprox": -6.822516127728477
+    },
+    {
+      "code": "COL",
+      "pointsApprox": 1729.2990625438524,
+      "deltaApprox": 30.949062543852506
+    },
+    {
+      "code": "GER",
+      "pointsApprox": 1726.2172732762272,
+      "deltaApprox": -9.552726723772821
+    },
+    {
+      "code": "CRO",
+      "pointsApprox": 1723.0541099918528,
+      "deltaApprox": 8.184109991852893
+    },
+    {
+      "code": "ITA",
+      "pointsApprox": 1704.73,
+      "deltaApprox": 0
+    },
+    {
+      "code": "USA",
+      "pointsApprox": 1677.16678241304,
+      "deltaApprox": 5.936782413039964
+    },
+    {
+      "code": "SUI",
+      "pointsApprox": 1675.9968020482756,
+      "deltaApprox": 25.936802048275695
+    },
+    {
+      "code": "JPN",
+      "pointsApprox": 1673.6801650011755,
+      "deltaApprox": 12.100165001175583
+    },
+    {
+      "code": "SEN",
+      "pointsApprox": 1653.4289680381828,
+      "deltaApprox": -30.641031961817134
+    },
+    {
+      "code": "URU",
+      "pointsApprox": 1634.7050705212166,
+      "deltaApprox": -38.364929478783324
+    },
+    {
+      "code": "DEN",
+      "pointsApprox": 1619.47,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NOR",
+      "pointsApprox": 1617.674026346718,
+      "deltaApprox": 60.23402634671788
+    },
+    {
+      "code": "IRN",
+      "pointsApprox": 1609.8439789492631,
+      "deltaApprox": -9.736021050736781
+    },
+    {
+      "code": "AUT",
+      "pointsApprox": 1598.8192848846625,
+      "deltaApprox": 1.4192848846623747
+    },
+    {
+      "code": "ECU",
+      "pointsApprox": 1592.5923447230682,
+      "deltaApprox": -5.927655276931773
+    },
+    {
+      "code": "NGA",
+      "pointsApprox": 1585.02,
+      "deltaApprox": 0
+    },
+    {
+      "code": "EGY",
+      "pointsApprox": 1584.7078518373835,
+      "deltaApprox": 22.337851837383596
+    },
+    {
+      "code": "TUR",
+      "pointsApprox": 1582.543653046187,
+      "deltaApprox": -23.186346953812972
+    },
+    {
+      "code": "AUS",
+      "pointsApprox": 1581.345660917352,
+      "deltaApprox": 2.0056609173520883
+    },
+    {
+      "code": "ALG",
+      "pointsApprox": 1576.7998863398545,
+      "deltaApprox": 5.7698863398545654
+    },
+    {
+      "code": "CAN",
+      "pointsApprox": 1571.3420598774921,
+      "deltaApprox": 11.862059877492129
+    },
+    {
+      "code": "CIV",
+      "pointsApprox": 1565.4750431391478,
+      "deltaApprox": 24.605043139147938
+    },
+    {
+      "code": "KOR",
+      "pointsApprox": 1558.7187747813743,
+      "deltaApprox": -32.91122521862576
+    },
+    {
+      "code": "UKR",
+      "pointsApprox": 1549.29,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PAR",
+      "pointsApprox": 1542.475901115849,
+      "deltaApprox": 37.12590111584905
+    },
+    {
+      "code": "RUS",
+      "pointsApprox": 1529.6,
+      "deltaApprox": 0
+    },
+    {
+      "code": "POL",
+      "pointsApprox": 1526.18,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SWE",
+      "pointsApprox": 1525.5833273606477,
+      "deltaApprox": 15.793327360647709
+    },
+    {
+      "code": "WAL",
+      "pointsApprox": 1516.95,
+      "deltaApprox": 0
+    },
+    {
+      "code": "HUN",
+      "pointsApprox": 1506.39,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SRB",
+      "pointsApprox": 1502.13,
+      "deltaApprox": 0
+    },
+    {
+      "code": "COD",
+      "pointsApprox": 1495.478266920363,
+      "deltaApprox": 21.04826692036295
+    },
+    {
+      "code": "SCO",
+      "pointsApprox": 1491.2239064267728,
+      "deltaApprox": -12.11609357322709
+    },
+    {
+      "code": "CMR",
+      "pointsApprox": 1481.24,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PAN",
+      "pointsApprox": 1478.4155551923366,
+      "deltaApprox": -60.74444480766351
+    },
+    {
+      "code": "SVK",
+      "pointsApprox": 1473.66,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GRE",
+      "pointsApprox": 1473.19,
+      "deltaApprox": 0
+    },
+    {
+      "code": "VEN",
+      "pointsApprox": 1469.18,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CZE",
+      "pointsApprox": 1467.2620149184959,
+      "deltaApprox": -38.47798508150413
+    },
+    {
+      "code": "CHI",
+      "pointsApprox": 1458.2,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PER",
+      "pointsApprox": 1457.69,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CRC",
+      "pointsApprox": 1456.03,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ROU",
+      "pointsApprox": 1455.89,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MLI",
+      "pointsApprox": 1455.59,
+      "deltaApprox": 0
+    },
+    {
+      "code": "RSA",
+      "pointsApprox": 1451.2425066608257,
+      "deltaApprox": 22.862506660825602
+    },
+    {
+      "code": "IRL",
+      "pointsApprox": 1441.1,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SVN",
+      "pointsApprox": 1441.09,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TUN",
+      "pointsApprox": 1426.5885912888089,
+      "deltaApprox": -49.821408711191225
+    },
+    {
+      "code": "KSA",
+      "pointsApprox": 1425.5143064943186,
+      "deltaApprox": 1.63430649431848
+    },
+    {
+      "code": "QAT",
+      "pointsApprox": 1411.0657653168105,
+      "deltaApprox": -39.24423468318946
+    },
+    {
+      "code": "UZB",
+      "pointsApprox": 1409.7260754016404,
+      "deltaApprox": -49.00392459835962
+    },
+    {
+      "code": "BIH",
+      "pointsApprox": 1408.9341672972,
+      "deltaApprox": 21.714167297199992
+    },
+    {
+      "code": "BFA",
+      "pointsApprox": 1406.99,
+      "deltaApprox": 0
+    },
+    {
+      "code": "IRQ",
+      "pointsApprox": 1404.1733536474014,
+      "deltaApprox": -42.106646352598545
+    },
+    {
+      "code": "CPV",
+      "pointsApprox": 1402.9679334278494,
+      "deltaApprox": 31.857933427849503
+    },
+    {
+      "code": "GHA",
+      "pointsApprox": 1386.999924844289,
+      "deltaApprox": 40.11992484428879
+    },
+    {
+      "code": "HON",
+      "pointsApprox": 1378.97,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ALB",
+      "pointsApprox": 1376.03,
+      "deltaApprox": 0
+    },
+    {
+      "code": "UAE",
+      "pointsApprox": 1370.47,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MKD",
+      "pointsApprox": 1369.16,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NIR",
+      "pointsApprox": 1365.3,
+      "deltaApprox": 0
+    },
+    {
+      "code": "JAM",
+      "pointsApprox": 1357.84,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GEO",
+      "pointsApprox": 1355.26,
+      "deltaApprox": 0
+    },
+    {
+      "code": "JOR",
+      "pointsApprox": 1350.4132666028283,
+      "deltaApprox": -37.326733397171665
+    },
+    {
+      "code": "ISL",
+      "pointsApprox": 1342.77,
+      "deltaApprox": 0
+    },
+    {
+      "code": "FIN",
+      "pointsApprox": 1341.92,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ISR",
+      "pointsApprox": 1333.9,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BOL",
+      "pointsApprox": 1326,
+      "deltaApprox": 0
+    },
+    {
+      "code": "KOS",
+      "pointsApprox": 1319.12,
+      "deltaApprox": 0
+    },
+    {
+      "code": "OMA",
+      "pointsApprox": 1306.9,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MNE",
+      "pointsApprox": 1301.98,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GUI",
+      "pointsApprox": 1295.6,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CUW",
+      "pointsApprox": 1285.6453388615566,
+      "deltaApprox": -9.124661138443344
+    },
+    {
+      "code": "SYR",
+      "pointsApprox": 1283.05,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GAB",
+      "pointsApprox": 1272.51,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BUL",
+      "pointsApprox": 1271.68,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NZL",
+      "pointsApprox": 1269.8006853410816,
+      "deltaApprox": -5.779314658918338
+    },
+    {
+      "code": "ANG",
+      "pointsApprox": 1265.58,
+      "deltaApprox": 0
+    },
+    {
+      "code": "HAI",
+      "pointsApprox": 1264.581620919226,
+      "deltaApprox": -28.51837908077391
+    },
+    {
+      "code": "UGA",
+      "pointsApprox": 1264.09,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ZAM",
+      "pointsApprox": 1255.82,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CHN",
+      "pointsApprox": 1254.81,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BHR",
+      "pointsApprox": 1254.41,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BEN",
+      "pointsApprox": 1252.17,
+      "deltaApprox": 0
+    },
+    {
+      "code": "THA",
+      "pointsApprox": 1250.8,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PLE",
+      "pointsApprox": 1243.71,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BLR",
+      "pointsApprox": 1242.88,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GUA",
+      "pointsApprox": 1238.74,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LUX",
+      "pointsApprox": 1232.82,
+      "deltaApprox": 0
+    },
+    {
+      "code": "VIE",
+      "pointsApprox": 1225.68,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SLV",
+      "pointsApprox": 1225.34,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TJK",
+      "pointsApprox": 1224.19,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TRI",
+      "pointsApprox": 1219.59,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MOZ",
+      "pointsApprox": 1218.62,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MAD",
+      "pointsApprox": 1202.69,
+      "deltaApprox": 0
+    },
+    {
+      "code": "EQG",
+      "pointsApprox": 1195.2,
+      "deltaApprox": 0
+    },
+    {
+      "code": "KGZ",
+      "pointsApprox": 1192.16,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ARM",
+      "pointsApprox": 1189.63,
+      "deltaApprox": 0
+    },
+    {
+      "code": "COM",
+      "pointsApprox": 1187.91,
+      "deltaApprox": 0
+    },
+    {
+      "code": "KEN",
+      "pointsApprox": 1185.08,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LBY",
+      "pointsApprox": 1182.08,
+      "deltaApprox": 0
+    },
+    {
+      "code": "KAZ",
+      "pointsApprox": 1180.78,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TAN",
+      "pointsApprox": 1180.27,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MTN",
+      "pointsApprox": 1176.68,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NIG",
+      "pointsApprox": 1175.33,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LBN",
+      "pointsApprox": 1172.22,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GAM",
+      "pointsApprox": 1159.64,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SDN",
+      "pointsApprox": 1157.22,
+      "deltaApprox": 0
+    },
+    {
+      "code": "IDN",
+      "pointsApprox": 1157.14,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TOG",
+      "pointsApprox": 1152.76,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PRK",
+      "pointsApprox": 1151.05,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NAM",
+      "pointsApprox": 1148.84,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SLE",
+      "pointsApprox": 1147.56,
+      "deltaApprox": 0
+    },
+    {
+      "code": "FRO",
+      "pointsApprox": 1136.59,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CYP",
+      "pointsApprox": 1133.25,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SUR",
+      "pointsApprox": 1132.43,
+      "deltaApprox": 0
+    },
+    {
+      "code": "AZE",
+      "pointsApprox": 1132,
+      "deltaApprox": 0
+    },
+    {
+      "code": "EST",
+      "pointsApprox": 1130.64,
+      "deltaApprox": 0
+    },
+    {
+      "code": "RWA",
+      "pointsApprox": 1126.62,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MWI",
+      "pointsApprox": 1122.05,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ZIM",
+      "pointsApprox": 1119.78,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NCA",
+      "pointsApprox": 1114.63,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GNB",
+      "pointsApprox": 1108.38,
+      "deltaApprox": 0
+    },
+    {
+      "code": "KUW",
+      "pointsApprox": 1106.47,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CGO",
+      "pointsApprox": 1105.96,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PHI",
+      "pointsApprox": 1100.95,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MAS",
+      "pointsApprox": 1086.22,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LVA",
+      "pointsApprox": 1085.66,
+      "deltaApprox": 0
+    },
+    {
+      "code": "IND",
+      "pointsApprox": 1084.93,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CTA",
+      "pointsApprox": 1080.82,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LBR",
+      "pointsApprox": 1080.44,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TKM",
+      "pointsApprox": 1078.65,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BDI",
+      "pointsApprox": 1078.01,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ETH",
+      "pointsApprox": 1077.52,
+      "deltaApprox": 0
+    },
+    {
+      "code": "DOM",
+      "pointsApprox": 1076.5,
+      "deltaApprox": 0
+    },
+    {
+      "code": "YEM",
+      "pointsApprox": 1065.24,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LES",
+      "pointsApprox": 1064.29,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BOT",
+      "pointsApprox": 1063.63,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SGP",
+      "pointsApprox": 1057.95,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LTU",
+      "pointsApprox": 1056.85,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GUY",
+      "pointsApprox": 1049.32,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NCL",
+      "pointsApprox": 1036.95,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SKN",
+      "pointsApprox": 1036.33,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SOL",
+      "pointsApprox": 1031.89,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PUR",
+      "pointsApprox": 1024.3,
+      "deltaApprox": 0
+    },
+    {
+      "code": "FIJ",
+      "pointsApprox": 1024.17,
+      "deltaApprox": 0
+    },
+    {
+      "code": "HKG",
+      "pointsApprox": 1024.16,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TAH",
+      "pointsApprox": 1019.04,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MYA",
+      "pointsApprox": 1010.91,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MDA",
+      "pointsApprox": 1008.24,
+      "deltaApprox": 0
+    },
+    {
+      "code": "VAN",
+      "pointsApprox": 1002.53,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MLT",
+      "pointsApprox": 992.79,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ATG",
+      "pointsApprox": 986.58,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GRN",
+      "pointsApprox": 981.82,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CUB",
+      "pointsApprox": 981.42,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SWZ",
+      "pointsApprox": 979.01,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LCA",
+      "pointsApprox": 976.71,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BER",
+      "pointsApprox": 975.05,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PNG",
+      "pointsApprox": 974.9,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SSD",
+      "pointsApprox": 970.94,
+      "deltaApprox": 0
+    },
+    {
+      "code": "VIN",
+      "pointsApprox": 968.27,
+      "deltaApprox": 0
+    },
+    {
+      "code": "AFG",
+      "pointsApprox": 968.07,
+      "deltaApprox": 0
+    },
+    {
+      "code": "AND",
+      "pointsApprox": 946.43,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MDV",
+      "pointsApprox": 943.92,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TPE",
+      "pointsApprox": 923.78,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CAM",
+      "pointsApprox": 922.32,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MSR",
+      "pointsApprox": 916.75,
+      "deltaApprox": 0
+    },
+    {
+      "code": "NEP",
+      "pointsApprox": 914.54,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MRI",
+      "pointsApprox": 911.49,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BRB",
+      "pointsApprox": 909.89,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BLZ",
+      "pointsApprox": 907,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BAN",
+      "pointsApprox": 902.93,
+      "deltaApprox": 0
+    },
+    {
+      "code": "DMA",
+      "pointsApprox": 897.69,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CHA",
+      "pointsApprox": 896.85,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ERI",
+      "pointsApprox": 887.06,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LAO",
+      "pointsApprox": 885.03,
+      "deltaApprox": 0
+    },
+    {
+      "code": "COK",
+      "pointsApprox": 877.53,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SRI",
+      "pointsApprox": 876.86,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SAM",
+      "pointsApprox": 876.41,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ARU",
+      "pointsApprox": 875.61,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MNG",
+      "pointsApprox": 874.47,
+      "deltaApprox": 0
+    },
+    {
+      "code": "ASA",
+      "pointsApprox": 871.61,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BHU",
+      "pointsApprox": 870.81,
+      "deltaApprox": 0
+    },
+    {
+      "code": "MAC",
+      "pointsApprox": 858.03,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BRU",
+      "pointsApprox": 857.73,
+      "deltaApprox": 0
+    },
+    {
+      "code": "STP",
+      "pointsApprox": 855.44,
+      "deltaApprox": 0
+    },
+    {
+      "code": "DJI",
+      "pointsApprox": 853.58,
+      "deltaApprox": 0
+    },
+    {
+      "code": "CAY",
+      "pointsApprox": 850.06,
+      "deltaApprox": 0
+    },
+    {
+      "code": "PAK",
+      "pointsApprox": 840.28,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SOM",
+      "pointsApprox": 839.17,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TGA",
+      "pointsApprox": 835.64,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TLS",
+      "pointsApprox": 831,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GIB",
+      "pointsApprox": 820.26,
+      "deltaApprox": 0
+    },
+    {
+      "code": "GUM",
+      "pointsApprox": 819.54,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SEY",
+      "pointsApprox": 804.16,
+      "deltaApprox": 0
+    },
+    {
+      "code": "TCA",
+      "pointsApprox": 803.98,
+      "deltaApprox": 0
+    },
+    {
+      "code": "LIE",
+      "pointsApprox": 797.7,
+      "deltaApprox": 0
+    },
+    {
+      "code": "BAH",
+      "pointsApprox": 786.82,
+      "deltaApprox": 0
+    },
+    {
+      "code": "VIR",
+      "pointsApprox": 779.76,
+      "deltaApprox": 0
+    },
+    {
+      "code": "VGB",
+      "pointsApprox": 777.41,
+      "deltaApprox": 0
+    },
+    {
+      "code": "AIA",
+      "pointsApprox": 760.25,
+      "deltaApprox": 0
+    },
+    {
+      "code": "SMR",
+      "pointsApprox": 721.2,
+      "deltaApprox": 0
+    }
+  ],
+  "cutoffPolicy": {
+    "basis": "OFFICIAL_VENUE_LOCAL_DATE",
+    "lastIncluded": "2026-06-30",
+    "firstExcluded": "2026-07-01",
+    "approved": "2026-11-26",
+    "match79Included": true
+  },
+  "additionalAMatchesAudit": {
+    "status": "CORROBORATED_SECONDARY_SOURCES_NOT_OFFICIAL_EXHAUSTIVE",
+    "checked": "2026-11-26",
+    "localWindow": "2026-06-11 through 2026-06-30; exclude games already included in published baseline",
+    "findings": [
+      "11v11 men's International Friendly 2026 matches: June section ends 10 June; last Bolivia–Algeria, England–Costa Rica and Portugal–Nigeria.",
+      "Football-ranking previous period ending 11 June contains these three games on 11 June by its date convention, with ranking deltas; do not apply again.",
+      "Next ranking period has World Cup matches and Vietnam–Myanmar friendly on 18 July outside cutoff; no additional June A friendly identified in consulted sources.",
+      "Filtered friendly view cache miss; no FIFA exhaustive official match ledger retrieved. Keep status provisional. No new results or points imported."
+    ],
+    "extraMatchesImported": 0
+  }
+}

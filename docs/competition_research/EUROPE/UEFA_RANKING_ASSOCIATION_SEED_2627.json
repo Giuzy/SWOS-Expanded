@@ -1,0 +1,901 @@
+{
+  "schema": "research-ranking-association-candidate-v1",
+  "world": 2627,
+  "asOf": "2026-07-01",
+  "status": "CANDIDATE",
+  "unit": "thousandths",
+  "seasons": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "source2025": "https://kassiesa.net/uefa/data/method5/crank2025.html",
+  "source2026": "https://kassiesa.net/uefa/data/method5/crank2026.html",
+  "rules": "https://www.uefa.com/nationalassociations/uefarankings/country/?year=2026",
+  "note": "All 55 UEFA association rows are reference context for access lists; no new playable team. Historical season totals only, no 2026/27 results. External codes are labels pending game identity mapping. Two rolling sums validated for each association, official numerical cross-check still pending. Russia 2025/26 administrative coefficient 4.333 despite zero entrants. Do not infer future compensation. rank2026 is historical order after season 2025/26, not the 2026/27 access list.",
+  "records": [
+    {
+      "code": "ENG",
+      "name": "England",
+      "seasonPointsMilli": [
+        24357,
+        21000,
+        23000,
+        17375,
+        29464,
+        28680
+      ],
+      "access2026TotalMilli": 115196,
+      "access2027TotalMilli": 119519,
+      "rank2026": 1,
+      "clubs2025": 9
+    },
+    {
+      "code": "ITA",
+      "name": "Italy",
+      "seasonPointsMilli": [
+        16285,
+        15714,
+        22357,
+        21000,
+        21875,
+        19000
+      ],
+      "access2026TotalMilli": 97231,
+      "access2027TotalMilli": 99946,
+      "rank2026": 2,
+      "clubs2025": 7
+    },
+    {
+      "code": "ESP",
+      "name": "Spain",
+      "seasonPointsMilli": [
+        19500,
+        18428,
+        16571,
+        16062,
+        23892,
+        22093
+      ],
+      "access2026TotalMilli": 94453,
+      "access2027TotalMilli": 97046,
+      "rank2026": 3,
+      "clubs2025": 8
+    },
+    {
+      "code": "GER",
+      "name": "Germany",
+      "seasonPointsMilli": [
+        15214,
+        16214,
+        17125,
+        19357,
+        18421,
+        21785
+      ],
+      "access2026TotalMilli": 86331,
+      "access2027TotalMilli": 92902,
+      "rank2026": 4,
+      "clubs2025": 7
+    },
+    {
+      "code": "FRA",
+      "name": "France",
+      "seasonPointsMilli": [
+        7916,
+        18416,
+        12583,
+        16250,
+        17928,
+        18321
+      ],
+      "access2026TotalMilli": 73093,
+      "access2027TotalMilli": 83498,
+      "rank2026": 5,
+      "clubs2025": 7
+    },
+    {
+      "code": "POR",
+      "name": "Portugal",
+      "seasonPointsMilli": [
+        9600,
+        12916,
+        12500,
+        11000,
+        16250,
+        20500
+      ],
+      "access2026TotalMilli": 62266,
+      "access2027TotalMilli": 73166,
+      "rank2026": 6,
+      "clubs2025": 5
+    },
+    {
+      "code": "NED",
+      "name": "Netherlands",
+      "seasonPointsMilli": [
+        9200,
+        19200,
+        13500,
+        10000,
+        15250,
+        9979
+      ],
+      "access2026TotalMilli": 67150,
+      "access2027TotalMilli": 67929,
+      "rank2026": 7,
+      "clubs2025": 6
+    },
+    {
+      "code": "BEL",
+      "name": "Belgium",
+      "seasonPointsMilli": [
+        6000,
+        6600,
+        14200,
+        14400,
+        15650,
+        11400
+      ],
+      "access2026TotalMilli": 56850,
+      "access2027TotalMilli": 62250,
+      "rank2026": 8,
+      "clubs2025": 5
+    },
+    {
+      "code": "TUR",
+      "name": "Türkiye",
+      "seasonPointsMilli": [
+        3100,
+        6700,
+        11800,
+        12000,
+        10300,
+        11075
+      ],
+      "access2026TotalMilli": 43900,
+      "access2027TotalMilli": 51875,
+      "rank2026": 9,
+      "clubs2025": 5
+    },
+    {
+      "code": "CZE",
+      "name": "Czechia",
+      "seasonPointsMilli": [
+        6600,
+        6700,
+        6750,
+        13500,
+        10550,
+        11025
+      ],
+      "access2026TotalMilli": 44100,
+      "access2027TotalMilli": 48525,
+      "rank2026": 10,
+      "clubs2025": 5
+    },
+    {
+      "code": "GRE",
+      "name": "Greece",
+      "seasonPointsMilli": [
+        5100,
+        8000,
+        2125,
+        11400,
+        12687,
+        14200
+      ],
+      "access2026TotalMilli": 39312,
+      "access2027TotalMilli": 48412,
+      "rank2026": 11,
+      "clubs2025": 5
+    },
+    {
+      "code": "POL",
+      "name": "Poland",
+      "seasonPointsMilli": [
+        4000,
+        4625,
+        7750,
+        6875,
+        11750,
+        15750
+      ],
+      "access2026TotalMilli": 35000,
+      "access2027TotalMilli": 46750,
+      "rank2026": 12,
+      "clubs2025": 4
+    },
+    {
+      "code": "DEN",
+      "name": "Denmark",
+      "seasonPointsMilli": [
+        4125,
+        7800,
+        5900,
+        8500,
+        7656,
+        12250
+      ],
+      "access2026TotalMilli": 33981,
+      "access2027TotalMilli": 42106,
+      "rank2026": 13,
+      "clubs2025": 4
+    },
+    {
+      "code": "NOR",
+      "name": "Norway",
+      "seasonPointsMilli": [
+        6500,
+        7625,
+        5750,
+        8000,
+        11812,
+        8050
+      ],
+      "access2026TotalMilli": 39687,
+      "access2027TotalMilli": 41237,
+      "rank2026": 14,
+      "clubs2025": 5
+    },
+    {
+      "code": "CYP",
+      "name": "Cyprus",
+      "seasonPointsMilli": [
+        4000,
+        4125,
+        5100,
+        3750,
+        10562,
+        12156
+      ],
+      "access2026TotalMilli": 27537,
+      "access2027TotalMilli": 35693,
+      "rank2026": 15,
+      "clubs2025": 4
+    },
+    {
+      "code": "SUI",
+      "name": "Switzerland",
+      "seasonPointsMilli": [
+        5125,
+        7750,
+        8500,
+        5200,
+        7050,
+        6200
+      ],
+      "access2026TotalMilli": 33625,
+      "access2027TotalMilli": 34700,
+      "rank2026": 16,
+      "clubs2025": 5
+    },
+    {
+      "code": "AUT",
+      "name": "Austria",
+      "seasonPointsMilli": [
+        6700,
+        10400,
+        4900,
+        4800,
+        9650,
+        4100
+      ],
+      "access2026TotalMilli": 36450,
+      "access2027TotalMilli": 33850,
+      "rank2026": 17,
+      "clubs2025": 5
+    },
+    {
+      "code": "SCO",
+      "name": "Scotland",
+      "seasonPointsMilli": [
+        8500,
+        7900,
+        3500,
+        6400,
+        9250,
+        5000
+      ],
+      "access2026TotalMilli": 35550,
+      "access2027TotalMilli": 32050,
+      "rank2026": 18,
+      "clubs2025": 5
+    },
+    {
+      "code": "SWE",
+      "name": "Sweden",
+      "seasonPointsMilli": [
+        2500,
+        5125,
+        6250,
+        1875,
+        11375,
+        5000
+      ],
+      "access2026TotalMilli": 27125,
+      "access2027TotalMilli": 29625,
+      "rank2026": 19,
+      "clubs2025": 4
+    },
+    {
+      "code": "CRO",
+      "name": "Croatia",
+      "seasonPointsMilli": [
+        5900,
+        6000,
+        3375,
+        5875,
+        5875,
+        7031
+      ],
+      "access2026TotalMilli": 27025,
+      "access2027TotalMilli": 28156,
+      "rank2026": 20,
+      "clubs2025": 4
+    },
+    {
+      "code": "ISR",
+      "name": "Israel",
+      "seasonPointsMilli": [
+        7000,
+        6750,
+        6250,
+        8750,
+        2875,
+        2875
+      ],
+      "access2026TotalMilli": 31625,
+      "access2027TotalMilli": 27500,
+      "rank2026": 21,
+      "clubs2025": 4
+    },
+    {
+      "code": "HUN",
+      "name": "Hungary",
+      "seasonPointsMilli": [
+        4250,
+        2750,
+        5875,
+        4500,
+        6625,
+        7437
+      ],
+      "access2026TotalMilli": 24000,
+      "access2027TotalMilli": 27187,
+      "rank2026": 22,
+      "clubs2025": 4
+    },
+    {
+      "code": "UKR",
+      "name": "Ukraine",
+      "seasonPointsMilli": [
+        6800,
+        4200,
+        5700,
+        4100,
+        3600,
+        8312
+      ],
+      "access2026TotalMilli": 24400,
+      "access2027TotalMilli": 25912,
+      "rank2026": 23,
+      "clubs2025": 4
+    },
+    {
+      "code": "SRB",
+      "name": "Serbia",
+      "seasonPointsMilli": [
+        5500,
+        9500,
+        5375,
+        1400,
+        3725,
+        5750
+      ],
+      "access2026TotalMilli": 25500,
+      "access2027TotalMilli": 25750,
+      "rank2026": 24,
+      "clubs2025": 4
+    },
+    {
+      "code": "ROU",
+      "name": "Romania",
+      "seasonPointsMilli": [
+        3750,
+        2250,
+        6250,
+        3250,
+        7750,
+        5750
+      ],
+      "access2026TotalMilli": 23250,
+      "access2027TotalMilli": 25250,
+      "rank2026": 25,
+      "clubs2025": 4
+    },
+    {
+      "code": "SVN",
+      "name": "Slovenia",
+      "seasonPointsMilli": [
+        2250,
+        3000,
+        2125,
+        3875,
+        9093,
+        6375
+      ],
+      "access2026TotalMilli": 20343,
+      "access2027TotalMilli": 24468,
+      "rank2026": 26,
+      "clubs2025": 4
+    },
+    {
+      "code": "AZE",
+      "name": "Azerbaijan",
+      "seasonPointsMilli": [
+        2500,
+        4375,
+        4000,
+        5875,
+        2875,
+        5812
+      ],
+      "access2026TotalMilli": 19625,
+      "access2027TotalMilli": 22937,
+      "rank2026": 27,
+      "clubs2025": 4
+    },
+    {
+      "code": "RUS",
+      "name": "Russia",
+      "seasonPointsMilli": [
+        4333,
+        5300,
+        4333,
+        4333,
+        4333,
+        4333
+      ],
+      "access2026TotalMilli": 22632,
+      "access2027TotalMilli": 22632,
+      "rank2026": 28,
+      "clubs2025": 0
+    },
+    {
+      "code": "SVK",
+      "name": "Slovakia",
+      "seasonPointsMilli": [
+        1500,
+        4125,
+        6000,
+        5000,
+        4625,
+        2625
+      ],
+      "access2026TotalMilli": 21250,
+      "access2027TotalMilli": 22375,
+      "rank2026": 29,
+      "clubs2025": 4
+    },
+    {
+      "code": "BUL",
+      "name": "Bulgaria",
+      "seasonPointsMilli": [
+        4000,
+        3375,
+        4500,
+        4375,
+        3625,
+        5187
+      ],
+      "access2026TotalMilli": 19875,
+      "access2027TotalMilli": 21062,
+      "rank2026": 30,
+      "clubs2025": 4
+    },
+    {
+      "code": "IRL",
+      "name": "Ireland",
+      "seasonPointsMilli": [
+        1875,
+        2875,
+        3375,
+        1500,
+        5343,
+        4250
+      ],
+      "access2026TotalMilli": 14968,
+      "access2027TotalMilli": 17343,
+      "rank2026": 31,
+      "clubs2025": 4
+    },
+    {
+      "code": "ISL",
+      "name": "Iceland",
+      "seasonPointsMilli": [
+        625,
+        1500,
+        3000,
+        3833,
+        4562,
+        3625
+      ],
+      "access2026TotalMilli": 13520,
+      "access2027TotalMilli": 16520,
+      "rank2026": 32,
+      "clubs2025": 4
+    },
+    {
+      "code": "ARM",
+      "name": "Armenia",
+      "seasonPointsMilli": [
+        1375,
+        1875,
+        2375,
+        2250,
+        4375,
+        4187
+      ],
+      "access2026TotalMilli": 12250,
+      "access2027TotalMilli": 15062,
+      "rank2026": 33,
+      "clubs2025": 4
+    },
+    {
+      "code": "MDA",
+      "name": "Moldova",
+      "seasonPointsMilli": [
+        1375,
+        5250,
+        3750,
+        2000,
+        2125,
+        1500
+      ],
+      "access2026TotalMilli": 14500,
+      "access2027TotalMilli": 14625,
+      "rank2026": 34,
+      "clubs2025": 4
+    },
+    {
+      "code": "FIN",
+      "name": "Finland",
+      "seasonPointsMilli": [
+        1375,
+        3750,
+        2625,
+        1750,
+        2250,
+        3625
+      ],
+      "access2026TotalMilli": 11750,
+      "access2027TotalMilli": 14000,
+      "rank2026": 35,
+      "clubs2025": 4
+    },
+    {
+      "code": "KOS",
+      "name": "Kosovo",
+      "seasonPointsMilli": [
+        1833,
+        2333,
+        2875,
+        3000,
+        2000,
+        3781
+      ],
+      "access2026TotalMilli": 12041,
+      "access2027TotalMilli": 13989,
+      "rank2026": 36,
+      "clubs2025": 4
+    },
+    {
+      "code": "KAZ",
+      "name": "Kazakhstan",
+      "seasonPointsMilli": [
+        1000,
+        2875,
+        1125,
+        3125,
+        3000,
+        3625
+      ],
+      "access2026TotalMilli": 11125,
+      "access2027TotalMilli": 13750,
+      "rank2026": 37,
+      "clubs2025": 4
+    },
+    {
+      "code": "BIH",
+      "name": "Bosnia-Herzegovina",
+      "seasonPointsMilli": [
+        2625,
+        1625,
+        2000,
+        2250,
+        4531,
+        3312
+      ],
+      "access2026TotalMilli": 13031,
+      "access2027TotalMilli": 13718,
+      "rank2026": 38,
+      "clubs2025": 4
+    },
+    {
+      "code": "LVA",
+      "name": "Latvia",
+      "seasonPointsMilli": [
+        1375,
+        2625,
+        2750,
+        1625,
+        3875,
+        2000
+      ],
+      "access2026TotalMilli": 12250,
+      "access2027TotalMilli": 12875,
+      "rank2026": 39,
+      "clubs2025": 4
+    },
+    {
+      "code": "FRO",
+      "name": "Faroe Islands",
+      "seasonPointsMilli": [
+        2750,
+        1500,
+        2250,
+        2750,
+        1500,
+        1750
+      ],
+      "access2026TotalMilli": 10750,
+      "access2027TotalMilli": 9750,
+      "rank2026": 40,
+      "clubs2025": 4
+    },
+    {
+      "code": "MLT",
+      "name": "Malta",
+      "seasonPointsMilli": [
+        1500,
+        1875,
+        2625,
+        1500,
+        1000,
+        2000
+      ],
+      "access2026TotalMilli": 8500,
+      "access2027TotalMilli": 9000,
+      "rank2026": 41,
+      "clubs2025": 4
+    },
+    {
+      "code": "LIE",
+      "name": "Liechtenstein",
+      "seasonPointsMilli": [
+        500,
+        0,
+        6500,
+        500,
+        500,
+        1000
+      ],
+      "access2026TotalMilli": 8000,
+      "access2027TotalMilli": 8500,
+      "rank2026": 42,
+      "clubs2025": 1
+    },
+    {
+      "code": "EST",
+      "name": "Estonia",
+      "seasonPointsMilli": [
+        1375,
+        3666,
+        1166,
+        125,
+        1625,
+        1625
+      ],
+      "access2026TotalMilli": 7957,
+      "access2027TotalMilli": 8207,
+      "rank2026": 43,
+      "clubs2025": 4
+    },
+    {
+      "code": "ALB",
+      "name": "Albania",
+      "seasonPointsMilli": [
+        2000,
+        1625,
+        875,
+        2125,
+        1250,
+        2250
+      ],
+      "access2026TotalMilli": 7875,
+      "access2027TotalMilli": 8125,
+      "rank2026": 44,
+      "clubs2025": 4
+    },
+    {
+      "code": "MKD",
+      "name": "North Macedonia",
+      "seasonPointsMilli": [
+        1750,
+        625,
+        1625,
+        1500,
+        666,
+        3343
+      ],
+      "access2026TotalMilli": 6166,
+      "access2027TotalMilli": 7759,
+      "rank2026": 45,
+      "clubs2025": 4
+    },
+    {
+      "code": "LTU",
+      "name": "Lithuania",
+      "seasonPointsMilli": [
+        1625,
+        1750,
+        2375,
+        1125,
+        1375,
+        1125
+      ],
+      "access2026TotalMilli": 8250,
+      "access2027TotalMilli": 7750,
+      "rank2026": 46,
+      "clubs2025": 4
+    },
+    {
+      "code": "NIR",
+      "name": "Northern Ireland",
+      "seasonPointsMilli": [
+        2833,
+        1625,
+        1250,
+        1125,
+        1500,
+        1750
+      ],
+      "access2026TotalMilli": 8333,
+      "access2027TotalMilli": 7250,
+      "rank2026": 47,
+      "clubs2025": 4
+    },
+    {
+      "code": "GIB",
+      "name": "Gibraltar",
+      "seasonPointsMilli": [
+        1666,
+        1250,
+        875,
+        166,
+        1500,
+        3333
+      ],
+      "access2026TotalMilli": 5457,
+      "access2027TotalMilli": 7124,
+      "rank2026": 48,
+      "clubs2025": 3
+    },
+    {
+      "code": "AND",
+      "name": "Andorra",
+      "seasonPointsMilli": [
+        666,
+        1500,
+        666,
+        1666,
+        1000,
+        2000
+      ],
+      "access2026TotalMilli": 5498,
+      "access2027TotalMilli": 6832,
+      "rank2026": 49,
+      "clubs2025": 3
+    },
+    {
+      "code": "BLR",
+      "name": "Belarus",
+      "seasonPointsMilli": [
+        1500,
+        250,
+        625,
+        1750,
+        1875,
+        2125
+      ],
+      "access2026TotalMilli": 6000,
+      "access2027TotalMilli": 6625,
+      "rank2026": 50,
+      "clubs2025": 4
+    },
+    {
+      "code": "LUX",
+      "name": "Luxembourg",
+      "seasonPointsMilli": [
+        1000,
+        1250,
+        1125,
+        2250,
+        1250,
+        750
+      ],
+      "access2026TotalMilli": 6875,
+      "access2027TotalMilli": 6625,
+      "rank2026": 51,
+      "clubs2025": 4
+    },
+    {
+      "code": "MNE",
+      "name": "Montenegro",
+      "seasonPointsMilli": [
+        1625,
+        750,
+        1000,
+        1333,
+        2500,
+        1000
+      ],
+      "access2026TotalMilli": 7208,
+      "access2027TotalMilli": 6583,
+      "rank2026": 52,
+      "clubs2025": 3
+    },
+    {
+      "code": "GEO",
+      "name": "Georgia",
+      "seasonPointsMilli": [
+        1750,
+        1250,
+        1125,
+        1250,
+        1250,
+        1125
+      ],
+      "access2026TotalMilli": 6625,
+      "access2027TotalMilli": 6000,
+      "rank2026": 53,
+      "clubs2025": 4
+    },
+    {
+      "code": "WAL",
+      "name": "Wales",
+      "seasonPointsMilli": [
+        1500,
+        1500,
+        1166,
+        625,
+        2000,
+        333
+      ],
+      "access2026TotalMilli": 6791,
+      "access2027TotalMilli": 5624,
+      "rank2026": 54,
+      "clubs2025": 3
+    },
+    {
+      "code": "SMR",
+      "name": "San Marino",
+      "seasonPointsMilli": [
+        500,
+        166,
+        833,
+        333,
+        666,
+        833
+      ],
+      "access2026TotalMilli": 2498,
+      "access2027TotalMilli": 2831,
+      "rank2026": 55,
+      "clubs2025": 3
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+## 26/11/2026 — Calendario CE, sorteggi, ranking (specifica, NON runtime)
+
+Consultare [CE_CALENDAR_GENERATOR.md](docs/CE_CALENDAR_GENERATOR.md) per i criteri, evidenze big five, vincoli, dipendenze e test. Ritorno simmetrico/asimmetrico da regolamento, distribuzione individuale e coordinamento continentale; fonti ranking FIFA/UEFA. Nessun cambio di UI o runtime autorizzato da questa sola documentazione. Restano validi precheck RG e autorizzazioni OG.
+
 ## 26/11/2026 — Consultazione selettiva della matrice (regola utente vigente)
 
 Seguire la regola canonica in [docs/competition_research/README.md](docs/competition_research/README.md): mai l'intera matrice nel contesto; consultazione per record/campo e dipendenze, aggregati automatici, aggiornamenti mirati e deposito #2 unico. Nessuna ristrutturazione o script autorizzato ora.

@@ -1,0 +1,1076 @@
+{
+  "schema": "research-fifa-ranking-candidate-v1",
+  "world": 2627,
+  "publication": "2026-06-11",
+  "targetCutoff": "2026-07-01",
+  "status": "CANDIDATE_PRE_CUTOFF",
+  "unit": "one hundredth of a point",
+  "sources": [
+    "https://supersubbetting.com/world-ranking-men",
+    "https://inside.fifa.com/fifa-rankings/world-ranking/men/news/argentina-reclaim-top-spot-mens-world-ranking-fifa-coca-cola",
+    "https://github.com/playmobil/worldcup-forecast/blob/main/data/snapshots/fifa_ranking_2026-06-11.csv"
+  ],
+  "crosscheck": {
+    "sourceBlob": "2d5bde81ba9f2cd4c220819fb2f8a8f0a583f466",
+    "recordsCompared": 150,
+    "pointsAndRankMatches": 150
+  },
+  "notes": "Published baseline only, not the 1 July rating. Apply all certified international A matches after this release and before July 1 once, including World Cup. No future results, no assumed zero, no game-native identity mapping yet. Source codes are external labels. Public figures are displayed to two decimals, not FIFA internal full precision.",
+  "records": [
+    {
+      "rank": 1,
+      "code": "ARG",
+      "pointsCenti": 187727
+    },
+    {
+      "rank": 2,
+      "code": "ESP",
+      "pointsCenti": 187471
+    },
+    {
+      "rank": 3,
+      "code": "FRA",
+      "pointsCenti": 187070
+    },
+    {
+      "rank": 4,
+      "code": "ENG",
+      "pointsCenti": 182802
+    },
+    {
+      "rank": 5,
+      "code": "POR",
+      "pointsCenti": 176785
+    },
+    {
+      "rank": 6,
+      "code": "BRA",
+      "pointsCenti": 176586
+    },
+    {
+      "rank": 7,
+      "code": "MAR",
+      "pointsCenti": 175510
+    },
+    {
+      "rank": 8,
+      "code": "NED",
+      "pointsCenti": 175357
+    },
+    {
+      "rank": 9,
+      "code": "BEL",
+      "pointsCenti": 174224
+    },
+    {
+      "rank": 10,
+      "code": "GER",
+      "pointsCenti": 173577
+    },
+    {
+      "rank": 11,
+      "code": "CRO",
+      "pointsCenti": 171487
+    },
+    {
+      "rank": 12,
+      "code": "ITA",
+      "pointsCenti": 170473
+    },
+    {
+      "rank": 13,
+      "code": "COL",
+      "pointsCenti": 169835
+    },
+    {
+      "rank": 14,
+      "code": "MEX",
+      "pointsCenti": 168748
+    },
+    {
+      "rank": 15,
+      "code": "SEN",
+      "pointsCenti": 168407
+    },
+    {
+      "rank": 16,
+      "code": "URU",
+      "pointsCenti": 167307
+    },
+    {
+      "rank": 17,
+      "code": "USA",
+      "pointsCenti": 167123
+    },
+    {
+      "rank": 18,
+      "code": "JPN",
+      "pointsCenti": 166158
+    },
+    {
+      "rank": 19,
+      "code": "SUI",
+      "pointsCenti": 165006
+    },
+    {
+      "rank": 20,
+      "code": "IRN",
+      "pointsCenti": 161958
+    },
+    {
+      "rank": 21,
+      "code": "DEN",
+      "pointsCenti": 161947
+    },
+    {
+      "rank": 22,
+      "code": "TUR",
+      "pointsCenti": 160573
+    },
+    {
+      "rank": 23,
+      "code": "ECU",
+      "pointsCenti": 159852
+    },
+    {
+      "rank": 24,
+      "code": "AUT",
+      "pointsCenti": 159740
+    },
+    {
+      "rank": 25,
+      "code": "KOR",
+      "pointsCenti": 159163
+    },
+    {
+      "rank": 26,
+      "code": "NGA",
+      "pointsCenti": 158502
+    },
+    {
+      "rank": 27,
+      "code": "AUS",
+      "pointsCenti": 157934
+    },
+    {
+      "rank": 28,
+      "code": "ALG",
+      "pointsCenti": 157103
+    },
+    {
+      "rank": 29,
+      "code": "EGY",
+      "pointsCenti": 156237
+    },
+    {
+      "rank": 30,
+      "code": "CAN",
+      "pointsCenti": 155948
+    },
+    {
+      "rank": 31,
+      "code": "NOR",
+      "pointsCenti": 155744
+    },
+    {
+      "rank": 32,
+      "code": "UKR",
+      "pointsCenti": 154929
+    },
+    {
+      "rank": 33,
+      "code": "CIV",
+      "pointsCenti": 154087
+    },
+    {
+      "rank": 34,
+      "code": "PAN",
+      "pointsCenti": 153916
+    },
+    {
+      "rank": 35,
+      "code": "RUS",
+      "pointsCenti": 152960
+    },
+    {
+      "rank": 36,
+      "code": "POL",
+      "pointsCenti": 152618
+    },
+    {
+      "rank": 37,
+      "code": "WAL",
+      "pointsCenti": 151695
+    },
+    {
+      "rank": 38,
+      "code": "SWE",
+      "pointsCenti": 150979
+    },
+    {
+      "rank": 39,
+      "code": "HUN",
+      "pointsCenti": 150639
+    },
+    {
+      "rank": 40,
+      "code": "CZE",
+      "pointsCenti": 150574
+    },
+    {
+      "rank": 41,
+      "code": "PAR",
+      "pointsCenti": 150535
+    },
+    {
+      "rank": 42,
+      "code": "SCO",
+      "pointsCenti": 150334
+    },
+    {
+      "rank": 43,
+      "code": "SRB",
+      "pointsCenti": 150213
+    },
+    {
+      "rank": 44,
+      "code": "CMR",
+      "pointsCenti": 148124
+    },
+    {
+      "rank": 45,
+      "code": "TUN",
+      "pointsCenti": 147641
+    },
+    {
+      "rank": 46,
+      "code": "COD",
+      "pointsCenti": 147443
+    },
+    {
+      "rank": 47,
+      "code": "SVK",
+      "pointsCenti": 147366
+    },
+    {
+      "rank": 48,
+      "code": "GRE",
+      "pointsCenti": 147319
+    },
+    {
+      "rank": 49,
+      "code": "VEN",
+      "pointsCenti": 146918
+    },
+    {
+      "rank": 50,
+      "code": "UZB",
+      "pointsCenti": 145873
+    },
+    {
+      "rank": 51,
+      "code": "CHI",
+      "pointsCenti": 145820
+    },
+    {
+      "rank": 52,
+      "code": "PER",
+      "pointsCenti": 145769
+    },
+    {
+      "rank": 53,
+      "code": "CRC",
+      "pointsCenti": 145603
+    },
+    {
+      "rank": 54,
+      "code": "ROU",
+      "pointsCenti": 145589
+    },
+    {
+      "rank": 55,
+      "code": "MLI",
+      "pointsCenti": 145559
+    },
+    {
+      "rank": 56,
+      "code": "QAT",
+      "pointsCenti": 145031
+    },
+    {
+      "rank": 57,
+      "code": "IRQ",
+      "pointsCenti": 144628
+    },
+    {
+      "rank": 58,
+      "code": "IRL",
+      "pointsCenti": 144110
+    },
+    {
+      "rank": 59,
+      "code": "SVN",
+      "pointsCenti": 144109
+    },
+    {
+      "rank": 60,
+      "code": "RSA",
+      "pointsCenti": 142838
+    },
+    {
+      "rank": 61,
+      "code": "KSA",
+      "pointsCenti": 142388
+    },
+    {
+      "rank": 62,
+      "code": "BFA",
+      "pointsCenti": 140699
+    },
+    {
+      "rank": 63,
+      "code": "JOR",
+      "pointsCenti": 138774
+    },
+    {
+      "rank": 64,
+      "code": "BIH",
+      "pointsCenti": 138722
+    },
+    {
+      "rank": 65,
+      "code": "HON",
+      "pointsCenti": 137897
+    },
+    {
+      "rank": 66,
+      "code": "ALB",
+      "pointsCenti": 137603
+    },
+    {
+      "rank": 67,
+      "code": "CPV",
+      "pointsCenti": 137111
+    },
+    {
+      "rank": 68,
+      "code": "UAE",
+      "pointsCenti": 137047
+    },
+    {
+      "rank": 69,
+      "code": "MKD",
+      "pointsCenti": 136916
+    },
+    {
+      "rank": 70,
+      "code": "NIR",
+      "pointsCenti": 136530
+    },
+    {
+      "rank": 71,
+      "code": "JAM",
+      "pointsCenti": 135784
+    },
+    {
+      "rank": 72,
+      "code": "GEO",
+      "pointsCenti": 135526
+    },
+    {
+      "rank": 73,
+      "code": "GHA",
+      "pointsCenti": 134688
+    },
+    {
+      "rank": 74,
+      "code": "ISL",
+      "pointsCenti": 134277
+    },
+    {
+      "rank": 75,
+      "code": "FIN",
+      "pointsCenti": 134192
+    },
+    {
+      "rank": 76,
+      "code": "ISR",
+      "pointsCenti": 133390
+    },
+    {
+      "rank": 77,
+      "code": "BOL",
+      "pointsCenti": 132600
+    },
+    {
+      "rank": 78,
+      "code": "KOS",
+      "pointsCenti": 131912
+    },
+    {
+      "rank": 79,
+      "code": "OMA",
+      "pointsCenti": 130690
+    },
+    {
+      "rank": 80,
+      "code": "MNE",
+      "pointsCenti": 130198
+    },
+    {
+      "rank": 81,
+      "code": "GUI",
+      "pointsCenti": 129560
+    },
+    {
+      "rank": 82,
+      "code": "CUW",
+      "pointsCenti": 129477
+    },
+    {
+      "rank": 83,
+      "code": "HAI",
+      "pointsCenti": 129310
+    },
+    {
+      "rank": 84,
+      "code": "SYR",
+      "pointsCenti": 128305
+    },
+    {
+      "rank": 85,
+      "code": "NZL",
+      "pointsCenti": 127558
+    },
+    {
+      "rank": 86,
+      "code": "GAB",
+      "pointsCenti": 127251
+    },
+    {
+      "rank": 87,
+      "code": "BUL",
+      "pointsCenti": 127168
+    },
+    {
+      "rank": 88,
+      "code": "ANG",
+      "pointsCenti": 126558
+    },
+    {
+      "rank": 89,
+      "code": "UGA",
+      "pointsCenti": 126409
+    },
+    {
+      "rank": 90,
+      "code": "ZAM",
+      "pointsCenti": 125582
+    },
+    {
+      "rank": 91,
+      "code": "CHN",
+      "pointsCenti": 125481
+    },
+    {
+      "rank": 92,
+      "code": "BHR",
+      "pointsCenti": 125441
+    },
+    {
+      "rank": 93,
+      "code": "BEN",
+      "pointsCenti": 125217
+    },
+    {
+      "rank": 94,
+      "code": "THA",
+      "pointsCenti": 125080
+    },
+    {
+      "rank": 95,
+      "code": "PLE",
+      "pointsCenti": 124371
+    },
+    {
+      "rank": 96,
+      "code": "BLR",
+      "pointsCenti": 124288
+    },
+    {
+      "rank": 97,
+      "code": "GUA",
+      "pointsCenti": 123874
+    },
+    {
+      "rank": 98,
+      "code": "LUX",
+      "pointsCenti": 123282
+    },
+    {
+      "rank": 99,
+      "code": "VIE",
+      "pointsCenti": 122568
+    },
+    {
+      "rank": 100,
+      "code": "SLV",
+      "pointsCenti": 122534
+    },
+    {
+      "rank": 101,
+      "code": "TJK",
+      "pointsCenti": 122419
+    },
+    {
+      "rank": 102,
+      "code": "TRI",
+      "pointsCenti": 121959
+    },
+    {
+      "rank": 103,
+      "code": "MOZ",
+      "pointsCenti": 121862
+    },
+    {
+      "rank": 104,
+      "code": "MAD",
+      "pointsCenti": 120269
+    },
+    {
+      "rank": 105,
+      "code": "EQG",
+      "pointsCenti": 119520
+    },
+    {
+      "rank": 106,
+      "code": "KGZ",
+      "pointsCenti": 119216
+    },
+    {
+      "rank": 107,
+      "code": "ARM",
+      "pointsCenti": 118963
+    },
+    {
+      "rank": 108,
+      "code": "COM",
+      "pointsCenti": 118791
+    },
+    {
+      "rank": 109,
+      "code": "KEN",
+      "pointsCenti": 118508
+    },
+    {
+      "rank": 110,
+      "code": "LBY",
+      "pointsCenti": 118208
+    },
+    {
+      "rank": 111,
+      "code": "KAZ",
+      "pointsCenti": 118078
+    },
+    {
+      "rank": 112,
+      "code": "TAN",
+      "pointsCenti": 118027
+    },
+    {
+      "rank": 113,
+      "code": "MTN",
+      "pointsCenti": 117668
+    },
+    {
+      "rank": 114,
+      "code": "NIG",
+      "pointsCenti": 117533
+    },
+    {
+      "rank": 115,
+      "code": "LBN",
+      "pointsCenti": 117222
+    },
+    {
+      "rank": 116,
+      "code": "GAM",
+      "pointsCenti": 115964
+    },
+    {
+      "rank": 117,
+      "code": "SDN",
+      "pointsCenti": 115722
+    },
+    {
+      "rank": 118,
+      "code": "IDN",
+      "pointsCenti": 115714
+    },
+    {
+      "rank": 119,
+      "code": "TOG",
+      "pointsCenti": 115276
+    },
+    {
+      "rank": 120,
+      "code": "PRK",
+      "pointsCenti": 115105
+    },
+    {
+      "rank": 121,
+      "code": "NAM",
+      "pointsCenti": 114884
+    },
+    {
+      "rank": 122,
+      "code": "SLE",
+      "pointsCenti": 114756
+    },
+    {
+      "rank": 123,
+      "code": "FRO",
+      "pointsCenti": 113659
+    },
+    {
+      "rank": 124,
+      "code": "CYP",
+      "pointsCenti": 113325
+    },
+    {
+      "rank": 125,
+      "code": "SUR",
+      "pointsCenti": 113243
+    },
+    {
+      "rank": 126,
+      "code": "AZE",
+      "pointsCenti": 113200
+    },
+    {
+      "rank": 127,
+      "code": "EST",
+      "pointsCenti": 113064
+    },
+    {
+      "rank": 128,
+      "code": "RWA",
+      "pointsCenti": 112662
+    },
+    {
+      "rank": 129,
+      "code": "MWI",
+      "pointsCenti": 112205
+    },
+    {
+      "rank": 130,
+      "code": "ZIM",
+      "pointsCenti": 111978
+    },
+    {
+      "rank": 131,
+      "code": "NCA",
+      "pointsCenti": 111463
+    },
+    {
+      "rank": 132,
+      "code": "GNB",
+      "pointsCenti": 110838
+    },
+    {
+      "rank": 133,
+      "code": "KUW",
+      "pointsCenti": 110647
+    },
+    {
+      "rank": 134,
+      "code": "CGO",
+      "pointsCenti": 110596
+    },
+    {
+      "rank": 135,
+      "code": "PHI",
+      "pointsCenti": 110095
+    },
+    {
+      "rank": 136,
+      "code": "MAS",
+      "pointsCenti": 108622
+    },
+    {
+      "rank": 137,
+      "code": "LVA",
+      "pointsCenti": 108566
+    },
+    {
+      "rank": 138,
+      "code": "IND",
+      "pointsCenti": 108493
+    },
+    {
+      "rank": 139,
+      "code": "CTA",
+      "pointsCenti": 108082
+    },
+    {
+      "rank": 140,
+      "code": "LBR",
+      "pointsCenti": 108044
+    },
+    {
+      "rank": 141,
+      "code": "TKM",
+      "pointsCenti": 107865
+    },
+    {
+      "rank": 142,
+      "code": "BDI",
+      "pointsCenti": 107801
+    },
+    {
+      "rank": 143,
+      "code": "ETH",
+      "pointsCenti": 107752
+    },
+    {
+      "rank": 144,
+      "code": "DOM",
+      "pointsCenti": 107650
+    },
+    {
+      "rank": 145,
+      "code": "YEM",
+      "pointsCenti": 106524
+    },
+    {
+      "rank": 146,
+      "code": "LES",
+      "pointsCenti": 106429
+    },
+    {
+      "rank": 147,
+      "code": "BOT",
+      "pointsCenti": 106363
+    },
+    {
+      "rank": 148,
+      "code": "SGP",
+      "pointsCenti": 105795
+    },
+    {
+      "rank": 149,
+      "code": "LTU",
+      "pointsCenti": 105685
+    },
+    {
+      "rank": 150,
+      "code": "GUY",
+      "pointsCenti": 104932
+    },
+    {
+      "rank": 151,
+      "code": "NCL",
+      "pointsCenti": 103695
+    },
+    {
+      "rank": 152,
+      "code": "SKN",
+      "pointsCenti": 103633
+    },
+    {
+      "rank": 153,
+      "code": "SOL",
+      "pointsCenti": 103189
+    },
+    {
+      "rank": 154,
+      "code": "PUR",
+      "pointsCenti": 102430
+    },
+    {
+      "rank": 155,
+      "code": "FIJ",
+      "pointsCenti": 102417
+    },
+    {
+      "rank": 156,
+      "code": "HKG",
+      "pointsCenti": 102416
+    },
+    {
+      "rank": 157,
+      "code": "TAH",
+      "pointsCenti": 101904
+    },
+    {
+      "rank": 158,
+      "code": "MYA",
+      "pointsCenti": 101091
+    },
+    {
+      "rank": 159,
+      "code": "MDA",
+      "pointsCenti": 100824
+    },
+    {
+      "rank": 160,
+      "code": "VAN",
+      "pointsCenti": 100253
+    },
+    {
+      "rank": 161,
+      "code": "MLT",
+      "pointsCenti": 99279
+    },
+    {
+      "rank": 162,
+      "code": "ATG",
+      "pointsCenti": 98658
+    },
+    {
+      "rank": 163,
+      "code": "GRN",
+      "pointsCenti": 98182
+    },
+    {
+      "rank": 164,
+      "code": "CUB",
+      "pointsCenti": 98142
+    },
+    {
+      "rank": 165,
+      "code": "SWZ",
+      "pointsCenti": 97901
+    },
+    {
+      "rank": 166,
+      "code": "LCA",
+      "pointsCenti": 97671
+    },
+    {
+      "rank": 167,
+      "code": "BER",
+      "pointsCenti": 97505
+    },
+    {
+      "rank": 168,
+      "code": "PNG",
+      "pointsCenti": 97490
+    },
+    {
+      "rank": 169,
+      "code": "SSD",
+      "pointsCenti": 97094
+    },
+    {
+      "rank": 170,
+      "code": "VIN",
+      "pointsCenti": 96827
+    },
+    {
+      "rank": 171,
+      "code": "AFG",
+      "pointsCenti": 96807
+    },
+    {
+      "rank": 172,
+      "code": "AND",
+      "pointsCenti": 94643
+    },
+    {
+      "rank": 173,
+      "code": "MDV",
+      "pointsCenti": 94392
+    },
+    {
+      "rank": 174,
+      "code": "TPE",
+      "pointsCenti": 92378
+    },
+    {
+      "rank": 175,
+      "code": "CAM",
+      "pointsCenti": 92232
+    },
+    {
+      "rank": 176,
+      "code": "MSR",
+      "pointsCenti": 91675
+    },
+    {
+      "rank": 177,
+      "code": "NEP",
+      "pointsCenti": 91454
+    },
+    {
+      "rank": 178,
+      "code": "MRI",
+      "pointsCenti": 91149
+    },
+    {
+      "rank": 179,
+      "code": "BRB",
+      "pointsCenti": 90989
+    },
+    {
+      "rank": 180,
+      "code": "BLZ",
+      "pointsCenti": 90700
+    },
+    {
+      "rank": 181,
+      "code": "BAN",
+      "pointsCenti": 90293
+    },
+    {
+      "rank": 182,
+      "code": "DMA",
+      "pointsCenti": 89769
+    },
+    {
+      "rank": 183,
+      "code": "CHA",
+      "pointsCenti": 89685
+    },
+    {
+      "rank": 184,
+      "code": "ERI",
+      "pointsCenti": 88706
+    },
+    {
+      "rank": 185,
+      "code": "LAO",
+      "pointsCenti": 88503
+    },
+    {
+      "rank": 186,
+      "code": "COK",
+      "pointsCenti": 87753
+    },
+    {
+      "rank": 187,
+      "code": "SRI",
+      "pointsCenti": 87686
+    },
+    {
+      "rank": 188,
+      "code": "SAM",
+      "pointsCenti": 87641
+    },
+    {
+      "rank": 189,
+      "code": "ARU",
+      "pointsCenti": 87561
+    },
+    {
+      "rank": 190,
+      "code": "MNG",
+      "pointsCenti": 87447
+    },
+    {
+      "rank": 191,
+      "code": "ASA",
+      "pointsCenti": 87161
+    },
+    {
+      "rank": 192,
+      "code": "BHU",
+      "pointsCenti": 87081
+    },
+    {
+      "rank": 193,
+      "code": "MAC",
+      "pointsCenti": 85803
+    },
+    {
+      "rank": 194,
+      "code": "BRU",
+      "pointsCenti": 85773
+    },
+    {
+      "rank": 195,
+      "code": "STP",
+      "pointsCenti": 85544
+    },
+    {
+      "rank": 196,
+      "code": "DJI",
+      "pointsCenti": 85358
+    },
+    {
+      "rank": 197,
+      "code": "CAY",
+      "pointsCenti": 85006
+    },
+    {
+      "rank": 198,
+      "code": "PAK",
+      "pointsCenti": 84028
+    },
+    {
+      "rank": 199,
+      "code": "SOM",
+      "pointsCenti": 83917
+    },
+    {
+      "rank": 200,
+      "code": "TGA",
+      "pointsCenti": 83564
+    },
+    {
+      "rank": 201,
+      "code": "TLS",
+      "pointsCenti": 83100
+    },
+    {
+      "rank": 202,
+      "code": "GIB",
+      "pointsCenti": 82026
+    },
+    {
+      "rank": 203,
+      "code": "GUM",
+      "pointsCenti": 81954
+    },
+    {
+      "rank": 204,
+      "code": "SEY",
+      "pointsCenti": 80416
+    },
+    {
+      "rank": 205,
+      "code": "TCA",
+      "pointsCenti": 80398
+    },
+    {
+      "rank": 206,
+      "code": "LIE",
+      "pointsCenti": 79770
+    },
+    {
+      "rank": 207,
+      "code": "BAH",
+      "pointsCenti": 78682
+    },
+    {
+      "rank": 208,
+      "code": "VIR",
+      "pointsCenti": 77976
+    },
+    {
+      "rank": 209,
+      "code": "VGB",
+      "pointsCenti": 77741
+    },
+    {
+      "rank": 210,
+      "code": "AIA",
+      "pointsCenti": 76025
+    },
+    {
+      "rank": 211,
+      "code": "SMR",
+      "pointsCenti": 72120
+    }
+  ]
+}

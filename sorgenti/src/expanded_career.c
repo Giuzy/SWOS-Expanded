@@ -12,6 +12,7 @@
 #include "career_status.h"
 #include "world.h"
 #include "expanded_world_time.h"
+#include "platform_sdl.h"   /* PlatformInitOptions: the currency in SWOS.ini */
 #include "expanded_debug_month.h" /* pure target-date calculation only */
 #include "expanded_debug.h"
 #ifdef SWOS_SDL_BUILD
@@ -59,31 +60,31 @@ static const char *const s_currencyCodes[] = {"pound", "euro", "dollar"};
 unsigned char Expanded_CurrencyGlyph(void) {
     return s_currency == 1 ? 0x9D : (s_currency == 2 ? '$' : 0x9C);
 }
-static void currency_path(char *out, size_t cap) {
-    snprintf(out, cap, "%s/Expanded_Currency.txt", swos_user_dir());
-}
+/* v342 (user 27/11/2026): the currency lives in SWOS.ini ([general] currency =
+ * pound | euro | dollar), the same key the base game reads; Expanded_Currency.txt
+ * is no longer read or written. The CURRENCY button changes and saves the ini. */
+extern PlatformInitOptions *g_arcadeOpts;
+extern const char *g_arcadeIniPath;
+extern void Settings_Save(const PlatformInitOptions *opts, const char *path);
 static void currency_apply(void) {
     strcpy(_expandedCurrencyText, s_currencyNames[s_currency]);
     Currency_Set(s_currencyCodes[s_currency]);
 }
 void Expanded_CurrencyLoad(void) {
-    char path[1200], buf[24] = {0};
-    currency_path(path, sizeof path);
-    FILE *f = fopen(path, "r");
-    if (f) { if (fgets(buf, sizeof buf, f)) {
-        if (!strncmp(buf, "euro", 4)) s_currency = 1;
-        else if (!strncmp(buf, "dollar", 6)) s_currency = 2;
-    } fclose(f); }
+    const char *v = g_arcadeOpts ? g_arcadeOpts->currency : "";
+    s_currency = 0;
+    if (!strncmp(v, "euro", 4)) s_currency = 1;
+    else if (!strncmp(v, "dollar", 6)) s_currency = 2;
     currency_apply();
 }
 void Expanded_CurrencyMenuInit(void) { currency_apply(); }
 void Expanded_CurrencyChange(MenuEntry *entry) {
     s_currency = (uint8_t)((s_currency + 1) % 3);
     currency_apply();
-    char path[1200]; currency_path(path, sizeof path);
-    FILE *f = fopen(path, "w");
-    if (f) { fprintf(f, "%s\n", s_currencyCodes[s_currency]); fclose(f); }
-    else fprintf(stderr, "[expanded04] cannot save currency %s\n", path);
+    if (g_arcadeOpts && g_arcadeIniPath) {
+        snprintf(g_arcadeOpts->currency, sizeof g_arcadeOpts->currency, "%s", s_currencyCodes[s_currency]);
+        Settings_Save(g_arcadeOpts, g_arcadeIniPath);
+    } else fprintf(stderr, "[expanded04] cannot save currency: settings not loaded\n");
     CallDrawMenuItem(entry);
 }
 

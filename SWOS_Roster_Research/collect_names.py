@@ -5,6 +5,7 @@ from pathlib import Path
 from roster_storage import Store, selftest as storage_selftest
 from http_retry import fetch
 from research_status import report, outcome
+from season_config import output_dir, cutoff, year_value
 
 HERE = Path(__file__).resolve().parent
 MAP = Path('docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json')
@@ -12,6 +13,8 @@ OUT = HERE / 'results_2627'
 CACHE = OUT / 'sources'
 ENDPOINT = 'https://query.wikidata.org/sparql'
 CUTOFF = '2026-07-01T00:00:00Z'
+REFRESH_WIKI = False
+YEAR = 2026
 PREFIX = '''PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX p: <http://www.wikidata.org/prop/>
@@ -92,14 +95,15 @@ def query(sparql):
     data = None
     if dest.exists():
         cached = json.loads(dest.read_text(encoding='utf-8'))
-        if cached.get('results',{}).get('bindings') or time.time()-dest.stat().st_mtime<86400:
+        if not REFRESH_WIKI and (cached.get('results',{}).get('bindings') or time.time()-dest.stat().st_mtime<86400):
             data=cached
     if data is None:
         req = urllib.request.Request(ENDPOINT, data=urllib.parse.urlencode({'query':q,'format':'json'}).encode(), headers={'User-Agent':'SWOS-Expanded-Roster-Research/1.1 (https://github.com/Giuzy/SWOS-Expanded/issues/2)','Accept':'application/sparql-results+json','Content-Type':'application/x-www-form-urlencoded'})
         data = json.loads(fetch(req, timeout=75, interval=3))
         if 'results' not in data or 'bindings' not in data['results']:
             raise ValueError('Unexpected query result')
-        write_json(dest, data)
+        from roster_storage import atomic
+        atomic(dest, data)
         dest.with_suffix('.rq').write_text(q, encoding='utf-8')
     return [{k:v['value'] for k,v in row.items()} for row in data['results']['bindings']]
 
@@ -110,7 +114,8 @@ def league_query(codes):
       {{ ?country wdt:P3441 ?fifa. }} UNION {{ ?entity wdt:P3441 ?fifa; (wdt:P1532|wdt:P17) ?country. }}
       ?league wdt:P17 ?country; wdt:P3983 1; wdt:P2094 ?class.
       VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
-      FILTER NOT EXISTS {{ ?league wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
+      # Other P2094 facets may describe age/status, not a different sex.
+      FILTER NOT EXISTS {{ ?league (wdt:P2094|wdt:P641) ?excludedClass. VALUES ?excludedClass {{ wd:Q606060 wd:Q44418853 wd:Q44418672 wd:Q44418451 wd:Q44418152 wd:Q44408003 wd:Q44417973 wd:Q44417630 wd:Q45053375 wd:Q44417376 }} }}
       FILTER NOT EXISTS {{ ?league wdt:P576 ?end. FILTER(?end < "{CUTOFF}"^^xsd:dateTime) }}
       {LABEL}
     }}'''
@@ -121,10 +126,10 @@ def clubs_query(leagues):
       ?season wdt:P3450 ?league.
       OPTIONAL {{ ?season wdt:P580 ?start. }} OPTIONAL {{ ?season wdt:P582 ?end. }}
       OPTIONAL {{ ?season wdt:P585 ?year. }} OPTIONAL {{ ?season wdt:P1132 ?expected. }}
-      FILTER((BOUND(?start) && ?start >= "2025-07-01T00:00:00Z"^^xsd:dateTime && ?start < "2027-01-01T00:00:00Z"^^xsd:dateTime) || (BOUND(?year) && YEAR(?year)=2026))
+      FILTER((BOUND(?start) && ?start >= "{YEAR-1}-07-01T00:00:00Z"^^xsd:dateTime && ?start < "{YEAR+1}-01-01T00:00:00Z"^^xsd:dateTime) || (BOUND(?year) && YEAR(?year)={YEAR}))
       FILTER(!BOUND(?end) || ?end >= "{CUTOFF}"^^xsd:dateTime)
-      FILTER NOT EXISTS {{ ?season wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
-      OPTIONAL {{ ?season wdt:P1923 ?club. }}
+      FILTER NOT EXISTS {{ ?season (wdt:P2094|wdt:P641) ?excludedClass. VALUES ?excludedClass {{ wd:Q606060 wd:Q44418853 wd:Q44418672 wd:Q44418451 wd:Q44418152 wd:Q44408003 wd:Q44417973 wd:Q44417630 wd:Q45053375 wd:Q44417376 }} }}
+      OPTIONAL {{ {{ ?season wdt:P1923 ?club. }} UNION {{ ?club wdt:P1344 ?season. }} }}
       {LABEL}
     }}'''
 
@@ -132,10 +137,11 @@ def players_query(clubs):
     return f'''SELECT DISTINCT ?club ?player ?playerLabel ?membership ?start ?end WHERE {{
       VALUES ?club {{ {values(clubs)} }}
       ?player wdt:P106 wd:Q937857; wdt:P21 wd:Q6581097; p:P54 ?membership.
-      ?membership ps:P54 ?club; pq:P580 ?start; wikibase:rank ?rank.
+      ?membership ps:P54 ?club; wikibase:rank ?rank.
+      OPTIONAL {{ ?membership pq:P580 ?start. }}
       FILTER(?rank != wikibase:DeprecatedRank)
       OPTIONAL {{ ?membership pq:P582 ?end. }}
-      FILTER(?start <= "{CUTOFF}"^^xsd:dateTime)
+      FILTER(!BOUND(?start) || ?start <= "{CUTOFF}"^^xsd:dateTime)
       FILTER(!BOUND(?end) || ?end >= "{CUTOFF}"^^xsd:dateTime)
       FILTER NOT EXISTS {{ ?membership pq:P3831 ?role. FILTER(?role IN (wd:Q3246315,wd:Q18052877)) }}
       {LABEL}
@@ -168,7 +174,7 @@ def existing_query(fifa,name):
        {{ ?country wdt:P3441 {json.dumps(fifa)}. }} UNION {{ ?entity wdt:P3441 {json.dumps(fifa)}; (wdt:P1532|wdt:P17) ?country. }}
        ?club (rdfs:label|<http://www.w3.org/2004/02/skos/core#altLabel>) ?label; wdt:P17 ?country; wdt:P2094 ?class.
        VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
-       FILTER NOT EXISTS {{ ?club wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
+       FILTER NOT EXISTS {{ ?club (wdt:P2094|wdt:P641) ?excludedClass. VALUES ?excludedClass {{ wd:Q606060 wd:Q44418853 wd:Q44418672 wd:Q44418451 wd:Q44418152 wd:Q44408003 wd:Q44417973 wd:Q44417630 wd:Q45053375 wd:Q44417376 }} }}
        {LABEL}
     }}"""
 def merge_players(club,rows,known):
@@ -189,7 +195,7 @@ def merge_players(club,rows,known):
 def extra_candidates_by_name(owner,native_names):
     """Compute import review groups; never create a second roster or write TEAM."""
     groups={}
-    for field in ("players","alternative_players","transfermarkt_players"):
+    for field in ("players","alternative_players","transfermarkt_players","wikidata_undated_players","wiki_squad_players"):
         for row in owner.get(field,[]):
             label=row.get("playerLabel")
             if placeholder(label):continue
@@ -204,13 +210,19 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--self-test",action="store_true")
     ap.add_argument("--repo-root",type=Path,default=HERE.parent)
+    ap.add_argument("--year",type=year_value,default=2026,help="Starting calendar year; later years use separate all-country research output")
     ap.add_argument("--export-only",action="store_true")
+    ap.add_argument("--restart-from-json",action="store_true",help="Use separate resumable work DB seeded from published shards; preserve original SQLite and WAL")
+    ap.add_argument("--refresh-wiki",action="store_true",help="Refresh cached Wikidata queries and Wikipedia pages")
+    ap.add_argument("--skip-wikipedia",action="store_true")
     ap.add_argument("--prepare-import",action="store_true",help="Read published JSON only, generate country candidate lists; no downloads")
     ap.add_argument("--country",help="Limit import preview to one FIFA code (requires --prepare-import)")
     ap.add_argument("--skip-alternative",action="store_true")
     ap.add_argument("--alternative-only",action="store_true")
     ap.add_argument("--skip-transfermarkt",action="store_true")
     args=ap.parse_args()
+    global REFRESH_WIKI
+    REFRESH_WIKI=args.refresh_wiki
     assert placeholder("TEST 1") and placeholder("RESERVE 2") and not placeholder("A B")
     assert "P2094 ?class" in league_query(["BHU"])
     c={};sample={"player":"Q1","playerLabel":"Real Name","start":"2026-01-01"}
@@ -248,6 +260,12 @@ def main():
             else:
                 raise AssertionError("Concurrent modification not detected")
         storage_selftest()
+        from wiki_sources import selftest as wiki_selftest
+        wiki_selftest()
+        from season_config import selftest as season_selftest
+        season_selftest()
+        from annual_delta import selftest as delta_selftest
+        delta_selftest()
         from alternative_sources import selftest as alt_selftest
         alt_selftest()
         from transfermarkt_source import selftest as tm_selftest
@@ -255,21 +273,36 @@ def main():
         from import_candidates import selftest as import_selftest
         import_selftest()
         print("Self-test PASS");return
-    root=args.repo_root.resolve();raw=(root/MAP).read_bytes();national=json.loads(raw)["records"]
+    global YEAR, CUTOFF, OUT, CACHE
+    YEAR=args.year;CUTOFF=cutoff(YEAR)
+    root=args.repo_root.resolve();OUT=output_dir(root,YEAR);CACHE=OUT/"sources"
+    raw=(root/MAP).read_bytes();national=json.loads(raw)["records"]
     if args.country:args.country=args.country.upper()
     from import_candidates import prepare as prepare_import
-    out=root/"SWOS_Roster_Research/results_2627";preview=out/"import_candidates"
+    out=OUT;preview=out/"import_candidates"
     if args.prepare_import:
-        prepare_import(out/"candidates.json",preview,args.country);return
-    targets=[dict(fifa=r["fifa"],name=r["source"]["name"],new=r["expanded"]["globalNumber"]>=2560) for r in national if r["source"]["team_file"]==255]
+        prepare_import(out/"candidates.json",preview,args.country,year=YEAR)
+        if YEAR!=2026:
+            from annual_delta import write_delta
+            write_delta(root,YEAR,scope='rosters')
+        return
+    targets=[dict(fifa=r["fifa"],name=r["source"]["name"],new=r["expanded"]["globalNumber"]>=2560) for r in national if YEAR!=2026 or r["source"]["team_file"]==255]
     targets.sort(key=lambda r:(not r["new"],r["fifa"]))
     if args.country:ap.error("--country requires --prepare-import")
     index=existing_index(root);path=OUT/"candidates.json";CACHE.mkdir(parents=True,exist_ok=True)
-    store=Store(path,OUT/'research.sqlite3')
+    if not path.exists() and YEAR!=2026:
+        from roster_storage import atomic
+        atomic(path,{"targets":[],"existing_club_gaps":{},"errors":[],"cutoff":CUTOFF,"status":"CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME","researchYear":YEAR})
+    dbpath=OUT/('research.sqlite3.restart' if args.restart_from_json else 'research.sqlite3')
+    print('Roster work database:',dbpath,flush=True)
+    store=Store(path,dbpath)
     results=store.load()
     if args.export_only:
         try:
-            store.publish();prepare_import(path,preview,data=results)
+            store.publish();prepare_import(path,preview,data=results,year=YEAR)
+            if YEAR!=2026:
+                from annual_delta import write_delta
+                write_delta(root,YEAR,scope='rosters')
         finally:store.close()
         return
     # Recover/publish work from earlier interrupted or pre-checkpoint runs first.
@@ -289,7 +322,9 @@ def main():
             report("Roster country JSON","SAVED","SQLite checkpoint published")
         return changed
     cp.save=save_sqlite
-    cp.update(results,status="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",map_sha256=hashlib.sha256(raw).hexdigest())
+    if results.get("researchYear",2026)!=YEAR:
+        store.close();raise RuntimeError("Research year mismatch")
+    cp.update(results,status="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",map_sha256=hashlib.sha256(raw).hexdigest(),researchYear=YEAR)
     cp.ensure(results,"existing_club_gaps",{})
     cp.ensure(results,"errors",[])
     bycode={x["fifa"]:x for x in results["targets"]}
@@ -319,8 +354,9 @@ def main():
         for v in matches.values():
             uid=v["uuid"]
             if not uid:continue
-            if len(v["players"])>=30 and not v["test_slots"]:continue
-            known[uid]=v["players"]
+            if YEAR==2026 and len(v["players"])>=30 and not v["test_slots"]:continue
+            # Later years collect complete observed rosters, not only absent names.
+            known[uid]=v["players"] if YEAR==2026 else set()
             cs=rawmap.get(v["country"],set()) if not v["file"].startswith("GUESTS_") else set()
             e=cp.ensure(gaps,uid,{"name":v["name"],"file":v["file"],"players":[],"status":"NO DATA","identity_candidates":[]})
             cp.update(e,real_names=len(v["players"]),test_slots=v["test_slots"],extra_count=v["extra_count"],capacity_gap=max(0,30-len(v["players"])),association=next(iter(cs)) if len(cs)==1 else None)
@@ -332,12 +368,14 @@ def main():
             cp.ensure(gaps,key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
     save()
     from transfermarkt_source import Transfermarkt
-    tm=Transfermarkt(CACHE,cp,results,national,known)
+    from wiki_sources import Wiki, league_club_query, valid_club_name
+    wiki=Wiki(CACHE,cp,results,query,refresh=args.refresh_wiki)
+    tm=Transfermarkt(CACHE,cp,results,national,known,year=YEAR)
     def alternative(phase):
         if not args.skip_alternative:
             try:
                 from alternative_sources import acquire
-                acquire(results,cp,CACHE,root,known,phase=phase)
+                acquire(results,cp,CACHE,root,known,phase=phase,year=YEAR)
                 save()
             except Exception as e:
                 error={"phase":"OpenFootballBase/"+phase,"error":str(e)}
@@ -354,7 +392,13 @@ def main():
             for q in group:
                 for c,k in byclub[q]:
                     before=len(c.get("players",[]))
-                    if merge_players(c,[r for r in rr if qid(r["club"])==qid(q)],k):cp.dirty=True
+                    candidates=[r for r in rr if qid(r["club"])==qid(q)]
+                    if merge_players(c,candidates,k):cp.dirty=True
+                    for r in candidates:
+                        if not r.get('start') and r.get('playerLabel') and norm(r['playerLabel']) not in k:
+                            leads=cp.ensure(c,'wikidata_undated_players',[])
+                            row=dict(r,scope='MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1')
+                            if row not in leads:cp.append(leads,row)
                     added+=len(c.get("players",[]))-before
             save()
             if not query_failed:report("Wikidata "+label,*outcome(len(rr),added))
@@ -365,7 +409,7 @@ def main():
             for t in targets:
                 c=bycode[t["fifa"]]
                 label="League "+t["fifa"]
-                if c.get("leagues"):
+                if c.get("leagues") and not args.refresh_wiki:
                     report("Wikidata "+label,"SKIPPED","existing league candidates")
                     continue
                 rr=run(league_query([t["fifa"]]),label)
@@ -385,11 +429,20 @@ def main():
                         s=next((s for s in l["seasons"] if s["season"]==r["season"]),None)
                         if s is None:
                             s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];cp.append(l["seasons"],s)
-                        if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):
+                        if r.get("club") and valid_club_name(r.get('clubLabel','')) and not any(x["club"]==r["club"] for x in s["clubs"]):
                             cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"});added+=1
                 save()
                 if not query_failed:report("Wikidata "+label,*outcome(sum(bool(x.get("club")) for x in rr),added))
-        prepare_import(path,preview,include_extras=False,data=results)
+            # P118 is a league/club identity lead, not proof of the 2026 edition.
+            for t in targets:
+                owner=bycode[t['fifa']]
+                for l in owner['leagues']:
+                    if any(s.get('clubs') for s in l.get('seasons',[])):continue
+                    for row in run(league_club_query([l['league']]),'League clubs '+t['fifa']+'/'+qid(l['league'])):
+                        if valid_club_name(row.get('clubLabel','')):
+                            wiki.add(owner,'wiki_club_leads',dict(row,country=t['fifa'],scope='LEAGUE_IDENTITY_NOT_EDITION'))
+                    save()
+        prepare_import(path,preview,include_extras=False,data=results,year=YEAR)
         print("PHASE 2/3: players of discovered clubs",flush=True)
         alternative("players")
         if not args.alternative_only:
@@ -400,7 +453,10 @@ def main():
                     for s in l["seasons"]:
                         for c in s["clubs"]:byclub.setdefault(c["club"],[]).append((c,set()))
             collect_players(byclub)
-        prepare_import(path,preview,include_extras=False,data=results)
+        if not args.skip_wikipedia and not args.alternative_only:
+            for t in targets:
+                wiki.target(bycode[t['fifa']]);save()
+        prepare_import(path,preview,include_extras=False,data=results,year=YEAR)
         print("PHASE 3/3: existing club roster gaps / extra players",flush=True)
         alternative("extras")
         if not args.alternative_only:
@@ -417,12 +473,21 @@ def main():
                     byclub.setdefault(qs[0],[]).append((e,known[uid]))
                 elif qs:report("Wikidata extras "+e["association"]+"/"+e["name"],"REVIEW","ambiguous identity")
             collect_players(byclub)
+        if not args.skip_wikipedia and not args.alternative_only:
+            wiki.bridge([row for uid,e in gaps.items() if uid in known for row in e.get('transfermarkt_clubs',[])])
+            save()
+            for uid,e in sorted(gaps.items()):
+                if uid in known and e.get('association'):
+                    wiki.extra(e,known[uid]);save()
     finally:
         try:
             save();store.publish()
         finally:store.close()
     groups=[extra_candidates_by_name(e,known[uid]) for uid,e in gaps.items() if uid in known]
-    prepare_import(path,preview,data=results)
+    prepare_import(path,preview,data=results,year=YEAR)
+    if YEAR!=2026:
+        from annual_delta import write_delta
+        write_delta(root,YEAR,scope='rosters')
     print("EXTRA review: distinct missing club/name groups",sum(map(len,groups)),
           "multi-observation groups",sum(len(v)>1 for g in groups for v in g.values()),
           "(not certified players)",flush=True)

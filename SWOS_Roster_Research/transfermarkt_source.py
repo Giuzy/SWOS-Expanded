@@ -145,7 +145,7 @@ def season_tokens(text):
         else:found.add(t)
     return found
 
-def season_label(page,kind,identity,expected_id=None):
+def season_label(page,kind,identity,expected_id=None,year=2026):
     ids=page_route_ids(page,kind)
     if expected_id and ids and ids!={expected_id}:raise ValueError("Page ID mismatch")
     exact=bool(expected_id and ids=={expected_id})
@@ -164,8 +164,8 @@ def season_label(page,kind,identity,expected_id=None):
         # Squad headings often omit the year; page title supplies it.
         matching=[t for t in titles if not BAD.search(t) and (norm(identity) in norm(t) or exact)]
         tokens=set().union(*(season_tokens(t) for t in matching))
-    if tokens=={"26/27"}:return "2026/27"
-    if tokens=={"2026"}:return "2026"
+    if tokens=={f"{year%100:02d}/{(year+1)%100:02d}"}:return f"{year}/{(year+1)%100:02d}"
+    if tokens=={str(year)}:return str(year)
     raise ValueError("Requested season not evidenced or ambiguous: "+str(sorted(tokens)))
 
 def table_links(page,pattern):
@@ -191,7 +191,8 @@ def table_links(page,pattern):
     return candidates[0]
 
 class Transfermarkt:
-    def __init__(self,cache,cp,results,national,known):
+    def __init__(self,cache,cp,results,national,known,year=2026):
+        self.year=year
         self.cache=cache/"transfermarkt";self.cp=cp;self.results=results;self.known=known
         self.names={r["fifa"]:r["source"]["name"] for r in national}
         self.blocked=False;self.options=None;self.directory=None;self.discovered={};self.error_count=0
@@ -246,12 +247,12 @@ class Transfermarkt:
             return self.discovered[key]
         country_id=self.country_id(c)
         out=[]
-        for code,(name,level) in leagues(self.page(COUNTRY+country_id+"/saison_id/2026"),country_id,maxlevel).items():
-            path="/-/startseite/wettbewerb/"+code+"/saison_id/2026"
+        for code,(name,level) in leagues(self.page(COUNTRY+country_id+"/saison_id/"+str(self.year)),country_id,maxlevel).items():
+            path="/-/startseite/wettbewerb/"+code+"/saison_id/"+str(self.year)
             try:
                 report("Transfermarkt "+c+"/"+code,"SEARCHING",name)
                 before=len(out)
-                page=self.page(path);season=season_label(page,"clubs",name,code)
+                page=self.page(path);season=season_label(page,"clubs",name,code,self.year)
                 # Positive domestic tier inherited from exact country selector.
                 for cid,club in table_links(page,r"/startseite/verein/([1-9][0-9]*)(?:/|$)").items():
                     out.append({"club":club,"transfermarktClubId":cid,"country":c,"competition":code,"competitionName":name,"level":level,"season":season,"source":BASE+path,"scope":SCOPE})
@@ -262,12 +263,12 @@ class Transfermarkt:
         self.discovered[key]=out
         return out
     def players(self,entry,owner,known):
-        path="/-/kader/verein/"+entry["transfermarktClubId"]+"/saison_id/2026"
+        path="/-/kader/verein/"+entry["transfermarktClubId"]+"/saison_id/"+str(self.year)
         label="Transfermarkt players "+entry["country"]+"/"+entry["club"]
         report(label,"SEARCHING")
         before=len(owner.get("transfermarkt_players",[]));reviews=len(owner.get("name_matches",[]));found=0
         page=self.page(path)
-        if season_label(page,"players",entry["club"],entry["transfermarktClubId"])!=entry["season"]:raise ValueError("Squad season mismatch")
+        if season_label(page,"players",entry["club"],entry["transfermarktClubId"],self.year)!=entry["season"]:raise ValueError("Squad season mismatch")
         for pid,name in table_links(page,r"/profil/spieler/([1-9][0-9]*)(?:/|$)").items():
             if norm(name) in known:continue
             found+=1

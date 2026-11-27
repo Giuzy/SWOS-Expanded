@@ -1,3 +1,6 @@
+## 27/11/2026 — Writer ricerca, annualità e guardia SQLite
+V Store export_pending ha hash old/new; divergenza COM correttamente blocca export; causa locale ignota. Nuova ricerca esplicita con DB separato, senza modificare Store né cancellare DB precedente. Wiki/WP/WD/TM/OFB separano fonte, identità e scope data; import preview non runtime. annual_delta confronta osservazioni per ID/UUID; non implica trasferimenti, cessazioni o promozioni. RG-RESEARCH-WIKI-ANNUAL.
+
 ## 27/11/2026 — Nominal club UI lifecycle v00.13.352
 V mode4 di SelectTeamsFinalMenu era una lista paesi riusata per nomi giocatori. Sostituito con lettura nominale nel renderer VIEW SQUAD già usato dai club nativi: zero fake TeamFile/PlayerFile. START selection unwinds picker before opening nominal welcome and contest in existing modal menus; no InitCareer for nominal clubs, no CAR write, no TSKC/template callbacks, existing read-only WORLD unbound viewer; native path unchanged. Nominal squad viewport at row 0/16 scrolls source names, B edge consumed before parent WORLD picker. Existing art gate; no layout asset changes. Scope UI trial only, no signed persisted contract. Source audit 398 transitions/all 496 names, C/Windows/GP/CAR NP. Canonical evidence/QA: RG-NOMINAL-CAREER-UI-2627.
 

@@ -6,7 +6,7 @@ from research_status import report
 from alternative_sources import BAD, norm
 from transfermarkt_source import NON_LEAGUE
 
-SEASONS={"2026":"2026","2026/27":"2026/27","26/27":"2026/27"}
+from season_config import season_map, edition_label, cutoff
 def qid(v):
     m=re.fullmatch(r"(?:https?://www.wikidata.org/entity/)?(Q[1-9][0-9]*)",str(v or ""))
     return m[1] if m else None
@@ -14,7 +14,8 @@ def valid_name(v):
     return isinstance(v,str) and bool(v.strip()) and not BAD.search(v) and not re.fullmatch(r"(?:TEST|RESERVE)(?:\s+\d+)?",v.strip(),re.I)
 def tm_id(v):
     return str(v) if re.fullmatch(r"[1-9][0-9]*",str(v)) else None
-def build(target):
+def build(target,year=2026):
+    SEASONS=season_map(year)
     country=target["fifa"]; clubs={}; warnings=[]; leagues={}
     def add(source,cid,name,season,competition,level,proof=None):
         season=SEASONS.get(season)
@@ -54,12 +55,29 @@ def build(target):
         if not lid or not valid_name(league.get("leagueLabel")) or NON_LEAGUE.search(league["leagueLabel"]):continue
         for edition in league.get("seasons",[]):
             label=str(edition.get("seasonLabel",""))
-            years=re.findall(r"(?<!\d)202[0-9](?!\d)",label)
-            season="2026/27" if years==["2026","2027"] or re.search(r"\b2026[/–-]27\b",label) else "2026" if years==["2026"] and not re.search(r"\b2026[/–-]\d",label) else None
+            season=edition_label(label,year)
             if not season:continue
             for entry in edition.get("clubs",[]):
                 club=add("WD",qid(entry.get("club")),entry.get("name"),season,lid,1,qid(edition.get("season")))
                 for p in entry.get("players",[]):player(club,"WD",qid(p.get("player")),p.get("playerLabel"),season,lid)
+    # Current Wikipedia rosters are surfaced separately, never counted as a
+    # verified 2026/27 membership or used to promote roster readiness.
+    wiki_leads=[]
+    for row in target.get("wiki_club_leads",[]):
+        if row.get("country")==country and qid(row.get("club")) and valid_name(row.get("clubLabel")):
+            wiki_leads.append(row)
+    wiki_rows=[r for r in target.get("wiki_squad_players",[]) if r.get("country")==country and r.get("scope")=="CURRENT_SQUAD_NOT_JULY1_OR_EDITION" and valid_name(r.get("playerLabel"))]
+    for (source,cid),club in clubs.items():
+        club["wikiCurrentRoster"]=[r for r in wiki_rows if r.get("clubSource")==source and r.get("clubSourceId")==cid]
+        club["wikiCurrentCount"]=len({norm(r["playerLabel"]) for r in club["wikiCurrentRoster"]})
+        club["wikidataUndatedRoster"]=[]
+        if source=="WD":
+            for league in target.get("leagues",[]):
+                for edition in league.get("seasons",[]):
+                    for entry in edition.get("clubs",[]):
+                        if qid(entry.get("club"))==cid:
+                            for row in entry.get("wikidata_undated_players",[]):
+                                if row not in club["wikidataUndatedRoster"]:club["wikidataUndatedRoster"].append(row)
     groups={}
     for key,club in clubs.items():groups.setdefault(norm(club["name"]),[]).append(key)
     for keys in groups.values():
@@ -77,14 +95,16 @@ def build(target):
         c["status"]="IDENTITY_REVIEW" if c["issues"] else "NOMINAL_ROSTER_16_PLUS" if max(c["nominalBySeason"].values(),default=0)>=16 else "ROSTER_INCOMPLETE"
         result.append(c)
     return {"schema":"SWOS_NOMINAL_IMPORT_CANDIDATES_1","country":country,"newCountry":bool(target.get("new")),
-            "scope":"2026/27 candidates only; not July 1 membership; no native IDs, skill values, official entrants or runtime approval",
+            "researchYear":year,"scope":"Season candidates only; not July 1 membership; no native IDs, skill values, official entrants or runtime approval",
             "clubs":result,"competitions":[dict(v,clubs=sorted(v["clubs"])) for k,v in sorted(leagues.items())],
-            "warnings":sorted(set(warnings)),"nameMatches":target.get("name_matches",[])}
-def extras_for_club(uid,owner,native):
+            "warnings":sorted(set(warnings)),"nameMatches":target.get("name_matches",[]),
+            "wikiClubIdentityLeads":wiki_leads,"wikiCurrentSquadObservations":wiki_rows}
+def extras_for_club(uid,owner,native,year=2026):
+    SEASONS=season_map(year)
     country=owner.get("association")
     if not country or not native or norm(owner.get("name",""))!=norm(native["name"]):
         return {"clubKey":uid,"name":owner.get("name"),"status":"IDENTITY_REVIEW","groups":[]}
-    from collect_names import CUTOFF
+    CUTOFF=cutoff(year)
     candidates={}
     for field,source,idfield,idfn in (("players","WD","player",qid),("alternative_players","OFB","player",qid),("transfermarkt_players","TM","transfermarktPlayerId",tm_id)):
         for row in owner.get(field,[]):
@@ -107,10 +127,29 @@ def extras_for_club(uid,owner,native):
             obs={"source":source,"sourceId":pid,"season":season,"name":label,"evidence":row.get("source") or row.get("membership"),"competitionId":row.get("competition")}
             group=candidates.setdefault(norm(label),[])
             if obs not in group:group.append(obs)
+    # Undated Wikidata and current Wikipedia rows are review leads only.
+    ids={qid(x) for x in owner.get("identity_candidates",[])}-{None}
+    for row in owner.get("wikidata_undated_players",[]):
+        label=row.get("playerLabel");pid=qid(row.get("player"))
+        if len(ids)==1 and qid(row.get("club")) in ids and pid and valid_name(label) and norm(label) not in native["players"]:
+            obs={"source":"WD","sourceId":pid,"name":label,"season":"MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1","evidence":row.get("membership")}
+            group=candidates.setdefault(norm(label),[])
+            if obs not in group:group.append(obs)
+    # Current Wikipedia rows are extra leads, not July-dated evidence.
+    for row in owner.get("wiki_squad_players",[]):
+        label=row.get("playerLabel")
+        if (row.get("country")==country and row.get("clubSource")=="EXTRA_WD" and
+            row.get("scope")=="CURRENT_SQUAD_NOT_JULY1_OR_EDITION" and valid_name(label) and
+            row.get("wikiPlayerPage") and norm(label) not in native["players"] and
+            norm(row.get("club",""))==norm(native["name"])):
+            obs={"source":"WP","sourceId":row["wikiPlayerPage"],"name":label,
+                 "season":"CURRENT_SQUAD_NOT_JULY1_OR_EDITION","evidence":row.get("source")}
+            group=candidates.setdefault(norm(label),[])
+            if obs not in group:group.append(obs)
     groups=[]
     for name,obs in sorted(candidates.items()):
         ids={(item["source"],item["sourceId"]) for item in obs}
-        groups.append({"name":obs[0]["name"],"normalizedName":name,"status":"IDENTITY_REVIEW" if len(ids)>1 else "NOMINAL_CANDIDATE","observations":obs})
+        groups.append({"name":obs[0]["name"],"normalizedName":name,"status":"IDENTITY_REVIEW" if len(ids)>1 else "CURRENT_SQUAD_REVIEW" if obs[0]["season"] in ("CURRENT_SQUAD_NOT_JULY1_OR_EDITION","MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1") else "NOMINAL_CANDIDATE","observations":obs})
     return {"clubKey":uid,"name":native["name"],"file":native.get("file"),"association":country,
             "status":"CANDIDATES" if groups else "NO DATA","existingRealNames":len(native["players"]),
             "testSlots":native.get("test_slots",0),"existingExtras":native.get("extra_count",0),
@@ -142,17 +181,19 @@ def native_index(root):
             out[uid]={"name":c["name"],"file":"bottom_pools.json","players":set(),"test_slots":c["roster"].get("base_slots",16),"associations":rawmap.get(c.get("country"),set())}
     return out
 
-def prepare(snapshot,output,only=None,include_extras=True,data=None):
+def prepare(snapshot,output,only=None,include_extras=True,data=None,year=2026):
     if only and not re.fullmatch(r"[A-Z]{3}",only):raise ValueError("Invalid FIFA country code")
     if data is None:data=load_snapshot(snapshot)
+    if data.get("researchYear",2026)!=year:raise ValueError("Import research year mismatch")
     summary=[]
     for t in data["targets"]:
         if only and t["fifa"]!=only:continue
-        v=build(t);atomic(output/"clubs"/(t["fifa"]+".json"),v)
+        v=build(t,year);atomic(output/"clubs"/(t["fifa"]+".json"),v)
         n=len(v["clubs"]);p=sum(c["nominalCount"] for c in v["clubs"])
         ready=sum(c["status"]=="NOMINAL_ROSTER_16_PLUS" for c in v["clubs"])
         review=sum(c["status"]=="IDENTITY_REVIEW" for c in v["clubs"])
-        summary.append({"country":t["fifa"],"clubCandidates":n,"playerObservations":p,"nominal16Plus":ready,"identityReview":review,"competitions":len(v["competitions"])})
+        summary.append({"country":t["fifa"],"clubCandidates":n,"playerObservations":p,"nominal16Plus":ready,"identityReview":review,"competitions":len(v["competitions"]),
+                        "wikiClubIdentityLeads":len(v["wikiClubIdentityLeads"]),"wikiCurrentSquadObservations":len(v["wikiCurrentSquadObservations"])})
         report("Import "+t["fifa"],"FOUND" if n else "NO DATA",f"{n} club candidates, {p} player observations, {ready} with 16+ names, {review} identity reviews")
     extra_summary=[]
     if include_extras:
@@ -163,14 +204,14 @@ def prepare(snapshot,output,only=None,include_extras=True,data=None):
             if only and country!=only:continue
             n=native.get(uid)
             if n and n["associations"]!={country}:n=None
-            v=extras_for_club(uid,e,n)
+            v=extras_for_club(uid,e,n,year)
             groups.setdefault(country,[]).append(v)
         for country,clubs in sorted(groups.items()):
             n=sum(len(c["groups"]) for c in clubs)
             atomic(output/"extras"/(country+".json"),{"schema":"SWOS_NOMINAL_EXTRA_CANDIDATES_1","country":country,"clubs":clubs})
             extra_summary.append({"country":country,"clubs":len(clubs),"nameGroups":n})
             report("Import EXTRA "+country,"FOUND" if n else "NO DATA",f"{n} distinct club/name groups; not native player slots")
-    atomic(output/("INDEX_"+only+".json" if only else "INDEX.json"),{"schema":"SWOS_NOMINAL_IMPORT_INDEX_1","countries":summary,"extras":extra_summary,"extrasIncluded":include_extras})
+    atomic(output/("INDEX_"+only+".json" if only else "INDEX.json"),{"schema":"SWOS_NOMINAL_IMPORT_INDEX_1","researchYear":year,"countries":summary,"extras":extra_summary,"extrasIncluded":include_extras})
     return summary
 def selftest():
     a={"fifa":"BHU","new":True,"transfermarkt_clubs":[],"transfermarkt_players":[]}

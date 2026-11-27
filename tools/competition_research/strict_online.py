@@ -273,6 +273,8 @@ def selftest():
     assert not missing({"fields":{"july1":"?"}},"july1")
 def main():
     a=argparse.ArgumentParser();a.add_argument("--self-test",action="store_true");a.add_argument("--repo-root",type=Path,default=ROOT);a.add_argument("--refresh",action="store_true");a.add_argument("--country");a.add_argument("--world",choices=("9697","2627"),default="2627")
+    from season_config import year_value,output_dir,cutoff
+    a.add_argument("--year",type=year_value,default=2026,help="Later years: isolated domestic identity/entrant survey; no old matrix writes")
     x=a.parse_args();selftest()
     from domestic_discovery import selftest as domestic_selftest, run as domestic_run
     # Synthetic country runs must never look like live acquisitions.
@@ -282,7 +284,18 @@ def main():
     if x.country:x.country=x.country.upper()
     if x.self_test:print("Self-test PASS");return
     root=x.repo_root.resolve()
-    if x.world=="2627":domestic_run(root,x.country)
+    if x.year!=2026 and x.world!="2627":a.error("--year cannot be combined with historical world")
+    if x.world=="2627":
+        import collect_names as roster_wiki
+        roster_wiki.YEAR=x.year;roster_wiki.CUTOFF=cutoff(x.year)
+        roster_wiki.CACHE=output_dir(root,x.year)/"sources"/"competition_wiki"
+        roster_wiki.CACHE.mkdir(parents=True,exist_ok=True)
+        roster_wiki.REFRESH_WIKI=x.refresh
+        domestic_run(root,x.country,wiki_query=roster_wiki.query,year=x.year)
+    if x.year!=2026:
+        from annual_delta import write_delta
+        write_delta(root,x.year,scope='competitions')
+        return
     apply(root,refresh=x.refresh,only_country=x.country,only_world=x.world)
     if x.world=="2627":
         from import_candidates import prepare

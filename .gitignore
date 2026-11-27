@@ -69,7 +69,8 @@ RAPPORTO_PULIZIA_SWOS.txt
 /SWOS_Roster_Research/results_2627/sources/
 
 # Research work databases and third-party source data stay local.
-/SWOS_Roster_Research/results_2627/research.sqlite3*
+/SWOS_Roster_Research/results_*/research.sqlite3*
+/SWOS_Roster_Research/results_*/sources/
 /SWOS_Roster_Research/.venv/
 /SWOS_Roster_Research/__pycache__/
 /SWOS_Roster_Research/ea_local/*

@@ -108,17 +108,18 @@ def add_unique(cp,owner,field,row):
 
 MALE_LEAGUES={"ENG-PL","ENG-CH","ESP-LL","ESP-SD","ITA-SA","ITA-SB","DEU-BL","DEU-B2","FRA-L1","FRA-L2","BEL-PL","PRT-PL","NLD-ED","TUR-SL","USA-MLS","SAU-PL","BRA-SA","ARG-PD"}
 MALE_LABELS={"men","male","men's association football","men's football","football masculin","football association masculin","association football masculin","masculin","hommes","männlicher fußball"}
-def scoped(country,club,category,competition,level,season,allowed,competition_code=None):
+def scoped(country,club,category,competition,level,season,allowed,competition_code=None,year=2026):
     c=code(country,allowed)
     if not c or not club or not competition or BAD.search(str(club)) or BAD.search(str(competition)) or BAD.search(str(category or "")):return None
     # OFB men's league catalogue is explicit in its published coverage; require
     # positive male club category, domestic league level, exact target season.
     label=str(category or "").strip().casefold()
     if label not in MALE_LABELS and not (not label and competition_code in MALE_LEAGUES):return None
-    if type(level)!=int or level not in range(1,5) or season not in ("2026","2026/27"):return None
+    from season_config import seasons
+    if type(level)!=int or level not in range(1,5) or season not in seasons(year):return None
     return c
 
-def acquire(results,cp,cache,root,known,phase):
+def acquire(results,cp,cache,root,known,phase,year=2026):
     if phase not in ('clubs','players','extras'):raise ValueError('Unknown research phase')
     import duckdb
     allowed={x["fifa"] for x in json.loads((root/"docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json").read_text(encoding="utf-8-sig"))["records"]}
@@ -145,9 +146,10 @@ def acquire(results,cp,cache,root,known,phase):
             countries=set(targets) if phase!="extras" else {c for c,_ in gaps}
             label="OpenFootballBase "+phase
             required=("club_season",) if phase=="clubs" else ("club_season","squad")
-            available=[s for s in ("2026","2026/27") if all((s,k) in tables for k in required)]
+            from season_config import seasons
+            available=[s for s in seasons(year) if all((s,k) in tables for k in required)]
             if not available:
-                report(label,"NO ADAPTER","archive has no required 2026/27 edition tables");return
+                report(label,"NO ADAPTER","archive has no required requested edition tables");return
             report(label,"SEARCHING",f"{len(countries)} countries; editions {available}")
             for season in available:
                 eligible={}
@@ -157,7 +159,7 @@ def acquire(results,cp,cache,root,known,phase):
                 for row in sorted(load((season,"club_season")),key=club_country):
                     cl=clubs.get(row["club"],{});comp=competitions.get(row["competition"],{})
                     if row.get("season")!=season or not cl or not comp:continue
-                    c=scoped(comp.get("country_code"),row["club"],cl.get("category"),comp.get("name_en",""),comp.get("level"),season,allowed,row["competition"])
+                    c=scoped(comp.get("country_code"),row["club"],cl.get("category"),comp.get("name_en",""),comp.get("level"),season,allowed,row["competition"],year)
                     if not c or code(cl.get("country_code"),allowed)!=c:continue
                     q=cl.get("wikidata_qid")
                     if not isinstance(q,str) or not re.fullmatch(r"Q[1-9][0-9]*",q):continue

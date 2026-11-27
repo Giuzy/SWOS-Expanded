@@ -213,8 +213,27 @@ TeamFileEx *GetTeamPointer(uint16_t teamId)
      * first word of each record. */
     LoadTeamFile((uint16_t)(teamId >> 8));
     TeamFileEx *ptr = (TeamFileEx *)((uint8_t *)(&_teamFileBuffer) + 2);  /* skip 2-byte count header */
+#ifdef SWOS_SDL_BUILD
+    {   /* v342 (27/11/2026, VERIFIED crash 0xCC31): a CE club that is NOT in its country's
+         * TEAM file (bottom-pool / shared-pool club, e.g. 44:81 NORTH GEELONG W.) made this
+         * unbounded scan run past the file into garbage. Bounded scan; such a club is the
+         * CE catalog's persistent roster. */
+        const uint16_t tfCount = *(uint16_t *)&_teamFileBuffer;
+        uint16_t k;
+        for (k = 0; k < tfCount; ++k, ++ptr)
+            if (PACK_BE_U16(ptr->team.countryNumber, ptr->team.teamOrdinal) == teamId) break;
+        if (k == tfCount) {
+            extern TeamFileEx *ExpandedUniversalCatalog_RosterByRaw(uint16_t raw);
+            TeamFileEx *cat = ExpandedUniversalCatalog_RosterByRaw(teamId);
+            if (cat) return cat;
+            fprintf(stderr, "[team-ptr] TEAM_NOT_FOUND id=%04x file-count=%u\n", (unsigned)teamId, (unsigned)tfCount);
+            ptr = (TeamFileEx *)((uint8_t *)(&_teamFileBuffer) + 2);
+        }
+    }
+#else
     while (PACK_BE_U16(ptr->team.countryNumber, ptr->team.teamOrdinal) != teamId)
         ptr++;
+#endif
 
     /* Apply foreign market player patches */
     Career_PatchTeamWithForeignMarketPlayers(ptr);

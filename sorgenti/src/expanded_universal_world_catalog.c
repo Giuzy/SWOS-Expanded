@@ -121,6 +121,11 @@ int ExpandedUniversalCatalog_AddClub(const TeamFileEx *team)
     copy=(TeamFileEx *)malloc(sizeof *copy);
     if(!copy)goto reject;
     memcpy(copy,team,sizeof *copy);
+    /* v342 (27/11/2026, VERIFIED crash 0xCC31): an OG team name holds 16 characters +
+     * its terminator (teamName[17]). A 17-character name (shared-pool clubs such as
+     * MELBOURNE KNIGHTS) had no terminator and ran into writesZeroHere, which the
+     * game uses as a counter: the OG league table then read a non-text byte. */
+    copy->team.teamName[sizeof copy->team.teamName-1u]=0;
     dst=&s_catalog.clubs[s_catalog.nclubs++];
     dst->roster=copy;dst->key=key;
     dst->country=World_FileCountry(team->team.countryNumber);
@@ -527,6 +532,18 @@ void ExpandedUniversalCatalog_ObserveNativeTeam(const TeamFileEx *t)
 {
     if(s_catalog.active && t)
         s_catalog.native_raw_seen[((uint16_t)t->team.countryNumber<<8)|t->team.teamOrdinal]=1u;
+}
+/* v342: any CE catalog club by its raw OG id (country<<8|ordinal), e.g. a pool club
+ * absent from the TEAM file. NULL outside the 2627 CE catalog. */
+TeamFileEx *ExpandedUniversalCatalog_RosterByRaw(uint16_t raw)
+{
+    uint32_t i;
+    if(World_Current()!=WORLD_2627 || !s_catalog.active)return NULL;
+    for(i=0;i<s_catalog.nclubs;++i) {
+        TeamFileEx *t=s_catalog.clubs[i].roster;
+        if(t && (((uint16_t)t->team.countryNumber<<8)|t->team.teamOrdinal)==raw)return t;
+    }
+    return NULL;
 }
 TeamFileEx *ExpandedUniversalCatalog_SharedPoolRoster(uint16_t raw)
 {

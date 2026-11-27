@@ -2461,7 +2461,8 @@ static void ui_paint_compact_fixture(const UICompactFixture *r,unsigned index)
         /* Date only, followed by the status where the match would be.
          * No opponent, score, stage, action color or invented fixture. */
         ui_native_text(29,y,34,2,date,-1);
-        ui_native_text(102,y,199,2,"SEASON BREAK",-1);
+        /* v342: a cursor-only line (today, no calendar line) carries no text */
+        if(r->first[0])ui_native_text(102,y,199,2,"SEASON BREAK",-1);
         return;
     }
     if(r->expandedBolivia) {
@@ -2902,17 +2903,6 @@ static void ui_render_ce_calendar(void)
      * season span [1 July .. last manager fixture]. */
     const uint32_t todayKey=ui_fixture_date_key(
         civil.today.year,civil.today.month,civil.today.day);
-    /* v342 (user 27/11/2026): the blue cursor is ALWAYS on the date shown. When
-     * today has no calendar line, the cursor itself is a line with today's date
-     * and NO text (it is not a SEASON BREAK: the fixed breaks never move). */
-    {   unsigned hasToday=0u;
-        for(uint32_t j=0u;j<count;++j)if(rows[j].dayKey==todayKey){hasToday=1u;break;}
-        if(!hasToday && count<capacity) {
-            UICompactFixture *r=&rows[count++];
-            r->dayKey=todayKey;r->day=civil.today.day;r->month=civil.today.month;
-            r->seasonBreak=1u;r->expandedBolivia=1u;r->first[0]=0;
-        }
-    }
     qsort(rows,count,sizeof *rows,ui_ce_fixture_cmp);
     int focus=-1;
     uint64_t key=0u;
@@ -2924,11 +2914,19 @@ static void ui_render_ce_calendar(void)
             break;
         }
     if(focus<0 && count) {
-        /* v342: no fixed line on today: the cursor goes to the NEXT line (first
-         * on or after today), or the last one when the calendar is over. */
-        uint32_t best=count-1u;
+        /* v342 (user 27/11/2026): no empty line is ever added. Every week of the
+         * calendar has its own line(s) (matches, or one SEASON BREAK on Sunday): when
+         * today has no line the cursor is on the line of TODAY'S WEEK (the last one
+         * dated within the 6 days before today), else on the next line. */
+        uint32_t best=count-1u,next=count;
+        int32_t weekStart=today-6;
+        ExpandedWorldDate ws={0};
+        uint32_t weekKey=0u;
+        if(ExpandedWorld_IndexToDate(weekStart,&ws))weekKey=ui_fixture_date_key(ws.year,ws.month,ws.day);
         for(uint32_t i=0u;i<count;++i)
-            if((uint32_t)rows[i].dayKey>=(uint32_t)todayKey){best=i;break;}
+            if((uint32_t)rows[i].dayKey>=(uint32_t)todayKey){next=i;break;}
+        best=next<count?next:count-1u;
+        if(next>0u && weekKey && (uint32_t)rows[next-1u].dayKey>=weekKey)best=next-1u;
         focus=(int)best;
         key=rows[best].eventId?rows[best].eventId:
             (0x8000000000000000ull|(uint64_t)rows[best].dayKey);

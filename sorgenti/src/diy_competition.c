@@ -8301,6 +8301,11 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
                     /* Non-printable byte found — corruption!
                      * panicReasonCode encodes: 0xCC00 | team d5 in high nibble, byte index in low byte.
                      * Set breakpoint on PanicHaltLoop to inspect teamPtr, nameCheck, the buffer. */
+                    fprintf(stderr,"[league-table] BAD_TEAM_NAME row=%u sel=%ld ptr=%p team=%02x:%02x "
+                            "numSel=%u ceBoard=%d bytes=%02x %02x %02x %02x\n",(unsigned)d5,
+                            (long)a4row->teamSelOffset,(void *)teamPtr,(unsigned)teamPtr->team.countryNumber,
+                            (unsigned)teamPtr->team.teamOrdinal,(unsigned)_numSelectedTeams,
+                            s_ceBoardActive,nameCheck[0],nameCheck[1],nameCheck[2],nameCheck[3]);
                     _panicReasonCode = (uint16_t)(0xCC00u | ((d5 & 0xF) << 4) | ci);
                     FlashColor0Delay(500000, 0x0F00);  /* flash RED */
                     PanicHaltLoop();

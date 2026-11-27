@@ -1,0 +1,858 @@
+{
+  "status": "CANDIDATES_ONLY_NOT_RUNTIME",
+  "source": "Wikidata CC0",
+  "cutoff": "2026-07-01T00:00:00Z",
+  "map_sha256": "13ee5b8699c8dcca5dc9d448cd8954c8fdc911516e423332c8468c0f7fa2ce81",
+  "limitations": [
+    "No complete roster claim. Unknown league/season/gender/country requires review.",
+    "Only P54 memberships with an explicit start date; missing start dates excluded; no end date is not proof of current affiliation.",
+    "Season membership is not proof of participants known on 1 July. Name matches are candidates, not IDs."
+  ],
+  "targets": [
+    {
+      "fifa": "AFG",
+      "name": "AFGHANISTAN",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "AIA",
+      "name": "ANGUILLA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "ARU",
+      "name": "ARUBA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "ASA",
+      "name": "AMERICAN SAMOA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "ATG",
+      "name": "ANTIGUA-BARBUDA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "BAH",
+      "name": "BAHAMAS",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "BHU",
+      "name": "BHUTAN",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "BLZ",
+      "name": "BELIZE",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "BRB",
+      "name": "BARBADOS",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "CAM",
+      "name": "CAMBODIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "CAY",
+      "name": "CAYMAN ISLANDS",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "CHA",
+      "name": "CHAD",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "COD",
+      "name": "DR CONGO",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "COK",
+      "name": "COOK ISLANDS",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "COM",
+      "name": "COMOROS",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "CPV",
+      "name": "CAPE VERDE",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "CTA",
+      "name": "CENTRAL AFRICA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "CUB",
+      "name": "CUBA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "CUW",
+      "name": "CURACAO",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "DJI",
+      "name": "DJIBOUTI",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "DMA",
+      "name": "DOMINICA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "DOM",
+      "name": "DOMINICAN REP.",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "EQG",
+      "name": "EQUAT. GUINEA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "ERI",
+      "name": "ERITREA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "GAM",
+      "name": "GAMBIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "GNB",
+      "name": "GUINEA-BISSAU",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "GRN",
+      "name": "GRENADA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "GUM",
+      "name": "GUAM",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "HAI",
+      "name": "HAITI",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "KGZ",
+      "name": "KYRGYZSTAN",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "LBN",
+      "name": "LEBANON",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "LBY",
+      "name": "LIBYA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "LCA",
+      "name": "ST. LUCIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "MAC",
+      "name": "MACAU",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "MAD",
+      "name": "MADAGASCAR",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "MDV",
+      "name": "MALDIVES",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "MNG",
+      "name": "MONGOLIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "MSR",
+      "name": "MONTSERRAT",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "MTN",
+      "name": "MAURITANIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "NAM",
+      "name": "NAMIBIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "NCL",
+      "name": "NEW CALEDONIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "NEP",
+      "name": "NEPAL",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "PLE",
+      "name": "PALESTINE",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "PUR",
+      "name": "PUERTO RICO",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "RWA",
+      "name": "RWANDA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "SAM",
+      "name": "SAMOA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "SEY",
+      "name": "SEYCHELLES",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "SKN",
+      "name": "ST. KITTS-NEVIS",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "SOM",
+      "name": "SOMALIA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "SSD",
+      "name": "SOUTH SUDAN",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "STP",
+      "name": "SAO TOME",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "TAH",
+      "name": "TAHITI",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "TCA",
+      "name": "TURKS-CAICOS",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "TGA",
+      "name": "TONGA",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "THA",
+      "name": "THAILAND",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "TJK",
+      "name": "TAJIKISTAN",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "TKM",
+      "name": "TURKMENISTAN",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "TLS",
+      "name": "TIMOR-LESTE",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "TRI",
+      "name": "TRINIDAD-TOBAGO",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "UZB",
+      "name": "UZBEKISTAN",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "VAN",
+      "name": "VANUATU",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "VGB",
+      "name": "BRIT. VIRGIN IS.",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "VIR",
+      "name": "US VIRGIN IS.",
+      "new": true,
+      "leagues": []
+    },
+    {
+      "fifa": "ANG",
+      "name": "ANGOLA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BAN",
+      "name": "BANGLADESH",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BDI",
+      "name": "BURUNDI",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BEN",
+      "name": "BENIN",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BER",
+      "name": "BERMUDA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BFA",
+      "name": "BURKINA FASO",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BHR",
+      "name": "BAHRAIN",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BOT",
+      "name": "BOTSWANA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "BRU",
+      "name": "BRUNEI",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "CGO",
+      "name": "CONGO",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "CIV",
+      "name": "IVORY COAST",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "CMR",
+      "name": "CAMEROON",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "ETH",
+      "name": "ETHIOPIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "FIJ",
+      "name": "FIJI",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "GAB",
+      "name": "GABON",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "GUI",
+      "name": "GUINEA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "GUY",
+      "name": "GUYANA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "HKG",
+      "name": "HONG KONG",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "IDN",
+      "name": "INDONESIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "IRQ",
+      "name": "IRAQ",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "JAM",
+      "name": "JAMAICA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "JOR",
+      "name": "JORDAN",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "KEN",
+      "name": "KENYA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "KUW",
+      "name": "KUWAIT",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "LAO",
+      "name": "LAOS",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "LBR",
+      "name": "LIBERIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "LES",
+      "name": "LESOTHO",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "MAS",
+      "name": "MALAYSIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "MLI",
+      "name": "MALI",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "MOZ",
+      "name": "MOZAMBIQUE",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "MRI",
+      "name": "MAURITIUS",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "MWI",
+      "name": "MALAWI",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "MYA",
+      "name": "MYANMAR",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "NCA",
+      "name": "NICARAGUA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "NGA",
+      "name": "NIGERIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "NIG",
+      "name": "NIGER",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "OMA",
+      "name": "OMAN",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "PAK",
+      "name": "PAKISTAN",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "PHI",
+      "name": "PHILIPPINES",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "PNG",
+      "name": "PAPUA NEW GUINEA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "PRK",
+      "name": "NORTH KOREA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SDN",
+      "name": "SUDAN",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SEN",
+      "name": "SENEGAL",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SGP",
+      "name": "SINGAPORE",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SLE",
+      "name": "SIERRA LEONE",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SOL",
+      "name": "SOLOMON ISLANDS",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SRI",
+      "name": "SRI LANKA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SWZ",
+      "name": "ESWATINI",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "SYR",
+      "name": "SYRIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "TAN",
+      "name": "TANZANIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "TOG",
+      "name": "TOGO",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "UGA",
+      "name": "UGANDA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "VIE",
+      "name": "VIETNAM",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "VIN",
+      "name": "ST. VINCENT",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "YEM",
+      "name": "YEMEN",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "ZAM",
+      "name": "ZAMBIA",
+      "new": false,
+      "leagues": []
+    },
+    {
+      "fifa": "ZIM",
+      "name": "ZIMBABWE",
+      "new": false,
+      "leagues": []
+    }
+  ],
+  "errors": [
+    {
+      "phase": "leagues AFG,AIA,ARU,ASA,ATG,BAH,BHU,BLZ,BRB,CAM,CAY,CHA",
+      "error": "HTTP Error 500: Internal Server Error"
+    },
+    {
+      "phase": "leagues COD,COK,COM,CPV,CTA,CUB,CUW,DJI,DMA,DOM,EQG,ERI",
+      "error": "HTTP Error 500: Internal Server Error"
+    },
+    {
+      "phase": "leagues GAM,GNB,GRN,GUM,HAI,KGZ,LBN,LBY,LCA,MAC,MAD,MDV",
+      "error": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "phase": "leagues MNG,MSR,MTN,NAM,NCL,NEP,PLE,PUR,RWA,SAM,SEY,SKN",
+      "error": "HTTP Error 504: Gateway Timeout"
+    }
+  ],
+  "openfootball_identity_candidates": {
+    "status": "IDENTITY_ONLY_NOT_2026_PARTICIPANTS",
+    "source": "https://github.com/openfootball/clubs",
+    "tree": "ae3800227c449447b3a337fc0aac79a8f02f4c8b",
+    "note": "Names transcribed from actual source files; membership, status and 2026 edition unknown; source spelling preserved. No player records.",
+    "countries": [
+      {
+        "fifa": "COD",
+        "path": "africa/congo-dr/cd.clubs.txt",
+        "blob": "6e09f7d752ced5c3a296a7e256c70314359e811b",
+        "clubs": [
+          "AS Vita Club"
+        ]
+      },
+      {
+        "fifa": "SGP",
+        "path": "asia/singapore/sg.clubs.txt",
+        "blob": "a2f48dd6e878752e01b3773c47618a4c246a53bf",
+        "clubs": [
+          "Balestier Khalsa",
+          "Albirex Niigata FC",
+          "Houang United FC",
+          "Tampines Rovers FC",
+          "Tanjong Pagar Utd"
+        ]
+      },
+      {
+        "fifa": "THA",
+        "path": "asia/thailand/th.clubs.txt",
+        "blob": "f436fa0c457d24dfa4bfbbfb2853883ec98d08ce",
+        "clubs": [
+          "Buriram United FC",
+          "FC PTT Rayong"
+        ]
+      },
+      {
+        "fifa": "AIA",
+        "path": "caribbean/anguilla/ai.clubs.txt",
+        "blob": "907650c518c04eeecba62faff5b7a452a454025b",
+        "clubs": [
+          "ALHCS Spartan FC",
+          "Diamond FC",
+          "Docks United FC",
+          "Enforcers FC",
+          "Kicks United FC",
+          "Roaring Lions FC",
+          "Salsa Ballers FC",
+          "Up Rising FC"
+        ]
+      },
+      {
+        "fifa": "HAI",
+        "path": "caribbean/haiti/ht.clubs.txt",
+        "blob": "d440b5e4aa6471f196a6a3052200893cee05b663",
+        "clubs": [
+          "Tempête FC",
+          "Valencia FC"
+        ]
+      },
+      {
+        "fifa": "JAM",
+        "path": "caribbean/jamaica/jm.clubs.txt",
+        "blob": "8c4a67633373888af84cd9bc53a397dee4b69ad8",
+        "clubs": [
+          "Arnett Gardens",
+          "Cavalier",
+          "Harbour View",
+          "Molynes United",
+          "Tivoli Gardens",
+          "Waterhouse",
+          "Dunbeholden",
+          "Portmore United",
+          "Treasure Beach",
+          "Mount Pleasant Football Academy",
+          "Montego Bay United",
+          "Humble Lion",
+          "Vere United",
+          "Lime Hall Academy"
+        ]
+      },
+      {
+        "fifa": "PUR",
+        "path": "caribbean/puerto-rico/pr.clubs.txt",
+        "blob": "e38a46a29411ec2630858799c91b6feb0a557b01",
+        "clubs": [
+          "Puerto Rico Islanders"
+        ]
+      },
+      {
+        "fifa": "TRI",
+        "path": "caribbean/trinidad-n-tobago/tt.clubs.txt",
+        "blob": "1b2529fa2f057007d9405015bd77c2267f94f72a",
+        "clubs": [
+          "Caledonia AIA",
+          "W Connection"
+        ]
+      },
+      {
+        "fifa": "NCA",
+        "path": "central-america/nicaragua/ni.clubs.txt",
+        "blob": "f0b8b10ecdf5eb641fbb3861bae46c55f7177b5f",
+        "clubs": [
+          "Real Estelí"
+        ]
+      }
+    ]
+  }
+}

@@ -4068,7 +4068,9 @@ static int exp_universal_contest_action(MenuEntry *entry)
         }
         /* When earlier CPU matches remain on the SAME day, dispatch
          * TODAY through the same CE scheduler to stop at manager fixture. */
-        if(fixture_day==now)target=due;
+        /* v342 (user 27/11/2026): with the next manager match a week away or less,
+         * FORWARD goes straight to that match (no extra Sunday stop to click through). */
+        if(fixture_day==now || fixture_day-now<=7)target=due;
         else if(!ExpandedWorld_NextSundayOrFixture(
                     live.today,1,due,&target)) {
             fprintf(stderr,"[universal-manager-menu] FORWARD_BLOCKED "

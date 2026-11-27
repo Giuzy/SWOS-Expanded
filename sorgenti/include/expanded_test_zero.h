@@ -13,7 +13,9 @@ static inline void ExpCeTestZero_Materialize(uint16_t raw,uint16_t global,const 
     t->team.countryNumber=(uint8_t)(raw>>8);t->team.teamOrdinal=(uint8_t)raw;
     t->team.globalTeamNumber=(int16_t)global;
     t->team.league=255u; /* outside league; CE membership is sole writer */
-    memcpy(t->team.teamName,name,strlen(name));
+    {   size_t nl0=strlen(name);   /* v342: 16 chars max, the 17th byte is the terminator */
+        if(nl0>sizeof t->team.teamName-1u)nl0=sizeof t->team.teamName-1u;
+        memcpy(t->team.teamName,name,nl0); }
     t->team.prShirtType=t->team.secShirtType=1u;
     t->team.prBasicColor=2u;t->team.secBasicColor=0u;
     t->team.prShortsColor=2u;t->team.secShortsColor=0u;

@@ -68,8 +68,10 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
             for(b=0;b<row.break_count && b<EXP_CE_MAX_BREAKS;++b) {
                 w.breaks[b][0]=row.breaks[b].from_month;w.breaks[b][1]=row.breaks[b].from_day;
                 w.breaks[b][2]=row.breaks[b].to_month;w.breaks[b][3]=row.breaks[b].to_day;
+                w.break_season[b]=row.breaks[b].season;
             }
             w.nbreaks=(uint8_t)b;
+            w.intl=row.intl_breaks;
         }
         (void)ExpCe_LeagueDefinition(world,row.country,
             row.comp_id,row.division,row.divisions,row.declared_clubs,
@@ -77,6 +79,10 @@ int ExpCe_BuildWorldDefinitions(uint16_t world)
             row.bench,row.promoted,row.relegated,row.promoted_po,
             row.relegated_po,row.has_calendar?&w:NULL,d);
         d->phases[0].extras=row.extras;
+        d->phases[0].cal=row.cal;   /* v00.13.354, same rules as the START catalog */
+        if(row.cal_invalid[0])
+            snprintf(d->phases[0].missing,sizeof d->phases[0].missing,"%.79s",row.cal_invalid);
+        d->rules_hash=0u;           /* recomputed by ExpCe_AddDefinition */
         if(!row.has_rules)
             snprintf(d->missing,sizeof d->missing,
                      "leagues.json: points_for_win/substitutes/max_subs");

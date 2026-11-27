@@ -28,7 +28,7 @@ static inline int ExpandedUniversal_GenerateRoundRobin(
     uint32_t clubs, uint8_t meetings,
     ExpandedUniversalPairConsumer emit, void *user)
 {
-    uint32_t slots, m, cycle, round, i, serial;
+    uint32_t slots, m, cycle, round, i, serial, start, pos;
     if(!emit || clubs<2u || meetings<1u || meetings>4u ||
        clubs==UINT32_MAX)return 0;
     if(clubs>UINT32_MAX/(clubs-1u) ||
@@ -36,9 +36,17 @@ static inline int ExpandedUniversal_GenerateRoundRobin(
         return 0;
     slots=clubs+(clubs&1u);
     m=slots-1u;
+    /* v00.13.354 (user rule: never more than 2 consecutive home or away):
+     * with an even number of clubs (>=6) the circle rounds are played
+     * starting from round 2. Same pairs, same home/away per round, same
+     * mirrored second cycle; only the order of the rounds rotates, which
+     * removes the 3-game run at the half-season boundary (verified for
+     * 6..22 clubs; 4 clubs cannot avoid it). Odd counts are unchanged. */
+    start=(!(clubs&1u) && clubs>=6u)?2u:0u;
     for(cycle=0;cycle<(uint32_t)meetings;++cycle) {
         serial=0u; /* cumulative per cycle: unique serial per fixture */
-        for(round=0;round<m;++round) {
+        for(pos=0;pos<m;++pos) {
+            round=(pos+start)%m;
             for(i=0;i<m;++i) {
                 const uint32_t j=(round+m-i)%m;
                 uint32_t home,away;
@@ -52,7 +60,7 @@ static inline int ExpandedUniversal_GenerateRoundRobin(
                     home=i;away=j;
                 } else {home=j;away=i;}
                 if(cycle&1u){const uint32_t t=home;home=away;away=t;}
-                if(!emit(user,cycle,round,serial++,home,away))return 0;
+                if(!emit(user,cycle,pos,serial++,home,away))return 0;
             }
         }
     }

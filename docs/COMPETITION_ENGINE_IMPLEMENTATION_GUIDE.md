@@ -1560,3 +1560,12 @@ Ranking FIFA/UEFA moderno soltanto 2627: usare il kernel puro expanded_ce_rankin
 
 ## 27/11/2026 — Campo fase `fifa` (ranking FIFA nazionali, v00.13.349)
 `"fifa":{"importance":5|10|15|25|35|40|50|60,"protect":true|false,"seeding":"FIFA_RANKING"}` su una fase di una competizione con partecipanti NATIONAL (mondo 2627). importance assente = partita non eleggibile. protect assente = protezione solo per fasi KNOCKOUT con importance>=35. seeding ordina gli entranti dallo snapshot congelato al primo sorteggio della fase. Hash regole invariato per le definizioni che non usano il campo. Valori ammessi verificati in parsing (fuori elenco = definizione con dato mancante).
+
+## 28/11/2026 — v00.13.354 generatore CE: validatore indipendente + regole calendario
+`expanded_ce_calendar_validator.c` (solo lettura, criteri 01–07, 15, 21, 27, 28) eseguito su ogni fase TABLE prima della pubblicazione; HARD = fase bloccata localmente. Nuovi campi fase TABLE `calendar` / `calendar_rules` (ASYMMETRIC + min_return_gap, calendar_draw EDITION, day_profile, max_run). Serie A 2026/27 attivata. Mappa completa dei 50 criteri: CE_CALENDAR_GENERATOR.md; scheda RG-CE-CALENDAR-UPGRADE-354.
+
+## 28/11/2026 — v00.13.354 (seguito): regole calendario anche alla prima stagione START + finestre internazionali globali
+`expanded_calendar_rules.h` condiviso da catalogo START e CE; `expanded_international_windows.c/.h` + `international_windows.json` (FIFA 2023-2030, aprile 2026). Criteri 23 e 25: IMPLEMENTATI per le finestre FIFA (tabella globale + applicabilità per lega); 24 PARZIALE (finali continentali 2027 presenti, nessuna lega le dichiara; 2028-2030 date non stampate). Scheda RG-CE-INTL-WINDOWS-354.
+
+### 28/11/2026 — finestre internazionali: default FIFA per tutte le competizioni di club
+`international_breaks` assente = FIFA (leghe e fasi CE di club), `""` = nessuna; edizioni nazionali giocano nelle finestre; pause con `"season"` valgono per una sola edizione; finestra estesa dopo la sosta quando necessario (log WINDOW_EXTENDED_AFTER_INTERNATIONAL_BREAK). Coppa d'Asia 2027 al 23/12/2027–21/01/2028. Scheda RG-CE-INTL-WINDOWS-354.

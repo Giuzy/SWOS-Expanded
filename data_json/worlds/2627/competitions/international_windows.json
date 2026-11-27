@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "world": "2627",
+ "kind": "SWOS_EXPANDED_CE_INTERNATIONAL_WINDOWS",
+ "provenance": "VERIFIED",
+ "source": "FIFA Men's International Match Calendar 2023-2030 (PDF, April 2026 edition) https://digitalhub.fifa.com/m/3123d37097318f7f/original/Men-s-International-Match-Calendar-2023-2030_EN.pdf ; crosscheck https://en.wikipedia.org/wiki/FIFA_International_Match_Calendar",
+ "notes": [
+  "Official FIFA/confederation dates ONLY for the 2026/27 season (+ AFC Asian Cup 2027 at the new AFC date, user decision 27/11/2026).",
+  "From generated_from the calendar GENERATES every window (expanded_international_windows.c, GAME_TEMPLATE 'more or less' from the FIFA 2023-2030 pattern): FIFA March/June/September-October/November every year; World Cup (2030, 2034, ...) and EURO + Copa America + OFC + AFCON (2028, 2032, ...) alternate every two years; Gold Cup odd years; Asian Cup 2031, 2035, ...",
+  "One global table for every competition; a competition pauses ONLY for the types it declares (international_breaks)."
+ ],
+ "windows": [
+  {
+   "from": "2026-09-21",
+   "to": "2026-10-06",
+   "type": "FIFA",
+   "matches": 4
+  },
+  {
+   "from": "2026-11-09",
+   "to": "2026-11-17",
+   "type": "FIFA",
+   "matches": 2
+  },
+  {
+   "from": "2027-03-22",
+   "to": "2027-03-30",
+   "type": "FIFA",
+   "matches": 2
+  },
+  {
+   "from": "2027-06-07",
+   "to": "2027-06-15",
+   "type": "FIFA",
+   "matches": 2
+  },
+  {
+   "from": "2027-06-19",
+   "to": "2027-07-11",
+   "type": "CONCACAF",
+   "note": "Concacaf Gold Cup"
+  },
+  {
+   "from": "2027-06-19",
+   "to": "2027-07-17",
+   "type": "CAF",
+   "note": "CAF Africa Cup of Nations"
+  },
+  {
+   "from": "2027-12-23",
+   "to": "2028-01-21",
+   "type": "AFC",
+   "note": "AFC Asian Cup 2027 postponed by the AFC (3 Nov 2026) from 7 Jan - 5 Feb 2027 to 23 Dec 2027 - 21 Jan 2028; new date applied by user decision 27/11/2026. Sources: Reuters 03/11/2026, the-afc.com, via https://en.wikipedia.org/wiki/FIFA_International_Match_Calendar"
+  }
+ ],
+ "generated_from": "2027-07-01"
+}

@@ -10,7 +10,7 @@
 #define EXPANDED_UNIVERSAL_DATE_PLANNER_H
 #include <stdint.h>
 
-#define EXP_DATE_PLAN_MAX_BREAKS 8u
+#define EXP_DATE_PLAN_MAX_BREAKS 24u /* league breaks + international windows */
 
 /* Weekday bits follow ExpandedWorld_Weekday(): bit0=Monday ... bit6=Sunday. */
 typedef struct ExpandedDatePlanBreak {

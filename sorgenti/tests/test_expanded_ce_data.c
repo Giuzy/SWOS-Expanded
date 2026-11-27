@@ -53,7 +53,7 @@ int main(void)
     }
     {
         ExpCeSharedPoolData sp={0};
-        assert(ExpCeSharedPool_Load(&sp) && sp.n==14u);
+        assert(ExpCeSharedPool_Load(&sp) && sp.n==17u);  /* 17 since a1ff6232 (MOD 4.2 shared-pool rosters) */
         for(uint32_t k=0;k<sp.n;++k) {
             TeamFileEx roster;
             ExpCeSharedPool_Materialize(&sp.rows[k],&roster);

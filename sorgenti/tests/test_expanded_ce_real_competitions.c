@@ -166,9 +166,9 @@ static int rr(void *u,uint32_t cycle,uint32_t round,uint32_t serial,uint32_t h,u
 }
 static void add_league_first_season(uint8_t country,uint8_t comp_id,uint32_t clubs)
 {
-    static const ExpCeWindow LW={8,1,5,31,1, 1u<<6,1u<<2,3,0,{{0}}};
+    static const ExpCeWindow LW={8,1,5,31,1, 1u<<6,1u<<2,3,0,{{0}},0,{0}};
     static const ExpCeWindow AL={10,16,5,9,1, 1u<<5,(1u<<1)|(1u<<2),3,2,
-        {{11,13,11,15},{3,26,3,28}}};
+        {{11,13,11,15},{3,26,3,28}},0,{0}};
     const ExpCeWindow *window=country==44u?&AL:&LW;
     static ExpandedUniversalFixture fx[512];
     ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);

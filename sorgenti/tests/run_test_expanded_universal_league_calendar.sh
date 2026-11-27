@@ -12,7 +12,7 @@ trap 'rm -rf "$DIR"' EXIT
   -o "$DIR/mjson.o"
 "$CC" -std=c11 -Wall -Wextra -Werror \
   -DSWOS_SDL_BUILD=1 -DSWOS_WORLDS=1 -Iinclude \
-  src/expanded_world_time.c src/expanded_universal_date_planner.c \
+  src/expanded_world_time.c src/expanded_international_windows.c src/expanded_universal_date_planner.c \
   src/expanded_universal_json_leagues.c \
   tests/test_expanded_universal_league_calendar.c "$DIR/mjson.o" \
   -o "$DIR/universal_league_calendar"

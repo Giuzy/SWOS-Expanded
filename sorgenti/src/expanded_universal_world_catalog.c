@@ -9,6 +9,7 @@
 #include "expanded_universal_pairings.h"
 #include "expanded_universal_json_leagues.h"
 #include "expanded_universal_date_planner.h"
+#include "expanded_international_windows.h"
 #include "expanded_ce_shared_pool_data.h"
 #include "expanded_ce_start_history.h"
 #include "expanded_ce_admin.h"
@@ -248,13 +249,15 @@ typedef struct CatalogPairPlan {
     uint32_t rounds,total_rounds;
     int32_t first_day;
     const int32_t *round_days; /* CE planner output, one civil day/round */
+    const uint8_t *return_map; /* v00.13.354 ASYMMETRIC: odd cycle round -> position */
 } CatalogPairPlan;
 static int cat_pair_emit(void *user,uint32_t cycle,uint32_t round,
                          uint32_t serial,uint32_t home,uint32_t away)
 {
     const CatalogPairPlan *p=(const CatalogPairPlan *)user;
     const CatalogLeague *l=p->league;
-    const uint32_t round_id=cycle*p->rounds+round;
+    const uint32_t round_id=cycle*p->rounds+
+        ((p->return_map && (cycle&1u) && cycle<l->legs && round<p->rounds)?p->return_map[round]:round);
     ExpandedUniversalFixture f={0};
     int32_t day=0;
     if(home>=l->expected_clubs || away>=l->expected_clubs ||
@@ -298,6 +301,9 @@ static int cat_month_day_on_or_after(uint16_t year,uint8_t month,uint8_t day,
     }
     return 0;
 }
+/* v00.13.354: breaks of the last planned league (read by its day profile) */
+static ExpandedDatePlanBreak s_cat_breaks[EXP_DATE_PLAN_MAX_BREAKS];
+static uint32_t s_cat_nbreaks;
 /* Data-driven civil dates for every round: window, weekdays, rest, breaks
  * all from league_calendar.json. OG native phases are NOT consulted. */
 static int cat_plan_league_days(const CatalogLeague *l,uint32_t rounds,
@@ -329,6 +335,7 @@ static int cat_plan_league_days(const CatalogLeague *l,uint32_t rounds,
     for(i=0;i<r->break_count && i<EXP_DATE_PLAN_MAX_BREAKS;++i) {
         const ExpandedUniversalJsonLeagueBreak *b=&r->breaks[i];
         ExpandedDatePlanBreak *dst=&policy.breaks[policy.break_count];
+        if(b->season && b->season!=year)continue;   /* one edition only */
         if(!cat_month_day_on_or_after(year,b->from_month,b->from_day,
                                       policy.first_day,&dst->first_day) ||
            !cat_month_day_on_or_after(year,b->to_month,b->to_day,
@@ -336,7 +343,17 @@ static int cat_plan_league_days(const CatalogLeague *l,uint32_t rounds,
             return 0;
         ++policy.break_count;
     }
-    if(!ExpandedDatePlanner_Plan(&policy,rounds,days,&reason)) {
+    {   /* v00.13.354 same routine as the CE: declared international windows,
+         * games moved after a stop when the window gets too short */
+        int32_t ext=0;
+        reason=ExpIntl_PlanWithWindows(&policy,r->intl_breaks,rounds,days,&ext)?EXP_DATE_PLAN_OK:-1;
+        s_cat_nbreaks=policy.break_count;
+        memcpy(s_cat_breaks,policy.breaks,sizeof s_cat_breaks);
+        if(reason==EXP_DATE_PLAN_OK && ext)
+            fprintf(stderr,"[universal-dates] WINDOW_EXTENDED_AFTER_INTERNATIONAL_BREAK +%ld days league=%u/%u\n",
+                    (long)ext,(unsigned)l->country,(unsigned)l->division);
+    }
+    if(reason!=EXP_DATE_PLAN_OK) {
         fprintf(stderr,"[universal-dates] PLAN_FAIL country=%u comp=%u "
             "division=%u rounds=%lu reason=%d window=%04u-%02u-%02u.."
             "%04u-%02u-%02u fail-closed=1 og-phase-fallback=0\n",
@@ -455,8 +472,35 @@ static int cat_seed_league(const CatalogLeague *l,CatalogClub **clubs,uint32_t n
 done:
     free(plan);free(ret);free(seen);return ok;
 }
+/* v00.13.354 day profile at START: a day is free when no fixture created
+ * before this league (other leagues/cups) uses either club on that day;
+ * this league's own fixtures are checked by the shared profile routine. */
+typedef struct CatProfileCtx {uint32_t before;} CatProfileCtx;
+
+static int cat_profile_free_day(void *ctx,const ExpandedUniversalFixture *x,
+                                const ExpandedUniversalFixture *all,uint32_t n,int32_t day)
+{
+    const CatProfileCtx *c=(const CatProfileCtx *)ctx;
+    uint32_t i;
+    for(i=0u;i<s_cat_nbreaks;++i)
+        if(day>=s_cat_breaks[i].first_day && day<=s_cat_breaks[i].last_day)return 0;
+    for(i=0u;i<c->before;++i) {
+        const ExpandedUniversalFixture *o=&s_catalog.fixtures[i].fixture;
+        if(o->day_index!=day)continue;
+        if(o->home.stable_club==x->home.stable_club || o->away.stable_club==x->home.stable_club ||
+           o->home.stable_club==x->away.stable_club || o->away.stable_club==x->away.stable_club)return 0;
+    }
+    for(i=0u;i<n;++i) {
+        const ExpandedUniversalFixture *o=&all[i];
+        if(o==x || o->day_index!=day)continue;
+        if(o->home.stable_club==x->home.stable_club || o->away.stable_club==x->home.stable_club ||
+           o->home.stable_club==x->away.stable_club || o->away.stable_club==x->away.stable_club)return 0;
+    }
+    return 1;
+}
 static int cat_make_league(const CatalogLeague *l,const ExpCeHistorySeed *seed)
 {
+    uint8_t return_map[EXP_CAL_RR_MAX];
     CatalogClub **clubs=NULL;
     int32_t *round_days=NULL;
     uint32_t i,n=0;
@@ -492,6 +536,29 @@ static int cat_make_league(const CatalogLeague *l,const ExpCeHistorySeed *seed)
        !cat_plan_league_days(l,p.total_rounds,round_days,&first_day))
         goto rollback;
     p.first_day=first_day;p.round_days=round_days;
+    {   /* v00.13.354: the SAME calendar rules as every later CE edition */
+        const uint32_t cid=((uint32_t)(l->country+1u)<<24)|
+            ((uint32_t)l->comp_id<<16)|((uint32_t)(l->division+1u)<<8)|1u;
+        const uint64_t eseed=ExpPair_Seed(cid,first_day);
+        if(l->rule.cal_invalid[0])goto rollback;
+        if(l->rule.cal.cal_draw) {
+            uint64_t ds=eseed^UINT64_C(0xC0FFEE);
+            uint32_t k;
+            for(k=n;k>1u;--k) {
+                const uint32_t j=(uint32_t)(ExpPair_Next(&ds)%k);
+                CatalogClub *t=clubs[k-1u];clubs[k-1u]=clubs[j];clubs[j]=t;
+            }
+        }
+        if(l->rule.cal.return_order==1u && l->legs>=2u) {
+            int run=0;
+            if(!ExpCal_ReturnMap(n,p.rounds,l->rule.cal.min_return_gap,eseed^1u,return_map,&run))
+                goto rollback;
+            p.return_map=return_map;
+            fprintf(stderr,"[universal-catalog] RETURN_ORDER country=%u division=%u order=ASYMMETRIC "
+                "min_gap=%u longest_home_away_run=%d\n",(unsigned)l->country,(unsigned)l->division,
+                (unsigned)l->rule.cal.min_return_gap,run);
+        }
+    }
     {
         uint32_t keys[EXP_PAIR_MAX_CLUBS];
         const uint32_t id=((uint32_t)(l->country+1u)<<24)|
@@ -503,6 +570,34 @@ static int cat_make_league(const CatalogLeague *l,const ExpCeHistorySeed *seed)
         if(!ExpandedUniversal_GenerateLeague(n,l->legs,
             l->rule.extras.rounds?keys:NULL,&l->rule.extras,
             ExpPair_Seed(id,first_day),cat_pair_emit,&p))goto rollback;
+    }
+    if(l->rule.cal.nprofile && s_catalog.nfixtures>saved_count) {
+        /* v00.13.354 day profile on this league's fixtures (shared routine) */
+        const uint32_t cnt=s_catalog.nfixtures-saved_count;
+        ExpandedUniversalFixture *tmp=(ExpandedUniversalFixture *)malloc((size_t)cnt*sizeof *tmp);
+        CatProfileCtx pc={saved_count};
+        uint32_t moved=0u,kept=0u,skipped=0u,k;
+        const uint32_t cid=((uint32_t)(l->country+1u)<<24)|
+            ((uint32_t)l->comp_id<<16)|((uint32_t)(l->division+1u)<<8)|1u;
+        if(!tmp)goto rollback;
+        for(k=0u;k<cnt;++k)tmp[k]=s_catalog.fixtures[saved_count+k].fixture;
+        ExpCal_ApplyDayProfile(tmp,cnt,&l->rule.cal,l->rule.match_weekdays,l->rule.min_rest_days,
+            round_days,p.total_rounds,first_day,ExpPair_Seed(cid,first_day)^2u,
+            cat_profile_free_day,&pc,&moved,&kept,&skipped);
+        for(k=0u;k<cnt;++k) {
+            ExpandedUniversalCatalogFixture *cf=&s_catalog.fixtures[saved_count+k];
+            const uint8_t past=tmp[k].day_index<s_catalog.start_day;
+            if(past!=cf->past_at_start) {
+                if(cf->past_at_start){--s_catalog.audit.prestart_unresolved;++s_catalog.audit.future_fixtures;}
+                else {--s_catalog.audit.future_fixtures;++s_catalog.audit.prestart_unresolved;}
+                cf->past_at_start=past;
+            }
+            cf->fixture.day_index=tmp[k].day_index;
+        }
+        free(tmp);
+        fprintf(stderr,"[universal-catalog] DAY_PROFILE country=%u division=%u moved=%lu "
+            "kept_on_round_day=%lu rounds_not_profiled=%lu\n",(unsigned)l->country,
+            (unsigned)l->division,(unsigned long)moved,(unsigned long)kept,(unsigned long)skipped);
     }
     free(round_days);
     free(clubs);

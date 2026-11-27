@@ -9,6 +9,8 @@
 #include "expanded_world_time.h"
 #include "mjson.h"
 #include "expanded_fifa_ranking.h"
+#include "expanded_ce_calendar_validator.h"
+#include "expanded_international_windows.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -112,6 +114,7 @@ static uint64_t def_hash(const ExpCeDef *d)
             for(z=0u;z<ph->nties*6u;++z){h^=ph->tsrc[z/6u][(z/3u)%2u][z%3u];h*=UINT64_C(1099511628211);}}
         if(ph->ngp){unsigned z;h^=0xE1u;h*=UINT64_C(1099511628211);
             for(z=0u;z<ph->ngp*4u;++z){h^=ph->gp[z/4u][z%4u];h*=UINT64_C(1099511628211);}}
+        h=ExpCal_Hash(h,&ph->cal);
         if(ph->fifa_importance || ph->fifa_protect || ph->fifa_seeding) {
             h^=0xF1u;h*=UINT64_C(1099511628211);
             h^=ph->fifa_importance;h*=UINT64_C(1099511628211);
@@ -378,6 +381,11 @@ static void busy_build(const ExpandedUniversalRegistry *r,const ExpCeEntrant *en
     qsort(s_busy,w,sizeof s_busy[0],busy_cmp);
     s_busy_n=w;
 }
+/* breaks of the last planned window (read by the day profile) */
+static ExpandedDatePlanBreak s_plan_breaks[EXP_DATE_PLAN_MAX_BREAKS];
+static uint32_t s_plan_nbreaks;
+static int s_plan_national;   /* edition being planned has national teams */
+static uint8_t s_plan_intl;   /* effective international window types of the phase */
 /* Plan `rounds` civil days for a phase. earliest = first allowed day. */
 static int plan_window_days(const ExpCePhaseDef *ph,int32_t edition_start,
                             int32_t earliest,uint32_t rounds,int32_t *days);
@@ -386,6 +394,12 @@ static int plan_phase_days_ex(const ExpCeDef *d,const ExpCeEdition *e,
                               const ExpCePhaseDef *ph,int32_t earliest,
                               uint32_t rounds,int32_t *days)
 {
+    s_plan_nbreaks=0u;
+    s_plan_national=e && e->participant_kind==EXP_PARTICIPANT_NATIONAL;
+    s_plan_intl=ph->window.intl;
+    if(s_plan_intl==EXP_INTL_INHERIT)   /* league finals/play-outs: same as the league season */
+        s_plan_intl=(d && d->origin==EXP_CE_ORIGIN_LEAGUE && d->phases[0].window.intl!=EXP_INTL_INHERIT)?
+                    d->phases[0].window.intl:0u;
     if(ph->ndays && e->year==d->first_year) {
         uint32_t i;
         if(ph->ndays!=rounds)return 0;
@@ -405,7 +419,6 @@ static int plan_window_days(const ExpCePhaseDef *ph,int32_t edition_start,
     const ExpCeWindow *w=&ph->window;
     int32_t first=0,last=0;
     uint32_t i;
-    int reason=0;
     memset(&pol,0,sizeof pol);
     if(!md_on_or_after(w->first_m,w->first_d,edition_start,&first))return 0;
     if(!md_on_or_after(w->last_m,w->last_d,first,&last))return 0;
@@ -425,12 +438,28 @@ static int plan_window_days(const ExpCePhaseDef *ph,int32_t edition_start,
     pol.blocked=busy_blocked;
     for(i=0;i<w->nbreaks && i<EXP_DATE_PLAN_MAX_BREAKS;++i) {
         ExpandedDatePlanBreak *b=&pol.breaks[pol.break_count];
+        if(w->break_season[i]) {   /* break of one edition only */
+            ExpandedWorldDate es;
+            if(!ExpandedWorld_IndexToDate(edition_start,&es) || es.year!=w->break_season[i])continue;
+        }
         if(!md_on_or_after(w->breaks[i][0],w->breaks[i][1],first,&b->first_day) ||
            !md_on_or_after(w->breaks[i][2],w->breaks[i][3],b->first_day,
                            &b->last_day))return 0;
         ++pol.break_count;
     }
-    return ExpandedDatePlanner_Plan(&pol,rounds,days,&reason);
+    {   /* v00.13.354: international windows (global table) of the declared
+         * types; a national-team edition plays IN them. Games stopped by a
+         * window move after it (window extended, logged). */
+        int32_t ext=0;
+        const int ok=ExpIntl_PlanWithWindows(&pol,(uint8_t)(s_plan_national?0u:s_plan_intl),
+                                             rounds,days,&ext);
+        /* the day profile later moves single games: same breaks */
+        s_plan_nbreaks=pol.break_count;
+        memcpy(s_plan_breaks,pol.breaks,sizeof s_plan_breaks);
+        if(ok && ext)fprintf(stderr,"[ce-intl] WINDOW_EXTENDED_AFTER_INTERNATIONAL_BREAK +%ld days "
+                             "(window end %ld -> %ld)\n",(long)ext,(long)last,(long)pol.last_day);
+        return ok;
+    }
 }
 
 /* ------------------------------------------------------------------ */
@@ -549,6 +578,8 @@ typedef struct RrCtx {
     uint32_t n,rounds_per_cycle,group,phase;
     const int32_t *days;
     uint32_t serial_base;
+    const uint8_t *return_map;   /* ASYMMETRIC: odd cycle round -> position */
+    uint32_t cycles;
 } RrCtx;
 static int rr_emit(void *user,uint32_t cycle,uint32_t round,uint32_t serial,
                    uint32_t home,uint32_t away)
@@ -558,7 +589,11 @@ static int rr_emit(void *user,uint32_t cycle,uint32_t round,uint32_t serial,
     if(home>=c->n || away>=c->n)return 0;
     fixture_base(c->d,c->e,&f);
     f.home=c->clubs[home];f.away=c->clubs[away];
-    f.day_index=c->days[cycle*c->rounds_per_cycle+round];
+    {
+        const uint32_t pos=(c->return_map && (cycle&1u) && cycle<c->cycles &&
+                            round<c->rounds_per_cycle)?c->return_map[round]:round;
+        f.day_index=c->days[cycle*c->rounds_per_cycle+pos];
+    }
     f.key.stage=EXP_CE_STAGE(c->phase,c->group);
     f.key.tie=c->serial_base+serial+1u;
     f.key.leg=(uint16_t)cycle;
@@ -594,6 +629,48 @@ static void draw_shuffle(ExpCeEntrant *a,uint32_t n,uint64_t *seed)
     }
 }
 
+/* ---- v00.13.354 calendar rules: asymmetric return, draw, day profile ---- */
+/* registry + this phase: is `day` free for both clubs of x? (profile) */
+typedef struct ProfileCtx {const ExpandedUniversalRegistry *r;} ProfileCtx;
+static int profile_free_day(void *ctx,const ExpandedUniversalFixture *x,
+                            const ExpandedUniversalFixture *all,uint32_t n,int32_t day)
+{
+    const ProfileCtx *p=(const ProfileCtx *)ctx;
+    GenBuf g;
+    uint32_t b;
+    for(b=0u;b<s_plan_nbreaks;++b)
+        if(day>=s_plan_breaks[b].first_day && day<=s_plan_breaks[b].last_day)return 0;
+    g.f=(ExpandedUniversalFixture *)all;g.n=n;g.cap=n;
+    return !p->r || club_free_on(p->r,&g,x->event_id,x->home.stable_club,x->away.stable_club,day);
+}
+/* Independent validation of a generated TABLE phase before publication.
+ * Returns the HARD failures (0 = publish). */
+static uint32_t validate_table_phase(const GenBuf *g,const ExpCeDef *d,const ExpCeEdition *e,
+    uint32_t phase,ExpandedClubKey groups[EXP_CE_MAX_GROUPS][EXP_CE_MAX_ENTRANTS],
+    const uint32_t *size)
+{
+    const ExpCePhaseDef *ph=&d->phases[phase];
+    ExpCevReport rep;
+    uint32_t gi,hard=0u;
+    char tag[80];
+    for(gi=0u;gi<ph->groups;++gi) {
+        uint32_t clubs[EXP_CE_MAX_ENTRANTS],j;
+        ExpCevRoundRobin x;
+        for(j=0u;j<size[gi];++j)clubs[j]=groups[gi][j].stable_club;
+        memset(&x,0,sizeof x);
+        x.clubs=clubs;x.nclubs=size[gi];x.cycles=ph->meetings;
+        x.extra_rounds=ph->extras.rounds;x.min_return_gap=ph->cal.min_return_gap;
+        x.max_run=ph->cal.max_run;
+        x.mirror=(uint8_t)(ph->meetings<2u?0u:ph->cal.return_order==1u?2u:ph->extras.rounds?0u:1u);
+        ExpCev_Init(&rep);
+        ExpCev_RoundRobin(g->f,g->n,e->key,EXP_CE_STAGE(phase,gi+1u),&x,&rep);
+        ExpCev_Global(g->f,g->n,ph->cal.nprofile?(ph->window.rest>1u?ph->window.rest:1u):0u,&rep);
+        snprintf(tag,sizeof tag,"competition=%lu edition=%ld phase=%u group=%u",
+                 (unsigned long)d->id,(long)e->key.start_day,(unsigned)phase,(unsigned)gi+1u);
+        hard+=ExpCev_Log(&rep,tag);
+    }
+    return hard;
+}
 /* ------------------------------------------------------------------ */
 /* phase entrants, pairings, generation                                 */
 /* ------------------------------------------------------------------ */
@@ -1042,6 +1119,9 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
         uint32_t size[EXP_CE_MAX_GROUPS],rounds=0u,gi;
         int32_t days[2048];
         if(!form_groups(d,e,phase,ent,n,groups,size,why,whylen))return 0;
+        if(ph->cal.cal_draw)    /* crit. 38: calendar numbers drawn per edition */
+            for(gi=0;gi<ph->groups;++gi)
+                ExpCal_DrawOrder(groups[gi],size[gi],draw_seed(e,phase)^UINT64_C(0xC0FFEE)^gi);
         for(gi=0;gi<ph->groups;++gi) {
             const uint32_t rr=((size[gi]&1u)?size[gi]:size[gi]-1u)*ph->meetings+ph->extras.rounds;
             if(rr>rounds)rounds=rr;
@@ -1059,7 +1139,23 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             c.g=&g;c.d=d;c.e=e;c.clubs=groups[gi];c.n=size[gi];
             c.rounds_per_cycle=(size[gi]&1u)?size[gi]:size[gi]-1u;
             c.group=gi+1u;c.phase=phase;c.days=days;
+            c.cycles=ph->meetings;
             uint32_t keys[EXP_PAIR_MAX_CLUBS],j;
+            uint8_t rmap[EXP_CAL_RR_MAX];
+            if(ph->cal.return_order==1u && ph->meetings>=2u) {
+                int run=0;
+                if(!ExpCal_ReturnMap(size[gi],c.rounds_per_cycle,ph->cal.min_return_gap,
+                                  draw_seed(e,phase)^(gi+1u),rmap,&run)) {
+                    snprintf(why,whylen,"phase %u: return gap %u impossible with %lu rounds",
+                             (unsigned)phase,(unsigned)ph->cal.min_return_gap,
+                             (unsigned long)c.rounds_per_cycle);
+                    *block=EXP_CE_BLOCK_DATA_MISSING;goto done;
+                }
+                c.return_map=rmap;
+                fprintf(stderr,"[ce-engine] RETURN_ORDER competition=%lu edition=%ld group=%u "
+                    "order=ASYMMETRIC min_gap=%u longest_home_away_run=%d\n",(unsigned long)d->id,
+                    (long)e->key.start_day,(unsigned)gi+1u,(unsigned)ph->cal.min_return_gap,run);
+            }
             if(ph->extras.rounds) {
                 if(size[gi]>EXP_PAIR_MAX_CLUBS)goto done;
                 for(j=0u;j<size[gi];++j)keys[j]=groups[gi][j].stable_club;
@@ -1070,6 +1166,22 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
                 snprintf(why,whylen,"phase %u: round robin failed",(unsigned)phase);
                 *block=EXP_CE_BLOCK_CAPACITY;goto done;
             }
+        }
+        if(ph->cal.nprofile) {
+            uint32_t moved=0u,kept=0u,skipped=0u;
+            ProfileCtx pc={r};
+            const int32_t lo=earliest>e->key.start_day?earliest:e->key.start_day;
+            ExpCal_ApplyDayProfile(g.f,g.n,&ph->cal,ph->window.weekdays,ph->window.rest,
+                days,rounds,lo,draw_seed(e,phase),profile_free_day,&pc,&moved,&kept,&skipped);
+            fprintf(stderr,"[ce-engine] DAY_PROFILE competition=%lu edition=%ld phase=%u "
+                "moved=%lu kept_on_round_day=%lu rounds_not_profiled=%lu\n",(unsigned long)d->id,
+                (long)e->key.start_day,(unsigned)phase,(unsigned long)moved,
+                (unsigned long)kept,(unsigned long)skipped);
+        }
+        if(validate_table_phase(&g,d,e,phase,groups,size)) {
+            snprintf(why,whylen,"phase %u: calendar validation failed (CALENDAR_HARD_CONFLICT)",
+                     (unsigned)phase);
+            *block=EXP_CE_BLOCK_CAPACITY;goto done;
         }
     } else {
         KoPair pairs[EXP_CE_MAX_ENTRANTS/2u];
@@ -2740,6 +2852,16 @@ static int parse_window(const char *j,int l,ExpCeWindow *w,char *why,size_t wl)
         if(v<0 || v>2){snprintf(why,wl,"window.last_year_offset 0..2");return 0;}
         w->last_year_offset=(uint8_t)v;
     }
+    {   /* v00.13.354: default FIFA windows (user rule 27/11/2026: every club
+         * competition stops when the national teams play); "" = none */
+        char it[48];
+        const int il=mjson_get_string(j,l,"$.international_breaks",it,(int)sizeof it);
+        w->intl=EXP_INTL_INHERIT;   /* absent: league finals inherit the league row, others none */
+        if(il==0)w->intl=0u;
+        else if(il>0 && !ExpIntl_ParseMask(it,&w->intl)) {
+            snprintf(why,wl,"window.international_breaks");return 0;
+        }
+    }
     return 1;
 }
 static int parse_club(const char *t,uint16_t world,ExpandedClubKey *k)
@@ -2755,6 +2877,11 @@ static const struct {const char *n;uint8_t v;} k_pairings[]={
     {"CROSS_GROUPS",EXP_CE_PAIR_CROSS_GROUPS},{"BRACKET",EXP_CE_PAIR_BRACKET},
     {"DRAW",EXP_CE_PAIR_DRAW},{"POTS",EXP_CE_PAIR_POTS},
     {"RESEED_TABLE",EXP_CE_PAIR_RESEED_TABLE},{"GROUP_TABLE",EXP_CE_PAIR_GROUP_TABLE},{"SOURCES",EXP_CE_PAIR_SOURCES}};
+static int parse_calendar_rules(const char *o,int ol,ExpCePhaseDef *ph,char *why,size_t wl)
+{
+    if(ph->kind!=EXP_CE_PHASE_TABLE){snprintf(why,wl,"calendar: TABLE phase only");return 0;}
+    return ExpCal_Parse(o,ol,ph->has_window?ph->window.weekdays:0u,&ph->cal,why,wl);
+}
 static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
                        const ExpCeMatchRules *mbase,ExpCePhaseDef *ph)
 {
@@ -2844,6 +2971,8 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
         if(!parse_window(o,ol,&ph->window,ph->missing,sizeof ph->missing))return 0;
         ph->has_window=1u;
     }
+    if(mjson_find(j,l,"$.calendar",&o,&ol)==MJSON_TOK_OBJECT &&
+       !parse_calendar_rules(o,ol,ph,ph->missing,sizeof ph->missing))return 0;
     if(mjson_find(j,l,"$.ties",&o,&ol)==MJSON_TOK_ARRAY) {
         /* "ties": [{"home":{"rank":1},"away":{"rank":2}}, {"home":{"loser":[1,1]},"away":{"winner":[1,2]}}] */
         int to=0,tk,tkl,tv,tvl,tt;

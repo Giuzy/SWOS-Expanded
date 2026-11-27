@@ -10,9 +10,9 @@ trap 'rm -rf "$DIR"' EXIT
 "$CC" -std=c11 -Iinclude -Wno-unused-but-set-variable -c src/mjson.c -o "$DIR/mjson.o"
 "$CC" -std=c11 -Wall -Wextra -Werror \
   -DSWOS_SDL_BUILD=1 -DSWOS_WORLDS=1 -Iinclude \
-  src/expanded_world_time.c src/expanded_universal_world_catalog.c \
+  src/expanded_world_time.c src/expanded_international_windows.c src/expanded_universal_world_catalog.c \
   src/expanded_universal_date_planner.c \
-  tests/test_expanded_universal_world_catalog.c "$DIR/mjson.o" \
+  src/expanded_ce_calendar_validator.c tests/test_expanded_universal_world_catalog.c "$DIR/mjson.o" \
   -o "$DIR/universal_world_catalog"
 "$DIR/universal_world_catalog"
 echo "WORLD_2627_JSON_FIRST_PAIRINGS=PASS_ISOLATED_ONLY_IF_ASSERTIONS_RAN"

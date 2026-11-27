@@ -20,6 +20,8 @@
 #include "expanded_universal_pairings.h"
 #include "expanded_ce_pool.h"
 #include "expanded_fifa_ranking.h"
+#include "expanded_ce_calendar_validator.h"
+#include "expanded_international_windows.h"
 
 /* ---- stubs required by the CAR module ---- */
 static WorldId s_world=WORLD_2627;
@@ -155,9 +157,9 @@ static void run_until(int32_t until)
 }
 
 /* ---- data ---- */
-static const ExpCeWindow LW={8,1,5,31,1, 1u<<6,1u<<2,3,0,{{0}}};
+static const ExpCeWindow LW={8,1,5,31,1, 1u<<6,1u<<2,3,0,{{0}},0,{0}};
 /* calendar-year league window (Jan 10 - Jun 20): 2026 season before START */
-static const ExpCeWindow CW={1,10,6,20,0, 1u<<6,1u<<2,3,0,{{0}}};
+static const ExpCeWindow CW={1,10,6,20,0, 1u<<6,1u<<2,3,0,{{0}},0,{0}};
 static void add_league_window(uint8_t country,const ExpCeWindow *w)
 {
     ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);
@@ -483,7 +485,7 @@ static void scene_run(unsigned finMin,unsigned poMin,SceneOut *o,const SceneOut 
         "{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"higher_home\":2,"
          "\"match\":{\"legs\":2,\"extra_time\":0,\"penalties\":0,\"rank_tiebreak\":2,\"away_goals\":0},\"after_phase_end\":{\"phase\":0,\"days\":[16,21]}}]}}]}";
     const uint8_t country=28u;
-    const ExpCeWindow w={8,1,6,20,1,1u<<6,1u<<2,3,0,{{0}}};
+    const ExpCeWindow w={8,1,6,20,1,1u<<6,1u<<2,3,0,{{0}},0,{0}};
     static const uint8_t clubs[5]={8u,14u,8u,8u,8u};
     uint32_t div,k,q;
     ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
@@ -635,9 +637,9 @@ static void xch_defs(int scen)
 {
     static char jx[2048],jc[2048];
     /* top league Nov..Jun, regions Aug..Oct: a club promoted for the next top-league season has finished its region season */
-    const ExpCeWindow wTop={11,1,6,30,1,1u<<6,1u<<2,3,0,{{0}}};
-    const ExpCeWindow wR1={8,1,10,31,0,1u<<6,1u<<2,3,0,{{0}}};
-    const ExpCeWindow wR2={8,1,10,25,0,1u<<6,1u<<2,3,0,{{0}}};
+    const ExpCeWindow wTop={11,1,6,30,1,1u<<6,1u<<2,3,0,{{0}},0,{0}};
+    const ExpCeWindow wR1={8,1,10,31,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
+    const ExpCeWindow wR2={8,1,10,25,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
     const int to_div=(scen==1)?2:1, other_div=(scen==1)?1:2;
     const uint32_t pk1[2]={xch_key(101),xch_key(102)},pk2[2]={xch_key(103),xch_key(104)};
     uint32_t div,k;
@@ -1021,7 +1023,7 @@ int main(void)
     {
         /* Jan 10 - Feb 28, Sundays + Wednesdays, rest 3: 6 rounds fit only
          * when the plan starts near Jan 10 */
-        static const ExpCeWindow TW={1,10,2,28,0, 1u<<0,1u<<3,3,0,{{0}}};
+        static const ExpCeWindow TW={1,10,2,28,0, 1u<<0,1u<<3,3,0,{{0}},0,{0}};
         ExpCeDef *dd=(ExpCeDef *)calloc(1u,sizeof *dd);
         const uint32_t T0=ExpCe_LeagueCompetitionId(21,1,0),T1=ExpCe_LeagueCompetitionId(21,1,1);
         int32_t days[8];
@@ -1374,8 +1376,8 @@ int main(void)
     {
         const uint8_t country=23u;
         const ExpCeWindow windows[2]={
-            {8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}}},
-            {11,1,2,28,1,1u<<6,1u<<2,3,0,{{0}}}
+            {8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}},0,{0}},
+            {11,1,2,28,1,1u<<6,1u<<2,3,0,{{0}},0,{0}}
         };
         uint32_t div,k;
         ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
@@ -1452,7 +1454,7 @@ int main(void)
      * persists across lifecycle encode/decode. No duplicate competition. */
     {
         static const char j[]="{\"schema\":1,\"leagues\":[{\"team_number\":23,\"comp_id\":1,\"division\":0,\"finals\":{\"qualify\":4,\"phases\":[{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},\"window\":{\"first\":\"10-08\",\"last\":\"10-31\",\"weekdays\":\"SAT\",\"rest\":3}},{\"kind\":\"KNOCKOUT\",\"pairing\":\"RESEED_TABLE\",\"higher_home\":1,\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},\"window\":{\"first\":\"11-01\",\"last\":\"11-30\",\"weekdays\":\"SAT\",\"rest\":3}}]}}]}";
-        const ExpCeWindow w={8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}}};
+        const ExpCeWindow w={8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
         const uint32_t id=ExpCe_LeagueCompetitionId(23u,1u,0u);
         ExpCeDef *d=calloc(1u,sizeof *d);
         uint32_t rank[4],title[4],k;
@@ -1498,7 +1500,7 @@ int main(void)
              "\"match\":{\"legs\":2,\"extra_time\":0,\"penalties\":0,\"rank_tiebreak\":1,\"away_goals\":0},"
              "\"after_phase_end\":{\"phase\":0,\"days\":[16,21]}}]}}]}";
         const uint8_t country=26u;
-        const ExpCeWindow w={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}}};
+        const ExpCeWindow w={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
         const uint32_t top=ExpCe_LeagueCompetitionId(country,1u,0u),low=ExpCe_LeagueCompetitionId(country,1u,1u);
         uint32_t div,k,q;
         const ExpCeEdition *lo26,*top27,*lo27;
@@ -1604,7 +1606,7 @@ int main(void)
             "\"higher_home\":2,\"match\":{\"legs\":2,\"extra_time\":0,\"penalties\":0,\"rank_tiebreak\":1,\"away_goals\":0},"
             "\"after_phase_end\":{\"phase\":0,\"days\":[7,14]}}}]}";
         const uint8_t country=27u;
-        const ExpCeWindow w={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}}};
+        const ExpCeWindow w={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
         const uint32_t top=ExpCe_LeagueCompetitionId(country,1u,0u),low=ExpCe_LeagueCompetitionId(country,1u,1u);
         uint32_t div,k,q,nf=0u;
         int32_t last_reg=INT32_MIN;
@@ -1789,7 +1791,7 @@ int main(void)
             "\"first_edition\":{\"year\":2026,\"from_sources\":true},"
             "\"next_entrants\":[{\"source\":\"LEAGUE_RANK\",\"league\":{\"country\":23,\"comp_id\":1,\"division\":0},"
             "\"from\":1,\"to\":2,\"reallocate\":true,\"exclude\":[\"23:1\"]}]}]}";
-        const ExpCeWindow wq={8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}}};
+        const ExpCeWindow wq={8,1,10,1,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
         const uint32_t QC=1048578u,LG=ExpCe_LeagueCompetitionId(23u,1u,0u);
         const ExpCeEdition *qe,*le;
         uint32_t k;
@@ -1835,7 +1837,7 @@ int main(void)
              "\"ties\":[{\"home\":{\"winner\":[1,1]},\"away\":{\"winner\":[2,1]}}],"
              "\"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},\"after_phase_end\":{\"phase\":0,\"days\":[21]}}]}}]}";
         const uint8_t country=33u;
-        const ExpCeWindow w={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}}};
+        const ExpCeWindow w={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
         const uint32_t id=ExpCe_LeagueCompetitionId(country,1u,0u);
         ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);
         ExpandedUniversalFixture fx[56];
@@ -1902,8 +1904,8 @@ int main(void)
             "\"higher_home\":2,\"match\":{\"legs\":2,\"extra_time\":1,\"penalties\":1,\"away_goals\":0},"
             "\"after_phase_end\":{\"phase\":0,\"days\":[7,14]}}}]}";
         const uint8_t country=34u;
-        const ExpCeWindow wA={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}}};
-        const ExpCeWindow wB={11,1,3,31,1,1u<<6,1u<<2,3,0,{{0}}};
+        const ExpCeWindow wA={8,1,12,20,0,1u<<6,1u<<2,3,0,{{0}},0,{0}};
+        const ExpCeWindow wB={11,1,3,31,1,1u<<6,1u<<2,3,0,{{0}},0,{0}};
         const uint32_t pk[3]={(34u<<16)|101u,(34u<<16)|102u,(34u<<16)|103u};
         const uint32_t low=ExpCe_LeagueCompetitionId(country,1u,1u);
         uint32_t div,k,q,season;
@@ -2236,6 +2238,84 @@ int main(void)
             ExpFifa_Reset();
             puts("FIFA_RANKING_CE_NATIONAL_SEEDING_PROTECT_ANTI_DOUBLE_FR01_CONTINUE=PASS");
         }
+    }
+    /* ===== v00.13.354 calendar rules: ASYMMETRIC return with minimum
+     * gap, calendar draw per edition, day profile, independent validation,
+     * determinism (same data -> same calendar) ===== */
+    {
+        static const char cj[]=
+        "{\"schema\":1,\"competitions\":[{\"id\":917762,\"name\":\"CALENDAR RULES TEST\",\"country\":42,\"type\":0,"
+        "\"match\":{\"bench\":5,\"subs\":3,\"discipline\":1,\"provenance\":\"GAME_TEMPLATE\"},"
+        "\"table\":{\"points\":[3,1,0],\"tiebreak\":[\"POINTS\",\"GOAL_DIFF\",\"GOALS_FOR\",\"LOT\"],\"provenance\":\"GAME_TEMPLATE\"},"
+        "\"phases\":[{\"kind\":\"TABLE\",\"groups\":1,\"meetings\":2,"
+        " \"window\":{\"first\":\"08-01\",\"last\":\"05-31\",\"year_offset\":1,\"weekdays\":\"SUN\",\"extra_weekdays\":\"WED\",\"rest\":3,\"international_breaks\":\"FIFA\"},"
+        " \"calendar\":{\"return_order\":\"ASYMMETRIC\",\"min_return_gap\":4,\"calendar_draw\":\"EDITION\","
+        "  \"day_profile\":[{\"day\":\"FRI\",\"matches\":1},{\"day\":\"SAT\",\"matches\":1},{\"day\":\"SUN\",\"matches\":2},{\"day\":\"MON\",\"matches\":1}]}}],"
+        "\"first_edition\":{\"year\":2026,\"entrants\":["
+        "{\"club\":\"42:1\",\"source\":\"VERIFIED\"},{\"club\":\"42:2\",\"source\":\"VERIFIED\"},{\"club\":\"42:3\",\"source\":\"VERIFIED\"},"
+        "{\"club\":\"42:4\",\"source\":\"VERIFIED\"},{\"club\":\"42:5\",\"source\":\"VERIFIED\"},{\"club\":\"42:6\",\"source\":\"VERIFIED\"},"
+        "{\"club\":\"42:7\",\"source\":\"VERIFIED\"},{\"club\":\"42:8\",\"source\":\"VERIFIED\"},{\"club\":\"42:9\",\"source\":\"VERIFIED\"},"
+        "{\"club\":\"42:10\",\"source\":\"VERIFIED\"}]}}]}";
+        const uint32_t CT=917762u;
+        int32_t snapshot_days[128];
+        uint64_t snapshot_ids[128];
+        uint32_t pass,k,n90=0u;
+        for(pass=0u;pass<2u;++pass) {
+            const ExpCeDef *cd;
+            uint32_t cnt=0u,clubs[10];
+            ExpCevReport rep;
+            ExpCevRoundRobin x;
+            uint32_t wdays[7]={0};
+            ExpandedUniversal_CarResetCurrent();ExpCe_Reset();s_ran_n=0u;
+            {   /* one global international table; this phase declares FIFA */
+                static const char iw[]="{\"schema\":1,\"windows\":["
+                    "{\"from\":\"2026-09-21\",\"to\":\"2026-10-06\",\"type\":\"FIFA\"},"
+                    "{\"from\":\"2026-11-09\",\"to\":\"2026-11-17\",\"type\":\"FIFA\"},"
+                    "{\"from\":\"2027-01-07\",\"to\":\"2027-02-05\",\"type\":\"AFC\"}]}";
+                assert(ExpIntl_LoadJson(iw,(int)strlen(iw)) && ExpIntl_Count()==3u);
+            }
+            assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},256u));
+            assert(ExpCe_LoadJsonDefinitions(cj,(int)strlen(cj),WORLD_2627,"cal.json")==1);
+            cd=ExpCe_Definition(CT);
+            assert(cd && !cd->missing[0] && !cd->phases[0].missing[0]);
+            assert(cd->phases[0].cal.return_order==1u && cd->phases[0].cal.min_return_gap==4u &&
+                   cd->phases[0].cal.cal_draw==1u && cd->phases[0].cal.nprofile==4u &&
+                   cd->phases[0].cal.profile_off[0]==-2 && cd->phases[0].cal.profile_off[3]==1);
+            assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+            (void)ExpCe_Tick(R(),&H,R()->scheduler.clock.day_index);
+            for(k=0u;k<R()->fixture_count;++k) {
+                const ExpandedUniversalFixture *f=&R()->fixtures[k];
+                if(f->key.edition.competition.stable_competition!=CT)continue;
+                if(pass==0u){snapshot_days[cnt]=f->day_index;snapshot_ids[cnt]=f->event_id;}
+                else assert(snapshot_ids[cnt]==f->event_id && snapshot_days[cnt]==f->day_index);
+                ++wdays[(uint32_t)f->day_index%7u];
+                /* crit. 23/25: no game in a declared FIFA window, the AFC one
+                 * (not declared) is ignored */
+                assert(!(f->day_index>=D(2026,9,21) && f->day_index<=D(2026,10,6)));
+                assert(!(f->day_index>=D(2026,11,9) && f->day_index<=D(2026,11,17)));
+                ++cnt;
+            }
+            assert(cnt==90u);n90=cnt;
+            /* independent validation of the published calendar */
+            for(k=0u;k<10u;++k)clubs[k]=C(42,k+1u).stable_club;
+            memset(&x,0,sizeof x);
+            x.clubs=clubs;x.nclubs=10u;x.cycles=2u;x.min_return_gap=4u;x.mirror=2u;
+            x.max_run=2u;   /* user rule 27/11: never 3 consecutive home or away */
+            ExpCev_Init(&rep);
+            ExpCev_RoundRobin(R()->fixtures,R()->fixture_count,
+                ExpCe_EditionAt(0)->key,EXP_CE_STAGE(0u,1u),&x,&rep);
+            ExpCev_Global(R()->fixtures,R()->fixture_count,3u,&rep);
+            if(rep.hard_failures)(void)ExpCev_Log(&rep,"calendar-rules");
+            assert(rep.hard_failures==0u && rep.c[2].status==EXP_CEV_PASS &&
+                   rep.c[4].status==EXP_CEV_PASS && rep.c[3].status==EXP_CEV_PASS &&
+                   rep.c[27].status==EXP_CEV_PASS && rep.c[28].status==EXP_CEV_PASS &&
+                   rep.c[7].status==EXP_CEV_PASS);
+            /* the profile moved games off Sunday (FRI/SAT/MON used) */
+            assert(wdays[4] && wdays[5] && wdays[0] && wdays[6]);
+        }
+        (void)n90;
+        ExpIntl_Reset();
+        puts("CALENDAR_RULES_ASYMMETRIC_GAP_DRAW_DAY_PROFILE_VALIDATED_DETERMINISTIC=PASS");
     }
     puts("FASE2_CE_ENGINE_ISOLATED=PASS");
     puts("OG_QUICK_50HZ_SUB_WINDOWS_MENUS_WINDOWS_GAMEPLAY=NOT_TESTED");

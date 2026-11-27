@@ -6,6 +6,7 @@
   "provenance": "GAME_TEMPLATE_NOT_OFFICIAL",
   "notes": [
     "Read ONLY by the CE date planner (v00.13.280). OG native phases are never used to date a CE fixture.",
+    "v00.13.354: international_breaks = window types (FIFA, AFC, CAF, CONCACAF, CONMEBOL, OFC, UEFA) of data_json/worlds/2627/competitions/international_windows.json during which the league stops. Every UEFA league declares FIFA,UEFA (FIFA windows and the EURO, user 27/11/2026); absent = not declared (other confederations still to verify). A break with \"season\" applies only to the edition starting that year.",
     "first_match/last_match are MM-DD civil days of the edition window; last_match_year_offset counts years after the edition start year.",
     "Initial windows were copied ONCE from leagues.json begin_month/end_month (game template). Edit freely: any civil day is valid.",
     "match_weekdays are preferred round days; extra_weekdays are used only if the preferred days are not enough. Names: MON TUE WED THU FRI SAT SUN, comma separated.",
@@ -27,18 +28,22 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [
         {
           "from": "09-27",
-          "to": "09-27"
+          "to": "09-27",
+          "season": 2026
         },
         {
           "from": "10-04",
-          "to": "10-04"
+          "to": "10-04",
+          "season": 2026
         },
         {
           "from": "11-15",
-          "to": "11-15"
+          "to": "11-15",
+          "season": 2026
         },
         {
           "from": "12-27",
@@ -46,10 +51,12 @@
         },
         {
           "from": "03-28",
-          "to": "03-28"
+          "to": "03-28",
+          "season": 2026
         }
       ],
       "division": 0,
+      "calendar_rules": {"return_order": "ASYMMETRIC", "min_return_gap": 8, "calendar_draw": "EDITION", "day_profile": [{"day": "FRI", "matches": 1}, {"day": "SAT", "matches": 3}, {"day": "SUN", "matches": 5}, {"day": "MON", "matches": 1}], "provenance": "VERIFIED", "source": "Lega Serie A criteri compilazione calendario 2026/27 (asimmetria, distanza minima 8 giornate); profilo FRI1 SAT3 SUN5 MON1 row186 roundTemplateAudit; midweek and derby restrictions NOT modelled (see docs/CE_CALENDAR_GENERATOR.md)"},
       "template_scope": "row186 GAME_TEMPLATE_2026 regular window; exact round distribution/tie playoffs pending"
     },
     {
@@ -63,6 +70,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 1,
       "template_scope": "row187 Serie B GAME_TEMPLATE_2026: play-off for the 3rd promotion (ranks 3-8) with days relative to the real end of the regular season; playout / 4th relegation, direct-promotion gap rules and extra time + penalties when regular points are equal are NOT implemented",
@@ -120,6 +128,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 2
     },
@@ -134,6 +143,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 3
     },
@@ -148,6 +158,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 4
     },
@@ -161,6 +172,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 5
     },
@@ -174,6 +186,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 6
     },
@@ -187,6 +200,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 7
     },
@@ -200,6 +214,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 8
     },
@@ -213,6 +228,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 9
     },
@@ -226,6 +242,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 10
     },
@@ -239,6 +256,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 11
     },
@@ -252,6 +270,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 12
     },
@@ -265,6 +284,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": [],
       "division": 13
     },
@@ -278,6 +298,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -302,6 +323,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -326,6 +348,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -511,6 +534,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -523,6 +547,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -535,6 +560,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -547,6 +573,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -559,6 +586,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -595,6 +623,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -667,6 +696,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -679,6 +709,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -691,6 +722,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -703,6 +735,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -739,6 +772,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -751,6 +785,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -763,6 +798,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -775,6 +811,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -787,6 +824,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -799,6 +837,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -811,6 +850,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -823,6 +863,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -847,6 +888,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -859,6 +901,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -895,6 +938,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -919,6 +963,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -943,6 +988,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -955,6 +1001,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -979,6 +1026,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1003,6 +1051,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1027,6 +1076,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1039,6 +1089,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1051,6 +1102,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1063,6 +1115,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1087,6 +1140,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1111,6 +1165,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1123,6 +1178,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1135,6 +1191,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1147,6 +1204,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1159,6 +1217,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1171,6 +1230,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1231,6 +1291,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1243,6 +1304,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1267,6 +1329,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1291,6 +1354,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1303,6 +1367,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1327,6 +1392,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1339,6 +1405,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1351,6 +1418,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1375,6 +1443,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1387,6 +1456,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1399,6 +1469,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1435,6 +1506,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1459,6 +1531,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     },
     {
@@ -1508,6 +1581,7 @@
       "match_weekdays": "SUN",
       "extra_weekdays": "WED",
       "min_rest_days": 3,
+      "international_breaks": "FIFA,UEFA",
       "breaks": []
     }
   ]

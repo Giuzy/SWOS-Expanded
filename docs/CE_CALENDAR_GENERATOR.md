@@ -205,3 +205,69 @@ HEAD c75f7ff1ba7b09a3706ea6e3b39bbc6d1910386b v343, recovered pending data. V se
 
 ### 27/11/2026 — RG-CE-RANKING-2627: Honka approval
 HEAD c75f7ff1ba7b09a3706ea6e3b39bbc6d1910386b v343. User approves FC Honka ry retaining historic 2.500 (2021/22 1.500, 2023/24 1.000), draw value 2.800 via FIN floor. Game policy, not official UEFA succession certification; native ID/registration pending. No code, UI, saves or runtime changed. Next user authorizes adding 69 missing FIFA national teams in 2627 only, real names, same sole TEST_ZERO source copied by value, regional existing button layout, first Europe page preserved with second if needed, commit after insertion. Precheck RG-CT-OG-SHARED, RG-CE-RANKING-2627, RG-T10/16/19/20; no second national routine or writer. ST decision mapping SI; C/Windows/GP/CAR NP. Research count 3/5 unchanged.
+
+## 28/11/2026 — v00.13.354 Upgrade generatore CE, passo 1: audit dei 50 criteri, validatore indipendente, regole calendario
+Base HEAD 0a287c38 (v353, commit concorrenti di ricerca preservati). Nessun nuovo generatore: estesi `ExpandedUniversal_GenerateRoundRobin` (invariato), `generate_phase`/`rr_emit`, parser fasi e `league_calendar.json`. Baseline test prima dell'intervento: 11/12 PASS, `ce_data` FAIL preesistente (sp.n==14).
+**Nuovo:** `expanded_ce_calendar_validator.c/.h` (legge SOLO fixture, aspettative dal regolamento; mai writer). Usato in `generate_phase` prima dell'inserimento di ogni fase TABLE: violazione HARD = fase bloccata (`CALENDAR_HARD_CONFLICT`, blocco locale CAPACITY), log `[ce-validate] criterion=NN`. Campi di fase TABLE (JSON `"calendar"` o riga `"calendar_rules"` di league_calendar.json): `return_order` MIRROR|ASYMMETRIC, `min_return_gap`, `max_run`, `calendar_draw` EDITION, `day_profile` [{day,matches}] relativo all'unico giorno preferito. Hash regole invariato se assenti. Serie A 2026/27 attivata (ASYMMETRIC, gap 8, sorteggio per edizione, FRI1 SAT3 SUN5 MON1).
+**Scoperta (V, validatore):** il ritorno speculare storico produce 3 gare consecutive casa o trasferta al giro di boa (dentro il singolo ciclo massimo 2, come dichiarato). Non modificato: cambiare il ritorno speculare altera competizioni esistenti → decisione utente. Con ASYMMETRIC la permutazione è scelta (4096 candidati deterministici) per il minimo run: Serie A ottiene 3, test 10 squadre 2.
+
+| ID | Stato a HEAD v354 | Dove / limite |
+|---|---|---|
+| 01 format | PARZIALE | TABLE gironi/cicli, KO gare/ritorno/supplementari/rigori, fasi miste, finali, playout. League phase NON |
+| 02 cycles | IMPLEMENTATO+VALIDATO | 1..4 cicli, cardinalità C·N(N−1)/2 verificata |
+| 03 return_order | IMPLEMENTATO (MIRROR storico, ASYMMETRIC nuovo) | parzialmente speculare NON |
+| 04 min_return_gap | NUOVO+VALIDATO | solo con ASYMMETRIC (garantito per costruzione) |
+| 05 extra_rounds | IMPLEMENTATO+VALIDATO | GenerateLeague, rivalità |
+| 06 home_away_balance | IMPLEMENTATO+VALIDATO | coppia: una casa ciascuno nel doppio girone (HARD) |
+| 07 max_home_away_run | PARZIALE | 2 nel ciclo, 3 al giro di boa (scoperta); HARD se dato regolato |
+| 08 rolling_home_away | NON IMPLEMENTATO | |
+| 09 opening_closing_pattern | NON IMPLEMENTATO | |
+| 10 derby_round_constraints | NON IMPLEMENTATO | solo derby supplementari |
+| 11 marquee_balance | NON IMPLEMENTATO | definizione da approvare |
+| 12 venue_role | PARZIALE | higher_home, NON_MEMBER_HOSTS; campo neutro NON |
+| 13 edition_phase_windows | IMPLEMENTATO | finestre per fase, giorni relativi KO |
+| 14 allowed_weekdays | IMPLEMENTATO | preferiti + extra |
+| 15 weekday_profile | NUOVO+VALIDATO | turni ordinari; turni infrasettimanali restano sul loro giorno |
+| 16 midweek_rounds | PARZIALE | extra solo per mancanza di date; numero/posizione non configurabili |
+| 17 round_overrides | PARZIALE | giorni espliciti prima edizione |
+| 18 seasonal_breaks | IMPLEMENTATO | breaks |
+| 19 holiday_constraints | NON IMPLEMENTATO | solo come break |
+| 20 simultaneous_rounds | PARZIALE | default turno nello stesso giorno; non configurabile per ultima giornata |
+| 21 reschedule_windows | IMPLEMENTATO+VALIDATO | recuperi con identità invariata; unicità id verificata |
+| 22 edition_rollover | IMPLEMENTATO | lifecycle invariato |
+| 23 fifa_windows | NON IMPLEMENTATO | nessuna finestra globale |
+| 24 confederation_windows | NON IMPLEMENTATO | |
+| 25 break_applicability | NON IMPLEMENTATO | pause solo per lega |
+| 26 competition_priority | PARZIALE | plan_with_priority (fase in finestra corta) |
+| 27 club_day_collision | IMPLEMENTATO+VALIDATO | registro + validatore |
+| 28 rest | PARZIALE+VALIDATO | distanza turni; per gara con profilo; non fra competizioni |
+| 29–35 | NON IMPLEMENTATI | vincoli coppe adiacenti, stadi, aree, affiliate, blackout, trasferte, sicurezza: mancano dati |
+| 36 sporting_qualification | IMPLEMENTATO | LEAGUE_RANK, CUP_WINNER/RUNNER_UP, SOURCES, provenienza |
+| 37 association_slots | NON IMPLEMENTATO | access list |
+| 38 seed_source | PARZIALE | ordine entranti, RESEED_TABLE, FIFA, sorteggio calendario nuovo; classifica stagione precedente NON |
+| 39 pots | PARZIALE | POTS dall'ordine entranti |
+| 40/41 UEFA | SOLO KERNEL | non collegati |
+| 42 fifa_national | IMPLEMENTATO (v349) | mancano competizioni nazionali |
+| 43/44 | NON IMPLEMENTATI | |
+| 45 draw_restrictions | NON IMPLEMENTATO | |
+| 46 byes | IMPLEMENTATO | |
+| 47 bracket | PARZIALE | BRACKET, RESEED_TABLE, SOURCES vincitore/perdente |
+| 48 opponents_per_pot | NON IMPLEMENTATO | league phase |
+| 49 slot_reallocation | PARZIALE | riallocazione duplicati LEAGUE_RANK |
+| 50 ranking_snapshot | PARZIALE | snapshot FIFA per sorteggio; seed deterministici per edizione/fase; snapshot generico NON |
+Test: validatore (positivi su kernel reale N=2..21, 1..3 cicli, derby; 12 negativi) PASS; ce_engine nuovo blocco CALENDAR_RULES_..._DETERMINISTIC PASS; ciclo Italia 5 anni con Serie A asimmetrica PASS; tutte le suite CE/universal invariate PASS, ce_data FAIL preesistente. Build Windows rc=0, EXE copiato. NON PROVATI: gameplay, SAVE/CONTINUE reale, 9697 a runtime (nessun dato 9697 usa i nuovi campi).
+
+### 28/11/2026 — criterio 07 deciso dall'utente: massimo 2 consecutive
+Ordine dei turni ruotato nel kernel (pari >=6) e ricerca a scambi per ASYMMETRIC: max 2 ovunque tranne doppio girone a 4 squadre (3 inevitabile). Stato 07: IMPLEMENTATO+VALIDATO. Prossimi blocchi nell'ordine approvato: finestre FIFA/continentali con pause per lega applicabile; fasce, restrizioni sorteggio e league phase; access list UEFA. Prima edizione START dal catalogo ancora senza regole calendario (da unificare con generate_phase).
+
+## 28/11/2026 — v00.13.354 (seguito): regole calendario anche alla prima stagione START + finestre internazionali globali
+`expanded_calendar_rules.h` condiviso da catalogo START e CE; `expanded_international_windows.c/.h` + `international_windows.json` (FIFA 2023-2030, aprile 2026). Criteri 23 e 25: IMPLEMENTATI per le finestre FIFA (tabella globale + applicabilità per lega); 24 PARZIALE (finali continentali 2027 presenti, nessuna lega le dichiara; 2028-2030 date non stampate). Scheda RG-CE-INTL-WINDOWS-354.
+
+### 28/11/2026 — finestre internazionali: default FIFA per tutte le competizioni di club
+`international_breaks` assente = FIFA (leghe e fasi CE di club), `""` = nessuna; edizioni nazionali giocano nelle finestre; pause con `"season"` valgono per una sola edizione; finestra estesa dopo la sosta quando necessario (log WINDOW_EXTENDED_AFTER_INTERNATIONAL_BREAK). Coppa d'Asia 2027 al 23/12/2027–21/01/2028. Scheda RG-CE-INTL-WINDOWS-354.
+
+### 28/11/2026 — finestre FIFA: solo leghe europee dichiarate (decisione utente)
+Leghe UEFA e Supercoppa Italiana: "FIFA" esplicito nei dati; altre confederazioni da verificare (nessuna pausa finché non dichiarata). Finali di lega ereditano. Scheda RG-CE-INTL-WINDOWS-354.
+
+### 28/11/2026 — soste internazionali generate dal calendario (ciclo Mondiale/Europeo)
+Date ufficiali solo 2026/27; dal 01/07/2027 generate ogni anno con alternanza Mondiale (2030, 2034…) / Europeo+Copa+OFC+AFCON (2028, 2032…), Gold Cup anni dispari, Asian Cup 2031, 2035…. Leghe UEFA "FIFA,UEFA". `ExpIntl_PlanWithWindows` unica. Scheda RG-CE-INTL-WINDOWS-354.

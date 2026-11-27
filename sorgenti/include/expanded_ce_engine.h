@@ -110,9 +110,12 @@ typedef struct ExpCeWindow {
     uint8_t first_m, first_d, last_m, last_d, last_year_offset;
     uint8_t weekdays, extra_weekdays, rest, nbreaks;
     uint8_t breaks[EXP_CE_MAX_BREAKS][4]; /* from_m, from_d, to_m, to_d */
+    uint8_t intl;                 /* v00.13.354 international window types paused for (last: positional initialisers) */
+    uint16_t break_season[EXP_CE_MAX_BREAKS]; /* v00.13.354 break edition year, 0 = every season */
 } ExpCeWindow;
 
 #include "expanded_universal_pairings.h"
+#include "expanded_calendar_rules.h"
 typedef struct ExpCePhaseDef {
     uint8_t kind;                 /* ExpCePhaseKind */
     uint8_t groups;               /* TABLE: number of groups (>=1) */
@@ -147,6 +150,9 @@ typedef struct ExpCePhaseDef {
      * protect default: KNOCKOUT phase with importance >= 35 (final
      * tournament knockout rounds). Hashed only when used. */
     uint8_t fifa_importance, fifa_protect, fifa_seeding;
+    /* v00.13.354 calendar rules (JSON "calendar" / league_calendar.json
+     * "calendar_rules"), shared with the START catalog: expanded_calendar_rules.h */
+    ExpCalRules cal;
     ExpCeWindow window;           /* dates (GAME_TEMPLATE unless verified) */
     /* verified real round days of the FIRST edition (take precedence over
      * the window for that edition only; later editions use the window) */

@@ -286,7 +286,11 @@
 /* v00.13.353: nominal START/WORLD extension to 23 more countries,
  * same guarded dashboard and explicit UI-only contract acceptance.
  * No sporting activation or CAR write. Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.353"
+/* v00.13.354: CE calendar upgrade step 1: independent calendar validator
+ * (criteria 01-07,15,21,27,28) checked before publication; TABLE calendar
+ * rules (ASYMMETRIC return + min gap, edition calendar draw, per-day match
+ * profile), Serie A 2026/27 data. Isolated/headless + build; gameplay NP. */
+#define SWOS_EXPANDED_VERSION "00.13.354"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

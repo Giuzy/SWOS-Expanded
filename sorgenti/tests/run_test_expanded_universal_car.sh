@@ -21,8 +21,8 @@ done
   -c src/mjson.c -o "$DIR/mjson.o"
 "$CC" -std=c11 -Wall -Wextra -Werror -DSWOS_SDL_BUILD=1 -DSWOS_WORLDS=1 \
   -Iinclude $SDL_INC \
-  src/expanded_world_time.c src/expanded_car_compact.c src/expanded_edition_archive.c src/expanded_universal_car.c \
-  src/expanded_ce_rules.c src/expanded_ce_table.c src/expanded_ce_engine.c src/expanded_fifa_ranking.c \
+  src/expanded_world_time.c -DEXP_INTL_NO_IO src/expanded_international_windows.c src/expanded_car_compact.c src/expanded_edition_archive.c src/expanded_universal_car.c \
+  src/expanded_ce_rules.c src/expanded_ce_table.c src/expanded_ce_engine.c src/expanded_fifa_ranking.c src/expanded_ce_calendar_validator.c \
   src/expanded_universal_date_planner.c \
   tests/test_expanded_universal_car.c "$DIR/mjson.o" -lm -o "$DIR/universal_car"
 "$DIR/universal_car"

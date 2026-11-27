@@ -7,9 +7,11 @@
 #define EXPANDED_UNIVERSAL_JSON_LEAGUES_H
 #include <stdint.h>
 #include "expanded_universal_pairings.h"
+#include "expanded_calendar_rules.h"
 #define EXP_JSON_LEAGUE_MAX_BREAKS 8u
 typedef struct ExpandedUniversalJsonLeagueBreak {
     uint8_t from_month, from_day, to_month, to_day;
+    uint16_t season;   /* v00.13.354: edition start year it applies to, 0 = every season */
 } ExpandedUniversalJsonLeagueBreak;
 typedef struct ExpandedUniversalJsonLeague {
     uint8_t country, comp_id, division, begin_phase, end_phase, meetings;
@@ -27,6 +29,15 @@ typedef struct ExpandedUniversalJsonLeague {
     uint8_t has_rules, points_for_win, subs, bench;
     uint8_t divisions, promoted, relegated, promoted_po, relegated_po;
     ExpPairExtras extras;
+    /* v00.13.354 "calendar_rules" (expanded_calendar_rules.h); cal_invalid
+     * non-empty = data error: the league fails closed (missing). */
+    ExpCalRules cal;
+    char cal_invalid[80];
+    /* v00.13.354 "international_breaks": window types this league pauses
+     * for (expanded_international_windows.h). Absent = none declared
+     * (UNKNOWN); every UEFA league declares "FIFA" in league_calendar.json
+     * (user 27/11/2026), the other confederations are still to verify. */
+    uint8_t intl_breaks;
 } ExpandedUniversalJsonLeague;
 /* i-th division row (Fase 2 definitions builder). */
 int ExpandedUniversalJsonLeagues_At(uint32_t i, ExpandedUniversalJsonLeague *out);

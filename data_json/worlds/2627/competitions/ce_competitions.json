@@ -279,7 +279,7 @@
             "first": "12-22",
             "last": "12-22",
             "weekdays": "MON,TUE,WED,THU,FRI,SAT,SUN",
-            "rest": 0
+            "rest": 0, "international_breaks": "FIFA"
           }
         }
       ],

@@ -5,6 +5,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_json_leagues.h"
 #include "mjson.h"
+#include "expanded_international_windows.h"
 #include "swos_io.h" /* swos_data_path only: load_alloc is SAVE-ONLY */
 #include "world.h"
 #include <limits.h>
@@ -195,6 +196,13 @@ static int json_load_calendar(void)
                mjson_get_string(breaks+bv,blen,"$.to",text,sizeof text)<=0 ||
                !ExpandedUniversalJsonLeagues_ParseMonthDay(
                    text,&b->to_month,&b->to_day))goto failure;
+            {   /* v00.13.354 optional "season": only that edition */
+                double sy=0;
+                if(mjson_get_number(breaks+bv,blen,"$.season",&sy)>0) {
+                    if(sy<1900||sy>2200||sy!=(double)(int)sy)goto failure;
+                    b->season=(uint16_t)sy;
+                }
+            }
         }
         if(boff<0)goto failure;
         {
@@ -223,6 +231,24 @@ static int json_load_calendar(void)
         }
         cal.last_year_offset=(uint8_t)offset;
         cal.min_rest_days=(uint8_t)rest;
+        {   /* v00.13.354 international windows this league pauses for */
+            char it[48];
+            const int il=mjson_get_string(entry,vl,"$.international_breaks",it,sizeof it);
+            /* absent = none declared (UNKNOWN): user 27/11, European
+             * leagues declare FIFA in the data, the others to be verified */
+            if(il>0 && !ExpIntl_ParseMask(it,&cal.intl_breaks))goto failure;
+        }
+        {   /* v00.13.354 calendar rules of this league row */
+            const char *co=NULL;int cl=0;
+            if(mjson_find(entry,vl,"$.calendar_rules",&co,&cl)==MJSON_TOK_OBJECT) {
+                if(division<0)goto failure;
+                if(!ExpCal_Parse(co,cl,cal.match_weekdays,&cal.cal,cal.cal_invalid,sizeof cal.cal_invalid)) {
+                    fprintf(stderr,"[universal-json] CALENDAR_RULES_INVALID country=%ld comp=%ld why=%s\n",
+                            country,comp,cal.cal_invalid);
+                    if(!cal.cal_invalid[0])snprintf(cal.cal_invalid,sizeof cal.cal_invalid,"calendar_rules");
+                }
+            }
+        }
         for(i=0;i<s_json.count;++i) {
             ExpandedUniversalJsonLeague *r=&s_json.rows[i];
             if(r->country!=(uint8_t)country || r->comp_id!=(uint8_t)comp ||
@@ -231,6 +257,9 @@ static int json_load_calendar(void)
             if(r->has_calendar)goto failure; /* duplicate calendar row */
             if(!ExpPair_ValidExtras(r->declared_clubs,r->meetings,&cal.extras))goto failure;
             r->extras=cal.extras;
+            r->cal=cal.cal;
+            r->intl_breaks=cal.intl_breaks;
+            memcpy(r->cal_invalid,cal.cal_invalid,sizeof r->cal_invalid);
             r->has_calendar=1u;
             r->first_month=cal.first_month;r->first_day=cal.first_day;
             r->last_month=cal.last_month;r->last_day=cal.last_day;
@@ -262,6 +291,7 @@ failure:
 }
 int ExpandedUniversalJsonLeagues_Load(void)
 {
+    if(!ExpIntl_Load())fprintf(stderr,"[universal-json] INTERNATIONAL_WINDOWS malformed: none applied\n");
     char *bytes=NULL;
     uint32_t size=0u,definitions=0u;
     FILE *file=NULL;

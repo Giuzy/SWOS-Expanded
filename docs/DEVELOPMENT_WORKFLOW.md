@@ -1800,3 +1800,9 @@ Misura sullo screenshot Windows (7,2 px schermo per px di gioco in verticale): f
 - `bash sorgenti/tests/run_test_expanded_fifa_ranking.sh` (isolato, seed reale) e `bash sorgenti/tests/run_test_expanded_ce_engine.sh` (blocco FIFA_RANKING_CE_NATIONAL_...=PASS). Tutti gli script che linkano expanded_ce_engine.c ora linkano anche src/expanded_fifa_ranking.c.
 - `python tools/fifa_ranking/build_fifa_nations.py --check` deve dire UP TO DATE; rigenerare solo dal generatore, mai a mano.
 - Checklist Windows da eseguire: pulsante presente in WORLD→regioni (carriera club e disoccupato, solo 2627), 211 righe e bandiere, scorrimento fino a 211, BACK/B/ESC e focus di ritorno, assenza nel 9697/CLASSIC, SAVE/EXIT/CONTINUE con ranking identico.
+
+## 28/11/2026 — Validatore calendari CE (v00.13.354)
+`bash sorgenti/tests/run_test_expanded_ce_calendar_validator.sh` (positivi e negativi). Gli script che linkano expanded_ce_engine.c linkano anche src/expanded_ce_calendar_validator.c. Un log `[ce-validate] ... HARD` in una suite è un difetto del calendario, non del test.
+
+## 28/11/2026 — Finestre internazionali e regole calendario condivise
+Gli script che linkano expanded_ce_engine.c / json_leagues / catalogo linkano anche src/expanded_international_windows.c (i test senza swos_data_path usano -DEXP_INTL_NO_IO). Le regole calendario stanno solo in include/expanded_calendar_rules.h: non duplicarle nei due percorsi.

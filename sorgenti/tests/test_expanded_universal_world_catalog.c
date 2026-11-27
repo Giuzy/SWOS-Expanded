@@ -18,6 +18,7 @@ uint16_t _teamsCountryNumbers[256];
 #include "expanded_universal_world_catalog.h"
 #include "expanded_universal_pairings.h"
 #include "expanded_universal_json_leagues.h"
+#include "expanded_ce_calendar_validator.h"
 #include "expanded_universal_date_planner.h"
 #include "world.h"
 static WorldId s_world=WORLD_2627;
@@ -44,6 +45,7 @@ int ExpandedUniversalJsonLeagues_Find(uint8_t country,uint8_t comp,
     else if(country==44u && comp==77u && division==0u){n=30;cycles=1;}
     else if(country==43u && comp==70u && division==0u){n=4;cycles=1;calendar=0;}
     else if(country==42u && comp==71u && division==0u){n=40;cycles=2;}
+    else if(country==41u && comp==72u && division==0u){n=10;cycles=2;}
     else return 0;
     memset(out,0,sizeof *out);
     out->country=country;out->comp_id=comp;out->division=division;
@@ -56,6 +58,14 @@ int ExpandedUniversalJsonLeagues_Find(uint8_t country,uint8_t comp,
     out->match_weekdays=(uint8_t)(1u<<6);   /* SUN */
     out->extra_weekdays=(uint8_t)(1u<<2);   /* WED */
     out->min_rest_days=3u;
+    if(country==41u) {   /* v00.13.354: calendar rules at START */
+        out->cal.return_order=1u;out->cal.min_return_gap=4u;out->cal.cal_draw=1u;
+        out->cal.nprofile=4u;
+        out->cal.profile_off[0]=-2;out->cal.profile_n[0]=1u;   /* FRI */
+        out->cal.profile_off[1]=-1;out->cal.profile_n[1]=1u;   /* SAT */
+        out->cal.profile_off[2]=0;out->cal.profile_n[2]=2u;    /* SUN */
+        out->cal.profile_off[3]=1;out->cal.profile_n[3]=1u;    /* MON */
+    }
     return 1;
 }
 static void add(uint8_t file,uint8_t ordinal,uint8_t division)
@@ -227,6 +237,35 @@ int main(void)
     assert(ExpandedWorld_Weekday(f->fixture.day_index)==6);
     assert(ExpandedUniversalCatalog_Fixture(457u)==NULL);
     check_round_days(457u);
+    /* v00.13.354: the FIRST edition created at START applies the same
+     * calendar rules as later CE editions (asymmetric + gap, draw, profile) */
+    {
+        uint32_t clubs[10],k,cnt=0u,wd[7]={0};
+        ExpandedUniversalFixture fx[90];
+        ExpCevReport rep;
+        ExpCevRoundRobin x;
+        assert(ExpandedUniversalCatalog_Begin());
+        for(uint8_t i=0;i<10u;++i)add(41u,i,0u);
+        assert(ExpandedUniversalCatalog_AddLeague(41u,72u,0u,56u,88u,2u));
+        assert(ExpandedUniversalCatalog_Seal());
+        for(k=0u;ExpandedUniversalCatalog_Fixture(k);++k) {
+            const ExpandedUniversalFixture *f=&ExpandedUniversalCatalog_Fixture(k)->fixture;
+            if(f->country!=41u)continue;
+            assert(cnt<90u);fx[cnt++]=*f;++wd[(uint32_t)f->day_index%7u];
+        }
+        assert(cnt==90u);
+        for(k=0u;k<10u;++k)clubs[k]=(41u<<16)|(k+1u);
+        memset(&x,0,sizeof x);
+        x.clubs=clubs;x.nclubs=10u;x.cycles=2u;x.min_return_gap=4u;x.max_run=2u;x.mirror=2u;
+        ExpCev_Init(&rep);
+        ExpCev_RoundRobin(fx,cnt,fx[0].key.edition,fx[0].key.stage,&x,&rep);
+        ExpCev_Global(fx,cnt,3u,&rep);
+        if(rep.hard_failures)(void)ExpCev_Log(&rep,"catalog-start");
+        assert(rep.hard_failures==0u && rep.c[2].status==EXP_CEV_PASS && rep.c[4].status==EXP_CEV_PASS &&
+               rep.c[7].status==EXP_CEV_PASS && rep.c[3].status==EXP_CEV_PASS);
+        assert(wd[4] && wd[5] && wd[6] && wd[0]);   /* FRI SAT SUN MON used */
+        puts("START_CATALOG_FIRST_EDITION_CALENDAR_RULES_VALIDATED=PASS");
+    }
     /* JSON absent: never fall back to original OG pair tables. */
     s_json_ok=0;
     assert(ExpandedUniversalCatalog_Begin());

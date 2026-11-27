@@ -1,3 +1,6 @@
+## 27/11/2026 — COMPETIZIONI hotfix eccezioni
+Rifiuto stagione errata non deve interrompere la ricerca del paese successivo; NO ADAPTER = nessuna route riconosciuta, non inesistenza. Conservare shard BHU/BLZ, cache e DB; pull dopo stop BAT e test `AVVIA_RICERCA_COMPETIZIONI.bat --self-test`, poi rilanciare. RG-RESEARCH-DOMESTIC-EXCEPTION. Test isolato helper SI; modulo/Windows/online NP. 
+
 ## 27/11/2026 — Competizioni nazioni mancanti
 COMPETIZIONI ricerca prima campionato massimo e coppa nazionale dei paesi team_file255, pubblica in results_2627/competition_candidates per paese e poi scansiona la matrice 2627. UNKNOWN non significa competizione inesistente; dati regolamentari e date richiedono altri adattatori. Nessuna attivazione CE. Vedi RG-RESEARCH-DOMESTIC-DISCOVERY-2627.
 

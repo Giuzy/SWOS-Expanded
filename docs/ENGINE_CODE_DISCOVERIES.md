@@ -1,3 +1,6 @@
+## 27/11/2026 — v353: proiezione nominale unica e limite 32
+ExpNominalWorld_Find è già condivisa da Expanded_NationalWorldButtonInactive e SelectTeamsFinalMenu modes1/3 per START/WORLD: estensione solo tabella, nessun branch paese o nuovo motore. Header 3 gruppi immutabili, SHA preview per paese. ExpNominalSquad_Count=min(count,32) condiviso da lettura nome, scroll e renderer, senza alterare count fonte. Expanded_NominalMenuPrepare mode3 aggancia pulsante welcome a nominal_accept, conferma locale; RunSelectedNominalCareer entra contest solo se accettato; BACK tramite existing edge guard anche mode3. Native welcome CONTINUE invariato, no writer CAR. Vedi RG-NOMINAL-23-COUNTRIES-2627.
+
 ## 27/11/2026 — Writer ricerca, annualità e guardia SQLite
 V Store export_pending ha hash old/new; divergenza COM correttamente blocca export; causa locale ignota. Nuova ricerca esplicita con DB separato, senza modificare Store né cancellare DB precedente. Wiki/WP/WD/TM/OFB separano fonte, identità e scope data; import preview non runtime. annual_delta confronta osservazioni per ID/UUID; non implica trasferimenti, cessazioni o promozioni. RG-RESEARCH-WIKI-ANNUAL.
 

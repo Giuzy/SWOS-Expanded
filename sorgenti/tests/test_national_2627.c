@@ -179,9 +179,10 @@ int main(void)
     /* Catalog-only pilot: no native home, no fake PlayerFile/TEAM records.
      * All names remain available, including source rosters above 30. */
     {
-        const unsigned expectedClubs[]={7,11},expectedNames[]={168,328};
-        const uint16_t raw[]={0x5312u,0x5421u};
-        for(unsigned k=0;k<2u;++k){
+        const unsigned expectedClubs[]={7,11,8,12,28,10,9,18,16,13,13,18,11,18,20,14,10,12,10,20,14,10,8,18,14},expectedNames[]={168,328,190,350,908,312,231,538,506,442,369,671,340,563,554,372,279,359,250,879,505,315,203,639,429};
+        const uint16_t raw[]={0x5312u,0x5421u,0x5318u,0x5424u,0x512cu,0x5426u,0x531du,0x5130u,0x542au,0x5401u,0x5402u,0x5109u,0x5404u,0x5406u,0x5408u,0x5307u,0x540au,0x540du,0x5309u,0x5116u,0x5411u,0x5414u,0x5417u,0x511fu,0x541du};
+        assert(EXP_NOMINAL_LEN(kExpNominalWorld2627)==EXP_NOMINAL_LEN(raw));
+        for(unsigned k=0;k<EXP_NOMINAL_LEN(raw);++k){
             const ExpNominalCountry *c=ExpNominalWorld_Find(raw[k]);
             const ExpandedNationalRow *r=ExpandedNational_ByRaw(raw[k]);
             assert(c && r && r->og.teamFileId==255u);
@@ -198,25 +199,29 @@ int main(void)
                 }
                 names+=club->count;
                 /* The native 17 visible rows reach every nominal member,
-                 * including source rosters >30, with no fake slots. */
-                unsigned offset=0,max=club->count>17u?club->count-17u:0u;
+                 * up to the user-approved 32 names, with no fake slots. */
+                unsigned visible=ExpNominalSquad_Count(club);
+                assert(visible==(club->count>32u?32u:club->count));
+                unsigned offset=0,max=visible>17u?visible-17u:0u;
                 for(unsigned j=0;j<max;++j){
-                    assert(ExpNominalSquad_Offset(club->count,offset,16u,4u)==offset+1u);
-                    offset=ExpNominalSquad_Offset(club->count,offset,16u,4u);
+                    assert(ExpNominalSquad_Offset(visible,offset,16u,4u)==offset+1u);
+                    offset=ExpNominalSquad_Offset(visible,offset,16u,4u);
                 }
-                assert(ExpNominalSquad_Offset(club->count,offset,16u,4u)==max);
-                assert(offset+17u>=club->count);
+                assert(ExpNominalSquad_Offset(visible,offset,16u,4u)==max);
+                assert(offset+17u>=visible);
                 while(offset){
-                    assert(ExpNominalSquad_Offset(club->count,offset,0u,0u)==offset-1u);
+                    assert(ExpNominalSquad_Offset(visible,offset,0u,0u)==offset-1u);
                     --offset;
                 }
-                assert(ExpNominalSquad_Offset(club->count,0u,0u,0u)==0u);
+                assert(ExpNominalSquad_Offset(visible,0u,0u,0u)==0u);
             }
             assert(names==expectedNames[k]);
         }
         for(unsigned i=0;i<EXP_NATIONAL_COUNT;++i){
             uint16_t id=ExpandedNational_Raw(&kExpandedNational2627[i]);
-            assert((ExpNominalWorld_Find(id)!=NULL)==(id==raw[0]||id==raw[1]));
+            int expected=0;
+            for(unsigned k=0;k<EXP_NOMINAL_LEN(raw);++k)if(id==raw[k])expected=1;
+            assert((ExpNominalWorld_Find(id)!=NULL)==expected);
         }
     }
     assert(ExpandedNational_ByHome(255u)==NULL);

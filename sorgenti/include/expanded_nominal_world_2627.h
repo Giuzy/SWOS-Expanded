@@ -568,10 +568,20 @@ static const ExpNominalClub expNominal_CAM[]={
     {"25383","SVAY RIENG",expNominal_CAM_25383,EXP_NOMINAL_LEN(expNominal_CAM_25383)},
     {"65680","VISAKHA FC",expNominal_CAM_65680,EXP_NOMINAL_LEN(expNominal_CAM_65680)},
 };
+/* 23 additional countries use the same immutable viewer path. */
+#include "expanded_nominal_world_group1_2627.h"
+#include "expanded_nominal_world_group2_2627.h"
+#include "expanded_nominal_world_group3_2627.h"
 static const ExpNominalCountry kExpNominalWorld2627[]={
     {0x5312u,"BELIZE","BZ1A",expNominal_BLZ,EXP_NOMINAL_LEN(expNominal_BLZ)},
     {0x5421u,"CAMBODIA","KHM1",expNominal_CAM,EXP_NOMINAL_LEN(expNominal_CAM)},
+    EXP_NOMINAL_GROUP_1
+    EXP_NOMINAL_GROUP_2
+    EXP_NOMINAL_GROUP_3
 };
+#undef EXP_NOMINAL_GROUP_1
+#undef EXP_NOMINAL_GROUP_2
+#undef EXP_NOMINAL_GROUP_3
 static inline const ExpNominalCountry *ExpNominalWorld_Find(uint16_t raw)
 {
     for(unsigned i=0;i<EXP_NOMINAL_LEN(kExpNominalWorld2627);++i)
@@ -581,6 +591,12 @@ static inline const ExpNominalCountry *ExpNominalWorld_Find(uint16_t raw)
 /* Viewport follows the existing 17-row VIEW SQUAD, without allocating
  * PlayerFile records or implying positions/shirt numbers. */
 #define EXP_NOMINAL_SQUAD_ROWS 17u
+/* User-approved display limit; retain all original source observations. */
+#define EXP_NOMINAL_SQUAD_LIMIT 32u
+static inline unsigned ExpNominalSquad_Count(const ExpNominalClub *club)
+{
+    return !club?0u:(club->count>EXP_NOMINAL_SQUAD_LIMIT?EXP_NOMINAL_SQUAD_LIMIT:club->count);
+}
 static inline unsigned ExpNominalSquad_Offset(unsigned count,unsigned offset,
     unsigned row,unsigned dir)
 {
@@ -599,6 +615,7 @@ int Expanded_NominalCareerActive(void);
 /* 1 = nominal career dashboard, 2 = nominal squad, 3 = welcome; else 0. */
 int Expanded_NominalMenuMode(void);
 void Expanded_NominalMenuPrepare(void);
+void Expanded_NominalConfirmContract(void);
 int Expanded_NominalSquadScroll(unsigned ordinal,unsigned direction);
 const char *Expanded_NominalClubName(void);
 const char *Expanded_NominalCountryName(void);

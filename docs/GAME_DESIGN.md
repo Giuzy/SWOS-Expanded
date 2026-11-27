@@ -1,3 +1,6 @@
+## 27/11/2026 — Decisione utente: 23 paesi nominali e limite 32
+Per i paesi privi di competizioni sportive complete, START CAREER/WORLD mostra tasto non scuro, lista club, START conferma ACCEPT CONTRACT e apre calendario limitato a SQUAD/VIEW WORLD e uscita; WORLD apre la rosa readonly. Max 32 giocatori mostrati per club; tutti i dati eccedenti restano ricerca. Finché non esistono identità native, ruoli/skill e competizioni certificate, questa è prova UI, non assunzione persistente. Nessuna simulazione, statistica o contratto economico inventato. RG-NOMINAL-23-COUNTRIES-2627.
+
 ## 26/11/2026 — Generatore calendario e ranking: integrazione decisioni utente
 
 Specifica canonica [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md). La simmetria del ritorno è definita dal regolamento della competizione/edizione; supera la precedente prescrizione generale del medesimo ordine, senza alterare coppie e inversione casa/trasferta. Distribuzione per singola gara, pause almeno continentali, ranking e seed per regolamento, 50 criteri applicabili. Decisioni utente distinte da proposte di algoritmo. NON implementato.

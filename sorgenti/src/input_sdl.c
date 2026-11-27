@@ -1146,8 +1146,8 @@ void InputSDL_HandleEvent(const SDL_Event *e)
            s_modalBackUntilRelease)break;
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B && !_playGame &&
            Expanded_NominalMenuMode()!=0){
-            if(Expanded_NominalMenuMode()!=3)s_offerSquadBackPending=1;
-            s_modalBackUntilRelease=1; /* welcome remains CONTINUE only */
+            s_offerSquadBackPending=1;
+            s_modalBackUntilRelease=1; /* cancel nominal acceptance or close viewer */
             break;
         }
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_X && Expanded_NominalMenuMode()==2)

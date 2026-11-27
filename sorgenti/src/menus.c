@@ -7600,6 +7600,7 @@ static int s_expStartClubPicker;
 static const ExpNominalCountry *s_nominalPendingCountry,*s_nominalCareerCountry,*s_nominalSquadCountry;
 static const ExpNominalClub *s_nominalPendingClub,*s_nominalCareerClub,*s_nominalSquadClub;
 static unsigned s_nominalOffset;
+static int s_nominalContractAccepted;
 extern uint8_t _currentMenu[],_chairmanMemosMenu[];
 extern int Expanded_UI_EnsureArt(void);
 int Expanded_StartClubPickerActive(void) { return s_expStartClubPicker; }
@@ -7615,7 +7616,7 @@ void Expanded_NominalPreviewReset(void)
 {
     s_nominalPendingCountry=s_nominalCareerCountry=s_nominalSquadCountry=NULL;
     s_nominalPendingClub=s_nominalCareerClub=s_nominalSquadClub=NULL;
-    s_nominalOffset=0;s_expStartClubPicker=0;
+    s_nominalOffset=0;s_expStartClubPicker=0;s_nominalContractAccepted=0;
 }
 void Expanded_NominalStartSelect(const ExpNominalCountry *country,const ExpNominalClub *club)
 {
@@ -7632,12 +7633,12 @@ const char *Expanded_NominalCountryName(void)
     const ExpNominalCountry *c=s_nominalSquadCountry?s_nominalSquadCountry:s_nominalCareerCountry;
     return c?c->name:"";
 }
-unsigned Expanded_NominalSquadCount(void){return s_nominalSquadClub?s_nominalSquadClub->count:0u;}
+unsigned Expanded_NominalSquadCount(void){return ExpNominalSquad_Count(s_nominalSquadClub);}
 unsigned Expanded_NominalSquadOffset(void){return s_nominalOffset;}
 const char *Expanded_NominalPlayerName(unsigned row)
 {
     if(!s_nominalSquadClub || row>=EXP_NOMINAL_SQUAD_ROWS ||
-       s_nominalOffset+row>=s_nominalSquadClub->count)return NULL;
+       s_nominalOffset+row>=Expanded_NominalSquadCount())return NULL;
     return s_nominalSquadClub->players[s_nominalOffset+row].name;
 }
 int Expanded_NominalSquadScroll(unsigned ordinal,unsigned direction)
@@ -7649,6 +7650,13 @@ int Expanded_NominalSquadScroll(unsigned ordinal,unsigned direction)
     s_nominalOffset=next;return 1;
 }
 static void nominal_exit(MenuEntry *e){(void)e;SetExitMenuFlag();}
+void Expanded_NominalConfirmContract(void)
+{
+    if(Expanded_NominalMenuMode()!=3)return;
+    s_nominalContractAccepted=1;
+    SetExitMenuFlag();
+}
+static void nominal_accept(MenuEntry *e){(void)e;Expanded_NominalConfirmContract();}
 void Expanded_ShowNominalSquad(const ExpNominalCountry *country,const ExpNominalClub *club)
 {
     if(!country || !club || s_nominalSquadClub || !Expanded_UI_EnsureArt())return;
@@ -7684,7 +7692,14 @@ void Expanded_NominalMenuPrepare(void)
 {
     const int mode=Expanded_NominalMenuMode();
     Menu *menu=(Menu *)_currentMenu;
-    if(!menu || (mode!=1 && mode!=2))return;
+    if(!menu || !mode)return;
+    if(mode==3){
+        if(menu->numEntries<7u)return;
+        MenuEntry *e=&_menuEntries[6];
+        e->isInvisible=0;e->isDisabled=0;e->onSelect=nominal_accept;
+        e->controlMask=0x21u;menu->selectedEntry=e;
+        return;
+    }
     if(menu->numEntries<(mode==1?19u:64u))return;
     /* Unpacked copy only. Prevent even hidden template callbacks from
      * reading TSKC, packed players or modifying the world. */
@@ -7739,10 +7754,12 @@ int Expanded_RunSelectedNominalCareer(void)
     _isNationalSelector=0;_selTeamNumber=0xffffu;
     s_nominalCareerCountry=country;s_nominalCareerClub=club;
     fprintf(stderr,"[nominal-career] OPEN club=%s source=%s readonly=1 no-CAR=1\n",club->name,club->id);
+    s_nominalContractAccepted=0;
     _currentMessage=19u;_fireResetFlag=1;
     ShowChairmanMessage();
     _currentMessage=savedMessage;_fireResetFlag=1;
-    ShowMenu(_contestMenu);
+    if(s_nominalContractAccepted)ShowMenu(_contestMenu);
+    s_nominalContractAccepted=0;
     extern void InputSDL_ClearOfferSquadExit(void);
     InputSDL_ClearOfferSquadExit();
     s_nominalCareerCountry=NULL;s_nominalCareerClub=NULL;

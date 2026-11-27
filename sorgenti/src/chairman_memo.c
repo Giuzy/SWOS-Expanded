@@ -83,9 +83,9 @@ void ChairmanMemosOnReturn(void)
 #ifdef SWOS_SDL_BUILD
     { extern int Expanded_NominalMenuMode(void);
       if(Expanded_NominalMenuMode()==3){
-          /* The existing welcome renderer uses the nominal club name;
-           * do not read the native memo's unbound team/financial state. */
-          _menuEntries[6].isInvisible=0;
+          /* Explicit UI-only acceptance; BACK cancels without binding. */
+          extern void Expanded_NominalMenuPrepare(void);
+          Expanded_NominalMenuPrepare();
           DrawMenu();return;
       } }
 #endif

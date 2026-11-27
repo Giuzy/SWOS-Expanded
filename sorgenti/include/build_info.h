@@ -283,7 +283,10 @@
  * No new playable club or CE fixture; Windows NOT PROVEN. */
 /* v00.13.352: nominal club UI trial uses native welcome/contest/squad;
  * no native employment, competition, market, time advance or CAR. */
-#define SWOS_EXPANDED_VERSION "00.13.352"
+/* v00.13.353: nominal START/WORLD extension to 23 more countries,
+ * same guarded dashboard and explicit UI-only contract acceptance.
+ * No sporting activation or CAR write. Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.353"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

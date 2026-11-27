@@ -3571,7 +3571,7 @@ void Expanded_UI_After(void) {
         if(nominal)snprintf(line,sizeof line,"BOARD LIKING NO DATA");
         else snprintf(line,sizeof line,"BOARD LIKING %u%%",(unsigned)_expandedBoardMood);
         ui_native_text(230,207,116,2,line,0);
-        ui_button(6,"CONTINUE");
+        ui_button(6,nominal?"ACCEPT CONTRACT":"CONTINUE");
     } else if(kind==6) {
         /* Full-screen dismissal: no previous career/unemployed frame visible
          * behind the art, including while the menu is dismissed. */

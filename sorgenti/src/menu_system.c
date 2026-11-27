@@ -1930,7 +1930,7 @@ void MenuProc(void)
         extern int InputSDL_ConsumeOfferSquadBack(void);
         extern void InputSDL_LatchOfferSquadExit(void);
         const int mode=Expanded_NominalMenuMode();
-        if((mode==1 || mode==2) && (InputSDL_ConsumeOfferSquadBack() ||
+        if(mode!=0 && (InputSDL_ConsumeOfferSquadBack() ||
            _currentKey==27 || _currentKey==127 || _currentKey==8)){
             InputSDL_LatchOfferSquadExit();
             SetExitMenuFlag();

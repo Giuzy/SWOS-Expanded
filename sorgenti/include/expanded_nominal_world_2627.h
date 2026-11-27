@@ -578,4 +578,32 @@ static inline const ExpNominalCountry *ExpNominalWorld_Find(uint16_t raw)
         if(kExpNominalWorld2627[i].nationalRaw==raw)return &kExpNominalWorld2627[i];
     return NULL;
 }
+/* Viewport follows the existing 17-row VIEW SQUAD, without allocating
+ * PlayerFile records or implying positions/shirt numbers. */
+#define EXP_NOMINAL_SQUAD_ROWS 17u
+static inline unsigned ExpNominalSquad_Offset(unsigned count,unsigned offset,
+    unsigned row,unsigned dir)
+{
+    const unsigned max=count>EXP_NOMINAL_SQUAD_ROWS?count-EXP_NOMINAL_SQUAD_ROWS:0u;
+    if(offset>max)offset=max;
+    if(dir==0u && row==0u && offset)return offset-1u;
+    if(dir==4u && row==EXP_NOMINAL_SQUAD_ROWS-1u && offset<max)return offset+1u;
+    return offset;
+}
+#ifdef SWOS_SDL_BUILD
+void Expanded_NominalStartSelect(const ExpNominalCountry *,const ExpNominalClub *);
+int Expanded_RunSelectedNominalCareer(void);
+void Expanded_NominalPreviewReset(void);
+void Expanded_ShowNominalSquad(const ExpNominalCountry *,const ExpNominalClub *);
+int Expanded_NominalCareerActive(void);
+/* 1 = nominal career dashboard, 2 = nominal squad, 3 = welcome; else 0. */
+int Expanded_NominalMenuMode(void);
+void Expanded_NominalMenuPrepare(void);
+int Expanded_NominalSquadScroll(unsigned ordinal,unsigned direction);
+const char *Expanded_NominalClubName(void);
+const char *Expanded_NominalCountryName(void);
+const char *Expanded_NominalPlayerName(unsigned row);
+unsigned Expanded_NominalSquadCount(void);
+unsigned Expanded_NominalSquadOffset(void);
+#endif
 #endif

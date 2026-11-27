@@ -1,3 +1,6 @@
+## 27/11/2026 — Nominal club UI lifecycle v00.13.352
+V mode4 di SelectTeamsFinalMenu era una lista paesi riusata per nomi giocatori. Sostituito con lettura nominale nel renderer VIEW SQUAD già usato dai club nativi: zero fake TeamFile/PlayerFile. START selection unwinds picker before opening nominal welcome and contest in existing modal menus; no InitCareer for nominal clubs, no CAR write, no TSKC/template callbacks, existing read-only WORLD unbound viewer; native path unchanged. Nominal squad viewport at row 0/16 scrolls source names, B edge consumed before parent WORLD picker. Existing art gate; no layout asset changes. Scope UI trial only, no signed persisted contract. Source audit 398 transitions/all 496 names, C/Windows/GP/CAR NP. Canonical evidence/QA: RG-NOMINAL-CAREER-UI-2627.
+
 ## 27/11/2026 — START club picker gate v00.13.351
 V START SelectTeamToManage path excluded by WORLD-only _chooseCompetitionOnly checks. Explicit scoped caller wraps native dialog; same modernClubPicker predicate controls regional native ID projection and append of national-only rows; existing mode1/3/4 guard remains single authority for dark/nominal rows. No changes to selected team commit/InitCareer, CE or CAR. See RG-START-CLUB-PICKER-2627.
 

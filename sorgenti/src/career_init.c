@@ -526,7 +526,13 @@ void ChooseTeamAndStartCareer(void)
     } else {
 #ifdef SWOS_SDL_BUILD
         { extern void Expanded_SelectStartClubToManage(void);
-          Expanded_SelectStartClubToManage(); }
+          extern int Expanded_RunSelectedNominalCareer(void);
+          Expanded_SelectStartClubToManage();
+          if(Expanded_RunSelectedNominalCareer()){
+              Expanded_CareerDiscardAbortedStart("nominal-career-preview-exit");
+              extern uint16_t _fireResetFlag;
+              _fireResetFlag=1;return;
+          } }
 #else
         SelectTeamToManage();
 #endif
@@ -2658,6 +2664,7 @@ __attribute__((used, externally_visible))
 void Career_BeginNewCareer(void)
 {
 #ifdef SWOS_SDL_BUILD
+    { extern void Expanded_NominalPreviewReset(void); Expanded_NominalPreviewReset(); }
     ExpandedUniversal_CarResetCurrent(); /* new career; no old registry carryover */
     extern void Expanded_ClockTrace_Reset(void);
     Expanded_ClockTrace_Reset();

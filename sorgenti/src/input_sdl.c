@@ -184,6 +184,7 @@ void InputSDL_ClearWorldViewExit(void){
     s_worldViewExitRequested=0;s_worldViewBackPending=0;
 }
 extern int Expanded_OfferSquadReadOnly(void);
+extern int Expanded_NominalMenuMode(void);
 int InputSDL_ConsumeOfferSquadBack(void)
 {
     const int v=s_offerSquadBackPending;
@@ -919,6 +920,7 @@ void InputSDL_HandleEvent(const SDL_Event *e)
     case SDL_MOUSEWHEEL:
         break;
     case SDL_KEYDOWN: {
+        if(e->key.keysym.sym==SDLK_x && Expanded_NominalMenuMode()==2)break;
         if (!e->key.repeat && e->key.keysym.sym==SDLK_x &&
             !_playGame && Expanded_TrainingCrossSwapAvailable()) {
             s_trainingCrossXPending=1; /* OG changes only on the menu thread */
@@ -1142,6 +1144,14 @@ void InputSDL_HandleEvent(const SDL_Event *e)
     case SDL_CONTROLLERBUTTONDOWN: {
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
            s_modalBackUntilRelease)break;
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B && !_playGame &&
+           Expanded_NominalMenuMode()!=0){
+            if(Expanded_NominalMenuMode()!=3)s_offerSquadBackPending=1;
+            s_modalBackUntilRelease=1; /* welcome remains CONTINUE only */
+            break;
+        }
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_X && Expanded_NominalMenuMode()==2)
+            break; /* no native player or training detail */
         /* Match VIEW SQUAD: controller X acts on the button-down event,
          * without requiring mouse motion or a menu-navigation tick. */
         if (Expanded_UI_IsBusinessScreen() &&
@@ -1364,14 +1374,14 @@ static void read_device_state(int d,
             (!Expanded_UI_IsBusinessScreen() && !input_on_title_first_level() &&
              !expanded_native_world_picker_active() &&
              !Expanded_OGWorld_ViewActive() &&
-             !Expanded_OfferSquadReadOnly() &&
+             !Expanded_OfferSquadReadOnly() && Expanded_NominalMenuMode()==0 &&
              !s_modalBackUntilRelease &&
              SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B)))
             *_fire = 1;
         if (skip && !input_on_title_first_level() &&
             !expanded_native_world_picker_active() &&
             !Expanded_OGWorld_ViewActive() &&
-            !Expanded_OfferSquadReadOnly() &&
+            !Expanded_OfferSquadReadOnly() && Expanded_NominalMenuMode()==0 &&
             !s_modalBackUntilRelease &&
             SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
             *skip = 1;

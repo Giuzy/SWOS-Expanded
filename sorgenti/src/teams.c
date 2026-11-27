@@ -3217,11 +3217,6 @@ int Expanded_NationalWorldButtonInactive(unsigned idx)
     return s_expNationalPickerMode==1u && idx>=s_expNationalPickerBase && idx<s_expNationalPickerCount &&
         !ExpNominalWorld_Find(ExpandedNational_Raw(s_expNationalPickerRows[idx]));
 }
-/* The same OG list template displays names only: players are not selectable. */
-int Expanded_NominalWorldPlayerRow(void)
-{
-    return s_expNationalPickerMode==4u;
-}
 static void Expanded_NationalWorldView(const ExpandedNationalRow *r)
 {
     extern uint16_t _selTeamNumber;
@@ -3286,7 +3281,6 @@ void SelectTeamsFinalMenu(uint16_t mode)
 #ifdef SWOS_SDL_BUILD
     union { void *alignment; uint8_t ids[65]; } worldClubCountries;
     const ExpNominalCountry *nominalCountry=NULL;
-    const ExpNominalClub *nominalClub=NULL;
     const int modernClubPicker=ExpandedNational_ClubPickerEnabled(
         Expanded_StartClubPickerActive(),_gameType==GAME_TYPE_CAREER,
         _chooseCompetitionOnly,_isNationalSelector,Expanded_OfferPickerActive());
@@ -3355,16 +3349,16 @@ loc_E012:
     /* No fake OG country ID or competition record: both lists use the
      * existing SELECT TEAMS menu, with the regional native stack unchanged. */
     if(nominalCountry){
-        unsigned count=nominalClub?nominalClub->count:nominalCountry->count;
+        unsigned count=nominalCountry->count;
         if(count==0u||count>64u)goto exit_clear;
-        s_expNationalPickerMode=nominalClub?4u:3u;
-        _curCountryStr=(uint8_t *)(nominalClub?nominalClub->name:nominalCountry->name);
+        s_expNationalPickerMode=3u;
+        _curCountryStr=(uint8_t *)nominalCountry->name;
         _numberOfLeagues=0;
         _numLeaguesInCountry=0;
         _gotCountryName=0;
         _chooseTeamsNumTeams=(uint16_t)count;
         for(unsigned i=0;i<count;++i)
-            _countryNames[i]=(void *)(nominalClub?nominalClub->players[i].name:nominalCountry->clubs[i].name);
+            _countryNames[i]=(void *)nominalCountry->clubs[i].name;
         goto show_team_picker;
     }
 #endif
@@ -3754,15 +3748,18 @@ show_team_picker:
             if(_teamDepthLevel<=(uint16_t)_topOfStackMark)goto exit_return;
             d7=PopContinent();
             _exitSelectTeams=0;
-            if(nominalClub)nominalClub=NULL;
-            else nominalCountry=NULL;
+            nominalCountry=NULL;
             goto loc_E012;
         }
-        if(!nominalClub && _selectedTeamIndex>=0 && (unsigned)_selectedTeamIndex<nominalCountry->count){
+        if(_selectedTeamIndex>=0 && (unsigned)_selectedTeamIndex<nominalCountry->count){
+            const ExpNominalClub *club=&nominalCountry->clubs[(unsigned)_selectedTeamIndex];
+            if(Expanded_StartClubPickerActive()){
+                Expanded_NominalStartSelect(nominalCountry,club);
+                _chooseTeamsResult=1;
+                goto exit_return; /* unwind native picker before WORLD can re-enter it */
+            }
             PushLastSelectedTeam();
-            nominalClub=&nominalCountry->clubs[(unsigned)_selectedTeamIndex];
-            PushContinent(d7);
-            SetSelectedTeamsStackTop();
+            Expanded_ShowNominalSquad(nominalCountry,club);
         }
         goto loc_E012;
     }

@@ -1923,6 +1923,22 @@ void MenuProc(void)
             s_expandedModalReturnLatch = 0;
         }
     }
+    /* The nominal squad can be nested inside WORLD. Give it the BACK
+     * edge before the parent country picker, exactly one level. */
+    {
+        extern int Expanded_NominalMenuMode(void);
+        extern int InputSDL_ConsumeOfferSquadBack(void);
+        extern void InputSDL_LatchOfferSquadExit(void);
+        const int mode=Expanded_NominalMenuMode();
+        if((mode==1 || mode==2) && (InputSDL_ConsumeOfferSquadBack() ||
+           _currentKey==27 || _currentKey==127 || _currentKey==8)){
+            InputSDL_LatchOfferSquadExit();
+            SetExitMenuFlag();
+            _fire=_shortFire=_pl1Fire=0;
+            _currentKey=0;
+            return;
+        }
+    }
     /* NATION RANKING is a child modal of the WORLD selector: its BACK
      * (B pad, ESC, BACKSPACE) closes only the ranking, never the picker. */
     {
@@ -2049,13 +2065,18 @@ void MenuProc(void)
 #ifdef SWOS_SDL_BUILD
     /* One native 70-year stress step per menu frame. Deliberately do not
      * keep processing player controls when an OG year was advanced. */
-    { extern int Expanded_OGStress_Tick(void);
-      if(Expanded_OGStress_Tick())return; }
-    { extern void CareerAutopilot_Tick(void); CareerAutopilot_Tick(); }  /* --career-golden */
-    /* Native catch-up after the first job offer follows the SAME regular
-     * NEXT MATCH / VIEW RESULT menu handlers as the golden career harness.
-     * When it completes, all controls return to the player immediately. */
-    { extern void Expanded_MidseasonJoin_Tick(void); Expanded_MidseasonJoin_Tick(); }
+    {
+        extern int Expanded_NominalCareerActive(void),Expanded_NominalMenuMode(void);
+        /* No automatic advancement from the unbound trial, including
+         * while its nested WORLD viewer is open. */
+        if(!Expanded_NominalCareerActive() && Expanded_NominalMenuMode()!=2){
+            extern int Expanded_OGStress_Tick(void);
+            extern void CareerAutopilot_Tick(void),Expanded_MidseasonJoin_Tick(void);
+            if(Expanded_OGStress_Tick())return;
+            CareerAutopilot_Tick();
+            Expanded_MidseasonJoin_Tick();
+        }
+    }
 #endif
 
 #ifdef SWOS_SDL_BUILD
@@ -2311,6 +2332,10 @@ no_event_or_done:
     {
         uint16_t dirIdx = (uint16_t)dir & 6;
 #ifdef SWOS_SDL_BUILD
+        { extern int Expanded_NominalSquadScroll(unsigned,unsigned);
+          if(selectedEntry && Expanded_NominalSquadScroll(selectedEntry->ordinal,dirIdx)){
+              DrawMenu();return;
+          } }
         MenuEntry *wrapped=expanded_picker_wrap(menu,selectedEntry,dirIdx);
         if(wrapped){
             menu->selectedEntry=wrapped;

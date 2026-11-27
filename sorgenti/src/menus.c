@@ -33,6 +33,7 @@
 #include "world.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_national_2627.h"
+#include "expanded_nominal_world_2627.h"
 #endif
 #include "frontend.h"
 #include "test_rules.h"
@@ -1930,6 +1931,9 @@ void SquadAfterDrawCommon(void *entryPtr)
 __attribute__((used, externally_visible))
 void SquadFinish(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_NominalMenuMode()==2){Expanded_NominalMenuPrepare();return;}
+#endif
     TeamFile *teamPtr = (TeamFile *)_squadTeamFilePtr;
 
     /* If not national squad and team countryNumber in [0x50..0x55],
@@ -2058,6 +2062,9 @@ void SquadFinish(void)
 __attribute__((used, externally_visible))
 void SquadInit(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_NominalMenuMode()==2){Expanded_NominalMenuPrepare();return;}
+#endif
     memset(s_expandedSquadRow,0,sizeof s_expandedSquadRow);
     /* Set national squad flag */
     _isNationalSquad = 0;
@@ -3850,6 +3857,9 @@ setFinishSeason:
 __attribute__((used, externally_visible))
 void ContestMenuInit(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_NominalMenuMode()==1){Expanded_NominalMenuPrepare();return;}
+#endif
     /* Tamper check: irqCookieObfuscated XOR 0xCFD1F861 must equal 0x1786 */
     uint32_t cookie = _irqCookieObfuscated ^ 0xCFD1F861;
     if (cookie != 0x1786)
@@ -3876,6 +3886,9 @@ void ContestMenuInit(void)
 __attribute__((used, externally_visible))
 void ContestMenuOnReturn(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_NominalMenuMode()==1){Expanded_NominalMenuPrepare();return;}
+#endif
     if (_gameType == GAME_TYPE_SEASON) {
         /* Season mode: hide career-only entries, show season-only entries */
         _menuEntries[10].isInvisible = 1;  /* NEXT MATCH (career) */
@@ -4626,6 +4639,8 @@ int Expanded_AutoCareer_TitleCheckpointVerified(void) {
            SaveJson_CareerCompatible(auto_career_slot());
 }
 int Expanded_AutoCareer_SaveChecked(const char *reason) {
+    /* No native manager binding exists in the nominal UI trial. */
+    if(Expanded_NominalCareerActive())return 0;
     extern int Expanded_MidseasonJoin_Active(void);
     const int titleExit=reason && strcmp(reason,"menu-exit")==0;
     if(titleExit) s_auto_title_checkpoint_verified=0;
@@ -5774,8 +5789,7 @@ void SelectTeamsCommon(MenuEntry *entry)
 
 #ifdef SWOS_SDL_BUILD
         { extern int Expanded_NationalWorldButtonInactive(unsigned);
-          extern int Expanded_NominalWorldPlayerRow(void);
-          if(Expanded_NominalWorldPlayerRow() || Expanded_NationalWorldButtonInactive(idx))return; }
+          if(Expanded_NationalWorldButtonInactive(idx))return; }
 #endif
         _lastSelectedTeam=ord;
         _selectedTeamIndex = idx;
@@ -7581,9 +7595,165 @@ void SelectTeamToManage(void)
 /* Scoped to the club START caller, never national coach, offers, CLASSIC,
  * DIY or general team selection. Nominal rows are read-only. */
 static int s_expStartClubPicker;
+/* Immutable source-backed objects only. No TEAM, PlayerFile, native ID,
+ * manager bind, salary, fixture or CAR is created by this UI trial. */
+static const ExpNominalCountry *s_nominalPendingCountry,*s_nominalCareerCountry,*s_nominalSquadCountry;
+static const ExpNominalClub *s_nominalPendingClub,*s_nominalCareerClub,*s_nominalSquadClub;
+static unsigned s_nominalOffset;
+extern uint8_t _currentMenu[],_chairmanMemosMenu[];
+extern int Expanded_UI_EnsureArt(void);
 int Expanded_StartClubPickerActive(void) { return s_expStartClubPicker; }
+int Expanded_NominalCareerActive(void) { return s_nominalCareerClub!=NULL; }
+int Expanded_NominalMenuMode(void)
+{
+    if(s_nominalSquadClub && _currentMenuPtr==(uintptr_t)_squadMenu)return 2;
+    if(s_nominalCareerClub && _currentMenuPtr==(uintptr_t)_contestMenu)return 1;
+    if(s_nominalCareerClub && _currentMenuPtr==(uintptr_t)_chairmanMemosMenu)return 3;
+    return 0;
+}
+void Expanded_NominalPreviewReset(void)
+{
+    s_nominalPendingCountry=s_nominalCareerCountry=s_nominalSquadCountry=NULL;
+    s_nominalPendingClub=s_nominalCareerClub=s_nominalSquadClub=NULL;
+    s_nominalOffset=0;s_expStartClubPicker=0;
+}
+void Expanded_NominalStartSelect(const ExpNominalCountry *country,const ExpNominalClub *club)
+{
+    if(!s_expStartClubPicker || !country || !club)return;
+    s_nominalPendingCountry=country;s_nominalPendingClub=club;
+}
+const char *Expanded_NominalClubName(void)
+{
+    const ExpNominalClub *c=s_nominalSquadClub?s_nominalSquadClub:s_nominalCareerClub;
+    return c?c->name:"";
+}
+const char *Expanded_NominalCountryName(void)
+{
+    const ExpNominalCountry *c=s_nominalSquadCountry?s_nominalSquadCountry:s_nominalCareerCountry;
+    return c?c->name:"";
+}
+unsigned Expanded_NominalSquadCount(void){return s_nominalSquadClub?s_nominalSquadClub->count:0u;}
+unsigned Expanded_NominalSquadOffset(void){return s_nominalOffset;}
+const char *Expanded_NominalPlayerName(unsigned row)
+{
+    if(!s_nominalSquadClub || row>=EXP_NOMINAL_SQUAD_ROWS ||
+       s_nominalOffset+row>=s_nominalSquadClub->count)return NULL;
+    return s_nominalSquadClub->players[s_nominalOffset+row].name;
+}
+int Expanded_NominalSquadScroll(unsigned ordinal,unsigned direction)
+{
+    if(Expanded_NominalMenuMode()!=2 || ordinal<28u || ordinal>44u)return 0;
+    const unsigned next=ExpNominalSquad_Offset(Expanded_NominalSquadCount(),
+        s_nominalOffset,ordinal-28u,direction);
+    if(next==s_nominalOffset)return 0;
+    s_nominalOffset=next;return 1;
+}
+static void nominal_exit(MenuEntry *e){(void)e;SetExitMenuFlag();}
+void Expanded_ShowNominalSquad(const ExpNominalCountry *country,const ExpNominalClub *club)
+{
+    if(!country || !club || s_nominalSquadClub || !Expanded_UI_EnsureArt())return;
+    s_nominalSquadCountry=country;s_nominalSquadClub=club;s_nominalOffset=0;
+    extern void InputSDL_ClearOfferSquadExit(void);
+    extern void Expanded_SquadPopupClose(void);
+    InputSDL_ClearOfferSquadExit();Expanded_SquadPopupClose();
+    _fireResetFlag=1;
+    ShowMenu(_squadMenu);
+    InputSDL_ClearOfferSquadExit();Expanded_SquadPopupClose();
+    s_nominalSquadCountry=NULL;s_nominalSquadClub=NULL;s_nominalOffset=0;
+    _fireResetFlag=1;
+}
+static void nominal_squad(MenuEntry *e)
+{
+    (void)e;Expanded_ShowNominalSquad(s_nominalCareerCountry,s_nominalCareerClub);
+}
+static void nominal_world(MenuEntry *e)
+{
+    /* Existing unbound, read-only world viewer; never enter manager's
+     * competition-edit path (which expects a genuine packed club key). */
+    Expanded_UnemployedDebugWorld(e);
+    _fireResetFlag=1;
+}
+static void nominal_nav(MenuEntry *e,int left,int right,int up,int down)
+{
+    e->leftEntry=(int8_t)left;e->rightEntry=(int8_t)right;
+    e->upEntry=(int8_t)up;e->downEntry=(int8_t)down;
+    e->directionLeft=e->directionRight=e->directionUp=e->directionDown=0;
+    e->skipLeftEntry=e->skipRightEntry=e->skipUpEntry=e->skipDownEntry=-1;
+}
+void Expanded_NominalMenuPrepare(void)
+{
+    const int mode=Expanded_NominalMenuMode();
+    Menu *menu=(Menu *)_currentMenu;
+    if(!menu || (mode!=1 && mode!=2))return;
+    if(menu->numEntries<(mode==1?19u:64u))return;
+    /* Unpacked copy only. Prevent even hidden template callbacks from
+     * reading TSKC, packed players or modifying the world. */
+    menu->onDraw=NULL;
+    for(unsigned n=0;n<menu->numEntries;++n){
+        MenuEntry *e=&_menuEntries[n];
+        e->onSelect=NULL;e->beforeDraw=NULL;e->afterDrawCb=NULL;
+        e->isInvisible=1;e->isDisabled=1;
+        e->background=NO_BACKGROUND;e->content=NO_FOREGROUND;
+        e->stringFlags&=(uint16_t)~(1u<<13);
+        nominal_nav(e,-1,-1,-1,-1);
+    }
+    if(mode==1){
+        static char forward[]="FORWARD TIME";
+        for(unsigned n=4;n<=12;++n)_menuEntries[n].isInvisible=0;
+        _menuEntries[7].fg=(uintptr_t)forward;
+        static const unsigned active[]={8u,9u,12u};
+        for(unsigned i=0;i<3u;++i){
+            MenuEntry *e=&_menuEntries[active[i]];
+            e->isDisabled=0;e->controlMask=0x21u;
+            nominal_nav(e,12,8,active[(i+2u)%3u],active[(i+1u)%3u]);
+        }
+        _menuEntries[8].onSelect=nominal_squad;
+        _menuEntries[9].onSelect=nominal_exit;
+        _menuEntries[12].onSelect=nominal_world;
+        const unsigned sel=menu->selectedEntry?menu->selectedEntry->ordinal:0xffffu;
+        if(sel!=8u && sel!=9u && sel!=12u)menu->selectedEntry=&_menuEntries[8];
+    } else {
+        unsigned rows=Expanded_NominalSquadCount()-s_nominalOffset;
+        if(rows>EXP_NOMINAL_SQUAD_ROWS)rows=EXP_NOMINAL_SQUAD_ROWS;
+        for(unsigned i=0;i<rows;++i){
+            MenuEntry *e=&_menuEntries[28u+i];
+            e->isInvisible=0;e->isDisabled=0;
+            nominal_nav(e,-1,9,i?27+(int)i:9,i+1u<rows?29+(int)i:9);
+        }
+        MenuEntry *exit=&_menuEntries[9];
+        exit->isInvisible=0;exit->isDisabled=0;exit->onSelect=nominal_exit;exit->controlMask=0x21u;
+        nominal_nav(exit,rows?27+(int)rows:-1,-1,rows?27+(int)rows:-1,rows?28:-1);
+        const unsigned sel=menu->selectedEntry?menu->selectedEntry->ordinal:0xffffu;
+        if(sel!=9u && (sel<28u || sel>=28u+rows))menu->selectedEntry=exit;
+    }
+}
+int Expanded_RunSelectedNominalCareer(void)
+{
+    if(!s_nominalPendingClub || !s_nominalPendingCountry)return 0;
+    const ExpNominalCountry *country=s_nominalPendingCountry;
+    const ExpNominalClub *club=s_nominalPendingClub;
+    s_nominalPendingCountry=NULL;s_nominalPendingClub=NULL;
+    if(!Expanded_UI_EnsureArt())return 1;
+    const uint16_t savedNational=_isNationalSelector,savedTeam=_selTeamNumber;
+    const uint16_t savedMessage=_currentMessage;
+    _isNationalSelector=0;_selTeamNumber=0xffffu;
+    s_nominalCareerCountry=country;s_nominalCareerClub=club;
+    fprintf(stderr,"[nominal-career] OPEN club=%s source=%s readonly=1 no-CAR=1\n",club->name,club->id);
+    _currentMessage=19u;_fireResetFlag=1;
+    ShowChairmanMessage();
+    _currentMessage=savedMessage;_fireResetFlag=1;
+    ShowMenu(_contestMenu);
+    extern void InputSDL_ClearOfferSquadExit(void);
+    InputSDL_ClearOfferSquadExit();
+    s_nominalCareerCountry=NULL;s_nominalCareerClub=NULL;
+    _isNationalSelector=savedNational;_selTeamNumber=savedTeam;
+    _fireResetFlag=1;
+    fprintf(stderr,"[nominal-career] CLOSE no-native-bind=1 no-CAR=1\n");
+    return 1;
+}
 void Expanded_SelectStartClubToManage(void)
 {
+    s_nominalPendingCountry=NULL;s_nominalPendingClub=NULL;
     if(!ExpandedNational_Active()){
         SelectTeamToManage();
         return;

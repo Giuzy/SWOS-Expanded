@@ -1,3 +1,6 @@
+## 27/11/2026 — v00.13.352: Belize/Cambogia nominal START career UI
+Entrambi i paesi usano il flusso delle schermate già esistenti WELCOME TO THE CLUB -> menu CAREER -> VIEW SQUAD; in WORLD il club apre direttamente lo stesso VIEW SQUAD, non più il selettore paesi per i giocatori. 18 club/496 nomi conservati, viewport 17 righe scorrevole; campi ignoti NO DATA o trattino. Nel trial solo SQUAD, VIEW WORLD readonly e uscita attivi; niente competizioni del manager, transfer, NEXT MATCH, FORWARD TIME, business/offerte. Contratto solo rappresentazione UI temporanea, nessuna assunzione nativa o salvataggio CAR; uscita annulla il trial e preserva save validi. ST source/viewport SI, C/Windows/GP/CAR NON PROVATI. Vedi RG-NOMINAL-CAREER-UI-2627.
+
 ## 27/11/2026 — v00.13.351: START CAREER, tutti i 211 paesi
 Il selettore club iniziale 2627 condivide proiezione regionale e colori del WORLD OG. 91 paesi nativi + Belize/Cambogia (18 club, 496 nomi, consultazione readonly) + 118 inattivi. Nessuna carriera avviabile dai due paesi nominali finché non sono disponibili TEAM/EXTRA e competizioni. CT, 9697, offerte e modalità OG restano fuori dal nuovo scope. Causa, dipendenze, esiti e QA in RG-START-CLUB-PICKER-2627; Windows/gameplay/visual/CAR NP.
 

@@ -197,6 +197,20 @@ int main(void)
                     for(unsigned m=0;m<j;++m)assert(strcmp(club->players[j].id,club->players[m].id));
                 }
                 names+=club->count;
+                /* The native 17 visible rows reach every nominal member,
+                 * including source rosters >30, with no fake slots. */
+                unsigned offset=0,max=club->count>17u?club->count-17u:0u;
+                for(unsigned j=0;j<max;++j){
+                    assert(ExpNominalSquad_Offset(club->count,offset,16u,4u)==offset+1u);
+                    offset=ExpNominalSquad_Offset(club->count,offset,16u,4u);
+                }
+                assert(ExpNominalSquad_Offset(club->count,offset,16u,4u)==max);
+                assert(offset+17u>=club->count);
+                while(offset){
+                    assert(ExpNominalSquad_Offset(club->count,offset,0u,0u)==offset-1u);
+                    --offset;
+                }
+                assert(ExpNominalSquad_Offset(club->count,0u,0u,0u)==0u);
             }
             assert(names==expectedNames[k]);
         }

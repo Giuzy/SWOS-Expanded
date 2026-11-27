@@ -80,6 +80,15 @@ void ChairmanMemosInit(void)
 __attribute__((used, externally_visible))
 void ChairmanMemosOnReturn(void)
 {
+#ifdef SWOS_SDL_BUILD
+    { extern int Expanded_NominalMenuMode(void);
+      if(Expanded_NominalMenuMode()==3){
+          /* The existing welcome renderer uses the nominal club name;
+           * do not read the native memo's unbound team/financial state. */
+          _menuEntries[6].isInvisible=0;
+          DrawMenu();return;
+      } }
+#endif
     /* Format "DEAR %a %b" into entry 1's text buffer */
     PrintFormatted(tr_fmt(_aDearAB_0), (uint8_t *)_menuEntries[1].fg,
                     0, 0, 0, 0, 0, 0, 0,

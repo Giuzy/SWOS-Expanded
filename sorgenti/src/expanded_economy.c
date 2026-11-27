@@ -1670,6 +1670,11 @@ void Expanded_ClubOverviewDraw(void) {
  * Only screen painting and clickable geometry change. */
 #ifdef SWOS_SDL_BUILD
 extern uint8_t _swosMainMenu[], _careerMenu[], _contestMenu[],_expandedClubOfferMenu[];
+extern int Expanded_NominalMenuMode(void);
+extern void Expanded_NominalMenuPrepare(void);
+extern const char *Expanded_NominalClubName(void),*Expanded_NominalCountryName(void);
+extern const char *Expanded_NominalPlayerName(unsigned);
+extern unsigned Expanded_NominalSquadCount(void),Expanded_NominalSquadOffset(void);
 extern uint8_t _managementRecordMenu[],_squadMenu[];
 extern uint8_t _seasonInformationsArray[];
 extern uint16_t _currentSeasonNumber;
@@ -1719,6 +1724,7 @@ static int ui_load(void) {
     }
     ui_state=1;return 1;
 }
+int Expanded_UI_EnsureArt(void){return ui_load();}
 static int ui_kind(void) {
     if(_currentMenuPtr==(uintptr_t)_chairmanMemosMenu && _currentMessage==19) return 5;
     if(_currentMenuPtr==(uintptr_t)_expandedSackedMenu) return 6;
@@ -2020,7 +2026,8 @@ void Expanded_UI_Prepare(void) {
             /* The native ContestMenuOnReturn can run before the OG July
              * resident club is finally bound. Re-apply the real callback
              * and caption NOW, immediately before rendering this menu. */
-            if(_currentMenuPtr==(uintptr_t)_contestMenu && _gameType==4u) {
+            if(_currentMenuPtr==(uintptr_t)_contestMenu && _gameType==4u &&
+               Expanded_NominalMenuMode()!=1) {
                 extern void Expanded_CareerJulyPrepareMenu(void);
                 Expanded_CareerJulyPrepareMenu();
             }
@@ -2032,6 +2039,9 @@ void Expanded_UI_Prepare(void) {
         case 8: ui_squad_prepare();break;
         default:break;
     }
+    /* Native layout is retained; nominal mode removes unsafe callbacks
+     * again after the shared layout preparation. */
+    Expanded_NominalMenuPrepare();
 }
 void Expanded_UI_Before(void) {
     if(!ui_load()) return;
@@ -2048,7 +2058,7 @@ void Expanded_UI_Before(void) {
     else if(kind==3) {
         cb_blit(0,0,CB_W,CB_H,
             _currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer()?ui_unemployed:ui_calendar);
-        if(_currentMenuPtr==(uintptr_t)_contestMenu) {
+        if(_currentMenuPtr==(uintptr_t)_contestMenu && Expanded_NominalMenuMode()!=1) {
             ui_fixture_rows_drawn=0;
             ui_draw_fixture_panel(ui_fixture_count());
         }
@@ -3323,7 +3333,10 @@ static void ui_star(int x,int y,uint8_t color) {
 }
 static int s_squadStatsPopupOpen=0;
 int Expanded_SquadPopupOpen(void) { return s_squadStatsPopupOpen; }
-void Expanded_SquadPopupToggle(void) { s_squadStatsPopupOpen=!s_squadStatsPopupOpen; }
+void Expanded_SquadPopupToggle(void) {
+    if(Expanded_NominalMenuMode()==2)return; /* no fabricated player details */
+    s_squadStatsPopupOpen=!s_squadStatsPopupOpen;
+}
 void Expanded_SquadPopupClose(void) { s_squadStatsPopupOpen=0; }
 static void ui_squad_tooltip(unsigned row,const PlayerFile *p) {
     if(!p) return;
@@ -3369,15 +3382,20 @@ static void ui_squad_render(void) {
     for(int row=0;row<17;row++)
         rect(6,96+row*8,308,8,(row&1)?40:42);
     rect(3,234,314,20,40);cb_box_outline(3,234,314,20,204);
-    TeamFileEx *team=(TeamFileEx*)(uintptr_t)_squadTeamFilePtr;
-    if(!team) return;
+    const int nominal=Expanded_NominalMenuMode()==2;
+    TeamFileEx *team=nominal?NULL:(TeamFileEx*)(uintptr_t)_squadTeamFilePtr;
+    if(!nominal && !team) return;
     char line[96];
     rect(92,3,136,18,40);cb_box_outline(92,3,136,18,204);
     ui_native_text(160,8,128,15,"VIEW SQUAD",0);
     rect(94,30,132,17,40);cb_box_outline(94,30,132,17,204);
-    ui_native_text(160,35,126,15,(const char*)team->team.teamName,0);
-    unsigned country=team->team.countryNumber;
-    if(country<96) {
+    ui_native_text(160,35,126,15,nominal?Expanded_NominalClubName():(const char*)team->team.teamName,0);
+    unsigned country=nominal?255u:team->team.countryNumber;
+    if(nominal) {
+        snprintf(line,sizeof line,"(%s)",Expanded_NominalCountryName());
+        rect(94,49,132,19,40);cb_box_outline(94,49,132,19,204);
+        ui_native_text(160,55,128,15,line,0);
+    } else if(country<96) {
         extern void *_countriesTable[];
         if(_countriesTable[country]) {
             snprintf(line,sizeof line,"(%.24s)",(const char*)_countriesTable[country]+1);
@@ -3390,7 +3408,8 @@ static void ui_squad_render(void) {
     /* The actual balance and chosen game currency, never a fixed mockup. */
     int64_t bank=_newBalance;
     uint64_t absBank=(uint64_t)(bank<0?-bank:bank);
-    if(absBank<1000000u)
+    if(nominal)snprintf(line,sizeof line,"BANK NO DATA");
+    else if(absBank<1000000u)
         snprintf(line,sizeof line,"BANK %s%c%lu,%03lu",bank<0?"-":"",
                  Expanded_CurrencyGlyph(),(unsigned long)(absBank/1000u),
                  (unsigned long)(absBank%1000u));
@@ -3402,7 +3421,7 @@ static void ui_squad_render(void) {
     ui_native_text(11,81,15,15,"#",-1);
     ui_native_text(31,81,108,15,"NAME",-1);
     ui_native_text(141,81,22,15,"POS",-1);
-    ui_native_text(166,81,33,15,_isSquadViewMode?"GOALS":"SKILL",-1);
+    ui_native_text(166,81,33,15,!nominal&&_isSquadViewMode?"GOALS":"SKILL",-1);
     ui_native_text(200,81,30,15,"NAT",-1);
     ui_native_text(237,81,20,15,"G",-1);
     ui_native_text(265,81,45,15,"VALUE",-1);
@@ -3414,6 +3433,21 @@ static void ui_squad_render(void) {
     const PlayerFile *selectedPlayer=NULL;
     static const char *const posNames[]={"G","RB","LB","D","RW","LW","M","A"};
     for(unsigned i=0;i<17;i++) {
+        if(nominal){
+            const char *name=Expanded_NominalPlayerName(i);
+            if(!name)continue;
+            const int y=Expanded_SquadRowY(i);
+            if(selected==i)rect(10,y-2,300,8,11);
+            /* Identical existing columns; only real nominal data. */
+            ui_native_text(24,y,17,2,"-",1);
+            ui_native_ellipsis(31,y,108,2,name,-1);
+            ui_native_text(145,y,20,2,"-",-1);
+            ui_native_text(179,y,31,2,"-",0);
+            ui_native_text(201,y,30,2,"-",-1);
+            ui_native_text(244,y,22,2,"-",0);
+            ui_native_text(311,y,48,2,"-",1);
+            continue;
+        }
         const PlayerFile *p=Expanded_SquadRowPlayer(i);
         if(!p) continue;
         int y=Expanded_SquadRowY(i);
@@ -3465,13 +3499,23 @@ static void ui_squad_render(void) {
     }
     /* Team-wide form and morale, both percentage + shared five-face scale. */
     rect(5,49,84,19,40);cb_box_outline(5,49,84,19,204);
-    snprintf(line,sizeof line,"FORM %u%%",(unsigned)_expandedCurrentForm);
+    if(nominal)snprintf(line,sizeof line,"FORM NO DATA");
+    else snprintf(line,sizeof line,"FORM %u%%",(unsigned)_expandedCurrentForm);
     ui_native_text(37,55,65,15,line,0);
-    cb_mood_face(80,58,_expandedCurrentForm);
+    if(!nominal)cb_mood_face(80,58,_expandedCurrentForm);
     rect(231,49,85,19,40);cb_box_outline(231,49,85,19,204);
-    snprintf(line,sizeof line,"MORALE %u%%",(unsigned)_expandedTeamMorale);
+    if(nominal)snprintf(line,sizeof line,"MORALE NO DATA");
+    else snprintf(line,sizeof line,"MORALE %u%%",(unsigned)_expandedTeamMorale);
     ui_native_text(265,55,72,15,line,0);
-    cb_mood_face(307,58,_expandedTeamMorale);
+    if(!nominal)cb_mood_face(307,58,_expandedTeamMorale);
+    if(nominal){
+        unsigned total=Expanded_NominalSquadCount(),first=Expanded_NominalSquadOffset()+1u;
+        unsigned last=first+16u;if(last>total)last=total;
+        snprintf(line,sizeof line,"PLAYERS %u-%u / %u",first,last,total);
+        ui_native_text(9,242,134,2,line,-1);
+        ui_button(9,"EXIT");
+        return;
+    }
     if(team->team.coachName[0]) {
         snprintf(line,sizeof line,"COACH: %.22s",(const char*)team->team.coachName);
         ui_native_ellipsis(9,242,134,2,line,-1);
@@ -3511,7 +3555,8 @@ void Expanded_UI_After(void) {
         /* The actual managed club, never the example club in the artwork. */
         /* TeamFileEx starts with TeamFile; use the typed name accessor. */
         extern const char *Expanded_CurrentClubName(void);
-        snprintf(club,sizeof club,"%.28s",Expanded_CurrentClubName());
+        const int nominal=Expanded_NominalMenuMode()==3;
+        snprintf(club,sizeof club,"%.28s",nominal?Expanded_NominalClubName():Expanded_CurrentClubName());
         snprintf(line,sizeof line,"DEAR MR %.19s,",name);
         ui_native_text(160,160,260,6,line,0);
         ui_native_text(160,172,260,15,"WE ARE DELIGHTED TO WELCOME YOU AS",0);
@@ -3520,9 +3565,11 @@ void Expanded_UI_After(void) {
         ui_native_text(160,192,260,15,"WE TRUST YOU WILL LEAD US TO SUCCESS.",0);
         rect(28,203,124,16,42);cb_box_outline(28,203,124,16,204);
         rect(168,203,124,16,42);cb_box_outline(168,203,124,16,204);
-        snprintf(line,sizeof line,"FANS LIKING %u%%",(unsigned)_expandedFanMood);
+        if(nominal)snprintf(line,sizeof line,"FANS LIKING NO DATA");
+        else snprintf(line,sizeof line,"FANS LIKING %u%%",(unsigned)_expandedFanMood);
         ui_native_text(90,207,116,2,line,0);
-        snprintf(line,sizeof line,"BOARD LIKING %u%%",(unsigned)_expandedBoardMood);
+        if(nominal)snprintf(line,sizeof line,"BOARD LIKING NO DATA");
+        else snprintf(line,sizeof line,"BOARD LIKING %u%%",(unsigned)_expandedBoardMood);
         ui_native_text(230,207,116,2,line,0);
         ui_button(6,"CONTINUE");
     } else if(kind==6) {
@@ -3646,7 +3693,16 @@ void Expanded_UI_After(void) {
         ui_button(11,"BACK");
         ui_button(1,"LOAD LIVERPOOL");
     } else if(kind==3) {
-        if(_currentMenuPtr==(uintptr_t)_contestMenu) {
+        const int nominal=Expanded_NominalMenuMode()==1;
+        if(nominal){
+            char manager[64];
+            snprintf(manager,sizeof manager,"%.22s %.22s",(const char*)_managerNameBuffer,(const char*)_managerSurnameBuffer);
+            ui_native_text(57,8,100,15,manager,0);
+            ui_native_text(168,8,110,15,Expanded_NominalClubName(),0);
+            ui_native_text(271,8,84,15,"2026/27",0);
+            rect(5,39,310,151,40);cb_box_outline(5,39,310,151,204);
+            ui_native_text(160,107,296,15,"COMPETITIONS: NO DATA",0);
+        } else if(_currentMenuPtr==(uintptr_t)_contestMenu) {
             ui_render_merged_calendar();
             ui_fixture_finish_panel();
         }
@@ -3682,6 +3738,7 @@ void Expanded_UI_After(void) {
             if(!unemployed && (i==11 || i==14)) name="COMPETITIONS";
             ui_button(i,name);
         }
+        if(nominal)return; /* no manager calendar or synthetic date */
         char date[48];
         if(_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer()) {
             extern void Expanded_UnemployedDate(char *,size_t);

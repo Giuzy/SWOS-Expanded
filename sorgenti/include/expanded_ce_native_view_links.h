@@ -536,8 +536,11 @@ int ExpandedUniversal_OGCupBoardPresent(void)
     else snprintf(round,sizeof round,"ROUND OF %u",(unsigned)(ties*2u));
     if(legs==2u)
         snprintf(round+strlen(round),sizeof round-strlen(round),"%s",f->key.leg?" 2ND LEG":" 1ST LEG");
-    snprintf(s_ceNativeCup.title,sizeof s_ceNativeCup.title,"%.30s %s",
-             d->name[0]?d->name:"LEAGUE",round);
+    {   extern void ExpCeViewer_DefName(uint32_t,char *,size_t);
+        char nm[48];
+        ExpCeViewer_DefName(d->id,nm,sizeof nm);   /* OG league name, not the CE id */
+        snprintf(s_ceNativeCup.title,sizeof s_ceNativeCup.title,"%.30s %s",nm,round);
+    }
     s_ceNativeCup.edition=f->key.edition;
     if(!ce_cup_board_rows()){memset(&s_ceCupBoard,0,sizeof s_ceCupBoard);return 0;}
     s_ceNativeCup.active=1;s_ceCupBoard.active=1;

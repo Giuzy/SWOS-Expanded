@@ -252,6 +252,22 @@ int ExpandedUniversal_NativePrepare(
  * the persistent team records; those effects are saved by the SAME CAR.
  * VIEW RESULT for an employed manager uses this same boundary, whereas
  * the separate PLAY callback still invokes the original 50 Hz engine. */
+/* v342 (user 27/11/2026): F12+1 WIN / F12+2 LOSE ALWAYS act on the manager's CE result
+ * record (same rule as the OG ExpandedDebug_ForceScore: the match itself is unchanged).
+ * A forced result is decided in regulation: no extra time / shoot-out flags. */
+static void exp_native_debug_result(const ExpandedUniversalNativeMatch *c,ExpandedFixtureScore *s)
+{
+    extern int ExpandedDebug_ResultMode(void);
+    extern void ExpandedDebug_ForceScore(int,uint16_t *,uint16_t *);
+    uint16_t h,a;
+    if(!c || !s || !ExpandedDebug_ResultMode() ||
+       (c->home!=&_careerTeam && c->away!=&_careerTeam))return;
+    h=s->home;a=s->away;
+    ExpandedDebug_ForceScore(c->home==&_careerTeam,&h,&a);
+    s->home=h;s->away=a;s->penalties_home=0;s->penalties_away=0;s->flags=0;
+    fprintf(stderr,"[universal-native] DEBUG_RESULT_FORCED mode=%d score=%u:%u\n",
+            ExpandedDebug_ResultMode(),(unsigned)h,(unsigned)a);
+}
 static uint8_t s_quick_flags;
 static uint16_t s_quick_pen_home,s_quick_pen_away;
 static int exp_universal_native_quick_result(
@@ -356,6 +372,7 @@ static int exp_universal_native_quick_result(
     witness->day_index=fixture->day_index;
     witness->score=(ExpandedFixtureScore){home,away,s_quick_pen_home,
                                           s_quick_pen_away,s_quick_flags};
+    exp_native_debug_result(c,&witness->score);
     witness->valid=1u;
     fprintf(stderr,"[universal-native] OG_QUICK_RESULT "
         "event=%llu score=%u:%u elapsed_ms=%llu "
@@ -523,6 +540,7 @@ int ExpandedUniversal_NativeRunOriginal(
         _penaltiesState<0?_team1PenaltyGoals:0u,
         _penaltiesState<0?_team2PenaltyGoals:0u,
         (uint8_t)((_extraTimeState<0?0x01u:0u)|(_penaltiesState<0?0x02u:0u))};
+    exp_native_debug_result(c,&witness->score);
     witness->valid=1u;
     return 1;
 }

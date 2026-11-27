@@ -27,12 +27,18 @@ static inline void ExpandedBoliviaCalendar_Update(
     v->anchor=v->focusRow>=0?
         v->focusRow-BOLIVIA_CALENDAR_CENTER_ROW:0;
     if(!total) {v->page=0;v->offset=0;return;}
-    /* Keep the viewport entirely inside real fixtures. Preserve the
-     * visual centre only when there are seven real rows on either side. */
-    const int maxPage=total>BOLIVIA_CALENDAR_VIEW_ROWS?
+    /* v342 (user 27/11/2026): with a focused line (today) on a list longer than
+     * the panel, the blue line stays ALWAYS in the middle row and the rest of the
+     * calendar scrolls around it (empty rows above the first / below the last
+     * line). Without a focus, or on a short list, the old real-rows bounds. */
+    int minPage=0,maxPage=total>BOLIVIA_CALENDAR_VIEW_ROWS?
         (int)total-BOLIVIA_CALENDAR_VIEW_ROWS:0;
+    if(v->focusRow>=0 && total>BOLIVIA_CALENDAR_VIEW_ROWS) {
+        minPage=-BOLIVIA_CALENDAR_CENTER_ROW;
+        maxPage=(int)total-1-BOLIVIA_CALENDAR_CENTER_ROW;
+    }
     v->page=ExpandedBoliviaCalendar_Clamp(
-        v->anchor+v->offset,0,maxPage);
+        v->anchor+v->offset,minPage,maxPage);
     v->offset=v->page-v->anchor;
 }
 /* direction -1 = previous chronological fixture; +1 = next.
@@ -41,10 +47,14 @@ static inline int ExpandedBoliviaCalendar_Scroll(
     ExpandedBoliviaCalendarViewport *v,int direction)
 {
     if(!v || !v->total || (direction!=-1 && direction!=1))return 0;
-    const int maxPage=v->total>BOLIVIA_CALENDAR_VIEW_ROWS?
+    int minPage=0,maxPage=v->total>BOLIVIA_CALENDAR_VIEW_ROWS?
         (int)v->total-BOLIVIA_CALENDAR_VIEW_ROWS:0;
+    if(v->focusRow>=0 && v->total>BOLIVIA_CALENDAR_VIEW_ROWS) {
+        minPage=-BOLIVIA_CALENDAR_CENTER_ROW;
+        maxPage=(int)v->total-1-BOLIVIA_CALENDAR_CENTER_ROW;
+    }
     const int next=ExpandedBoliviaCalendar_Clamp(
-        v->page+direction,0,maxPage);
+        v->page+direction,minPage,maxPage);
     if(next==v->page)return 0;
     v->page=next;
     v->offset=v->page-v->anchor;

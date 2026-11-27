@@ -878,8 +878,13 @@ static void Expanded_FormatCurrentCareerDate(char *out,size_t cap)
     isCareer=(_gameType==4u);
     if(isCareer) {
         ExpandedLiveCalendarState state;
-        hasCivil=ExpandedWorldLive_CalendarState(&state);
-        if(hasCivil)civil=state.today;
+        /* v342: in the CE world the header date and the calendar read the SAME
+         * clock (the CE day), so the blue line always matches the date shown. */
+        if(ExpandedUniversalLive_Active() && ExpandedUniversalLive_Today(&civil))hasCivil=1;
+        else {
+            hasCivil=ExpandedWorldLive_CalendarState(&state);
+            if(hasCivil)civil=state.today;
+        }
     }
 #endif
     const uint16_t year=(uint16_t)(World_FirstYear()+
@@ -2706,6 +2711,46 @@ static int ui_ce_fixture_cmp(const void *aa,const void *bb)
     if(a->seasonBreak!=b->seasonBreak)return a->seasonBreak?1:-1;
     return a->eventId<b->eventId?-1:a->eventId>b->eventId?1:0;
 }
+/* v342 (user 27/11/2026, every competition): the round of a manager fixture for the
+ * calendar's right-hand column: "ROUND n" (the club's n-th match of that table phase:
+ * league matchday or group round, "GROUP X Rn" in a cup/tournament group) or the
+ * knockout round (FINAL / SEMI-FINAL / QUARTER-FINAL / ROUND OF n / PLAY-OUT, + L1/L2). */
+static void ui_ce_round_text(const ExpandedUniversalRegistry *reg,const ExpandedUniversalFixture *f,
+                             ExpandedClubKey club,char *out,size_t n)
+{
+    uint8_t kind=0u;
+    uint32_t i,cnt=0u,ties=0u;
+    const unsigned phase=(unsigned)EXP_CE_STAGE_PHASE(f->key.stage);
+    out[0]=0;
+    if(!ExpCe_FixturePhase(f,&kind,NULL))return;
+    if(kind==EXP_CE_PHASE_TABLE) {
+        for(i=0u;i<reg->fixture_count;++i) {
+            const ExpandedUniversalFixture *x=&reg->fixtures[i];
+            if(!ExpandedEditionKey_Equal(x->key.edition,f->key.edition) || x->key.stage!=f->key.stage ||
+               (!ExpandedClubKey_Equal(x->home,club) && !ExpandedClubKey_Equal(x->away,club)))continue;
+            if(x->day_index<f->day_index || (x->day_index==f->day_index && x->event_id<=f->event_id))++cnt;
+        }
+        if(f->competition_type!=0u && (f->key.stage&0xffu)>=1u && (f->key.stage&0xffu)<=26u)
+            snprintf(out,n,"GROUP %c R%u",(char)('A'+(f->key.stage&0xffu)-1u),(unsigned)cnt);
+        else snprintf(out,n,"ROUND %u",(unsigned)cnt);
+        return;
+    }
+    for(i=0u;i<reg->fixture_count;++i) {
+        const ExpandedUniversalFixture *x=&reg->fixtures[i];
+        if(ExpandedEditionKey_Equal(x->key.edition,f->key.edition) && x->key.stage==f->key.stage &&
+           x->key.leg==f->key.leg)++ties;
+    }
+    if(phase==EXP_CE_PLAYOUT_PHASE)snprintf(out,n,"PLAY-OUT");
+    else if(ties==1u)snprintf(out,n,"FINAL");
+    else if(ties==2u)snprintf(out,n,"SEMI-FINAL");
+    else if(ties==4u)snprintf(out,n,"QUARTER-FINAL");
+    else snprintf(out,n,"ROUND OF %u",(unsigned)(ties*2u));
+    {   const ExpCeDef *d=ExpCe_Definition(f->key.edition.competition.stable_competition);
+        const unsigned legs=!d?1u:phase==EXP_CE_PLAYOUT_PHASE?d->playout.match.legs:
+                            (phase<d->nphases?d->phases[phase].match.legs:1u);
+        if(legs==2u)snprintf(out+strlen(out),n-strlen(out)," L%u",(unsigned)f->key.leg+1u);
+    }
+}
 static void ui_render_ce_calendar(void)
 {
     extern void *_competitionsTable[];
@@ -2735,8 +2780,17 @@ static void ui_render_ce_calendar(void)
             if(f->day_index>finalDay)finalDay=f->day_index;
         }
     }
-    if(!selected || selected>UINT32_MAX-55u)return;
-    capacity=selected+55u; /* 54 weekly stops + 1 row for TODAY (v281) */
+    if(!selected || selected>UINT32_MAX-4000u)return;
+    /* v342: one weekly stop per week of the WHOLE career span (was 54 weeks from the
+     * first 1 July only: no SEASON BREAK at all from the second year on) + today. */
+    {   ExpandedWorldDate fy={World_FirstYear(),7u,1u};
+        int32_t f0=0;
+        uint32_t wk=55u;
+        if(ExpandedWorld_DateToIndex(fy,&f0) && finalDay>f0)wk=(uint32_t)((finalDay-f0)/7+3);
+        if(today>finalDay && ExpandedWorld_DateToIndex(fy,&f0))wk+=(uint32_t)((today-finalDay)/7+1);
+        if(wk>3800u)wk=3800u;
+        capacity=selected+wk+2u;
+    }
 #if SIZE_MAX < UINT64_MAX
     /* 32-bit allocation only. On MSYS2 x64 the check is provably
      * false and -Werror may reject the always-false comparison. */
@@ -2795,11 +2849,12 @@ static void ui_render_ce_calendar(void)
         r->cup=(uint8_t)(f->competition_type!=0u);
         snprintf(r->label,sizeof r->label,"%s",
                  name && *name?name:(f->competition_type?"CUP":"LEAGUE"));
+        /* v342 (user 27/11/2026): the managed club is already in the header: its column
+         * now shows the OPPONENT, the right-hand column the matchday / round. */
         snprintf(r->first,sizeof r->first,"%.17s",
-                 (const char *)myTeam->team.teamName);
-        snprintf(r->side,sizeof r->side,"%s",home?"(H)":"(A)");
-        snprintf(r->opponent,sizeof r->opponent,"%.17s",
                  (const char *)opponent->team.teamName);
+        snprintf(r->side,sizeof r->side,"%s",home?"(H)":"(A)");
+        ui_ce_round_text(reg,f,manager,r->opponent,sizeof r->opponent);
         if(entry->state==EXP_FIXTURE_PLAYED) {
             snprintf(r->mark,sizeof r->mark,"%u-%u",
                 home?(unsigned)entry->score.home:(unsigned)entry->score.away,
@@ -2813,7 +2868,7 @@ static void ui_render_ce_calendar(void)
     int32_t lastStop=0;
     if(!ExpandedWorld_DateToIndex(cursor,&lastStop))goto done;
     const int32_t firstStop=lastStop; /* 1 July of the first year */
-    for(unsigned week=0u;week<54u && count+1u<capacity;++week) {
+    for(unsigned week=0u;week<3800u && count+1u<capacity;++week) {
         ExpandedWorldDate stop={0};
         int32_t idx=0;
         if(!ExpandedWorld_NextSundayOrFixture(cursor,0,
@@ -2823,10 +2878,15 @@ static void ui_render_ce_calendar(void)
         const uint32_t key=ui_fixture_date_key(
             stop.year,stop.month,stop.day);
         unsigned exists=0u;
-        for(uint32_t j=0u;j<count;++j)
-            if(!rows[j].seasonBreak && rows[j].dayKey==key) {
-                exists=1u;break;
-            }
+        /* v342 (user 27/11/2026): SEASON BREAK rows are FIXED by the calendar itself:
+         * one per week (Monday..Sunday) in which the club has NO fixture, dated on
+         * that Sunday. They never depend on today's date (the moving 'today' row is
+         * gone), so they no longer appear or disappear while the clock advances. */
+        for(uint32_t j=0u;j<reg->fixture_count && !exists;++j) {
+            const ExpandedUniversalFixture *x=&reg->fixtures[j];
+            if((ExpandedClubKey_Equal(x->home,manager) || ExpandedClubKey_Equal(x->away,manager)) &&
+               x->day_index>idx-7 && x->day_index<=idx)exists=1u;
+        }
         if(!exists) {
             UICompactFixture *r=&rows[count++];
             r->dayKey=key;r->day=stop.day;r->month=stop.month;
@@ -2842,17 +2902,15 @@ static void ui_render_ce_calendar(void)
      * season span [1 July .. last manager fixture]. */
     const uint32_t todayKey=ui_fixture_date_key(
         civil.today.year,civil.today.month,civil.today.day);
-    {
-        unsigned hasToday=0u;
-        for(uint32_t j=0u;j<count;++j)
-            if(rows[j].dayKey==todayKey) {hasToday=1u;break;}
-        if(!hasToday && count<capacity && today>=firstStop &&
-           today<=finalDay) {
+    /* v342 (user 27/11/2026): the blue cursor is ALWAYS on the date shown. When
+     * today has no calendar line, the cursor itself is a line with today's date
+     * and NO text (it is not a SEASON BREAK: the fixed breaks never move). */
+    {   unsigned hasToday=0u;
+        for(uint32_t j=0u;j<count;++j)if(rows[j].dayKey==todayKey){hasToday=1u;break;}
+        if(!hasToday && count<capacity) {
             UICompactFixture *r=&rows[count++];
-            r->dayKey=todayKey;r->day=civil.today.day;
-            r->month=civil.today.month;
-            r->seasonBreak=1u;r->expandedBolivia=1u;
-            snprintf(r->first,sizeof r->first,"SEASON BREAK");
+            r->dayKey=todayKey;r->day=civil.today.day;r->month=civil.today.month;
+            r->seasonBreak=1u;r->expandedBolivia=1u;r->first[0]=0;
         }
     }
     qsort(rows,count,sizeof *rows,ui_ce_fixture_cmp);
@@ -2866,15 +2924,11 @@ static void ui_render_ce_calendar(void)
             break;
         }
     if(focus<0 && count) {
-        /* Today outside the span (season over/not started): keep the
-         * nearest line to today so the cursor is never lost. */
-        uint32_t best=0u,bestDist=UINT32_MAX;
-        for(uint32_t i=0u;i<count;++i) {
-            const uint32_t k=(uint32_t)rows[i].dayKey;
-            const uint32_t dist=k>(uint32_t)todayKey?
-                k-(uint32_t)todayKey:(uint32_t)todayKey-k;
-            if(dist<bestDist) {bestDist=dist;best=i;}
-        }
+        /* v342: no fixed line on today: the cursor goes to the NEXT line (first
+         * on or after today), or the last one when the calendar is over. */
+        uint32_t best=count-1u;
+        for(uint32_t i=0u;i<count;++i)
+            if((uint32_t)rows[i].dayKey>=(uint32_t)todayKey){best=i;break;}
         focus=(int)best;
         key=rows[best].eventId?rows[best].eventId:
             (0x8000000000000000ull|(uint64_t)rows[best].dayKey);
@@ -2892,7 +2946,7 @@ static void ui_render_ce_calendar(void)
             ui_paint_compact_fixture(&rows[from],i);
     }
     fprintf(stderr,"[ce-calendar-view] club=%08lx fixtures=%lu rows=%lu "
-        "now=%04u-%02u-%02u focus=%d source=CE_LEDGER readonly=1\\n",
+        "now=%04u-%02u-%02u focus=%d source=CE_LEDGER readonly=1\n",
         (unsigned long)manager.stable_club,(unsigned long)selected,
         (unsigned long)count,(unsigned)civil.today.year,
         (unsigned)civil.today.month,(unsigned)civil.today.day,focus);

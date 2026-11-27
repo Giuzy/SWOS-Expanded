@@ -1044,6 +1044,15 @@ uint32_t ExpCeViewer_ClubButtons(uint32_t *ids,char (*names)[40],uint32_t cap)
     }
     return n;
 }
+/* v342: the displayed name of a CE definition (OG league name for a league). */
+void ExpCeViewer_DefName(uint32_t def_id,char *out,size_t n)
+{
+    const ExpCeDef *d=ExpCe_Definition(def_id);
+    if(!out || !n)return;
+    if(!d){snprintf(out,n,"COMPETITION");return;}
+    cv_def_name(d,out,n);
+    cv_upper(out);
+}
 #endif /* !EXP_CE_VIEWER_PURE */
 #ifdef EXP_CE_VIEWER_PURE
 /* isolated tests: the same content builder and country enumeration, no menu */

@@ -11478,12 +11478,19 @@ int ExpandedUniversal_OGBoardPresent(void)
         static char label[48];
         const ExpCeDef *d=ExpCe_Definition(f->key.edition.competition.stable_competition);
         const unsigned group=(unsigned)(f->key.stage&0xffu);
+        extern void ExpCeViewer_DefName(uint32_t,char *,size_t);
+        char nm[48];
+        ExpCeViewer_DefName(d?d->id:0u,nm,sizeof nm);
         if(group>0u && group<=26u)
-            snprintf(label,sizeof label,"%.36s GROUP %c",d?d->name:"CUP",(char)('A'+group-1u));
-        else snprintf(label,sizeof label,"%.40s",d?d->name:"CUP");
+            snprintf(label,sizeof label,"%.36s GROUP %c",nm,(char)('A'+group-1u));
+        else snprintf(label,sizeof label,"%.40s",nm);
         return ce_board_project(f,manager,0,label);
     }
-    return ce_board_project(f,manager,0,"LEAGUE");
+    {   extern void ExpCeViewer_DefName(uint32_t,char *,size_t);
+        static char lname[48];
+        ExpCeViewer_DefName(f->key.edition.competition.stable_competition,lname,sizeof lname);
+        return ce_board_project(f,manager,0,lname);
+    }
 }
 /* Generic WORLD country/division reader; no manager employment needed.
  * Select an already-registered edition, never invent fixtures or dates.

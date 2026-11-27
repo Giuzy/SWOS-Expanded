@@ -3945,7 +3945,8 @@ void ContestMenuOnReturn(void)
         extern int ExpandedDebug_OfferWeekTake(void);
         extern void ExpandedDebug_OfferNativeForce(int);
         extern void Career_MaybeGenerateJobOffer(void);
-        if(Expanded_OGWorld_ClubBound() &&
+        /* v342: the CE world binds the manager without an OG resident club */
+        if((Expanded_OGWorld_ClubBound() || ExpandedUniversalLive_ManagerBound()) &&
            !Expanded_MidseasonJoin_Active() &&
            ExpandedDebug_OfferWeekTake()) {
             const unsigned before=(unsigned)_numNewJobOffers;
@@ -4043,6 +4044,9 @@ static int exp_universal_contest_action(MenuEntry *entry)
                 "owner=CE postmatch=NO_OLD_TSKC_WITNESS=1\n");
             /* Repaint only: the old UpdateCareerAfterMatch and other OG
              * score writers do not own this JSON fixture. */
+            /* v342: F12+3 SACK NEXT and the ordinary dismissal check after a CE match */
+            { extern int Expanded_HandleSackingAfterMatch(void);
+              if (Expanded_HandleSackingAfterMatch()) return 1; }
             ContestMenuOnReturn();
             SetCurrentEntry(7u);
             DrawMenu();
@@ -5958,56 +5962,67 @@ static void Expanded_ViewClubBoliviaCup(MenuEntry *entry)
  * ITALIANA) gets one more button, same layout as the other competitions, for
  * the clubs that take part in it; it opens the Competition Engine screen. */
 extern uint8_t _currentMenu[];
-static uint32_t s_ceBtnDef;
-static char s_ceBtnName[1][40];
+static uint32_t s_ceBtnDefs[5];          /* per menu slot 1..4 */
+static char s_ceBtnNames[5][40];
 static MenuEntryFn s_ceBtnRestore[5];
 static void Expanded_ViewCeButton(MenuEntry *entry)
 {
     extern int ExpCeViewer_OpenDefinition(uint32_t);
-    (void)entry;
-    (void)ExpCeViewer_OpenDefinition(s_ceBtnDef);
+    const unsigned k=entry?(unsigned)(entry-_menuEntries):0u;
+    if(k>=1u && k<=4u && s_ceBtnDefs[k])(void)ExpCeViewer_OpenDefinition(s_ceBtnDefs[k]);
 }
+/* v342 (user 27/11/2026): EVERY CE competition of the club gets its row (was ONE only:
+ * the Australian Championship disappeared behind the Australia Cup). A competition
+ * already shown by a native OG row reuses it; the others take the hidden OG rows. */
 static void Expanded_AddCeCompetitionButton(void)
 {
     extern uint32_t ExpCeViewer_ClubButtons(uint32_t *,char (*)[40],uint32_t);
-    uint32_t id=0u;
-    unsigned vis=0u,h=0u,k,order[6],n=0u;
-    if(_gameType!=GAME_TYPE_CAREER ||
-       ExpCeViewer_ClubButtons(&id,s_ceBtnName,1u)<1u)return;
-    {   /* Reuse the existing native competition row if it is already visible. */
-        extern int ExpCeViewer_MatchesNative(uint32_t,uint8_t,const void *);
-        const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
-        const void *native[5]={NULL,(const void *)_currentCompetitionPtr,
-            (const void *)_secondaryCompetitionPtr,(const void *)_tertiaryCompetitionPtr,
-            (const void *)_quaternaryCompetitionPtr};
-        for(k=1u;k<=4u;++k)if(!_menuEntries[k].isInvisible &&
-            ExpCeViewer_MatchesNative(id,country,native[k])) {
-            s_ceBtnDef=id;
+    extern int ExpCeViewer_MatchesNative(uint32_t,uint8_t,const void *);
+    uint32_t ids[8];
+    char names[8][40];
+    unsigned nb,b,k,order[6],n=0u,added=0u;
+    if(_gameType!=GAME_TYPE_CAREER)return;
+    nb=(unsigned)ExpCeViewer_ClubButtons(ids,names,8u);
+    if(!nb)return;
+    const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
+    const void *native[5]={NULL,(const void *)_currentCompetitionPtr,
+        (const void *)_secondaryCompetitionPtr,(const void *)_tertiaryCompetitionPtr,
+        (const void *)_quaternaryCompetitionPtr};
+    for(b=0u;b<nb;++b) {
+        unsigned used=0u,h=0u;
+        for(k=1u;k<=4u && !used;++k)if(!_menuEntries[k].isInvisible &&
+            _menuEntries[k].onSelect!=Expanded_ViewCeButton &&
+            ExpCeViewer_MatchesNative(ids[b],country,native[k])) {
+            s_ceBtnDefs[k]=ids[b];
+            snprintf(s_ceBtnNames[k],sizeof s_ceBtnNames[k],"%s",names[b]);
             s_ceBtnRestore[k]=_menuEntries[k].onSelect;
-            _menuEntries[k].fg=(uintptr_t)s_ceBtnName[0];
+            _menuEntries[k].fg=(uintptr_t)s_ceBtnNames[k];
             _menuEntries[k].onSelect=Expanded_ViewCeButton;
-            fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS reused slot=%u def=%u source=CE\n",k,(unsigned)id);
-            return;
+            fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS reused slot=%u def=%u source=CE\n",k,(unsigned)ids[b]);
+            used=1u;
         }
+        if(used)continue;
+        for(k=1u;k<=4u;++k)if(_menuEntries[k].isInvisible){h=k;break;}
+        if(!h) {
+            fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS no free slot for def=%u\n",(unsigned)ids[b]);
+            continue;
+        }
+        s_ceBtnDefs[h]=ids[b];
+        snprintf(s_ceBtnNames[h],sizeof s_ceBtnNames[h],"%s",names[b]);
+        /* same position the next competition would have: where entry 5 now is;
+         * entry 5 (and what follows it) moves one row down */
+        _menuEntries[h].y=_menuEntries[5].y;
+        _menuEntries[5].y=(uint16_t)(_menuEntries[5].y+25u);
+        _menuEntries[h].isInvisible=0;
+        _menuEntries[h].isDisabled=0;
+        _menuEntries[h].fg=(uintptr_t)s_ceBtnNames[h];
+        s_ceBtnRestore[h]=_menuEntries[h].onSelect;
+        _menuEntries[h].onSelect=Expanded_ViewCeButton;
+        ++added;
+        fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS button def=%u slot=%u source=CE\n",
+                (unsigned)ids[b],h);
     }
-    for(k=1u;k<=4u;++k) {
-        if(!_menuEntries[k].isInvisible)++vis;
-        else h=k;                       /* a hidden OG competition slot */
-    }
-    if(vis>=4u || !h) {
-        fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS no free slot for the button\n");
-        return;
-    }
-    s_ceBtnDef=id;
-    /* same position the next competition would have: where entry 5 now is;
-     * entry 5 (and what follows it) moves one row down */
-    _menuEntries[h].y=_menuEntries[5].y;
-    _menuEntries[5].y=(uint16_t)(_menuEntries[5].y+25u);
-    _menuEntries[h].isInvisible=0;
-    _menuEntries[h].isDisabled=0;
-    _menuEntries[h].fg=(uintptr_t)s_ceBtnName[0];
-    s_ceBtnRestore[h]=_menuEntries[h].onSelect;
-    _menuEntries[h].onSelect=Expanded_ViewCeButton;
+    if(!added)return;
     /* up/down links follow the visual order */
     for(k=1u;k<=4u;++k)if(!_menuEntries[k].isInvisible)order[n++]=k;
     for(k=0u;k+1u<n;++k)
@@ -6021,8 +6036,6 @@ static void Expanded_AddCeCompetitionButton(void)
         if(k+1u<n)e->downEntry=(int8_t)order[k+1u];
         e->skipUpEntry=0;e->skipDownEntry=0;
     }
-    fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS button def=%u slot=%u source=CE\n",
-            (unsigned)id,h);
 }
 #endif
 

@@ -23,6 +23,8 @@
 #include "world.h"
 #include "world_cups.h"
 #include "expanded_debug.h"
+#include "expanded_ce_engine.h"
+#include "expanded_universal_car.h"
 #include "save_format_json.h" /* F12 disk preflight and last real SAVE/LOAD */
 #include "expanded_world_live.h"
 #include "expanded_midseason_join.h"
@@ -3028,6 +3030,64 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"MONDO %s  BUILD %s",World_Tag(),
              SWOS_EXPANDED_VERSION);
     diag_f12_line(26,44,line,226,236,245);
+    /* v342 (user 27/11/2026): in the CE world the OG world is never resident, so the OG
+     * dashboard below has nothing to show. Read-only CE health page instead: CE civil
+     * date, manager's next fixture, editions by state, blocked editions with their
+     * reason, registry events (pending / held / played). No write, no clock move. */
+    {
+        extern int ExpandedUniversalLive_Active(void);
+        extern int ExpandedUniversalLive_Today(ExpandedWorldDate *out);
+        extern int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due);
+        if(ExpandedUniversalLive_Active()) {
+            ExpandedUniversalRegistry *cr=ExpandedUniversal_CarRegistry();
+            ExpandedWorldDate today={0},due={0};
+            unsigned st[8]={0},blocked=0,i,shown=0,pend=0,held=0,done=0;
+            int y=109;
+            const int ms=ExpandedUniversalLive_ManagerNext(&due);
+            (void)ExpandedUniversalLive_Today(&today);
+            snprintf(line,sizeof line,"MONDO %s  BUILD %s  MOTORE CE",World_Tag(),SWOS_EXPANDED_VERSION);
+            diag_f12_line(26,44,line,226,236,245);
+            snprintf(line,sizeof line,"DATA CE %04u/%02u/%02u",(unsigned)today.year,
+                     (unsigned)today.month,(unsigned)today.day);
+            diag_f12_line(26,63,line,100,232,145);
+            if(ms==2)snprintf(line,sizeof line,"MANAGER: PARTITA OGGI");
+            else if(ms==1)snprintf(line,sizeof line,"MANAGER: PROSSIMA %02u/%02u/%04u",
+                                   (unsigned)due.day,(unsigned)due.month,(unsigned)due.year);
+            else if(ms==0)snprintf(line,sizeof line,"MANAGER: NESSUNA PARTITA IN PROGRAMMA");
+            else snprintf(line,sizeof line,"MANAGER: CALENDARIO NON LEGGIBILE (%d)",ms);
+            diag_f12_line(26,82,line,ms>0?100:255,ms>0?232:194,ms>0?145:97);
+            for(i=0;i<ExpCe_EditionCount();++i){const ExpCeEdition *e=ExpCe_EditionAt(i);
+                if(!e)continue;
+                if(e->state<8u)++st[e->state];
+                if(e->block)++blocked;}
+            snprintf(line,sizeof line,"EDIZIONI CREATE %u  ISCRITTI %u  PROGR. %u",st[EXP_CE_ED_CREATED],
+                     st[EXP_CE_ED_PARTICIPANTS],st[EXP_CE_ED_SCHEDULED]);
+            diag_f12_line(26,y,line,226,236,245);y+=18;
+            snprintf(line,sizeof line,"IN CORSO %u  FINITE %u  ARCHIVIATE %u",st[EXP_CE_ED_ACTIVE],
+                     st[EXP_CE_ED_COMPLETED],st[EXP_CE_ED_ARCHIVED]);
+            diag_f12_line(26,y,line,226,236,245);y+=18;
+            if(cr) {
+                for(i=0;i<cr->scheduler.count;++i){const int s2=cr->scheduler.events[i].state;
+                    if(s2==EXP_EVENT_PENDING)++pend;else if(s2==EXP_EVENT_HELD)++held;else ++done;}
+                snprintf(line,sizeof line,"PARTITE IN PROGRAMMA %u  IN ATTESA %u  GIOCATE %u",pend,held,done);
+                diag_f12_line(26,y,line,held?255:226,held?194:236,held?97:245);y+=18;
+            }
+            snprintf(line,sizeof line,"EDIZIONI BLOCCATE %u",blocked);
+            diag_f12_line(26,y,line,blocked?255:100,blocked?118:232,blocked?118:145);y+=20;
+            for(i=0;i<ExpCe_EditionCount() && shown<22u;++i){
+                const ExpCeEdition *e=ExpCe_EditionAt(i);
+                const ExpCeDef *dd=e?ExpCe_Definition(e->def_id):NULL;
+                if(!e || !e->block || e->block==EXP_CE_BLOCK_DATA_MISSING)continue;
+                snprintf(line,sizeof line,"%.22s %u %s: %.40s",dd?dd->name:"?",(unsigned)e->year,
+                         ExpCe_BlockName(e->block),e->why);
+                diag_f12_line(26,y,line,255,194,97);y+=16;++shown;
+            }
+            if(!shown)diag_f12_line(26,y,"NESSUN BLOCCO (ESCLUSI DATI MANCANTI)",162,180,193);
+            diag_f12_line(26,509,"F12+1/2 RISULTATO MANAGER  F12+3 ESONERO  F12+O OFFERTA",162,180,193);
+            diag_f12_end("F12_CE_HEALTH");
+            goto finish;
+        }
+    }
     ExpandedOGDashboard d;
     Expanded_OGWorld_Dashboard(&d);
     ExpandedOGHireAudit hire;

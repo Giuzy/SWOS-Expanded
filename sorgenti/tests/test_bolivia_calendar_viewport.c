@@ -19,18 +19,18 @@ int main(void)
     assert(v.page==10);
     /* New actionable fixture recentres even when already in first14. */
     ExpandedBoliviaCalendar_Update(&v,38u,3,0x9876u);
-    assert(v.page==0 && v.focusRow==3); /* never blank above first */
-    assert(v.offset==4); /* clamped to real first row; anchor=-4 */
+    assert(v.page==-4 && v.focusRow==3); /* v342: always centred, blank rows above */
+    assert(v.offset==0);
     ExpandedBoliviaCalendar_Update(&v,38u,0,0xabceu);
-    assert(v.page==0 && v.focusRow==0); /* first fixture at top */
+    assert(v.page==-7 && v.focusRow==0); /* first line in the middle row */
     assert(!ExpandedBoliviaCalendar_Scroll(&v,-1)); /* first bound */
     assert(ExpandedBoliviaCalendar_Scroll(&v,1));
-    assert(v.page==1);
+    assert(v.page==-6);
     ExpandedBoliviaCalendar_Update(&v,38u,37,0xabcdu);
-    assert(v.page==24 && 37-v.page==13); /* last fixture at bottom */
+    assert(v.page==30 && 37-v.page==7); /* last line in the middle row */
     assert(!ExpandedBoliviaCalendar_Scroll(&v,1)); /* last bound */
     assert(ExpandedBoliviaCalendar_Scroll(&v,-1));
-    assert(v.page==23);
+    assert(v.page==29);
     /* No selectable OG fixture: browsing may reveal the entire page,
      * but must never manufacture a blue match highlight. */
     ExpandedBoliviaCalendar_Update(&v,38u,-1,0);
@@ -55,12 +55,12 @@ int main(void)
     assert(!ExpandedBoliviaCalendar_Scroll(&v,1));
     assert(!ExpandedBoliviaCalendar_Scroll(&v,-1));
     ExpandedBoliviaCalendar_Update(&v,15u,14,127);
-    assert(v.page==1);
+    assert(v.page==7);
     assert(!ExpandedBoliviaCalendar_Scroll(&v,1));
     assert(ExpandedBoliviaCalendar_Scroll(&v,-1));
-    assert(v.page==0);
+    assert(v.page==6);
     assert(!ExpandedBoliviaCalendar_Scroll(&v,0));
-    puts("RG-014 CALENDAR_VIEWPORT_ISO PASS: centre-when-possible, no-padding bounds, arrows");
+    puts("RG-014 CALENDAR_VIEWPORT_ISO PASS: focused line always centred (v342), arrows");
     puts("WINDOWS_MOUSE_FOCUS_OG_CAR: NOT_TESTED");
     return 0;
 }

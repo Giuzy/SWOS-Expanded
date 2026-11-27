@@ -2945,13 +2945,8 @@
   },
   "strictAcquisitionSummary": {
     "routes": 9,
-    "newObservations": 7,
-    "errors": [
-      [
-        217,
-        "'list' object has no attribute 'get'"
-      ]
-    ],
+    "newObservations": 1,
+    "errors": [],
     "scope": "Only nine exact routes; remaining rows not searched. NO DATA is not NA or proof of absence. Existing V/P/I/? unchanged; partial evidence does not close a field."
   }
 }

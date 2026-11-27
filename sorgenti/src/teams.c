@@ -3275,6 +3275,9 @@ void SelectTeamsFinalMenu(uint16_t mode)
     uint8_t cByte;
     uint16_t cidx;
     uint16_t countryByte;
+#ifdef SWOS_SDL_BUILD
+    union { void *alignment; uint8_t ids[65]; } worldClubCountries;
+#endif
 
     _leagueNumber = 0;
     s_groupLevel = -1;
@@ -3640,6 +3643,23 @@ loc_E2D0:
         a5 = (void **)((QualifyingGroup *)compListAddr)->countries;
         if (d7 != 254 && World_ContinentCountries((uint8_t)d7))    /* (a world's, its new countries in) */
             a5 = (void **)World_ContinentCountries((uint8_t)d7);
+#ifdef SWOS_SDL_BUILD
+        /* Only the requested modern WORLD club viewer is regrouped.
+         * The same IDs are used for displaying AND selecting rows. */
+        if(ExpandedNational_Active() && _gameType==GAME_TYPE_CAREER &&
+           _chooseCompetitionOnly && !_isNationalSelector &&
+           !Expanded_OfferPickerActive() &&
+           (d7>=CN_AFRICA && d7<=CN_OCEANIA)){
+            const uint8_t *sources[6];
+            for(unsigned i=0;i<6u;i++)sources[i]=World_ContinentCountries((uint8_t)(80u+i));
+            if(ExpandedNational_WorldClubCountries((uint8_t)d7,sources,
+                   worldClubCountries.ids,sizeof worldClubCountries.ids)<0){
+                fprintf(stderr,"[national-2627] WORLD_CLUB_REGION_INVALID region=%u\n",(unsigned)d7);
+                worldClubCountries.ids[0]=255u;
+            }
+            a5=(void **)worldClubCountries.ids;
+        }
+#endif
         cPtr = (uint8_t *)a5;
         for (;;) {
             cByte = *cPtr++;
@@ -3657,14 +3677,14 @@ loc_E2D0:
     if(ExpandedNational_Active() && _gameType==GAME_TYPE_CAREER &&
        _chooseCompetitionOnly && !Expanded_OfferPickerActive() && d7>=80u && d7<=85u) {
         /* National careers see the regional national squads. Club careers
-         * retain every existing country row plus the 63 inactive new ones. */
+         * retain native country rows plus inactive national-only rows. */
         s_expNationalPickerMode=_isNationalSelector?2u:1u;
         if(s_expNationalPickerMode==2u){countryNamesPtr=_countryNames;cnCount=0;}
         s_expNationalPickerBase=cnCount;
         for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){
             const ExpandedNationalRow *r=&kExpandedNational2627[i];
             if(r->confederationRegion!=d7)continue;
-            if(s_expNationalPickerMode==1u && (r->added_global==65535u || r->og.teamFileId!=255u))continue;
+            if(s_expNationalPickerMode==1u && !ExpandedNational_WorldInactiveClubRow(r,1))continue;
             if(cnCount>=64u){fprintf(stderr,"[national-2627] WORLD_MENU_CAPACITY file=%u\n",(unsigned)d7);break;}
             s_expNationalPickerRows[cnCount]=r;
             *countryNamesPtr++=(void *)r->name;

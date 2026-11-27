@@ -272,7 +272,8 @@
  * Source/isolated gate prepared; Windows gameplay/CONTINUE NOT PROVEN. */
 /* v00.13.347 candidate: off-file EXTRA overlays and stable source-key cache.
  * Windows/CAR NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.347"
+/* v00.13.348 candidate: correct modern national WORLD AFC/OFC grouping; raw IDs unchanged. */
+#define SWOS_EXPANDED_VERSION "00.13.348"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

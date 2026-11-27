@@ -1,3 +1,27 @@
+## 27/11/2026 — v00.13.348: WORLD 211 / inactive tint + ranking research consolidation (source only)
+Both 2627 WORLD lists cover all 211 national identities, 91 active domestic and 120 inactive; approved dark palette on inactive club-country buttons. Preserve OG controls, 9697 and CAR. Ranking candidate map 387/415, 23 active unmatched and 5 historical, no activation. Existing EXTRA/pool and three new clubs preserved, not a new import. Source/tests and limits in RG. Windows/GP/CAR NP; local acquisition still running and separate.
+
+## 27/11/2026 — WORLD inactive buttons v348 prepared
+120 national-only club-country buttons use dark native palette; 91 native and all 211 national buttons retain original style. ST SI; C/visual/Windows NP. See RG.
+
+## 27/11/2026 — Full WORLD catalogue v348 prepared
+211/211 in both national and club WORLD projections, 91 native +120 inactive, 3376 national roster slots verified. CAF/AFC 48 missing rows restored. ST SI; C/Windows/GP/CAR NP. See RG.
+
+## 27/11/2026 — CONMEBOL v348 prepared
+10/10 national relations, ten native WORLD club rows, no inactive countries. SUR/GUY remain CONCACAF. ST SI, C/Windows/GP/CAR NP. See RG.
+
+## 27/11/2026 — OFC v348 prepared
+11/11 national relations, 11 WORLD club country rows (1 native, 10 inactive); FIJ/SOL visible, NZL native, PNG OFC, AUS AFC. ST SI; C/Windows/GP/CAR NP. See RG.
+
+## 27/11/2026 — WORLD CONCACAF v348 prepared
+35/35 national relations, 35 club country rows (9 native, 26 inactive), Suriname moved from SOUTH AMERICA to NORTH AMERICA, Guyana visible inactive. Other prepared regional fixes preserved. ST SI, C/Windows/GP/CAR NP; see RG.
+
+## 27/11/2026 — WORLD regional correction v348 (prepared)
+Australia AFC, PNG OFC, Mauritius CAF in both modern WORLD paths; Australia competitions preserved, PNG/MRI inactive club rows because home255. No new league or roster, unchanged 9697/CAR. ST yes, actual build/gameplay NP. See RG.
+
+## 27/11/2026 — National confederations (v348 PREPARED, not build)
+AFC Australia and OFC Papua New Guinea region correction, Mauritius CAF retained. 211 identities and all storage/rosters unchanged. ST exact AFC46/OFC11; C/Windows/gameplay/CAR NP. See RG-CT-NATIONAL-ROSTERS-2627; existing club region lists separate pending audit.
+
 ## 27/11/2026 — v00.13.346: rose nazionali 2627 (source/data, non build)
 
 211/211 nazionali e 3376 giocatori dal pacchetto OpenSWOS moderno; zero TEST nei sei nuovi JSON, 36 identità upstream rimappate, 9697 e club immutati, CAF Mauritius. Sorgente comune OG/TeamDb, niente fallback storico; guida [RG-CT-NATIONAL-ROSTERS-2627](REGRESSION_HISTORY_AND_DEPENDENCIES.md), mappa [NATIONAL_ROSTER_SOURCE_MAP_2627.json](NATIONAL_ROSTER_SOURCE_MAP_2627.json). CT mantiene convocazioni OG, non modificare salvataggi validi. ST SI; build Windows/gameplay/CONTINUE NON PROVATI. Ranking resta un preparato indipendente.

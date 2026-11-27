@@ -186,7 +186,7 @@ static const ExpandedNationalRow kExpandedNational2627[EXP_NATIONAL_COUNT]={
     {{84,16,135,255,2048},65535,"PRK","NORTH KOREA","",84},
     {{84,17,136,255,1536},65535,"OMA","OMAN","",84},
     {{84,18,137,255,1536},65535,"PAK","PAKISTAN","",84},
-    {{84,19,143,255,256},65535,"PNG","PAPUA NEW GUINEA","",84},
+    {{84,19,143,255,256},65535,"PNG","PAPUA NEW GUINEA","",85},
     {{84,20,138,255,768},65535,"PHI","PHILIPPINES","",84},
     {{84,21,146,96,2304},65535,"QAT","QATAR","",84},
     {{84,22,131,89,3840},65535,"KSA","SAUDI ARABIA","",84},
@@ -214,7 +214,7 @@ static const ExpandedNationalRow kExpandedNational2627[EXP_NATIONAL_COUNT]={
     {{84,44,214,255,0},2619,"TKM","TURKMENISTAN","TURKMENISTAN",84},
     {{84,45,207,255,0},2620,"TLS","TIMOR-LESTE","TIMOR-LESTE",84},
     {{84,46,145,255,0},2621,"UZB","UZBEKISTAN","UZBEKISTAN",84},
-    {{85,0,148,44,4864},65535,"AUS","AUSTRALIA","",85},
+    {{85,0,148,44,4864},65535,"AUS","AUSTRALIA","",84},
     {{85,1,150,255,256},65535,"FIJ","FIJI","",85},
     {{85,2,149,62,3584},65535,"NZL","NEW ZEALAND","",85},
     {{85,3,151,255,256},65535,"SOL","SOLOMON ISLANDS","",85},
@@ -258,6 +258,41 @@ static inline const ExpandedNationalRow *ExpandedNational_ByHome(uint16_t home)
     for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++)
         if(kExpandedNational2627[i].og.teamFileId==home)return &kExpandedNational2627[i];
     return NULL;
+}
+/* WORLD club navigation only. Use the same modern confederation as
+ * national WORLD, without changing native home IDs or the source lists.
+ * Source lists are the existing sentinel-terminated world_data.c arrays. */
+static inline int ExpandedNational_WorldClubCountries(
+    uint8_t region,const uint8_t *const sources[6],uint8_t *out,unsigned cap)
+{
+    if(!ExpandedNational_Active() || region<80u || region>85u || !sources || !out || !cap)return -1;
+    unsigned count=0;
+    uint8_t seen[256]={0};
+    /* Transferred countries first; preserve order of all retained rows. */
+    for(unsigned pass=0;pass<2u;pass++){
+        for(unsigned i=0;i<6u;i++){
+            if((i==region-80u)!=(pass==1u))continue;
+            const uint8_t *src=sources[i];
+            if(!src)return -1;
+            for(;*src!=255u;src++){
+                uint8_t home=*src;
+                if(seen[home]++)return -1;
+                const ExpandedNationalRow *r=ExpandedNational_ByHome(home);
+                if((r?r->confederationRegion:i+80u)!=region)continue;
+                if(count+1u>=cap)return -1;
+                out[count++]=home;
+            }
+        }
+    }
+    out[count]=255u;
+    return (int)count;
+}
+/* Historical off-region national-only rows use the existing inactive
+ * WORLD club button path, just like the newly catalogued countries. */
+static inline int ExpandedNational_WorldInactiveClubRow(const ExpandedNationalRow *r,int includeExisting)
+{
+    return r && r->og.teamFileId==255u &&
+        (includeExisting || r->added_global!=65535u || r->confederationRegion!=r->og.countryNumber);
 }
 /* One validation gate for the modern JSON source; never synthesize a roster.
  * File/ordinal and nationality are Expanded identities, not upstream ordering.

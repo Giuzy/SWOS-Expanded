@@ -550,7 +550,38 @@
       "totalClubMilli": 62875,
       "associationFloorMilli": 13585,
       "seedingMilli": 62875,
-      "precisionNote": "2025/26 exact annual table 14.375"
+      "precisionNote": "2025/26 exact annual table 14.375",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2025,
+            "pointsMilli": 14375,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          13000,
+          19000,
+          4000,
+          12500,
+          14375
+        ],
+        "candidateTotalClubMilli": 62875,
+        "candidateSeedingMilli": 62875,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/az-alkmaar/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            14375
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 36,
@@ -731,7 +762,38 @@
       "totalClubMilli": 54375,
       "associationFloorMilli": 8421,
       "seedingMilli": 54375,
-      "precisionNote": "2024/25 residual 7.375 inferred from total"
+      "precisionNote": "2024/25 residual 7.375 inferred from total",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 7375,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          13000,
+          7000,
+          15000,
+          7375,
+          12000
+        ],
+        "candidateTotalClubMilli": 54375,
+        "candidateSeedingMilli": 54375,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/fc-kobenhavn/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            7375
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 48,
@@ -1272,7 +1334,38 @@
       "totalClubMilli": 24125,
       "associationFloorMilli": 7138,
       "seedingMilli": 24125,
-      "precisionNote": "2024/25 residual 11.125 inferred from total"
+      "precisionNote": "2024/25 residual 11.125 inferred from total",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 11125,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          null,
+          null,
+          null,
+          11125,
+          13000
+        ],
+        "candidateTotalClubMilli": 24125,
+        "candidateSeedingMilli": 24125,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/pafos-fc/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            11125
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 84,
@@ -1318,7 +1411,38 @@
       "totalClubMilli": 21875,
       "associationFloorMilli": 23903,
       "seedingMilli": 23903,
-      "precisionNote": "2025/26 exact annual table 21.875 (ranking table rounds to 21.880)"
+      "precisionNote": "2025/26 exact annual table 21.875 (ranking table rounds to 21.880)",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2025,
+            "pointsMilli": 21875,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          null,
+          null,
+          null,
+          null,
+          21875
+        ],
+        "candidateTotalClubMilli": 21875,
+        "candidateSeedingMilli": 23903,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/crystal-palace/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            21875
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 87,
@@ -1484,7 +1608,44 @@
       "totalClubMilli": 21250,
       "associationFloorMilli": 7138,
       "seedingMilli": 21250,
-      "precisionNote": "2025/26 exact annual 6.875; 2024/25 residual 5.375 inferred from total"
+      "precisionNote": "2025/26 exact annual 6.875; 2024/25 residual 5.375 inferred from total",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 5375,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          },
+          {
+            "season": 2025,
+            "pointsMilli": 6875,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          4000,
+          3000,
+          2000,
+          5375,
+          6875
+        ],
+        "candidateTotalClubMilli": 21250,
+        "candidateSeedingMilli": 21250,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/omonia-nicosia/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            5375,
+            6875
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 98,
@@ -1636,7 +1797,38 @@
       "associationFloorMilli": 3468,
       "seedingMilli": 19375,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 19380, published total 19375.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 9875,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          2500,
+          2500,
+          1500,
+          9875,
+          3000
+        ],
+        "candidateTotalClubMilli": 19375,
+        "candidateSeedingMilli": 19375,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/shamrock-rovers/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            9875
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 108,
@@ -1668,7 +1860,38 @@
       "associationFloorMilli": 5631,
       "seedingMilli": 18625,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 18620, published total 18625.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2025,
+            "pointsMilli": 9625,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          2500,
+          1500,
+          2500,
+          2500,
+          9625
+        ],
+        "candidateTotalClubMilli": 18625,
+        "candidateSeedingMilli": 18625,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/nk-rijeka/?lang=en",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            9625
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 110,
@@ -1700,7 +1923,39 @@
       "associationFloorMilli": 18580,
       "seedingMilli": 18580,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 8120, published total 8120.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 8125,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          null,
+          null,
+          null,
+          8125,
+          null
+        ],
+        "candidateTotalClubMilli": 8125,
+        "candidateSeedingMilli": 18580,
+        "publishedTotalMismatch": true,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/1fc-heidenheim/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            8125
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY",
+        "totalResolution": "CORROBORATED_DETAILED_ANNUAL_TOTAL_PREFERRED_RAW_RETAINED"
+      }
     },
     {
       "sourceRow": 112,
@@ -1762,7 +2017,38 @@
       "associationFloorMilli": 4893,
       "seedingMilli": 18375,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 18380, published total 18375.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 8375,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          2000,
+          1500,
+          4000,
+          8375,
+          2500
+        ],
+        "candidateTotalClubMilli": 18375,
+        "candidateSeedingMilli": 18375,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/olimpija-ljubljana/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            8375
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 116,
@@ -2034,7 +2320,38 @@
       "associationFloorMilli": 2797,
       "seedingMilli": 13625,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 13620, published total 13625.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2025,
+            "pointsMilli": 6625,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          1500,
+          1500,
+          1500,
+          2500,
+          6625
+        ],
+        "candidateTotalClubMilli": 13625,
+        "candidateSeedingMilli": 13625,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/fc-drita/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            6625
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 134,
@@ -2141,7 +2458,38 @@
       "associationFloorMilli": 2743,
       "seedingMilli": 13125,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 13120, published total 13125.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 8125,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          1500,
+          1000,
+          1500,
+          8125,
+          1000
+        ],
+        "candidateTotalClubMilli": 13125,
+        "candidateSeedingMilli": 13125,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/borac-banja-luka/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            8125
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 141,
@@ -2383,7 +2731,38 @@
       "associationFloorMilli": 10375,
       "seedingMilli": 11125,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 11120, published total 11125.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2025,
+            "pointsMilli": 11125,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          null,
+          null,
+          null,
+          null,
+          11125
+        ],
+        "candidateTotalClubMilli": 11125,
+        "candidateSeedingMilli": 11125,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/samsunspor/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            11125
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 157,
@@ -2445,7 +2824,38 @@
       "associationFloorMilli": 1551,
       "seedingMilli": 10875,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 10880, published total 10875.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2025,
+            "pointsMilli": 5375,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          1500,
+          2000,
+          1000,
+          1000,
+          5375
+        ],
+        "candidateTotalClubMilli": 10875,
+        "candidateSeedingMilli": 10875,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/shkendija-tetovo/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            5375
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 161,
@@ -2687,7 +3097,39 @@
       "associationFloorMilli": 9705,
       "seedingMilli": 9705,
       "precisionNote": "Published two-decimal annual values preserved; exact season thousandths require crosscheck. Displayed annual sum 6620, published total 6620.",
-      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED"
+      "seasonPrecision": "DISPLAY_ROUNDED_UNVERIFIED",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2025,
+            "pointsMilli": 6625,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          null,
+          null,
+          null,
+          null,
+          6625
+        ],
+        "candidateTotalClubMilli": 6625,
+        "candidateSeedingMilli": 9705,
+        "publishedTotalMismatch": true,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/sigma-olomouc/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            6625
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY",
+        "totalResolution": "CORROBORATED_DETAILED_ANNUAL_TOTAL_PREFERRED_RAW_RETAINED"
+      }
     },
     {
       "sourceRow": 177,
@@ -3138,7 +3580,38 @@
       "totalClubMilli": 8125,
       "associationFloorMilli": 5150,
       "seedingMilli": 8125,
-      "precisionNote": "Published rounded seasonal display; difference 5 milli vs source total, no imputation."
+      "precisionNote": "Published rounded seasonal display; difference 5 milli vs source total, no imputation.",
+      "seasonAudit": {
+        "checked": "2026-11-27",
+        "scope": "Only named annual components checked in detailed season table of same publisher; not independent UEFA confirmation. Existing source values and total remain unchanged.",
+        "annualEvidence": [
+          {
+            "season": 2024,
+            "pointsMilli": 5125,
+            "source": "https://mail.kassiesa.net/uefa/data/method5/tcoef2025.html"
+          }
+        ],
+        "candidateSeasonPointsMilli": [
+          null,
+          null,
+          3000,
+          5125,
+          null
+        ],
+        "candidateTotalClubMilli": 8125,
+        "candidateSeedingMilli": 8125,
+        "publishedTotalMismatch": false,
+        "secondaryCorroboration": {
+          "source": "https://coeff.app/clubs/tsc-backa-topola/",
+          "checked": "2026-11-27",
+          "seasonComponentsMilli": [
+            5125
+          ],
+          "status": "MATCHED_SECONDARY_PUBLISHER_NOT_OFFICIAL_UEFA",
+          "limit": "Underlying provenance independence not established."
+        },
+        "resolution": "CORROBORATED_ANNUAL_VALUES_RESEARCH_ONLY"
+      }
     },
     {
       "sourceRow": 207,
@@ -6275,5 +6748,48 @@
       "associationFloorMilli": 566,
       "seedingMilli": 1000
     }
-  ]
+  ],
+  "numericAudit": {
+    "date": "2026-11-27",
+    "originalSourceBlob": "3d934505597b119a215e9fc28b64825450fcfb20",
+    "sourceRows": 415,
+    "rawSumMismatches": 8,
+    "precisionRowsChecked": 15,
+    "seasonComponentsChecked": 16,
+    "seasonComponentsDifferentFromStored": 10,
+    "annualSourceDerivedTotalDisputes": [
+      {
+        "sourceRow": 111,
+        "name": "1.FC Heidenheim",
+        "published": 8120,
+        "annualDerived": 8125
+      },
+      {
+        "sourceRow": 176,
+        "name": "Sigma Olomouc",
+        "published": 6620,
+        "annualDerived": 6625
+      }
+    ],
+    "arithmeticCandidateRowsConsistent": 415,
+    "officialOverview": {
+      "source": "https://www.uefa.com/nationalassociations/uefarankings/?year=2026",
+      "scope": "Historical 2025/26 completed sporting window; overview only, not full numeric table.",
+      "clubsTotalsAndFloorsMatched": 5,
+      "associationTotalsMatched": 5
+    },
+    "independentFullTable": "NOT_VERIFIED; BetTactica, Coeff and Football Ranked full tables inaccessible; Transfermarkt bot gate; no inferred certification",
+    "policy": "Source totals and rounded original components retained. Use annual candidates for audit only; no activation or silent replacement. Two disputed published totals do not change seeding floor.",
+    "secondaryPrecisionAudit": {
+      "date": "2026-11-27",
+      "rows": 15,
+      "components": 16,
+      "matched": 16,
+      "rawTotalDisputesResolved": [
+        111,
+        176
+      ],
+      "scope": "Two publishers agree on the corrected annual values; raw fields retained, candidate audit values preferred for later import. Full table comparison and official certification still pending."
+    }
+  }
 }

@@ -1,3 +1,24 @@
+## 27/11/2026 — WORLD inactive country button tint (prepared)
+SetCountryNames uses same SelectTeamsFlatIndex and Expanded_NationalWorldButtonInactive predicate as SELECT; native blue-to-black palette8, restores template4 when reused. No new focus/selection semantics. See RG; visual/C/Windows NP.
+
+## 27/11/2026 — Full 211 WORLD identities (prepared)
+Same national identity registry drives both modern career WORLD views. All 120 home255 entries visible inactive; 91 native domestic home IDs preserved. Full static verification and source tests in RG-CT-NATIONAL-ROSTERS-2627. No gameplay/build claim.
+
+## 27/11/2026 — CONMEBOL WORLD audit (prepared)
+All ten national identities and 160 roster slots verified; prepared WORLD projection has exactly ten original domestic home IDs, no SUR/GUY. Full ten-row routing assertions added, no new runtime change. See RG; C/gameplay NP.
+
+## 27/11/2026 — OFC WORLD completeness (prepared)
+11/11 national identities and 176 slots verified against real modern JSON and source map; NZL only native domestic home62, FIJ/SOL previously omitted because historical home255, added via existing inactive WORLD policy. PNG OFC and AUS AFC preserved. See RG; runtime NP.
+
+## 27/11/2026 — CONCACAF WORLD relation (prepared)
+35/35 FIFA national identities verified against current map and 560 roster slots. Suriname native home66 historically in region82; WORLD club projection now covers both American branches, preserves home/raw/global and selects SUR under 83. All 26 no-home CONCACAF countries visible inactive, incl five historical rows. See RG-CT-NATIONAL-ROSTERS-2627; no domestic or competition data changed, C/gameplay NP.
+
+## 27/11/2026 — WORLD confederation navigation (source prepared)
+Modern national picker and WORLD club viewer both consume confederationRegion; latter projects native country IDs without editing OG region arrays or season order. Australia home44 moves to AFC; historical national-only PNG/MRI use existing inactive country rows under OFC/CAF. See RG-CT-NATIONAL-ROSTERS-2627 for source/QA; C and runtime NP.
+
+## 27/11/2026 — National WORLD AFC/OFC identity
+V SelectTeamsFinalMenu (teams.c) filters modern national mode 2 by confederationRegion, selects via s_expNationalPickerRows; storage/raw identity remains separate. AUS/PNG incorrect historical grouping identified; correction prepared in shared header, full evidence/tests in RG-CT-NATIONAL-ROSTERS-2627. Club mode existing rows use World_ContinentCountries, not fixed by this change. No new writer or fixture; C/Windows/gameplay NP.
+
 ## 27/11/2026 — v00.13.346: national roster data path (WORLD_2627 only)
 
 Canonical evidence and QA: [RG-CT-NATIONAL-ROSTERS-2627](REGRESSION_HISTORY_AND_DEPENDENCIES.md). The common country JSON reader serves the six complete modern national files to both OG and TeamDb; ExpandedNational_Validate replaces the previous TEST append. Raw/global identity and 9697 sources remain unchanged; TeamDb checks canonical IDs and skill checksum. Missing modern national source fails closed, never reads historic squads. Source map records 36 remapped identities, 211 real source squads and 3376 player slots. OG CT call-up reset and club raw/slot writer are unchanged; no speculative club-player binding, no save migration. ST data SI; C/Windows/GP/CAR NP.

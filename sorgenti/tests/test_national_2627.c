@@ -12,7 +12,7 @@ int main(void)
     unsigned new_count=0, inactive=0;
     uint16_t slot;
     const unsigned expected[6]={55,53,10,35,47,11}; /* storage */
-    const unsigned expected_regions[6]={55,54,10,35,46,11}; /* interim grouping */
+    const unsigned expected_regions[6]={55,54,10,35,46,11}; /* FIFA confederations, independent of storage */
     unsigned regions[6]={0};
     assert(sizeof(TeamFileEx)==684u);
     for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){
@@ -23,6 +23,14 @@ int main(void)
             assert(r->og.countryNumber==84u && r->og.teamOrdinal==14u);
             assert(r->og.nationalityCode==141u && r->added_global==65535u);
             assert(r->confederationRegion==81u && ExpandedNational_Raw(r)==0x540eu);
+        }else if(!strcmp(r->fifa,"AUS")){
+            assert(r->og.countryNumber==85u && r->og.teamOrdinal==0u);
+            assert(r->og.nationalityCode==148u && r->og.teamFileId==44u && r->added_global==65535u);
+            assert(r->confederationRegion==84u && ExpandedNational_Raw(r)==0x5500u);
+        }else if(!strcmp(r->fifa,"PNG")){
+            assert(r->og.countryNumber==84u && r->og.teamOrdinal==19u);
+            assert(r->og.nationalityCode==143u && r->og.teamFileId==255u && r->added_global==65535u);
+            assert(r->confederationRegion==85u && ExpandedNational_Raw(r)==0x5413u);
         }else assert(r->confederationRegion==r->og.countryNumber);
         assert(ExpandedNational_ByRaw(ExpandedNational_Raw(r))==r);
         assert(ExpandedNational_ByNationality(r->og.nationalityCode)==r);
@@ -39,12 +47,120 @@ int main(void)
         if(r->og.teamFileId!=255u)assert(ExpandedNational_ByHome(r->og.teamFileId)==r);
     }
     for(unsigned i=0;i<6u;i++)assert(regions[i]==expected_regions[i]);
+    /* Exact WORLD coverage: 91 native country IDs, 120 inactive rows. */
+    {
+        const uint8_t r0[]={0,47,52,1,53,76,2,54,3,4,5,6,7,8,10,11,12,13,61,14,63,15,25,16,17,19,20,86,88,21,90,22,23,24,92,94,93,26,27,28,29,18,30,31,32,33,41,78,34,35,36,37,38,39,40,255};
+        const uint8_t r1[]={42,59,79,91,69,97,255};
+        const uint8_t r2[]={43,45,46,48,49,50,64,65,66,71,77,255};
+        const uint8_t r3[]={56,58,51,68,70,60,95,73,255};
+        const uint8_t r4[]={57,75,74,55,96,89,87,67,98,255};
+        const uint8_t r5[]={44,62,255};
+        const uint8_t *sources[]={r0,r1,r2,r3,r4,r5};
+        const unsigned nativeExpected[]={55,6,10,9,10,1};
+        const unsigned inactiveExpected[]={0,48,0,26,36,10};
+        unsigned all=0;
+        uint8_t seen[EXP_NATIONAL_COUNT]={0};
+        for(unsigned region=80;region<=85;region++){
+            uint8_t out[65];
+            int n=ExpandedNational_WorldClubCountries((uint8_t)region,sources,out,sizeof out);
+            assert(n==(int)nativeExpected[region-80u]);
+            for(int j=0;j<n;j++){
+                const ExpandedNationalRow *r=ExpandedNational_ByHome(out[j]);
+                assert(r && r->confederationRegion==region);
+                assert(!seen[r-kExpandedNational2627]++);
+            }
+            unsigned inactive=0;
+            for(unsigned j=0;j<EXP_NATIONAL_COUNT;j++){
+                const ExpandedNationalRow *r=&kExpandedNational2627[j];
+                if(r->confederationRegion!=region || !ExpandedNational_WorldInactiveClubRow(r,1))continue;
+                assert(!seen[j]++);
+                ++inactive;
+            }
+            assert(inactive==inactiveExpected[region-80u]);
+            assert((unsigned)n+inactive==expected_regions[region-80u]);
+            all+=(unsigned)n+inactive;
+        }
+        assert(all==EXP_NATIONAL_COUNT);
+        for(unsigned j=0;j<EXP_NATIONAL_COUNT;j++)assert(seen[j]==1u);
+    }
     assert(!strcmp(ExpandedNational_ByRaw(0x540eu)->fifa,"MRI"));
     assert(ExpandedNational_ByNationality(141u)==ExpandedNational_ByRaw(0x540eu));
+    assert(!strcmp(ExpandedNational_ByRaw(0x5500u)->fifa,"AUS"));
+    assert(!strcmp(ExpandedNational_ByRaw(0x5413u)->fifa,"PNG"));
+    assert(ExpandedNational_ByNationality(148u)==ExpandedNational_ByRaw(0x5500u));
+    assert(ExpandedNational_ByNationality(143u)==ExpandedNational_ByRaw(0x5413u));
     active=WORLD_9697;
     assert(ExpandedNational_ByRaw(0x540eu)==NULL);
+    assert(ExpandedNational_ByRaw(0x5500u)==NULL);
+    assert(ExpandedNational_ByRaw(0x5413u)==NULL);
     active=WORLD_2627;
     assert(new_count==69u && inactive==63u);
+    {
+        const uint8_t eu[]={0,255},af[]={42,59,79,91,69,97,255};
+        const uint8_t sa[]={43,45,46,48,49,50,64,65,66,71,77,255},na[]={56,58,51,68,70,60,95,73,255};
+        const uint8_t as[]={57,75,74,55,96,89,87,67,98,255},oc[]={44,62,255};
+        const uint8_t *sources[]={eu,af,sa,na,as,oc};
+        const uint8_t asiaExpected[]={44,57,75,74,55,96,89,87,67,98,255};
+        uint8_t out[65];
+        assert(ExpandedNational_WorldClubCountries(81u,sources,out,sizeof out)==6);
+        assert(!memcmp(out,af,sizeof af));
+        const uint8_t northExpected[]={66,56,58,51,68,70,60,95,73,255};
+        assert(ExpandedNational_WorldClubCountries(83u,sources,out,sizeof out)==9);
+        assert(!memcmp(out,northExpected,sizeof northExpected));
+        const uint8_t southExpected[]={43,45,46,48,49,50,64,65,71,77,255};
+        const char *const southCodes[]={"ARG","BOL","BRA","CHI","COL","ECU","PAR","PER","URU","VEN"};
+        assert(ExpandedNational_WorldClubCountries(82u,sources,out,sizeof out)==10);
+        assert(!memcmp(out,southExpected,sizeof southExpected));
+        for(unsigned i=0;i<10u;i++){
+            const ExpandedNationalRow *r=ExpandedNational_ByHome(out[i]);
+            assert(r && !strcmp(r->fifa,southCodes[i]) && r->confederationRegion==82u);
+            assert(ExpandedNational_Raw(r)==(uint16_t)(0x5200u+i));
+            assert(!ExpandedNational_WorldInactiveClubRow(r,1));
+        }
+        const ExpandedNationalRow *sur=ExpandedNational_ByHome(66u);
+        assert(sur && !strcmp(sur->fifa,"SUR") && sur->confederationRegion==83u);
+        assert(ExpandedNational_Raw(sur)==0x530cu && sur->og.nationalityCode==75u);
+        unsigned northInactive=0;
+        for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){
+            const ExpandedNationalRow *r=&kExpandedNational2627[i];
+            if(r->confederationRegion==83u && ExpandedNational_WorldInactiveClubRow(r,1))++northInactive;
+        }
+        assert(northInactive==26u);
+        assert(ExpandedNational_WorldInactiveClubRow(ExpandedNational_ByRaw(0x5305u),1));
+        assert(!ExpandedNational_WorldInactiveClubRow(ExpandedNational_ByRaw(0x5305u),0));
+        assert(ExpandedNational_WorldClubCountries(84u,sources,out,sizeof out)==10);
+        assert(!memcmp(out,asiaExpected,sizeof asiaExpected));
+        assert(ExpandedNational_WorldClubCountries(85u,sources,out,sizeof out)==1);
+        assert(out[0]==62u && out[1]==255u);
+        const ExpandedNationalRow *nzl=ExpandedNational_ByHome(62u);
+        assert(nzl && !strcmp(nzl->fifa,"NZL") && nzl->confederationRegion==85u);
+        assert(ExpandedNational_Raw(nzl)==0x5502u && nzl->og.nationalityCode==149u);
+        unsigned ofcInactive=0;
+        for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){
+            const ExpandedNationalRow *r=&kExpandedNational2627[i];
+            if(r->confederationRegion==85u && ExpandedNational_WorldInactiveClubRow(r,1))++ofcInactive;
+        }
+        assert(ofcInactive==10u);
+        const ExpandedNationalRow *fiji=ExpandedNational_ByRaw(0x5501u);
+        const ExpandedNationalRow *sol=ExpandedNational_ByRaw(0x5503u);
+        assert(fiji && !strcmp(fiji->fifa,"FIJ") && fiji->confederationRegion==85u);
+        assert(sol && !strcmp(sol->fifa,"SOL") && sol->confederationRegion==85u);
+        assert(ExpandedNational_WorldInactiveClubRow(fiji,1));
+        assert(ExpandedNational_WorldInactiveClubRow(sol,1));
+        assert(!ExpandedNational_WorldInactiveClubRow(fiji,0));
+        assert(!ExpandedNational_WorldInactiveClubRow(sol,0));
+        assert(!ExpandedNational_WorldInactiveClubRow(nzl,1));
+        assert(ExpandedNational_WorldClubCountries(84u,sources,out,10u)<0);
+        assert(ExpandedNational_WorldInactiveClubRow(ExpandedNational_ByRaw(0x5413u),0));
+        assert(ExpandedNational_WorldInactiveClubRow(ExpandedNational_ByRaw(0x540eu),0));
+        assert(!ExpandedNational_WorldInactiveClubRow(ExpandedNational_ByRaw(0x5500u),0));
+        const uint8_t dup[]={44,62,44,255};sources[5]=dup;
+        assert(ExpandedNational_WorldClubCountries(84u,sources,out,sizeof out)<0);
+        sources[5]=oc;
+        active=WORLD_9697;
+        assert(ExpandedNational_WorldClubCountries(84u,sources,out,sizeof out)<0);
+        active=WORLD_2627;
+    }
     assert(ExpandedNational_ByHome(255u)==NULL);
     assert(ExpCePool_GlobalSlot(2560u,2313u,14u,&slot)&&slot==2546u);
     for(unsigned file=80;file<=85;file++){

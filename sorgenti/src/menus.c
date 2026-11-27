@@ -5737,6 +5737,22 @@ void ExitSelectTeams(void)
 }
 
 
+/* Shared OG ordinal-to-index conversion: rendering and SELECT must
+ * resolve the same country row, including centered columns. */
+static uint16_t SelectTeamsFlatIndex(uint16_t ord)
+{
+    uint16_t idx=ord-21+_startingTeamIndex;
+    if(idx>=22){
+        if(idx>=44){
+            idx-=22;
+            idx+=_numTeamsColumn2;
+        }
+        idx-=22;
+        idx+=_numTeamsColumn1;
+    }
+    return idx;
+}
+
 /* ================================================================
  * SelectTeamsCommon  (SWOS2.s line 62942)
  *
@@ -5754,21 +5770,7 @@ void SelectTeamsCommon(MenuEntry *entry)
 
     {
         uint16_t ord = entry->ordinal;
-        uint16_t idx;
-
-        idx = ord - 21 + _startingTeamIndex;
-
-        /* Convert column ordinal to flat index */
-        if (idx >= 22)
-        {
-            if (idx >= 44)
-            {
-                idx -= 22;
-                idx += _numTeamsColumn2;
-            }
-            idx -= 22;
-            idx += _numTeamsColumn1;
-        }
+        uint16_t idx = SelectTeamsFlatIndex(ord);
 
 #ifdef SWOS_SDL_BUILD
         { extern int Expanded_NationalWorldButtonInactive(unsigned);
@@ -6770,6 +6772,19 @@ void SetCountryNames(void)
                     e->isInvisible = 0;
                     e->fg = (uintptr_t)*names++;
 
+#ifdef SWOS_SDL_BUILD
+                    /* WORLD club rows without domestic data are visible but
+                     * inert. Only tint the row; the existing SELECT guard
+                     * continues to own activation, and OG focus stays intact.
+                     * Clear our tint on reused rows before the OG dot rule. */
+                    {
+                        extern int Expanded_NationalWorldButtonInactive(unsigned);
+                        if((e->bgColor & 0x000Fu)==COLOR_BLUE_TO_BLACK_8)
+                            setBgColorIndex(e,COLOR_ORANGE_TO_BROWN_4);
+                        if(Expanded_NationalWorldButtonInactive(SelectTeamsFlatIndex(e->ordinal)))
+                            setBgColorIndex(e,COLOR_BLUE_TO_BLACK_8);
+                    }
+#endif
                     /* If name starts with '.', set special background color */
                     {
                         const uint8_t *str = (const uint8_t *)e->fg;

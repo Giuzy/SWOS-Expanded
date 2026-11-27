@@ -1,9 +1,9 @@
 {
   "schema": "research-uefa-club-identity-map-v1",
   "world": 2627,
-  "baseCommit": "5943e40f8099ae10826d71c88e36bc49159ae205",
+  "baseCommit": "efc2b151db7a3a6860ae74b9cd72e0bfdde3848e",
   "status": "DB_IDENTITY_CANDIDATE_NOT_RUNTIME",
-  "rankingBlob": "3d934505597b119a215e9fc28b64825450fcfb20",
+  "rankingBlob": "16a5488bdfe30e9f059a8e32a14e9e58bf20e7c1",
   "identityContract": "expanded_competition_identity.h: kind CLUB, stable_club=(country<<16)|(ordinal+1); UUID corroborates; pool registration/country eligibility require runtime audit",
   "roundingPolicy": {
     "approved": "2026-11-26",
@@ -2528,7 +2528,17 @@
       "sourceFile": "data_json/worlds/2627/teams/HOLLAND.json",
       "sourceBlob": "0a7f7191818c616804789d7a5ac519ec64a49f51",
       "matchMethod": "NORMALIZED_EXACT",
-      "status": "IDENTITY_CANDIDATE_DB_VERIFIED_NOT_RUNTIME"
+      "status": "IDENTITY_CANDIDATE_DB_VERIFIED_NOT_RUNTIME",
+      "activityAudit": {
+        "checked": "2026-11-27",
+        "status": "ACTIVE_SENIOR_EVIDENCE",
+        "competition": "Keuken Kampioen Divisie",
+        "preCutoffSource": "https://www.knvb.nl/nieuws/betaald-voetbal/licentiezaken/71858/ruim-voor-seizoen-duidelijkheid-als-intrekken-licentie",
+        "preCutoff": "26 May 2026 KNVB confirms Vitesse can play 2026/27 while licence withdrawal suspended; club included in June provisional schedule.",
+        "postCutoffSource": "https://www.avdr.nl/juriprudentie/hoge-raad-17-juli-11/",
+        "postCutoff": "17 July 2026 cassation rejected; not backdated.",
+        "additionalSource": "https://vitesse.nl/nieuws/2026/voorlopig-competitieschema-seizoen-202627-bekend"
+      }
     },
     {
       "association": "GIB",
@@ -3279,7 +3289,13 @@
       "sourceFile": "data_json/worlds/2627/competitions/bottom_pools.json",
       "sourceBlob": "8321c3ce464c7869c716fdb499f8cf3555bc27ef",
       "matchMethod": "EXPLICIT_MOD42_SHARED_POOL",
-      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING"
+      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING",
+      "activityAudit": {
+        "competition": "I Liga 2026/27",
+        "seasonEvidence": "https://www.lechia.net/rozgrywki/lechia-i/wyniki-i-tabela/teaminfo/222-2026-27-i-liga/1-lechia-gdask",
+        "checked": "2026-11-27",
+        "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+      }
     },
     {
       "association": "NIR",
@@ -3553,7 +3569,13 @@
       "sourceFile": "data_json/worlds/2627/competitions/bottom_pools.json",
       "sourceBlob": "8321c3ce464c7869c716fdb499f8cf3555bc27ef",
       "matchMethod": "EXPLICIT_MOD42_SHARED_POOL",
-      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING"
+      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING",
+      "activityAudit": {
+        "competition": "Prva Liga 2026/27",
+        "seasonEvidence": "https://www.365scores.com/football/team/tsc-backa-topola-56890/matches",
+        "checked": "2026-11-27",
+        "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+      }
     },
     {
       "association": "LUX",
@@ -4956,7 +4978,16 @@
       "matchMethod": "EXTERNAL_IDENTITY_CORROBORATION",
       "status": "IDENTITY_CANDIDATE_DB_VERIFIED_NOT_RUNTIME",
       "identitySource": "https://www.affa.az/index.php/news/affa-and-keshla-fc-discussed-the-stadium-/69539",
-      "identityEvidence": "Federation confirms Keshla→Shamakhi 2022"
+      "identityEvidence": "Federation confirms Keshla→Shamakhi 2022",
+      "activityAudit": {
+        "checked": "2026-11-27",
+        "status": "ACTIVE_SENIOR_EVIDENCE",
+        "competition": "Misli Premier League",
+        "preCutoffSource": "https://www.affa.az/index.php/news/misli-premier-league-appointments-for-the-xxxi-tour/80716",
+        "preCutoff": "7 May 2026 first-team fixture; official 2022 rename Kesla to Shamakhi already mapped.",
+        "postCutoffSource": "https://www.affa.az/index.php/news/misli-premier-league-appointments-for-the-tour-i/81280",
+        "postCutoff": "13 August 2026 round 1 schedule, evidence of continued senior participation only."
+      }
     },
     {
       "association": "RUS",
@@ -4987,7 +5018,13 @@
       "sourceFile": "data_json/worlds/2627/competitions/bottom_pools.json",
       "sourceBlob": "8321c3ce464c7869c716fdb499f8cf3555bc27ef",
       "matchMethod": "EXPLICIT_MOD42_SHARED_POOL",
-      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING"
+      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING",
+      "activityAudit": {
+        "competition": "PARI First League 2026/27",
+        "seasonEvidence": "https://pfcsochi.ru/games/",
+        "checked": "2026-11-27",
+        "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+      }
     },
     {
       "association": "RUS",
@@ -5634,7 +5671,16 @@
       "sourceFile": "data_json/worlds/2627/teams/LUXEMBOURG.json",
       "sourceBlob": "383f4cfb8f32c699a5fc65ac9401bbae28317dad",
       "matchMethod": "NORMALIZED_EXACT",
-      "status": "IDENTITY_CANDIDATE_DB_VERIFIED_NOT_RUNTIME"
+      "status": "IDENTITY_CANDIDATE_DB_VERIFIED_NOT_RUNTIME",
+      "activityAudit": {
+        "checked": "2026-11-27",
+        "status": "ACTIVE_SENIOR_EVIDENCE",
+        "competition": "BGL Ligue Seniors M",
+        "preCutoffSource": "https://www.flf.lu/post-296485v4/posts/66258",
+        "preCutoff": "23 May 2026 first-team fixture in official federation preview.",
+        "postCutoffSource": "https://www.flf.lu/games/2942896",
+        "postCutoff": "22 November 2026 official senior fixture; confirms continued activity despite financial troubles. Not an imported result."
+      }
     },
     {
       "association": "GIB",
@@ -6337,9 +6383,15 @@
       "sourceRow": 129,
       "addition": {
         "realNameCandidate": "FC Paços de Ferreira",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Liga 3 2026/27",
+          "seasonEvidence": "https://www.imediato.pt/liga-3-ja-ha-calendario-para-2026-27-conheca-o-caminho-completo-da-serie-a/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6349,9 +6401,15 @@
       "sourceRow": 166,
       "addition": {
         "realNameCandidate": "Adana Demirspor",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "TFF 2. Lig 2026/27",
+          "seasonEvidence": "https://www.tff.org/Default.aspx?amphafta=37&hafta=1&pageID=976",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6376,9 +6434,15 @@
       "sourceBlob": "383f4cfb8f32c699a5fc65ac9401bbae28317dad",
       "addition": {
         "realNameCandidate": "CS Fola Esch",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Promotion d'Honneur 2026/27, Seniors M",
+          "seasonEvidence": "https://www.csfola.lu/matcher-82022v4/leagues/11/seasons/220",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6390,9 +6454,16 @@
       "sourceBlob": "88d2c98c48972aab08c15eef8917fdc9f411f855",
       "addition": {
         "realNameCandidate": "UE Santa Coloma",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Segona Divisio 2026/27",
+          "seasonEvidence": "https://www.altaveu.com/actualitat/esport/ue-santa-coloma-queda-exclosa-primera-ranger-mante-placa_78083_102.html",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules.",
+          "notes": "2026-07-23 administrative decision, not known at cutoff; do not backdate."
+        }
       }
     },
     {
@@ -6404,9 +6475,16 @@
       "sourceBlob": "88d2c98c48972aab08c15eef8917fdc9f411f855",
       "addition": {
         "realNameCandidate": "UE Sant Julià",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Segona Divisio 2026/27",
+          "seasonEvidence": "https://www.altaveu.com/actualitat/esport/ue-sant-julia-rep-llum-verda-tornar-competir_77837_102.html",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules.",
+          "notes": "Appeal accepted 2026-07-14 after cutoff; June 25 refusal. Actual senior fixtures corroborate https://footystats.org/andorra/segona-divisio/fixtures"
+        }
       }
     },
     {
@@ -6418,9 +6496,15 @@
       "sourceBlob": "87d1b476ed9e159fc66ddd6196c417588ca996a4",
       "addition": {
         "realNameCandidate": "FK Iskra Danilovgrad",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "2.CFL 2026/27",
+          "seasonEvidence": "https://fscg.me/takmicenja/druga-liga/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6432,23 +6516,34 @@
       "sourceBlob": "87d1b476ed9e159fc66ddd6196c417588ca996a4",
       "addition": {
         "realNameCandidate": "FK Podgorica",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "2.CFL 2026/27",
+          "seasonEvidence": "https://fscg.me/takmicenja/druga-liga/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
       "association": "BLR",
       "sourceName": "Shakhtior Saligorsk",
       "sourceRow": 345,
-      "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILE",
+      "reason": "USER_POLICY_NO_ACTIVE_SENIOR_COMPETITION",
       "sourceFile": "data_json/worlds/2627/teams/BELARUS.json",
       "sourceBlob": "910fd851fdf6551c437f51a48a966bdf58346d19",
       "addition": {
         "realNameCandidate": "Shakhtyor Soligorsk",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
-        "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "status": "HISTORICAL_ONLY_CEASED",
+        "stableClub": null,
+        "sources": [
+          "https://belmarket.by/index.php/news/53726f9f-d519-4f26-9108-1e4e5f521a2e",
+          "https://metaratings.by/news/direktor-fk-soligorsk-nikakikh-svyazei-s-shakhterom-u-nas-net-578707/"
+        ],
+        "notes": "New FC Soligorsk separate entity; no transfer of historical coefficient.",
+        "decisionDate": "2026-11-27"
       }
     },
     {
@@ -6458,9 +6553,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "Shakhtyor Karagandy",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Kazakhstan First League 2026",
+          "seasonEvidence": "https://eurasia.football/en/news-en/shakhter-karagandy-return-to-kazakhstan-premier-league/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6486,9 +6587,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "JK Tallinna Kalev",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Esiliiga 2026",
+          "seasonEvidence": "https://jalgpall.ee/voistlused/esiliiga/esiliiga-tutvustus",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6497,10 +6604,17 @@
       "sourceRow": 264,
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
-        "realNameCandidate": "FC Fehérvár",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "realNameCandidate": "Videoton FC Fehérvár",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "NB II 2026/27",
+          "seasonEvidence": "https://api.vidi.hu/hirek/hazai-palyan-kezdjuk-az-nb-ii-20262027-es-szezonjat",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules.",
+          "notes": "Current club name Videoton FC Fehervar; source club uses this name."
+        }
       }
     },
     {
@@ -6510,9 +6624,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "Kecskeméti TE",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "NB II 2026/27",
+          "seasonEvidence": "https://api.vidi.hu/hirek/hazai-palyan-kezdjuk-az-nb-ii-20262027-es-szezonjat",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6522,9 +6642,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "MS Ashdod",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Leumit League 2026/27",
+          "seasonEvidence": "https://www.fotmob.com/teams/6203/fixtures/fc-ashdod",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6534,9 +6660,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "KF Shkupi",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "2.MFL 2026/27",
+          "seasonEvidence": "https://macedonianfootball.com/2-mfl-2026-27-standings-fixtures/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6546,9 +6678,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "FK Makedonija Gjorče Petrov",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "2.MFL 2026/27",
+          "seasonEvidence": "https://macedonianfootball.com/2-mfl-2026-27-standings-fixtures/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6558,9 +6696,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "FK Rabotnički",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "2.MFL 2026/27",
+          "seasonEvidence": "https://macedonianfootball.com/2-mfl-2026-27-standings-fixtures/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6570,10 +6714,16 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "AP Brera Strumica",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
         "stableClub": null,
-        "identityEvidence": "https://brerastrumica.com/en/about-the-club/"
+        "identityEvidence": "https://brerastrumica.com/en/about-the-club/",
+        "activity": {
+          "competition": "2.MFL 2026/27",
+          "seasonEvidence": "https://macedonianfootball.com/2-mfl-2026-27-standings-fixtures/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6583,21 +6733,33 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "FC Oleksandriya",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Persha Liha 2026/27",
+          "seasonEvidence": "https://www.pfl.ua/news/1699",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
       "association": "UKR",
       "sourceName": "Vorskla Poltava",
       "sourceRow": 281,
-      "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
+      "reason": "USER_POLICY_NO_ACTIVE_SENIOR_COMPETITION",
       "addition": {
         "realNameCandidate": "FC Vorskla Poltava",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
-        "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "status": "HISTORICAL_ONLY_INACTIVE_2627_REVIEW_IF_EVIDENCE",
+        "stableClub": null,
+        "sources": [
+          "https://sport.ua/news/875178-ofitsialno-vorskla-poluchila-otkaz-v-dopuske-k-sorevnovaniyam-sezona-202627",
+          "https://dynamo.kiev.ua/uk/news/729211-volodymyr-chesnakov-u-sezoni-202627-na-95-vorskla-ne-bude-braty-uchasti-navit-v-oblasnykh-zmahanniakh",
+          "https://www.pfl.ua/news/1699"
+        ],
+        "notes": "Professional licence denied; sporting director June 26 said no amateur/regional competition planned, no evidence of active senior side. Not a finding of legal dissolution.",
+        "decisionDate": "2026-11-27"
       }
     },
     {
@@ -6607,9 +6769,16 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "FK Tuzla City",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Druga liga FBiH Sjever 2026/27",
+          "seasonEvidence": "https://www.nsfbih.ba/takmicenja/druga-liga-fbih-sjever",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules.",
+          "notes": "Second tier licence granted earlier but actual third-tier competition confirmed; licence alone not membership."
+        }
       }
     },
     {
@@ -6635,14 +6804,20 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "Valmiera FC",
-        "status": "ACTIVE_LOWER_TIER_VERIFIED_TEST_ROSTER_CANDIDATE",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
         "stableClub": null,
         "identityEvidence": "https://valmierafc.com/club-history/",
         "sources": [
           "https://valmierafc.com/the-1st-league-season-kicks-off-on-march-21/",
           "https://lff.lv/klubi/valmiera-fc-36365/?cid=23405291"
-        ]
+        ],
+        "activity": {
+          "competition": "Latvian First League 2026",
+          "seasonEvidence": "https://valmierafc.com/the-1st-league-season-kicks-off-on-march-21/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6652,9 +6827,39 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "FC Honka",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Miesten Kakkonen 2026",
+          "seasonEvidence": "https://fchonka.fi/2026/10/fc-honka-saavutti-nousutavoitteensa-miehet-ykkoseen-ja-naiset-kansalliseen-liigaan/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules.",
+          "notes": "FC Honka ry admitted after Esport Honka Oy bankruptcy https://www.veikkausliiga.com/uutiset/2024/01/05/hongan-tarina-jatkuu-kakkosessa-palloliitolta-sinetti-sarjapaikalle ; UEFA coefficient inheritance not independently certified; user approves historical components for game; registration pending.",
+          "uefaIdentityEvidence": {
+            "source": "https://www.uefa.com/nationalassociations/teams/91760--honka/",
+            "externalClubId": 91760,
+            "scope": "Historical UEFA club page persists; not proof of coefficient inheritance by current senior side.",
+            "status": "USER_APPROVED_POLICY_NOT_OFFICIAL_SUCCESSION_RULING"
+          },
+          "sportingContinuityEvidence": {
+            "source": "https://www.oikeusturvalautakunta.fi/paatokset/vuosi-2024/20-2024-jalkapallo-paatoksen-saanto/",
+            "finding": "Original registered association FC Honka ry transferred league place to Esport Honka Oy and regained Kakkonen place in December 2023/January 2024.",
+            "licenceRule": "https://documents.uefa.com/r/UEFA-Club-Licensing-and-Financial-Sustainability-Regulations-2026/Article-62-Written-contract-with-a-football-company-Online",
+            "limit": "Licensing interruption and nontransferability of licence are not proof of coefficient cancellation. No UEFA succession ruling found."
+          }
+        },
+        "coefficientInheritance": "USER_APPROVED_SPORTING_CONTINUITY_NOT_UEFA_CERTIFIED",
+        "coefficientDecision": {
+          "status": "USER_APPROVED_RETAIN_HISTORICAL_COMPONENTS_RESEARCH_ONLY",
+          "source": "https://coeff.app/clubs/honka-espoo/",
+          "historicalOwnMilli": 2500,
+          "associationFloorMilli": 2800,
+          "initialSeedingMilliBothScenarios": 2800,
+          "proposal": "Preserve original association's historic 2.500 as linked candidate if user approves sporting continuity; alternative archive only. No silent inheritance or zero assignment; future rolling coefficient can differ.",
+          "approved": "2026-11-27",
+          "decision": "Retain 2021/22 1.500 and 2023/24 1.000; starting draw value 2.800 via FIN floor; no official UEFA succession ruling; runtime registration pending."
+        }
       }
     },
     {
@@ -6664,9 +6869,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "FC Haka",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Ykkosliiga 2026",
+          "seasonEvidence": "https://www.hjk.fi/uutiset/ykkosliigan-otteluohjelma-on-julkaistu",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6676,9 +6887,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "Bala Town FC",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Cymru North 2026/27",
+          "seasonEvidence": "https://faw.cymru/cymru-leagues/news/2026-27-novira-cymru-north-club-by-club-season-preview/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     },
     {
@@ -6688,9 +6905,15 @@
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "Newtown AFC",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
+        "status": "ACTIVE_SENIOR_COMPETITION_EVIDENCE_TEST_CANDIDATE",
         "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
+        "stableClub": null,
+        "activity": {
+          "competition": "Cymru North 2026/27",
+          "seasonEvidence": "https://faw.cymru/cymru-leagues/news/2026-27-novira-cymru-north-club-by-club-season-preview/",
+          "checked": "2026-11-27",
+          "scope": "Senior men's football; existence/membership evidence only, not a pre-START result or certified full competition rules."
+        }
       }
     }
   ],
@@ -6705,9 +6928,14 @@
     "scopeMeaning": "All source rows examined against the respective 2627 national catalog files and known pools; unmatched are not assumed absent from all possible assets. Candidate identity only.",
     "mappedCandidates": 387,
     "unmatchedCount": 28,
-    "excludedHistorical": 3,
+    "excludedHistorical": 5,
     "holdInactivePendingUser": 0,
-    "testRosterCandidates": 25,
+    "testRosterCandidates": 23,
+    "activityReviewedCandidates": 25,
+    "activityEvidencePositive": 23,
+    "activityInactive": 2,
+    "mappedActivityReviewed": 6,
+    "mappedActivityPositive": 6,
     "partialTestRosterRegistered": 3
   },
   "additionPolicy": {
@@ -6716,7 +6944,7 @@
     "world": 2627,
     "rosterTemplate": "TEST_ZERO",
     "registration": "NOT_REGISTERED",
-    "rules": "No overwrite or duplicate of existing ID; no insertion into a league or qualification from ranking alone. Verify active status and native/global slots, world isolation, OG cache and CAR before registration. Existing historical source labels/points unchanged. User 2026-11-27: exclude verified ceased clubs; historical coefficients only."
+    "rules": "No overwrite or duplicate of existing ID; no insertion into a league or qualification from ranking alone. Verify active status and native/global slots, world isolation, OG cache and CAR before registration. Existing historical source labels/points unchanged. User 2026-11-27: exclude verified ceased clubs; historical coefficients only. User 2026-11-27: include clubs still competing in official senior men's competitions at any tier; exclude inactive ones, not only legally dissolved clubs. Retain historic coefficients; evidence published after cutoff cannot establish a prior result or retroactively dated administrative decision."
   },
   "crossBorderFindings": {
     "association": "LIE",
@@ -6732,5 +6960,6 @@
       "https://www.lfv.li/news?cHash=dcd0ce03c9827ccc9c0a53fc82250ebb&tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=2628"
     ],
     "note": "Triesenberg absent from file 90, not a UEFA seed row; check other files before adding. Reserve sides are distinct entrants when licensed, never a duplicate first-team identity."
-  }
+  },
+  "rankingOriginalSourceBlob": "3d934505597b119a215e9fc28b64825450fcfb20"
 }

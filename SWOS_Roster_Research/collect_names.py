@@ -3,7 +3,7 @@
 import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
 from roster_storage import Store, selftest as storage_selftest
-from http_retry import fetch
+from http_retry import fetch, HostCooldown, DeadlineExceeded, BLOCKED, INFLIGHT
 from research_status import report, outcome
 from player_roles import position_evidence, merge_positions
 from season_config import output_dir, cutoff, year_value
@@ -102,7 +102,7 @@ def query(sparql):
             data=cached
     if data is None:
         req = urllib.request.Request(ENDPOINT, data=urllib.parse.urlencode({'query':q,'format':'json'}).encode(), headers={'User-Agent':'SWOS-Expanded-Roster-Research/1.1 (https://github.com/Giuzy/SWOS-Expanded/issues/2)','Accept':'application/sparql-results+json','Content-Type':'application/x-www-form-urlencoded'})
-        data = json.loads(fetch(req, timeout=40, attempts=2, interval=3, total=90))
+        data = json.loads(fetch(req, timeout=15, attempts=2, interval=3, total=35))
         if 'results' not in data or 'bindings' not in data['results']:
             raise ValueError('Unexpected query result')
         from roster_storage import atomic
@@ -185,6 +185,28 @@ def existing_queries(fifa,names):
 def existing_query(fifa,name):
     return existing_queries(fifa,[name])
 
+def identity_batches(gaps,known):
+    groups={}
+    for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
+        if uid in known and e.get("association") and not e.get("identity_candidates"):
+            groups.setdefault(e["association"],[]).append((uid,e))
+    for code,entries in groups.items():
+        for group in chunks(entries,12):
+            yield code,group
+
+def apply_identities(cp,entries,rows):
+    for _,e in entries:
+        ids=sorted({r["club"] for r in rows if r.get("input")==e["name"] and re.fullmatch(r"Q[1-9][0-9]*",str(r.get("club","")).rsplit("/",1)[-1])})
+        if ids:cp.update(e,identity_candidates=ids)
+
+def deferred_error(e):
+    return isinstance(e,(HostCooldown,DeadlineExceeded,TimeoutError,urllib.error.URLError)) and (not isinstance(e,urllib.error.HTTPError) or e.code in (408,429,500,502,503,504))
+
+def wiki_ready():
+    host=urllib.parse.urlsplit(ENDPOINT).netloc
+    worker=INFLIGHT.get(host)
+    return time.monotonic()>=BLOCKED.get(host,0) and not (worker and worker.is_alive())
+
 def merge_players(club,rows,known):
     # Preserve legacy evidence byte-for-byte; only prevent new duplicates.
     saved=list(club.get("players",[]))
@@ -231,6 +253,7 @@ def main():
     ap.add_argument("--repo-root",type=Path,default=HERE.parent)
     ap.add_argument("--year",type=year_value,default=2026,help="Starting calendar year; later years use separate all-country research output")
     ap.add_argument("--export-only",action="store_true")
+    ap.add_argument("--recover-snapshot",action="store_true",help="Export existing SQLite data read-only to a new local recovery directory")
     ap.add_argument("--restart-from-json",action="store_true",help="Use separate resumable work DB seeded from published shards; preserve original SQLite and WAL")
     ap.add_argument("--refresh-wiki",action="store_true",help="Refresh cached Wikidata queries and Wikipedia pages")
     ap.add_argument("--skip-wikipedia",action="store_true")
@@ -281,6 +304,12 @@ def main():
             else:
                 raise AssertionError("Concurrent modification not detected")
         storage_selftest()
+        sample_gaps={"a":{"association":"ITA","name":"Same"},"b":{"association":"ENG","name":"Same"},"c":{"association":"ITA","name":"Other","identity_candidates":["Q9"]}}
+        assert sorted((code,len(group)) for code,group in identity_batches(sample_gaps,set(sample_gaps)))==[("ENG",1),("ITA",1)]
+        cp=Checkpoint(None,{},None)
+        apply_identities(cp,[("a",sample_gaps["a"])],[{"input":"Other","club":"Q2"},{"input":"Same","club":"Q1"},{"input":"Same","club":"invalid"}])
+        assert sample_gaps["a"]["identity_candidates"]==["Q1"] and "identity_candidates" not in sample_gaps["b"]
+        assert deferred_error(HostCooldown("test")) and not deferred_error(ValueError("bad"))
         from player_roles import selftest as roles_selftest
         roles_selftest()
         from role_backfill import selftest as backfill_selftest
@@ -322,6 +351,10 @@ def main():
         atomic(path,{"targets":[],"existing_club_gaps":{},"errors":[],"cutoff":CUTOFF,"status":"CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME","researchYear":YEAR})
     dbpath=OUT/('research.sqlite3.restart' if args.restart_from_json else 'research.sqlite3')
     print('Roster work database:',dbpath,flush=True)
+    if args.recover_snapshot:
+        from roster_storage import recover_snapshot
+        print("Recovered SQLite snapshot:",recover_snapshot(dbpath,OUT/"sources"),flush=True)
+        return
     store=Store(path,dbpath)
     results=store.load()
     if args.export_only:
@@ -359,19 +392,47 @@ def main():
     cp.update(results,targets=list(bycode.values()))
     save=cp.save
     query_failed=False
+    query_status=dict(results.get("wikidataQueryStatus",{}))
+    query_errors=[]
+    def flush_query_status():
+        cp.update(results,wikidataQueryStatus=dict(query_status))
+        for error in query_errors:
+            if error not in results["errors"]:cp.append(results["errors"],error)
+        query_errors.clear()
+        save()
+    def tracked_query(q,phase="Wiki club bridge"):
+        key=hashlib.sha256((PREFIX+q).encode()).hexdigest()
+        try:rows=query(q)
+        except Exception as e:
+            query_status[key]={"phase":phase,"status":"DEFERRED" if deferred_error(e) else "ERROR","reason":str(e)}
+            if not isinstance(e,HostCooldown):
+                error={"phase":phase,"error":str(e)}
+                if error not in query_errors:query_errors.append(error)
+            raise
+        query_status[key]={"phase":phase,"status":"COMPLETED" if rows else "NO DATA","rows":len(rows)}
+        return rows
     def run(q,phase):
         nonlocal query_failed
         query_failed=False
         report("Wikidata "+phase,"SEARCHING")
         try:
-            rows=query(q)
+            rows=tracked_query(q,phase)
             report("Wikidata "+phase,"FOUND" if rows else "NO DATA",f"{len(rows)} source rows; validation follows")
             return rows
         except Exception as e:
-            error={"phase":phase,"error":str(e)}
-            if error not in results["errors"]:cp.append(results["errors"],error)
             query_failed=True
-            save();report("Wikidata "+phase,"ERROR",str(e));return []
+            report("Wikidata "+phase,"DEFERRED" if deferred_error(e) else "ERROR",str(e));return []
+    def query_batches(jobs):
+        pending=[]
+        for payload,q,label in jobs:
+            rows=run(q,label)
+            if query_failed:pending.append((payload,q,label))
+            else:yield payload,rows
+        for payload,q,label in pending:
+            if not wiki_ready():break
+            rows=run(q,label)
+            if not query_failed:yield payload,rows
+        flush_query_status()
     rawmap={}
     for r in national:
         f=r["source"]["team_file"]
@@ -399,7 +460,7 @@ def main():
     from season_config import edition_label
     from domestic_catalog import Catalogue, eligible_league, observation_key as domestic_key
     catalogue=Catalogue(CACHE/'domestic_catalog',national,refresh=args.refresh_wiki,wikipedia=not args.skip_wikipedia and not args.alternative_only,rsssf=not args.skip_alternative)
-    wiki=Wiki(CACHE,cp,results,query,refresh=args.refresh_wiki)
+    wiki=Wiki(CACHE,cp,results,tracked_query,refresh=args.refresh_wiki)
     tm=Transfermarkt(CACHE,cp,results,national,known,year=YEAR)
     def alternative(phase):
         if not args.skip_alternative:
@@ -415,9 +476,9 @@ def main():
             tm.acquire(phase,targets)
             save()
     def collect_players(byclub):
-        for group in chunks(sorted(byclub),5):
+        jobs=[(group,players_query(group),"Players "+",".join(qid(q) for q in group)) for group in chunks(sorted(byclub),5)]
+        for group,rr in query_batches(jobs):
             label="Players "+",".join(qid(q) for q in group)
-            rr=run(players_query(group),label)
             added=0
             for q in group:
                 for c,k in byclub[q]:
@@ -436,7 +497,7 @@ def main():
                             else:cp.append(leads,row)
                     added+=len(c.get("players",[]))-before
             save()
-            if not query_failed:report("Wikidata "+label,*outcome(len(rr),added))
+            report("Wikidata "+label,*outcome(len(rr),added))
     try:
         print("PHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
         alternative("clubs")
@@ -510,6 +571,7 @@ def main():
                         if valid_club_name(row.get('clubLabel','')):
                             wiki.add(owner,'wiki_club_leads',dict(row,country=t['fifa'],scope='LEAGUE_IDENTITY_NOT_EDITION'))
                     save()
+        flush_query_status()
         prepare_import(path,preview,include_extras=False,data=results,year=YEAR)
         print("PHASE 2/3: players of discovered clubs",flush=True)
         alternative("players")
@@ -530,18 +592,20 @@ def main():
             return None if query_failed else rows
         print("PHASE 2/3: backfill missing roles on existing country observations",flush=True)
         backfill([bycode[t["fifa"]] for t in targets],cp,tm,run_role,YEAR,allow_tm=not args.skip_transfermarkt,allow_wd=not args.alternative_only)
+        flush_query_status()
         prepare_import(path,preview,include_extras=False,data=results,year=YEAR)
         print("PHASE 3/3: existing club roster gaps / extra players",flush=True)
         alternative("extras")
         if not args.alternative_only:
             byclub={}
+            jobs=[(entries,existing_queries(code,[e["name"] for _,e in entries]),"Club identities "+code+" ("+str(len(entries))+")") for code,entries in identity_batches(gaps,known)]
+            for entries,rows in query_batches(jobs):
+                apply_identities(cp,entries,rows);save()
             for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
                 if uid not in known or not e.get("association"):
                     report("Wikidata extras "+e["name"],"SKIPPED","not eligible or association unresolved")
                     continue
-                if not e.get("identity_candidates"):
-                    cp.update(e,identity_candidates=sorted({r["club"] for r in run(existing_query(e["association"],e["name"]),"Club "+e["name"])}));save()
-                qs=e["identity_candidates"]
+                qs=e.get("identity_candidates",[])
                 if len(qs)==1:
                     report("Wikidata extras "+e["association"]+"/"+e["name"],"FOUND","unique identity candidate; player search follows")
                     byclub.setdefault(qs[0],[]).append((e,known[uid]))
@@ -557,7 +621,8 @@ def main():
         backfill(gaps.values(),cp,tm,run_role,YEAR,allow_tm=not args.skip_transfermarkt,allow_wd=not args.alternative_only)
     finally:
         try:
-            save();store.publish()
+            if not publication_failed:
+                flush_query_status();store.publish()
         finally:store.close()
     groups=[extra_candidates_by_name(e,known[uid]) for uid,e in gaps.items() if uid in known]
     prepare_import(path,preview,data=results,year=YEAR)

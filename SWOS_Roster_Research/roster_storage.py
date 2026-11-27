@@ -52,6 +52,24 @@ def load_snapshot(path):
     obj["existing_club_gaps"]=gaps
     return obj
 
+def contains_additive(new,old):
+    if type(new)!=type(old):return False
+    if isinstance(old,dict):return all(k in new and contains_additive(new[k],v) for k,v in old.items())
+    if isinstance(old,list):return len(new)>=len(old) and all(contains_additive(a,b) for a,b in zip(new,old))
+    return new==old
+
+def reconcile_additive(work,published):
+    a={k:v for k,v in work.items() if k!="errors"}
+    b={k:v for k,v in published.items() if k!="errors"}
+    if contains_additive(a,b):merged=dict(a)
+    elif contains_additive(b,a):merged=dict(b)
+    else:return None
+    errors=list(work.get("errors",[]))
+    for row in published.get("errors",[]):
+        if row not in errors:errors.append(row)
+    if "errors" in work or "errors" in published:merged["errors"]=errors
+    return merged
+
 class Store:
     """One row per target/gap, original nested observations preserved losslessly.
     SQLite is the work authority, JSON publication only; refuse divergent seeds.
@@ -78,8 +96,15 @@ class Store:
                 self._state("generation","0")
             elif saved[0]!=digest(seed):
                 # A previously completed export may have preceded process termination.
-                if digest(self.load())!=digest(seed):
-                    raise RuntimeError("Published roster changed independently; preserve DB and reconcile before resuming")
+                work=self.load()
+                if digest(work)!=digest(seed):
+                    merged=reconcile_additive(work,seed)
+                    if merged is None:
+                        raise RuntimeError("Published roster changed independently; preserve DB and use --recover-snapshot; conflicting data require reconciliation")
+                    self._write(merged)
+                    previous=int(self.db.execute("SELECT value FROM state WHERE key='generation'").fetchone()[0])
+                    self._state("generation",str(previous+1))
+                    print("Roster publication recovery: compatible additive snapshot",flush=True)
                 self._state("snapshot",digest(seed))
             self.generation=int(self.db.execute("SELECT value FROM state WHERE key='generation'").fetchone()[0])
             self.db.commit()
@@ -185,7 +210,7 @@ class Store:
                 data=self.load()
                 published=self.db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()[0]
                 if digest(load_snapshot(self.path))!=published:
-                    raise RuntimeError("Published roster changed; refusing overwrite")
+                    raise RuntimeError("Published roster changed; refusing overwrite; SQLite checkpoint retained. Reopen after closing other writers or use --recover-snapshot")
                 if digest(data)==published and read(self.path).get("storage")==SCHEMA:
                     self.db.commit();return
                 paths=self._publication(data)
@@ -202,6 +227,24 @@ class Store:
             raise
     def close(self):
         self.db.close()
+
+def recover_snapshot(dbpath,folder):
+    """Read-only export to a unique ignored directory, including committed WAL."""
+    dbpath=Path(dbpath)
+    if not dbpath.is_file():raise FileNotFoundError(dbpath)
+    folder=Path(folder);folder.mkdir(parents=True,exist_ok=True)
+    store=Store.__new__(Store)
+    store.db=sqlite3.connect(dbpath.resolve().as_uri()+"?mode=ro",uri=True,timeout=10)
+    try:
+        store.db.execute("PRAGMA query_only=ON")
+        store.db.execute("BEGIN")
+        data=store.load()
+        dest=Path(tempfile.mkdtemp(prefix="recovery-",dir=folder))
+        store.path=dest/"candidates.json"
+        for path,value in store._publication(data).items():atomic(path,value)
+        if digest(load_snapshot(store.path))!=digest(data):raise RuntimeError("Recovery verification failed")
+        return dest
+    finally:store.db.close()
 
 def selftest():
     with tempfile.TemporaryDirectory() as d:
@@ -227,3 +270,13 @@ def selftest():
         except RuntimeError:pass
         else:raise AssertionError("Concurrent writer accepted")
         competing.close();s.close()
+        original=load_snapshot(p)
+        external=dict(original,errors=original["errors"]+[{"phase":"external"}])
+        for k,v in Store._publication(type("View",(),{"path":p})(),external).items():atomic(k,v)
+        s=Store(p,Path(d)/"test.sqlite3")
+        assert {r["phase"] for r in s.load()["errors"]}=={"old","new","external"}
+        s.publish();expected=s.load();s.close()
+        recovered=recover_snapshot(Path(d)/"test.sqlite3",Path(d)/"local")
+        assert load_snapshot(recovered/"candidates.json")==expected==load_snapshot(p)
+        assert reconcile_additive({"x":[1,2]},{"x":[1]})=={"x":[1,2]}
+        assert reconcile_additive({"x":[1]},{"x":[2]}) is None

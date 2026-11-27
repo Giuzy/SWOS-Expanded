@@ -1,3 +1,8 @@
+## 27/11/2026 — Ricerca ripresa e lacune
+
+Stop BAT prima del pull. GIOCATORI --self-test e --export-only (DB .restart); se divergenza non additiva, --recover-snapshot esporta SQLite read-only in sources/recovery-* senza sovrascrivere nulla. Conservare DB/WAL/cache e JSON; non avviare due writer. Doppio clic riprende; WD 35s, batch 12 EXTRA e DEFERRED non NO DATA. COMPETIZIONI --self-test poi normale avvio: salta route partecipanti già osservate, conserva coppe mancanti, link siti ufficiali, sezioni Wiki con QID/revisione esatti e archivio RSSSF per paese come lead mirati alle lacune, nessun nuovo regolamento certificato. RG-RESEARCH-WIKI-DEFERRED / RG-ROSTER-PUBLICATION-RECOVERY / RG-DOMESTIC-MISSING-SOURCES. Test Windows/live NP.
+ISO Python funzioni copiate 10 assert PASS; suite integrali e download reali non provati.
+
 ## 27/11/2026 — Recupero ruoli mancanti
 
 Dopo fase2 e fase3 GIOCATORI tenta anche ruoli dei giocatori già raccolti (UNKNOWN/GROUP_ONLY), per ID fonte e membership esatta TM, o P2446/P413 Wikidata; batch 25 e cache. Nessun secondo giocatore, non sovrascrivere ruoli nativi validi; 0=GK. Controllare preview, positionCandidate/positionObservations; conflitti e assenze espliciti. RG-RESEARCH-ROLE-BACKFILL.

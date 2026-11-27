@@ -48,8 +48,11 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
     if source_catalog:
         from domestic_catalog import Catalogue, observation_key
         catalogue=Catalogue(output_dir(root,year)/"sources"/"competition_domestic_catalog",national,refresh=refresh)
+    from competition_sources import Cached, Discovery
+    country_names={r["source"].get("name",""):r["fifa"] for r in national if r["source"].get("name")}
+    archive=Discovery(Cached(root/"tools/competition_research/cache/domestic_archive",refresh),country_names) if source_catalog and year==2026 else None
     for r in targets:
-        with time_budget(240):
+        with time_budget(120):
             country=r["fifa"];label="Domestic competitions "+country
             if tm.blocked and wiki_query is None and catalogue is None:
                 report(label,"NOT SEARCHED","source access blocked");continue
@@ -58,11 +61,22 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
             if old.get("country")!=country or old.get("schema")!="SWOS_DOMESTIC_COMPETITION_CANDIDATES_1":raise ValueError("Competition candidate file identity mismatch")
             obs=old["observations"];before=len(obs);errors=[];seen=set();incomplete=False
             report(label,"SEARCHING","first tier and domestic cup")
-            seeds=[];covered=set();review=False
+            seeds=[];covered={p["kind"] for p in obs if p.get("kind") in ("LEAGUE_DIVISION","NATIONAL_CUP") and p.get("participants") and p.get("fields",{}).get("participants")=="V"};seen.update(p["kind"] for p in obs if p.get("kind") in ("LEAGUE_DIVISION","NATIONAL_CUP") and p.get("fields",{}).get("identity") in ("P","V"));review=False
+            def rule_fields(packet):
+                related=[p for p in obs if p.get("kind")==packet["kind"] and (p.get("wikidataId")==packet.get("wikidataId") or (p.get("source")=="Wikidata" and p.get("sourceId")==packet.get("wikidataId")))]
+                return {f for f in ("format","regulation","movement","qualification","roundDates","evolution") if not any(p.get("fields",{}).get(f) in ("V","NA") for p in related) and (refresh or not any(x.get("field")==f for p in related for x in p.get("researchSectionLeads",[])))}
+            if archive is not None:
+                try:
+                    with time_budget(20):
+                        leads=archive.leads({"world":"2627","country":country})
+                    merged={p["url"]:p for p in old.get("archiveSourceLeads",[])}
+                    for lead in leads:merged.setdefault(lead["url"],lead)
+                    if merged:old["archiveSourceLeads"]=list(merged.values());atomic(path,old)
+                except Exception as e:errors.append(["RSSSF archive discovery",str(e)]);incomplete=True
             if catalogue is not None:
                 try:
-                    with time_budget(90):
-                        packets,seeds,source_errors=catalogue.country(country,year)
+                    with time_budget(45):
+                        packets,seeds,source_errors=catalogue.country(country,year,rule_fields=rule_fields)
                     if source_errors:errors.extend(source_errors);incomplete=True
                     keys={observation_key(p) for p in obs if p.get("source") in ("WikipediaDirectory","RSSSF")}
                     for p in packets:
@@ -75,15 +89,15 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                         else:review=True
                         key=observation_key(packet)
                         if key not in keys:obs.append(packet);keys.add(key);atomic(path,old)
-                    covered.update(row["kind"] for row in seeds)
+                    # Directory identity alone does not close participant gaps.
                 except Exception as e:
                     incomplete=True;errors.append(["Domestic catalogue",str(e)]);report(label+"/Catalogue","ERROR",str(e))
             if wiki_query is not None:
                 from wiki_sources import domestic_query,qid,valid_club_name
                 from collect_names import clubs_query
                 try:
-                    with time_budget(120):
-                        report(label+"/Wikidata","SEARCHING","competition identities; maximum 120s for Wiki phase")
+                    with time_budget(45):
+                        report(label+"/Wikidata","SEARCHING","missing competition identities; maximum 45s for Wiki phase")
                         needed={"LEAGUE_DIVISION","NATIONAL_CUP"}-covered
                         def wiki_rows():
                             yield from seeds
@@ -100,6 +114,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                             if r.get("source")=="WikipediaDirectory":packet["identityEvidenceSource"]=r["sourceUrl"]
                             if packet not in obs:obs.append(packet);atomic(path,old)
                             seen.add(kind)
+                            if any(p.get("source")=="Wikidata" and p.get("sourceId")==lid and p.get("participants") for p in obs):continue
                             try:
                                 editions={}
                                 report(label+"/Wikidata/"+lid,"SEARCHING","edition and participants")
@@ -134,6 +149,8 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                     check_budget()
                     if tm.blocked:break
                     item=label+"/"+code
+                    if not refresh and any(p.get("source")=="Transfermarkt" and p.get("sourceId")==code and p.get("kind")==kind and p.get("participants") for p in obs):
+                        seen.add(kind);report(item,"SKIPPED","existing season participant observation");continue
                     report(item,"SEARCHING",name)
                     try:
                         route="/-/startseite/wettbewerb/"+code+"/saison_id/"+str(year)

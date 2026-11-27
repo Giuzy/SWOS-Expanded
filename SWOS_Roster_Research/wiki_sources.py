@@ -1,7 +1,7 @@
 """Scoped Wikidata/Wikipedia leads; no invented July or seasonal membership."""
 import hashlib,json,re,time,urllib.parse,urllib.request
 from pathlib import Path
-from http_retry import fetch
+from http_retry import fetch, HostCooldown
 from roster_storage import atomic
 from research_status import report
 from alternative_sources import norm,BAD
@@ -110,6 +110,7 @@ class Wiki:
         found={}
         for i in range(0,len(ids),30):
             try:matches=self.query(tm_bridge_query(ids[i:i+30]))
+            except HostCooldown as e:report("Wiki club bridge","DEFERRED",str(e));continue
             except Exception as e:self.error("Wiki club bridge",e);continue
             self.bridge_checked.update(ids[i:i+30])
             for r in matches:

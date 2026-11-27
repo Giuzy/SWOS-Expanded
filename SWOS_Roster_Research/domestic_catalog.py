@@ -164,7 +164,28 @@ def rsssf_packets(raw,country,year):
     return packets
 
 def observation_key(p):
-    return (p.get("source"),p.get("country"),p.get("kind"),p.get("sourceId"),p.get("name"),p.get("season"),p.get("scope"),p.get("wikidataId"),p.get("identityEvidence"),tuple(sorted(x.get("name","") for x in p.get("participants",[]))))
+    return (p.get("source"),p.get("country"),p.get("kind"),p.get("sourceId"),p.get("name"),p.get("season"),p.get("scope"),p.get("wikidataId"),p.get("identityEvidence"),tuple(sorted(x.get("name","") for x in p.get("participants",[]))),tuple(sorted(p.get("officialSourceLeads",[]))),tuple(sorted((x["field"],x["heading"],x["revision"]) for x in p.get("researchSectionLeads",[]))))
+
+RULE_SECTIONS={
+    "format":("format","competition format","league format","tournament format","competition system","league system"),
+    "regulation":("rules","regulations","competition rules","competition regulations","tie-breaking criteria","tiebreakers"),
+    "movement":("promotion and relegation","promotion/relegation","relegation and promotion"),
+    "qualification":("qualification","qualification criteria","continental qualification"),
+    "roundDates":("schedule","calendar","competition schedule"),
+    "evolution":("history","historical background","format history"),
+}
+def section_leads(content,missing):
+    result=[];ancestors=[]
+    for depth,title in re.findall(r"(?m)^(={2,6})\s*([^=\n]+?)\s*\1\s*$",content):
+        name=" ".join(title.split()).casefold()
+        while ancestors and ancestors[-1][0]>=len(depth):ancestors.pop()
+        blocked=any(BAD.search(x) or re.search(r"\b(women|youth|reserve|results|standings|statistics|honours)\b",x) for _,x in ancestors)
+        ancestors.append((len(depth),name))
+        if blocked:continue
+        for field,labels in RULE_SECTIONS.items():
+            if field in missing and name in labels:
+                result.append({"field":field,"heading":title.strip(),"scope":"SECTION_LEAD_EDITION_UNVERIFIED"})
+    return result
 
 class Catalogue:
     def __init__(self,cache,national,refresh=False,wikipedia=True,rsssf=True):
@@ -176,7 +197,7 @@ class Catalogue:
         if p.exists() and not self.refresh and time.time()-p.stat().st_mtime<7*86400:
             try:return validate(p.read_bytes())
             except (ValueError,KeyError,TypeError,RuntimeError):pass
-        raw=fetch(urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"application/json,text/html"}),timeout=30,attempts=2,total=70,limit=16*1024*1024)
+        raw=fetch(urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"application/json,text/html"}),timeout=15,attempts=2,total=35,limit=16*1024*1024)
         value=validate(raw)
         tmp=p.with_suffix(".part");tmp.write_bytes(raw);tmp.replace(p);return value
     def _api(self,url,params):
@@ -212,7 +233,19 @@ class Catalogue:
                     if title in out and out[title].get("id")!=e.get("id"):raise ValueError("Ambiguous exact Wikipedia entity")
                     out[title]=e
         return out
-    def country(self,country,year):
+    def article_leads(self,packet,missing):
+        if not packet.get("wikidataId") or not missing:return []
+        data=self._api(WP,{"action":"query","prop":"pageprops|revisions","titles":packet["sourceId"],
+                          "rvprop":"ids|timestamp|content","rvslots":"main"})
+        pages=data.get("query",{}).get("pages",[])
+        if len(pages)!=1 or pages[0].get("pageprops",{}).get("wikibase_item")!=packet["wikidataId"]:return []
+        revisions=pages[0].get("revisions",[])
+        if len(revisions)!=1:return []
+        rev=revisions[0];content=rev.get("slots",{}).get("main",{}).get("content")
+        if not rev.get("revid") or not isinstance(content,str):return []
+        url="https://en.wikipedia.org/w/index.php?oldid="+str(rev["revid"])
+        return [dict(x,sourceUrl=url+"#"+urllib.parse.quote(x["heading"].replace(" ","_")),revision=rev["revid"]) for x in section_leads(content,missing)]
+    def country(self,country,year,rule_fields=None):
         packets=[];seeds=[];errors=[]
         if self.rsssf and (country,year) in RSSSF:
             try:
@@ -228,13 +261,35 @@ class Catalogue:
                     try:entities=self._entities(rows)
                     except Exception as e:errors.append(["Wikidata entity API",str(e)]);report("Wikidata entity API "+country,"ERROR",str(e))
                 for row in rows:
-                    packet,seed=directory_evidence(row,entities,self.revision,year);packets.append(packet)
-                    if seed:seeds.append(seed)
+                    packet,seed=directory_evidence(row,entities,self.revision,year)
+                    entity=entities.get(row["title"],{})
+                    if seed:
+                        seeds.append(seed)
+                        # Exact entity already validated for country/competition.
+                        # Official sites are leads, never proof of rules or dates.
+                        sites=[]
+                        for claim in entity.get("claims",{}).get("P856",[]):
+                            if claim.get("rank")=="deprecated":continue
+                            url=claim.get("mainsnak",{}).get("datavalue",{}).get("value")
+                            if isinstance(url,str):
+                                parts=urllib.parse.urlsplit(url)
+                                if parts.scheme in ("http","https") and parts.hostname and not parts.username and not parts.password and url not in sites:sites.append(url)
+                        if sites:packet["officialSourceLeads"]=sorted(sites)
+                        if rule_fields:
+                            try:
+                                leads=self.article_leads(packet,rule_fields(packet))
+                                if leads:packet["researchSectionLeads"]=leads
+                            except Exception as e:
+                                errors.append(["Wikipedia competition article",str(e)])
+                                report("Wikipedia competition article "+country,"ERROR",str(e))
+                    packets.append(packet)
                 report("Wikipedia domestic "+country,"FOUND" if rows else "NO DATA",f"{len(rows)} identity leads; {len(seeds)} exact linked Wikidata entities")
             except Exception as e:errors.append(["WikipediaDirectory",str(e)]);report("Wikipedia domestic "+country,"ERROR",str(e))
         return packets,seeds,errors
 
 def selftest():
+    sections=section_leads("==Format==\n===Rules===\n==Women==\n===Format===\n==Results==\n===Schedule===\n==History==",{"format","regulation","roundDates"})
+    assert [(x["field"],x["heading"]) for x in sections]==[("format","Format"),("regulation","Rules")]
     national=[{"fifa":"BHU","source":{"name":"BHUTAN"}},{"fifa":"AIA","source":{"name":"ANGUILLA"}}]
     html='<h3>Domestic</h3><h4>Bhutan</h4><table><tr><td>[Sen.Men] [L]</td><td><a href="/wiki/Bhutan_Premier_League">Bhutan Premier League</a></td><td>1st-tier</td></tr><tr><td>[Sen.Women]</td><td><a href="/wiki/Women">Women League</a></td><td>1st-tier</td></tr><tr><td>[Sen.Men]</td><td><a href="/wiki/Gold_Cup">Gold Cup</a></td><td>National cup</td></tr><tr><td>[Sen.Men]</td><td><a href="/wiki/Old">Old League</a></td><td>1st-tier, defunct</td></tr></table><h4>Anguilla</h4><h5>Leagues</h5><ul><li><a href="/wiki/AFA_Senior_Male_League">AFA Senior Male League</a>: 1st-tier</li><li><a href="/wiki/Second">Second League</a>: 2nd-tier</li></ul><h5>Cups</h5><ul><li><a href="/wiki/Shield">Shield</a>: Super cup</li></ul><h3>International</h3><h4>Bhutan</h4><table><tr><td>[Sen.Men]</td><td><a href="/wiki/Wrong">Wrong</a></td><td>1st-tier</td></tr></table>'
     rows=directory_rows(html,national)

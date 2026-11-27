@@ -15097,6 +15097,29 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "rsssf:delta:63fcca752466deb508b4aa2f5bf328882bae6656d76bebeeb5bf3ebaeb25d862": {
+          "document": "https://www.rsssf.org/tablesi/ijs2026.html",
+          "fields": {
+            "participants": [
+              "Breiðablik",
+              "FH",
+              "Fram",
+              "KA",
+              "KR",
+              "Keflavík",
+              "Stjarnan",
+              "Valur",
+              "Víkingur R.",
+              "ÍA",
+              "ÍBV",
+              "Þor A."
+            ]
+          },
+          "deltaOnly": true,
+          "scope": "2026 participant labels from exact men's league section; not July scores or rules"
+        }
       }
     }
   }

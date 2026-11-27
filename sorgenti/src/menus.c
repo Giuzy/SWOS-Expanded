@@ -2932,6 +2932,11 @@ void Expanded_TitleMenu_Proc(void)
             int level=s_title_level,index=s_title_action;
             s_title_action=-1;
             Expanded_TitleMenu_Dispatch(level,index);
+            /* v342 (user 27/11/2026): the fire that closed the sub-menu (EXIT/BACK
+             * there) is still held when control returns here; it must be RELEASED
+             * before a new press counts, or the same option re-opens by itself. */
+            s_title_previous_fire=1;
+            _shortFire=0;
         }
         return;
     }

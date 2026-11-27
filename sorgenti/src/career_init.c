@@ -374,17 +374,28 @@ void ChooseTeamAndStartCareer(void)
      * uses (InitCareer -> InitCareerClub sets _isNationalSelector for the
      * region files 80..85). No new call-up, squad or match code. */
     if (Expanded_NewCareer_NationalCoach()) {
+        /* v342 (user 27/11/2026): the national team is CHOSEN with the original OG
+         * team dialog, as for a club (regions -> national teams), showing national
+         * teams only (OG ChooseTeamsDialog showNational=1). BACK returns to setup. */
         extern uint8_t _plNationality;
-        extern int16_t GetNationalTeamNumber(uint16_t nationality);
-        /* IsTeamCodeOkForNationalSelector is the OG OFFER timing gate
-         * (season >= 3), not a validity check: not used for a direct start. */
-        const int16_t national=GetNationalTeamNumber((uint16_t)_plNationality);
+        extern uint8_t _aSelectTeamToMa[];
+        extern TeamFileEx *_selectedTeamPtr;
+        int16_t national;
+        extern void ChooseTeamsDialog(uint16_t,uint16_t,uint16_t,uint8_t *,void *);
+        ChooseTeamsDialog(0, 1, 0, _aSelectTeamToMa, (void *)0);
+        if (_selectedTeamPtr == 0) {
+            Expanded_CareerDiscardAbortedStart("national-team-selection-back");
+            extern uint16_t _fireResetFlag;
+            _fireResetFlag=1;
+            return;
+        }
+        national=(int16_t)_selectedTeamCountryNumber;
         if (national<0 || !career_is_national_team((uint16_t)national) ||
             (World_Current()==WORLD_2627 &&
              !TeamDb_Team((uint8_t)((uint16_t)national>>8),(uint8_t)national))) {
-            static uint8_t err[]="NO NATIONAL TEAM FOR THIS NATIONALITY";
+            static uint8_t err[]="NO NATIONAL TEAM FOR THIS SELECTION";
             fprintf(stderr,"[new-career] NATIONAL_COACH_START_REFUSED world=%s "
-                    "nationality=%u team=%d reason=NO_OG_NATIONAL_TEAM\n",
+                    "nationality=%u team=%d reason=NOT_AN_OG_NATIONAL_TEAM\n",
                     World_Tag(),(unsigned)_plNationality,(int)national);
             Expanded_CareerDiscardAbortedStart("national-team-unavailable");
             ShowErrorMenu(err);

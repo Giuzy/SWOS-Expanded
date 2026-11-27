@@ -1643,3 +1643,9 @@ Misura sullo screenshot Windows (7,2 px schermo per px di gioco in verticale): f
 - Contatore dei minuti (`game_state.c`, posizione HUD dell'orologio): SOLO mentre la panchina è aperta (`_inSubstitutesMenu != 0`, non in allenamento) l'orologio si sposta di 32 px a destra, perché la panchina lunga arriva nell'angolo in alto a sinistra dove l'OG lo disegna; altrimenti posizione OG invariata. EXE 17:53, NON PROVATO in partita.
 
 - Tabellone coppa, STATS ripristinato (rettifica utente 26/11/2026): `ce_cup_board_stats()` apre il menu OG originale delle statistiche (`SetupDIYCompetitionStatsMenu`) come fa il tabellone CE di lega: nella COPIA di `_diyCompetitionStart` (ripristinata alla chiusura del tabellone) scrive solo tipo coppa, nome, numero e id {paese,ordinale} dei club iscritti all'edizione CE. Nessun dato sportivo CE modificato. EXE 17:59, NON PROVATO.
+
+### v00.13.342 (aggiornamento 27/11/2026): START AS NATIONAL TEAM COACH con scelta OG; Title CLASSIC senza riselezione automatica
+
+- `career_init.c`: con START AS NATIONAL TEAM COACH la nazionale non è più quella della nazionalità del manager: si apre la finestra OG originale `ChooseTeamsDialog(0,1,0,"SELECT TEAM TO MANAGE")` (solo nazionali: regioni → nazionali, come per i club). BACK torna al setup (`Expanded_CareerDiscardAbortedStart`); squadra non nazionale (file 80..85) o assente nel DB 2627 → errore OG e ritorno al setup. Poi stessa `InitCareer` del v300.
+- `menus.c` Title (livello CLASSIC e principale): il fuoco ancora premuto che chiudeva il sottomenu (EXIT/BACK) veniva letto come nuova pressione al ritorno e riapriva la stessa opzione. Dopo ogni `Expanded_TitleMenu_Dispatch` serve il rilascio (`s_title_previous_fire=1`, `_shortFire=0`). Interpretazione di «menu debug classic» = sottomenu CLASSIC MODES del Title (da confermare con l'utente).
+- Build EXE 11:54 senza warning; NON PROVATO in Windows.

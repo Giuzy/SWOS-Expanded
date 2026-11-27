@@ -2728,3 +2728,9 @@ Ranking 2627: 415/415 club esaminati; 377 candidati DB, 38 irrisolti, non attivi
 
 ### 27/11/2026 — v00.13.344: national registry and CT/WORLD
 Source integration: 2026/27 FIFA baseline 211 identities (142 existing + 69 TEST_ZERO), unique packed IDs and nationality keys, six existing country buttons reused and 63 new national-only buttons. CT START nationality selection and national WORLD route wired; club WORLD new national-only buttons are inert. Confederation reassignment deferred by user; no new national fixtures, real player database or sporting algorithm. 1996/97 unchanged by the new registry. ST identity/capacity checks passed; compilation, Windows gameplay and CAR migration not tested.
+
+### v00.13.342 (aggiornamento 27/11/2026): START AS NATIONAL TEAM COACH con scelta OG; Title CLASSIC senza riselezione automatica
+
+- `career_init.c`: con START AS NATIONAL TEAM COACH la nazionale non è più quella della nazionalità del manager: si apre la finestra OG originale `ChooseTeamsDialog(0,1,0,"SELECT TEAM TO MANAGE")` (solo nazionali: regioni → nazionali, come per i club). BACK torna al setup (`Expanded_CareerDiscardAbortedStart`); squadra non nazionale (file 80..85) o assente nel DB 2627 → errore OG e ritorno al setup. Poi stessa `InitCareer` del v300.
+- `menus.c` Title (livello CLASSIC e principale): il fuoco ancora premuto che chiudeva il sottomenu (EXIT/BACK) veniva letto come nuova pressione al ritorno e riapriva la stessa opzione. Dopo ogni `Expanded_TitleMenu_Dispatch` serve il rilascio (`s_title_previous_fire=1`, `_shortFire=0`). Interpretazione di «menu debug classic» = sottomenu CLASSIC MODES del Title (da confermare con l'utente).
+- Build EXE 11:54 senza warning; NON PROVATO in Windows.

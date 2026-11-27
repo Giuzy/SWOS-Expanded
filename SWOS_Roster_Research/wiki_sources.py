@@ -52,6 +52,16 @@ def domestic_query(code,year=2026,kinds=None):
       FILTER NOT EXISTS {{ ?league wdt:P576 ?end. FILTER(?end < "{year}-07-01T00:00:00Z"^^xsd:dateTime) }}
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,mul". }}
     }}"""
+def squad_templates(body):
+    # Balance nested templates (e.g. flagicon), which otherwise truncate rows before name=.
+    for m in re.finditer(r"\{\{\s*(?:fs[ _]player2?|football[ _]squad[ _]player)\s*\|",body,re.I):
+        depth=1
+        for token in re.finditer(r"\{\{|\}\}",body[m.end():]):
+            depth+=1 if token.group()=="{{" else -1
+            if depth==0:
+                yield body[m.end():m.end()+token.start()]
+                break
+
 def squad_rows(wikitext):
     # Only explicit senior/current squad headings and football squad templates.
     # No arbitrary article links, past players, reserve/youth or loan-out lists.
@@ -65,12 +75,12 @@ def squad_rows(wikitext):
         if excluded or title not in {"current squad","first team squad","first team","squad","current first team squad"}:continue
         # Restrict to the heading's direct content; any subheading ends it.
         body=wikitext[h.end():headings[i+1].start() if i+1<len(headings) else len(wikitext)]
-        for m in re.finditer(r"\{\{\s*(?:fs[ _]player2?|football[ _]squad[ _]player)\s*\|([\s\S]*?)\}\}",body,re.I):
-            t=re.search(r"(?:^|\|)\s*name\s*=\s*\[\[([^\]|#]+)(?:\|([^\]]+))?\]\]",m.group(1),re.I)
+        for template in squad_templates(body):
+            t=re.search(r"(?:^|\|)\s*name\s*=\s*\[\[([^\]|#]+)(?:\|([^\]]+))?\]\]",template,re.I)
             if not t:continue
             link=t.group(1).strip();label=(t.group(2) or re.sub(r"\s*\([^()]*\)$","",link)).strip()
             if ":" in link or not valid_club_name(label) or "{{" in label:continue
-            role=re.search(r"(?:^|\|)\s*pos\s*=\s*([^|{}\[\]]+)",m.group(1),re.I)
+            role=re.search(r"(?:^|\|)\s*pos\s*=\s*([^|{}\[\]]+)",template,re.I)
             pair=(link,label,role.group(1).strip() if role else None)
             if pair not in rows:rows.append(pair)
     return rows
@@ -189,6 +199,8 @@ def selftest():
 {{Fs player|name=[[Old Player]]}}
 """
     assert squad_names(text)==[("Player One","Player One"),("Player Two (footballer)","Player Two")]
+    assert squad_rows("==Current squad==\n{{Fs player|nat={{flagicon|SEN}}|pos=GK|name=[[New Player]]}}")==[("New Player","New Player","GK")]
+    assert not squad_rows("==Current squad==\n{{Fs player|nat={{flagicon|SEN}}|name=[[Incomplete Player]]")
     assert not squad_names("==Youth team==\n{{Fs player|name=[[Wrong]]}}")
     assert not squad_names("==Women\x27s team==\n===Current squad===\n{{Fs player|name=[[Wrong]]}}")
     assert not valid_club_name("Women FC") and valid_club_name("Paro FC")

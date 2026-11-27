@@ -16,8 +16,10 @@ NON_DOMESTIC=re.compile(r"\b(defunct|discontinued|former|international|regional|
 ALIASES={"ATG":("Antigua and Barbuda",),"BIH":("Bosnia and Herzegovina",),"BRU":("Brunei",),"CGO":("Congo","Congo-Brazzaville","Republic of the Congo"),"COD":("DR Congo","Democratic Republic of the Congo","Congo-Kinshasa"),"CIV":("Ivory Coast","Côte d'Ivoire"),"CPV":("Cape Verde","Cabo Verde"),"CTA":("Central African Republic",),"EQG":("Equatorial Guinea",),"GAM":("Gambia","The Gambia"),"KOR":("South Korea","Korea Republic"),"PRK":("North Korea","Korea DPR"),"CHN":("China PR","China"),"HKG":("Hong Kong",),"MAC":("Macau","Macao"),"MKD":("North Macedonia",),"MYA":("Myanmar",),"PLE":("Palestine",),"SKN":("Saint Kitts and Nevis","St. Kitts and Nevis"),"LCA":("Saint Lucia",),"VIN":("Saint Vincent and the Grenadines",),"SWZ":("Eswatini","Swaziland"),"TLS":("East Timor","Timor-Leste"),"TRI":("Trinidad and Tobago",),"TCA":("Turks and Caicos Islands",),"VGB":("British Virgin Islands",),"VIR":("U.S. Virgin Islands","US Virgin Islands","United States Virgin Islands"),"USA":("United States",),"TPE":("Chinese Taipei","Taiwan"),"TAH":("Tahiti",),"VAN":("Vanuatu",),"SOL":("Solomon Islands",),"KSA":("Saudi Arabia",),"UAE":("United Arab Emirates",),"SRI":("Sri Lanka",),"TAN":("Tanzania",),"STP":("São Tomé and Príncipe","Sao Tome and Principe")}
 # Positively inspected archive sections. No name-based guess of new routes.
 RSSSF={
- ("AFG",2026):("https://www.rsssf.org/tablesa/afgh2026b.html","Afghanistan 2026",(("Afghanistan Champions League 2026","Afghanistan Champions League","LEAGUE_DIVISION",("Final Table:",),10,18),)),
- ("AIA",2026):("https://www.rsssf.org/tablesa/anguilla2026.html","Anguilla 2026",(("AFA Football League 2026","AFA Football League","LEAGUE_DIVISION",("Final Table:",),10,18),("President's Cup 2026","President's Cup","NATIONAL_CUP",("Group 1","Group 2"),5,4))),
+ ("AFG",2026):("https://www.rsssf.org/tablesa/afgh2026b.html","Afghanistan 2026",(("Afghanistan Champions League 2026","Afghanistan Champions League","LEAGUE_DIVISION",(("Final Table:","Halfway Table:","Table:"),),10,18),)),
+ ("AIA",2026):("https://www.rsssf.org/tablesa/anguilla2026.html","Anguilla 2026",(("AFA Football League 2026","AFA Football League","LEAGUE_DIVISION",(("Final Table:","Halfway Table:","Table:"),),10,18),("President's Cup 2026","President's Cup","NATIONAL_CUP",("Group 1","Group 2"),5,4))),
+ ("BHU",2026):("https://www.rsssf.org/tablesb/bhutan2026.html","Bhutan 2026",(("Premier League 2026","Bhutan Premier League","LEAGUE_DIVISION",(("Final Table:","Halfway Table:","Table:"),),10,18),)),
+ ("CAM",2026):("https://www.rsssf.org/tablesc/cambod2027.html","Cambodia 2026/27",(("Cambodia Premier League 2026/27","Cambodia Premier League","LEAGUE_DIVISION",(("Table:","Final Table:"),),11,40),)),
 }
 
 def walk(node):
@@ -126,20 +128,23 @@ def directory_evidence(row,entities,revision,year):
     return packet,seed
 
 RANK=re.compile(r"^(\d+)\.\s*(.+?)\s{2,}(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+\d+\s*-\s*\d+\s+")
-def rank_table(lines,at,count,max_games):
+def rank_table(lines,at,count,max_games,allow_names=()):
     names=[]
     for line in lines[at+1:]:
-        if not line or re.fullmatch(r"[-= ]+",line):continue
+        if not line:
+            if names and len(names)==count:break
+            continue
+        if re.fullmatch(r"[-= ]+",line):continue
         m=RANK.match(line)
         if not m:break
         rank,name,played,w,d,l=m.groups()
-        if int(rank)!=len(names)+1 or not 0<=int(played)<=max_games or int(w)+int(d)+int(l)!=int(played) or BAD.search(name) or "\ufffd" in name:raise ValueError("RSSSF unexpected rank/team row")
+        if int(rank)!=len(names)+1 or not 0<=int(played)<=max_games or int(w)+int(d)+int(l)!=int(played) or (BAD.search(name) and name not in allow_names) or "\ufffd" in name:raise ValueError("RSSSF unexpected rank/team row")
         names.append(name)
         if len(names)>count:raise ValueError("RSSSF unexpected participant count")
     if len(names)!=count or len({norm(x) for x in names})!=count:raise ValueError("RSSSF incomplete/ambiguous participant table")
     return sorted(names)
 
-def rsssf_packets(raw,country,year):
+def rsssf_packets(raw,country,year,errors=None):
     url,title,routes=RSSSF[country,year]
     try:html=raw.decode("utf-8")
     except UnicodeDecodeError:html=raw.decode("cp1252")
@@ -147,20 +152,33 @@ def rsssf_packets(raw,country,year):
     if not any(n.tag in ("title","h1","h2") and heading(n)==title for n in nodes):raise ValueError("RSSSF edition heading missing")
     packets=[]
     for section,name,kind,markers,count,max_games in routes:
-        positions=[i for i,n in enumerate(nodes) if n.tag in ("h3","h4","h5") and heading(n)==section]
-        if len(positions)!=1:raise ValueError("RSSSF section missing/ambiguous: "+section)
-        blocks=[]
-        for n in nodes[positions[0]+1:]:
-            if n.tag in ("h1","h2","h3","h4","h5"):break
-            if n.tag=="pre":blocks.append(rawtext(n))
-        lines=[x.strip() for x in "\n".join(blocks).splitlines()]
-        participants=[]
-        for marker in markers:
-            tables={tuple(rank_table(lines,i,count,max_games)) for i,line in enumerate(lines) if line==marker}
-            if len(tables)!=1:raise ValueError("RSSSF table missing/ambiguous: "+section+"/"+marker)
-            participants.extend(next(iter(tables)))
-        if len({norm(x) for x in participants})!=len(participants):raise ValueError("RSSSF duplicate entrants")
-        packets.append({"source":"RSSSF","sourceId":name,"country":country,"kind":kind,"name":name,"season":str(year),"sourceUrl":url,"sourceSection":section,"identityEvidence":True,"scope":"SEASON_PARTICIPANT_LABELS_NOT_JULY1","participants":[{"name":n} for n in sorted(participants)]})
+        try:
+            positions=[i for i,n in enumerate(nodes) if n.tag in ("h3","h4","h5") and heading(n)==section]
+            if len(positions)!=1:raise ValueError("RSSSF section missing/ambiguous: "+section)
+            blocks=[]
+            for n in nodes[positions[0]+1:]:
+                if n.tag in ("h1","h2","h3","h4","h5"):break
+                if n.tag=="pre":blocks.append(rawtext(n))
+            lines=[x.strip() for x in "\n".join(blocks).splitlines()]
+            participants=[]
+            # This one verified senior entrant is called Academy. Never relax the global youth filter.
+            allowed=("BFF Academy FC",) if country=="BHU" and section=="Premier League 2026" else ()
+            for marker in markers:
+                alternatives=(marker,) if isinstance(marker,str) else marker
+                tables=set();invalid=[]
+                for i,line in enumerate(lines):
+                    if line not in alternatives:continue
+                    try:tables.add(tuple(rank_table(lines,i,count,max_games,allowed)))
+                    except ValueError as exc:invalid.append(str(exc))
+                if len(tables)!=1:raise ValueError("RSSSF table missing/ambiguous: "+section+"/"+"/".join(alternatives)+"; "+"; ".join(invalid))
+                if invalid and errors is not None:errors.append(["RSSSF "+section,"Some table copies invalid: "+"; ".join(invalid)])
+                participants.extend(next(iter(tables)))
+            if len({norm(x) for x in participants})!=len(participants):raise ValueError("RSSSF duplicate entrants")
+            season=title.rsplit(" ",1)[-1]
+            packets.append({"source":"RSSSF","sourceId":name,"country":country,"kind":kind,"name":name,"season":season,"sourceUrl":url,"sourceSection":section,"identityEvidence":True,"scope":"SEASON_PARTICIPANT_LABELS_NOT_JULY1","participants":[{"name":n} for n in sorted(participants)]})
+        except ValueError as exc:
+            if errors is None:raise
+            errors.append(["RSSSF "+section,str(exc)])
     return packets
 
 def observation_key(p):
@@ -191,10 +209,10 @@ class Catalogue:
     def __init__(self,cache,national,refresh=False,wikipedia=True,rsssf=True):
         self.cache=Path(cache);self.national=national;self.refresh=refresh;self.wikipedia=wikipedia;self.rsssf=rsssf
         self.directory=None;self.directory_error=None;self.revision=None
-    def _download(self,url,validate):
+    def _download(self,url,validate,ttl=7*86400):
         self.cache.mkdir(parents=True,exist_ok=True)
         p=self.cache/(hashlib.sha256(url.encode()).hexdigest()+".bin")
-        if p.exists() and not self.refresh and time.time()-p.stat().st_mtime<7*86400:
+        if p.exists() and not self.refresh and time.time()-p.stat().st_mtime<ttl:
             try:return validate(p.read_bytes())
             except (ValueError,KeyError,TypeError,RuntimeError):pass
         raw=fetch(urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"application/json,text/html"}),timeout=15,attempts=2,total=35,limit=16*1024*1024)
@@ -250,7 +268,13 @@ class Catalogue:
         if self.rsssf and (country,year) in RSSSF:
             try:
                 report("RSSSF domestic "+country,"SEARCHING","exact edition/section; entrant names only")
-                pp=self._download(RSSSF[country,year][0],lambda raw:rsssf_packets(raw,country,year));packets.extend(pp)
+                def parse_archive(raw):
+                    failures=[]
+                    found=rsssf_packets(raw,country,year,failures)
+                    if not found:raise ValueError("; ".join(str(x) for x in failures))
+                    return found,failures
+                pp,failures=self._download(RSSSF[country,year][0],parse_archive,ttl=86400)
+                packets.extend(pp);errors.extend(failures)
                 report("RSSSF domestic "+country,"FOUND",f"{len(pp)} competition observations; {sum(len(p['participants']) for p in pp)} entrant labels")
             except Exception as e:errors.append(["RSSSF",str(e)]);report("RSSSF domestic "+country,"ERROR",str(e))
         if self.wikipedia:
@@ -306,6 +330,15 @@ def selftest():
     p=rsssf_packets(raw,"AFG",2026)[0]
     assert len(p["participants"])==10 and set(p["participants"][0])=={"name"} and p["season"]=="2026"
     assert observation_key(p)==observation_key(dict(p,sourceUrl="other"))
+    # A broken cup must not erase a valid league. Exact alternative table heading.
+    aia=("<h2>Anguilla 2026</h2><h4>AFA Football League 2026</h4><pre>Table:\n"+table+
+         "\n</pre><h4>President's Cup 2026</h4><pre>Group 1\ninvalid</pre>").encode()
+    errors=[];partial=rsssf_packets(aia,"AIA",2026,errors)
+    assert len(partial)==1 and partial[0]["kind"]=="LEAGUE_DIVISION" and errors
+    assert rsssf_packets(raw.replace(b"Final Table:",b"Halfway Table:"),"AFG",2026)
+    bh=("<h2>Bhutan 2026</h2><h4>Premier League 2026</h4><pre>Table:\n"+table.replace("Club 1  ","BFF Academy FC  ",1)+"\n</pre>").encode()
+    assert len(rsssf_packets(bh,"BHU",2026)[0]["participants"])==10
+    assert not rank_table(["Table:","1.A  1  1  0  0  2-0  3"],0,1,1)==[]
     for bad in (raw.replace(b"Afghanistan 2026",b"Afghanistan 2025"),raw.replace(b"Champions League 2026",b"Second League 2026"),raw.replace(b"Club 10  ",b"Women Club 10  ")):
         try:rsssf_packets(bad,"AFG",2026)
         except ValueError:pass

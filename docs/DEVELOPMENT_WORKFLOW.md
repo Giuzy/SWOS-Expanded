@@ -1,3 +1,15 @@
+## 27/11/2026 — Ricerca entrambi i BAT: sorgenti e lacune
+
+RG-RESEARCH-SOURCE-GAPS: RSSSF AFG/AIA recupero separato per sezione, BHU/CAM rotte verificate (nomi stagione, non stato 1 luglio), cache archivio 24h; TM budget per paese preservato, priorità rose sotto16, Wiki template annidati. Conflitti JSON/SQLite compatibili riconciliati per ID e ripresa automatica una volta; veri conflitti recovery readonly. Nessun cambiamento al motore o attivazione sportiva. Test sorgente aggiunti, Python/Windows/live NP. Chiudere tutti i BAT, pull GitKraken, doppio clic sui BAT ufficiali. 
+
+## 27/11/2026 — Audit push 4f58d295 e recovery rose
+
+RG-RESEARCH-PUSH-4F58: 362 file ricerca modificati, nessuna cancellazione; 13199 osservazioni giocatori invariate, SEN 273 con nuove evidenze ruolo, NGA +20 record WD della stessa lega e 18 review di identità (non 20 club nuovi). Matrice 362 voci processate, nessun avanzamento V/P o nuova evidenza sportiva nella matrice. EXTRA non concluso. Correzione recovery preparata su questo HEAD, conserva tutto; test Windows/live NP.
+
+## 27/11/2026 — Ricerca giocatori: riconciliazione osservazioni compatibili (preparato)
+
+RG-ROSTER-RECONCILE-SCOPED: se il JSON cambia durante un checkpoint, riaprire una sola volta lo stesso SQLite prima della rete, riconciliare aggiunte per paese e ID fonte; conservare entrambe le evidenze compatibili. Conflitti reali o intent di export incompatibili: recovery readonly e log del campo, nessuna sovrascrittura/reset. Doppio clic, BAT chiusi prima del pull. Test sorgente aggiunti; esecuzione integrale/Windows/live NP.
+
 ## 27/11/2026 — Estensione matrice 2627 paesi nominali
 
 Decisione utente: inserire le nuove competizioni nazionali nella matrice operativa anche senza slot nativi, usando ceOnlyEntries con researchKey stabile, ceCompetitionId null e file evidenza paese/mondo. UGA/VIE/YEM/ZAM/ZIM: 5 leghe/4 coppe candidate; VIN senza dato. Collegare solo identità fonte/edizione esatte, non inventare risultati, partecipanti o regole. Name/identity P e lacune I/?; July1 ? finché applicabilità ignota. 362 voci moderne (351 legacy + 11 CE-only); 533 legacy preservate. matrix_query modalità operativa include nuove chiavi; aggiornare INDEX e COVERAGE, nessuna registrazione sportiva prima della certificazione. RG-CE-DOMESTIC-RESEARCH-INVENTORY-EXTENSION. Test strutturali SI, Python/Windows NP.

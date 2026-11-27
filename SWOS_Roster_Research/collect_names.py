@@ -684,21 +684,30 @@ def main():
           "(not certified players)",flush=True)
     print("Canonical nominal matrix updated. NO DATA unresolved; P candidates; runtime unchanged. Errors:",len(results["errors"]))
 def launch():
-    try:main()
-    except PublicationConflict as exc:
-        print("ROSTER RECOVERY — CONFLICT: "+str(exc),flush=True)
+    # Reopen at most once after a live publication mismatch. The previous
+    # checkpoint is committed, and main's old owner/list references are closed.
+    # Store validates/merges compatible snapshots BEFORE another HTTP request.
+    for attempt in range(2):
         try:
-            dest=recover_snapshot(exc.dbpath,exc.dbpath.parent/"sources")
-        except Exception as error:
-            print("ROSTER RECOVERY — ERROR: "+str(error),flush=True)
-            print("Original SQLite and JSON preserved. Send this window log.",flush=True)
-        else:
-            print("ROSTER RECOVERY — SAVED: "+str(dest),flush=True)
-            print("Original SQLite and JSON preserved. Conflicting observations need review; send this window log.",flush=True)
-        raise SystemExit(2)
-    except StorageFailure as exc:
-        print("ROSTER STORAGE — ERROR: "+str(exc),flush=True)
-        print("Stopped without retrying the failed checkpoint. Preserve SQLite/WAL and JSON; send this window log.",flush=True)
-        raise SystemExit(2)
+            main()
+            return
+        except PublicationConflict as exc:
+            if exc.retryable and attempt==0:
+                print("ROSTER RECOVERY — RETRY: reopening committed checkpoint and reconciling published observations",flush=True)
+                continue
+            print("ROSTER RECOVERY — CONFLICT: "+str(exc),flush=True)
+            try:
+                dest=recover_snapshot(exc.dbpath,exc.dbpath.parent/"sources")
+            except Exception as error:
+                print("ROSTER RECOVERY — ERROR: "+str(error),flush=True)
+                print("Original SQLite and JSON preserved. Send this window log.",flush=True)
+            else:
+                print("ROSTER RECOVERY — SAVED: "+str(dest),flush=True)
+                print("Original SQLite and JSON preserved. Conflicting observations need review; send this window log.",flush=True)
+            raise SystemExit(2)
+        except StorageFailure as exc:
+            print("ROSTER STORAGE — ERROR: "+str(exc),flush=True)
+            print("Stopped without retrying the failed checkpoint. Preserve SQLite/WAL and JSON; send this window log.",flush=True)
+            raise SystemExit(2)
 
 if __name__=="__main__":launch()

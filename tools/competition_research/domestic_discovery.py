@@ -52,7 +52,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
     country_names={r["source"].get("name",""):r["fifa"] for r in national if r["source"].get("name")}
     archive=Discovery(Cached(root/"tools/competition_research/cache/domestic_archive",refresh),country_names) if source_catalog and year==2026 else None
     for r in progress("Domestic competition countries",targets):
-        with time_budget(120):
+        with time_budget(160):
             country=r["fifa"];label="Domestic competitions "+country
             if tm.blocked and wiki_query is None and catalogue is None:
                 report(label,"NOT SEARCHED","source access blocked");continue
@@ -67,7 +67,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                 return {f for f in ("format","regulation","movement","qualification","roundDates","evolution") if not any(p.get("fields",{}).get(f) in ("V","NA") for p in related) and (refresh or not any(x.get("field")==f for p in related for x in p.get("researchSectionLeads",[])))}
             if archive is not None:
                 try:
-                    with time_budget(20):
+                    with time_budget(10):
                         leads=archive.leads({"world":"2627","country":country})
                     merged={p["url"]:p for p in old.get("archiveSourceLeads",[])}
                     for lead in leads:merged.setdefault(lead["url"],lead)
@@ -75,7 +75,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                 except Exception as e:errors.append(["RSSSF archive discovery",str(e)]);incomplete=True
             if catalogue is not None:
                 try:
-                    with time_budget(45):
+                    with time_budget(40):
                         packets,seeds,source_errors=catalogue.country(country,year,rule_fields=rule_fields)
                     if source_errors:errors.extend(source_errors);incomplete=True
                     keys={observation_key(p) for p in obs if p.get("source") in ("WikipediaDirectory","RSSSF")}
@@ -96,14 +96,18 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                 from wiki_sources import domestic_query,qid,valid_club_name
                 from collect_names import clubs_query
                 try:
-                    with time_budget(45):
-                        report(label+"/Wikidata","SEARCHING","missing competition identities; maximum 45s for Wiki phase")
+                    with time_budget(35):
+                        report(label+"/Wikidata","SEARCHING","missing competition identities; maximum 35s for Wiki phase")
                         needed={"LEAGUE_DIVISION","NATIONAL_CUP"}-covered
-                        def wiki_rows():
-                            yield from seeds
-                            if needed:yield from wiki_query(domestic_query(country,year,needed))
-                        for r in wiki_rows():
-                            check_budget()
+                        # Save all identity leads before any expensive edition lookup.
+                        discovered=list(seeds)
+                        if needed:
+                            try:discovered.extend(wiki_query(domestic_query(country,year,needed)))
+                            except Exception as e:
+                                incomplete=True;errors.append(["Wikidata",str(e)])
+                                report(label+"/Wikidata","ERROR",str(e))
+                        edition_jobs={}
+                        for r in discovered:
                             lid=qid(r.get("league"));kind=r.get("kind");name=r.get("leagueLabel","")
                             if not lid or kind not in ("LEAGUE_DIVISION","NATIONAL_CUP") or not valid_club_name(name):continue
                             if kind=="NATIONAL_CUP" and re.search(r"\b(super\s*cup|league cup|play[- ]?off|qualification)\b",name,re.I):continue
@@ -115,6 +119,8 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                             if packet not in obs:obs.append(packet);atomic(path,old)
                             seen.add(kind)
                             if any(p.get("source")=="Wikidata" and p.get("sourceId")==lid and p.get("participants") for p in obs):continue
+                            edition_jobs.setdefault(lid,(r,packet))
+                        for lid,(r,packet) in edition_jobs.items():
                             try:
                                 editions={}
                                 report(label+"/Wikidata/"+lid,"SEARCHING","edition and participants")

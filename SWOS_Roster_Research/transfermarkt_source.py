@@ -226,6 +226,19 @@ def table_links(page,pattern,with_positions=False):
     if len(candidates)!=1:raise ValueError("Primary data table missing or ambiguous: "+str(len(candidates)))
     return candidates[0]
 
+def prioritize_squads(owner):
+    """Prioritize missing names; never mark a short or previously seen squad complete."""
+    counts={}
+    for row in owner.get("transfermarkt_players",[]):
+        key=tuple(row.get(k) for k in ("country","transfermarktClubId","competition","season","level"))
+        pid=row.get("transfermarktPlayerId")
+        if pid:counts.setdefault(key,set()).add(pid)
+    def score(row):
+        key=tuple(row.get(k) for k in ("country","transfermarktClubId","competition","season","level"))
+        n=len(counts.get(key,()))
+        return (n>=16,n)
+    return sorted(owner.get("transfermarkt_clubs",[]),key=score)
+
 class Transfermarkt:
     def __init__(self,cache,cp,results,national,known,year=2026):
         self.year=year
@@ -246,7 +259,7 @@ class Transfermarkt:
         p=self.cache/(hashlib.sha256(path.encode()).hexdigest()+".html")
         if p.exists() and time.time()-p.stat().st_mtime<86400:return parse(p.read_text(encoding="utf-8"))
         req=urllib.request.Request(BASE+path,headers={"User-Agent":"SWOS-Expanded-Roster-Research/1.0 (https://github.com/Giuzy/SWOS-Expanded/issues/2)","Accept":"text/html","Accept-Language":"en"})
-        html=fetch(req,timeout=40,attempts=2,interval=5,limit=8*1024*1024).decode("utf-8",errors="replace")
+        html=fetch(req,timeout=20,attempts=2,interval=5,total=45,limit=8*1024*1024).decode("utf-8",errors="replace")
         page=parse(html)
         tmp=p.with_suffix(".part");tmp.write_text(html,encoding="utf-8");tmp.replace(p)
         return page
@@ -340,7 +353,7 @@ class Transfermarkt:
                 if self.blocked:break
                 owner=bycode[t["fifa"]]
                 if not owner.get("transfermarkt_clubs"):report("Transfermarkt players "+t["fifa"],"SKIPPED","no discovered clubs")
-                for row in progress("Transfermarkt squads "+t["fifa"],owner.get("transfermarkt_clubs",[])):
+                for row in progress("Transfermarkt squads "+t["fifa"],prioritize_squads(owner)):
                     if self.blocked:break
                     try:self.players(row,owner,set())
                     except Exception as e:
@@ -381,6 +394,9 @@ class Transfermarkt:
         else:raise ValueError("Unknown research phase")
 
 def selftest():
+    a={"country":"SEN","competition":"SEN1","season":"2026/27","level":1,"transfermarktClubId":"1"}
+    b=dict(a,transfermarktClubId="2")
+    assert prioritize_squads({"transfermarkt_clubs":[a,b],"transfermarkt_players":[dict(a,transfermarktPlayerId=str(i)) for i in range(1,17)]})==[b,a]
     country=parse('<select><option value="22" selected>Bhutan</option><option value="90">Kyrgyzstan</option></select><table><tr><td>First Tier</td></tr><tr><td><a href="/bhutan/startseite/wettbewerb/BH1L">Bhutan Premier League</a></td></tr><tr><td>Domestic Cup</td></tr><tr><td><a href="/cup/startseite/wettbewerb/BHPO">Cup</a></td></tr></table>')
     assert leagues(country,"22",1)=={"BH1L":("Bhutan Premier League",1)}
     assert NON_LEAGUE.search("Premier League Playoffs") and NON_LEAGUE.search("National Cup") and not NON_LEAGUE.search("Premier League")

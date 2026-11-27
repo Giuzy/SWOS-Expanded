@@ -58,25 +58,81 @@ def contains_additive(new,old):
     if isinstance(old,list):return len(new)>=len(old) and all(contains_additive(a,b) for a,b in zip(new,old))
     return new==old
 
+class ReconciliationConflict(ValueError):
+    def __init__(self,path):
+        super().__init__("Incompatible roster values at " + "/".join(map(str,path)))
+
+def merge_compatible(work,published,path=()):
+    """Merge independent additions; never choose between differing scalar values."""
+    if type(work) is not type(published):
+        raise ReconciliationConflict(path)
+    if work==published and encode(work)==encode(published):
+        return work
+    if isinstance(work,dict):
+        merged=dict(work)
+        for key,value in published.items():
+            merged[key]=merge_compatible(work[key],value,path+(key,)) if key in work else value
+        return merged
+    if isinstance(work,list):
+        field=path[-1] if path else None
+        if field in ("errors","positionObservations","name_matches","wiki_squad_players",
+                     "wiki_club_leads","wikidata_undated_players","domestic_source_observations","identity_candidates"):
+            # Append-only observations, not authoritative player records.
+            merged=list(work);seen={encode(row) for row in work}
+            for row in published:
+                key=encode(row)
+                if key not in seen:
+                    merged.append(row);seen.add(key)
+            return merged
+        if contains_additive(work,published):return work
+        if contains_additive(published,work):return published
+        if field in ("targets","leagues","seasons","clubs","players",
+                     "alternative_clubs","alternative_players","transfermarkt_clubs","transfermarkt_players"):
+            # Source-specific identity, always inside its containing owner/edition.
+            from alternative_sources import observation_key
+            def wd(value):
+                match=re.fullmatch(r"(?:https?://www.wikidata.org/entity/)?(Q[1-9][0-9]*)",str(value or ""))
+                return match[1] if match else None
+            def key_for(row):
+                if field=="targets":return row.get("fifa")
+                if field in ("leagues","seasons","clubs"):
+                    return wd(row.get({"leagues":"league","seasons":"season","clubs":"club"}[field]))
+                if field=="players":
+                    pid=wd(row.get("player"))
+                    membership=row.get("membership")
+                    return (pid,membership.rsplit("/",1)[-1] if membership else None,
+                            row.get("start"),row.get("end")) if pid and row.get("start") else None
+                return observation_key(field,row)
+            def index(rows):
+                result={}
+                for row in rows:
+                    if not isinstance(row,dict):
+                        raise ReconciliationConflict(path)
+                    key=key_for(row)
+                    if not key or key in result:
+                        raise ReconciliationConflict(path+("missing/duplicate source identity",))
+                    result[key]=row
+                return result
+            a,b=index(work),index(published)
+            return [merge_compatible(row,b[key],path+(str(key),)) if key in b else row
+                    for key,row in a.items()]+[row for key,row in b.items() if key not in a]
+        # Unknown lists: retain the existing strict prefix-only policy.
+        if contains_additive(work,published):return work
+        if contains_additive(published,work):return published
+    raise ReconciliationConflict(path)
+
 def reconcile_additive(work,published):
-    a={k:v for k,v in work.items() if k!="errors"}
-    b={k:v for k,v in published.items() if k!="errors"}
-    if contains_additive(a,b):merged=dict(a)
-    elif contains_additive(b,a):merged=dict(b)
-    else:return None
-    errors=list(work.get("errors",[]))
-    for row in published.get("errors",[]):
-        if row not in errors:errors.append(row)
-    if "errors" in work or "errors" in published:merged["errors"]=errors
-    return merged
+    try:return merge_compatible(work,published)
+    except ReconciliationConflict:return None
 
 class StorageFailure(RuntimeError):
     """Fatal checkpoint failure, never a source acquisition error."""
 
 class PublicationConflict(StorageFailure):
-    def __init__(self,message,dbpath):
+    def __init__(self,message,dbpath,retryable=False):
         super().__init__(message)
         self.dbpath=Path(dbpath)
+        self.retryable=retryable
 
 class Store:
     """One row per target/gap, original nested observations preserved losslessly.
@@ -107,9 +163,9 @@ class Store:
                 # A previously completed export may have preceded process termination.
                 work=self.load()
                 if digest(work)!=digest(seed):
-                    merged=reconcile_additive(work,seed)
-                    if merged is None:
-                        raise PublicationConflict("Published roster changed independently; conflicting data require reconciliation",self.dbpath)
+                    try:merged=merge_compatible(work,seed)
+                    except ReconciliationConflict as exc:
+                        raise PublicationConflict(str(exc),self.dbpath) from exc
                     self._write(merged)
                     previous=int(self.db.execute("SELECT value FROM state WHERE key='generation'").fetchone()[0])
                     self._state("generation",str(previous+1))
@@ -219,7 +275,7 @@ class Store:
                 data=self.load()
                 published=self.db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()[0]
                 if digest(load_snapshot(self.path))!=published:
-                    raise PublicationConflict("Published roster changed; refusing overwrite; SQLite checkpoint retained",self.dbpath)
+                    raise PublicationConflict("Published roster changed; SQLite checkpoint retained; reconciliation required",self.dbpath,retryable=True)
                 if digest(data)==published and read(self.path).get("storage")==SCHEMA:
                     self.db.commit();return
                 paths=self._publication(data)
@@ -289,6 +345,49 @@ def selftest():
         assert load_snapshot(recovered/"candidates.json")==expected==load_snapshot(p)
         assert reconcile_additive({"x":[1,2]},{"x":[1]})=={"x":[1,2]}
         assert reconcile_additive({"x":[1]},{"x":[2]}) is None
+        # Independent country and source-ID additions, not name matching.
+        row={"country":"SEN","competition":"SEN1","season":"2026/27","level":1,
+             "transfermarktClubId":"123","transfermarktPlayerId":"456","playerLabel":"A"}
+        left={"targets":[{"fifa":"SEN","transfermarkt_players":[row]},
+                         {"fifa":"CAM","left":1}],"errors":[{"phase":"left"}]}
+        right={"targets":[{"fifa":"CAM","right":2},{"fifa":"SEN","transfermarkt_players":[
+            dict(row,transfermarktPlayerId="789"),dict(row,positionObservations=[{"group":"DEF"}])]}],
+            "errors":[{"phase":"right"}]}
+        merged=merge_compatible(left,right)
+        assert [t["fifa"] for t in merged["targets"]]==["SEN","CAM"]
+        assert merged["targets"][1]=={"fifa":"CAM","left":1,"right":2}
+        assert [p["transfermarktPlayerId"] for p in merged["targets"][0]["transfermarkt_players"]]==["456","789"]
+        assert merged["targets"][0]["transfermarkt_players"][0]["positionObservations"]==[{"group":"DEF"}]
+        assert len(merged["errors"])==2
+        assert reconcile_additive({"targets":[{"fifa":"SEN","status":"P"}]},
+                                  {"targets":[{"fifa":"SEN","status":"NO DATA"}]}) is None
+        assert reconcile_additive({"transfermarkt_players":[row]},
+                                  {"transfermarkt_players":[dict(row,playerLabel="B")]}) is None
+        assert merge_compatible({"domestic_source_observations":[{"source":"WD"}]},
+                                {"domestic_source_observations":[{"source":"RSSSF"}]})=={
+                                    "domestic_source_observations":[{"source":"WD"},{"source":"RSSSF"}]}
+        a_wd={"leagues":[{"league":"Q1","seasons":[{"season":"Q2","clubs":[
+            {"club":"Q3","players":[{"player":"Q4","start":"2026-01-01"}]}]}]}]}
+        b_wd={"leagues":[{"league":"Q1","seasons":[{"season":"Q2","clubs":[
+            {"club":"Q3","players":[{"player":"Q5","start":"2026-01-01"}]}]}]}]}
+        assert len(merge_compatible(a_wd,b_wd)["leagues"][0]["seasons"][0]["clubs"][0]["players"])==2
+        with tempfile.TemporaryDirectory() as sub:
+            q=Path(sub)/"candidates.json";db=Path(sub)/"resume.sqlite3"
+            base={"targets":[{"fifa":"SEN"},{"fifa":"CAM"}],"existing_club_gaps":{},"errors":[]}
+            atomic(q,base)
+            w=Store(q,db);work=w.load();work["targets"][0]["transfermarkt_players"]=[row]
+            w.save(work)
+            external=load_snapshot(q);external["targets"][1]["wiki_squad_players"]=[{"playerLabel":"C"}]
+            for dest,value in w._publication(external).items():atomic(dest,value)
+            try:w.publish()
+            except PublicationConflict as exc:assert exc.retryable
+            else:raise AssertionError("Unexpected publication overwrite")
+            w.close()
+            w=Store(q,db);w.publish()
+            assert load_snapshot(q)["targets"]==w.load()["targets"]==[
+                {"fifa":"SEN","transfermarkt_players":[row]},
+                {"fifa":"CAM","wiki_squad_players":[{"playerLabel":"C"}]}]
+            w.close()
         s=Store(p,Path(d)/"test.sqlite3")
         published=load_snapshot(p)
         divergent=load_snapshot(p)

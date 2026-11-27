@@ -1,3 +1,6 @@
+## 27/11/2026 — v00.13.351: START CAREER, tutti i 211 paesi
+Il selettore club iniziale 2627 condivide proiezione regionale e colori del WORLD OG. 91 paesi nativi + Belize/Cambogia (18 club, 496 nomi, consultazione readonly) + 118 inattivi. Nessuna carriera avviabile dai due paesi nominali finché non sono disponibili TEAM/EXTRA e competizioni. CT, 9697, offerte e modalità OG restano fuori dal nuovo scope. Causa, dipendenze, esiti e QA in RG-START-CLUB-PICKER-2627; Windows/gameplay/visual/CAR NP.
+
 ## 27/11/2026 — v00.13.350 Belize/Cambogia, WORLD nominale
 Nel WORLD 2627 club, Belize e Cambogia aprono la lista nativa OG dei club e poi una lista nominale readonly dei giocatori con lo stesso menu OG, senza statistiche. 18 club, 496 appartenenze nominali (anche >30), identità fonte conservate; non sono nuovi TEAM/EXTRA giocabili. Nessun cambio CE/CAR, 9697/CT invariati per scope. C/Windows/gameplay/visual NP. Vedi RG-WORLD-NOMINAL-PILOT-2627.
 

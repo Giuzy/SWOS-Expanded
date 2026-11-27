@@ -7577,6 +7577,27 @@ void SelectTeamToManage(void)
     ChooseTeamsDialog(1, 0, 0, _aSelectTeamToMa, (void *)0);
 }
 
+#ifdef SWOS_SDL_BUILD
+/* Scoped to the club START caller, never national coach, offers, CLASSIC,
+ * DIY or general team selection. Nominal rows are read-only. */
+static int s_expStartClubPicker;
+int Expanded_StartClubPickerActive(void) { return s_expStartClubPicker; }
+void Expanded_SelectStartClubToManage(void)
+{
+    if(!ExpandedNational_Active()){
+        SelectTeamToManage();
+        return;
+    }
+    const int previous=s_expStartClubPicker;
+    const uint16_t oldCompetitionOnly=_chooseCompetitionOnly;
+    s_expStartClubPicker=1;
+    _chooseCompetitionOnly=0; /* real club selection, not WORLD competition selection */
+    SelectTeamToManage();
+    _chooseCompetitionOnly=oldCompetitionOnly;
+    s_expStartClubPicker=previous;
+}
+#endif
+
 
 /* ==========================================================================
  * Chunk 204 — Career_ShowAddInternationalPlayerDialog

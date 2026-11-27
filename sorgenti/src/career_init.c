@@ -524,7 +524,12 @@ void ChooseTeamAndStartCareer(void)
         fprintf(stderr,"[expanded11] InitCareer: completed team=%04x\n",(unsigned)offerTeam);
         fflush(stderr);
     } else {
+#ifdef SWOS_SDL_BUILD
+        { extern void Expanded_SelectStartClubToManage(void);
+          Expanded_SelectStartClubToManage(); }
+#else
         SelectTeamToManage();
+#endif
         if (_selectedTeamPtr == 0) {
 #ifdef SWOS_SDL_BUILD
             Expanded_CareerDiscardAbortedStart("team-selection-back");

@@ -1,3 +1,6 @@
+## 27/11/2026 — START club picker gate v00.13.351
+V START SelectTeamToManage path excluded by WORLD-only _chooseCompetitionOnly checks. Explicit scoped caller wraps native dialog; same modernClubPicker predicate controls regional native ID projection and append of national-only rows; existing mode1/3/4 guard remains single authority for dark/nominal rows. No changes to selected team commit/InitCareer, CE or CAR. See RG-START-CLUB-PICKER-2627.
+
 ## 27/11/2026 — v00.13.350 Belize/Cambogia, WORLD nominale
 Nel WORLD 2627 club, Belize e Cambogia aprono la lista nativa OG dei club e poi una lista nominale readonly dei giocatori con lo stesso menu OG, senza statistiche. 18 club, 496 appartenenze nominali (anche >30), identità fonte conservate; non sono nuovi TEAM/EXTRA giocabili. Nessun cambio CE/CAR, 9697/CT invariati per scope. C/Windows/gameplay/visual NP. Vedi RG-WORLD-NOMINAL-PILOT-2627.
 

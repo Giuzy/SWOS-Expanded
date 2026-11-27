@@ -48,7 +48,21 @@ int main(void)
         if(r->og.teamFileId!=255u)assert(ExpandedNational_ByHome(r->og.teamFileId)==r);
     }
     for(unsigned i=0;i<6u;i++)assert(regions[i]==expected_regions[i]);
-    /* Exact WORLD coverage: 91 native country IDs, 120 inactive rows. */
+    /* START and WORLD use one gate, with no leakage into ordinary pickers.
+     * START overrides stale national/career globals, never an offer. */
+    assert(ExpandedNational_ClubPickerEnabled(1,0,0,0,0));
+    assert(ExpandedNational_ClubPickerEnabled(1,1,0,1,0));
+    assert(ExpandedNational_ClubPickerEnabled(0,1,1,0,0));
+    assert(!ExpandedNational_ClubPickerEnabled(0,1,1,1,0));
+    assert(!ExpandedNational_ClubPickerEnabled(0,1,0,0,0));
+    assert(!ExpandedNational_ClubPickerEnabled(0,0,1,0,0));
+    assert(!ExpandedNational_ClubPickerEnabled(1,1,0,0,1));
+    assert(!ExpandedNational_ClubPickerEnabled(0,1,1,0,1));
+    active=WORLD_9697;
+    assert(!ExpandedNational_ClubPickerEnabled(1,1,0,0,0));
+    assert(!ExpandedNational_ClubPickerEnabled(0,1,1,0,0));
+    active=WORLD_2627;
+    /* Exact WORLD/START coverage: 91 native country IDs, 120 no-home rows. */
     {
         const uint8_t r0[]={0,47,52,1,53,76,2,54,3,4,5,6,7,8,10,11,12,13,61,14,63,15,25,16,17,19,20,86,88,21,90,22,23,24,92,94,93,26,27,28,29,18,30,31,32,33,41,78,34,35,36,37,38,39,40,255};
         const uint8_t r1[]={42,59,79,91,69,97,255};

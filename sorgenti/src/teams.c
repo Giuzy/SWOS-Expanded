@@ -3206,6 +3206,7 @@ static uint16_t groupedLeagueRows(const LeagueGroups *lg, uint8_t *compEntry,
  * Missing this prototype stopped the Windows 0.13.51 syntax-only build. */
 extern int Expanded_UnemployedWorldPickerActive(void);
 extern int Expanded_OfferPickerActive(void);
+extern int Expanded_StartClubPickerActive(void);
 extern uint8_t Expanded_OfferPickerDivision(void);
 extern int Expanded_OfferPickerCupEligible(uint8_t,uint8_t);
 /* Viewer-only rows; never install a fake country or league in the OG graph. */
@@ -3286,6 +3287,9 @@ void SelectTeamsFinalMenu(uint16_t mode)
     union { void *alignment; uint8_t ids[65]; } worldClubCountries;
     const ExpNominalCountry *nominalCountry=NULL;
     const ExpNominalClub *nominalClub=NULL;
+    const int modernClubPicker=ExpandedNational_ClubPickerEnabled(
+        Expanded_StartClubPickerActive(),_gameType==GAME_TYPE_CAREER,
+        _chooseCompetitionOnly,_isNationalSelector,Expanded_OfferPickerActive());
 #endif
 
     _leagueNumber = 0;
@@ -3671,12 +3675,9 @@ loc_E2D0:
         if (d7 != 254 && World_ContinentCountries((uint8_t)d7))    /* (a world's, its new countries in) */
             a5 = (void **)World_ContinentCountries((uint8_t)d7);
 #ifdef SWOS_SDL_BUILD
-        /* Only the requested modern WORLD club viewer is regrouped.
-         * The same IDs are used for displaying AND selecting rows. */
-        if(ExpandedNational_Active() && _gameType==GAME_TYPE_CAREER &&
-           _chooseCompetitionOnly && !_isNationalSelector &&
-           !Expanded_OfferPickerActive() &&
-           (d7>=CN_AFRICA && d7<=CN_OCEANIA)){
+        /* WORLD and START share the same modern club country projection.
+         * The same native IDs are used for displaying AND selecting rows. */
+        if(modernClubPicker && (d7>=CN_AFRICA && d7<=CN_OCEANIA)){
             const uint8_t *sources[6];
             for(unsigned i=0;i<6u;i++)sources[i]=World_ContinentCountries((uint8_t)(80u+i));
             if(ExpandedNational_WorldClubCountries((uint8_t)d7,sources,
@@ -3701,11 +3702,12 @@ loc_E2D0:
 
 #ifdef SWOS_SDL_BUILD
     s_expNationalPickerMode=0;
-    if(ExpandedNational_Active() && _gameType==GAME_TYPE_CAREER &&
-       _chooseCompetitionOnly && !Expanded_OfferPickerActive() && d7>=80u && d7<=85u) {
-        /* National careers see the regional national squads. Club careers
-         * retain native country rows plus inactive national-only rows. */
-        s_expNationalPickerMode=_isNationalSelector?2u:1u;
+    if(d7>=80u && d7<=85u && (modernClubPicker ||
+       (ExpandedNational_Active() && _gameType==GAME_TYPE_CAREER &&
+        _chooseCompetitionOnly && _isNationalSelector && !Expanded_OfferPickerActive()))) {
+        /* Same 211-country projection in START and WORLD club lists.
+         * CT WORLD remains the original national-squad path. */
+        s_expNationalPickerMode=modernClubPicker?1u:2u;
         if(s_expNationalPickerMode==2u){countryNamesPtr=_countryNames;cnCount=0;}
         s_expNationalPickerBase=cnCount;
         for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){

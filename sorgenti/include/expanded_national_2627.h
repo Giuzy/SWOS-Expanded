@@ -259,7 +259,15 @@ static inline const ExpandedNationalRow *ExpandedNational_ByHome(uint16_t home)
         if(kExpandedNational2627[i].og.teamFileId==home)return &kExpandedNational2627[i];
     return NULL;
 }
-/* WORLD club navigation only. Use the same modern confederation as
+/* The explicit START scope is authoritative even if old career selector
+ * globals still describe a previous national job. Offers never opt in. */
+static inline int ExpandedNational_ClubPickerEnabled(int startClub,int career,
+    int competitionOnly,int national,int offer)
+{
+    return ExpandedNational_Active() && !offer &&
+        (startClub || (career && competitionOnly && !national));
+}
+/* WORLD / START club navigation only. Use the same modern confederation as
  * national WORLD, without changing native home IDs or the source lists.
  * Source lists are the existing sentinel-terminated world_data.c arrays. */
 static inline int ExpandedNational_WorldClubCountries(

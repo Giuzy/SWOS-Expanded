@@ -279,7 +279,9 @@
  * regions screen. Isolated/headless + Windows build; gameplay NOT PROVEN. */
 /* v00.13.350: modern WORLD nominal viewer, Belize and Cambodia, names only.
  * No native TEAM/EXTRA/CE activation, statistics or CAR change. Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.350"
+/* v00.13.351: START CAREER shares modern WORLD country/nominal viewer.
+ * No new playable club or CE fixture; Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.351"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

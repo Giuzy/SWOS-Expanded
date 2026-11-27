@@ -2,7 +2,7 @@
 """Read-only Expanded catalogue survey; Wikidata candidates, not runtime data."""
 import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
-from roster_storage import Store, PublicationConflict, recover_snapshot, selftest as storage_selftest
+from roster_storage import Store, StorageFailure, PublicationConflict, recover_snapshot, selftest as storage_selftest
 from http_retry import fetch, HostCooldown, DeadlineExceeded, BLOCKED, INFLIGHT
 from research_status import report, outcome
 from player_roles import position_evidence, merge_positions
@@ -69,6 +69,27 @@ class Checkpoint:
         self.expected = self.path.read_bytes()
         self.dirty = False
         return True
+
+class SQLiteCheckpoint(Checkpoint):
+    def __init__(self, path, data, store):
+        super().__init__(path, data, None)
+        self.store=store
+        self.failed=False
+
+    def save(self):
+        if self.failed:raise StorageFailure("Roster checkpoint failed; close and reopen before continuing")
+        if not self.dirty:return False
+        try:
+            changed=self.store.save(self.data)
+            self.dirty=False
+            if changed:self.store.publish()
+        except BaseException as exc:
+            self.failed=True
+            if isinstance(exc, StorageFailure) or not isinstance(exc, Exception):raise
+            raise StorageFailure("Roster checkpoint failed: "+str(exc)) from exc
+        if changed:report("Roster country JSON","SAVED","SQLite checkpoint published")
+        return changed
+
 
 def chunks(items, size):
     for i in range(0, len(items), size):
@@ -304,6 +325,38 @@ def main():
             else:
                 raise AssertionError("Concurrent modification not detected")
         storage_selftest()
+        from transfermarkt_source import Transfermarkt
+        from roster_storage import atomic, load_snapshot
+        with TemporaryDirectory() as folder:
+            path=Path(folder)/"candidates.json"
+            dbpath=path.parent/"test.sqlite3"
+            initial={"targets":[{"fifa":"CAM","transfermarkt_clubs":[{"country":"CAM","club":"Boeung Ket","transfermarktClubId":"123"}]}],"existing_club_gaps":{},"errors":[]}
+            atomic(path,initial)
+            store=Store(path,dbpath)
+            try:
+                data=store.load()
+                cp=SQLiteCheckpoint(path,data,store)
+                tm=Transfermarkt(path.parent,cp,data,[],{})
+                owner=data["targets"][0]
+                # Genuine source error remains nonfatal and can be saved.
+                tm.error("CAM/source",ValueError("bad source"))
+                assert tm.error_count==1 and len(data["errors"])==1
+                external=load_snapshot(path)
+                external["targets"][0]["externalEdit"]="keep"
+                for dest,value in store._publication(external).items():atomic(dest,value)
+                def players(row,owner,known):
+                    cp.append(cp.ensure(owner,"transfermarkt_players",[]),{"transfermarktPlayerId":"456"})
+                    cp.save()
+                tm.players=players
+                try:tm.acquire("players",[{"fifa":"CAM"}])
+                except PublicationConflict as exc:
+                    assert exc.dbpath==dbpath and cp.failed and tm.error_count==1
+                    assert len(data["errors"])==1 and load_snapshot(path)==external
+                    assert store.load()==data and store.load()["targets"][0]["transfermarkt_players"][0]["transfermarktPlayerId"]=="456"
+                    dest=recover_snapshot(exc.dbpath,path.parent/"recovery")
+                    assert load_snapshot(dest/"candidates.json")==data
+                else:raise AssertionError("Source handler masked publication conflict")
+            finally:store.close()
         sample_gaps={"a":{"association":"ITA","name":"Same"},"b":{"association":"ENG","name":"Same"},"c":{"association":"ITA","name":"Other","identity_candidates":["Q9"]}}
         assert sorted((code,len(group)) for code,group in identity_batches(sample_gaps,set(sample_gaps)))==[("ENG",1),("ITA",1)]
         cp=Checkpoint(None,{},None)
@@ -369,21 +422,7 @@ def main():
     try:store.publish()
     except BaseException:
         store.close();raise
-    cp=Checkpoint(path,results,None)
-    publication_failed=False
-    def save_sqlite():
-        nonlocal publication_failed
-        if publication_failed:raise RuntimeError("Roster publication failed; close and reopen before continuing")
-        if not cp.dirty:return False
-        changed=store.save(results);cp.dirty=False
-        if changed:
-            try:store.publish()
-            except BaseException:
-                publication_failed=True
-                raise
-            report("Roster country JSON","SAVED","SQLite checkpoint published")
-        return changed
-    cp.save=save_sqlite
+    cp=SQLiteCheckpoint(path,results,store)
     if results.get("researchYear",2026)!=YEAR:
         store.close();raise RuntimeError("Research year mismatch")
     cp.update(results,status="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",map_sha256=hashlib.sha256(raw).hexdigest(),researchYear=YEAR)
@@ -456,7 +495,9 @@ def main():
             if c.get("administrative_test") or c.get("roster",{}).get("template")!="TEST_ZERO":continue
             key="pool:"+str(c["key"]);cs=rawmap.get(c.get("country"),set());known[key]=set()
             cp.ensure(gaps,key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
-    save()
+    try:save()
+    except BaseException:
+        store.close();raise
     from transfermarkt_source import Transfermarkt
     from wiki_sources import Wiki, league_club_query, valid_club_name, qid as safe_qid
     from season_config import edition_label
@@ -470,6 +511,8 @@ def main():
                 from alternative_sources import acquire
                 acquire(results,cp,CACHE,root,known,phase=phase,year=YEAR)
                 save()
+            except StorageFailure:
+                raise
             except Exception as e:
                 error={"phase":"OpenFootballBase/"+phase,"error":str(e)}
                 if error not in results["errors"]:cp.append(results["errors"],error)
@@ -623,7 +666,7 @@ def main():
         backfill(gaps.values(),cp,tm,run_role,YEAR,allow_tm=not args.skip_transfermarkt,allow_wd=not args.alternative_only)
     finally:
         try:
-            if not publication_failed:
+            if not cp.failed:
                 flush_query_status();store.publish()
         finally:store.close()
     groups=[extra_candidates_by_name(e,known[uid]) for uid,e in gaps.items() if uid in known]
@@ -647,6 +690,10 @@ def launch():
         else:
             print("ROSTER RECOVERY — SAVED: "+str(dest),flush=True)
             print("Original SQLite and JSON preserved. Conflicting observations need review; send this window log.",flush=True)
+        raise SystemExit(2)
+    except StorageFailure as exc:
+        print("ROSTER STORAGE — ERROR: "+str(exc),flush=True)
+        print("Stopped without retrying the failed checkpoint. Preserve SQLite/WAL and JSON; send this window log.",flush=True)
         raise SystemExit(2)
 
 if __name__=="__main__":launch()

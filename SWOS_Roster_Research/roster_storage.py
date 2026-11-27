@@ -70,7 +70,10 @@ def reconcile_additive(work,published):
     if "errors" in work or "errors" in published:merged["errors"]=errors
     return merged
 
-class PublicationConflict(RuntimeError):
+class StorageFailure(RuntimeError):
+    """Fatal checkpoint failure, never a source acquisition error."""
+
+class PublicationConflict(StorageFailure):
     def __init__(self,message,dbpath):
         super().__init__(message)
         self.dbpath=Path(dbpath)

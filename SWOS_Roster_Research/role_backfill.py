@@ -78,7 +78,7 @@ def apply_wd(cp,targets,rows,tm=False):
     return changed
 
 def backfill(owners,cp,tm,run,year,allow_tm=True,allow_wd=True):
-    from transfermarkt_source import table_links,season_label,BASE
+    from transfermarkt_source import table_links,require_squad_season,BASE
     owners=list(owners)
     if allow_tm and not tm.blocked:
         for (cid,season),rows in tm_jobs(owners,year,tm.role_squad_attempts).items():
@@ -88,7 +88,7 @@ def backfill(owners,cp,tm,run,year,allow_tm=True,allow_wd=True):
             label="Missing roles TM "+rows[0]["country"]+"/"+rows[0]["club"]
             try:
                 page=tm.page(path)
-                if season_label(page,"players",rows[0]["club"],cid,year)!=season:raise ValueError("Backfill squad season mismatch")
+                require_squad_season(page,rows[0]["club"],cid,season,year)
                 players=table_links(page,r"/profil/spieler/([1-9][0-9]*)(?:/|$)",with_positions=True)
                 n=0
                 for row in rows:
@@ -98,7 +98,7 @@ def backfill(owners,cp,tm,run,year,allow_tm=True,allow_wd=True):
                     n+=int(enrich(cp,row,{"positionObservations":[dict(p,evidence=BASE+path) for p in match[1]]}))
                 cp.save();report(label,"FOUND" if n else "NO NEW DATA",f"{n} existing observations enriched; no new player")
             except Exception as exc:
-                tm.error(label,exc);cp.save();report(label,"ERROR",str(exc))
+                tm.error(label,exc);report(label,"ERROR",str(exc))
     if not allow_wd:return
     targets={"WD":defaultdict(list),"TM":defaultdict(list)}
     for _,field,row in owners_rows(owners):

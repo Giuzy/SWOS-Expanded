@@ -11,6 +11,7 @@ from urllib.parse import urlsplit
 from alternative_sources import norm, BAD, add_unique
 from http_retry import fetch
 from research_status import report, outcome
+from roster_storage import StorageFailure
 
 BASE="https://www.transfermarkt.com"
 COUNTRY="/wettbewerbe/national/wettbewerbe/"
@@ -168,6 +169,12 @@ def season_label(page,kind,identity,expected_id=None,year=2026):
     if tokens=={str(year)}:return str(year)
     raise ValueError("Requested season not evidenced or ambiguous: "+str(sorted(tokens)))
 
+def require_squad_season(page,club,club_id,expected,year):
+    actual=season_label(page,"players",club,club_id,year)
+    if actual!=expected:
+        raise ValueError(f"Squad season mismatch: competition={expected}; squad={actual}; clubId={club_id}; requestedYear={year}")
+    return actual
+
 def table_links(page,pattern,with_positions=False):
     # Use primary schema, not the count of tables with class items.
     # Header columns from nested tables are excluded.
@@ -226,6 +233,7 @@ class Transfermarkt:
         self.names={r["fifa"]:r["source"]["name"] for r in national}
         self.blocked=False;self.options=None;self.directory=None;self.discovered={};self.error_count=0;self.role_squad_attempts=set()
     def error(self,phase,exc):
+        if isinstance(exc,StorageFailure):raise exc
         self.error_count+=1
         record={"phase":"Transfermarkt/"+phase,"error":str(exc)}
         if record not in self.results["errors"]:self.cp.append(self.results["errors"],record)
@@ -298,7 +306,7 @@ class Transfermarkt:
         report(label,"SEARCHING")
         before=len(owner.get("transfermarkt_players",[]));reviews=len(owner.get("name_matches",[]));found=0
         page=self.page(path)
-        if season_label(page,"players",entry["club"],entry["transfermarktClubId"],self.year)!=entry["season"]:raise ValueError("Squad season mismatch")
+        require_squad_season(page,entry["club"],entry["transfermarktClubId"],entry["season"],self.year)
         for pid,(name,positions) in table_links(page,r"/profil/spieler/([1-9][0-9]*)(?:/|$)",with_positions=True).items():
             if norm(name) in known:continue
             found+=1
@@ -390,6 +398,10 @@ def selftest():
     assert table_links(club,r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Paro FC"}
     squad=parse('<h2>Squad Paro FC 2026</h2><table class="items"><tr><th>Player</th><th>Age</th></tr><tr><td><a href="/a/profil/spieler/456">Real Name</a></td></tr></table>')
     assert season_label(squad,"players","Paro FC")=="2026"
+    assert require_squad_season(squad,"Paro FC","123","2026",2026)=="2026"
+    try:require_squad_season(squad,"Paro FC","123","2026/27",2026)
+    except ValueError as exc:assert "competition=2026/27; squad=2026" in str(exc)
+    else:raise AssertionError("Different season formats accepted without evidence")
     assert table_links(squad,r"/profil/spieler/([1-9][0-9]*)(?:/|$)")=={"456":"Real Name"}
     pospage=parse('<table class="items"><tr><th>Player</th><th>Age</th></tr><tr><td><table><tr><td><a href="/p/profil/spieler/456">Keeper</a></td></tr><tr><td>Goalkeeper</td></tr></table></td><td>20</td></tr><tr><td><table><tr><td><a href="/p/profil/spieler/789">Forward</a></td></tr><tr><td>Centre-Forward</td></tr></table></td><td>25</td></tr></table>')
     positions=table_links(pospage,r"/profil/spieler/([1-9][0-9]*)(?:/|$)",with_positions=True)

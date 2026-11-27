@@ -1,3 +1,7 @@
+## 27/11/2026 — Ricerca giocatori: conflitto checkpoint (preparato)
+
+Un errore SQLite/pubblicazione non è un errore fonte. Arresto immediato senza nuovo salvataggio; PublicationConflict raggiunge il recovery automatico read-only, conservando entrambi gli stati. Doppio clic dopo pull a BAT chiusi; in caso di conflitto inviare log ROSTER RECOVERY. Mismatch rosa/competizione: log esplicito, nessuna equivalenza stagionale presunta. RG-ROSTER-CHECKPOINT-FATAL-PROPAGATION.
+
 ## 27/11/2026 — QA v353 nominal country expansion
 Doppio clic sui BAT ufficiali di compilazione/avvio dopo pull GitKraken. RG-T04/05/10/14/16/19/20: 25 paesi nominali, 342 club; test selezione/tint in START e WORLD, ACCEPT CONTRACT (B/ESC annulla), calendario con soli SQUAD/VIEW WORLD e uscita, 32 max e scroll 17 righe, A/X inattivi su nomi, B ritorna un livello; preservare CAR e testare native/9697/CT/CLASSIC/DIY/SEASON. Non dichiarare build o gameplay PASS senza prova. RG-NOMINAL-23-COUNTRIES-2627.
 

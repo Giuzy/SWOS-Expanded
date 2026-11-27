@@ -37,6 +37,7 @@
 #include "expanded_national_2627.h"
 
 extern uint16_t _gameType;
+extern void SetTeamGlobalNumbers(uint16_t numTeams, uint8_t *firstTeam);
 
 extern int16_t LoadFileEx(uint8_t *filename, uint8_t *dest, uint32_t *outFileSize);
 extern int     DataJson_LoadTeamFileForCountry(int countryNum, unsigned char *teamFileBuf, int maxTeams);
@@ -216,11 +217,26 @@ static int32_t read_country(int32_t country, uint8_t *records, uint32_t size, Te
     if (World_Current() == WORLD_2627 &&
         !(json && json[0] == '0' && json[1] == '\0') &&
         (count = DataJson_LoadTeamFileForCountry(country, records, kMaxTeamsInFile)) > 0) {
-        if (DataJson_LoadTeamIdsForCountry(country, ids, kMaxTeamsInFile) != count)
+        int id_count=DataJson_LoadTeamIdsForCountry(country, ids, kMaxTeamsInFile);
+        if (ExpandedNational_IsModernFile(country)) {
+            /* The common loader has already validated all 16 slots per team.
+             * Keep canonical IDs/checksums; never derive a modern player from
+             * a historic slot, and use the same global numbering as OG. */
+            if(id_count!=count)return 0;
+            const TeamFileEx *t=(const TeamFileEx *)(records+2);
+            for(int j=0;j<count;j++){
+                char checksum[TEAM_CHECKSUM_TEXT];
+                TeamDb_Checksum(&t[j],checksum);
+                if(!ids[j].uuid[0] || strcmp(ids[j].checksum,checksum))return 0;
+                for(unsigned p=0;p<TEAM_PLAYERS;p++)
+                    if(!ids[j].player[p][0])return 0;
+            }
+            SetTeamGlobalNumbers((uint16_t)count,records+2);
+        } else if(id_count!=count)
             memset(ids, 0, sizeof *ids * kMaxTeamsInFile);
-        int appended=ExpandedNational_Append((uint8_t)country,records,count,kMaxTeamsInFile);
-        return appended<0?0:appended;
+        return count;
     }
+    if(ExpandedNational_IsModernFile(country))return 0;
     /* Match LoadTeamFile's career-only OpenSWOS files. When an optional
      * historic file is missing or invalid, use the original binary source;
      * avoid LoadFileEx's interactive missing-file path during cache reads. */
@@ -263,8 +279,7 @@ static int32_t read_country(int32_t country, uint8_t *records, uint32_t size, Te
         return 0;
     count = BE_READ_U16(records);
     if((uint32_t)count*kTeamRecord+2u>got || count>kMaxTeamsInFile)return 0;
-    int appended=ExpandedNational_Append((uint8_t)country,records,count,kMaxTeamsInFile);
-    return appended<0?0:appended;
+    return count;
 }
 
 static struct Country *country_of(int32_t country)

@@ -266,7 +266,11 @@
 /* v00.13.342: five-year Italian cycle test (A/B/C, Serie B 4 relegations in total); the CE planner now skips days on which a participating club already has a fixture of another competition (generic, no country code); Serie B relegated=4 in leagues.json. */
 /* v00.13.343: correct historic Zambia label and prepare isolated CE ranking kernel. Windows NOT PROVEN. */
 /* v00.13.344: 69 modern national TEST squads, 211 national identity lookups, CT/WORLD selection; Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.344"
+/* v00.13.345: logical national confederation separated from packed storage; Mauritius CAF, 9697 unchanged. Windows NOT PROVEN. */
+/* v00.13.346: 211 real modern national rosters, same packed/global team IDs,
+ * mandatory world-specific JSON for OG and TeamDb; no national TEST fallback.
+ * Source/isolated gate prepared; Windows gameplay/CONTINUE NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.346"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

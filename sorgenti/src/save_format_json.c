@@ -29,6 +29,7 @@
 #include "expanded_og_cache_match.h" /* portable keycache capacity + stream guard */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h" /* same .CAR, one ledger */
+#include "expanded_national_2627.h" /* mandatory complete modern national JSON */
 #include "expanded_competition_coordinator.h" /* post-restore read-only contract */
 #include "expanded_universal_car.h" /* optional universal fixture ledger in SAME CAR */
 #include "expanded_universal_world_catalog.h" /* typed mutable CPU club rosters */
@@ -3468,6 +3469,11 @@ static char *dj_slurp_country_teams(int countryNum, char *team_file, int team_fi
         if (w)
             return w;
     }
+#ifdef SWOS_SDL_BUILD
+    /* A modern national file may never fall back to the shared 96/97 data.
+     * Both records and canonical ID readers use this one path. */
+    if(ExpandedNational_IsModernFile(countryNum))return NULL;
+#endif
     return dj_slurp(path, out_len);
 }
 
@@ -3628,6 +3634,12 @@ int DataJson_LoadTeamFileForCountry(int countryNum, unsigned char *teamFileBuf, 
     free(jj);
     if (n <= 0)
         return -1;
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedNational_Validate(countryNum,teamFileBuf,n,maxTeams)<0) {
+        fprintf(stderr,"[national-2627] INVALID_ROSTER_FILE country=%d count=%d\n",countryNum,n);
+        return -1;
+    }
+#endif
     *(unsigned short *)teamFileBuf = (unsigned short)n;   /* host-native count header */
     {
         /* Announce ONCE so a test run can confirm the JSON path is live (not a

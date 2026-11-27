@@ -418,6 +418,16 @@ int16_t LoadTeamFile(uint16_t extNumber)
         }
 #endif
 
+#ifdef SWOS_SDL_BUILD
+        /* A modern national file is mandatory. A missing/invalid JSON must
+         * not expose the historic database or a previous country's buffer. */
+        if(ExpandedNational_IsModernFile(ext8) && !json_loaded) {
+            fprintf(stderr,"[national-2627] ROSTER_SOURCE_REJECTED file=%u\n",(unsigned)ext8);
+            uint16_t empty=0;memcpy(_teamFileBuffer,&empty,sizeof empty);
+            _teamsLoaded=0;
+            return 1;
+        }
+#endif
         if (!json_loaded) {
             /* Normal team file: construct "data/team.NNN" */
             uint8_t hundreds, tens, ones;
@@ -474,14 +484,6 @@ int16_t LoadTeamFile(uint16_t extNumber)
 #endif
         }
 
-#ifdef SWOS_SDL_BUILD
-        if(ExpandedNational_Active() && ext8>=80u && ext8<=85u &&
-           ExpandedNational_Append(ext8,_teamFileBuffer,*(uint16_t *)_teamFileBuffer,TEAM_FILE_MAX_TEAMS)<0) {
-            fprintf(stderr,"[national-2627] TEAM_APPEND_REJECTED file=%u\n",(unsigned)ext8);
-            _teamsLoaded=0;
-            return 1;
-        }
-#endif
         /* Shared post-load processing (binary OR json source). */
         if (ext8 == 81u) {
             uint16_t n = *(uint16_t *)_teamFileBuffer;
@@ -3661,7 +3663,7 @@ loc_E2D0:
         s_expNationalPickerBase=cnCount;
         for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){
             const ExpandedNationalRow *r=&kExpandedNational2627[i];
-            if(r->og.countryNumber!=d7)continue;
+            if(r->confederationRegion!=d7)continue;
             if(s_expNationalPickerMode==1u && (r->added_global==65535u || r->og.teamFileId!=255u))continue;
             if(cnCount>=64u){fprintf(stderr,"[national-2627] WORLD_MENU_CAPACITY file=%u\n",(unsigned)d7);break;}
             s_expNationalPickerRows[cnCount]=r;
@@ -3782,7 +3784,11 @@ loc_E3DC:
     countryByte = ((uint8_t *)a5)[d7];
     GetCountryName(countryByte & 0xFF);
     _leagueNumber = 0;
-    LoadTeamFile((uint8_t)countryByte);
+    if (LoadTeamFile((uint8_t)countryByte) != 0) {
+#ifdef SWOS_SDL_BUILD
+        if(ExpandedNational_IsModernFile(countryByte))goto exit_clear;
+#endif
+    }
     goto loc_E6F6;
 
 loc_E428:

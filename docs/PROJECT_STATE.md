@@ -1,3 +1,7 @@
+## 27/11/2026 — v00.13.346: rose nazionali 2627 (source/data, non build)
+
+211/211 nazionali e 3376 giocatori dal pacchetto OpenSWOS moderno; zero TEST nei sei nuovi JSON, 36 identità upstream rimappate, 9697 e club immutati, CAF Mauritius. Sorgente comune OG/TeamDb, niente fallback storico; guida [RG-CT-NATIONAL-ROSTERS-2627](REGRESSION_HISTORY_AND_DEPENDENCIES.md), mappa [NATIONAL_ROSTER_SOURCE_MAP_2627.json](NATIONAL_ROSTER_SOURCE_MAP_2627.json). CT mantiene convocazioni OG, non modificare salvataggi validi. ST SI; build Windows/gameplay/CONTINUE NON PROVATI. Ranking resta un preparato indipendente.
+
 ## 26/11/2026 — Calendario CE, sorteggi, ranking (specifica, NON runtime)
 
 Consultare [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md) per i criteri, evidenze big five, vincoli, dipendenze e test. Ritorno simmetrico/asimmetrico da regolamento, distribuzione individuale e coordinamento continentale; fonti ranking FIFA/UEFA. Nessun cambio di UI o runtime autorizzato da questa sola documentazione. Restano validi precheck RG e autorizzazioni OG.

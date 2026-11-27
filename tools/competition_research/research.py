@@ -551,7 +551,8 @@ def catalogue(root,co):
         except Exception as exc:co.note("SWOS",p,"ERROR_NAMED",exc)
     # Current classification supersedes older named assessments; retain their evidence.
     if index.get("automaticInsertion"):
-        current=json.loads((docs/index["automaticInsertion"]).read_text(encoding="utf-8"))
+        from matrix_storage import read_matrix
+        current=read_matrix(docs/index["automaticInsertion"])
         records=current["rows"]+current.get("excludedRows",[])
         canonical={int(r["row"]):r for r in records}
         if len(canonical)!=len(records) or set(canonical)-set(rows) or set(rows)-set(canonical) not in (set(),{100,101,102}):

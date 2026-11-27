@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Acquire exact men's competition sources into the canonical research matrix, not runtime."""
-import argparse, collections, datetime as dt, hashlib, json, os, re, tempfile, urllib.request
+import argparse, collections, datetime as dt, hashlib, json, os, re, tempfile, urllib.request, sys
 from pathlib import Path
+from matrix_storage import read_matrix, plan_matrix
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/"SWOS_Roster_Research"))
+from http_retry import fetch as request_bytes
 FIELDS=("name","identity","participants","format","regulation","movement","qualification","july1","roundDates","competitionDays","evolution","seasonChange")
 ROUTES=[
  (186,"ITA","div1","2026-27/it.1.json","Italian Serie A 2026/27",20),
@@ -23,14 +26,14 @@ def states(row):
 def missing(row,k):return states(row).get(k,"I")=="I"
 def fetch(path):
     req=urllib.request.Request(BASE+path,headers={"User-Agent":"SWOS-Expanded/1.0"})
-    with urllib.request.urlopen(req,timeout=45) as r:return r.read(4194305)
+    return request_bytes(req,timeout=45,limit=4194304)
 def validate(raw,route):
     _,_,_,path,title,n=route
     if len(raw)>4194304:raise ValueError("Oversize")
     data=json.loads(raw)
     if data.get("name")!=title or BAD.search(title):raise ValueError("Wrong competition/edition/gender")
     games=data["matches"]
-    if len(games)!=n*(n-1):raise ValueError("Incomplete round-robin")
+    if not isinstance(games,list) or len(games)!=n*(n-1):raise ValueError("Incomplete round-robin")
     pairs=set();clubs=set();days=set();rounds=collections.defaultdict(list);pre=[]
     cut=dt.date(2026,7,1)
     lo,hi=(dt.date(2026,1,1),dt.date(2027,1,1)) if path.startswith("2026/") else (cut,dt.date(2027,7,1))
@@ -40,7 +43,8 @@ def validate(raw,route):
         if not a or not b or a==b or BAD.search(a) or BAD.search(b) or not r or not lo<=day<hi or (a,b) in pairs or (day,a) in days or (day,b) in days:raise ValueError("Scope/date/pair collision")
         pairs.add((a,b));clubs.update((a,b));days.update(((day,a),(day,b)));rounds[int(r[1])].append((day,a,b))
         if day<cut:
-            ft=g.get("score",{}).get("ft")
+            score=g.get("score")
+            ft=score if isinstance(score,list) else score.get("ft") if isinstance(score,dict) else None
             if not isinstance(ft,list) or len(ft)!=2 or any(type(x)!=int or x<0 for x in ft):raise ValueError("Missing pre-cutoff score")
             pre.append([day.isoformat(),a,b,*ft])
     if len(clubs)!=n or pairs!={(a,b) for a in clubs for b in clubs if a!=b} or set(rounds)!=set(range(1,2*n-1)):raise ValueError("Incomplete participants/rounds")
@@ -49,7 +53,7 @@ def validate(raw,route):
        "roundDates":[{"round":r,"first":min(x[0] for x in g).isoformat(),"last":max(x[0] for x in g).isoformat()} for r,g in sorted(rounds.items())],"july1":sorted(pre)}
 def apply(root,download=fetch):
     docs=root/"docs/competition_research";index=read(docs/"INDEX.json")
-    mp=docs/index["canonicalFieldMatrix"];cp=docs/"COVERAGE.json";matrix=read(mp);coverage=read(cp)
+    mp=docs/index["canonicalFieldMatrix"];cp=docs/"COVERAGE.json";matrix=read_matrix(mp);coverage=read(cp)
     rows={r["row"]:r for r in matrix["rows"]}
     if len(rows)!=len(matrix["rows"]):raise ValueError("Duplicate row")
     changes={};errors=[];inserted=0
@@ -89,8 +93,10 @@ def apply(root,download=fetch):
         row["acquisitionAvailability"]={k:("AVAILABLE" if s.get(k) in ("V","P") else "NA" if s.get(k)=="NA" else "PARTIAL" if k in partial else "NO DATA") for k in FIELDS}
     matrix["strictAcquisitionSummary"]={"routes":len(ROUTES),"newObservations":inserted,"errors":errors,"scope":"Only nine exact routes; remaining rows not searched. NO DATA is not NA or proof of absence. Existing V/P/I/? unchanged; partial evidence does not close a field."}
     coverage["strictAcquisitionSummary"]=matrix["strictAcquisitionSummary"]
-    stage(mp,matrix);stage(cp,coverage)
-    pending={p:(old,encode(obj)) for p,(old,obj) in changes.items() if old!=encode(obj)};staged={};written=[]
+    stage(cp,coverage)
+    pending={p:(old,encode(obj)) for p,(old,obj) in changes.items() if json.loads(old)!=obj}
+    pending.update({p:(p.read_bytes(),data) for p,data in plan_matrix(mp,matrix).items()})
+    staged={};written=[]
     try:
         for p,(old,new) in pending.items():
             with tempfile.NamedTemporaryFile(dir=p.parent,delete=False) as f:f.write(new);staged[p]=Path(f.name)
@@ -106,9 +112,14 @@ def apply(root,download=fetch):
         for t in staged.values():t.unlink(missing_ok=True)
     print("Observations",inserted,"errors",len(errors),"files",len(pending),flush=True)
 def selftest():
+    from matrix_storage import selftest as matrix_selftest
+    matrix_selftest()
     r=(1,"ENG","div1","2026-27/x.json","Men League 2026/27",2)
     a={"name":r[4],"matches":[{"round":"Matchday 1","date":"2026-08-01","team1":"A","team2":"B","score":{"ft":[9,0]}},{"round":"Matchday 2","date":"2026-08-08","team1":"B","team2":"A"}]}
     assert validate(encode(a),r)["july1"]==[]
+    br=(1,"BRA","div1","2026/x.json","Men League 2026",2)
+    b={"name":br[4],"matches":[dict(a["matches"][0],date="2026-03-01",score=[0,0]),dict(a["matches"][1],date="2026-08-08")]}
+    assert validate(encode(b),br)["july1"]==[["2026-03-01","A","B",0,0]]
     for bad in (dict(a,name="Women League 2026/27"),dict(a,name="Men League 2025/26"),dict(a,matches=a["matches"][:1])):
         try:validate(encode(bad),r)
         except ValueError:pass

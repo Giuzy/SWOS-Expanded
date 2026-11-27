@@ -2,6 +2,8 @@
 """Read-only Expanded catalogue survey; Wikidata candidates, not runtime data."""
 import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
+from roster_storage import Store, selftest as storage_selftest
+from http_retry import fetch
 
 HERE = Path(__file__).resolve().parent
 MAP = Path('docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json')
@@ -86,13 +88,14 @@ def query(sparql):
     q = PREFIX + sparql
     key = hashlib.sha256(q.encode()).hexdigest()
     dest = CACHE / (key + '.json')
+    data = None
     if dest.exists():
-        data = json.loads(dest.read_text(encoding='utf-8'))
-    else:
-        time.sleep(3)
+        cached = json.loads(dest.read_text(encoding='utf-8'))
+        if cached.get('results',{}).get('bindings') or time.time()-dest.stat().st_mtime<86400:
+            data=cached
+    if data is None:
         req = urllib.request.Request(ENDPOINT, data=urllib.parse.urlencode({'query':q,'format':'json'}).encode(), headers={'User-Agent':'SWOS-Expanded-Roster-Research/1.1 (https://github.com/Giuzy/SWOS-Expanded/issues/2)','Accept':'application/sparql-results+json','Content-Type':'application/x-www-form-urlencoded'})
-        with urllib.request.urlopen(req, timeout=75) as response:
-            data = json.load(response)
+        data = json.loads(fetch(req, timeout=75, interval=3))
         if 'results' not in data or 'bindings' not in data['results']:
             raise ValueError('Unexpected query result')
         write_json(dest, data)
@@ -103,8 +106,7 @@ def league_query(codes):
     quoted = ' '.join(json.dumps(c) for c in codes)
     return f'''SELECT DISTINCT ?fifa ?country ?countryLabel ?league ?leagueLabel ?class WHERE {{
       VALUES ?fifa {{ {quoted} }}
-      ?entity wdt:P3441 ?fifa.
-      ?entity wdt:P17 ?country.
+      {{ ?country wdt:P3441 ?fifa. }} UNION {{ ?entity wdt:P3441 ?fifa; wdt:P17 ?country. }}
       ?league wdt:P17 ?country; wdt:P3983 1; wdt:P2094 ?class.
       VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
       FILTER NOT EXISTS {{ ?league wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
@@ -162,22 +164,25 @@ def existing_query(fifa,name):
     return f"""PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     SELECT DISTINCT ?club ?clubLabel WHERE {{
        VALUES ?label {{ {labels} }}
-       ?entity wdt:P3441 {json.dumps(fifa)}; wdt:P17 ?country.
-       ?club rdfs:label ?label; wdt:P17 ?country; wdt:P2094 ?class.
+       {{ ?country wdt:P3441 {json.dumps(fifa)}. }} UNION {{ ?entity wdt:P3441 {json.dumps(fifa)}; wdt:P17 ?country. }}
+       ?club (rdfs:label|<http://www.w3.org/2004/02/skos/core#altLabel>) ?label; wdt:P17 ?country; wdt:P2094 ?class.
        VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
        FILTER NOT EXISTS {{ ?club wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
        {LABEL}
     }}"""
 def merge_players(club,rows,known):
-    saved={p["player"]:p for p in club.get("players",[])}
+    saved={(p["player"],p.get("membership"),p.get("start"),p.get("end")):p for p in club.get("players",[])}
     for p in rows:
         if p.get("playerLabel") and p.get("start") and p["start"]<=CUTOFF and (not p.get("end") or p["end"]>CUTOFF):
-            if norm(p["playerLabel"]) not in known:saved.setdefault(p["player"],p)
+            if norm(p["playerLabel"]) not in known:saved.setdefault((p["player"],p.get("membership"),p.get("start"),p.get("end")),p)
     return update_changed(club, players=list(saved.values()), status="P" if saved else "NO DATA")
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--self-test",action="store_true")
     ap.add_argument("--repo-root",type=Path,default=HERE.parent)
+    ap.add_argument("--export-only",action="store_true")
+    ap.add_argument("--skip-alternative",action="store_true")
+    ap.add_argument("--alternative-only",action="store_true")
     args=ap.parse_args()
     assert placeholder("TEST 1") and placeholder("RESERVE 2") and not placeholder("A B")
     assert "P2094 ?class" in league_query(["BHU"])
@@ -206,16 +211,27 @@ def main():
                 assert testpath.read_bytes()==before
             else:
                 raise AssertionError("Concurrent modification not detected")
+        storage_selftest()
+        from alternative_sources import selftest as alt_selftest
+        alt_selftest()
         print("Self-test PASS");return
     root=args.repo_root.resolve();raw=(root/MAP).read_bytes();national=json.loads(raw)["records"]
     targets=[dict(fifa=r["fifa"],name=r["source"]["name"],new=r["expanded"]["globalNumber"]>=2560) for r in national if r["source"]["team_file"]==255]
     targets.sort(key=lambda r:(not r["new"],r["fifa"]))
     index=existing_index(root);path=OUT/"candidates.json";CACHE.mkdir(parents=True,exist_ok=True)
-    expected=path.read_bytes()
-    results=json.loads(expected.decode("utf-8-sig"))
-    cp=Checkpoint(path,results,expected)
-    cp.update(results,status="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",map_sha256=hashlib.sha256(raw).hexdigest(),errors=[])
+    store=Store(path,OUT/'research.sqlite3')
+    results=store.load()
+    if args.export_only:
+        store.publish();store.close();return
+    cp=Checkpoint(path,results,None)
+    def save_sqlite():
+        if not cp.dirty:return False
+        changed=store.save(results);cp.dirty=False
+        return changed
+    cp.save=save_sqlite
+    cp.update(results,status="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",map_sha256=hashlib.sha256(raw).hexdigest())
     cp.ensure(results,"existing_club_gaps",{})
+    cp.ensure(results,"errors",[])
     bycode={x["fifa"]:x for x in results["targets"]}
     for t in targets:cp.ensure(bycode,t["fifa"],dict(t,leagues=[],status="NO DATA"))
     cp.update(results,targets=list(bycode.values()))
@@ -223,7 +239,10 @@ def main():
     def run(q,phase):
         print(phase,flush=True)
         try:return query(q)
-        except Exception as e:cp.append(results["errors"],{"phase":phase,"error":str(e)});save();return []
+        except Exception as e:
+            error={"phase":phase,"error":str(e)}
+            if error not in results["errors"]:cp.append(results["errors"],error)
+            save();return []
     rawmap={}
     for r in national:
         f=r["source"]["team_file"]
@@ -246,6 +265,16 @@ def main():
             cp.ensure(gaps,key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
     save()
     try:
+        if not args.skip_alternative:
+            from alternative_sources import acquire
+            try:
+                acquire(results,cp,CACHE,root,known)
+                save()
+            except Exception as e:
+                error={"phase":"OpenFootballBase","error":str(e)}
+                if error not in results["errors"]:cp.append(results["errors"],error)
+                save();print(error,flush=True)
+        if args.alternative_only:return
         for t in targets:
             c=bycode[t["fifa"]]
             if c.get("leagues"):continue
@@ -283,6 +312,9 @@ def main():
                 for c,k in byclub[q]:
                     if merge_players(c,[r for r in rr if qid(r["club"])==qid(q)],k):cp.dirty=True
             save()
-    finally:save()
+    finally:
+        try:
+            save();store.publish()
+        finally:store.close()
     print("Canonical nominal matrix updated. NO DATA unresolved; P candidates; runtime unchanged. Errors:",len(results["errors"]))
 if __name__=="__main__":main()

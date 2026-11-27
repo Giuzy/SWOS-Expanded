@@ -150,7 +150,8 @@ def aliases_from_repo(root, matrix, native):
                         add(rid,x[0],x[2],x[3],x[4])
         except (OSError,ValueError,KeyError,TypeError,StopIteration,IndexError) as e:warnings.append(f'row {rid}: {e}')
     if index.get('automaticInsertion'):
-        current=load(index['automaticInsertion'])
+        from matrix_storage import read_matrix
+        current=read_matrix(docs/index['automaticInsertion'])
         records=current['rows']+current.get('excludedRows',[])
         canonical={int(r['row']):r for r in records}
         if len(canonical)!=len(records) or set(canonical)-set(matrix) or (index.get('canonicalFieldMatrix') and set(canonical)!=set(matrix)):

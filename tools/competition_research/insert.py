@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import tempfile
 import zipfile
+from matrix_storage import read_matrix, plan_matrix
 
 FIELDS = ('name','identity','participants','format','calendar','regulation','movement','qualification','july1','evolution')
 STATES = {'V','P','I','NA','?'}
@@ -88,7 +89,7 @@ def merge_observation(old,p,s,prior_conflicts=()):
     assessments=dict(old.get('assessments',{}))
     assessment={'status':status,'fields':fields}
     assessments.setdefault(digest(assessment),assessment)
-    return {'scope':'RESEARCH_ONLY; observations are not runtime definitions or verified results',
+    return {**old,'scope':'RESEARCH_ONLY; observations are not runtime definitions or verified results',
             'status':status,'fields':fields,'gaps':gaps,'conflicts':sorted(conflicts),
             'reviewRequired':bool(gaps or conflicts),'observations':versions,'assessments':assessments}
 
@@ -103,7 +104,7 @@ def materialize(root,out,apply=False,expected_count=533):
         raise ValueError('Current indexed matrix required')
     if set(states)!={rid for rid,p in packets.items() if p.get('phaseQueue')!='OUT_OF_SCOPE' and rid not in (100,101,102)}:
         raise ValueError('Packet/matrix scope mismatch')
-    prior=read(inside(docs,index['automaticInsertion'])) if index.get('automaticInsertion') else {}
+    prior=read_matrix(inside(docs,index['automaticInsertion'])) if index.get('automaticInsertion') else {}
     prior_rows=unique(prior.get('rows',[]))
     if prior_rows and set(prior_rows)!=set(states):raise ValueError('Prior matrix scope mismatch')
     updates={}
@@ -156,7 +157,7 @@ def materialize(root,out,apply=False,expected_count=533):
     coverage['automaticInsertion']=stats
     for path,content in files.items():
         updates[path]=encode(content)
-    updates[inside(docs,rel)]=encode(dict(prior,summary=stats,rows=rows))
+    updates.update(plan_matrix(inside(docs,rel),dict(prior,summary=stats,rows=rows)))
     updates[docs/'INDEX.json']=encode(index)
     updates[docs/'COVERAGE.json']=encode(coverage)
     originals={p:p.read_bytes() if p.exists() else None for p in updates}

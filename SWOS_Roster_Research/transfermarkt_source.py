@@ -1,5 +1,6 @@
 """Direct public Transfermarkt pages; bounded requests; research candidates only."""
 import hashlib
+import json
 import re
 import time
 import urllib.error
@@ -12,7 +13,8 @@ from http_retry import fetch
 
 BASE="https://www.transfermarkt.com"
 COUNTRY="/wettbewerbe/national/wettbewerbe/"
-SEED={"BHU":"22","KGZ":"90"}
+SEED={"BHU":"22","KGZ":"90","SEN":"149"}
+COUNTRY_DIRECTORY="https://transfermarkt-api.fly.dev/countries/"
 ALIASES={"NED":"Netherlands","FRO":"Faroe Islands","IRL":"Ireland","KOR":"South Korea","PRK":"North Korea","TPE":"Chinese Taipei","USA":"United States","COD":"DR Congo","CGO":"Congo","CIV":"Ivory Coast","SWZ":"Eswatini","TUR":"Türkiye","VIE":"Vietnam"}
 TIER={"First Tier":1,"Second Tier":2,"Third Tier":3,"Fourth Tier":4}
 SCOPE="SEASON_CANDIDATE_NOT_JULY1"
@@ -54,13 +56,43 @@ def parse(html):
     return p
 
 def country_options(page):
-    # The country selector must include the independently verified Bhutan ID.
     matches=[]
     for s in page.all("select"):
         rows=[(o.attrs.get("value",""),o.text(), "selected" in o.attrs) for o in s.all("option")]
-        if any(v=="22" and norm(n)=="bhutan" for v,n,_ in rows):matches.append(rows)
-    if len(matches)!=1:raise ValueError("Country selector unavailable or ambiguous")
-    return [(v,n,selected) for v,n,selected in matches[0] if re.fullmatch(r"[1-9][0-9]*",v) and n]
+        hint=" ".join(s.attrs.get(k,"") for k in ("id","name","class")).lower()
+        if any(v=="22" and norm(n)=="bhutan" for v,n,_ in rows) or re.search(r"land[_-]?id|country",hint):
+            matches.append([(v,n,selected) for v,n,selected in rows if re.fullmatch(r"[1-9][0-9]*",v) and n])
+    unique={tuple(x) for x in matches if x}
+    if len(unique)!=1:raise ValueError("Country selector unavailable or ambiguous")
+    return list(next(iter(unique)))
+
+def directory_ids(raw):
+    data=json.loads(raw)
+    out={}
+    for row in data["countries"]:
+        c=row.get("fifaCode",row.get("fifa_code"))
+        i=row.get("id")
+        if row.get("isHistorical",row.get("is_historical")) is not False:continue
+        if not isinstance(c,str) or not re.fullmatch(r"[A-Z]{3}",c) or type(i)!=int or i<=0 or not row.get("name"):continue
+        out.setdefault(c,set()).add(str(i))
+    if len(out)<30:raise ValueError("Incomplete country directory")
+    return {c:next(iter(ids)) for c,ids in out.items() if len(ids)==1}
+
+def country_page_matches(page,country_id):
+    try:
+        if any(v==country_id and selected for v,n,selected in country_options(page)):return True
+    except ValueError:pass
+    # A canonical country route or OG URL is page-level evidence, unlike
+    # arbitrary links to other countries in the page.
+    urls=[n.attrs.get("href","") for n in page.all("link") if "canonical" in n.attrs.get("rel","").split()]
+    urls += [n.attrs.get("content","") for n in page.all("meta") if n.attrs.get("property")=="og:url"]
+    ids=set()
+    for url in urls:
+        u=urlsplit(url)
+        if u.netloc not in ("","www.transfermarkt.com","transfermarkt.com"):continue
+        m=re.search(r"/national/wettbewerbe/([1-9][0-9]*)(?:/|$)",u.path)
+        if m:ids.add(m.group(1))
+    return ids=={country_id}
 
 def links(node,pattern):
     found={}
@@ -74,7 +106,7 @@ def links(node,pattern):
     return found
 
 def leagues(page,country_id,maxlevel):
-    if not any(v==country_id and selected for v,n,selected in country_options(page)):
+    if not country_page_matches(page,country_id):
         raise ValueError("Country page identity mismatch")
     out={}
     for table in page.all("table"):
@@ -93,7 +125,7 @@ def season_label(page,kind,identity):
     for tag in ("h1","h2","h3"):
         for n in page.all(tag):
             t=n.text()
-            if kind=="clubs" and not t.lower().startswith("clubs -"):continue
+            if kind=="clubs" and not (t.lower().startswith("clubs -") or norm(identity) in norm(t)):continue
             if kind=="players" and not re.search(r"\bsquad\b",t,re.I):continue
             if norm(identity) not in norm(t):continue
             m=re.search(r"\b(2026/27|26/27|2026)\b(?![/\d])",t)
@@ -110,7 +142,7 @@ class Transfermarkt:
     def __init__(self,cache,cp,results,national,known):
         self.cache=cache/"transfermarkt";self.cp=cp;self.results=results;self.known=known
         self.names={r["fifa"]:r["source"]["name"] for r in national}
-        self.blocked=False;self.options=None;self.discovered={}
+        self.blocked=False;self.options=None;self.directory=None;self.discovered={}
     def error(self,phase,exc):
         record={"phase":"Transfermarkt/"+phase,"error":str(exc)}
         if record not in self.results["errors"]:self.cp.append(self.results["errors"],record)
@@ -129,11 +161,31 @@ class Transfermarkt:
         return page
     def country_id(self,c):
         if c in SEED:return SEED[c]
-        if self.options is None:self.options=country_options(self.page(COUNTRY+"22"))
+        if self.options is None:
+            self.options=[]
+            try:self.options=country_options(self.page(COUNTRY+"22"))
+            except ValueError as exc:print("Transfermarkt country selector:",exc,flush=True)
         names={norm(self.names.get(c,"")),norm(ALIASES.get(c,""))}-{""}
         ids={v for v,n,_ in self.options if norm(n) in names}
-        if len(ids)!=1:raise ValueError("Country identity unavailable: "+c)
-        return next(iter(ids))
+        if len(ids)==1:return next(iter(ids))
+        # Third-party public reference metadata only, never an access bypass
+        # for blocked Transfermarkt HTML or evidence of league membership.
+        if self.directory is None:
+            self.directory={}
+            try:
+                p=self.cache/"country_directory.json"
+                if p.exists() and time.time()-p.stat().st_mtime<86400:
+                    raw=p.read_bytes();self.directory=directory_ids(raw)
+                else:
+                    req=urllib.request.Request(COUNTRY_DIRECTORY,headers={"User-Agent":"SWOS-Expanded/1.0","Accept":"application/json"})
+                    raw=fetch(req,timeout=30,attempts=2,interval=3,limit=2*1024*1024)
+                    self.directory=directory_ids(raw)
+                    self.cache.mkdir(parents=True,exist_ok=True)
+                    tmp=p.with_suffix(".part");tmp.write_bytes(raw);tmp.replace(p)
+                print("Transfermarkt country IDs:",len(self.directory),flush=True)
+            except Exception as exc:print("Transfermarkt reference directory unavailable:",exc,flush=True)
+        if c in self.directory:return self.directory[c]
+        raise ValueError("Country identity unavailable: "+c)
     def clubs(self,c,maxlevel):
         key=(c,maxlevel)
         if key in self.discovered:return self.discovered[key]
@@ -204,6 +256,12 @@ class Transfermarkt:
 def selftest():
     country=parse('<select><option value="22" selected>Bhutan</option><option value="90">Kyrgyzstan</option></select><table><tr><td>First Tier</td></tr><tr><td><a href="/bhutan/startseite/wettbewerb/BH1L">Bhutan Premier League</a></td></tr><tr><td>Domestic Cup</td></tr><tr><td><a href="/cup/startseite/wettbewerb/BHPO">Cup</a></td></tr></table>')
     assert leagues(country,"22",1)=={"BH1L":("Bhutan Premier League",1)}
+    no_selector=parse('<link rel="canonical" href="https://www.transfermarkt.com/senegal/national/wettbewerbe/149"><table><tr><td>First Tier</td></tr><tr><td><a href="/ligue-1/startseite/wettbewerb/SEN1">Ligue 1</a></td></tr></table>')
+    assert leagues(no_selector,"149",1)=={"SEN1":("Ligue 1",1)}
+    assert not country_page_matches(no_selector,"90")
+    payload={"countries":[{"id":i+1,"fifaCode":"A"+chr(65+i//26)+chr(65+i%26),"name":"Country","isHistorical":False} for i in range(32)]}
+    payload["countries"].append({"id":999,"fifaCode":"AAA","name":"Duplicate","isHistorical":False})
+    assert "AAA" not in directory_ids(json.dumps(payload))
     try:leagues(country,"90",1)
     except ValueError:pass
     else:raise AssertionError("Wrong country accepted")

@@ -1,3 +1,7 @@
+## 27/11/2026 — Matrice competizioni: consultazione IA per singola riga
+
+AUTOMATIC_INSERTION.json is now COMPETITION_SHARDS_V2. Use `python tools/competition_research/matrix_query.py summary`, `country ITA --world 2627`, `missing --country ITA --field regulation`, `next`, `show 186 --field regulation`, `evidence 186 --field automaticResearch`, `validate`, `self-test`. Each invocation starts with the same command prefix. Default operational 12 fields; `--mode legacy` for 10-field status; `--limit` (1..100) and `--offset` to page. Read only needed fields and country/world/row files. Never feed whole matrix, COVERAGE, INDEX or multi-MB evidence sheets into agent context. `show --full` only when needed. Country indexes are derived, not independent authority; all canonical writes through matrix_storage.py plan_matrix. Existing evidence source files stay intact; evidence query loads locally and emits bounded selected content. No changes to game runtime. See RG-MATRIX-COMPETITION-SHARDS.
+
 # Competition research — batch collector, version 2 (prepared)
 Run **AVVIA_RICERCA.bat** in the repository root. It uses Python 3.12 in a local virtual environment (installs Python via winget per-user if absent, then dependencies from PyPI). Internet is required for first setup and optional GitHub downloads. No new game toolchain.
  

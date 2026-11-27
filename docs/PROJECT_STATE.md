@@ -1,3 +1,7 @@
+## 27/11/2026 — Matrice competizioni: consultazione IA per singola riga
+
+AUTOMATIC_INSERTION.json is now COMPETITION_SHARDS_V2. Use `python tools/competition_research/matrix_query.py summary`, `country ITA --world 2627`, `missing --country ITA --field regulation`, `next`, `show 186 --field regulation`, `evidence 186 --field automaticResearch`, `validate`, `self-test`. Each invocation starts with the same command prefix. Default operational 12 fields; `--mode legacy` for 10-field status; `--limit` (1..100) and `--offset` to page. Read only needed fields and country/world/row files. Never feed whole matrix, COVERAGE, INDEX or multi-MB evidence sheets into agent context. `show --full` only when needed. Country indexes are derived, not independent authority; all canonical writes through matrix_storage.py plan_matrix. Existing evidence source files stay intact; evidence query loads locally and emits bounded selected content. No changes to game runtime. See RG-MATRIX-COMPETITION-SHARDS.
+
 ## 27/11/2026 — Priorità ricerca rose e Transfermarkt (decisione utente)
 
 AVVIA_RICERCA_GIOCATORI.bat: 1) club dei paesi aggiunti/inattivi, 2) loro giocatori, 3) lacune/EXTRA dei club esistenti; fasi globali per OFB, Transfermarkt e Wikidata. Transfermarkt diretto, nessun gate di verifica licenza, accesso normale senza bypass; candidati stagionali separati, SQLite unico writer e shard per paese. Verificare identità/stagione e diff prima di importare; download reale e Windows non provati. Vedi RG-ROSTER-TRANSFERMARKT-PRIORITY.

@@ -2945,8 +2945,8 @@
   },
   "strictAcquisitionSummary": {
     "routes": 9,
-    "footballDataRoutes": 42,
-    "rowsScanned": 535,
+    "footballDataRoutes": 37,
+    "rowsScanned": 534,
     "inventorySelected": 535,
     "gapCounts": {
       "name": 510,
@@ -2962,25 +2962,14 @@
       "evolution": 533,
       "seasonChange": 528
     },
-    "newObservations": 47,
-    "newSourceLeads": 410,
+    "newObservations": 0,
+    "newSourceLeads": 0,
     "rowsWithoutRouteOrLead": 126,
     "july1ApplicabilityUnknown": 178,
-    "errors": [
-      [
-        57,
-        "Football-Data: HTTP Error 300: Multiple Choices"
-      ],
-      [
-        83,
-        "Football-Data: HTTP Error 300: Multiple Choices"
-      ],
-      [
-        84,
-        "Football-Data: HTTP Error 300: Multiple Choices"
-      ]
-    ],
+    "errors": [],
     "archiveIndexErrors": {},
+    "runComplete": true,
+    "rowsProcessed": 535,
     "scope": "OpenFootball exact routes, Football-Data observed league CSV, RSSSF archive leads only; NO DATA is not absence; UNKNOWN is unreviewed; SOURCE_ERROR and NOT_SEARCHED distinguish missing adapter from a successful search. RSSSF links are not field evidence. No automatic status promotion."
   }
 }

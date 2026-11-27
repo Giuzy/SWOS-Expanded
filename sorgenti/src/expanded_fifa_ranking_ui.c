@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+#include <SDL.h>
 
 extern uint8_t *_charTables[];
 extern uint16_t _menuPalette[256];
@@ -143,15 +144,29 @@ void Expanded_NationRankingInit(void)
     MenuEntry *back=&_menuEntries[17];
     /* BACK keeps the focus: FIRE closes, UP/DOWN scroll (bits 0,5 fire,
      * 3 up, 4 down). Mouse never drives this viewer. */
-    back->controlMask=(1u<<0)|(1u<<5)|(1u<<3)|(1u<<4);
+    /* bit 5 = FIRE edge (as OG "fire only" 0x20). Bit 0 is the HELD fire:
+     * the press that opened this screen is still down on its first frame
+     * and closed it immediately (Windows 27/11). */
+    back->controlMask=(1u<<5)|(1u<<3)|(1u<<4);
 }
 void Expanded_NationRankingControl(void)
 {
     const int n=(int)ExpFifa_Count();
     const int max_top=n>NR_ROWS?n-NR_ROWS:0;
-    if(_controlMask&((1u<<0)|(1u<<5))) {SetExitMenuFlag();return;}
-    if(_controlMask&(1u<<3)) {if(s_nr_top>0){--s_nr_top;DrawMenu();}return;}
-    if(_controlMask&(1u<<4)) {if(s_nr_top<max_top){++s_nr_top;DrawMenu();}return;}
+    if(_controlMask&(1u<<5)) {SetExitMenuFlag();return;}
+    if(_controlMask&((1u<<3)|(1u<<4))) {
+        /* UP/DOWN are HELD states (every frame): one row on press, then
+         * auto-repeat after 300 ms every 60 ms, like a held cursor key */
+        static uint32_t last,next;
+        const uint32_t now=SDL_GetTicks();
+        if(now-last>120u)next=now;          /* new press */
+        last=now;
+        if((int32_t)(now-next)<0)return;
+        next=now+(next==now?300u:60u);
+        if((_controlMask&(1u<<3)) && s_nr_top>0){--s_nr_top;DrawMenu();}
+        else if((_controlMask&(1u<<4)) && s_nr_top<max_top){++s_nr_top;DrawMenu();}
+        return;
+    }
 }
 /* Button action (WORLD -> regions screen). Opens the viewer at rank 1. */
 void Expanded_NationRankingOpen(void)

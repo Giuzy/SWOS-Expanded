@@ -7,7 +7,7 @@ from research_checkpoint import publish as publish_checkpoint, recover as recove
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/"SWOS_Roster_Research"))
 from http_retry import fetch as request_bytes
-from research_status import report, outcome, progress, show_progress
+from research_status import report, outcome, progress, show_progress, WorkTotal
 from competition_sources import Cached, Discovery, fd_route, fd_packet, rsssf_route, rsssf_packet, RSSSF, wanted as gap_fields, selftest as sources_selftest
 from research import COUNTRIES
 from evidence_delta import delta as evidence_delta, selftest as delta_selftest
@@ -117,7 +117,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
         n=publish_checkpoint(root,journal,pending)
         written_count+=n;changes.clear();baseline=matrix_digest(matrix);coverage_baseline=cp.read_bytes()
         if n:report(label,"SAVED",f"{n} files; {inserted} new evidence packets so far")
-    for route in progress("OpenFootball catalogue routes",ROUTES):
+    for route in progress("OpenFootball catalogue routes",ROUTES,overall=True):
         if changes:checkpoint("OpenFootball")
         rid,country,tier,path,title,n=route
         row=rows.get(rid)
@@ -159,14 +159,18 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
             errors.append([rid,str(e)]);report(label,"ERROR",str(e))
     checkpoint("OpenFootball")
     last_country=None
-    for row in progress("Competition matrix rows",sorted(selected,key=group_key)):
+    def row_gaps(row):
+        fields=gap_fields(row,FIELDS)
+        if states(row).get("calendar") in ("P","I") and not all(states(row).get(k)=="V" for k in ("roundDates","competitionDays")):fields=list(dict.fromkeys(fields+["calendar"]))
+        return fields
+    missing_rows={row_id(row) for row in selected if row_gaps(row)}
+    overall=WorkTotal("Competition matrix rows",len(selected),"with applicable gaps",len(missing_rows))
+    for row in overall.walk(sorted(selected,key=group_key),lambda row:row_id(row) in missing_rows):
         country=group_key(row)
         if last_country is not None and country!=last_country:checkpoint(last_country)
         last_country=country
         processed.add(row_id(row))
-        fields=gap_fields(row,FIELDS)
-        # Legacy calendar field is also a gap, but never infer round numbers.
-        if states(row).get("calendar") in ("P","I") and not all(states(row).get(k)=="V" for k in ("roundDates","competitionDays")):fields=list(dict.fromkeys(fields+["calendar"]))
+        fields=row_gaps(row)
         label=f"{row.get('technicalIdentity',{}).get('country',row.get('country','WORLD'))}/{row['world']}/{row.get('row',row.get('researchKey'))} {row.get('name','')}"
         if not fields:
             report(label,"SKIPPED","no applicable gaps");continue
@@ -252,6 +256,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
     print("Scanned",scanned,"/",len(selected),"rows; new source leads",lead_count,"rows without route/lead",no_source,flush=True)
     report("Competition matrix","SAVED",f"{inserted} new evidence packets; {written_count} file writes")
     print("Observations",inserted,"errors",len(errors),"archive index errors",len(discovery.errors),"files",written_count,flush=True)
+    print(f"RESULT competition matrix | new evidence packets={inserted} | new source leads={lead_count} | rows handled={len(processed)}/{len(selected)} | rows without route/lead={no_source} | errors={len(errors)} | archive errors={len(discovery.errors)} | file writes={written_count} | no automatic V/P promotion",flush=True)
 def selftest():
     from matrix_storage import selftest as matrix_selftest
     matrix_selftest()

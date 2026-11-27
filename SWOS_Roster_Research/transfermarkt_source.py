@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from alternative_sources import norm, BAD, add_unique
 from http_retry import fetch
-from research_status import report, outcome, progress
+from research_status import report, outcome, progress, WorkTotal
 from roster_storage import StorageFailure
 
 BASE="https://www.transfermarkt.com"
@@ -226,16 +226,22 @@ def table_links(page,pattern,with_positions=False):
     if len(candidates)!=1:raise ValueError("Primary data table missing or ambiguous: "+str(len(candidates)))
     return candidates[0]
 
-def prioritize_squads(owner):
-    """Prioritize missing names; never mark a short or previously seen squad complete."""
+def squad_counts(owner):
     counts={}
     for row in owner.get("transfermarkt_players",[]):
         key=tuple(row.get(k) for k in ("country","transfermarktClubId","competition","season","level"))
         pid=row.get("transfermarktPlayerId")
         if pid:counts.setdefault(key,set()).add(pid)
+    return counts
+
+def squad_key(row):
+    return tuple(row.get(k) for k in ("country","transfermarktClubId","competition","season","level"))
+
+def prioritize_squads(owner):
+    """Prioritize missing names; never mark a short or previously seen squad complete."""
+    counts=squad_counts(owner)
     def score(row):
-        key=tuple(row.get(k) for k in ("country","transfermarktClubId","competition","season","level"))
-        n=len(counts.get(key,()))
+        n=len(counts.get(squad_key(row),()))
         return (n>=16,n)
     return sorted(owner.get("transfermarkt_clubs",[]),key=score)
 
@@ -334,7 +340,10 @@ class Transfermarkt:
             return
         bycode={t["fifa"]:t for t in self.results["targets"]}
         if phase=="clubs":
-            for t in progress("Transfermarkt club countries",targets):
+            from import_candidates import build
+            missing={t["fifa"] for t in targets if not build(bycode[t["fifa"]],self.year)["clubs"]}
+            overall=WorkTotal("Transfermarkt club countries",len(targets),"without club candidates",len(missing))
+            for t in overall.walk(targets,lambda t:t["fifa"] in missing):
                 if self.blocked:break
                 c=t["fifa"]
                 label="Transfermarkt clubs "+c
@@ -349,11 +358,16 @@ class Transfermarkt:
                 except Exception as e:
                     self.error(c,e);report(label,"ERROR",str(e))
         elif phase=="players":
+            jobs={t["fifa"]:prioritize_squads(bycode[t["fifa"]]) for t in targets}
+            counts={t["fifa"]:squad_counts(bycode[t["fifa"]]) for t in targets}
+            missing={squad_key(row) for t in targets for row in jobs[t["fifa"]] if not counts[t["fifa"]].get(squad_key(row))}
+            overall=WorkTotal("Transfermarkt squad jobs",sum(map(len,jobs.values())),"without TM player observations",
+                              sum(squad_key(row) in missing for rows in jobs.values() for row in rows))
             for t in progress("Transfermarkt player countries",targets):
                 if self.blocked:break
                 owner=bycode[t["fifa"]]
                 if not owner.get("transfermarkt_clubs"):report("Transfermarkt players "+t["fifa"],"SKIPPED","no discovered clubs")
-                for row in progress("Transfermarkt squads "+t["fifa"],prioritize_squads(owner)):
+                for row in overall.walk(progress("Transfermarkt squads "+t["fifa"],jobs[t["fifa"]]),lambda row:squad_key(row) in missing):
                     if self.blocked:break
                     try:self.players(row,owner,set())
                     except Exception as e:
@@ -364,6 +378,8 @@ class Transfermarkt:
             for uid,e in self.results["existing_club_gaps"].items():
                 if uid in self.known and e.get("association"):
                     groups.setdefault(e["association"],[]).append((uid,e))
+            no_extra={uid for owners in groups.values() for uid,e in owners if not e.get("extra_count",0)}
+            overall=WorkTotal("Transfermarkt EXTRA clubs",sum(map(len,groups.values())),"without native EXTRA",len(no_extra))
             for c,owners in progress("Transfermarkt EXTRA countries",sorted(groups.items())):
                 if self.blocked:break
                 try:
@@ -371,7 +387,8 @@ class Transfermarkt:
                     entries=self.clubs(c,4)
                     matches={}
                     for row in entries:matches.setdefault(norm(row["club"]),[]).append(row)
-                    for uid,e in progress("Transfermarkt EXTRA clubs "+c,sorted(owners,key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0]))):
+                    ordered=sorted(owners,key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0]))
+                    for uid,e in overall.walk(progress("Transfermarkt EXTRA clubs "+c,ordered),lambda job:job[0] in no_extra):
                         if self.blocked:break
                         rows=matches.get(norm(e["name"]),[])
                         if len({x["transfermarktClubId"] for x in rows})!=1:

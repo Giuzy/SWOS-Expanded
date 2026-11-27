@@ -156,7 +156,7 @@ def acquire(results,cp,cache,root,known,phase,year=2026):
             if not available:
                 report(label,"NO ADAPTER","archive has no required requested edition tables");return
             report(label,"SEARCHING",f"{len(countries)} countries; editions {available}")
-            for season in progress(label+" editions",available):
+            for season in progress(label+" editions",available,overall=True):
                 eligible={}
                 last_country=None
                 def club_country(row):
@@ -209,7 +209,7 @@ def acquire(results,cp,cache,root,known,phase,year=2026):
                         added=int(add_unique(cp,owner,"alternative_players",observation))
                         count+=added;new[c]+=added;review[c]+=len(owner.get("name_matches",[]))-before
                 cp.save()
-            for c in progress(label+" country summaries",sorted(countries)):report("OpenFootballBase "+phase+" "+c,*outcome(found[c],new[c],review[c]))
+            for c in progress(label+" country summaries",sorted(countries),overall=True):report("OpenFootballBase "+phase+" "+c,*outcome(found[c],new[c],review[c]))
             report(label,"ACQUIRED" if count else "NO NEW DATA" if sum(found.values()) else "NO DATA",f"{count} new observations; {sum(found.values())} eligible; {sum(review.values())} reviews; editions {available}")
         finally:db.close()
 

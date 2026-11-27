@@ -14,7 +14,7 @@ import zipfile
 from pathlib import Path
 from http_retry import fetch
 from roster_storage import atomic, read
-from research_status import report, outcome, progress, show_progress
+from research_status import report, outcome, progress, show_progress, WorkTotal
 
 HERE=Path(__file__).resolve().parent
 LOCAL=HERE/"ea_local"
@@ -89,7 +89,7 @@ def publish(db,folder,names,only_edition=None):
             groups.setdefault(c,[]).append(row)
         if not groups:continue
         dest=folder/edition
-        for c,rows in progress("EA publication "+edition.upper()+" countries",sorted(groups.items())):
+        for c,rows in progress("EA publication "+edition.upper()+" countries",sorted(groups.items()),overall=True):
             path=dest/(c+".json")
             if path.exists():
                 current={str(row["player_id"]):row for row in rows}
@@ -130,7 +130,9 @@ def snapshot_digest(db,edition):
 def ingest(db,edition,rows,source_hash=None):
     added=0
     with db:
-        for uid,row in rows.items():
+        existing={uid for uid, in db.execute("SELECT id FROM players WHERE edition=?",(edition,))}
+        counter=WorkTotal("EA "+edition.upper()+" player IDs",len(rows),"new IDs",sum(uid not in existing for uid in rows))
+        for uid,row in counter.walk(rows.items(),lambda item:item[0] not in existing,every=100):
             payload=json.dumps(row,ensure_ascii=False,sort_keys=True)
             previous=db.execute("SELECT payload FROM players WHERE edition=? AND id=?",(edition,uid)).fetchone()
             if previous:
@@ -154,6 +156,55 @@ def schema(db):
     db.execute("CREATE TABLE IF NOT EXISTS players(edition TEXT,id TEXT,payload TEXT,PRIMARY KEY(edition,id))")
     db.execute("CREATE TABLE IF NOT EXISTS completed_snapshots(edition TEXT PRIMARY KEY,source_hash TEXT,row_count INTEGER,digest TEXT)")
 
+def native_slots(root):
+    """Read the named 2627 club slots; TEST/RESERVE and national copies excluded."""
+    slots={}
+    for folder in ("teams","squad_extras"):
+        for path in sorted((root/"data_json/worlds/2627"/folder).glob("*.json")):
+            for team in read(path).get("teams",[]):
+                meta=team.get("team",{})
+                if meta.get("country_number") in range(80,86):continue
+                club=norm(meta.get("team_name") or "")
+                if not club:continue
+                for field in ("players","extra_players"):
+                    for i,p in enumerate(team.get(field,[])):
+                        name=p.get("player_name") or ""
+                        if not name.strip() or re.match(r"^(TEST|RESERVE)(?:[ _-]*[0-9]+|$)",name,re.I):continue
+                        clubkey=team.get("uuid") or (meta.get("country_number"),meta.get("team_ordinal"),path.name)
+                        slot=p.get("uuid") or (folder,field,i)
+                        slots[(clubkey,slot)]=(norm(name),club)
+    return slots
+
+def coverage_counts(slots,ea_rows,visible=False):
+    """Exact name+club candidate only, never an EA/native identity binding."""
+    from collections import Counter,defaultdict
+    multiplicity=Counter(slots.values())
+    by_key=defaultdict(lambda:defaultdict(set))
+    for edition,uid,row in ea_rows:
+        club=next((v for k,v in row.items() if header(k) in ALIASES["club"] and v),"")
+        key=(norm(row.get("name") or ""),norm(club))
+        if all(key):by_key[key][edition].add(uid)
+    counts=Counter()
+    jobs=slots.values()
+    if visible:
+        missing=sum(not by_key.get(k) for k in jobs)
+        jobs=WorkTotal("SWOS named player slots",len(slots),"without exact EA candidate",missing).walk(jobs,lambda k:not by_key.get(k),every=500)
+    for key in jobs:
+        matches=by_key.get(key,{})
+        if not matches:counts["no_exact_candidate"]+=1
+        elif multiplicity[key]!=1 or any(len(ids)!=1 for ids in matches.values()):
+            counts["ambiguous"]+=1
+        else:counts["exact_candidate"]+=1
+    return {"named_club_slots":len(slots),"without_exact_candidate":counts["no_exact_candidate"],
+            "ambiguous":counts["ambiguous"],"exact_candidate":counts["exact_candidate"],
+            "without_unambiguous_candidate":counts["no_exact_candidate"]+counts["ambiguous"]}
+
+def coverage(db,slots):
+    return coverage_counts(slots,((e,uid,json.loads(p)) for e,uid,p in db.execute("SELECT edition,id,payload FROM players")),visible=True)
+
+def coverage_line(label,c):
+    print(label+" | "+" | ".join(f"{k}={v}" for k,v in c.items()),flush=True)
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--self-test",action="store_true");ap.add_argument("--repo-root",type=Path,default=HERE.parent);ap.add_argument("--edition",choices=("fc27","fc26","both"),default="both");ap.add_argument("--fc26-csv",type=Path);ap.add_argument("--export-only",action="store_true")
     a=ap.parse_args()
@@ -176,12 +227,16 @@ def main():
         assert already_ingested(db,"fc26","hash")
         db.execute("DELETE FROM players WHERE id='7'");assert not already_ingested(db,"fc26","hash")
         db.close()
+        slots={1:("alice","club"),2:("bob","club"),3:("bob","club"),4:("carol","other")}
+        data=[("fc26","1",{"name":"Alice","Team":"Club"}),("fc27","7",{"name":"Alice","club":"Club"}),
+              ("fc26","2",{"name":"Bob","Team":"Club"}),("fc26","3",{"name":"Carol","Team":"Wrong"})]
+        assert coverage_counts(slots,data)=={"named_club_slots":4,"without_exact_candidate":1,"ambiguous":2,"exact_candidate":1,"without_unambiguous_candidate":3}
         print("EA self-test PASS");return
     LOCAL.mkdir(exist_ok=True);cache=LOCAL/"sources";cache.mkdir(exist_ok=True)
     names=country_names(a.repo_root);db=sqlite3.connect(LOCAL/"stats.sqlite3")
     db.execute("PRAGMA journal_mode=WAL")
     schema(db)
-    failures=[];folder=LOCAL/"countries"
+    failures=[];folder=LOCAL/"countries";added_by_edition={};missing_by_edition={}
     try:
         phase_total=2 if a.export_only else 3
         show_progress("EA research phases",0,phase_total)
@@ -189,29 +244,43 @@ def main():
         show_progress("EA research phases",1,phase_total)
         publish(db,folder,names)
         show_progress("EA research phases",2,phase_total)
-        if a.export_only:return
-        for edition in progress("EA source editions",("fc27","fc26") if a.edition=="both" else (a.edition,)):
+        slots=native_slots(a.repo_root)
+        before=coverage(db,slots)
+        coverage_line("WORKLOAD EA SWOS",before)
+        if a.export_only:
+            coverage_line("RESULT EA SWOS",before)
+            return
+        editions=("fc27","fc26") if a.edition=="both" else (a.edition,)
+        completed={e for e in editions if not (e=="fc26" and a.fc26_csv is not None) and already_ingested(db,e,SOURCES[e][1])}
+        overall=WorkTotal("EA source editions",len(editions),"snapshots not verified complete",len(editions)-len(completed))
+        for edition in overall.walk(editions,lambda e:e not in completed):
             try:
                 local=edition=="fc26" and a.fc26_csv is not None
                 source_hash=None if local else SOURCES[edition][1]
                 report(edition.upper(),"SEARCHING","local CSV" if local else "pinned snapshot")
-                if source_hash and already_ingested(db,edition,source_hash):
+                if edition in completed:
                     report(edition.upper(),"SKIPPED","verified complete snapshot; 0 new players");continue
                 data=a.fc26_csv.read_bytes() if local else download(edition,cache)
                 report(edition.upper(),"VALIDATING",f"{len(data)} bytes; snapshot parser")
                 rows=parse(data,edition,male_file=edition=="fc26" and not local)
                 prior={uid for uid, in db.execute("SELECT id FROM players WHERE edition=?",(edition,))}
                 report(edition.upper(),"SAVING",f"{len(rows)} validated players; SQLite")
+                missing_by_edition[edition]=sum(uid not in prior for uid in rows)
+                print(f"WORKLOAD EA {edition.upper()} | {len(rows)} validated player IDs | {missing_by_edition[edition]} new IDs pending",flush=True)
                 added=ingest(db,edition,rows,source_hash)
+                added_by_edition[edition]=added
                 from collections import Counter
                 totals=Counter();new=Counter()
                 for uid,row in rows.items():
                     c=names.get(norm(row["nationality"]),"UNMAPPED");totals[c]+=1;new[c]+=int(uid not in prior)
-                for c in progress("EA "+edition.upper()+" country summaries",sorted(totals)):report(edition.upper()+" "+c,*outcome(totals[c],new[c]))
+                for c in progress("EA "+edition.upper()+" country summaries",sorted(totals),overall=True):report(edition.upper()+" "+c,*outcome(totals[c],new[c]))
                 publish(db,folder,names,edition)
                 report(edition.upper(),*outcome(len(rows),added))
             except Exception as e:
                 failures.append((edition,str(e)));report(edition.upper(),"ERROR",str(e))
+        after=coverage(db,slots)
+        coverage_line("RESULT EA SWOS",after)
+        print(f"RESULT EA | new player statistic records committed={sum(added_by_edition.values())} | by edition={added_by_edition} | missing IDs before ingest={missing_by_edition} | verified snapshots skipped={len(completed)} | edition errors={len(failures)} | net new exact candidate slots={after['exact_candidate']-before['exact_candidate']}",flush=True)
     finally:db.close()
     show_progress("EA research phases",phase_total,phase_total)
     if failures:raise SystemExit(1)

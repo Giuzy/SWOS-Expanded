@@ -1,6 +1,7 @@
 """Run the three research launchers with a single replace-on-start UTF-8 log each."""
 import datetime
 import os
+import re
 from pathlib import Path
 import signal
 import subprocess
@@ -27,10 +28,44 @@ def lock_log(log):
 
 
 class Run:
-    def __init__(self, log):
+    def __init__(self, log, mode):
         self.log = log
+        self.mode = mode
+        self.total = ""
+        self.detail = ""
+        self.title = ""
+        self.coverage = ""
         self.cancelled = False
         self.env = dict(os.environ, PYTHONUNBUFFERED="1", PYTHONIOENCODING="utf-8", PYTHONUTF8="1")
+
+    def set_title(self,value):
+        if value==self.title:return
+        self.title=value
+        if os.name=="nt":
+            try:
+                import ctypes
+                ctypes.windll.kernel32.SetConsoleTitleW("SWOS "+value)
+            except (OSError,AttributeError):
+                pass
+
+    def display_line(self,line):
+        clean=line.rstrip("\r\n")
+        if clean.startswith(("WORKLOAD EA SWOS |","RESULT EA SWOS |")):
+            m=re.search(r"named_club_slots=(\d+).*without_unambiguous_candidate=(\d+)",clean)
+            if m:self.coverage=f"SWOS without exact unique EA candidate {m[2]}/{m[1]}"
+        if clean.startswith("TOTAL "):
+            self.total=clean[6:];self.detail=""
+        elif clean.startswith("PHASE ") or (clean.startswith("PROGRESS ") and " phases:" in clean.lower()):
+            self.total=clean.removeprefix("PROGRESS ");self.detail=""
+        elif re.match(r"^.+ — ACTION \d+/\d+ ",clean):
+            self.detail=clean.split(" (",1)[0].replace(" — ACTION "," ")
+        elif clean.startswith("RESULT "):
+            self.detail=""
+        context=" | ".join(x for x in (self.coverage,self.total,self.detail) if x)
+        self.set_title(self.mode+(" | "+context if context else ""))
+        if clean and context and not clean.startswith(("TOTAL ","RESULT ")):
+            return "["+context+"] "+line
+        return line
 
     def interrupt(self, signum, frame):
         # The child shares the console and receives Ctrl+C too. Drain its final
@@ -46,12 +81,14 @@ class Run:
     def python(self, executable, *args):
         if self.cancelled:
             return 130
+        self.total="";self.detail="";self.coverage=""
+        self.set_title(self.mode)
         with subprocess.Popen([str(executable), "-u", *map(str, args)], cwd=ROOT,
                               env=self.env, stdout=subprocess.PIPE,
                               stderr=subprocess.STDOUT, text=True,
                               encoding="utf-8", errors="replace") as child:
             for line in child.stdout:
-                self.write(line)
+                self.write(self.display_line(line))
             rc = child.wait()
         return 130 if self.cancelled else rc
 
@@ -122,7 +159,7 @@ def main(argv):
         log.seek(0)
         if hasattr(sys.stdout, "reconfigure"):
             sys.stdout.reconfigure(errors="backslashreplace")
-        run = Run(log)
+        run = Run(log, mode)
         previous = signal.signal(signal.SIGINT, run.interrupt)
         rc = 1
         try:
@@ -133,6 +170,7 @@ def main(argv):
         finally:
             signal.signal(signal.SIGINT, previous)
             run.write(f"\n[END] {stamp()} | EXIT={rc}\n")
+            run.set_title(mode+f" | EXIT={rc}")
         return rc
 
 

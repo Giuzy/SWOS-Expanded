@@ -51,7 +51,10 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
     from competition_sources import Cached, Discovery
     country_names={r["source"].get("name",""):r["fifa"] for r in national if r["source"].get("name")}
     archive=Discovery(Cached(root/"tools/competition_research/cache/domestic_archive",refresh),country_names) if source_catalog and year==2026 else None
-    for r in progress("Domestic competition countries",targets):
+    def observation_count():
+        return sum(len(read(p).get("observations",[])) for p in (output/(r["fifa"]+".json") for r in targets) if p.exists())
+    initial_count=observation_count()
+    for r in progress("Domestic competition countries",targets,overall=True):
         with time_budget(160):
             country=r["fifa"];label="Domestic competitions "+country
             if tm.blocked and wiki_query is None and catalogue is None:
@@ -192,6 +195,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                 old["lastSearch"]={"status":{k:"FOUND" if k in seen else "UNKNOWN" for k in ("LEAGUE_DIVISION","NATIONAL_CUP")},"errors":errors,"complete":False}
                 atomic(path,old)
                 report(label,"ERROR",str(e))
+    print(f"RESULT domestic competitions | new candidate observations={observation_count()-initial_count} | countries handled={len(targets)} | not certified competitions",flush=True)
     return len(targets)
 def selftest():
     p=parse('<select><option value="22" selected>Bhutan</option></select><table><tr><td>First Tier</td></tr><tr><td><a href="/x/startseite/wettbewerb/BH1L">Premier League</a></td></tr><tr><td>Domestic Cup</td></tr><tr><td><a href="/x/startseite/wettbewerb/BHC">National Cup</a></td></tr><tr><td>Super Cup</td></tr><tr><td><a href="/x/startseite/wettbewerb/BHS">Super Cup</a></td></tr></table>')

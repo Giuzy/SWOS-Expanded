@@ -15,14 +15,15 @@
     "https://kassiesa.net/uefa/data/method5/trank2026.html",
     "https://mail.kassiesa.net/uefa/data/method5/tcoef2026.html"
   ],
-  "scope": "First 309 of 415 club rows in source order, reference candidates only; not rank-complete or game inventory.",
+  "scope": "All 415 club rows in historical source order, reference candidates only; complete source coverage, not independent verification or game inventory.",
   "notes": [
     "Null is a blank in source, not certified zero in runtime; sum arithmetic treats blanks as no contribution solely to compare published total.",
     "Association floor from prior candidate table, not independently certified here.",
     "Five precision notes: three exact season crosschecks or residual combinations, two older residuals require independent season source; do not activate until verified.",
     "No new playable clubs or IDs, catalog mapping and lower rows pending.",
     "Rows 101–205 preserve displayed annual values including 5-thousandth discrepancies; totals are source-reported, not fabricated from rounded values. No automatic correction/activation. Blank is not certified zero.",
-    "Rows 206–309 copied from historical trank2026 display; source total retained, floor from association seed; only 1 rounded annual difference (TSC Backa Topola)."
+    "Rows 206–309 copied from historical trank2026 display; source total retained, floor from association seed; only 1 rounded annual difference (TSC Backa Topola).",
+    "Rows 310–415 transcribed from source lines 379–536 (excluding association floors/separators); 106/106 published totals match summed displayed annual values. All 415 source rows now collected; independent numeric audit and DB mapping remain partial."
   ],
   "records": [
     {
@@ -4683,6 +4684,1596 @@
       "totalClubMilli": 2000,
       "associationFloorMilli": 4526,
       "seedingMilli": 4526
+    },
+    {
+      "sourceRow": 310,
+      "association": "ALB",
+      "name": "Egnatia Rrogozhinë",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1000,
+        1500,
+        2000
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 1625,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 311,
+      "association": "MDA",
+      "name": "Zimbru Chisinau",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        1500,
+        1500
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 2925,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 312,
+      "association": "GEO",
+      "name": "Torpedo Kutaisi",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        1500,
+        1500
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 1200,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 313,
+      "association": "ISL",
+      "name": "Valur Reykjavik",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        null,
+        1500,
+        1500
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 3304,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 314,
+      "association": "KAZ",
+      "name": "FK Aktobe",
+      "seasonPointsMilli": [
+        null,
+        null,
+        2000,
+        1000,
+        1500
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 2750,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 315,
+      "association": "KAZ",
+      "name": "Ordabasy Shymkent",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        2000,
+        1000
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 2750,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 316,
+      "association": "LVA",
+      "name": "FK Auda",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        2000,
+        1000
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 2575,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 317,
+      "association": "GIB",
+      "name": "FCB Magpies",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        1000,
+        1500,
+        1000
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 1424,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 318,
+      "association": "SMR",
+      "name": "Tre Penne",
+      "seasonPointsMilli": [
+        1000,
+        1000,
+        1500,
+        1000,
+        null
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 566,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 319,
+      "association": "BIH",
+      "name": "Velez Mostar",
+      "seasonPointsMilli": [
+        2000,
+        1500,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 2743,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 320,
+      "association": "LVA",
+      "name": "Valmieras FK",
+      "seasonPointsMilli": [
+        1000,
+        1500,
+        2000,
+        null,
+        null
+      ],
+      "totalClubMilli": 4500,
+      "associationFloorMilli": 2575,
+      "seedingMilli": 4500
+    },
+    {
+      "sourceRow": 321,
+      "association": "SVK",
+      "name": "FC Kosice",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1500
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 4475,
+      "seedingMilli": 4475
+    },
+    {
+      "sourceRow": 322,
+      "association": "SVK",
+      "name": "MFK Ruzomberok",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        null,
+        2500,
+        null
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 4475,
+      "seedingMilli": 4475
+    },
+    {
+      "sourceRow": 323,
+      "association": "BUL",
+      "name": "Arda Kardzhali",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        null,
+        null,
+        2500
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 4212,
+      "seedingMilli": 4212
+    },
+    {
+      "sourceRow": 324,
+      "association": "BUL",
+      "name": "Cherno More Varna",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1500,
+        1500
+      ],
+      "totalClubMilli": 3000,
+      "associationFloorMilli": 4212,
+      "seedingMilli": 4212
+    },
+    {
+      "sourceRow": 325,
+      "association": "BUL",
+      "name": "CSKA 1948 Sofia",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        2000,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 4212,
+      "seedingMilli": 4212
+    },
+    {
+      "sourceRow": 326,
+      "association": "BUL",
+      "name": "Botev Plovdiv",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        null,
+        2000,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 4212,
+      "seedingMilli": 4212
+    },
+    {
+      "sourceRow": 327,
+      "association": "BUL",
+      "name": "Lokomotiv Plovdiv",
+      "seasonPointsMilli": [
+        2000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 4212,
+      "seedingMilli": 4212
+    },
+    {
+      "sourceRow": 328,
+      "association": "IRL",
+      "name": "Shelbourne",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1500,
+        2500
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 3468,
+      "seedingMilli": 4000
+    },
+    {
+      "sourceRow": 329,
+      "association": "SMR",
+      "name": "AC Virtus",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1500,
+        2500
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 566,
+      "seedingMilli": 4000
+    },
+    {
+      "sourceRow": 330,
+      "association": "MLT",
+      "name": "Floriana",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        null,
+        1500,
+        1500
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 1800,
+      "seedingMilli": 4000
+    },
+    {
+      "sourceRow": 331,
+      "association": "IRL",
+      "name": "Derry City",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        2000,
+        1000,
+        null
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 3468,
+      "seedingMilli": 4000
+    },
+    {
+      "sourceRow": 332,
+      "association": "ALB",
+      "name": "KF Tirana",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        1500,
+        1000,
+        null
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 1625,
+      "seedingMilli": 4000
+    },
+    {
+      "sourceRow": 333,
+      "association": "NIR",
+      "name": "Crusaders Belfast",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        1500,
+        1000,
+        null
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 1450,
+      "seedingMilli": 4000
+    },
+    {
+      "sourceRow": 334,
+      "association": "LVA",
+      "name": "FK Liepaja",
+      "seasonPointsMilli": [
+        1500,
+        1500,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 4000,
+      "associationFloorMilli": 2575,
+      "seedingMilli": 4000
+    },
+    {
+      "sourceRow": 335,
+      "association": "FIN",
+      "name": "Ilves Tampere",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        2000,
+        1500
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 2800,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 336,
+      "association": "ISL",
+      "name": "KA Akureyri",
+      "seasonPointsMilli": [
+        null,
+        null,
+        2000,
+        null,
+        1500
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 3304,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 337,
+      "association": "KOS",
+      "name": "FC Prishtina",
+      "seasonPointsMilli": [
+        2000,
+        null,
+        null,
+        null,
+        1500
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 2797,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 338,
+      "association": "NIR",
+      "name": "Cliftonville",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        null,
+        1500,
+        1000
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1450,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 339,
+      "association": "MLT",
+      "name": "Birkirkara",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        1000,
+        null,
+        1000
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1800,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 340,
+      "association": "LUX",
+      "name": "Racing Union Luxembourg",
+      "seasonPointsMilli": [
+        1000,
+        1500,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 341,
+      "association": "AND",
+      "name": "UE Santa Coloma",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        null,
+        2500,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1366,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 342,
+      "association": "KOS",
+      "name": "KF Llapi",
+      "seasonPointsMilli": [
+        1000,
+        1000,
+        null,
+        1500,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 2797,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 343,
+      "association": "WAL",
+      "name": "Connah's Quay",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        1000,
+        1000,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1124,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 344,
+      "association": "IRL",
+      "name": "Dundalk",
+      "seasonPointsMilli": [
+        2000,
+        null,
+        1500,
+        null,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 3468,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 345,
+      "association": "BLR",
+      "name": "Shakhtior Saligorsk",
+      "seasonPointsMilli": [
+        1500,
+        2000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 346,
+      "association": "ALB",
+      "name": "KF Laçi",
+      "seasonPointsMilli": [
+        2000,
+        1500,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1625,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 347,
+      "association": "LUX",
+      "name": "CS Fola Esch",
+      "seasonPointsMilli": [
+        2500,
+        1000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 3500,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 3500
+    },
+    {
+      "sourceRow": 348,
+      "association": "IRL",
+      "name": "Sligo Rovers",
+      "seasonPointsMilli": [
+        1000,
+        2000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 3000,
+      "associationFloorMilli": 3468,
+      "seedingMilli": 3468
+    },
+    {
+      "sourceRow": 349,
+      "association": "IRL",
+      "name": "Bohemians Dublin",
+      "seasonPointsMilli": [
+        2000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 3468,
+      "seedingMilli": 3468
+    },
+    {
+      "sourceRow": 350,
+      "association": "ISL",
+      "name": "Stjarnan FC",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        1500,
+        null
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 3304,
+      "seedingMilli": 3304
+    },
+    {
+      "sourceRow": 351,
+      "association": "ISL",
+      "name": "KR Reykjavik",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 3304,
+      "seedingMilli": 3304
+    },
+    {
+      "sourceRow": 352,
+      "association": "ISL",
+      "name": "FH Hafnarfjardar",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 3304,
+      "seedingMilli": 3304
+    },
+    {
+      "sourceRow": 353,
+      "association": "ARM",
+      "name": "Ararat Yerevan",
+      "seasonPointsMilli": [
+        1500,
+        1000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 3012,
+      "seedingMilli": 3012
+    },
+    {
+      "sourceRow": 354,
+      "association": "LUX",
+      "name": "Progrès Niederkorn",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        1500,
+        null
+      ],
+      "totalClubMilli": 3000,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 3000
+    },
+    {
+      "sourceRow": 355,
+      "association": "WAL",
+      "name": "Bala Town",
+      "seasonPointsMilli": [
+        1000,
+        1000,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 3000,
+      "associationFloorMilli": 1124,
+      "seedingMilli": 3000
+    },
+    {
+      "sourceRow": 356,
+      "association": "LUX",
+      "name": "Swift Hesperange",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        2000,
+        null,
+        null
+      ],
+      "totalClubMilli": 3000,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 3000
+    },
+    {
+      "sourceRow": 357,
+      "association": "GIB",
+      "name": "Europa FC",
+      "seasonPointsMilli": [
+        1000,
+        1000,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 3000,
+      "associationFloorMilli": 1424,
+      "seedingMilli": 3000
+    },
+    {
+      "sourceRow": 358,
+      "association": "LTU",
+      "name": "Suduva Marijampole",
+      "seasonPointsMilli": [
+        1500,
+        1500,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 3000,
+      "associationFloorMilli": 1550,
+      "seedingMilli": 3000
+    },
+    {
+      "sourceRow": 359,
+      "association": "MDA",
+      "name": "Sfântul Gheorghe",
+      "seasonPointsMilli": [
+        1000,
+        1000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 2925,
+      "seedingMilli": 2925
+    },
+    {
+      "sourceRow": 360,
+      "association": "FIN",
+      "name": "SJK Seinäjoki",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 2800,
+      "seedingMilli": 2800
+    },
+    {
+      "sourceRow": 361,
+      "association": "FIN",
+      "name": "VPS Vaasa",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 2800,
+      "seedingMilli": 2800
+    },
+    {
+      "sourceRow": 362,
+      "association": "FIN",
+      "name": "Honka Espoo",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 2800,
+      "seedingMilli": 2800
+    },
+    {
+      "sourceRow": 363,
+      "association": "FIN",
+      "name": "Haka Valkeakoski",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 2800,
+      "seedingMilli": 2800
+    },
+    {
+      "sourceRow": 364,
+      "association": "FIN",
+      "name": "Inter Turku",
+      "seasonPointsMilli": [
+        1000,
+        1000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 2800,
+      "seedingMilli": 2800
+    },
+    {
+      "sourceRow": 365,
+      "association": "KOS",
+      "name": "KF Malisheva",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1000,
+        1000
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 2797,
+      "seedingMilli": 2797
+    },
+    {
+      "sourceRow": 366,
+      "association": "KOS",
+      "name": "KF Dukagjini",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        null,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 2797,
+      "seedingMilli": 2797
+    },
+    {
+      "sourceRow": 367,
+      "association": "KOS",
+      "name": "SC Gjilani",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 2797,
+      "seedingMilli": 2797
+    },
+    {
+      "sourceRow": 368,
+      "association": "KAZ",
+      "name": "FK Kyzylzhar",
+      "seasonPointsMilli": [
+        null,
+        2000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 2750,
+      "seedingMilli": 2750
+    },
+    {
+      "sourceRow": 369,
+      "association": "KAZ",
+      "name": "Shakhtyor Karaganda",
+      "seasonPointsMilli": [
+        2500,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 2750,
+      "seedingMilli": 2750
+    },
+    {
+      "sourceRow": 370,
+      "association": "BIH",
+      "name": "Zeljeznicar Sarajevo",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 2743,
+      "seedingMilli": 2743
+    },
+    {
+      "sourceRow": 371,
+      "association": "BIH",
+      "name": "Tuzla City",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 2743,
+      "seedingMilli": 2743
+    },
+    {
+      "sourceRow": 372,
+      "association": "BIH",
+      "name": "Siroki Brijeg",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 2743,
+      "seedingMilli": 2743
+    },
+    {
+      "sourceRow": 373,
+      "association": "LVA",
+      "name": "BFC Daugavpils",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 2575,
+      "seedingMilli": 2575
+    },
+    {
+      "sourceRow": 374,
+      "association": "ALB",
+      "name": "Dinamo Tirana",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        2500
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 1625,
+      "seedingMilli": 2500
+    },
+    {
+      "sourceRow": 375,
+      "association": "LUX",
+      "name": "UNA Strassen",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1000,
+        1500
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 2500
+    },
+    {
+      "sourceRow": 376,
+      "association": "WAL",
+      "name": "Haverfordwest County",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 1124,
+      "seedingMilli": 2500
+    },
+    {
+      "sourceRow": 377,
+      "association": "SMR",
+      "name": "Tre Fiori",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 566,
+      "seedingMilli": 2500
+    },
+    {
+      "sourceRow": 378,
+      "association": "BLR",
+      "name": "Dynamo Brest",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 2500
+    },
+    {
+      "sourceRow": 379,
+      "association": "MKD",
+      "name": "Makedonija GjP",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 1551,
+      "seedingMilli": 2500
+    },
+    {
+      "sourceRow": 380,
+      "association": "WAL",
+      "name": "Newtown",
+      "seasonPointsMilli": [
+        1000,
+        1500,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2500,
+      "associationFloorMilli": 1124,
+      "seedingMilli": 2500
+    },
+    {
+      "sourceRow": 381,
+      "association": "LTU",
+      "name": "FC Hegelmann",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1000,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 1550,
+      "seedingMilli": 2000
+    },
+    {
+      "sourceRow": 382,
+      "association": "WAL",
+      "name": "Penybont",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1000,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 1124,
+      "seedingMilli": 2000
+    },
+    {
+      "sourceRow": 383,
+      "association": "FRO",
+      "name": "NSI Runavik",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 1950,
+      "seedingMilli": 2000
+    },
+    {
+      "sourceRow": 384,
+      "association": "MKD",
+      "name": "Sileks Kratovo",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 1551,
+      "seedingMilli": 2000
+    },
+    {
+      "sourceRow": 385,
+      "association": "MNE",
+      "name": "Mornar Bar",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        2000,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 1316,
+      "seedingMilli": 2000
+    },
+    {
+      "sourceRow": 386,
+      "association": "NIR",
+      "name": "Glentoran",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 1450,
+      "seedingMilli": 2000
+    },
+    {
+      "sourceRow": 387,
+      "association": "ALB",
+      "name": "Teuta Durrës",
+      "seasonPointsMilli": [
+        2000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 2000,
+      "associationFloorMilli": 1625,
+      "seedingMilli": 2000
+    },
+    {
+      "sourceRow": 388,
+      "association": "MLT",
+      "name": "Sliema Wanderers",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1500,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1800,
+      "seedingMilli": 1800
+    },
+    {
+      "sourceRow": 389,
+      "association": "MLT",
+      "name": "Marsaxlokk",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1800,
+      "seedingMilli": 1800
+    },
+    {
+      "sourceRow": 390,
+      "association": "MLT",
+      "name": "Balzan FC",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1500,
+        null,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1800,
+      "seedingMilli": 1800
+    },
+    {
+      "sourceRow": 391,
+      "association": "MLT",
+      "name": "Mosta FC",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1800,
+      "seedingMilli": 1800
+    },
+    {
+      "sourceRow": 392,
+      "association": "EST",
+      "name": "Kalju Nomme",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1500
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1641,
+      "seedingMilli": 1641
+    },
+    {
+      "sourceRow": 393,
+      "association": "EST",
+      "name": "Kalev Tallinn",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1641,
+      "seedingMilli": 1641
+    },
+    {
+      "sourceRow": 394,
+      "association": "EST",
+      "name": "Trans Narva",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1641,
+      "seedingMilli": 1641
+    },
+    {
+      "sourceRow": 395,
+      "association": "MKD",
+      "name": "Vardar Skopje",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1500
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1551,
+      "seedingMilli": 1551
+    },
+    {
+      "sourceRow": 396,
+      "association": "MKD",
+      "name": "Rabotnicki Skopje",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1551,
+      "seedingMilli": 1551
+    },
+    {
+      "sourceRow": 397,
+      "association": "MKD",
+      "name": "Tikves Kavadarci",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1551,
+      "seedingMilli": 1551
+    },
+    {
+      "sourceRow": 398,
+      "association": "MKD",
+      "name": "Akademija Pandev",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1551,
+      "seedingMilli": 1551
+    },
+    {
+      "sourceRow": 399,
+      "association": "LTU",
+      "name": "Banga Gargzdai",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1500
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1550,
+      "seedingMilli": 1550
+    },
+    {
+      "sourceRow": 400,
+      "association": "LTU",
+      "name": "Transinvest Vilnius",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1500,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1550,
+      "seedingMilli": 1550
+    },
+    {
+      "sourceRow": 401,
+      "association": "LTU",
+      "name": "FA Siauliai",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1000,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1550,
+      "seedingMilli": 1550
+    },
+    {
+      "sourceRow": 402,
+      "association": "NIR",
+      "name": "Dungannon Swifts",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1500
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1450,
+      "seedingMilli": 1500
+    },
+    {
+      "sourceRow": 403,
+      "association": "GEO",
+      "name": "Spaeri Tbilisi",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1500
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1200,
+      "seedingMilli": 1500
+    },
+    {
+      "sourceRow": 404,
+      "association": "WAL",
+      "name": "Caernarfon Town",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        1500,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1124,
+      "seedingMilli": 1500
+    },
+    {
+      "sourceRow": 405,
+      "association": "BLR",
+      "name": "FC Gomel",
+      "seasonPointsMilli": [
+        null,
+        1500,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 1500
+    },
+    {
+      "sourceRow": 406,
+      "association": "SMR",
+      "name": "Folgore",
+      "seasonPointsMilli": [
+        1500,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1500,
+      "associationFloorMilli": 566,
+      "seedingMilli": 1500
+    },
+    {
+      "sourceRow": 407,
+      "association": "NIR",
+      "name": "Coleraine",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1450,
+      "seedingMilli": 1450
+    },
+    {
+      "sourceRow": 408,
+      "association": "GIB",
+      "name": "Mons Calpe",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1424,
+      "seedingMilli": 1424
+    },
+    {
+      "sourceRow": 409,
+      "association": "AND",
+      "name": "Sant Julià",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1366,
+      "seedingMilli": 1366
+    },
+    {
+      "sourceRow": 410,
+      "association": "BLR",
+      "name": "Isloch Minsk Raion",
+      "seasonPointsMilli": [
+        null,
+        null,
+        null,
+        null,
+        1000
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1325,
+      "seedingMilli": 1325
+    },
+    {
+      "sourceRow": 411,
+      "association": "MNE",
+      "name": "Arsenal Tivat",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1316,
+      "seedingMilli": 1316
+    },
+    {
+      "sourceRow": 412,
+      "association": "MNE",
+      "name": "Iskra Danilovgrad",
+      "seasonPointsMilli": [
+        null,
+        1000,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1316,
+      "seedingMilli": 1316
+    },
+    {
+      "sourceRow": 413,
+      "association": "MNE",
+      "name": "FK Podgorica",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1316,
+      "seedingMilli": 1316
+    },
+    {
+      "sourceRow": 414,
+      "association": "GEO",
+      "name": "Gagra Tbilisi",
+      "seasonPointsMilli": [
+        1000,
+        null,
+        null,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 1200,
+      "seedingMilli": 1200
+    },
+    {
+      "sourceRow": 415,
+      "association": "SMR",
+      "name": "Cosmos",
+      "seasonPointsMilli": [
+        null,
+        null,
+        1000,
+        null,
+        null
+      ],
+      "totalClubMilli": 1000,
+      "associationFloorMilli": 566,
+      "seedingMilli": 1000
     }
   ]
 }

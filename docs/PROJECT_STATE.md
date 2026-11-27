@@ -2715,3 +2715,8 @@ Misura sullo screenshot Windows (7,2 px schermo per px di gioco in verticale): f
 - Contatore dei minuti (`game_state.c`, posizione HUD dell'orologio): SOLO mentre la panchina è aperta (`_inSubstitutesMenu != 0`, non in allenamento) l'orologio si sposta di 32 px a destra, perché la panchina lunga arriva nell'angolo in alto a sinistra dove l'OG lo disegna; altrimenti posizione OG invariata. EXE 17:53, NON PROVATO in partita.
 
 - Tabellone coppa, STATS ripristinato (rettifica utente 26/11/2026): `ce_cup_board_stats()` apre il menu OG originale delle statistiche (`SetupDIYCompetitionStatsMenu`) come fa il tabellone CE di lega: nella COPIA di `_diyCompetitionStart` (ripristinata alla chiusura del tabellone) scrive solo tipo coppa, nome, numero e id {paese,ordinale} dei club iscritti all'edizione CE. Nessun dato sportivo CE modificato. EXE 17:59, NON PROVATO.
+
+
+Ranking 2627: kernel aritmetico FIFA/UEFA preparato, non collegato; seed, mapping, ledger/CAR e test ancora pendenti. 9697 invariato. Vedi CE_CALENDAR_GENERATOR.md e RG-CE-RANKING-2627.
+
+Ranking 2627: 415/415 club esaminati; 377 candidati DB, 38 irrisolti, non attivi. Mapping nazionali e crosscheck indipendente pendenti.

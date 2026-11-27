@@ -85,3 +85,8 @@ RAPPORTO_PULIZIA_SWOS.txt
 !/AVVIA_RICERCA_GIOCATORI.bat
 !/AVVIA_RICERCA_COMPETIZIONI.bat
 !/AVVIA_RICERCA_STATS_EA.bat
+
+# Only the three current research logs are publishable; all other logs stay local.
+!/diagnostica/LOG/RICERCA_COMPETIZIONI.log
+!/diagnostica/LOG/RICERCA_GIOCATORI.log
+!/diagnostica/LOG/RICERCA_STATS_EA.log

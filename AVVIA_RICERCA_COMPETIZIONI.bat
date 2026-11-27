@@ -1,20 +1,9 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-echo Verifica automatica e ripresa ricerca competizioni...
 where py >nul 2>&1
-if not errorlevel 1 (
-  py -3 "tools\competition_research\strict_online.py" %*
-  goto done
-)
-where python >nul 2>&1
-if errorlevel 1 (
-  echo Installare Python 3.10 o superiore.
-  pause
-  exit /b 1
-)
-python "tools\competition_research\strict_online.py" %*
-:done
+if errorlevel 1 (set "PY=python") else (set "PY=py -3")
+%PY% "diagnostica\research_runner.py" COMPETIZIONI %*
 set "RC=%ERRORLEVEL%"
 pause
 exit /b %RC%

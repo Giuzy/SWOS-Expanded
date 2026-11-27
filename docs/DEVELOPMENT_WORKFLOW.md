@@ -1,3 +1,6 @@
+## 27/11/2026 — Log fissi dei tre BAT ricerca
+RG-RESEARCH-FIXED-LOGS: diagnostica/LOG/RICERCA_COMPETIZIONI.log, RICERCA_GIOCATORI.log, RICERCA_STATS_EA.log. Doppio clic, output a schermo e file UTF-8 aggiornato per riga; START/END/exit; ogni avvio sostituisce solo il proprio log, nessuna copia storica. Seconda istanza stessa ricerca rifiutata prima del truncate. Chiudere BAT prima di push/pull GitKraken, verificare i log (possono contenere percorsi locali) e includerli nel push manuale; solo questi tre .log esclusi dalla regola di ignore. Nessuna modifica ai writer dati o build. ISO runner con stub SI; Windows/ricerca reale NP; chiusura forzata può mancare END, Python non disponibile impedisce il log.
+
 ## 27/11/2026 — Ricerca entrambi i BAT: sorgenti e lacune
 
 RG-RESEARCH-SOURCE-GAPS: RSSSF AFG/AIA recupero separato per sezione, BHU/CAM rotte verificate (nomi stagione, non stato 1 luglio), cache archivio 24h; TM budget per paese preservato, priorità rose sotto16, Wiki template annidati. Conflitti JSON/SQLite compatibili riconciliati per ID e ripresa automatica una volta; veri conflitti recovery readonly. Nessun cambiamento al motore o attivazione sportiva. Test sorgente aggiunti, Python/Windows/live NP. Chiudere tutti i BAT, pull GitKraken, doppio clic sui BAT ufficiali. 

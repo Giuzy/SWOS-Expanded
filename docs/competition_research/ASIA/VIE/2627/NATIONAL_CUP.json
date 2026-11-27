@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "world": "2627",
+  "country": "VIE",
+  "researchCategory": "NATIONAL_CUP",
+  "identity": {
+    "researchKey": "2627:VIE:NATIONAL_CUP",
+    "ceCompetitionId": null,
+    "legacyInventoryRow": null,
+    "legacyNativeSlot": null,
+    "status": "RESEARCH_CANDIDATE_NOT_RUNTIME"
+  },
+  "name": {
+    "display": "Vietnamese National Football Cup",
+    "scope": "CANDIDATE_NOT_OFFICIAL_EDITION_NAME"
+  },
+  "sourceRecord": {
+    "path": "SWOS_Roster_Research/results_2627/competition_candidates/VIE.json",
+    "blobSha": "81b6def9cbe2e2500b59f58f2605800408718e9a",
+    "commit": "5c7128821715136579156b00d4a1f58885d74988",
+    "selectors": [
+      {
+        "source": "WikipediaDirectory",
+        "sourceId": "Vietnamese National Football Cup",
+        "sourceUrl": "https://en.wikipedia.org/w/index.php?oldid=1378993442#Vietnam",
+        "scope": "DIRECTORY_IDENTITY_REVIEW"
+      }
+    ]
+  },
+  "sourceLeads": {
+    "official": [],
+    "sections": [],
+    "countryArchives": [
+      {
+        "label": "Vietnam",
+        "scope": "COUNTRY_ARCHIVE_LEAD_EDITION_AND_SECTION_NOT_VERIFIED",
+        "url": "https://www.rsssf.org/tablesv/viet2026.html"
+      }
+    ]
+  },
+  "operationalFields": {
+    "name": "P",
+    "identity": "I",
+    "participants": "I",
+    "format": "I",
+    "regulation": "I",
+    "movement": "?",
+    "qualification": "I",
+    "july1": "?",
+    "roundDates": "I",
+    "competitionDays": "I",
+    "evolution": "I",
+    "seasonChange": "I"
+  },
+  "operationalStatus": "INCOMPLETA",
+  "runtimeVerified": false,
+  "limits": "Identity and source leads only unless explicit season participants are linked below. No official July 1 state, format, rules, calendar, promotion or qualification certified. No runtime ID assigned."
+}

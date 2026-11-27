@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "world": "2627",
+  "country": "ZAM",
+  "researchCategory": "LEAGUE_DIVISION",
+  "identity": {
+    "researchKey": "2627:ZAM:DIV1",
+    "ceCompetitionId": null,
+    "legacyInventoryRow": null,
+    "legacyNativeSlot": null,
+    "status": "RESEARCH_CANDIDATE_NOT_RUNTIME",
+    "wikidataId": "Q145554"
+  },
+  "name": {
+    "display": "Zambia Super League",
+    "scope": "CANDIDATE_NOT_OFFICIAL_EDITION_NAME"
+  },
+  "sourceRecord": {
+    "path": "SWOS_Roster_Research/results_2627/competition_candidates/ZAM.json",
+    "blobSha": "cc096b550efcd3667adea1ac49b33ead51bb22c0",
+    "commit": "5c7128821715136579156b00d4a1f58885d74988",
+    "selectors": [
+      {
+        "source": "WikipediaDirectory",
+        "sourceId": "Zambia Super League",
+        "sourceUrl": "https://en.wikipedia.org/w/index.php?oldid=1378993442#Zambia",
+        "scope": "COMPETITION_IDENTITY_NOT_EDITION"
+      },
+      {
+        "source": "Wikidata",
+        "sourceId": "Q145554",
+        "sourceUrl": "https://www.wikidata.org/wiki/Q145554",
+        "scope": "COMPETITION_IDENTITY_NOT_EDITION"
+      }
+    ]
+  },
+  "sourceLeads": {
+    "official": [
+      "http://www.fazfootball.com"
+    ],
+    "sections": [
+      {
+        "field": "evolution",
+        "heading": "History",
+        "revision": 1383884593,
+        "scope": "SECTION_LEAD_EDITION_UNVERIFIED",
+        "sourceUrl": "https://en.wikipedia.org/w/index.php?oldid=1383884593#History"
+      },
+      {
+        "field": "format",
+        "heading": "Format",
+        "revision": 1383884593,
+        "scope": "SECTION_LEAD_EDITION_UNVERIFIED",
+        "sourceUrl": "https://en.wikipedia.org/w/index.php?oldid=1383884593#Format"
+      }
+    ],
+    "countryArchives": [
+      {
+        "label": "Zambia",
+        "scope": "COUNTRY_ARCHIVE_LEAD_EDITION_AND_SECTION_NOT_VERIFIED",
+        "url": "https://www.rsssf.org/tablesz/zamb2027.html"
+      }
+    ]
+  },
+  "operationalFields": {
+    "name": "P",
+    "identity": "P",
+    "participants": "I",
+    "format": "I",
+    "regulation": "I",
+    "movement": "I",
+    "qualification": "I",
+    "july1": "?",
+    "roundDates": "I",
+    "competitionDays": "I",
+    "evolution": "I",
+    "seasonChange": "I"
+  },
+  "operationalStatus": "INCOMPLETA",
+  "runtimeVerified": false,
+  "limits": "Identity and source leads only unless explicit season participants are linked below. No official July 1 state, format, rules, calendar, promotion or qualification certified. No runtime ID assigned."
+}

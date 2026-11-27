@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "world": "2627",
+  "country": "VIE",
+  "researchCategory": "LEAGUE_DIVISION",
+  "identity": {
+    "researchKey": "2627:VIE:DIV1",
+    "ceCompetitionId": null,
+    "legacyInventoryRow": null,
+    "legacyNativeSlot": null,
+    "status": "RESEARCH_CANDIDATE_NOT_RUNTIME",
+    "wikidataId": "Q209080"
+  },
+  "name": {
+    "display": "V.League 1",
+    "scope": "CANDIDATE_NOT_OFFICIAL_EDITION_NAME"
+  },
+  "sourceRecord": {
+    "path": "SWOS_Roster_Research/results_2627/competition_candidates/VIE.json",
+    "blobSha": "81b6def9cbe2e2500b59f58f2605800408718e9a",
+    "commit": "5c7128821715136579156b00d4a1f58885d74988",
+    "selectors": [
+      {
+        "source": "Transfermarkt",
+        "sourceId": "VIE1",
+        "sourceUrl": "https://www.transfermarkt.com/-/startseite/wettbewerb/VIE1/saison_id/2026",
+        "scope": "SEASON_CANDIDATE_NOT_JULY1",
+        "season": "2026/27"
+      },
+      {
+        "source": "WikipediaDirectory",
+        "sourceId": "V.League 1",
+        "sourceUrl": "https://en.wikipedia.org/w/index.php?oldid=1378993442#Vietnam",
+        "scope": "COMPETITION_IDENTITY_NOT_EDITION"
+      },
+      {
+        "source": "Wikidata",
+        "sourceId": "Q209080",
+        "sourceUrl": "https://www.wikidata.org/wiki/Q209080",
+        "scope": "COMPETITION_IDENTITY_NOT_EDITION"
+      }
+    ]
+  },
+  "sourceLeads": {
+    "official": [
+      "http://www.vleague.vn/"
+    ],
+    "sections": [
+      {
+        "field": "evolution",
+        "heading": "History",
+        "revision": 1387552358,
+        "scope": "SECTION_LEAD_EDITION_UNVERIFIED",
+        "sourceUrl": "https://en.wikipedia.org/w/index.php?oldid=1387552358#History"
+      },
+      {
+        "field": "format",
+        "heading": "Competition format",
+        "revision": 1387552358,
+        "scope": "SECTION_LEAD_EDITION_UNVERIFIED",
+        "sourceUrl": "https://en.wikipedia.org/w/index.php?oldid=1387552358#Competition_format"
+      }
+    ],
+    "countryArchives": [
+      {
+        "label": "Vietnam",
+        "scope": "COUNTRY_ARCHIVE_LEAD_EDITION_AND_SECTION_NOT_VERIFIED",
+        "url": "https://www.rsssf.org/tablesv/viet2026.html"
+      }
+    ]
+  },
+  "operationalFields": {
+    "name": "P",
+    "identity": "P",
+    "participants": "P",
+    "format": "I",
+    "regulation": "I",
+    "movement": "I",
+    "qualification": "I",
+    "july1": "?",
+    "roundDates": "I",
+    "competitionDays": "I",
+    "evolution": "I",
+    "seasonChange": "I"
+  },
+  "operationalStatus": "INCOMPLETA",
+  "runtimeVerified": false,
+  "limits": "Identity and source leads only unless explicit season participants are linked below. No official July 1 state, format, rules, calendar, promotion or qualification certified. No runtime ID assigned.",
+  "participantEvidence": {
+    "season": "2026/27",
+    "scope": "SEASON_CANDIDATE_NOT_JULY1",
+    "sourceId": "VIE1",
+    "sourceUrl": "https://www.transfermarkt.com/-/startseite/wettbewerb/VIE1/saison_id/2026",
+    "sourceClubIds": [
+      "116338",
+      "13950",
+      "14157",
+      "20830",
+      "20903",
+      "24971",
+      "32018",
+      "35327",
+      "57443",
+      "6758",
+      "77974",
+      "81455",
+      "81614",
+      "93137"
+    ],
+    "clubCount": 14,
+    "rosterReference": {
+      "path": "SWOS_Roster_Research/results_2627/import_candidates/clubs/VIE.json",
+      "blobSha": "d593d36f97d7b91676d56d83d45315839e43814d",
+      "competitionId": "VIE1",
+      "season": "2026/27",
+      "matchedClubCount": 14,
+      "playerObservations": 429,
+      "scope": "EXACT_SOURCE_ID_MEMBERSHIP_NOT_CERTIFIED_START_ROSTER"
+    }
+  }
+}

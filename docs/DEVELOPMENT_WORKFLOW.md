@@ -1,3 +1,7 @@
+## 27/11/2026 — Estensione matrice 2627 paesi nominali
+
+Decisione utente: inserire le nuove competizioni nazionali nella matrice operativa anche senza slot nativi, usando ceOnlyEntries con researchKey stabile, ceCompetitionId null e file evidenza paese/mondo. UGA/VIE/YEM/ZAM/ZIM: 5 leghe/4 coppe candidate; VIN senza dato. Collegare solo identità fonte/edizione esatte, non inventare risultati, partecipanti o regole. Name/identity P e lacune I/?; July1 ? finché applicabilità ignota. 362 voci moderne (351 legacy + 11 CE-only); 533 legacy preservate. matrix_query modalità operativa include nuove chiavi; aggiornare INDEX e COVERAGE, nessuna registrazione sportiva prima della certificazione. RG-CE-DOMESTIC-RESEARCH-INVENTORY-EXTENSION. Test strutturali SI, Python/Windows NP.
+
 ## 27/11/2026 — Progresso dei tre BAT ricerca
 
 PROGRESS mostra unità gestite/totale e rimanenti per fase e lista nota; ACTION mostra unità corrente. Totali delle liste successive emergono dalla ricerca, non sono percentuale globale di completezza dei dati. ERROR/SKIPPED restano esiti separati; interruzioni non contano l'unità attiva, le scansioni OFB grandi avanzano ogni 1000 righe. Una riga vuota separa stati e inizio HTTP. Preflight verifica contatori; nessuna modifica a writer, cache o dati. RG-RESEARCH-CONSOLE-PROGRESS.

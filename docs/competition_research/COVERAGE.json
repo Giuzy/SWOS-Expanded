@@ -2816,12 +2816,12 @@
     },
     "modernReviewCount": {
       "modernRows": 351,
-      "ceOnlyRows": 2,
-      "modernTotal": 353,
-      "audited": 9,
+      "ceOnlyRows": 11,
+      "modernTotal": 362,
+      "audited": 18,
       "approved": 8,
       "history": 0,
-      "incomplete": 1,
+      "incomplete": 10,
       "unreviewed": 344
     },
     "italySupercup2627": {
@@ -2941,6 +2941,26 @@
         "notes": "One up and one down; preserve real federation/country, identity, roster, no pool in A-League, no repeated membership or invented outcomes. Design exception, not official Australian rule."
       },
       "limits": "New approved CE-only competition; no assigned runtime ID, complete entrant mapping, regulation, calendar, qualification or interregional balancing yet. Original five operational data approvals unchanged; new movement extension open."
+    },
+    "domesticCandidateExpansion20261127": {
+      "researchKeys": [
+        "2627:UGA:DIV1",
+        "2627:UGA:NATIONAL_CUP",
+        "2627:VIE:DIV1",
+        "2627:VIE:NATIONAL_CUP",
+        "2627:YEM:DIV1",
+        "2627:YEM:NATIONAL_CUP",
+        "2627:ZAM:DIV1",
+        "2627:ZIM:DIV1",
+        "2627:ZIM:NATIONAL_CUP"
+      ],
+      "newEntries": 9,
+      "leagueCandidates": 5,
+      "cupCandidates": 4,
+      "participantCandidateEntries": 2,
+      "linkedClubCandidates": 32,
+      "linkedPlayerObservations": 1068,
+      "scope": "Research-only CE entries; previous legacy inventory and audit counts preserved; no official rules or runtime IDs."
     }
   },
   "strictAcquisitionSummary": {

@@ -7726,6 +7726,110 @@ void AddInternationalPlayerAbroad(uint8_t *selectedTeam)
 }
 
 
+
+#ifdef SWOS_SDL_BUILD
+/* v342 (user 27/11/2026): START AS NATIONAL TEAM COACH begins with the squad of
+ * the national team file already called up (the 1996/97 players of an OG national
+ * team, the database players of a modern one), instead of the empty OG squad.
+ * Every player is found in the CLUB database by name + nationality and called up
+ * through the SAME OG routine as ADD INTERNATIONAL PLAYER (lookup table, names,
+ * position-compatible slot); a player with no club record is not invented. The
+ * manager can change the squad afterwards with the original OG screens. */
+#include "team_db.h"
+static int natpre_slot_for(uint16_t srcPos, uint16_t *dstSlot, uint16_t *dstFileIdx, uint8_t **careerPlayer)
+{
+    for (int16_t d7 = 0; d7 < 20; d7++) {
+        uint8_t *cp = GetPlayerInfoBreakPosition(&_careerTeam, (uint16_t)d7, dstSlot, dstFileIdx);
+        PlayerFile *pf = (PlayerFile *)(cp + sizeof(TeamFile));
+        if ((uint8_t)pf->playerName[0] != 0xFF) continue;
+        uint16_t dstPos = (pf->positionAndFace & PF_POSITION_MASK) >> 5;
+        if ((srcPos == 0) != (dstPos == 0)) continue;
+        *careerPlayer = cp;
+        return 1;
+    }
+    return 0;
+}
+void Expanded_NationalPreselectSquad(void)
+{
+    const TeamDbEntry *nat = TeamDb_Team((int32_t)(_selTeamNumber >> 8), (int32_t)(_selTeamNumber & 0xFF));
+    const uint8_t natId = _nationalTeamNationality;
+    unsigned called = 0, missing = 0, from_national = 0;
+    uint16_t usedTeam[20], usedIdx[20];
+    unsigned nused = 0;
+    if (!nat) {
+        fprintf(stderr, "[national-preselect] SKIPPED team=%04x reason=NO_NATIONAL_RECORD\n", (unsigned)_selTeamNumber);
+        return;
+    }
+    for (unsigned p = 0; p < TEAM_PLAYERS && _careerNumPlayers < 20; ++p) {
+        const PlayerFile *np = &nat->team.players[p];
+        int found = 0;
+        if ((uint8_t)np->playerName[0] == 0xFF || !np->playerName[0]) continue;
+        for (int32_t country = 0; country < 256 && !found; ++country) {
+            if (country >= 80 && country <= 85) continue;           /* national team files */
+            for (int32_t t = 0; !found; ++t) {
+                const TeamDbEntry *club = TeamDb_Entry(country, t);
+                if (!club) break;
+                for (uint16_t k = 0; k < 16 && !found; ++k) {
+                    const PlayerFile *cp = &club->team.players[k];
+                    if (cp->nationality != np->nationality ||
+                        strncmp((const char *)cp->playerName, (const char *)np->playerName, sizeof cp->playerName) != 0)
+                        continue;
+                    const uint16_t teamId = (uint16_t)(((uint16_t)club->team.team.countryNumber << 8) | club->team.team.teamOrdinal);
+                    int dup = 0;
+                    for (unsigned u = 0; u < nused; ++u) if (usedTeam[u] == teamId && usedIdx[u] == k) dup = 1;
+                    if (dup) continue;
+                    uint16_t dstSlot, dstFileIdx;
+                    uint8_t *careerPlayer;
+                    const uint16_t srcPos = (cp->positionAndFace & PF_POSITION_MASK) >> 5;
+                    if (!natpre_slot_for(srcPos, &dstSlot, &dstFileIdx, &careerPlayer)) { found = -1; break; }
+                    /* same rotation as Career_AddInternationalPlayerCommon: visible lowest free row */
+                    if (dstSlot >= 16) {
+                        volatile uint8_t *cmp = _currentMatchPlayers;
+                        uint16_t home = dstSlot;
+                        for (uint16_t q = 0; q < dstSlot; q++) {
+                            uint8_t *occ = GetPlayerAtIndex(_selTeamNumber, q);
+                            PlayerFile *opf = (PlayerFile *)(occ + sizeof(TeamFile));
+                            if ((uint8_t)opf->playerName[0] == 0xFF) { home = q; break; }
+                        }
+                        if (home < dstSlot) {
+                            uint8_t saved = cmp[dstSlot];
+                            uint16_t idx = dstSlot;
+                            while (idx != home) { cmp[idx] = cmp[idx - 1]; idx--; }
+                            cmp[home] = saved;
+                        }
+                    }
+                    Career_CopyUnavailablePlayerToCareerTeamSlot(
+                        (uint8_t *)&club->team + (uint16_t)(k * sizeof(PlayerFile)), careerPlayer,
+                        (uint8_t *)club->team.team.teamName, teamId, k, dstFileIdx);
+                    _careerNumPlayers++;
+                    if (nused < 20) { usedTeam[nused] = teamId; usedIdx[nused] = k; ++nused; }
+                    ++called;
+                    found = 1;
+                }
+            }
+        }
+        if (found == 0) {
+            /* not in the club database (a club the game does not have): the player of the national
+             * database itself, with no club link (lookup 0xFFFF = the OG 'no club' state) */
+            uint16_t dstSlot, dstFileIdx;
+            uint8_t *careerPlayer;
+            const uint16_t srcPos = (np->positionAndFace & PF_POSITION_MASK) >> 5;
+            if (natpre_slot_for(srcPos, &dstSlot, &dstFileIdx, &careerPlayer) && dstSlot < 16) {
+                Career_CopyUnavailablePlayerToCareerTeamSlot(
+                    (uint8_t *)&nat->team + (uint16_t)(p * sizeof(PlayerFile)), careerPlayer,
+                    (uint8_t *)nat->team.team.teamName, 0xFFFFu, 0xFFFFu, dstFileIdx);
+                _careerNumPlayers++;
+                ++from_national;
+                found = 1;
+            }
+        }
+        if (found != 1) ++missing;
+    }
+    fprintf(stderr, "[national-preselect] team=%04x nationality=%u from-clubs=%u from-national-db=%u not-placed=%u "
+            "og-add-international-routine=1\n", (unsigned)_selTeamNumber, (unsigned)natId, called, from_national, missing);
+}
+#endif
+
 /* ==========================================================================
  * Chunk 206 — National Team Selection family
  * (SWOS2.s lines 65499-65745)

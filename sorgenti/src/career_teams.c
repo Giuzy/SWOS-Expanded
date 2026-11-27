@@ -838,6 +838,7 @@ void AppendTeamsToSelectionFromTmdOrTeamFile(uint16_t *out, uint16_t *teamIds, u
  * ================================================================ */
 /* One file's clubs of the division, from idOut on; returns past the last written. */
 static uint16_t *fillLeagueTeamsOfLoadedFile(uint16_t *idOut, uint16_t leagueFilter);
+static uint16_t *fillLeagueTeamsOfLoadedFileMax(uint16_t *idOut, uint16_t leagueFilter, uint16_t max);
 
 static void fillLeagueTeamSelectionFromFile(uint16_t extNumber, uint16_t leagueFilter,
                                              int16_t expectedCount)
@@ -867,6 +868,18 @@ static void fillLeagueTeamSelectionFromFile(uint16_t extNumber, uint16_t leagueF
         if ((int16_t)actualCount == expectedCount)
             return;
     }
+    /* v342 (user 27/11/2026): the region files 80..85 now also hold the modern national teams,
+     * APPENDED after the original OG ones. The OG competition table still expects its original
+     * count: take the first expectedCount teams of the file (the original OG set, in file order)
+     * instead of halting. A file with FEWER teams than expected still panics as in OG. */
+    if (expectedCount > 0 && (int16_t)actualCount > expectedCount && extNumber >= 80u && extNumber <= 85u) {
+        fprintf(stderr, "[verify-fill] REGION_FILE_EXTENDED ext=%u league=%u expected=%d actual=%u "
+                "using-first-expected=1 og-set-preserved=1\n", (unsigned)extNumber,
+                (unsigned)leagueFilter, (int)expectedCount, (unsigned)actualCount);
+        fillLeagueTeamsOfLoadedFileMax(_diyCompetitionStart.matchData.league.leagueTeamIds,
+                                       leagueFilter, (uint16_t)expectedCount);
+        return;
+    }
     if ((int16_t)actualCount != expectedCount) {
         /* [verify-fill] -O2 makes gdb's `expectedCount=...` value
          * unreliable; print the real values plus what fed them. */
@@ -890,12 +903,18 @@ static void fillLeagueTeamSelectionFromFile(uint16_t extNumber, uint16_t leagueF
 
 static uint16_t *fillLeagueTeamsOfLoadedFile(uint16_t *idOut, uint16_t leagueFilter)
 {
+    return fillLeagueTeamsOfLoadedFileMax(idOut, leagueFilter, 0xffffu);
+}
+static uint16_t *fillLeagueTeamsOfLoadedFileMax(uint16_t *idOut, uint16_t leagueFilter, uint16_t max)
+{
+    uint16_t taken = 0;
     TeamFileEx *tfBase = (TeamFileEx *)(&_teamFileBuffer + 2);
     uint16_t tfCount = *(uint16_t *)&_teamFileBuffer;
     TeamFileEx *selDst = _selectedTeams + _numSelectedTeams;
     for (uint16_t j = 0; j < tfCount; j++) {
         TeamFileEx *src = &tfBase[j];
         if (src->team.league == (uint8_t)leagueFilter) {
+            if (taken++ >= max) break;
             uint16_t teamId = PACK_BE_U16(src->team.countryNumber,
                                           src->team.teamOrdinal);
             BE_WRITE_U16(idOut, teamId);

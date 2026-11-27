@@ -408,6 +408,8 @@ void ChooseTeamAndStartCareer(void)
                 World_Tag(),(unsigned)_plNationality,(unsigned)(uint16_t)national);
         Expanded_OGWorld_DebugHireCheckpoint(0u);
         InitCareer((uint16_t)national);
+        { extern void Expanded_NationalPreselectSquad(void);
+          Expanded_NationalPreselectSquad(); }   /* v342: national file squad already called up */
         Expanded_OGWorld_DebugHireCheckpoint(1u);
         { extern void Expanded_AutoCareer_Save(const char *);
           Expanded_AutoCareer_Save("first-contract"); }

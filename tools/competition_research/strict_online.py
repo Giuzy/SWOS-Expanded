@@ -275,7 +275,10 @@ def main():
     a=argparse.ArgumentParser();a.add_argument("--self-test",action="store_true");a.add_argument("--repo-root",type=Path,default=ROOT);a.add_argument("--refresh",action="store_true");a.add_argument("--country");a.add_argument("--world",choices=("9697","2627"),default="2627")
     x=a.parse_args();selftest()
     from domestic_discovery import selftest as domestic_selftest, run as domestic_run
-    domestic_selftest()
+    # Synthetic country runs must never look like live acquisitions.
+    import contextlib,io
+    with contextlib.redirect_stdout(io.StringIO()):
+        domestic_selftest()
     if x.country:x.country=x.country.upper()
     if x.self_test:print("Self-test PASS");return
     root=x.repo_root.resolve()

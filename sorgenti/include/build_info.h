@@ -277,7 +277,9 @@
  * updates from the single CE completion writer, lazy CE-week deltas, draw
  * snapshots, FR01 in the same atomic CAR, readonly OG viewer from the WORLD
  * regions screen. Isolated/headless + Windows build; gameplay NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.349"
+/* v00.13.350: modern WORLD nominal viewer, Belize and Cambodia, names only.
+ * No native TEAM/EXTRA/CE activation, statistics or CAR change. Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.350"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

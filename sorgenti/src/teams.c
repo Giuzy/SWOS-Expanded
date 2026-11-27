@@ -29,6 +29,7 @@
 #include <stdlib.h>            /* getenv — SWOS_DATA_JSON team-load wire-in */
 #include <stdio.h>             /* OG DEBUG WORLD back-navigation trace */
 #include "expanded_national_2627.h"
+#include "expanded_nominal_world_2627.h"
 #include "team_db.h"
 #endif
 
@@ -3212,7 +3213,13 @@ static unsigned s_expNationalPickerMode,s_expNationalPickerBase,s_expNationalPic
 static const ExpandedNationalRow *s_expNationalPickerRows[64];
 int Expanded_NationalWorldButtonInactive(unsigned idx)
 {
-    return s_expNationalPickerMode==1u && idx>=s_expNationalPickerBase && idx<s_expNationalPickerCount;
+    return s_expNationalPickerMode==1u && idx>=s_expNationalPickerBase && idx<s_expNationalPickerCount &&
+        !ExpNominalWorld_Find(ExpandedNational_Raw(s_expNationalPickerRows[idx]));
+}
+/* The same OG list template displays names only: players are not selectable. */
+int Expanded_NominalWorldPlayerRow(void)
+{
+    return s_expNationalPickerMode==4u;
 }
 static void Expanded_NationalWorldView(const ExpandedNationalRow *r)
 {
@@ -3277,6 +3284,8 @@ void SelectTeamsFinalMenu(uint16_t mode)
     uint16_t countryByte;
 #ifdef SWOS_SDL_BUILD
     union { void *alignment; uint8_t ids[65]; } worldClubCountries;
+    const ExpNominalCountry *nominalCountry=NULL;
+    const ExpNominalClub *nominalClub=NULL;
 #endif
 
     _leagueNumber = 0;
@@ -3339,6 +3348,21 @@ loc_E012:
     d7 &= 0xFF;
 #ifdef SWOS_SDL_BUILD
     { extern uint16_t g_expSelectTeamsCountry; g_expSelectTeamsCountry=d7; }
+    /* No fake OG country ID or competition record: both lists use the
+     * existing SELECT TEAMS menu, with the regional native stack unchanged. */
+    if(nominalCountry){
+        unsigned count=nominalClub?nominalClub->count:nominalCountry->count;
+        if(count==0u||count>64u)goto exit_clear;
+        s_expNationalPickerMode=nominalClub?4u:3u;
+        _curCountryStr=(uint8_t *)(nominalClub?nominalClub->name:nominalCountry->name);
+        _numberOfLeagues=0;
+        _numLeaguesInCountry=0;
+        _gotCountryName=0;
+        _chooseTeamsNumTeams=(uint16_t)count;
+        for(unsigned i=0;i<count;++i)
+            _countryNames[i]=(void *)(nominalClub?nominalClub->players[i].name:nominalCountry->clubs[i].name);
+        goto show_team_picker;
+    }
 #endif
     countryForName = d7;
     if (_isCountryNumber != 0)
@@ -3697,7 +3721,9 @@ loc_E2D0:
     }
 #endif
     _chooseTeamsNumTeams = cnCount;
-
+#ifdef SWOS_SDL_BUILD
+show_team_picker:
+#endif
     /* loc_13E318: prepare menu */
     _stayInSelectTeams = 0;
     _exitFlag = 0;
@@ -3721,6 +3747,23 @@ loc_E2D0:
         goto exit_return;
 
 #ifdef SWOS_SDL_BUILD
+    if(nominalCountry){
+        if(_exitSelectTeams || (_selectedTeamIndex<0 && _selectedLeagueIndex<0)){
+            if(_teamDepthLevel<=(uint16_t)_topOfStackMark)goto exit_return;
+            d7=PopContinent();
+            _exitSelectTeams=0;
+            if(nominalClub)nominalClub=NULL;
+            else nominalCountry=NULL;
+            goto loc_E012;
+        }
+        if(!nominalClub && _selectedTeamIndex>=0 && (unsigned)_selectedTeamIndex<nominalCountry->count){
+            PushLastSelectedTeam();
+            nominalClub=&nominalCountry->clubs[(unsigned)_selectedTeamIndex];
+            PushContinent(d7);
+            SetSelectedTeamsStackTop();
+        }
+        goto loc_E012;
+    }
     /* On either OG picker (unemployed or club-offer), BACK pops one
      * real navigation level. An injected country starts at native
      * depth 2, which is a ROOT for that invocation, not a continent
@@ -3790,6 +3833,16 @@ loc_E3DC:
         Expanded_NationalWorldView(s_expNationalPickerRows[d7]);
         d7=d6;
         goto loc_E012;
+    }
+    if(s_expNationalPickerMode==1u && d7>=s_expNationalPickerBase && d7<s_expNationalPickerCount){
+        nominalCountry=ExpNominalWorld_Find(ExpandedNational_Raw(s_expNationalPickerRows[d7]));
+        if(nominalCountry){
+            PushLastSelectedTeam();
+            PushContinent(d6);
+            SetSelectedTeamsStackTop();
+            d7=d6;
+            goto loc_E012;
+        }
     }
     if(Expanded_NationalWorldButtonInactive(d7)){d7=d6;goto loc_E012;}
 #endif

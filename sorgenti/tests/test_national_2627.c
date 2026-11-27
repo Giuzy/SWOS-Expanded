@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "expanded_national_2627.h"
+#include "expanded_nominal_world_2627.h"
 #include "expanded_ce_shared_pool_identity.h"
 static WorldId active=WORLD_2627;
 WorldId World_Current(void){return active;}
@@ -160,6 +161,35 @@ int main(void)
         active=WORLD_9697;
         assert(ExpandedNational_WorldClubCountries(84u,sources,out,sizeof out)<0);
         active=WORLD_2627;
+    }
+    /* Catalog-only pilot: no native home, no fake PlayerFile/TEAM records.
+     * All names remain available, including source rosters above 30. */
+    {
+        const unsigned expectedClubs[]={7,11},expectedNames[]={168,328};
+        const uint16_t raw[]={0x5312u,0x5421u};
+        for(unsigned k=0;k<2u;++k){
+            const ExpNominalCountry *c=ExpNominalWorld_Find(raw[k]);
+            const ExpandedNationalRow *r=ExpandedNational_ByRaw(raw[k]);
+            assert(c && r && r->og.teamFileId==255u);
+            assert(ExpandedNational_WorldInactiveClubRow(r,1));
+            assert(c->count==expectedClubs[k]);
+            unsigned names=0;
+            for(unsigned i=0;i<c->count;++i){
+                const ExpNominalClub *club=&c->clubs[i];
+                assert(club->name[0] && club->id[0] && club->count>=16u && club->count<=64u);
+                for(unsigned j=0;j<i;++j)assert(strcmp(club->id,c->clubs[j].id));
+                for(unsigned j=0;j<club->count;++j){
+                    assert(club->players[j].id[0] && club->players[j].name[0]);
+                    for(unsigned m=0;m<j;++m)assert(strcmp(club->players[j].id,club->players[m].id));
+                }
+                names+=club->count;
+            }
+            assert(names==expectedNames[k]);
+        }
+        for(unsigned i=0;i<EXP_NATIONAL_COUNT;++i){
+            uint16_t id=ExpandedNational_Raw(&kExpandedNational2627[i]);
+            assert((ExpNominalWorld_Find(id)!=NULL)==(id==raw[0]||id==raw[1]));
+        }
     }
     assert(ExpandedNational_ByHome(255u)==NULL);
     assert(ExpCePool_GlobalSlot(2560u,2313u,14u,&slot)&&slot==2546u);

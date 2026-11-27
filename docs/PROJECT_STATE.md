@@ -1,3 +1,6 @@
+## 27/11/2026 — v00.13.350 Belize/Cambogia, WORLD nominale
+Nel WORLD 2627 club, Belize e Cambogia aprono la lista nativa OG dei club e poi una lista nominale readonly dei giocatori con lo stesso menu OG, senza statistiche. 18 club, 496 appartenenze nominali (anche >30), identità fonte conservate; non sono nuovi TEAM/EXTRA giocabili. Nessun cambio CE/CAR, 9697/CT invariati per scope. C/Windows/gameplay/visual NP. Vedi RG-WORLD-NOMINAL-PILOT-2627.
+
 ## 27/11/2026 — Ricerca: delta semantici e EXTRA per nome
 I tre BAT confrontano i contenuti già raccolti: competizioni delta per riga/edizione, mai promuovere automaticamente P/V; rose confronto nomi normalizzati per club con TEAM+EXTRA, ID per omonimi, NAME_MATCH_REVIEW tra fonti e gruppi EXTRA da verificare (non importare automaticamente); EA snapshot verificato hash/conteggio/digest e ID separati FC26/FC27, skip se completo. Conservare evidenze pregresse, cache e SQLite; no dedup globale per solo nome, no cancellazioni. Consultare RG-RESEARCH-SEMANTIC-DELTAS / RG-ROSTER-EXTRA-NAME. Test Python/Windows/online ancora NP.
 

@@ -1,3 +1,6 @@
+## 27/11/2026 — v00.13.350 Belize/Cambogia, WORLD nominale
+Nel WORLD 2627 club, Belize e Cambogia aprono la lista nativa OG dei club e poi una lista nominale readonly dei giocatori con lo stesso menu OG, senza statistiche. 18 club, 496 appartenenze nominali (anche >30), identità fonte conservate; non sono nuovi TEAM/EXTRA giocabili. Nessun cambio CE/CAR, 9697/CT invariati per scope. C/Windows/gameplay/visual NP. Vedi RG-WORLD-NOMINAL-PILOT-2627.
+
 ## 27/11/2026 — WORLD inactive country button tint (prepared)
 SetCountryNames uses same SelectTeamsFlatIndex and Expanded_NationalWorldButtonInactive predicate as SELECT; native blue-to-black palette8, restores template4 when reused. No new focus/selection semantics. See RG; visual/C/Windows NP.
 

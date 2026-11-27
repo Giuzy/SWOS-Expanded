@@ -5774,7 +5774,8 @@ void SelectTeamsCommon(MenuEntry *entry)
 
 #ifdef SWOS_SDL_BUILD
         { extern int Expanded_NationalWorldButtonInactive(unsigned);
-          if(Expanded_NationalWorldButtonInactive(idx))return; }
+          extern int Expanded_NominalWorldPlayerRow(void);
+          if(Expanded_NominalWorldPlayerRow() || Expanded_NationalWorldButtonInactive(idx))return; }
 #endif
         _lastSelectedTeam=ord;
         _selectedTeamIndex = idx;

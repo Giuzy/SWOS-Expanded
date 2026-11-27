@@ -1121,6 +1121,17 @@ set_time_sprite_x:
             _currentTimeSprite.x.s.i -= 6;
         }
 
+#ifdef SWOS_SDL_BUILD
+        /* v342 (user 26/11/2026): the long bench of the extended squad reaches the top-left corner
+         * where the clock is drawn; ONLY while the bench (substitutes menu) is open the clock moves
+         * right, clear of the bench and its seated players. Training keeps the OG position. */
+        {
+            extern uint16_t _inSubstitutesMenu;
+            extern uint16_t _trainingGame;
+            if (_inSubstitutesMenu != 0 && _trainingGame == 0)
+                _currentTimeSprite.x.s.i += 32;
+        }
+#endif
         /* If player indicator is at position 4, shift time down by 8 */
         if (_currentPlayerIndicatorPosition == 4)
             _currentTimeSprite.y.s.i += 8;

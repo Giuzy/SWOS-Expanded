@@ -3985,7 +3985,13 @@ static int exp_universal_contest_action(MenuEntry *entry)
             /* v331 (user, 26/11, Australia Cup): PLAY MATCH must play. The OG team screen opens with
              * squad changes (PLAY/COACH MATCH -> OG 50 Hz); the old VIEW-RESULT-only screen could never
              * start the match by hand. The OG quick result of a cup fixture needs the cup board. */
-            result=ExpandedUniversalLive_PlayManager()==2?2:1;
+            /* v342 (user 26/11/2026): a knockout fixture opens the ORIGINAL OG cup board
+             * first (round, MATCH / RESULT / NEXT MATCH), fed read-only by the CE. Only
+             * when no board can be projected the OG team screen opens directly. */
+            extern int ExpandedUniversal_OGCupBoardPresent(void);
+            result=ExpandedUniversal_OGCupBoardPresent();
+            if(result==0)
+                result=ExpandedUniversalLive_PlayManager()==2?2:1;
         }
         if(result==2) {
             fprintf(stderr,"[universal-manager-menu] MATCH_COMMITTED "

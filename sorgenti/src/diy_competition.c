@@ -118,6 +118,11 @@ static void ce_native_cup_draw(void);
 /* Defined with the native reader below, checked before any legacy cup logic. */
 static int ce_native_cup_is_active(void);
 static int ce_native_cup_scroll(int direction);
+/* v342 OG cup board for the manager knockout fixture (CE projection). */
+static int ce_cup_board_is_active(void);
+static void ce_cup_board_draw(void);
+static void ce_cup_board_action(unsigned mode);
+static void ce_cup_board_next(void);
 #endif
 /* The standalone backing buffer behind diyCompetitionStart (7136 B). The
  * current-stage copies below address it as a byte array (DIY_CFB_STANDINGS_LEN
@@ -8692,6 +8697,7 @@ __attribute__((used, externally_visible))
 void DIYCupFinish(void)
 {
 #ifdef SWOS_SDL_BUILD
+    if(ce_cup_board_is_active()){ce_cup_board_draw();return;}
     if(ce_native_cup_is_active()){ce_native_cup_draw();return;}
 #endif
     uint16_t off74 = *(uint16_t *)&_diyCompetitionStart.base.menuState; /* FIELD_3A+$10 */
@@ -8737,6 +8743,7 @@ __attribute__((used, externally_visible))
 void DIYCupInit(void)
 {
 #ifdef SWOS_SDL_BUILD
+    if(ce_cup_board_is_active()){ce_cup_board_draw();return;}
     if(ce_native_cup_is_active()){ce_native_cup_draw();SetCurrentEntry(10u);return;}
 #endif
     SWOS_AUTOSKIP_LOG("DIYCupInit: ENTER seasonUpdate=%u arg0=%u arg1=%u arg2=%u "
@@ -8903,6 +8910,9 @@ static void DIYCupOnSelectCommonC(uint16_t mode)
      * DIY_PlayCupMatchAndAdvance overrides mode 2 to a forced 1 internally,
      * mirroring the league MATCH path's `move.w #1,d6`. See the mode==2 branch
      * there for the full rationale (preset World Cup KO "VIEW RESULT" bug). */
+#ifdef SWOS_SDL_BUILD
+    if(ce_cup_board_is_active()){ce_cup_board_action(mode);return;}
+#endif
     /* A pre-hire cup fixture must never enter match physics. */
     if (Expanded_MidseasonJoin_Active() && mode != 0) {
         mode=0;
@@ -9083,6 +9093,9 @@ void DIYCupOnSelect8(MenuEntry *entry)
 __attribute__((used, externally_visible))
 void DIYCupOnSelect1(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ce_cup_board_is_active()){ce_cup_board_next();return;}
+#endif
     DIYCompetitionEx *a0 = &_diyCompetitionStart;
 
 

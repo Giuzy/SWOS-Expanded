@@ -978,6 +978,16 @@ void SetVariableButtons(void) {
                 if (diff != 1) _menuEntries[30].isInvisible = 0;
             }
         }
+#ifdef SWOS_SDL_BUILD
+        /* v342 (user 26/11/2026): with the right-hand column the substitutes are ONE list (left rows,
+         * then the right column below them) and every excluded player sits at the bottom of the right
+         * column. The original "first excluded" row 16 and its rotate arrow would only repeat the first
+         * player of the right column: hidden while that column is shown. */
+        if (Expanded_CareerExtraVisible()) {
+            _menuEntries[29].isInvisible = 1;
+            _menuEntries[30].isInvisible = 1;
+        }
+#endif
     }
 
     /* Set team name and coach name */

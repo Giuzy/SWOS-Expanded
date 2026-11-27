@@ -410,7 +410,11 @@ int ExpBenchNameSprites_Build(void)
 #define EXP_BENCHART_W 21
 #define EXP_BENCHART_H 112
 static SpriteGraphics s_benchArtHdr[20];
-static uint8_t s_benchArtPix[20][EXP_BENCHART_H*32];
+/* v342 (user 26/11/2026): every bench carries the OG bench drop shadow below its end: 5 rows, columns
+ * 3..20, colour of the original shell shadow (0,34,0 measured on the OG tile bench), so both benches
+ * look the same; the old tile shadow of the upper bench is covered by the art. */
+#define EXP_BENCHART_SHADOW_H 5u
+static uint8_t s_benchArtPix[20][(EXP_BENCHART_H+EXP_BENCHART_SHADOW_H)*32];
 static int s_benchArtState;   /* 0 not built, 1 built, -1 failed */
 extern uint8_t Platform_NearestColour(uint8_t r,uint8_t g,uint8_t b);
 extern unsigned char *Expanded_PNG_LoadRGBA(const char *path,unsigned *width,unsigned *height);
@@ -440,7 +444,10 @@ int ExpBenchLongSprite(unsigned count,int upper)
                     }
                     *hd=*t[0x8D];
                     hd->sprData=s_benchArtPix[k];hd->maskPtr=0;hd->type=0;
-                    hd->pixWidth=EXP_BENCHART_W;hd->nlines=(int16_t)H;hd->wquads=2;
+                    {   const uint8_t sh=Platform_NearestColour(0x00,0x22,0x00);
+                        for(y=H;y<H+EXP_BENCHART_SHADOW_H;++y)for(x=3u;x<w;++x)s_benchArtPix[k][y*32u+x]=sh;
+                    }
+                    hd->pixWidth=EXP_BENCHART_W;hd->nlines=(int16_t)(H+EXP_BENCHART_SHADOW_H);hd->wquads=2;
                     hd->centerX=0;hd->centerY=0;hd->ordinal=(int16_t)(EXP_BENCHART_FIRST+k);
                     t[EXP_BENCHART_FIRST+k]=hd;
                 }

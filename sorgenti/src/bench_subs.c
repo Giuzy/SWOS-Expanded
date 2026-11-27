@@ -1809,7 +1809,7 @@ skip_opponent_1:
     if (_trainingGame == 0)
         /* v336: the arrow follows the same anchoring as coach and seats (drawBenchPlayersAndCoach):
          * upper bench coach = legacy - 54, lower = legacy - 5, seat i = coach + 7 i */
-        d0 = (uint16_t)((_benchY < _opponentBenchY ? -54 : -5) + 7 * (int)d0);
+        d0 = (uint16_t)((_benchY < _opponentBenchY ? -54 + 10 : -5) + 7 * (int)d0);   /* v342: upper bench 10 px lower */
     else
         d0 *= 7;
 
@@ -1911,7 +1911,10 @@ static void drawBenchPlayersAndCoach(TeamGame *teamGame, TeamGeneralInfo *team, 
          * the old shell (21 px incl. its shadow), so it simply overlays and hides it (user: no fake grass). */
         const int upper = (uint16_t)(d2 + 0x13 - 4) == (_benchY < _opponentBenchY ? _benchY : _opponentBenchY);
         const int legacyCoachY = (int)(int16_t)d2;
-        const int newCoachY = upper ? legacyCoachY - 54 : legacyCoachY - 5;
+        /* v342 (user 26/11/2026): the upper bench moves 10 px down so that both benches are at the SAME
+         * distance (11 px) from the halfway line (measured on the Windows screenshot: upper art end 21 px
+         * above the line, lower art start 11 px below); its new drop shadow covers the old one. */
+        const int newCoachY = upper ? legacyCoachY - 54 + 10 : legacyCoachY - 5;
         d2 = (uint16_t)newCoachY;
         {
             const int art = ExpBenchLongSprite(EXP_BENCH_MAX, upper);

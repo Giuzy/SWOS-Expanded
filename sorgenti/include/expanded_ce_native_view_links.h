@@ -286,6 +286,277 @@ static void ce_native_cup_open(ExpandedEditionKey key,uint8_t mask,
     s_ceNativeCup.active=0;
     free(rows);memset(&s_ceNativeCup,0,sizeof s_ceNativeCup);
 }
+/* ------------------------------------------------------------------ */
+/* v00.13.342 (user 26/11/2026): ORIGINAL OG CUP BOARD for the manager   */
+/* knockout fixture (cups, super cups, league finals/playoffs). Same flow */
+/* as OG: PLAY MATCH -> cup round (results so far, "V" still to play) -> */
+/* MATCH = OG team screen + 50 Hz, RESULT = OG team screen with VIEW     */
+/* RESULT + OG quick; back on the board with the result; NEXT MATCH walks */
+/* the remaining ties of the day (VIEW RESULT, OG quick). The CE stays the */
+/* only writer: every action is an existing ExpandedUniversalLive call.   */
+/* ------------------------------------------------------------------ */
+static struct {
+    int active,committed,after;
+    uint64_t manager,cur;
+    uint64_t seq[64];
+    unsigned nseq;
+    ExpandedEditionKey edition;
+    uint32_t stage;
+    uint16_t leg;
+    char t1[18],t2[18];
+    uint16_t s1,s2;
+} s_ceCupBoard;
+static int ce_cup_board_is_active(void){return s_ceCupBoard.active;}
+extern char _aStats[];
+static void ce_cup_board_stats_select(MenuEntry *e);
+static int ce_cup_board_rows(void)
+{
+    const ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    uint32_t i,n=0u;
+    CeNativeMatchRow *rows;
+    if(!r || r->fixture_count!=r->ledger.count)return 0;
+    for(i=0;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&r->fixtures[i];
+        if(ExpandedEditionKey_Equal(f->key.edition,s_ceCupBoard.edition) &&
+           f->key.stage==s_ceCupBoard.stage && f->key.leg==s_ceCupBoard.leg)++n;
+    }
+    rows=n?(CeNativeMatchRow *)calloc(n,sizeof *rows):NULL;
+    if(n && !rows)return 0;
+    n=0u;
+    for(i=0;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&r->fixtures[i];
+        const ExpandedFixtureLedgerEntry *e=&r->ledger.entries[i];
+        const TeamFileEx *h,*a;
+        CeNativeMatchRow *m;
+        if(!ExpandedEditionKey_Equal(f->key.edition,s_ceCupBoard.edition) ||
+           f->key.stage!=s_ceCupBoard.stage || f->key.leg!=s_ceCupBoard.leg)continue;
+        h=ExpandedUniversalCatalog_Roster(f->home);a=ExpandedUniversalCatalog_Roster(f->away);
+        if(!h || !a){free(rows);return 0;}
+        m=&rows[n++];
+        snprintf(m->home,sizeof m->home,"%.17s",(const char *)h->team.teamName);
+        snprintf(m->away,sizeof m->away,"%.17s",(const char *)a->team.teamName);
+        m->day=f->day_index;m->stage=f->key.stage;m->tie=f->key.tie;
+        m->leg=f->key.leg;m->replay=f->key.replay;
+        m->played=(uint8_t)(e->state==EXP_FIXTURE_PLAYED);
+        if(m->played){m->gh=e->score.home;m->ga=e->score.away;}
+    }
+    if(n>1u)qsort(rows,n,sizeof *rows,ce_native_cup_cmp);
+    free(s_ceNativeCup.rows);
+    s_ceNativeCup.rows=rows;s_ceNativeCup.n=n;
+    if(s_ceNativeCup.scroll+6u>n)s_ceNativeCup.scroll=n>6u?n-6u:0u;
+    return 1;
+}
+static void ce_cup_board_names(uint64_t id)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    const ExpandedUniversalFixture *f=r?ExpandedUniversal_Find(r,id):NULL;
+    const TeamFileEx *h=f?ExpandedUniversalCatalog_Roster(f->home):NULL;
+    const TeamFileEx *a=f?ExpandedUniversalCatalog_Roster(f->away):NULL;
+    snprintf(s_ceCupBoard.t1,sizeof s_ceCupBoard.t1,"%.17s",h?(const char *)h->team.teamName:"");
+    snprintf(s_ceCupBoard.t2,sizeof s_ceCupBoard.t2,"%.17s",a?(const char *)a->team.teamName:"");
+}
+static void ce_cup_board_draw(void)
+{
+    unsigned i;
+    ce_native_cup_draw();                       /* rows, title, scroll, EXIT */
+    for(i=0;i<6u;++i)_menuEntries[18u+i*8u+7u].isInvisible=1; /* OG rows: no detail line */
+    /* OG STATS: original competition stats menu on the clubs of the CE edition */
+    _menuEntries[9].fg=(uintptr_t)_aStats;
+    _menuEntries[9].onSelect=ce_cup_board_stats_select;
+    _menuEntries[9].isInvisible=_menuEntries[9].isDisabled=0;
+    _menuEntries[9].leftEntry=-1;_menuEntries[9].rightEntry=10;
+    _menuEntries[10].leftEntry=9;
+    _menuEntries[11].isInvisible=_menuEntries[12].isInvisible=_menuEntries[13].isInvisible=0;
+    _menuEntries[12].fg=(uintptr_t)s_ceCupBoard.t1;
+    _menuEntries[13].fg=(uintptr_t)s_ceCupBoard.t2;
+    if(s_ceCupBoard.after) {                    /* OG result header + NEXT MATCH */
+        _menuEntries[11].fg=(uintptr_t)_aMinus;
+        _menuEntries[14].fgWord=s_ceCupBoard.s1;_menuEntries[15].fgWord=s_ceCupBoard.s2;
+        _menuEntries[14].isInvisible=_menuEntries[15].isInvisible=0;
+        _menuEntries[1].fg=(uintptr_t)_aNextMatch;
+        _menuEntries[1].isInvisible=0;
+        SetCurrentEntry(1u);
+        return;
+    }
+    _menuEntries[11].fg=(uintptr_t)_aV;
+    _menuEntries[14].isInvisible=_menuEntries[15].isInvisible=1;
+    if(s_ceCupBoard.cur==s_ceCupBoard.manager) {/* OG human tie: MATCH + RESULT */
+        _menuEntries[3].isInvisible=0;
+        _menuEntries[5].isInvisible=0;
+        SetCurrentEntry(3u);
+    } else {                                    /* OG CPU tie: VIEW RESULT only */
+        _menuEntries[8].isInvisible=0;
+        _menuEntries[8].x=_menuEntries[6].x;
+        SetCurrentEntry(8u);
+    }
+}
+static void ce_cup_board_redraw(void)
+{
+    unsigned i;
+    for(i=1u;i<=15u;++i)_menuEntries[i].isInvisible=1;
+    ce_cup_board_draw();
+    DrawMenu();
+}
+static void ce_cup_board_action(unsigned mode)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    const ExpandedUniversalFixture *f;
+    const ExpandedFixtureLedgerEntry *e;
+    int rc;
+    if(!s_ceCupBoard.active || s_ceCupBoard.after || !r)return;
+    if(s_ceCupBoard.cur==s_ceCupBoard.manager) {
+        if(mode==2u)rc=ExpandedUniversalLive_PlayManager();
+        else if(mode==0u)rc=ExpandedUniversalLive_ViewManagerResult();
+        else return;
+        if(rc==2)s_ceCupBoard.committed=1;
+    } else {
+        if(mode!=0u)return;
+        rc=ExpandedUniversalLive_ViewRoundCpuResult(s_ceCupBoard.cur);
+    }
+    f=ExpandedUniversal_Find(r,s_ceCupBoard.cur);
+    e=f?ExpandedUniversal_EntryFor(r,f):NULL;
+    if(e && e->state==EXP_FIXTURE_PLAYED) {
+        s_ceCupBoard.after=1;
+        s_ceCupBoard.s1=e->score.home;s_ceCupBoard.s2=e->score.away;
+    }
+    fprintf(stderr,"[universal-og-cup] ACTION mode=%u event=%llu rc=%d played=%d\n",
+            mode,(unsigned long long)s_ceCupBoard.cur,rc,s_ceCupBoard.after);
+    (void)ce_cup_board_rows();
+    ce_cup_board_redraw();
+}
+static void ce_cup_board_next(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    unsigned i;
+    if(!s_ceCupBoard.active || !r)return;
+    for(i=0u;i<s_ceCupBoard.nseq;++i) {
+        const ExpandedUniversalFixture *f=ExpandedUniversal_Find(r,s_ceCupBoard.seq[i]);
+        const ExpandedFixtureLedgerEntry *e=f?ExpandedUniversal_EntryFor(r,f):NULL;
+        if(e && e->state==EXP_FIXTURE_SCHEDULED) {
+            s_ceCupBoard.cur=f->event_id;s_ceCupBoard.after=0;
+            ce_cup_board_names(f->event_id);
+            ce_cup_board_redraw();
+            return;
+        }
+    }
+    SetExitMenuFlag();                          /* OG: the round of the day is over */
+}
+/* OG STATS of the cup board: the ORIGINAL competition stats menu, fed with the
+ * clubs of the CE edition (same as the CE league board does with its table).
+ * Only the DIY fields read by SetupDIYCompetitionStatsMenu are written, on the
+ * copy that ExpandedUniversal_OGCupBoardPresent restores when the board closes. */
+static void ce_cup_board_stats(void)
+{
+    const ExpCeEdition *ed=ExpCe_Edition(s_ceCupBoard.edition);
+    const ExpCeDef *d=ExpCe_Definition(s_ceCupBoard.edition.competition.stable_competition);
+    DIYCompetitionEx *c=&_diyCompetitionStart;
+    uint32_t i,n=0u;
+    if(!s_ceCupBoard.active || !ed || !d)return;
+    c->base.competitionType=DIY_CUP;
+    c->base.hasGroups=0;
+    snprintf((char *)c->base.competitionName,sizeof c->base.competitionName,"%.35s",d->name);
+    for(i=0u;i<ed->nentrants && n<64u;++i) {
+        const TeamFileEx *t=ExpandedUniversalCatalog_Roster(ed->entrants[i].club);
+        if(!t)continue;
+        BE_WRITE_U16((uint8_t *)&c->cupTeamIds[n],PACK_BE_U16(t->team.countryNumber,t->team.teamOrdinal));
+        ++n;
+    }
+    if(!n)return;
+    c->base.numTeams=(int16_t)n;
+    SetupDIYCompetitionStatsMenu();
+}
+static void ce_cup_board_stats_select(MenuEntry *e){(void)e;ce_cup_board_stats();}
+static int ce_cup_seq_cmp(const void *a,const void *b)
+{
+    const uint64_t x=*(const uint64_t *)a,y=*(const uint64_t *)b;
+    return x<y?-1:x>y?1:0;
+}
+int ExpandedUniversal_OGCupBoardPresent(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    ExpandedWorldDate due={0},today_d={0};
+    ExpandedClubKey manager={0};
+    const ExpandedUniversalFixture *f=NULL,*g=NULL;
+    const ExpCeDef *d;
+    int32_t today=0;
+    uint8_t kind=0u;
+    uint32_t i,ties=0u,phase,legs;
+    uint64_t pre=0u;
+    char round[40];
+    int result;
+    if(s_ceCupBoard.active || s_ceNativeCup.active || !r || r->recovery_required ||
+       _gameType!=4 || !ExpandedUniversalLive_Active() ||
+       ExpandedUniversalLive_ManagerNext(&due)!=2 ||
+       !ExpandedUniversalLive_Today(&today_d) ||
+       !ExpandedWorld_DateToIndex(today_d,&today) ||
+       !ExpandedUniversal_NativeTeamKey(&_careerTeam,&manager) ||
+       !r->scheduler.count ||
+       ExpandedUniversal_NextForClub(r,manager,
+           r->scheduler.events[r->scheduler.count-1u].day_index,&f)!=EXP_UNIVERSAL_DUE ||
+       !f || f->day_index!=today || !ExpCe_FixturePhase(f,&kind,NULL) ||
+       kind!=EXP_CE_PHASE_KNOCKOUT ||
+       !(d=ExpCe_Definition(f->key.edition.competition.stable_competition)))
+        return 0;
+    /* the next world event must be this round (earlier events: FORWARD) */
+    if(ExpandedUniversal_Peek(r,today,&g)!=EXP_UNIVERSAL_DUE || !g ||
+       !ExpandedEditionKey_Equal(g->key.edition,f->key.edition) ||
+       g->key.stage!=f->key.stage || g->key.leg!=f->key.leg)
+        return 0;
+    memset(&s_ceCupBoard,0,sizeof s_ceCupBoard);
+    memset(&s_ceNativeCup,0,sizeof s_ceNativeCup);
+    s_ceCupBoard.edition=f->key.edition;s_ceCupBoard.stage=f->key.stage;
+    s_ceCupBoard.leg=f->key.leg;s_ceCupBoard.manager=f->event_id;
+    for(i=0;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *x=&r->fixtures[i];
+        if(!ExpandedEditionKey_Equal(x->key.edition,f->key.edition) ||
+           x->key.stage!=f->key.stage || x->key.leg!=f->key.leg)continue;
+        ++ties;
+        if(x->day_index!=today)continue;
+        if(s_ceCupBoard.nseq>=64u)return 0;
+        s_ceCupBoard.seq[s_ceCupBoard.nseq++]=x->event_id;
+        if(x->event_id<f->event_id &&
+           ExpandedUniversal_EntryFor(r,x)->state==EXP_FIXTURE_SCHEDULED &&
+           x->event_id>pre)pre=x->event_id;
+    }
+    qsort(s_ceCupBoard.seq,s_ceCupBoard.nseq,sizeof s_ceCupBoard.seq[0],ce_cup_seq_cmp);
+    /* OG opens on the manager tie: the ties of the day before it are already played */
+    if(pre && ExpandedUniversalLive_ViewRoundCpuResult(pre)!=2) {
+        fprintf(stderr,"[universal-og-cup] PRE_MANAGER_ROUND_BLOCKED stop=%llu\n",(unsigned long long)pre);
+        return 0;
+    }
+    s_ceCupBoard.cur=f->event_id;
+    ce_cup_board_names(f->event_id);
+    phase=EXP_CE_STAGE_PHASE(f->key.stage);
+    legs=phase==EXP_CE_PLAYOUT_PHASE?d->playout.match.legs:
+         (phase<d->nphases?d->phases[phase].match.legs:1u);
+    if(phase==EXP_CE_PLAYOUT_PHASE)snprintf(round,sizeof round,"PLAY-OUT");
+    else if(ties==1u)snprintf(round,sizeof round,"FINAL");
+    else if(ties==2u)snprintf(round,sizeof round,"SEMI-FINALS");
+    else if(ties==4u)snprintf(round,sizeof round,"QUARTER-FINALS");
+    else snprintf(round,sizeof round,"ROUND OF %u",(unsigned)(ties*2u));
+    if(legs==2u)
+        snprintf(round+strlen(round),sizeof round-strlen(round),"%s",f->key.leg?" 2ND LEG":" 1ST LEG");
+    snprintf(s_ceNativeCup.title,sizeof s_ceNativeCup.title,"%.30s %s",
+             d->name[0]?d->name:"LEAGUE",round);
+    s_ceNativeCup.edition=f->key.edition;
+    if(!ce_cup_board_rows()){memset(&s_ceCupBoard,0,sizeof s_ceCupBoard);return 0;}
+    s_ceNativeCup.active=1;s_ceCupBoard.active=1;
+    fprintf(stderr,"[universal-og-cup] OG_CUP_MENU_OPEN event=%llu ties=%u day-ties=%u "
+        "source=CE_LEDGER CAR=UNCHANGED\n",(unsigned long long)f->event_id,
+        (unsigned)ties,s_ceCupBoard.nseq);
+    {   /* OG callbacks store the pressed ordinal in the career DIY slot: keep it intact */
+        static DIYCompetitionEx saved;
+        memcpy(&saved,&_diyCompetitionStart,sizeof saved);
+        ShowMenu(_diyCupMenu);
+        memcpy(&_diyCompetitionStart,&saved,sizeof saved);
+    }
+    result=s_ceCupBoard.committed?2:1;
+    s_ceNativeCup.active=0;s_ceCupBoard.active=0;
+    free(s_ceNativeCup.rows);memset(&s_ceNativeCup,0,sizeof s_ceNativeCup);
+    memset(&s_ceCupBoard,0,sizeof s_ceCupBoard);
+    fprintf(stderr,"[universal-og-cup] OG_CUP_MENU_EXIT result=%d no-legacy-writer=1\n",result);
+    return result;
+}
 /* Same original cup renderer as the phase links, without a synthetic
  * role suffix. No sporting mutation, legacy slot or fake packed cup. */
 int ExpCeViewer_OpenNativeCup(ExpandedEditionKey key)

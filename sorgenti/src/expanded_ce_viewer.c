@@ -305,6 +305,62 @@ static void cv_knockout(const ExpCeDef *d,const ExpCeEdition *ed,
     }
     free(idx);
 }
+/* v00.13.342 (user 26/11/2026): an edition whose participants are not yet
+ * confirmed lists every expected slot: the name of a club already certain
+ * (LISTED with as many clubs as places) and, for the others, which club it
+ * will be (league winner, 2nd place, cup winner ...). Read-only. */
+static const char *cv_ordinal(uint32_t r,char *b,size_t n)
+{
+    if(r==1u)snprintf(b,n,"WINNER");
+    else snprintf(b,n,"%u%s PLACE",(unsigned)r,
+                  (r%10u==2u && r%100u!=12u)?"ND":(r%10u==3u && r%100u!=13u)?"RD":"TH");
+    return b;
+}
+static uint32_t cv_expected_slots(const ExpCeDef *d,int list,uint32_t *known)
+{
+    uint32_t s,r,total=0u,nk=0u;
+    char nm[48],o[24],t[72];
+    for(s=0u;s<d->nsources;++s) {
+        const ExpCeSourceSpec *x=&d->sources[s];
+        const ExpCeDef *src=x->competition?ExpCe_Definition(x->competition):NULL;
+        if(src)cv_def_name(src,nm,sizeof nm);
+        else if((x->competition&0xffu)==1u)   /* league id: (country+1)<<24 | comp<<16 | (division+1)<<8 | 1 */
+            snprintf(nm,sizeof nm,"LEAGUE DIVISION %u",(unsigned)((x->competition>>8)&0xffu));
+        else snprintf(nm,sizeof nm,"COMPETITION");
+        switch(x->source) {
+        case EXP_CE_SRC_LISTED:
+            for(r=0u;r<x->count;++r) {
+                ++total;
+                if(x->nclubs==x->count)++nk;
+                if(!list)continue;
+                if(x->nclubs==x->count) {
+                    ExpandedClubKey k={d->world,x->clubs[r],EXP_PARTICIPANT_CLUB};
+                    cv_add(cv_club(k,t,sizeof t),"",CV_COLOR_NORMAL);
+                } else cv_add("QUALIFIER","",CV_COLOR_NORMAL);
+            }
+            break;
+        case EXP_CE_SRC_LEAGUE_RANK:
+            for(r=x->rank_from;r>=1u && r<=x->rank_to;++r) {
+                ++total;
+                if(!list)continue;
+                snprintf(t,sizeof t,"%s %.30s",cv_ordinal(r,o,sizeof o),nm);
+                cv_add(t,"",CV_COLOR_NORMAL);
+            }
+            break;
+        case EXP_CE_SRC_CUP_WINNER:
+        case EXP_CE_SRC_CUP_RUNNER_UP:
+            ++total;
+            if(!list)break;
+            snprintf(t,sizeof t,"%s %.30s",x->source==EXP_CE_SRC_CUP_WINNER?"WINNER":"RUNNER-UP",nm);
+            cv_add(t,"",CV_COLOR_NORMAL);
+            break;
+        default:
+            break;
+        }
+    }
+    if(known)*known=nk;
+    return total;
+}
 static void cv_build_view(const ExpCeDef *d,const ExpCeEdition *ed)
 {
     char nm[48],lab[16],t[64],nb[24];
@@ -332,7 +388,12 @@ static void cv_build_view(const ExpCeDef *d,const ExpCeEdition *ed)
         char s[32];
         snprintf(s,sizeof s,"%s",ed->block?"BLOCKED":ExpCe_StateName(ed->state));
         cv_add("STATUS",s,CV_COLOR_NORMAL);
-        snprintf(s,sizeof s,"%u",(unsigned)ed->nentrants);
+        if(!ed->nentrants && d->nsources)
+        {   uint32_t nk=0u;
+            const uint32_t tot=cv_expected_slots(d,0,&nk);
+            snprintf(s,sizeof s,"%u OF %u",(unsigned)nk,(unsigned)tot);
+        }
+        else snprintf(s,sizeof s,"%u",(unsigned)ed->nentrants);
         cv_add("PARTICIPANTS",s,CV_COLOR_NORMAL);
         if(fixtures){
             char a[12],b[12];
@@ -376,6 +437,9 @@ static void cv_build_view(const ExpCeDef *d,const ExpCeEdition *ed)
         cv_add("PARTICIPANTS","",CV_COLOR_HEAD);
         for(i=0u;i<ed->nentrants;++i)
             cv_add(cv_club(ed->entrants[i].club,nb,sizeof nb),"",CV_COLOR_NORMAL);
+    } else if(!fixtures && d->nsources && cv_expected_slots(d,0,NULL)) {
+        cv_add("EXPECTED PARTICIPANTS","",CV_COLOR_HEAD);
+        (void)cv_expected_slots(d,1,NULL);
     } else if(!fixtures)
         cv_add("PARTICIPANTS NOT YET DETERMINED","",CV_COLOR_NORMAL);
     /* roll of honour: archived editions of this competition */

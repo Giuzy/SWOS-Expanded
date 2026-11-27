@@ -234,7 +234,19 @@ int main(void)
     {uint32_t ids[4];char names[4][40];
      assert(ExpCeViewer_TestWorldButtons(44u,ids,names,4u)==2u);
      assert(view_count(2884098u,"BLOCKED",NULL)==0u);
-     puts("CE_WORLD_CHAMPIONSHIP_VISIBLE_NOT_BLOCKED=PASS");}
+     puts("CE_WORLD_CHAMPIONSHIP_VISIBLE_NOT_BLOCKED=PASS");
+     /* v342: participants not confirmed yet -> every expected slot is listed */
+     {   uint32_t tot=0u,i;
+         char title[64],line[160];
+         const unsigned head=view_count(2884098u,"EXPECTED PARTICIPANTS",&tot);
+         const unsigned tbd=view_count(2884098u,"WINNER LEAGUE DIVISION",NULL);
+         const unsigned win=view_count(2884098u,"WINNER",NULL);
+         const unsigned n=ExpCeViewer_TestBuild(2884098u,title,sizeof title);
+         for(i=0u;i<n;++i)if(ExpCeViewer_TestLine(i,line,sizeof line))printf("[view] %s\n",line);
+         assert(view_count(2884098u,"13 OF 16",NULL)==1u && view_count(2884098u,"TO BE DECIDED",NULL)==0u);
+         assert(head==1u && tbd==3u && win==3u && tot>=1u+16u);   /* 8 foundation + 5 listed TEST names, 3 regional premiers */
+         puts("CE_VIEWER_EXPECTED_SLOTS_KNOWN_NAMES_AND_QUALIFIER_LABELS=PASS");
+     }}
 
     /* ===== Supercoppa Italiana: first competition added only through data */
     e=edition_of(SUPERCOPPA,2026);

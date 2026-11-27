@@ -1,3 +1,7 @@
+## 27/11/2026 — Priorità ricerca rose e Transfermarkt (decisione utente)
+
+AVVIA_RICERCA_GIOCATORI.bat: 1) club dei paesi aggiunti/inattivi, 2) loro giocatori, 3) lacune/EXTRA dei club esistenti; fasi globali per OFB, Transfermarkt e Wikidata. Transfermarkt diretto, nessun gate di verifica licenza, accesso normale senza bypass; candidati stagionali separati, SQLite unico writer e shard per paese. Verificare identità/stagione e diff prima di importare; download reale e Windows non provati. Vedi RG-ROSTER-TRANSFERMARKT-PRIORITY.
+
 ## 27/11/2026 — Ricerca frammentata e SQLite (decisione utente)
 
 AUTOMATIC_INSERTION.json è ora manifest, non array monolitico: righe in closure/automatic_insertion/ per paese/mondo globale; metadati storici separati. Usare matrix_storage.py read_country/read_matrix/plan_matrix, non json.load del solo manifest per leggere rows. Non ricostruire monolite tracciato. Roster candidates.json è manifest, dati in results_2627/countries/ e DB SQLite locale, export con --export-only; non sovrascrivere DB/cache o usare due writer. AVVIA_RICERCA_GIOCATORI.bat usa OpenFootballBase e Wikidata; AVVIA_RICERCA_COMPETIZIONI.bat conserva gate strict; AVVIA_RICERCA_STATS_EA.bat raccoglie FC27/FC26 senza conversione, esporta per nazionalità, omette metadati fonte/edizione/provenienza nei record su richiesta utente. Dettagli, prove e limiti in RG-RESEARCH-SHARDS-SQLITE. Nessuna modifica runtime o nuova certificazione dei dati.

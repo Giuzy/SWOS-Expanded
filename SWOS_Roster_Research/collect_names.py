@@ -183,6 +183,7 @@ def main():
     ap.add_argument("--export-only",action="store_true")
     ap.add_argument("--skip-alternative",action="store_true")
     ap.add_argument("--alternative-only",action="store_true")
+    ap.add_argument("--skip-transfermarkt",action="store_true")
     args=ap.parse_args()
     assert placeholder("TEST 1") and placeholder("RESERVE 2") and not placeholder("A B")
     assert "P2094 ?class" in league_query(["BHU"])
@@ -214,6 +215,8 @@ def main():
         storage_selftest()
         from alternative_sources import selftest as alt_selftest
         alt_selftest()
+        from transfermarkt_source import selftest as tm_selftest
+        tm_selftest()
         print("Self-test PASS");return
     root=args.repo_root.resolve();raw=(root/MAP).read_bytes();national=json.loads(raw)["records"]
     targets=[dict(fifa=r["fifa"],name=r["source"]["name"],new=r["expanded"]["globalNumber"]>=2560) for r in national if r["source"]["team_file"]==255]
@@ -264,54 +267,72 @@ def main():
             key="pool:"+str(c["key"]);cs=rawmap.get(c.get("country"),set());known[key]=set()
             cp.ensure(gaps,key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
     save()
-    try:
+    from transfermarkt_source import Transfermarkt
+    tm=Transfermarkt(CACHE,cp,results,national,known)
+    def alternative(phase):
         if not args.skip_alternative:
-            from alternative_sources import acquire
             try:
-                acquire(results,cp,CACHE,root,known)
+                from alternative_sources import acquire
+                acquire(results,cp,CACHE,root,known,phase=phase)
                 save()
             except Exception as e:
-                error={"phase":"OpenFootballBase","error":str(e)}
+                error={"phase":"OpenFootballBase/"+phase,"error":str(e)}
                 if error not in results["errors"]:cp.append(results["errors"],error)
                 save();print(error,flush=True)
-        if args.alternative_only:return
-        for t in targets:
-            c=bycode[t["fifa"]]
-            if c.get("leagues"):continue
-            for r in run(league_query([t["fifa"]]),"League "+t["fifa"]):
-                if r.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
-                if not any(x["league"]==r["league"] for x in c["leagues"]):cp.append(c["leagues"],dict(r,seasons=[]))
-            cp.update(c,status="P" if c["leagues"] else "NO DATA");save()
-        byleague={}
-        for t in results["targets"]:
-            for l in t["leagues"]:
-                if l.get("class","").rsplit("/",1)[-1] in ("Q31930761","Q35554451"):byleague.setdefault(l["league"],[]).append(l)
-        for league,ls in byleague.items():
-            for r in run(clubs_query([league]),"Edition "+qid(league)):
-                for l in ls:
-                    s=next((s for s in l["seasons"] if s["season"]==r["season"]),None)
-                    if s is None:
-                        s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];cp.append(l["seasons"],s)
-                    if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"})
+        if not args.skip_transfermarkt:
+            tm.acquire(phase,targets)
             save()
-        byclub={}
-        for t in results["targets"]:
-            for l in t["leagues"]:
-                if l.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
-                for s in l["seasons"]:
-                    for c in s["clubs"]:byclub.setdefault(c["club"],[]).append((c,set()))
-        for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
-            if uid not in known or not e.get("association"):continue
-            if not e.get("identity_candidates"):
-                cp.update(e,identity_candidates=sorted({r["club"] for r in run(existing_query(e["association"],e["name"]),"Club "+e["name"])}));save()
-            qs=e["identity_candidates"]
-            if len(qs)==1:byclub.setdefault(qs[0],[]).append((e,known[uid]))
+    def collect_players(byclub):
         for group in chunks(sorted(byclub),5):
             rr=run(players_query(group),"Players "+",".join(qid(q) for q in group))
             for q in group:
                 for c,k in byclub[q]:
                     if merge_players(c,[r for r in rr if qid(r["club"])==qid(q)],k):cp.dirty=True
             save()
+    try:
+        print("PHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
+        alternative("clubs")
+        if not args.alternative_only:
+            for t in targets:
+                c=bycode[t["fifa"]]
+                if c.get("leagues"):continue
+                for r in run(league_query([t["fifa"]]),"League "+t["fifa"]):
+                    if r.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
+                    if not any(x["league"]==r["league"] for x in c["leagues"]):cp.append(c["leagues"],dict(r,seasons=[]))
+                cp.update(c,status="P" if c["leagues"] else "NO DATA");save()
+            byleague={}
+            for t in (bycode[x["fifa"]] for x in targets):
+                for l in t["leagues"]:
+                    if l.get("class","").rsplit("/",1)[-1] in ("Q31930761","Q35554451"):byleague.setdefault(l["league"],[]).append(l)
+            for league,ls in byleague.items():
+                for r in run(clubs_query([league]),"Edition "+qid(league)):
+                    for l in ls:
+                        s=next((s for s in l["seasons"] if s["season"]==r["season"]),None)
+                        if s is None:
+                            s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];cp.append(l["seasons"],s)
+                        if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"})
+                save()
+        print("PHASE 2/3: players of discovered clubs",flush=True)
+        alternative("players")
+        if not args.alternative_only:
+            byclub={}
+            for t in (bycode[x["fifa"]] for x in targets):
+                for l in t["leagues"]:
+                    if l.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
+                    for s in l["seasons"]:
+                        for c in s["clubs"]:byclub.setdefault(c["club"],[]).append((c,set()))
+            collect_players(byclub)
+        print("PHASE 3/3: existing club roster gaps / extra players",flush=True)
+        alternative("extras")
+        if not args.alternative_only:
+            byclub={}
+            for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
+                if uid not in known or not e.get("association"):continue
+                if not e.get("identity_candidates"):
+                    cp.update(e,identity_candidates=sorted({r["club"] for r in run(existing_query(e["association"],e["name"]),"Club "+e["name"])}));save()
+                qs=e["identity_candidates"]
+                if len(qs)==1:byclub.setdefault(qs[0],[]).append((e,known[uid]))
+            collect_players(byclub)
     finally:
         try:
             save();store.publish()

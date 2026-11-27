@@ -75,7 +75,8 @@ def scoped(country,club,category,competition,level,season,allowed,competition_co
     if type(level)!=int or level not in range(1,5) or season not in ("2026","2026/27"):return None
     return c
 
-def acquire(results,cp,cache,root,known):
+def acquire(results,cp,cache,root,known,phase):
+    if phase not in ('clubs','players','extras'):raise ValueError('Unknown research phase')
     import duckdb
     allowed={x["fifa"] for x in json.loads((root/"docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json").read_text(encoding="utf-8-sig"))["records"]}
     targets={t["fifa"]:t for t in results["targets"]}
@@ -108,12 +109,15 @@ def acquire(results,cp,cache,root,known):
                     if not isinstance(q,str) or not re.fullmatch(r"Q[1-9][0-9]*",q):continue
                     entry={"club":row["club"],"clubQid":q,"country":c,"competition":row["competition"],"season":season,"source":"OpenFootballBase data-1.26.0","scope":"SEASON_CANDIDATE_NOT_JULY1"}
                     owners=[]
-                    if c in targets and comp["level"]==1:owners.append(targets[c])
+                    if phase != "extras" and c in targets and comp["level"]==1:owners.append(targets[c])
                     matches=gaps.get((c,norm(row["club"])),[])
-                    if len(matches)==1:owners.append(matches[0][1])
+                    if phase == "extras" and len(matches)==1:owners.append(matches[0][1])
                     if not owners:continue
-                    for owner in owners:add_unique(cp,owner,"alternative_clubs",entry)
-                    eligible[(row["club"],row["competition"])]=(entry,owners,matches[0][0] if len(matches)==1 else None)
+                    if phase in ("clubs","extras"):
+                        for owner in owners:add_unique(cp,owner,"alternative_clubs",entry)
+                    eligible[(row["club"],row["competition"])]=(entry,owners,matches[0][0] if phase=="extras" and len(matches)==1 else None)
+                if phase=="clubs":
+                    cp.save();continue
                 if (season,"squad") not in tables:continue
                 for row in load((season,"squad")):
                     match=eligible.get((row.get("club"),row.get("competition")))

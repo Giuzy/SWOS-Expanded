@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Read-only Expanded catalogue survey; Wikidata candidates, not runtime data."""
-import csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error, zipfile
+import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -41,6 +41,9 @@ def values(items):
 def norm(name):
     return ''.join(c for c in unicodedata.normalize('NFKD', name).casefold() if c.isalnum())
 
+def placeholder(name):
+    return not name or bool(re.match(r'^(TEST|RESERVE)(?:[ _-]*[0-9]+|$)',name,re.I))
+
 def query(sparql):
     q = PREFIX + sparql
     key = hashlib.sha256(q.encode()).hexdigest()
@@ -49,7 +52,7 @@ def query(sparql):
         data = json.loads(dest.read_text(encoding='utf-8'))
     else:
         time.sleep(3)
-        req = urllib.request.Request(ENDPOINT + '?' + urllib.parse.urlencode({'query':q,'format':'json'}), headers={'User-Agent':'SWOS-Expanded-Roster-Research/1.0 (https://github.com/Giuzy/SWOS-Expanded/issues/2)','Accept':'application/sparql-results+json'})
+        req = urllib.request.Request(ENDPOINT, data=urllib.parse.urlencode({'query':q,'format':'json'}).encode(), headers={'User-Agent':'SWOS-Expanded-Roster-Research/1.1 (https://github.com/Giuzy/SWOS-Expanded/issues/2)','Accept':'application/sparql-results+json','Content-Type':'application/x-www-form-urlencoded'})
         with urllib.request.urlopen(req, timeout=75) as response:
             data = json.load(response)
         if 'results' not in data or 'bindings' not in data['results']:
@@ -63,12 +66,10 @@ def league_query(codes):
     return f'''SELECT DISTINCT ?fifa ?country ?countryLabel ?league ?leagueLabel ?class WHERE {{
       VALUES ?fifa {{ {quoted} }}
       ?entity wdt:P3441 ?fifa.
-      {{ {{ BIND(?entity AS ?country) }} UNION {{ ?entity (wdt:P1532|wdt:P17) ?country. }} }}
-      ?league wdt:P17 ?country; wdt:P3983 ?level.
-      FILTER(?level = 1)
-      {{ ?league wdt:P641 wd:Q2736 }} UNION {{ ?league wdt:P31/wdt:P279* wd:Q15991303 }}
-      OPTIONAL {{ ?league wdt:P2094 ?class. }}
-      FILTER(!BOUND(?class) || ?class IN (wd:Q31930761, wd:Q35554451))
+      ?entity wdt:P17 ?country.
+      ?league wdt:P17 ?country; wdt:P3983 1; wdt:P2094 ?class.
+      VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
+      FILTER NOT EXISTS {{ ?league wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
       FILTER NOT EXISTS {{ ?league wdt:P576 ?end. FILTER(?end < "{CUTOFF}"^^xsd:dateTime) }}
       {LABEL}
     }}'''
@@ -112,80 +113,117 @@ def existing_index(root):
                 key = (team.get('country_number'),team.get('team_ordinal'),t.get('uuid'))
                 matches = index.setdefault(norm(name), {})
                 entry = matches.setdefault(key, {'name':name,'file':path.name,'uuid':t.get('uuid'),'country':key[0],'ordinal':key[1],'players':set()})
-                entry['players'].update(norm(x['player_name']) for x in t.get('players',[])+t.get('extra_players',[]) if x.get('player_name'))
+                ps=t.get('players',[])+t.get('extra_players',[])
+                entry['players'].update(norm(x['player_name']) for x in ps if not placeholder(x.get('player_name')))
+                entry['test_slots']=entry.get('test_slots',0)+sum(placeholder(x.get('player_name')) for x in ps)
+                entry['extra_count']=entry.get('extra_count',0)+len(t.get('extra_players',[]))
     return index
 
+def existing_query(fifa,name):
+    labels=" ".join(json.dumps(x,ensure_ascii=False)+"@en" for x in sorted({name,name.title()}))
+    return f"""PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT DISTINCT ?club ?clubLabel WHERE {{
+       VALUES ?label {{ {labels} }}
+       ?entity wdt:P3441 {json.dumps(fifa)}; wdt:P17 ?country.
+       ?club rdfs:label ?label; wdt:P17 ?country; wdt:P2094 ?class.
+       VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
+       FILTER NOT EXISTS {{ ?club wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
+       {LABEL}
+    }}"""
+def merge_players(club,rows,known):
+    saved={p["player"]:p for p in club.get("players",[])}
+    for p in rows:
+        if p.get("playerLabel") and p.get("start") and p["start"]<=CUTOFF and (not p.get("end") or p["end"]>CUTOFF):
+            if norm(p["playerLabel"]) not in known:saved.setdefault(p["player"],p)
+    club["players"]=list(saved.values())
+    club["status"]="P" if saved else "NO DATA"
 def main():
-    root = next((p for p in [Path(sys.argv[1]).resolve()] if (p/MAP).is_file()),None) if len(sys.argv)>1 else next((p for p in [HERE,*HERE.parents] if (p/MAP).is_file()),None)
-    if root is None: raise SystemExit('Estrarre la cartella nella root di SWOS Expanded (docs e data_json).')
-    raw = (root/MAP).read_bytes()
-    targets = [dict(fifa=r['fifa'],name=r['source']['name'],new=r['expanded']['globalNumber']>=2560) for r in json.loads(raw)['records'] if r['source']['team_file']==255]
-    targets.sort(key=lambda r:(not r['new'],r['fifa']))
-    assert len({r['fifa'] for r in targets})==len(targets)
-    index = existing_index(root)
-    seed = json.loads((HERE/'openfootball_clubs.json').read_text(encoding='utf-8'))
-    CACHE.mkdir(parents=True,exist_ok=True)
-    results={'status':'CANDIDATES_ONLY_NOT_RUNTIME','source':'Wikidata CC0','cutoff':CUTOFF,'map_sha256':hashlib.sha256(raw).hexdigest(),'limitations':['No complete roster claim. Unknown league/season/gender/country requires review.','Only P54 memberships with an explicit start date; missing start dates excluded; no end date is not proof of current affiliation.','Season membership is not proof of participants known on 1 July. Name matches are candidates, not IDs.'],'targets':[dict(x,leagues=[]) for x in targets],'errors':[], 'openfootball_identity_candidates':seed}
-    bycode={x['fifa']:x for x in results['targets']}
-    def save(): write_json(OUT/'candidates.json',results)
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--self-test",action="store_true")
+    ap.add_argument("--repo-root",type=Path,default=HERE.parent)
+    args=ap.parse_args()
+    assert placeholder("TEST 1") and placeholder("RESERVE 2") and not placeholder("A B")
+    assert "P2094 ?class" in league_query(["BHU"])
+    c={};sample={"player":"Q1","playerLabel":"Real Name","start":"2026-01-01"}
+    merge_players(c,[sample,sample],set());assert len(c["players"])==1
+    merge_players(c,[],set());assert c["status"]=="P"
+    if args.self_test:print("Self-test PASS");return
+    root=args.repo_root.resolve();raw=(root/MAP).read_bytes();national=json.loads(raw)["records"]
+    targets=[dict(fifa=r["fifa"],name=r["source"]["name"],new=r["expanded"]["globalNumber"]>=2560) for r in national if r["source"]["team_file"]==255]
+    targets.sort(key=lambda r:(not r["new"],r["fifa"]))
+    index=existing_index(root);path=OUT/"candidates.json";CACHE.mkdir(parents=True,exist_ok=True)
+    results=json.loads(path.read_text(encoding="utf-8-sig"))
+    results["status"]="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME";results["map_sha256"]=hashlib.sha256(raw).hexdigest();results["errors"]=[]
+    results.setdefault("existing_club_gaps",{})
+    bycode={x["fifa"]:x for x in results["targets"]}
+    for t in targets:bycode.setdefault(t["fifa"],dict(t,leagues=[],status="NO DATA"))
+    results["targets"]=list(bycode.values());expected=path.read_bytes()
+    def save():
+        nonlocal expected
+        if path.read_bytes()!=expected:raise RuntimeError("Concurrent matrix change")
+        write_json(path,results);expected=path.read_bytes()
     def run(q,phase):
-        try: return query(q)
-        except Exception as e:
-            results['errors'].append({'phase':phase,'error':str(e)})
-            save()
-            print('Gruppo non acquisito:', phase, str(e), flush=True)
-            return []
+        print(phase,flush=True)
+        try:return query(q)
+        except Exception as e:results["errors"].append({"phase":phase,"error":str(e)});save();return []
+    rawmap={}
+    for r in national:
+        f=r["source"]["team_file"]
+        if f!=255:rawmap.setdefault(f,set()).add(r["fifa"])
+    gaps=results["existing_club_gaps"];known={}
+    for matches in index.values():
+        for v in matches.values():
+            uid=v["uuid"]
+            if not uid:continue
+            known[uid]=v["players"]
+            if len(v["players"])>=30 and not v["test_slots"]:continue
+            cs=rawmap.get(v["country"],set()) if not v["file"].startswith("GUESTS_") else set()
+            e=gaps.setdefault(uid,{"name":v["name"],"file":v["file"],"players":[],"status":"NO DATA","identity_candidates":[]})
+            e.update(real_names=len(v["players"]),test_slots=v["test_slots"],extra_count=v["extra_count"],capacity_gap=max(0,30-len(v["players"])),association=next(iter(cs)) if len(cs)==1 else None)
+    pool=root/"data_json/worlds/2627/competitions/bottom_pools.json"
+    if pool.exists():
+        for c in json.loads(pool.read_text(encoding="utf-8-sig")).get("clubs",[]):
+            if c.get("administrative_test") or c.get("roster",{}).get("template")!="TEST_ZERO":continue
+            key="pool:"+str(c["key"]);cs=rawmap.get(c.get("country"),set());known[key]=set()
+            gaps.setdefault(key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
+    save()
     try:
-        for group in chunks([r['fifa'] for r in targets],12):
-            print('Paesi:', ' '.join(group),flush=True)
-            for r in run(league_query(group),'leagues '+','.join(group)):
-                entry=dict(r,seasons=[])
-                bycode[r['fifa']]['leagues'].append(entry)
-            save()
+        for t in targets:
+            c=bycode[t["fifa"]]
+            if c.get("leagues"):continue
+            for r in run(league_query([t["fifa"]]),"League "+t["fifa"]):
+                if r.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
+                if not any(x["league"]==r["league"] for x in c["leagues"]):c["leagues"].append(dict(r,seasons=[]))
+            c["status"]="P" if c["leagues"] else "NO DATA";save()
         byleague={}
-        for t in results['targets']:
-            for l in t['leagues']: byleague.setdefault(l['league'],[]).append(l)
-        for group in chunks(sorted(byleague),10):
-            print('Edizioni:', len(group),flush=True)
-            for r in run(clubs_query(group),'seasons'):
-                for l in byleague[r['league']]:
-                    season=next((s for s in l['seasons'] if s['season']==r['season']),None)
-                    if season is None:
-                        season={k:v for k,v in r.items() if k not in ('club','clubLabel','league')}; season['clubs']=[]; l['seasons'].append(season)
-                    if 'club' in r and not any(c['club']==r['club'] for c in season['clubs']):
-                        season['clubs'].append({'club':r['club'],'name':r.get('clubLabel',qid(r['club'])),'players':[]})
+        for t in results["targets"]:
+            for l in t["leagues"]:
+                if l.get("class","").rsplit("/",1)[-1] in ("Q31930761","Q35554451"):byleague.setdefault(l["league"],[]).append(l)
+        for league,ls in byleague.items():
+            for r in run(clubs_query([league]),"Edition "+qid(league)):
+                for l in ls:
+                    s=next((s for s in l["seasons"] if s["season"]==r["season"]),None)
+                    if s is None:
+                        s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];l["seasons"].append(s)
+                    if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):s["clubs"].append({"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"})
             save()
         byclub={}
-        for t in results['targets']:
-            for l in t['leagues']:
-                for s in l['seasons']:
-                    for c in s['clubs']: byclub.setdefault(c['club'],[]).append(c)
-        for group in chunks(sorted(byclub),15):
-            print('Rose:', len(group),flush=True)
-            for r in run(players_query(group),'players'):
-                for c in byclub[r['club']]:
-                    if not any(x['membership']==r['membership'] for x in c['players']): c['players'].append(r)
+        for t in results["targets"]:
+            for l in t["leagues"]:
+                if l.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
+                for s in l["seasons"]:
+                    for c in s["clubs"]:byclub.setdefault(c["club"],[]).append((c,set()))
+        for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
+            if uid not in known or not e.get("association"):continue
+            if not e.get("identity_candidates"):
+                e["identity_candidates"]=sorted({r["club"] for r in run(existing_query(e["association"],e["name"]),"Club "+e["name"])});save()
+            qs=e["identity_candidates"]
+            if len(qs)==1:byclub.setdefault(qs[0],[]).append((e,known[uid]))
+        for group in chunks(sorted(byclub),5):
+            rr=run(players_query(group),"Players "+",".join(qid(q) for q in group))
+            for q in group:
+                for c,k in byclub[q]:merge_players(c,[r for r in rr if qid(r["club"])==qid(q)],k)
             save()
-    except (Exception, KeyboardInterrupt) as e:
-        print('Raccolta interrotta; risultati parziali conservati. Ripetere il comando per riprendere:',e,flush=True)
-    for t in results['targets']:
-        for l in t['leagues']:
-            for s in l['seasons']:
-                for c in s['clubs']:
-                    m=index.get(norm(c['name']),{})
-                    c['expanded_name_candidates']=[{**v,'players':None,'matching_player_names':sorted({p.get('playerLabel','') for p in c['players'] if norm(p.get('playerLabel','')) in v['players']})} for v in m.values()]
-                    c['unique_player_ids']=len({p['player'] for p in c['players']})
-    save()
-    with (OUT/'coverage.csv').open('w',encoding='utf-8-sig',newline='') as f:
-        w=csv.writer(f);w.writerow(['FIFA','country','new','league_candidates','season_candidates','club_ids','player_ids','status'])
-        for t in results['targets']:
-            ls=t['leagues'];ss=[s for l in ls for s in l['seasons']];cs=[c for s in ss for c in s['clubs']]
-            w.writerow([t['fifa'],t['name'],t['new'],len(ls),len(ss),len({c['club'] for c in cs}),len({p['player'] for c in cs for p in c['players']}),'CANDIDATE' if cs else 'NO_DATA'])
-    with zipfile.ZipFile(HERE/'SWOS_ROSTER_RESULTS.zip','w',zipfile.ZIP_DEFLATED) as z:
-        for p in sorted(OUT.rglob('*')):
-            if p.is_file(): z.write(p,p.relative_to(OUT))
-    print('File pronto: SWOS_ROSTER_RESULTS.zip. Nessuna modifica al gioco.')
-    if results['errors']:
-        print('ATTENZIONE: raccolta parziale,',len(results['errors']),'gruppi non acquisiti. Ripetere il BAT per ritentare.')
-
-if __name__=='__main__': main()
+    finally:save()
+    print("Canonical nominal matrix updated. NO DATA unresolved; P candidates; runtime unchanged. Errors:",len(results["errors"]))
+if __name__=="__main__":main()

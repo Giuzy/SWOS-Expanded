@@ -1,5 +1,5 @@
 {
-  "status": "CANDIDATES_ONLY_NOT_RUNTIME",
+  "status": "CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",
   "source": "Wikidata CC0",
   "cutoff": "2026-07-01T00:00:00Z",
   "map_sha256": "13ee5b8699c8dcca5dc9d448cd8954c8fdc911516e423332c8468c0f7fa2ce81",
@@ -13,721 +13,841 @@
       "fifa": "AFG",
       "name": "AFGHANISTAN",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "AIA",
       "name": "ANGUILLA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ARU",
       "name": "ARUBA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ASA",
       "name": "AMERICAN SAMOA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ATG",
       "name": "ANTIGUA-BARBUDA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BAH",
       "name": "BAHAMAS",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BHU",
       "name": "BHUTAN",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BLZ",
       "name": "BELIZE",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BRB",
       "name": "BARBADOS",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CAM",
       "name": "CAMBODIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CAY",
       "name": "CAYMAN ISLANDS",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CHA",
       "name": "CHAD",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "COD",
       "name": "DR CONGO",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "COK",
       "name": "COOK ISLANDS",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "COM",
       "name": "COMOROS",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CPV",
       "name": "CAPE VERDE",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CTA",
       "name": "CENTRAL AFRICA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CUB",
       "name": "CUBA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CUW",
       "name": "CURACAO",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "DJI",
       "name": "DJIBOUTI",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "DMA",
       "name": "DOMINICA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "DOM",
       "name": "DOMINICAN REP.",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "EQG",
       "name": "EQUAT. GUINEA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ERI",
       "name": "ERITREA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "GAM",
       "name": "GAMBIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "GNB",
       "name": "GUINEA-BISSAU",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "GRN",
       "name": "GRENADA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "GUM",
       "name": "GUAM",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "HAI",
       "name": "HAITI",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "KGZ",
       "name": "KYRGYZSTAN",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "LBN",
       "name": "LEBANON",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "LBY",
       "name": "LIBYA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "LCA",
       "name": "ST. LUCIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MAC",
       "name": "MACAU",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MAD",
       "name": "MADAGASCAR",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MDV",
       "name": "MALDIVES",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MNG",
       "name": "MONGOLIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MSR",
       "name": "MONTSERRAT",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MTN",
       "name": "MAURITANIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "NAM",
       "name": "NAMIBIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "NCL",
       "name": "NEW CALEDONIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "NEP",
       "name": "NEPAL",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "PLE",
       "name": "PALESTINE",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "PUR",
       "name": "PUERTO RICO",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "RWA",
       "name": "RWANDA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SAM",
       "name": "SAMOA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SEY",
       "name": "SEYCHELLES",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SKN",
       "name": "ST. KITTS-NEVIS",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SOM",
       "name": "SOMALIA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SSD",
       "name": "SOUTH SUDAN",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "STP",
       "name": "SAO TOME",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TAH",
       "name": "TAHITI",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TCA",
       "name": "TURKS-CAICOS",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TGA",
       "name": "TONGA",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "THA",
       "name": "THAILAND",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TJK",
       "name": "TAJIKISTAN",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TKM",
       "name": "TURKMENISTAN",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TLS",
       "name": "TIMOR-LESTE",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TRI",
       "name": "TRINIDAD-TOBAGO",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "UZB",
       "name": "UZBEKISTAN",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "VAN",
       "name": "VANUATU",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "VGB",
       "name": "BRIT. VIRGIN IS.",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "VIR",
       "name": "US VIRGIN IS.",
       "new": true,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ANG",
       "name": "ANGOLA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BAN",
       "name": "BANGLADESH",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BDI",
       "name": "BURUNDI",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BEN",
       "name": "BENIN",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BER",
       "name": "BERMUDA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BFA",
       "name": "BURKINA FASO",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BHR",
       "name": "BAHRAIN",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BOT",
       "name": "BOTSWANA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "BRU",
       "name": "BRUNEI",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CGO",
       "name": "CONGO",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CIV",
       "name": "IVORY COAST",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "CMR",
       "name": "CAMEROON",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ETH",
       "name": "ETHIOPIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "FIJ",
       "name": "FIJI",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "GAB",
       "name": "GABON",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "GUI",
       "name": "GUINEA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "GUY",
       "name": "GUYANA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "HKG",
       "name": "HONG KONG",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "IDN",
       "name": "INDONESIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "IRQ",
       "name": "IRAQ",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "JAM",
       "name": "JAMAICA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "JOR",
       "name": "JORDAN",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "KEN",
       "name": "KENYA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "KUW",
       "name": "KUWAIT",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "LAO",
       "name": "LAOS",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "LBR",
       "name": "LIBERIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "LES",
       "name": "LESOTHO",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MAS",
       "name": "MALAYSIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MLI",
       "name": "MALI",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MOZ",
       "name": "MOZAMBIQUE",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MRI",
       "name": "MAURITIUS",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MWI",
       "name": "MALAWI",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "MYA",
       "name": "MYANMAR",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "NCA",
       "name": "NICARAGUA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "NGA",
       "name": "NIGERIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "NIG",
       "name": "NIGER",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "OMA",
       "name": "OMAN",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "PAK",
       "name": "PAKISTAN",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "PHI",
       "name": "PHILIPPINES",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "PNG",
       "name": "PAPUA NEW GUINEA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "PRK",
       "name": "NORTH KOREA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SDN",
       "name": "SUDAN",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SEN",
       "name": "SENEGAL",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SGP",
       "name": "SINGAPORE",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SLE",
       "name": "SIERRA LEONE",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SOL",
       "name": "SOLOMON ISLANDS",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SRI",
       "name": "SRI LANKA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SWZ",
       "name": "ESWATINI",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "SYR",
       "name": "SYRIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TAN",
       "name": "TANZANIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "TOG",
       "name": "TOGO",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "UGA",
       "name": "UGANDA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "VIE",
       "name": "VIETNAM",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "VIN",
       "name": "ST. VINCENT",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "YEM",
       "name": "YEMEN",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ZAM",
       "name": "ZAMBIA",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     },
     {
       "fifa": "ZIM",
       "name": "ZIMBABWE",
       "new": false,
-      "leagues": []
+      "leagues": [],
+      "status": "NO DATA"
     }
   ],
   "errors": [
@@ -854,5 +974,6 @@
         ]
       }
     ]
-  }
+  },
+  "existing_club_gaps": {}
 }

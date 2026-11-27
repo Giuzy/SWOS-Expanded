@@ -1,4 +1,8 @@
-## 27/11/2026 — Ricerca giocatori: conflitto checkpoint (preparato)
+## 27/11/2026 — Correzione preflight ricerca nomi
+
+Il conflitto simulato raggiunge il test, ma il riferimento locale a recover_snapshot mascherava l'import globale; rimuovere l'import ridondante. Non disabilitare il preflight. Dopo pull a BAT chiusi, doppio clic e attendere Self-test PASS prima della ricerca. RG-ROSTER-RECOVERY-IMPORT-SCOPE; ISO SI, full Windows/live NP.
+
+## 27/11/2026 — Ricerca giocatori: conflitto checkpoint (commit 0536cf5)
 
 Un errore SQLite/pubblicazione non è un errore fonte. Arresto immediato senza nuovo salvataggio; PublicationConflict raggiunge il recovery automatico read-only, conservando entrambi gli stati. Doppio clic dopo pull a BAT chiusi; in caso di conflitto inviare log ROSTER RECOVERY. Mismatch rosa/competizione: log esplicito, nessuna equivalenza stagionale presunta. RG-ROSTER-CHECKPOINT-FATAL-PROPAGATION.
 

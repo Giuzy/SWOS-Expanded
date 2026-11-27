@@ -405,7 +405,6 @@ def main():
     dbpath=OUT/('research.sqlite3.restart' if args.restart_from_json else 'research.sqlite3')
     print('Roster work database:',dbpath,flush=True)
     if args.recover_snapshot:
-        from roster_storage import recover_snapshot
         print("Recovered SQLite snapshot:",recover_snapshot(dbpath,OUT/"sources"),flush=True)
         return
     store=Store(path,dbpath)

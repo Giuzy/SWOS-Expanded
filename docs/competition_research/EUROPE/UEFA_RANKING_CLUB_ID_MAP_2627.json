@@ -3266,6 +3266,22 @@
       "status": "IDENTITY_CANDIDATE_DB_VERIFIED_NOT_RUNTIME"
     },
     {
+      "association": "POL",
+      "sourceName": "Lechia Gdansk",
+      "sourceRow": 189,
+      "nativeName": "LECHIA GDANSK",
+      "country": 28,
+      "ordinal": 18,
+      "stableClub": 1835027,
+      "kind": "CLUB",
+      "uuid": null,
+      "poolId": 16,
+      "sourceFile": "data_json/worlds/2627/competitions/bottom_pools.json",
+      "sourceBlob": "8321c3ce464c7869c716fdb499f8cf3555bc27ef",
+      "matchMethod": "EXPLICIT_MOD42_SHARED_POOL",
+      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING"
+    },
+    {
       "association": "NIR",
       "sourceName": "Larne FC",
       "sourceRow": 190,
@@ -3522,6 +3538,22 @@
       "sourceBlob": "0da82870308a224f8543c0264d55b8ee354b4650",
       "matchMethod": "EXPLICIT_ALIAS",
       "status": "IDENTITY_CANDIDATE_DB_VERIFIED_NOT_RUNTIME"
+    },
+    {
+      "association": "SRB",
+      "sourceName": "TSC Backa Topola",
+      "sourceRow": 206,
+      "nativeName": "TSC BACKA TOPOLA",
+      "country": 41,
+      "ordinal": 14,
+      "stableClub": 2686991,
+      "kind": "CLUB",
+      "uuid": null,
+      "poolId": 15,
+      "sourceFile": "data_json/worlds/2627/competitions/bottom_pools.json",
+      "sourceBlob": "8321c3ce464c7869c716fdb499f8cf3555bc27ef",
+      "matchMethod": "EXPLICIT_MOD42_SHARED_POOL",
+      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING"
     },
     {
       "association": "LUX",
@@ -4943,6 +4975,22 @@
     },
     {
       "association": "RUS",
+      "sourceName": "FC Sochi",
+      "sourceRow": 308,
+      "nativeName": "SOCHI",
+      "country": 31,
+      "ordinal": 16,
+      "stableClub": 2031633,
+      "kind": "CLUB",
+      "uuid": null,
+      "poolId": 17,
+      "sourceFile": "data_json/worlds/2627/competitions/bottom_pools.json",
+      "sourceBlob": "8321c3ce464c7869c716fdb499f8cf3555bc27ef",
+      "matchMethod": "EXPLICIT_MOD42_SHARED_POOL",
+      "status": "SOURCE_REGISTERED_PARTIAL_TEST_ZERO_QA_PENDING"
+    },
+    {
+      "association": "RUS",
       "sourceName": "Rubin Kazan",
       "sourceRow": 309,
       "nativeName": "RUBIN KAZAN",
@@ -6320,18 +6368,6 @@
       }
     },
     {
-      "association": "POL",
-      "sourceName": "Lechia Gdansk",
-      "reason": "NOT_FOUND_IN_SCANNED_FILES",
-      "sourceRow": 189,
-      "addition": {
-        "realNameCandidate": "Lechia Gdańsk",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
-        "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
-      }
-    },
-    {
       "association": "LUX",
       "sourceName": "CS Fola Esch",
       "sourceRow": 347,
@@ -6416,36 +6452,12 @@
       }
     },
     {
-      "association": "SRB",
-      "sourceName": "TSC Backa Topola",
-      "sourceRow": 206,
-      "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
-      "addition": {
-        "realNameCandidate": "TSC Bačka Topola",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
-        "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
-      }
-    },
-    {
       "association": "KAZ",
       "sourceName": "Shakhtyor Karaganda",
       "sourceRow": 369,
       "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
       "addition": {
         "realNameCandidate": "Shakhtyor Karagandy",
-        "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
-        "rosterTemplate": "TEST_ZERO",
-        "stableClub": null
-      }
-    },
-    {
-      "association": "RUS",
-      "sourceName": "FC Sochi",
-      "sourceRow": 308,
-      "reason": "NO_UNAMBIGUOUS_MATCH_IN_SCANNED_FILES",
-      "addition": {
-        "realNameCandidate": "PFC Sochi",
         "status": "TEST_ROSTER_CANDIDATE_PENDING_ABSENCE_AND_ACTIVE_STATUS",
         "rosterTemplate": "TEST_ZERO",
         "stableClub": null
@@ -6691,11 +6703,12 @@
     "totalSeedRows": 415,
     "remaining": 0,
     "scopeMeaning": "All source rows examined against the respective 2627 national catalog files and known pools; unmatched are not assumed absent from all possible assets. Candidate identity only.",
-    "mappedCandidates": 384,
-    "unmatchedCount": 31,
+    "mappedCandidates": 387,
+    "unmatchedCount": 28,
     "excludedHistorical": 3,
     "holdInactivePendingUser": 0,
-    "testRosterCandidates": 28
+    "testRosterCandidates": 25,
+    "partialTestRosterRegistered": 3
   },
   "additionPolicy": {
     "decisionDate": "2026-11-27",

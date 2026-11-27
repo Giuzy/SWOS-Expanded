@@ -768,6 +768,276 @@
       "native_mapping_status": "UNRESOLVED",
       "native_name": "SOUTH HOBART",
       "role": "AUSTRALIAN_CHAMPIONSHIP_FIXED_QUALIFIER"
+    },
+    {
+      "key": "41:15",
+      "proposed_native_file": 41,
+      "proposed_native_ordinal": 14,
+      "name": "TSC Bačka Topola",
+      "home_pyramid_division": 15,
+      "identity_status": "REGISTERED_SOURCE_CANDIDATE",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16,
+        "real_players": [
+          {
+            "slot": 0,
+            "source_slot": 6,
+            "record": "2500014e494b4f4c412053494d494300000000000000000000000000000000000e0000000000"
+          },
+          {
+            "slot": 1,
+            "source_slot": 8,
+            "record": "25001653544546414e204a4f56414e4f5649430000000000000020000211c0b10c0000000000"
+          },
+          {
+            "slot": 3,
+            "source_slot": 1,
+            "record": "25000456554b4153494e204b52535449430000000000000000006000011cd1110e0000000000"
+          },
+          {
+            "slot": 4,
+            "source_slot": 7,
+            "record": "2a00034d494c4f532053415441524100000000000000000000006000021cd1010e0000000000"
+          },
+          {
+            "slot": 5,
+            "source_slot": 0,
+            "record": "01000a414e4452454a20544f444f524f534b4900000000000000800002012cd2100000000000"
+          },
+          {
+            "slot": 6,
+            "source_slot": 2,
+            "record": "70001d5052455354494745204d424f554e474f55000000000000b00002112cd1100000000000"
+          },
+          {
+            "slot": 7,
+            "source_slot": 3,
+            "record": "25000f53544546414e204d4c4144454e4f564943000000000000c0000b211b200c0000000000"
+          },
+          {
+            "slot": 8,
+            "source_slot": 4,
+            "record": "250010414c454b53414e444152205354414e4349430000000000c0000a11b1200a0000000000"
+          },
+          {
+            "slot": 9,
+            "source_slot": 5,
+            "record": "250009424f5249534156204255524d415a000000000000000000e000012b120c0d0000000000"
+          },
+          {
+            "slot": 14,
+            "source_slot": 9,
+            "record": "2500114d4948414a4c4f204d494c4f5341564943000000000000c0000a001a21080000000000"
+          }
+        ],
+        "provenance": {
+          "source": "MOD v4.2 TMW5.190",
+          "source_blob": "2be8ab49f82d5428e726742511e36e6fed6adfa0",
+          "declared_md5": "821759f019c3b90de2984c980b4931a0",
+          "source_ordinal": 73,
+          "real_count": 10,
+          "test_count": 6
+        }
+      },
+      "pool_id": 15,
+      "country": 41,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "SOURCE_REGISTERED_QA_PENDING",
+      "native_name": "TSC BACKA TOPOLA",
+      "role": "CATALOG_ONLY",
+      "source": "https://www.365scores.com/football/team/tsc-backa-topola-56890/matches"
+    },
+    {
+      "key": "28:19",
+      "proposed_native_file": 28,
+      "proposed_native_ordinal": 18,
+      "name": "Lechia Gdańsk",
+      "home_pyramid_division": 15,
+      "identity_status": "REGISTERED_SOURCE_CANDIDATE",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16,
+        "real_players": [
+          {
+            "slot": 0,
+            "source_slot": 4,
+            "record": "1a00014158454c20484f4c4557494e534b4900000000000000000000000000000c0000000000"
+          },
+          {
+            "slot": 1,
+            "source_slot": 3,
+            "record": "27001353414d55454c204b4f504153454b00000000000000000020000111c2b00c0000000000"
+          },
+          {
+            "slot": 2,
+            "source_slot": 7,
+            "record": "1a00084a414b55422041444b4f4e495300000000000000000000c0000901a110060000000000"
+          },
+          {
+            "slot": 3,
+            "source_slot": 1,
+            "record": "23001544414e594c4f204245534b4f524f5641594e59490000006000002cd1110e0000000000"
+          },
+          {
+            "slot": 4,
+            "source_slot": 8,
+            "record": "2a000a5249464554204b41504943000000000000000000000000c0000c222c11100000000000"
+          },
+          {
+            "slot": 5,
+            "source_slot": 10,
+            "record": "2900144e4152454b20484f5648414e4e495359414e0000000000a00001001aa0060000000000"
+          },
+          {
+            "slot": 6,
+            "source_slot": 9,
+            "record": "0000074b4556494e20444f44414a000000000000000000000000a00000101aa0060000000000"
+          },
+          {
+            "slot": 7,
+            "source_slot": 2,
+            "record": "23000d4152545552205348414b48000000000000000000000000c0000b211b020c0000000000"
+          },
+          {
+            "slot": 8,
+            "source_slot": 5,
+            "record": "03000648524953544f204956414e4f5600000000000000000000c0000b11c1200c0000000000"
+          },
+          {
+            "slot": 9,
+            "source_slot": 0,
+            "record": "1c0061564c414449534c415620424c414e555441000000000000e000011a201b0a0000000000"
+          },
+          {
+            "slot": 14,
+            "source_slot": 6,
+            "record": "1a0063544f4d41535a204e455547454241554552000000000000c0000b11c2010c0000000000"
+          }
+        ],
+        "provenance": {
+          "source": "MOD v4.2 TMW5.190",
+          "source_blob": "2be8ab49f82d5428e726742511e36e6fed6adfa0",
+          "declared_md5": "821759f019c3b90de2984c980b4931a0",
+          "source_ordinal": 93,
+          "real_count": 11,
+          "test_count": 5
+        }
+      },
+      "pool_id": 16,
+      "country": 28,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "SOURCE_REGISTERED_QA_PENDING",
+      "native_name": "LECHIA GDANSK",
+      "role": "CATALOG_ONLY",
+      "source": "https://www.lechia.net/rozgrywki/lechia-i/wyniki-i-tabela/teaminfo/222-2026-27-i-liga/1-lechia-gdask"
+    },
+    {
+      "key": "31:17",
+      "proposed_native_file": 31,
+      "proposed_native_ordinal": 16,
+      "name": "PFC Sochi",
+      "home_pyramid_division": 15,
+      "identity_status": "REGISTERED_SOURCE_CANDIDATE",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16,
+        "real_players": [
+          {
+            "slot": 0,
+            "source_slot": 13,
+            "record": "1d003354494d4f464559204d4954524f560000000000000000000000000000000d0000000000"
+          },
+          {
+            "slot": 1,
+            "source_slot": 5,
+            "record": "1d0004565941434845534c4156204c495456494e4f56000000006000010cd1210e0000000000"
+          },
+          {
+            "slot": 2,
+            "source_slot": 6,
+            "record": "1d0011415254454d204d414b41524348554b000000000000000040000121d1d1100000000000"
+          },
+          {
+            "slot": 3,
+            "source_slot": 0,
+            "record": "1d0003414c454b53414e445220534f4c444154454e4b4f5600006000022de021120000000000"
+          },
+          {
+            "slot": 4,
+            "source_slot": 1,
+            "record": "25002c4e454d414e4a412053544f4a49430000000000000000006000011dd211100000000000"
+          },
+          {
+            "slot": 5,
+            "source_slot": 7,
+            "record": "1d001d524f4d414e20455a484f56000000000000000000000000800001111cc20e0000000000"
+          },
+          {
+            "slot": 6,
+            "source_slot": 11,
+            "record": "1d000d49474f52204b414c494e494e000000000000000000000040000021d1c10e0000000000"
+          },
+          {
+            "slot": 7,
+            "source_slot": 2,
+            "record": "1d00084d494b4841494c2049474e41544f560000000000000000c0000c202c13100000000000"
+          },
+          {
+            "slot": 8,
+            "source_slot": 4,
+            "record": "1d00064d414b53494d204b555a4d494e00000000000000000000c0000c213c02100000000000"
+          },
+          {
+            "slot": 9,
+            "source_slot": 8,
+            "record": "1d00095a414b484152204645444f524f56000000000000000000e000022b110b0c0000000000"
+          },
+          {
+            "slot": 10,
+            "source_slot": 10,
+            "record": "1d000b504156454c204d454c455348494e000000000000000000e000012b111b0c0000000000"
+          },
+          {
+            "slot": 12,
+            "source_slot": 14,
+            "record": "1d00164f4c4547204b4f5a48454d59414b494e000000000000006000012cd1010e0000000000"
+          },
+          {
+            "slot": 13,
+            "source_slot": 3,
+            "record": "4600214d415243454c4f20414c564553000000000000000000006000011cd0210e0000000000"
+          },
+          {
+            "slot": 14,
+            "source_slot": 9,
+            "record": "1d0005414c454b53414e4452204f5349504f5600000000000000c0000b01c1210c0000000000"
+          },
+          {
+            "slot": 15,
+            "source_slot": 12,
+            "record": "2b000752414d494c205348455944415945560000000000000000e000022c011c0e0000000000"
+          }
+        ],
+        "provenance": {
+          "source": "MOD v4.2 TMW5.190",
+          "source_blob": "2be8ab49f82d5428e726742511e36e6fed6adfa0",
+          "declared_md5": "821759f019c3b90de2984c980b4931a0",
+          "source_ordinal": 169,
+          "real_count": 15,
+          "test_count": 1
+        }
+      },
+      "pool_id": 17,
+      "country": 31,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "SOURCE_REGISTERED_QA_PENDING",
+      "native_name": "SOCHI",
+      "role": "CATALOG_ONLY",
+      "source": "https://pfcsochi.ru/games/"
     }
   ],
   "roster_template": {
@@ -809,7 +1079,7 @@
     "record_id": "pool_id",
     "allocation": "PERSISTENT_UNIQUE_APPEND_ONLY_NO_REUSE",
     "native_mapping": "TAIL_SLOT_FROM_POOL_ID_PREPARED",
-    "next_pool_id": 15,
+    "next_pool_id": 18,
     "legacy_reservations": "Raw country/ordinal is stable club lookup key, not a country-global array offset. Shared JSON is sole source.",
     "native_mapping_rule": "GLOBAL_TEAM_NUMBERS minus immutable pool_id; require slot >= native country end + 256 and no raw/global collision. No country interval changed."
   },

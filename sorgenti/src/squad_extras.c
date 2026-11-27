@@ -23,6 +23,7 @@
  */
 #include "squad_extras.h"
 #include "world.h"
+#include "team_pool.h"
 
 #include <string.h>
 #ifdef SWOS_SDL_BUILD
@@ -133,8 +134,37 @@ static void work_out_gone(Block *b)
     b->gen = s_gen;
 }
 
+/* Cache and persist the original source record, never the mutable OG slot.
+ * The old loader also read the original source, even after a swap.
+ * Loaded CAR keys must not be remapped a second time. */
+static int32_t source_team(uint16_t team)
+{
+    if (World_Current()!=WORLD_2627 || _gameType!=GAME_TYPE_CAREER)
+        return team;
+    const uint8_t file=(uint8_t)(team>>8), country=World_FileCountry(file);
+    const TeamPoolState *st=TeamPool_State(country);
+    const uint16_t slot=World_Slot(file,(uint8_t)team);
+    if(!st || slot>=TEAM_POOL_SLOTS || !st->map[slot])return team;
+    const uint16_t identity=(uint16_t)(st->map[slot]-1u);
+    int32_t n=0;
+    const TeamPool *p=World_TeamPools(&n);
+    for(int32_t i=0;i<n;++i)if(p[i].country==country) {
+        if(identity>=TEAM_POOL_SLOTS) {
+            const uint16_t at=(uint16_t)(identity-TEAM_POOL_SLOTS);
+            return at<p[i].count ? (int32_t)((uint16_t)p[i].file<<8 | at) : -1;
+        }
+        if(identity>=256 && !World_SecondFile(country))return -1;
+        return World_SlotTeam(country,identity);
+    }
+    return -1;
+}
+
 static Block *block(uint16_t team)
 {
+    static Block invalid;
+    const int32_t source=source_team(team);
+    if(source<0)return &invalid;
+    team=(uint16_t)source;
     const int8_t w = (int8_t)World_Current();
     for (int32_t i = 0; i < NCACHE; i++) {
         Block *b = &s_cache[i];
@@ -243,7 +273,8 @@ uint8_t *SquadExtras_GetPlayer(uint16_t team, uint16_t index)
         return NULL;
     PlayerFile *p = SquadExtras_Player(team, index);
     if (p) {
-        SqxMatchRecord *r=SqxMatch_Find(&g_sqx_match,team,index);
+        const int32_t source=source_team(team);
+        SqxMatchRecord *r=source>=0?SqxMatch_Find(&g_sqx_match,(uint16_t)source,index):NULL;
         return r?r->bytes:NULL; /* actual allocated legacy prefix */
     }
     memset(s_blank, 0, sizeof s_blank);
@@ -314,6 +345,9 @@ void SquadExtras_Left(uint16_t team, uint16_t index, const int8_t *name)
 {
     if (index < 16 || index >= 16 + SQX_MAX)
         return;
+    const int32_t source=source_team(team);
+    if(source<0)return;
+    team=(uint16_t)source;
     for (uint16_t k = 0; k < g_sqx.n; k++)
         if (g_sqx.left[k].team == team && g_sqx.left[k].index == index && same_name(g_sqx.left[k].name, name))
             return;
@@ -375,7 +409,7 @@ void SquadExtras_JobChange(void)
         if(!p->playerName[0])continue;
         for(unsigned i=0;i<b->n;i++) {
             if((b->gone&(1u<<i)) || !same_name(p->playerName,b->p[i].playerName))continue;
-            SqxMatchRecord *r=SqxMatch_Find(&g_sqx_match,_selTeamNumber,(uint16_t)(16+i));
+            SqxMatchRecord *r=SqxMatch_Find(&g_sqx_match,b->team,(uint16_t)(16+i));
             if(r && SqxMatch_SameName(&r->player,p))r->player=*p;
             break;
         }

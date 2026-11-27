@@ -3,6 +3,7 @@
 /* Shared immutable catalogue; no sporting decisions, no CAR writes. */
 #include "expanded_ce_shared_pool_identity.h"
 #include "expanded_test_zero.h"
+#include "sqx_match_store.h" /* existing exact PlayerFile hex decoder */
 /* Pool globals stored in earlier CARs descend from the old 2560 ceiling. */
 #define EXP_CE_POOL_SAVED_CAPACITY ((GLOBAL_TEAM_NUMBERS)>2560u?2560u:(GLOBAL_TEAM_NUMBERS))
 #include "mjson.h"
@@ -18,6 +19,8 @@ typedef struct ExpCeSharedPoolRow {
     uint16_t raw,global;
     uint8_t country,division;
     char name[18];
+    uint16_t real_mask;
+    PlayerFile real_players[16];
 } ExpCeSharedPoolRow;
 typedef struct ExpCeSharedPoolData {
     ExpCeSharedPoolRow *rows;
@@ -32,6 +35,38 @@ static inline int ExpCeSharedPool_Number(const char *j,int n,const char *path,
     if(mjson_get_number(j,n,path,&v)<=0 || v<0 || v>(double)max ||
        v!=(double)(uint32_t)v)return 0;
     *out=(uint32_t)v;return 1;
+}
+/* Optional exact source records replace selected copies of the one TEST_ZERO
+ * template. Absent array retains the existing all-TEST behaviour. */
+static inline int ExpCeSharedPool_ReadReal(const char *j,int n,ExpCeSharedPoolRow *x)
+{
+    const char *arr=NULL;
+    int alen=0,off=0,ko,kl,vo,vl,vt;
+    int tok=mjson_find(j,n,"$.roster.real_players",&arr,&alen);
+    if(tok==MJSON_TOK_INVALID)return 1;
+    if(tok!=MJSON_TOK_ARRAY)return 0;
+    while((off=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&vt))>0) {
+        uint32_t slot;
+        char hex[SQX_MATCH_HEX_LEN+1]={0};
+        PlayerFile p;
+        if(vt!=MJSON_TOK_OBJECT ||
+           !ExpCeSharedPool_Number(arr+vo,vl,"$.slot",15u,&slot) ||
+           (x->real_mask&(1u<<slot)) ||
+           mjson_get_string(arr+vo,vl,"$.record",hex,sizeof hex)!=(int)SQX_MATCH_HEX_LEN ||
+           !SqxMatch_Decode(hex,strlen(hex),&p) ||
+           strcmp((const char *)p.playerName,"TEST")==0 ||
+           (uint8_t)p.nationality>=214u ||
+           (uint8_t)p.shirtNumber<1u || (uint8_t)p.shirtNumber>99u)
+            return 0;
+        if(slot==0u && (p.positionAndFace&PF_POSITION_MASK)!=0u)return 0;
+        for(unsigned k=0;k<16u;++k)if(x->real_mask&(1u<<k)) {
+            if(SqxMatch_SameName(&x->real_players[k],&p) ||
+               x->real_players[k].shirtNumber==p.shirtNumber)return 0;
+        }
+        x->real_players[slot]=p;
+        x->real_mask|=(uint16_t)(1u<<slot);
+    }
+    return off==0;
 }
 static inline int ExpCeSharedPool_Load(ExpCeSharedPoolData *out)
 {
@@ -100,6 +135,7 @@ static inline int ExpCeSharedPool_Load(ExpCeSharedPoolData *out)
            !ExpCePool_GlobalSlot(EXP_CE_POOL_SAVED_CAPACITY,_teamsCountryNumbers[255],id,&x.global))
             goto done;
         x.id=id;x.country=(uint8_t)country;x.division=(uint8_t)division;
+        if(!ExpCeSharedPool_ReadReal(j,vl,&x))goto done;
         for(i=0;i<p.n;++i)
             if(p.rows[i].id==id || p.rows[i].raw==x.raw || p.rows[i].key==x.key)goto done;
         if(p.n==cap) {
@@ -136,5 +172,22 @@ static inline int ExpCeSharedPool_SavedRosterOK(const ExpCeSharedPoolData *p,
     return !ExpCePool_IsReservedGlobal(_teamsCountryNumbers[255],g);
 }
 static inline void ExpCeSharedPool_Materialize(const ExpCeSharedPoolRow *x,TeamFileEx *t)
-{ExpCeTestZero_Materialize(x->raw,x->global,x->name,t);}
+{
+    ExpCeTestZero_Materialize(x->raw,x->global,x->name,t);
+    if(!x->real_mask)return;
+    uint8_t shirts[100]={0};
+    for(unsigned i=0;i<16u;++i)if(x->real_mask&(1u<<i)) {
+        t->players[i]=x->real_players[i];
+        shirts[(uint8_t)t->players[i].shirtNumber]=1u;
+    }
+    /* Only TEST shirt numbers may change. Real source bytes remain exact. */
+    for(unsigned i=0;i<16u;++i)if(!(x->real_mask&(1u<<i))) {
+        unsigned shirt=1;
+        while(shirt<100u && shirts[shirt])++shirt;
+        if(shirt<100u) {
+            t->players[i].shirtNumber=(int8_t)shirt;
+            shirts[shirt]=1u;
+        }
+    }
+}
 #endif

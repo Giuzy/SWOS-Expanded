@@ -3488,7 +3488,21 @@ int32_t DataJson_LoadTeamExtras(int32_t file, int32_t ordinal, PlayerFile *out, 
         return 0;
     char team_file[128], club_uuid[80] = {0}, club_checksum[40] = {0};
     int jlen = 0;
-    char *base = dj_slurp_country_teams(file, team_file, sizeof team_file, &jlen);
+    /* Off-file pools are source records, not new playable countries. */
+    char *base = NULL;
+    int32_t npools=0;
+    const TeamPool *pools=World_TeamPools(&npools);
+    int is_pool=0;
+    for(int32_t i=0;i<npools;++i)if(pools[i].file==file) {
+        char path[256];
+        is_pool=1;
+        if(ordinal>=pools[i].count)return 0;
+        snprintf(team_file,sizeof team_file,"teams/%s",pools[i].json);
+        snprintf(path,sizeof path,"data_json/worlds/2627/%s",team_file);
+        base=dj_slurp(path,&jlen);
+        break;
+    }
+    if(!is_pool)base=dj_slurp_country_teams(file,team_file,sizeof team_file,&jlen);
     if (!base)
         return 0;
     const char *teams = NULL;

@@ -270,7 +270,9 @@
 /* v00.13.346: 211 real modern national rosters, same packed/global team IDs,
  * mandatory world-specific JSON for OG and TeamDb; no national TEST fallback.
  * Source/isolated gate prepared; Windows gameplay/CONTINUE NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.346"
+/* v00.13.347 candidate: off-file EXTRA overlays and stable source-key cache.
+ * Windows/CAR NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.347"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

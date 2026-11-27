@@ -1551,3 +1551,9 @@ Utente: stessa pagina RULES per campionati/coppe/tornei CE, NO DATA per campi ma
 
 
 Ranking FIFA/UEFA moderno soltanto 2627: usare il kernel puro expanded_ce_ranking.h, non attivarlo prima di seed verificati, classi fase, idempotenza e CAR. Vedi CE_CALENDAR_GENERATOR.md / RG-CE-RANKING-2627. Nessuna modifica al 9697.
+
+### 27/11/2026 — Partite del 2° anno saltate: edizioni bloccate RULES_CHANGED (causa VERIFIED su AUTO2627.CAR)
+
+- **Evidenza:** CAR dell'utente decodificata offline (container SWOSZC4A + `ExpandedUniversal_CarRestore` + `ExpCe_DecodeHex`): NPL Victoria 2027 (760742657) e NPL Queensland 2027 (760742913) `SCHEDULED block=RULES_CHANGED`, 182 e 132 partite tutte HELD, 0 giocate → `ExpandedUniversal_NextForClub` salta gli eventi HELD → `FORWARD_OK reason=NO_REGISTERED_NEXT_FIXTURE` settimana dopo settimana. Il blocco è nato dalla modifica dati panchina 6→7 (stesso giorno) su edizioni già generate: `ExpCe_ValidateAfterRestore` confronta `rules_hash`.
+- **Correzione generale (tutti i paesi):** in `ExpCe_ValidateAfterRestore` un'edizione SCHEDULED/ACTIVE con regole cambiate e NESSUNA partita giocata o reclamata adotta le regole attuali (`EDITION_RULES_ADOPTED`); se era già bloccata RULES_CHANGED, l'intero calendario non giocato viene spostato di settimane intere (stessi giorni della settimana e stesso ordine, dalla partita più tarda alla più presto, via `host->reschedule`) fino a dopo oggi (`EDITION_CALENDAR_SHIFTED`), poi gli eventi vengono rilasciati. Un'edizione con almeno una partita giocata resta bloccata come prima (le regole con cui è iniziata non si cambiano). Limite: cambi strutturali (formato/turni) su un'edizione non giocata mantengono il calendario già generato.
+- **Prova:** sulla CAR reale lo strumento offline sblocca VIC (2 settimane) e QLD (1 settimana), 182+132 partite PENDING; test ce_engine, ce_real_competitions, cicli Australia e Italia, universal_live PASS; EXE 12:36. Gameplay Windows NON PROVATO.

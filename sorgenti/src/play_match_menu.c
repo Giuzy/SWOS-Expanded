@@ -318,8 +318,11 @@ static int Expanded_CareerPrematchLegalSelection(const TeamFileEx *team)
        _trainingGame || !_squadChangesAllowed || _showingCpuTeams || _viewingOpponentTeam ||
        team->team.teamControls==TEAM_COMPUTER)return 0;
     const unsigned n=_careerNumPlayers;
-    const unsigned bench=_maxSubstitutesEntries;
-    if(n<11u || n>32u || bench>8u || 11u+bench>n)return 0;
+    /* v342 (user 27/11/2026): the REAL bench of the competition (extended column included),
+     * not only the 5 OG rows; a roster shorter than 11+bench checks what it has. */
+    unsigned bench=g_pmRealBench?(unsigned)g_pmRealBench:(unsigned)_maxSubstitutesEntries;
+    if(n>=11u && 11u+bench>n)bench=n-11u;
+    if(n<11u || n>32u || bench>21u)return 0;
     uint32_t seen=0;
     for(unsigned i=0;i<11u+bench;++i) {
         const unsigned id=_currentMatchPlayers[i];
@@ -351,13 +354,18 @@ static int Expanded_CareerPrematchLegalSelection(const TeamFileEx *team)
  * slot id is valid, so it can never soft-lock a read-only view. */
 static int Expanded_CareerPrematchHasUnavailable(const TeamFileEx *team)
 {
-    if(!Expanded_ManagedCareerTeam(team) || team==&_careerTeam ||
+    /* v342 (27/11/2026): the CE match passes the manager club AS _careerTeam (same roster,
+     * same _currentMatchPlayers order): it must be checked too, PLAY and VIEW RESULT. */
+    if(!Expanded_ManagedCareerTeam(team) ||
        _selTeamNumber==0xFFFF || _trainingGame || _showingCpuTeams ||
        _viewingOpponentTeam || team->team.teamControls==TEAM_COMPUTER ||
        !Expanded_CareerLineupEditsAllowed())return 0;
     const unsigned n=_careerNumPlayers;
-    const unsigned bench=_maxSubstitutesEntries;
-    if(n<11u || n>32u || bench>8u || 11u+bench>n)return 0;
+    /* v342 (user 27/11/2026): the REAL bench of the competition (extended column included),
+     * not only the 5 OG rows; a roster shorter than 11+bench checks what it has. */
+    unsigned bench=g_pmRealBench?(unsigned)g_pmRealBench:(unsigned)_maxSubstitutesEntries;
+    if(n>=11u && 11u+bench>n)bench=n-11u;
+    if(n<11u || n>32u || bench>21u)return 0;
     uint32_t seen=0;
     int unavailable=0;
     for(unsigned i=0;i<11u+bench;++i) {
@@ -543,9 +551,10 @@ void ShowOrHidePlayMatchButton(void) {
         /* The stock gate expects one or more available subs even when the
          * legal nominated bench is zero. Check actual OG lineup identities
          * and availability, leaving all non-manager menus unchanged. */
-        if(Expanded_CareerPrematchLegalSelection(team))goto canPlay;
-        /* OG block: an injured/suspended player in 11+bench hides the button */
+        /* OG block: an injured/suspended player in 11+bench hides the button (PLAY and VIEW
+         * RESULT alike, every competition). v342: checked FIRST, a legal-looking XI never skips it. */
         if(Expanded_CareerPrematchHasUnavailable(team))goto showPlayBtnPath;
+        if(Expanded_CareerPrematchLegalSelection(team))goto canPlay;
 #endif
         uint32_t subsR = GetNumberOfAvailableSubstitutes((uint8_t *)team, _playMatchExcludeFlags);
         uint16_t d2 = (uint16_t)(subsR & 0xFFFF); /* d7→d2: available subs (goalkeepers) */

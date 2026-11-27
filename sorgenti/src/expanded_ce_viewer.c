@@ -1014,14 +1014,28 @@ uint32_t ExpCeViewer_ClubButtons(uint32_t *ids,char (*names)[40],uint32_t cap)
        !ExpandedUniversal_NativeTeamKey(&_careerTeam,&club))return 0u;
     for(i=0u;i<ExpCe_DefinitionCount() && n<cap;++i) {
         const ExpCeDef *d=ExpCe_DefinitionAt(i);
-        const ExpCeEdition *e;
         uint32_t k;
         int in=0;
         if(!d || !d->viewer_button || d->world!=(uint16_t)World_Current())continue;
-        e=cv_pick_edition(d->id);
-        if(!e || e->state==EXP_CE_ED_ARCHIVED)continue;
-        for(k=0u;k<e->nentrants;++k)
-            if(ExpandedClubKey_Equal(e->entrants[k].club,club)){in=1;break;}
+        /* v342 (user 27/11/2026, every competition): listed when the club is an entrant of ANY
+         * live (not archived) edition, or when the next edition's participants are not yet
+         * determined but the data already name the club (a LISTED source with a fixed list,
+         * e.g. a founding club of the Australian Championship). */
+        for(k=0u;k<ExpCe_EditionCount() && !in;++k) {
+            const ExpCeEdition *x=ExpCe_EditionAt(k);
+            uint32_t q;
+            if(!x || x->def_id!=d->id || x->state==EXP_CE_ED_ARCHIVED)continue;
+            for(q=0u;q<x->nentrants;++q)
+                if(ExpandedClubKey_Equal(x->entrants[q].club,club)){in=1;break;}
+            if(!in && !x->nentrants) {
+                uint32_t sidx,c;
+                for(sidx=0u;sidx<d->nsources && !in;++sidx) {
+                    const ExpCeSourceSpec *sp=&d->sources[sidx];
+                    if(sp->source!=EXP_CE_SRC_LISTED || sp->nclubs!=sp->count)continue;
+                    for(c=0u;c<sp->nclubs;++c)if(sp->clubs[c]==club.stable_club){in=1;break;}
+                }
+            }
+        }
         if(!in)continue;
         ids[n]=d->id;
         snprintf(names[n],40u,"%s",d->name);

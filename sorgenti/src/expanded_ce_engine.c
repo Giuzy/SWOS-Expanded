@@ -3746,6 +3746,60 @@ int ExpCe_ValidateAfterRestore(ExpandedUniversalRegistry *r,const ExpCeHost *hos
             ed_block(r,host,e,EXP_CE_BLOCK_DATA_MISSING,"definition no longer present");
             ++changed;continue;
         }
+        /* v342 (27/11/2026): an edition with NO fixture played or claimed yet adopts
+         * the current rules (e.g. a bench size changed in the data): nothing has
+         * been decided under the old ones. Its already generated calendar is kept.
+         * A RULES_CHANGED block of such an edition is lifted and its events released. */
+        if(e->state>=EXP_CE_ED_SCHEDULED && e->rules_hash!=d->rules_hash) {
+            uint32_t k,decided=0u;
+            for(k=0;k<r->fixture_count;++k)
+                if(ExpandedEditionKey_Equal(r->fixtures[k].key.edition,e->key) &&
+                   r->ledger.entries[k].state!=EXP_FIXTURE_SCHEDULED)++decided;
+            if(!decided && (!e->block || e->block==EXP_CE_BLOCK_RULES_CHANGED)) {
+                if(e->block==EXP_CE_BLOCK_RULES_CHANGED) {
+                    /* fixtures held while the clock moved on: the whole unplayed calendar is
+                     * shifted by whole weeks (same weekdays, same order) so that it starts
+                     * after today, latest fixture first so no club is ever doubled. */
+                    const int32_t today=r->scheduler.clock.day_index;
+                    int32_t first=INT32_MAX,delta=0;
+                    for(k=0;k<r->fixture_count;++k)
+                        if(ExpandedEditionKey_Equal(r->fixtures[k].key.edition,e->key) &&
+                           r->fixtures[k].day_index<first)first=r->fixtures[k].day_index;
+                    if(first!=INT32_MAX && first<=today)delta=((today+1-first+6)/7)*7;
+                    if(delta) {
+                        int ok=host && host->reschedule;
+                        uint32_t n=0u,q,w;
+                        uint64_t *ids=(uint64_t *)malloc((size_t)r->fixture_count*sizeof *ids);
+                        int32_t *days=(int32_t *)malloc((size_t)r->fixture_count*sizeof *days);
+                        if(!ids || !days)ok=0;
+                        for(k=0;ok && k<r->fixture_count;++k)
+                            if(ExpandedEditionKey_Equal(r->fixtures[k].key.edition,e->key)) {
+                                ids[n]=r->fixtures[k].event_id;days[n]=r->fixtures[k].day_index;++n;
+                            }
+                        for(q=0;ok && q<n;++q) {            /* latest first */
+                            uint32_t m=q;
+                            for(w=q+1u;w<n;++w)if(days[w]>days[m])m=w;
+                            { uint64_t ti=ids[q];int32_t td=days[q];ids[q]=ids[m];days[q]=days[m];ids[m]=ti;days[m]=td; }
+                            if(!host->reschedule(host->user,ids[q],days[q]+delta))ok=0;
+                        }
+                        free(ids);free(days);
+                        fprintf(stderr,"[ce-engine] EDITION_CALENDAR_SHIFTED competition=%lu year=%u "
+                                "weeks=%d fixtures=%lu ok=%d\n",(unsigned long)e->def_id,(unsigned)e->year,
+                                (int)(delta/7),(unsigned long)n,ok);
+                    }
+                    e->block=0u;e->why[0]=0;
+                    if(host && host->hold && !host->hold(host->user,e->key,0)) {
+                        ed_block(r,host,e,EXP_CE_BLOCK_RULES_CHANGED,
+                                 "rules changed; held fixtures could not be moved after today");
+                        continue;
+                    }
+                }
+                e->rules_hash=d->rules_hash;
+                ed_log("EDITION_RULES_ADOPTED",e,"no fixture played yet");
+                ++changed;
+                continue;
+            }
+        }
         /* an edition keeps the rules it started with: never re-rule it
          * silently when the data changed between sessions */
         if(e->state>=EXP_CE_ED_SCHEDULED && e->rules_hash!=d->rules_hash &&

@@ -3635,6 +3635,35 @@ void BuildGameListArrayFromTeamSelectionKeyCache(void)
 }
 
 /* PrintNameAndSeason — show manager name, team, and season year (SWOS2.s line 60445) */
+#ifdef SWOS_SDL_BUILD
+#include "expanded_ce_engine.h"
+#include "expanded_universal_native_match.h"
+/* 1 = label written from the manager's current CE league edition. */
+static int Expanded_ContestSeasonLabel(char *out)
+{
+    ExpandedClubKey k={0};
+    int32_t today=0;
+    const ExpCeEdition *best=NULL;
+    ExpandedWorldDate s={0},x={0};
+    uint32_t i,j;
+    if(!out || !ExpandedUniversalLive_Active() || !ExpandedUniversalLive_TodayIndex(&today) ||
+       !ExpandedUniversal_NativeTeamKey(&_careerTeam,&k))return 0;
+    for(i=0;i<ExpCe_EditionCount();++i) {
+        const ExpCeEdition *e=ExpCe_EditionAt(i);
+        const ExpCeDef *d=e?ExpCe_Definition(e->def_id):NULL;
+        if(!d || d->origin!=EXP_CE_ORIGIN_LEAGUE || e->key.start_day>today)continue;
+        for(j=0;j<e->nentrants;++j)if(e->entrants[j].club.stable_club==k.stable_club)break;
+        if(j==e->nentrants)continue;
+        if(!best || e->key.start_day>best->key.start_day)best=e;
+    }
+    if(!best || !ExpandedWorld_IndexToDate(best->key.start_day,&s))return 0;
+    if(best->expiry_day && ExpandedWorld_IndexToDate(best->expiry_day,&x) && x.year>s.year)
+        sprintf(out,"%u/%02u SEASON",(unsigned)s.year,(unsigned)((s.year+1u)%100u));
+    else sprintf(out,"%u SEASON",(unsigned)s.year);
+    return 1;
+}
+#endif
+
 __attribute__((used, externally_visible))
 void PrintNameAndSeason(void)
 {
@@ -3679,6 +3708,14 @@ void PrintNameAndSeason(void)
 
     /* Set season year in entry 2 */
     uint8_t *entry2Str = (uint8_t *)_menuEntries[2].fg;
+#ifdef SWOS_SDL_BUILD
+    /* v342 (user 27/11/2026, all countries): in the CE world the season shown is the
+     * season of the manager's CURRENT league edition (the club's country cycle), not the
+     * OG season counter that the CE never advances: "2026/27 SEASON" for a July-June
+     * league, "2027 SEASON" for a calendar-year league (e.g. NPL 2027). */
+    if (_gameType == GAME_TYPE_CAREER && Expanded_ContestSeasonLabel((char *)entry2Str))
+        return;
+#endif
     uint16_t year = World_SeasonYear(_seasonPlaying);     /* (the world's years: world.h) */
     uint16_t d1 = (uint16_t)((year + 1) % 100);
     uint8_t *fmt;

@@ -11237,15 +11237,19 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
     unsigned n=0u,i,j;
     int home=-1,away=-1,hasManager=0;
     int result=0;
+    uint8_t fkind=0u;
     if(s_ceBoardActive || !r || r->recovery_required || !f ||
        _gameType!=4 || !ExpandedUniversalLive_Active() ||
-       f->competition_type!=0u)return 0;
+       !ExpCe_FixturePhase(f,&fkind,NULL) || fkind!=EXP_CE_PHASE_TABLE)return 0;
+    /* v342 (user 27/11/2026): a TABLE phase of a cup/tournament (groups) uses the
+     * same OG league board, restricted to the fixture's own group (stage). */
+    const int grouped=f->competition_type!=0u;
     /* Do not fabricate a native cup/tournament bracket. Those are gated
      * pending verified generic CE bracket phase and action projection. */
     for(i=0u;i<r->fixture_count;++i) {
         const ExpandedUniversalFixture *x=&r->fixtures[i];
-        if(!ce_board_same_edition(x,f) || (viewOnly && x->key.stage!=f->key.stage))continue;
-        if(x->competition_type!=0u ||
+        if(!ce_board_same_edition(x,f) || ((viewOnly || grouped) && x->key.stage!=f->key.stage))continue;
+        if((!grouped && x->competition_type!=0u) ||
            ce_board_add(clubs,&n,x->home)<0 ||
            ce_board_add(clubs,&n,x->away)<0)return 0;
     }
@@ -11264,6 +11268,7 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
             const ExpandedUniversalFixture *x=&r->fixtures[i];
             ExpandedFixtureLedgerEntry *e;
             if(!ce_board_same_edition(x,f) || x->day_index!=f->day_index ||
+               (grouped && x->key.stage!=f->key.stage) ||
                x->event_id>=f->event_id ||
                ExpandedClubKey_Equal(x->home,manager) ||
                ExpandedClubKey_Equal(x->away,manager))continue;
@@ -11396,7 +11401,8 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
          * in the one CE order (event id within the same day). */
         for(i=0u;i<r->fixture_count;++i) {
             const ExpandedUniversalFixture *x=&r->fixtures[i];
-            if(!ce_board_same_edition(x,f) || x->day_index!=f->day_index)
+            if(!ce_board_same_edition(x,f) || x->day_index!=f->day_index ||
+               (grouped && x->key.stage!=f->key.stage))
                 continue;
             if(s_ceBoardRoundCount>=32u)goto restore;
             s_ceBoardRound[s_ceBoardRoundCount++]=x->event_id;
@@ -11454,16 +11460,28 @@ int ExpandedUniversal_OGBoardPresent(void)
        ExpandedUniversal_NextForClub(r,manager,
            r->scheduler.events[r->scheduler.count-1u].day_index,&f)!=
            EXP_UNIVERSAL_DUE ||
-       !f || f->day_index!=today || f->competition_type!=0u)
+       !f || f->day_index!=today)
         return 0;
     {
         /* The next world event must belong to this OG round (earlier
-         * fixtures of other competitions are completed by FORWARD). */
+         * fixtures of other competitions are completed by FORWARD).
+         * v342: a cup/tournament GROUP (TABLE phase) is a round too. */
         const ExpandedUniversalFixture *g=NULL;
+        uint8_t kind=0u;
+        if(!ExpCe_FixturePhase(f,&kind,NULL) || kind!=EXP_CE_PHASE_TABLE)return 0;
         if(ExpandedUniversal_Peek(r,today,&g)!=EXP_UNIVERSAL_DUE || !g ||
-           g->day_index!=today || g->competition_type!=0u ||
+           g->day_index!=today || g->competition_type!=f->competition_type ||
            !ce_board_same_edition(g,f))
             return 0;
+    }
+    if(f->competition_type!=0u) {
+        static char label[48];
+        const ExpCeDef *d=ExpCe_Definition(f->key.edition.competition.stable_competition);
+        const unsigned group=(unsigned)(f->key.stage&0xffu);
+        if(group>0u && group<=26u)
+            snprintf(label,sizeof label,"%.36s GROUP %c",d?d->name:"CUP",(char)('A'+group-1u));
+        else snprintf(label,sizeof label,"%.40s",d?d->name:"CUP");
+        return ce_board_project(f,manager,0,label);
     }
     return ce_board_project(f,manager,0,"LEAGUE");
 }

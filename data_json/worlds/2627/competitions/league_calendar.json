@@ -468,7 +468,7 @@
     {
       "id": "_australianLeague",
       "team_number": 44,
-      "match_override": {"bench": 6, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 0, "et_extra_windows": 0, "provenance": "VERIFIED", "source": "NPL Victoria 2026 (Football Victoria Advanced Competitions Rules art 4.9.1, row209): 6 named, 5 used, 3 opportunities, half-time free"},
+      "match_override": {"bench": 7, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 0, "et_extra_windows": 0, "provenance": "GAME_TEMPLATE", "source": "user 27/11/2026: bench 7 in game (regulation 6); NPL Victoria 2026 (Football Victoria Advanced Competitions Rules art 4.9.1, row209): 6 named, 5 used, 3 opportunities, half-time free"},
       "comp_id": 88,
       "first_match": "02-13",
       "last_match": "08-29",
@@ -486,7 +486,7 @@
     {
       "id": "_australianLeague",
       "team_number": 44,
-      "match_override": {"bench": 6, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "VERIFIED", "source": "NPL Queensland 2026 (row210 regulation): 5 substitutions, 3 windows, match sheet 17 (11+6), +1 in extra time; half-time and extra-time window per the decided table of 26/11/2026"},
+      "match_override": {"bench": 7, "subs": 5, "windows": 3, "halftime_free": 1, "et_extra_subs": 1, "et_extra_windows": 1, "provenance": "GAME_TEMPLATE", "source": "user 27/11/2026: bench 7 in game (regulation 6); NPL Queensland 2026 (row210 regulation): 5 substitutions, 3 windows, match sheet 17 (11+6), +1 in extra time; half-time and extra-time window per the decided table of 26/11/2026"},
       "comp_id": 88,
       "first_match": "02-20",
       "last_match": "08-14",

@@ -285,6 +285,8 @@ def main():
     if x.self_test:
         from http_retry import selftest as http_selftest
         http_selftest()
+        from domestic_catalog import selftest as catalogue_selftest
+        catalogue_selftest()
         print("Self-test PASS");return
     root=x.repo_root.resolve()
     if x.year!=2026 and x.world!="2627":a.error("--year cannot be combined with historical world")
@@ -294,7 +296,7 @@ def main():
         roster_wiki.CACHE=output_dir(root,x.year)/"sources"/"competition_wiki"
         roster_wiki.CACHE.mkdir(parents=True,exist_ok=True)
         roster_wiki.REFRESH_WIKI=x.refresh
-        domestic_run(root,x.country,wiki_query=roster_wiki.query,year=x.year)
+        domestic_run(root,x.country,wiki_query=roster_wiki.query,year=x.year,source_catalog=True,refresh=x.refresh)
     if x.year!=2026:
         from annual_delta import write_delta
         write_delta(root,x.year,scope='competitions')

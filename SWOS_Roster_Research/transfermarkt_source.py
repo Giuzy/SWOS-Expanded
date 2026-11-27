@@ -168,7 +168,7 @@ def season_label(page,kind,identity,expected_id=None,year=2026):
     if tokens=={str(year)}:return str(year)
     raise ValueError("Requested season not evidenced or ambiguous: "+str(sorted(tokens)))
 
-def table_links(page,pattern):
+def table_links(page,pattern,with_positions=False):
     # Use primary schema, not the count of tables with class items.
     # Header columns from nested tables are excluded.
     players="/profil/spieler/" in pattern
@@ -186,7 +186,36 @@ def table_links(page,pattern):
             valid=("club" in headers and bool(headers & {"squad","squadsize"}) and not bool(headers & {"pts","points","goals","w","d","l"}))
         if not valid:continue
         rows=links(t,pattern)
-        if rows:candidates.append(rows)
+        if rows:
+            if players and with_positions:
+                from player_roles import position_evidence, merge_positions
+                positions={}
+                # The exact same primary squad table and player ID must bind the position.
+                for tr in t.all("tr"):
+                    if not own(tr):continue
+                    found=links(tr,pattern)
+                    if len(found)!=1:continue
+                    pid=next(iter(found))
+                    cells=[x for x in tr.children if x.tag=="td"]
+                    raw=[]
+                    for cell in cells:
+                        # Transfermarkt inline player table: a single role cell in
+                        # a nested row without any player profile link.
+                        for nested in cell.all("tr"):
+                            sub=[x for x in nested.children if x.tag=="td"]
+                            if len(sub)==1 and not links(nested,pattern):
+                                candidate=sub[0].text()
+                                if any(v.get("group") for v in position_evidence(candidate,"TM","SQUAD")):raw.append(candidate)
+                    # Some layouts expose a separate, explicitly titled Position column.
+                    header_rows=[h for h in t.all("tr") if own(h) and any(x.tag=="th" for x in h.children)]
+                    for h in header_rows:
+                        heads=[x for x in h.children if x.tag in ("th","td")]
+                        if len(heads)==len(cells) and sum(norm(x.text())=="position" for x in heads)==1:
+                            index=next(j for j,x in enumerate(heads) if norm(x.text())=="position")
+                            raw.append(cells[index].text())
+                    positions[pid]=merge_positions(positions.get(pid,[]),*[position_evidence(v,"Transfermarkt","SOURCE_SQUAD_POSITION_NOT_JULY1") for v in raw])
+                candidates.append({pid:(name,positions.get(pid,[])) for pid,name in rows.items()})
+            else:candidates.append(rows)
     if len(candidates)!=1:raise ValueError("Primary data table missing or ambiguous: "+str(len(candidates)))
     return candidates[0]
 
@@ -195,7 +224,7 @@ class Transfermarkt:
         self.year=year
         self.cache=cache/"transfermarkt";self.cp=cp;self.results=results;self.known=known
         self.names={r["fifa"]:r["source"]["name"] for r in national}
-        self.blocked=False;self.options=None;self.directory=None;self.discovered={};self.error_count=0
+        self.blocked=False;self.options=None;self.directory=None;self.discovered={};self.error_count=0;self.role_squad_attempts=set()
     def error(self,phase,exc):
         self.error_count+=1
         record={"phase":"Transfermarkt/"+phase,"error":str(exc)}
@@ -264,15 +293,17 @@ class Transfermarkt:
         return out
     def players(self,entry,owner,known):
         path="/-/kader/verein/"+entry["transfermarktClubId"]+"/saison_id/"+str(self.year)
+        self.role_squad_attempts.add((str(entry["transfermarktClubId"]),entry["season"]))
         label="Transfermarkt players "+entry["country"]+"/"+entry["club"]
         report(label,"SEARCHING")
         before=len(owner.get("transfermarkt_players",[]));reviews=len(owner.get("name_matches",[]));found=0
         page=self.page(path)
         if season_label(page,"players",entry["club"],entry["transfermarktClubId"],self.year)!=entry["season"]:raise ValueError("Squad season mismatch")
-        for pid,name in table_links(page,r"/profil/spieler/([1-9][0-9]*)(?:/|$)").items():
+        for pid,(name,positions) in table_links(page,r"/profil/spieler/([1-9][0-9]*)(?:/|$)",with_positions=True).items():
             if norm(name) in known:continue
             found+=1
             row=dict(entry,transfermarktPlayerId=pid,playerLabel=name,source=BASE+path)
+            if positions:row["positionObservations"]=[dict(p,evidence=BASE+path) for p in positions]
             add_unique(self.cp,owner,"transfermarkt_players",row)
         self.cp.save()
         report(label,*outcome(found,len(owner.get("transfermarkt_players",[]))-before,len(owner.get("name_matches",[]))-reviews))
@@ -360,6 +391,10 @@ def selftest():
     squad=parse('<h2>Squad Paro FC 2026</h2><table class="items"><tr><th>Player</th><th>Age</th></tr><tr><td><a href="/a/profil/spieler/456">Real Name</a></td></tr></table>')
     assert season_label(squad,"players","Paro FC")=="2026"
     assert table_links(squad,r"/profil/spieler/([1-9][0-9]*)(?:/|$)")=={"456":"Real Name"}
+    pospage=parse('<table class="items"><tr><th>Player</th><th>Age</th></tr><tr><td><table><tr><td><a href="/p/profil/spieler/456">Keeper</a></td></tr><tr><td>Goalkeeper</td></tr></table></td><td>20</td></tr><tr><td><table><tr><td><a href="/p/profil/spieler/789">Forward</a></td></tr><tr><td>Centre-Forward</td></tr></table></td><td>25</td></tr></table>')
+    positions=table_links(pospage,r"/profil/spieler/([1-9][0-9]*)(?:/|$)",with_positions=True)
+    assert positions["456"][1][0]["swosCode"]==0 and positions["789"][1][0]["swosCode"]==7
+    assert table_links(squad,r"/profil/spieler/([1-9][0-9]*)(?:/|$)",with_positions=True)["456"][1]==[]
     multi=parse('<link rel="canonical" href="/jogorku-liga/startseite/wettbewerb/KG1L"><h2>Clubs - Jogorku Liga 2026</h2><table class="items"><tr><th>Club</th><th>Pts</th></tr><tr><td><a href="/other/startseite/verein/999">Other</a></td></tr></table><table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/real/startseite/verein/123">Real</a></td></tr></table>')
     assert season_label(multi,"clubs","Kyrgyz Premier League","KG1L")=="2026"
     assert table_links(multi,r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Real"}

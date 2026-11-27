@@ -6,6 +6,7 @@ from research_status import report
 from alternative_sources import BAD, norm
 from transfermarkt_source import NON_LEAGUE
 
+from player_roles import merge_positions, projection
 from season_config import season_map, edition_label, cutoff
 def qid(v):
     m=re.fullmatch(r"(?:https?://www.wikidata.org/entity/)?(Q[1-9][0-9]*)",str(v or ""))
@@ -29,10 +30,11 @@ def build(target,year=2026):
         k=(source,competition,season)
         leagues.setdefault(k,{"source":source,"sourceId":competition,"season":season,"level":level,"clubs":set()})["clubs"].add(cid)
         return club
-    def player(club,source,pid,name,season,competition):
+    def player(club,source,pid,name,season,competition,positions=None):
         if club is None or not pid or not valid_name(name) or season not in SEASONS:return
         rec=club["players"].setdefault(pid,{"source":source,"sourceId":pid,"name":name,"memberships":[]})
         if norm(rec["name"])!=norm(name):club["issues"].append("PLAYER_NAME_CONFLICT:"+pid)
+        if positions:rec["positionObservations"]=merge_positions(rec.get("positionObservations"),[dict(p,observedMembershipSeason=SEASONS[season],observedCompetitionId=competition) for p in positions])
         m={"season":SEASONS[season],"competitionId":competition}
         if m not in rec["memberships"]:rec["memberships"].append(m)
     # Preserve competition/edition membership; identity is not a phase-specific club.
@@ -48,7 +50,7 @@ def build(target,year=2026):
             club=clubs.get((source,idfn(row.get(ck))))
             if not club or not any(m["season"]==SEASONS.get(row.get("season")) and m["competitionId"]==row.get("competition") for m in club["memberships"]):
                 warnings.append("UNBOUND_PLAYER:"+source+":"+str(row.get(pk)));continue
-            player(club,source,pfn(row.get(pk)),row.get("playerLabel"),row.get("season"),row.get("competition"))
+            player(club,source,pfn(row.get(pk)),row.get("playerLabel"),row.get("season"),row.get("competition"),row.get("positionObservations"))
     # Wikidata carries explicitly dated memberships, not the same roster authority.
     for league in target.get("leagues",[]):
         lid=qid(league.get("league"))
@@ -59,7 +61,7 @@ def build(target,year=2026):
             if not season:continue
             for entry in edition.get("clubs",[]):
                 club=add("WD",qid(entry.get("club")),entry.get("name"),season,lid,1,qid(edition.get("season")))
-                for p in entry.get("players",[]):player(club,"WD",qid(p.get("player")),p.get("playerLabel"),season,lid)
+                for p in entry.get("players",[]):player(club,"WD",qid(p.get("player")),p.get("playerLabel"),season,lid,p.get("positionObservations"))
     # Current Wikipedia rosters are surfaced separately, never counted as a
     # verified 2026/27 membership or used to promote roster readiness.
     wiki_leads=[]
@@ -88,6 +90,7 @@ def build(target,year=2026):
         people=c.pop("players");names={}
         for pid,p in people.items():names.setdefault(norm(p["name"]),[]).append(pid)
         if any(len(ids)>1 for ids in names.values()):c["issues"].append("PLAYER_HOMONYM_REVIEW")
+        for p in people.values():p["positionCandidate"]=projection(p.get("positionObservations",[]))
         c["players"]=sorted(people.values(),key=lambda p:p["sourceId"])
         c["issues"]=sorted(set(c["issues"]))
         c["nominalCount"]=len(people)
@@ -98,7 +101,8 @@ def build(target,year=2026):
             "researchYear":year,"scope":"Season candidates only; not July 1 membership; no native IDs, skill values, official entrants or runtime approval",
             "clubs":result,"competitions":[dict(v,clubs=sorted(v["clubs"])) for k,v in sorted(leagues.items())],
             "warnings":sorted(set(warnings)),"nameMatches":target.get("name_matches",[]),
-            "wikiClubIdentityLeads":wiki_leads,"wikiCurrentSquadObservations":wiki_rows}
+            "wikiClubIdentityLeads":wiki_leads,"wikiCurrentSquadObservations":wiki_rows,
+            "domesticSourceObservations":target.get("domestic_source_observations",[])}
 def extras_for_club(uid,owner,native,year=2026):
     SEASONS=season_map(year)
     country=owner.get("association")
@@ -125,6 +129,7 @@ def extras_for_club(uid,owner,native,year=2026):
                 if len(ids)!=1 or str(row.get(ck)) not in ids:continue
                 if not any(v.get("competition")==row.get("competition") for v in matching):continue
             obs={"source":source,"sourceId":pid,"season":season,"name":label,"evidence":row.get("source") or row.get("membership"),"competitionId":row.get("competition")}
+            if row.get("positionObservations"):obs["positionObservations"]=row["positionObservations"]
             group=candidates.setdefault(norm(label),[])
             if obs not in group:group.append(obs)
     # Undated Wikidata and current Wikipedia rows are review leads only.
@@ -133,6 +138,7 @@ def extras_for_club(uid,owner,native,year=2026):
         label=row.get("playerLabel");pid=qid(row.get("player"))
         if len(ids)==1 and qid(row.get("club")) in ids and pid and valid_name(label) and norm(label) not in native["players"]:
             obs={"source":"WD","sourceId":pid,"name":label,"season":"MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1","evidence":row.get("membership")}
+            if row.get("positionObservations"):obs["positionObservations"]=row["positionObservations"]
             group=candidates.setdefault(norm(label),[])
             if obs not in group:group.append(obs)
     # Current Wikipedia rows are extra leads, not July-dated evidence.
@@ -144,12 +150,14 @@ def extras_for_club(uid,owner,native,year=2026):
             norm(row.get("club",""))==norm(native["name"])):
             obs={"source":"WP","sourceId":row["wikiPlayerPage"],"name":label,
                  "season":"CURRENT_SQUAD_NOT_JULY1_OR_EDITION","evidence":row.get("source")}
+            if row.get("positionObservations"):obs["positionObservations"]=row["positionObservations"]
             group=candidates.setdefault(norm(label),[])
             if obs not in group:group.append(obs)
     groups=[]
     for name,obs in sorted(candidates.items()):
         ids={(item["source"],item["sourceId"]) for item in obs}
-        groups.append({"name":obs[0]["name"],"normalizedName":name,"status":"IDENTITY_REVIEW" if len(ids)>1 else "CURRENT_SQUAD_REVIEW" if obs[0]["season"] in ("CURRENT_SQUAD_NOT_JULY1_OR_EDITION","MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1") else "NOMINAL_CANDIDATE","observations":obs})
+        positions=merge_positions(*(x.get("positionObservations") for x in obs))
+        groups.append({"positionCandidate":projection(positions) if len(ids)==1 else {"group":None,"swosRole":None,"swosCode":None,"status":"IDENTITY_REVIEW"},"positionObservations":positions,"name":obs[0]["name"],"normalizedName":name,"status":"IDENTITY_REVIEW" if len(ids)>1 else "CURRENT_SQUAD_REVIEW" if obs[0]["season"] in ("CURRENT_SQUAD_NOT_JULY1_OR_EDITION","MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1") else "NOMINAL_CANDIDATE","observations":obs})
     return {"clubKey":uid,"name":native["name"],"file":native.get("file"),"association":country,
             "status":"CANDIDATES" if groups else "NO DATA","existingRealNames":len(native["players"]),
             "testSlots":native.get("test_slots",0),"existingExtras":native.get("extra_count",0),

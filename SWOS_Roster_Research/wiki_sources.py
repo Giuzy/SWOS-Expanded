@@ -34,20 +34,25 @@ def tm_bridge_query(ids):
       FILTER NOT EXISTS {{ ?club (wdt:P2094|wdt:P641) ?excludedClass. VALUES ?excludedClass {{ wd:Q606060 wd:Q44418853 wd:Q44418672 wd:Q44418451 wd:Q44418152 wd:Q44408003 wd:Q44417973 wd:Q44417630 wd:Q45053375 wd:Q44417376 }} }}
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,mul". }}
     }}"""
-def domestic_query(code,year=2026):
+def domestic_query(code,year=2026,kinds=None):
     if not re.fullmatch(r"[A-Z]{3}",code):raise ValueError("Invalid FIFA code")
+    branches={"LEAGUE_DIVISION":'{ ?league wdt:P3983 1. BIND("LEAGUE_DIVISION" AS ?kind) }',
+              "NATIONAL_CUP":'{ ?league wdt:P31 wd:Q34262376. BIND("NATIONAL_CUP" AS ?kind) }'}
+    selected=set(branches) if kinds is None else set(kinds)
+    if not selected or selected-set(branches):raise ValueError("Invalid domestic kinds")
+    selection=" UNION ".join(branches[k] for k in sorted(selected))
     return f"""SELECT DISTINCT ?country ?league ?leagueLabel ?kind WHERE {{
       {{ ?country wdt:P3441 {json.dumps(code)}. }}
-      UNION {{ ?entity wdt:P3441 {json.dumps(code)}; (wdt:P1532|wdt:P17) ?country. }}
+      UNION {{ ?entity wdt:P3441 {json.dumps(code)}; wdt:P1532 ?country. }}
+      UNION {{ ?entity wdt:P3441 {json.dumps(code)}; wdt:P17 ?country. }}
       ?league wdt:P17 ?country; wdt:P2094 ?class.
       VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
-      {{ ?league wdt:P3983 1. BIND("LEAGUE_DIVISION" AS ?kind) }}
-      UNION {{ ?league wdt:P31/wdt:P279* wd:Q34262376. BIND("NATIONAL_CUP" AS ?kind) }}
+      {{ {selection} }}
       FILTER NOT EXISTS {{ ?league (wdt:P2094|wdt:P641) ?excludedClass. VALUES ?excludedClass {{ wd:Q606060 wd:Q44418853 wd:Q44418672 wd:Q44418451 wd:Q44418152 wd:Q44408003 wd:Q44417973 wd:Q44417630 wd:Q45053375 wd:Q44417376 }} }}
       FILTER NOT EXISTS {{ ?league wdt:P576 ?end. FILTER(?end < "{year}-07-01T00:00:00Z"^^xsd:dateTime) }}
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,mul". }}
     }}"""
-def squad_names(wikitext):
+def squad_rows(wikitext):
     # Only explicit senior/current squad headings and football squad templates.
     # No arbitrary article links, past players, reserve/youth or loan-out lists.
     headings=list(re.finditer(r"(?m)^(={2,6})\s*([^=\n]+?)\s*\1\s*$",wikitext))
@@ -65,9 +70,13 @@ def squad_names(wikitext):
             if not t:continue
             link=t.group(1).strip();label=(t.group(2) or re.sub(r"\s*\([^()]*\)$","",link)).strip()
             if ":" in link or not valid_club_name(label) or "{{" in label:continue
-            pair=(link,label)
+            role=re.search(r"(?:^|\|)\s*pos\s*=\s*([^|{}\[\]]+)",m.group(1),re.I)
+            pair=(link,label,role.group(1).strip() if role else None)
             if pair not in rows:rows.append(pair)
     return rows
+
+def squad_names(wikitext):
+    return list(dict.fromkeys((link,label) for link,label,_ in squad_rows(wikitext)))
 
 class Wiki:
     def __init__(self,cache,cp,results,query,refresh=False):
@@ -75,6 +84,11 @@ class Wiki:
         self.pages={};self.bridges={};self.bridge_checked=set()
     def add(self,owner,field,row):
         seq=self.cp.ensure(owner,field,[])
+        if field=="wiki_squad_players":
+            from player_roles import enrich
+            for old in seq:
+                if {k:v for k,v in old.items() if k!="positionObservations"}=={k:v for k,v in row.items() if k!="positionObservations"}:
+                    enrich(self.cp,old,row);return False
         if row not in seq:self.cp.append(seq,row);return True
         return False
     def error(self,label,e):
@@ -115,10 +129,13 @@ class Wiki:
         if len(rev)!=1:return []
         r=rev[0];rev_id=r.get("revid");content=r.get("slots",{}).get("main",{}).get("content")
         if not rev_id or not isinstance(content,str):return []
+        from player_roles import position_evidence
+        source="https://en.wikipedia.org/w/index.php?oldid="+str(rev_id)
         data=[{"playerLabel":label,"wikiPlayerPage":link,"clubQid":club,
                "source":"https://en.wikipedia.org/w/index.php?oldid="+str(rev_id),
                "sourceRevision":rev_id,"revisionTime":r.get("timestamp"),
-               "scope":"CURRENT_SQUAD_NOT_JULY1_OR_EDITION"} for link,label in squad_names(content)]
+               "scope":"CURRENT_SQUAD_NOT_JULY1_OR_EDITION",
+               **({"positionObservations":position_evidence(pos,"Wikipedia","CURRENT_SQUAD_NOT_JULY1_OR_EDITION",source)} if pos else {})} for link,label,pos in squad_rows(content)]
         self.pages[club]=data;return data
     def collect(self,owner,club,name,country,source,source_id,known):
         if not club or not valid_club_name(name):return

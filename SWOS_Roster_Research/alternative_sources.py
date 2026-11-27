@@ -11,6 +11,7 @@ from pathlib import Path
 from http_retry import fetch
 from roster_storage import atomic, digest
 from research_status import report, outcome
+from player_roles import position_evidence, enrich
 
 URL="https://github.com/florentfougeres/OpenFootballBase-Data/releases/download/data-1.26.0/openfootballbase-data.tar.gz"
 SHA="f5f9ce5d5efd3732a8e730c7354a5c4e94f19007e37130c2cb67739d0478aabe"
@@ -85,7 +86,10 @@ def player_name_scope(row):
 def add_unique(cp,owner,field,row):
     seq=owner.get(field,[])
     key=observation_key(field,row)
-    if any(old==row or (key is not None and observation_key(field,old)==key) for old in seq):return False
+    for old in seq:
+        if old==row or (key is not None and observation_key(field,old)==key):
+            enrich(cp,old,row)
+            return False
     other={"alternative_players":"transfermarkt_players","transfermarkt_players":"alternative_players"}.get(field)
     scope=player_name_scope(row) if other else None
     if scope:
@@ -100,6 +104,7 @@ def add_unique(cp,owner,field,row):
                     "candidate":list(key) if key else None,
                     "existing":list(observation_key(other,matches[0]) or ()),
                     "source":row.get("source"),"source_title":row.get("source_title")}
+            if row.get("positionObservations"):review["positionObservations"]=row["positionObservations"]
             reviews=cp.ensure(owner,"name_matches",[])
             if review not in reviews:cp.append(reviews,review)
             return False
@@ -196,6 +201,9 @@ def acquire(results,cp,cache,root,known,phase,year=2026):
                     if last_country is not None and c!=last_country:cp.save()
                     last_country=c
                     observation=dict(entry,player=q,playerLabel=row["player"],source_title=row.get("source_title"),source_revid=row["source_revid"],stint=row.get("stint"),stint_date=row.get("stint_date"))
+                    # Only an explicitly named source position column, never infer from shirt number.
+                    pos=position_evidence(row.get("position"),"OpenFootballBase","SOURCE_SQUAD_POSITION_NOT_JULY1",row.get("source_revid"))
+                    if pos:observation["positionObservations"]=pos
                     for owner in owners:
                         c=entry["country"];found[c]+=1;before=len(owner.get("name_matches",[]))
                         added=int(add_unique(cp,owner,"alternative_players",observation))

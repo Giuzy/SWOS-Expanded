@@ -1,3 +1,15 @@
+## 27/11/2026 — Recupero ruoli mancanti
+
+Dopo fase2 e fase3 GIOCATORI tenta anche ruoli dei giocatori già raccolti (UNKNOWN/GROUP_ONLY), per ID fonte e membership esatta TM, o P2446/P413 Wikidata; batch 25 e cache. Nessun secondo giocatore, non sovrascrivere ruoli nativi validi; 0=GK. Controllare preview, positionCandidate/positionObservations; conflitti e assenze espliciti. RG-RESEARCH-ROLE-BACKFILL.
+
+## 27/11/2026 — Ricerca giocatori: ruoli OG
+
+I ruoli delle fonti sono positionObservations (raw/ambito/evidenza) e positionCandidate in preview club/EXTRA; 0 GK,1 RB,2 LB,3 D,4 RW,5 LW,6 M,7 A. DF/MF non specifici: gruppo solo, nessun slot inventato; ambiguità review. Ripetere ricerca per arricchire gli ID esistenti; nessun import automatico o modifica agli attributi SWOS. P413 è ruolo di carriera, non ruolo al 1 luglio. --self-test poi verifica live; conservare shard/SQLite. RG-RESEARCH-PLAYER-ROLES.
+
+## 27/11/2026 — Ricerca club/competizioni: catalogue complementare
+
+Entrambi i BAT usano domestic_catalog (Wikipedia directory + entity API Wikidata + RSSSF limitato ad AFG/AIA); non confondere lead identità, elenco partecipanti e stato al 1 luglio. GIOCATORI: batch league 5 paesi, RSSSF bridge nominale 12 nomi; COMPETIZIONI: query WD solo categorie mancanti, direct cup class. Cache WD vuota valida 7 giorni, --refresh-wiki / --refresh per rivalutare; memo stesso processo, errori non cache. Conservare SQLite .restart, JSON e cache; fermare i BAT prima del pull. Dopo pubblicazione verificare --self-test e prova live mirata; nessun nuovo dato automaticamente sportivo. Vedi RG-RESEARCH-WIKI-CATALOGUE.
+
 ## 27/11/2026 — Ricerca HTTP: timeout e progresso dei tre BAT
 Fermare i BAT con Ctrl+C prima di pull; non eliminare DB/WAL/cache/shard. Eseguire i tre --self-test e rilanciare senza --refresh salvo necessità. Log HTTP ATTEMPT/WAITING/RETRY/DONE/ERROR/SKIPPED e secondi trascorsi; budget max 180s chiamata HTTP, 90s Wikidata, domestic 240s paese con 120s Wiki; cooldown server rispettato senza lunghe attese, fonti/paesi successivi proseguono quando disponibili. Un timeout non significa NO DATA/NA: controllare errori/complete negli shard e ripetere la ricerca dopo cooldown, eventualmente --country AFG; EA mantiene gli snapshot verificati. Solo rete limitata, non deadline rigida per parsing/SQLite/disco. Helper Python isolato SI; moduli completi/Windows/live NP. RG-RESEARCH-HTTP-DEADLINE.
 

@@ -5,6 +5,7 @@ from pathlib import Path
 from roster_storage import Store, selftest as storage_selftest
 from http_retry import fetch
 from research_status import report, outcome
+from player_roles import position_evidence, merge_positions
 from season_config import output_dir, cutoff, year_value
 
 HERE = Path(__file__).resolve().parent
@@ -88,14 +89,16 @@ def norm(name):
 def placeholder(name):
     return not name or bool(re.match(r'^(TEST|RESERVE)(?:[ _-]*[0-9]+|$)',name,re.I))
 
+QUERY_MEMO={}
+
 def query(sparql):
     q = PREFIX + sparql
     key = hashlib.sha256(q.encode()).hexdigest()
     dest = CACHE / (key + '.json')
-    data = None
-    if dest.exists():
+    data = QUERY_MEMO.get(str(dest))
+    if data is None and dest.exists():
         cached = json.loads(dest.read_text(encoding='utf-8'))
-        if not REFRESH_WIKI and (cached.get('results',{}).get('bindings') or time.time()-dest.stat().st_mtime<86400):
+        if not REFRESH_WIKI and (cached.get('results',{}).get('bindings') or time.time()-dest.stat().st_mtime<7*86400):
             data=cached
     if data is None:
         req = urllib.request.Request(ENDPOINT, data=urllib.parse.urlencode({'query':q,'format':'json'}).encode(), headers={'User-Agent':'SWOS-Expanded-Roster-Research/1.1 (https://github.com/Giuzy/SWOS-Expanded/issues/2)','Accept':'application/sparql-results+json','Content-Type':'application/x-www-form-urlencoded'})
@@ -105,13 +108,14 @@ def query(sparql):
         from roster_storage import atomic
         atomic(dest, data)
         dest.with_suffix('.rq').write_text(q, encoding='utf-8')
+    QUERY_MEMO[str(dest)]=data
     return [{k:v['value'] for k,v in row.items()} for row in data['results']['bindings']]
 
 def league_query(codes):
     quoted = ' '.join(json.dumps(c) for c in codes)
     return f'''SELECT DISTINCT ?fifa ?country ?countryLabel ?league ?leagueLabel ?class WHERE {{
       VALUES ?fifa {{ {quoted} }}
-      {{ ?country wdt:P3441 ?fifa. }} UNION {{ ?entity wdt:P3441 ?fifa; (wdt:P1532|wdt:P17) ?country. }}
+      {{ ?country wdt:P3441 ?fifa. }} UNION {{ ?entity wdt:P3441 ?fifa; wdt:P1532 ?country. }} UNION {{ ?entity wdt:P3441 ?fifa; wdt:P17 ?country. }}
       ?league wdt:P17 ?country; wdt:P3983 1; wdt:P2094 ?class.
       VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
       # Other P2094 facets may describe age/status, not a different sex.
@@ -126,7 +130,7 @@ def clubs_query(leagues):
       ?season wdt:P3450 ?league.
       OPTIONAL {{ ?season wdt:P580 ?start. }} OPTIONAL {{ ?season wdt:P582 ?end. }}
       OPTIONAL {{ ?season wdt:P585 ?year. }} OPTIONAL {{ ?season wdt:P1132 ?expected. }}
-      FILTER((BOUND(?start) && ?start >= "{YEAR-1}-07-01T00:00:00Z"^^xsd:dateTime && ?start < "{YEAR+1}-01-01T00:00:00Z"^^xsd:dateTime) || (BOUND(?year) && YEAR(?year)={YEAR}))
+      FILTER((!BOUND(?start) && !BOUND(?year)) || (BOUND(?start) && ?start >= "{YEAR-1}-07-01T00:00:00Z"^^xsd:dateTime && ?start < "{YEAR+1}-01-01T00:00:00Z"^^xsd:dateTime) || (BOUND(?year) && YEAR(?year)={YEAR}))
       FILTER(!BOUND(?end) || ?end >= "{CUTOFF}"^^xsd:dateTime)
       FILTER NOT EXISTS {{ ?season (wdt:P2094|wdt:P641) ?excludedClass. VALUES ?excludedClass {{ wd:Q606060 wd:Q44418853 wd:Q44418672 wd:Q44418451 wd:Q44418152 wd:Q44408003 wd:Q44417973 wd:Q44417630 wd:Q45053375 wd:Q44417376 }} }}
       OPTIONAL {{ {{ ?season wdt:P1923 ?club. }} UNION {{ ?club wdt:P1344 ?season. }} }}
@@ -134,12 +138,13 @@ def clubs_query(leagues):
     }}'''
 
 def players_query(clubs):
-    return f'''SELECT DISTINCT ?club ?player ?playerLabel ?membership ?start ?end WHERE {{
+    return f'''SELECT DISTINCT ?club ?player ?playerLabel ?membership ?start ?end ?position ?positionLabel WHERE {{
       VALUES ?club {{ {values(clubs)} }}
       ?player wdt:P106 wd:Q937857; wdt:P21 wd:Q6581097; p:P54 ?membership.
       ?membership ps:P54 ?club; wikibase:rank ?rank.
       OPTIONAL {{ ?membership pq:P580 ?start. }}
       FILTER(?rank != wikibase:DeprecatedRank)
+      OPTIONAL {{ ?player wdt:P413 ?position. }}
       OPTIONAL {{ ?membership pq:P582 ?end. }}
       FILTER(!BOUND(?start) || ?start <= "{CUTOFF}"^^xsd:dateTime)
       FILTER(!BOUND(?end) || ?end >= "{CUTOFF}"^^xsd:dateTime)
@@ -166,17 +171,20 @@ def existing_index(root):
                 entry['extra_count']=entry.get('extra_count',0)+len(t.get('extra_players',[]))
     return index
 
-def existing_query(fifa,name):
-    labels=" ".join(json.dumps(x,ensure_ascii=False)+"@en" for x in sorted({name,name.title()}))
+def existing_queries(fifa,names):
+    labels=" ".join("("+json.dumps(name,ensure_ascii=False)+" "+json.dumps(label,ensure_ascii=False)+"@en)" for name in sorted(set(names)) for label in sorted({name,name.title()}))
     return f"""PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT ?club ?clubLabel WHERE {{
-       VALUES ?label {{ {labels} }}
+    SELECT DISTINCT ?input ?club ?clubLabel WHERE {{
+       VALUES (?input ?label) {{ {labels} }}
        {{ ?country wdt:P3441 {json.dumps(fifa)}. }} UNION {{ ?entity wdt:P3441 {json.dumps(fifa)}; (wdt:P1532|wdt:P17) ?country. }}
        ?club (rdfs:label|<http://www.w3.org/2004/02/skos/core#altLabel>) ?label; wdt:P17 ?country; wdt:P2094 ?class.
        VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
        FILTER NOT EXISTS {{ ?club (wdt:P2094|wdt:P641) ?excludedClass. VALUES ?excludedClass {{ wd:Q606060 wd:Q44418853 wd:Q44418672 wd:Q44418451 wd:Q44418152 wd:Q44408003 wd:Q44417973 wd:Q44417630 wd:Q45053375 wd:Q44417376 }} }}
        {LABEL}
     }}"""
+def existing_query(fifa,name):
+    return existing_queries(fifa,[name])
+
 def merge_players(club,rows,known):
     # Preserve legacy evidence byte-for-byte; only prevent new duplicates.
     saved=list(club.get("players",[]))
@@ -185,13 +193,24 @@ def merge_players(club,rows,known):
         try:player=qid(p["player"])
         except (ValueError,TypeError,AttributeError,KeyError):player=p.get("player")
         return (player,membership.rsplit("/",1)[-1] if membership else None,p.get("start"),p.get("end"))
-    existing={key(p) for p in saved}
-    for p in rows:
+    existing={key(p):p for p in saved}
+    changed=False
+    for raw in rows:
+        p={k:v for k,v in raw.items() if k not in ("position","positionLabel")}
+        pos=position_evidence(raw.get("positionLabel"),"Wikidata","CAREER_POSITION_NOT_EDITION",raw.get("player"),raw.get("position"))
+        if pos:p["positionObservations"]=merge_positions(p.get("positionObservations"),pos)
         if p.get("playerLabel") and p.get("start") and p["start"]<=CUTOFF and (not p.get("end") or p["end"]>CUTOFF):
             k=key(p)
-            if norm(p["playerLabel"]) not in known and k not in existing:
-                saved.append(p);existing.add(k)
-    return update_changed(club, players=saved, status="P" if saved else "NO DATA")
+            if norm(p["playerLabel"]) not in known:
+                if k not in existing:
+                    saved.append(p);existing[k]=p
+                else:
+                    old=existing[k]
+                    merged=merge_positions(old.get("positionObservations"),p.get("positionObservations"))
+                    if merged!=old.get("positionObservations",[]):
+                        replacement=dict(old,positionObservations=merged)
+                        saved[saved.index(old)]=replacement;existing[k]=replacement;changed=True
+    return update_changed(club, players=saved, status="P" if saved else "NO DATA") or changed
 def extra_candidates_by_name(owner,native_names):
     """Compute import review groups; never create a second roster or write TEAM."""
     groups={}
@@ -262,6 +281,12 @@ def main():
             else:
                 raise AssertionError("Concurrent modification not detected")
         storage_selftest()
+        from player_roles import selftest as roles_selftest
+        roles_selftest()
+        from role_backfill import selftest as backfill_selftest
+        backfill_selftest()
+        from domestic_catalog import selftest as catalogue_selftest
+        catalogue_selftest()
         from wiki_sources import selftest as wiki_selftest
         wiki_selftest()
         from season_config import selftest as season_selftest
@@ -370,7 +395,10 @@ def main():
             cp.ensure(gaps,key,{"name":c["name"],"file":"bottom_pools.json","players":[],"status":"NO DATA","identity_candidates":[],"association":next(iter(cs)) if len(cs)==1 else None,"test_slots":c["roster"].get("base_slots",16),"real_names":0})
     save()
     from transfermarkt_source import Transfermarkt
-    from wiki_sources import Wiki, league_club_query, valid_club_name
+    from wiki_sources import Wiki, league_club_query, valid_club_name, qid as safe_qid
+    from season_config import edition_label
+    from domestic_catalog import Catalogue, eligible_league, observation_key as domestic_key
+    catalogue=Catalogue(CACHE/'domestic_catalog',national,refresh=args.refresh_wiki,wikipedia=not args.skip_wikipedia and not args.alternative_only,rsssf=not args.skip_alternative)
     wiki=Wiki(CACHE,cp,results,query,refresh=args.refresh_wiki)
     tm=Transfermarkt(CACHE,cp,results,national,known,year=YEAR)
     def alternative(phase):
@@ -399,39 +427,77 @@ def main():
                     for r in candidates:
                         if not r.get('start') and r.get('playerLabel') and norm(r['playerLabel']) not in k:
                             leads=cp.ensure(c,'wikidata_undated_players',[])
-                            row=dict(r,scope='MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1')
-                            if row not in leads:cp.append(leads,row)
+                            row=dict({k:v for k,v in r.items() if k not in ("position","positionLabel")},scope='MEMBERSHIP_DATE_UNKNOWN_NOT_JULY1')
+                            pos=position_evidence(r.get("positionLabel"),"Wikidata","CAREER_POSITION_NOT_EDITION",r.get("player"),r.get("position"))
+                            if pos:row["positionObservations"]=pos
+                            from player_roles import enrich
+                            matches=[old for old in leads if {k:v for k,v in old.items() if k!="positionObservations"}=={k:v for k,v in row.items() if k!="positionObservations"}]
+                            if matches:enrich(cp,matches[0],row)
+                            else:cp.append(leads,row)
                     added+=len(c.get("players",[]))-before
             save()
             if not query_failed:report("Wikidata "+label,*outcome(len(rr),added))
     try:
         print("PHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
         alternative("clubs")
+        for t in targets:
+            code=t["fifa"];owner=bycode[code]
+            packets,seeds,errors=catalogue.country(code,YEAR)
+            observations=cp.ensure(owner,"domestic_source_observations",[])
+            keys={domestic_key(p) for p in observations}
+            for p in packets:
+                key=domestic_key(p)
+                if key not in keys:cp.append(observations,p);keys.add(key)
+            for error in errors:
+                row={"phase":"Domestic catalogue/"+code,"error":str(error)}
+                if row not in results["errors"]:cp.append(results["errors"],row)
+            if not args.alternative_only:
+                for seed in seeds:
+                    if seed.get("kind")=="LEAGUE_DIVISION" and eligible_league(seed) and not any(safe_qid(x["league"])==safe_qid(seed["league"]) for x in owner["leagues"]):
+                        cp.append(owner["leagues"],dict(seed,seasons=[]))
+                # Archive entrant names are identity review leads, never a seasonal club binding.
+                labels={v["name"]:p for p in packets if p.get("source")=="RSSSF" and p.get("kind")=="LEAGUE_DIVISION" for v in p.get("participants",[]) if valid_club_name(v.get("name",""))}
+                for group in chunks(sorted(labels),12):
+                    rows=run(existing_queries(code,group),"Archive club identities "+code)
+                    for name in group:
+                        matches={safe_qid(row.get("club")):row for row in rows if row.get("input")==name and safe_qid(row.get("club")) and valid_club_name(row.get("clubLabel",""))}
+                        if len(matches)==1:
+                            row=next(iter(matches.values()))
+                            wiki.add(owner,"wiki_club_leads",dict(row,country=code,sourceLabel=name,sourceUrl=labels[name]["sourceUrl"],scope="RSSSF_NAME_IDENTITY_REVIEW_NOT_EDITION"))
+            save()
         if not args.alternative_only:
+            pending=[]
             for t in targets:
-                c=bycode[t["fifa"]]
-                label="League "+t["fifa"]
-                if c.get("leagues") and not args.refresh_wiki:
-                    report("Wikidata "+label,"SKIPPED","existing league candidates")
-                    continue
-                rr=run(league_query([t["fifa"]]),label)
-                for r in rr:
-                    if r.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
-                    if not any(x["league"]==r["league"] for x in c["leagues"]):cp.append(c["leagues"],dict(r,seasons=[]))
-                cp.update(c,status="P" if c["leagues"] else "NO DATA");save()
-                if not query_failed:report("Wikidata "+label,*outcome(len(rr),len(c["leagues"])))
+                code=t["fifa"]
+                if any(eligible_league(l) for l in bycode[code]["leagues"]) and not args.refresh_wiki:
+                    report("Wikidata League "+code,"SKIPPED","existing league candidates")
+                else:pending.append(code)
+            for group in chunks(pending,5):
+                rr=run(league_query(group),"Leagues "+",".join(group))
+                for code in group:
+                    owner=bycode[code];added=0;found=0
+                    for row in rr:
+                        if row.get("fifa")!=code or not safe_qid(row.get("league")) or not eligible_league(row) or not valid_club_name(row.get("leagueLabel","")):continue
+                        found+=1
+                        if not any(safe_qid(x["league"])==safe_qid(row["league"]) for x in owner["leagues"]):
+                            cp.append(owner["leagues"],dict(row,seasons=[]));added+=1
+                    if not query_failed:
+                        cp.update(owner,status="P" if owner["leagues"] else "NO DATA")
+                        report("Wikidata League "+code,*outcome(found,added))
+                    save()
             byleague={}
             for t in (bycode[x["fifa"]] for x in targets):
                 for l in t["leagues"]:
-                    if l.get("class","").rsplit("/",1)[-1] in ("Q31930761","Q35554451"):byleague.setdefault(l["league"],[]).append(l)
+                    if eligible_league(l):byleague.setdefault(l["league"],[]).append(l)
             for league,ls in byleague.items():
                 label="Edition "+qid(league);rr=run(clubs_query([league]),label);added=0
                 for r in rr:
+                    if safe_qid(r.get("league"))!=safe_qid(league) or not safe_qid(r.get("season")) or not edition_label(r.get("seasonLabel",""),YEAR) or not valid_club_name(r.get("seasonLabel","")):continue
                     for l in ls:
                         s=next((s for s in l["seasons"] if s["season"]==r["season"]),None)
                         if s is None:
                             s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];cp.append(l["seasons"],s)
-                        if r.get("club") and valid_club_name(r.get('clubLabel','')) and not any(x["club"]==r["club"] for x in s["clubs"]):
+                        if safe_qid(r.get("club")) and valid_club_name(r.get('clubLabel','')) and not any(x["club"]==r["club"] for x in s["clubs"]):
                             cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"});added+=1
                 save()
                 if not query_failed:report("Wikidata "+label,*outcome(sum(bool(x.get("club")) for x in rr),added))
@@ -439,7 +505,7 @@ def main():
             for t in targets:
                 owner=bycode[t['fifa']]
                 for l in owner['leagues']:
-                    if any(s.get('clubs') for s in l.get('seasons',[])):continue
+                    if not eligible_league(l) or any(s.get('clubs') for s in l.get('seasons',[])):continue
                     for row in run(league_club_query([l['league']]),'League clubs '+t['fifa']+'/'+qid(l['league'])):
                         if valid_club_name(row.get('clubLabel','')):
                             wiki.add(owner,'wiki_club_leads',dict(row,country=t['fifa'],scope='LEAGUE_IDENTITY_NOT_EDITION'))
@@ -451,13 +517,19 @@ def main():
             byclub={}
             for t in (bycode[x["fifa"]] for x in targets):
                 for l in t["leagues"]:
-                    if l.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
+                    if not eligible_league(l):continue
                     for s in l["seasons"]:
                         for c in s["clubs"]:byclub.setdefault(c["club"],[]).append((c,set()))
             collect_players(byclub)
         if not args.skip_wikipedia and not args.alternative_only:
             for t in targets:
                 wiki.target(bycode[t['fifa']]);save()
+        from role_backfill import backfill
+        def run_role(q,label):
+            rows=run(q,label)
+            return None if query_failed else rows
+        print("PHASE 2/3: backfill missing roles on existing country observations",flush=True)
+        backfill([bycode[t["fifa"]] for t in targets],cp,tm,run_role,YEAR,allow_tm=not args.skip_transfermarkt,allow_wd=not args.alternative_only)
         prepare_import(path,preview,include_extras=False,data=results,year=YEAR)
         print("PHASE 3/3: existing club roster gaps / extra players",flush=True)
         alternative("extras")
@@ -481,6 +553,8 @@ def main():
             for uid,e in sorted(gaps.items()):
                 if uid in known and e.get('association'):
                     wiki.extra(e,known[uid]);save()
+        print("PHASE 3/3: backfill missing roles on already collected EXTRA observations",flush=True)
+        backfill(gaps.values(),cp,tm,run_role,YEAR,allow_tm=not args.skip_transfermarkt,allow_wd=not args.alternative_only)
     finally:
         try:
             save();store.publish()

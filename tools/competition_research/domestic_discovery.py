@@ -37,30 +37,58 @@ def result_status(candidates,seen,errors,added):
     if errors or len(seen)<2:return "PARTIAL"
     return "ACQUIRED" if added else "NO NEW DATA"
 
-def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026):
+def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source_catalog=False,refresh=False):
     national=json.loads((root/"docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json").read_text(encoding="utf-8-sig"))["records"]
     targets=[r for r in national if (year!=2026 or r["source"]["team_file"]==255) and (not only or r["fifa"]==only)]
     targets.sort(key=lambda r:(r["expanded"]["globalNumber"]<2560,r["fifa"]))
     from season_config import output_dir,edition_label
     tm=tm_factory(root/"tools/competition_research/cache",None,{"errors":[]},national,{}) if year==2026 else tm_factory(root/"tools/competition_research/cache",None,{"errors":[]},national,{},year=year)
     output=output_dir(root,year)/"competition_candidates"
+    catalogue=None
+    if source_catalog:
+        from domestic_catalog import Catalogue, observation_key
+        catalogue=Catalogue(output_dir(root,year)/"sources"/"competition_domestic_catalog",national,refresh=refresh)
     for r in targets:
         with time_budget(240):
             country=r["fifa"];label="Domestic competitions "+country
-            if tm.blocked and wiki_query is None:
+            if tm.blocked and wiki_query is None and catalogue is None:
                 report(label,"NOT SEARCHED","source access blocked");continue
             path=output/(country+".json")
             old=read(path) if path.exists() else {"schema":"SWOS_DOMESTIC_COMPETITION_CANDIDATES_1","country":country,"observations":[]}
             if old.get("country")!=country or old.get("schema")!="SWOS_DOMESTIC_COMPETITION_CANDIDATES_1":raise ValueError("Competition candidate file identity mismatch")
             obs=old["observations"];before=len(obs);errors=[];seen=set();incomplete=False
             report(label,"SEARCHING","first tier and domestic cup")
+            seeds=[];covered=set();review=False
+            if catalogue is not None:
+                try:
+                    with time_budget(90):
+                        packets,seeds,source_errors=catalogue.country(country,year)
+                    if source_errors:errors.extend(source_errors);incomplete=True
+                    keys={observation_key(p) for p in obs if p.get("source") in ("WikipediaDirectory","RSSSF")}
+                    for p in packets:
+                        packet=dict(p,fields={f:"I" for f in FIELDS})
+                        packet["fields"]["name"]="P"
+                        if p.get("identityEvidence"):
+                            packet["fields"]["identity"]="P";seen.add(p["kind"])
+                            if p.get("participants"):
+                                packet["fields"]["participants"]="P";covered.add(p["kind"])
+                        else:review=True
+                        key=observation_key(packet)
+                        if key not in keys:obs.append(packet);keys.add(key);atomic(path,old)
+                    covered.update(row["kind"] for row in seeds)
+                except Exception as e:
+                    incomplete=True;errors.append(["Domestic catalogue",str(e)]);report(label+"/Catalogue","ERROR",str(e))
             if wiki_query is not None:
                 from wiki_sources import domestic_query,qid,valid_club_name
                 from collect_names import clubs_query
                 try:
                     with time_budget(120):
                         report(label+"/Wikidata","SEARCHING","competition identities; maximum 120s for Wiki phase")
-                        for r in wiki_query(domestic_query(country,year)):
+                        needed={"LEAGUE_DIVISION","NATIONAL_CUP"}-covered
+                        def wiki_rows():
+                            yield from seeds
+                            if needed:yield from wiki_query(domestic_query(country,year,needed))
+                        for r in wiki_rows():
                             check_budget()
                             lid=qid(r.get("league"));kind=r.get("kind");name=r.get("leagueLabel","")
                             if not lid or kind not in ("LEAGUE_DIVISION","NATIONAL_CUP") or not valid_club_name(name):continue
@@ -69,6 +97,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026):
                                     "sourceUrl":"https://www.wikidata.org/wiki/"+lid,"scope":"COMPETITION_IDENTITY_NOT_EDITION",
                                     "fields":{f:"I" for f in FIELDS}}
                             packet["fields"].update(name="P",identity="P")
+                            if r.get("source")=="WikipediaDirectory":packet["identityEvidenceSource"]=r["sourceUrl"]
                             if packet not in obs:obs.append(packet);atomic(path,old)
                             seen.add(kind)
                             try:
@@ -78,7 +107,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026):
                                     check_budget()
                                     sid=qid(row.get("season"));club=qid(row.get("club"));sl=row.get("seasonLabel","")
                                     season=edition_label(sl,year)
-                                    if not sid or not season or not valid_club_name(sl):continue
+                                    if qid(row.get("league"))!=lid or not sid or not season or not valid_club_name(sl):continue
                                     if club and valid_club_name(row.get("clubLabel","")):
                                         editions.setdefault((sid,season),{})[club]=row["clubLabel"]
                                 for (sid,season),clubs in editions.items():
@@ -133,7 +162,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026):
                 status={k:"FOUND" if k in seen else "UNKNOWN" for k in ("LEAGUE_DIVISION","NATIONAL_CUP")}
                 old["lastSearch"]={"status":status,"errors":errors,"complete":not tm.blocked and not incomplete}
                 atomic(path,old)
-                report(label,("PARTIAL" if seen else "ERROR") if incomplete else result_status(candidates,seen,errors,len(obs)-before),f"{len(obs)-before} new observations; {len(candidates)} source routes; league {status['LEAGUE_DIVISION']}; cup {status['NATIONAL_CUP']}")
+                report(label,("PARTIAL" if seen else "ERROR") if incomplete else ("REVIEW" if review and not seen and not candidates else result_status(candidates,seen,errors,len(obs)-before)),f"{len(obs)-before} new observations; {len(candidates)} source routes; league {status['LEAGUE_DIVISION']}; cup {status['NATIONAL_CUP']}")
             except Exception as e:
                 if blocks_source(e):tm.blocked=True
                 errors.append(["country",str(e)])

@@ -24,4 +24,21 @@ static inline int TeamSource_HistoricCareerPath(WorldId world,
     path[17] = (char)('0' + file % 10u);
     return 1;
 }
+/* TEAM.081 mislabels Zambia as REPUBLIC CONGO. Correct the stale name
+ * only, by native file/ordinal (not physical array index). */
+static inline int TeamSource_CorrectNationalName(uint8_t file, uint8_t ordinal,
+                                                  int8_t name[17])
+{
+    static const char wrong[] = "REPUBLIC CONGO";
+    static const char right[] = "ZAMBIA";
+    unsigned i;
+    if (file != 81u || ordinal != 32u || !name)
+        return 0;
+    for (i = 0; i < sizeof wrong; ++i)
+        if (name[i] != (int8_t)wrong[i])
+            return 0;
+    for (i = 0; i < 17u; ++i)
+        name[i] = i < sizeof right ? (int8_t)right[i] : 0;
+    return 1;
+}
 #endif

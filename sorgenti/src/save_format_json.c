@@ -22,6 +22,7 @@
 #include "save_pointer_guard.h"
 #include "mjson.h"
 #include "game_types.h"
+#include "team_source.h"
 #include "career_contests_cap.h" /* shared capacity without OG typed extern conflicts */
 #include "endian_helpers.h"
 #include "world.h"             /* "world" in career and competition saves */
@@ -3112,6 +3113,12 @@ static void load_team_file_ex_slice(const char *buf, int buflen,
                 i++;
             }
         }
+    }
+    /* Normalize only the known stale national label in typed team records. */
+    {
+        TeamFileEx *record = (TeamFileEx *)base;
+        TeamSource_CorrectNationalName(record->team.countryNumber,
+            record->team.teamOrdinal, record->team.teamName);
     }
 }
 

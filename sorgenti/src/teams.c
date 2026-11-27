@@ -469,6 +469,15 @@ int16_t LoadTeamFile(uint16_t extNumber)
         }
 
         /* Shared post-load processing (binary OR json source). */
+        if (ext8 == 81u) {
+            uint16_t n = *(uint16_t *)_teamFileBuffer;
+            TeamFileEx *row = (TeamFileEx *)(_teamFileBuffer + 2);
+            if (n <= TEAM_FILE_MAX_TEAMS) {
+                for (uint16_t i = 0; i < n; ++i)
+                    TeamSource_CorrectNationalName(row[i].team.countryNumber,
+                        row[i].team.teamOrdinal, row[i].team.teamName);
+            }
+        }
 #ifdef SWOS_SDL_BUILD
         if(World_Current()==WORLD_9697 && (ext8==12u || ext8==13u))
             fprintf(stderr,"[world-team-source] world=9697 file=%u "

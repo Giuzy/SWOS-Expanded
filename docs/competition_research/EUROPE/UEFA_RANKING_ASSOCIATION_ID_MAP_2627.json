@@ -1,0 +1,850 @@
+{
+  "schema": "research-uefa-association-catalog-map-v1",
+  "world": 2627,
+  "baseCommit": "55f6824eee55ff204fd001d12b55b514b12ebfb2",
+  "seedBlob": "cf2490a0ebc22bf187fc441479fb2a3f250f440e",
+  "status": "DB_ASSOCIATION_CANDIDATES_NOT_RUNTIME",
+  "notes": [
+    "Federation is not a national-team ID or a pool file number; association code remains canonical research key. Files include pool where applicable. Cross-border eligibility must be separately verified."
+  ],
+  "records": [
+    {
+      "code": "ENG",
+      "clubCatalogFiles": [
+        {
+          "country": 8,
+          "file": "data_json/worlds/2627/teams/ENGLAND.json",
+          "sha": "b8fe8901e16defbd79bd8e0523f01c2ceba68024"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20492,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "ITA",
+      "clubCatalogFiles": [
+        {
+          "country": 20,
+          "file": "data_json/worlds/2627/teams/ITALY.json",
+          "sha": "d03139fce63f52249222186845fd6e5943aa4bf8"
+        },
+        {
+          "country": 194,
+          "file": "data_json/worlds/2627/teams/ITALY_POOL.json",
+          "sha": "ee3dc2904cc630d13212770283e6cf31d7b6c0fc"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20504,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "ESP",
+      "clubCatalogFiles": [
+        {
+          "country": 35,
+          "file": "data_json/worlds/2627/teams/SPAIN.json",
+          "sha": "d04730535b402a1871396c623e0e11652dd485ef"
+        },
+        {
+          "country": 192,
+          "file": "data_json/worlds/2627/teams/SPAIN_POOL.json",
+          "sha": "75fa2ff45838f1d3953eabb9f84a112b42b41723"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20523,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "GER",
+      "clubCatalogFiles": [
+        {
+          "country": 14,
+          "file": "data_json/worlds/2627/teams/GERMANY.json",
+          "sha": "165afdf3394e4d11c4ad72d83f71b8bf28d665b3"
+        },
+        {
+          "country": 193,
+          "file": "data_json/worlds/2627/teams/GERMANY_POOL.json",
+          "sha": "019b1f19a5359ae51f62c714026ab0c6d73da3f7"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20498,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "FRA",
+      "clubCatalogFiles": [
+        {
+          "country": 13,
+          "file": "data_json/worlds/2627/teams/FRANCE.json",
+          "sha": "aa64441a6ae2bc9625d50f09816614d7027cb485"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20496,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "POR",
+      "clubCatalogFiles": [
+        {
+          "country": 29,
+          "file": "data_json/worlds/2627/teams/PORTUGAL.json",
+          "sha": "18530f86c027fdeade05cde5f3d8bf950ff70e30"
+        },
+        {
+          "country": 196,
+          "file": "data_json/worlds/2627/teams/PORTUGAL_POOL.json",
+          "sha": "c37cf72511357f550bc95151154836c07e0e7584"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20515,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "NED",
+      "clubCatalogFiles": [
+        {
+          "country": 25,
+          "file": "data_json/worlds/2627/teams/HOLLAND.json",
+          "sha": "0a7f7191818c616804789d7a5ac519ec64a49f51"
+        },
+        {
+          "country": 195,
+          "file": "data_json/worlds/2627/teams/HOLLAND_POOL.json",
+          "sha": "039f29720f25379989e1902b078c1759920c4c22"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20500,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "BEL",
+      "clubCatalogFiles": [
+        {
+          "country": 2,
+          "file": "data_json/worlds/2627/teams/BELGIUM.json",
+          "sha": "65370bd52f4e0f5bb1573d7addff29621ca0dfaf"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20486,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "TUR",
+      "clubCatalogFiles": [
+        {
+          "country": 38,
+          "file": "data_json/worlds/2627/teams/TURKEY.json",
+          "sha": "c0b2a9eb2187c3cf1bdcfb8c530ee4edf076f73f"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20526,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "CZE",
+      "clubCatalogFiles": [
+        {
+          "country": 6,
+          "file": "data_json/worlds/2627/teams/CZECH_REPUBLIC.json",
+          "sha": "ac000848bac009932e5611948d8762802a20292a"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20490,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "GRE",
+      "clubCatalogFiles": [
+        {
+          "country": 15,
+          "file": "data_json/worlds/2627/teams/GREECE.json",
+          "sha": "78b15282f122ab989b8840d9328090abf4e4d4d8"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20499,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "POL",
+      "clubCatalogFiles": [
+        {
+          "country": 28,
+          "file": "data_json/worlds/2627/teams/POLAND.json",
+          "sha": "4c845e039caa915250ba34b9360e5986185182bf"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20514,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "DEN",
+      "clubCatalogFiles": [
+        {
+          "country": 7,
+          "file": "data_json/worlds/2627/teams/DENMARK.json",
+          "sha": "02c91072e235f1d2c12a53ea375f89a704b2a93b"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20491,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "NOR",
+      "clubCatalogFiles": [
+        {
+          "country": 27,
+          "file": "data_json/worlds/2627/teams/NORWAY.json",
+          "sha": "0da82870308a224f8543c0264d55b8ee354b4650"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20513,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "CYP",
+      "clubCatalogFiles": [
+        {
+          "country": 5,
+          "file": "data_json/worlds/2627/teams/CYPRUS.json",
+          "sha": "e011ed534294d7e4c5f555794a10ca40f072905a"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20489,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "SUI",
+      "clubCatalogFiles": [
+        {
+          "country": 37,
+          "file": "data_json/worlds/2627/teams/SWITZERLAND.json",
+          "sha": "ae9f5ce05bdf6512961ea8981b719cc4cfcdd6bb"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20525,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "AUT",
+      "clubCatalogFiles": [
+        {
+          "country": 1,
+          "file": "data_json/worlds/2627/teams/AUSTRIA.json",
+          "sha": "1627daf12306eabfe777c70417e2acf7c2321cf4"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20483,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "SCO",
+      "clubCatalogFiles": [
+        {
+          "country": 33,
+          "file": "data_json/worlds/2627/teams/SCOTLAND.json",
+          "sha": "0c45d8da54f51b488a745ab996d4031582b7c9b0"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20520,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "SWE",
+      "clubCatalogFiles": [
+        {
+          "country": 36,
+          "file": "data_json/worlds/2627/teams/SWEDEN.json",
+          "sha": "2f4daed94450efd8c8525433825f320a2e5a3ecc"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20524,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "CRO",
+      "clubCatalogFiles": [
+        {
+          "country": 4,
+          "file": "data_json/worlds/2627/teams/CROATIA.json",
+          "sha": "043e6fdea2ffae1d0310ec1e3209ac0baa0bdd0d"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20488,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "ISR",
+      "clubCatalogFiles": [
+        {
+          "country": 19,
+          "file": "data_json/worlds/2627/teams/ISRAEL.json",
+          "sha": "1a86f28ee9b0a57fb0c54315db892cdf3a5ca537"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20503,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "HUN",
+      "clubCatalogFiles": [
+        {
+          "country": 16,
+          "file": "data_json/worlds/2627/teams/HUNGARY.json",
+          "sha": "6e7b07f890a1e5d1f65f29d331c4e935baa1e1d3"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20501,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "UKR",
+      "clubCatalogFiles": [
+        {
+          "country": 39,
+          "file": "data_json/worlds/2627/teams/UKRAINE.json",
+          "sha": "0bfba94e62d2c3afaf35ef413cdac82ddab568d8"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20527,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "SRB",
+      "clubCatalogFiles": [
+        {
+          "country": 41,
+          "file": "data_json/worlds/2627/teams/YUGOSLAVIA.json",
+          "sha": "a5a34900ca294affcab08c4a8a3ab5d2f08c0b43"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20529,
+        "kind": "NATIONAL",
+        "status": "FEDERATION_SUCCESSOR_MODERN_CANDIDATE_NOT_RUNTIME"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "ROU",
+      "clubCatalogFiles": [
+        {
+          "country": 30,
+          "file": "data_json/worlds/2627/teams/ROMANIA.json",
+          "sha": "28daf205e1ff9d959350f7e2c1364111c8f03d42"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20517,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "SVN",
+      "clubCatalogFiles": [
+        {
+          "country": 34,
+          "file": "data_json/worlds/2627/teams/SLOVENIA.json",
+          "sha": "59649463a90fde12f345f4aaee11256e4b9803fa"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20522,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "AZE",
+      "clubCatalogFiles": [
+        {
+          "country": 53,
+          "file": "data_json/worlds/2627/teams/AZERBAIJAN.json",
+          "sha": "ad88211cc469e3f10b456ce967b648ee1e63cdcf"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20484,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "RUS",
+      "clubCatalogFiles": [
+        {
+          "country": 31,
+          "file": "data_json/worlds/2627/teams/RUSSIA.json",
+          "sha": "5adbf43c985e909a9d588ae875302fe602ef7c68"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20518,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "SVK",
+      "clubCatalogFiles": [
+        {
+          "country": 78,
+          "file": "data_json/worlds/2627/teams/SLOVAKIA.json",
+          "sha": "374c85c398ae49484f00dc52ed8b4458b4616d40"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20521,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "BUL",
+      "clubCatalogFiles": [
+        {
+          "country": 3,
+          "file": "data_json/worlds/2627/teams/BULGARIA.json",
+          "sha": "1cbb5871c7a1d5fe910d1dc39023497a1fbd5b73"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20487,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "IRL",
+      "clubCatalogFiles": [
+        {
+          "country": 18,
+          "file": "data_json/worlds/2627/teams/REPUBLIC_IRELAND.json",
+          "sha": "829061e528f9ee918eee4bbf3dcd5afdd7ffb10a"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20516,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "ISL",
+      "clubCatalogFiles": [
+        {
+          "country": 17,
+          "file": "data_json/worlds/2627/teams/ICELAND.json",
+          "sha": "a41eb90ff9a3bc289cf604606c5dd71c1663daa4"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20502,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "ARM",
+      "clubCatalogFiles": [
+        {
+          "country": 52,
+          "file": "data_json/worlds/2627/teams/ARMENIA.json",
+          "sha": "68d845685d342a326a83b7f0c693e187deed9d0d"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20482,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "MDA",
+      "clubCatalogFiles": [
+        {
+          "country": 92,
+          "file": "data_json/worlds/2627/teams/MOLDOVA.json",
+          "sha": "3d73f095f8eb5356a41ae1e68d72027814fb7b3a"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20511,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "FIN",
+      "clubCatalogFiles": [
+        {
+          "country": 12,
+          "file": "data_json/worlds/2627/teams/FINLAND.json",
+          "sha": "b991426bf877297c4fccd4c03a68ffd8a85dfaff"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20495,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "KOS",
+      "clubCatalogFiles": [
+        {
+          "country": 88,
+          "file": "data_json/worlds/2627/teams/KOSOVO.json",
+          "sha": "0ac5425101e8d99552efd7bb15a746ce3a2df3d7"
+        }
+      ],
+      "nationalCandidate": null,
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "KAZ",
+      "clubCatalogFiles": [
+        {
+          "country": 86,
+          "file": "data_json/worlds/2627/teams/KAZAKHSTAN.json",
+          "sha": "d2a64d4664db0ecf59b63c64835d60967ac666e7"
+        }
+      ],
+      "nationalCandidate": null,
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "BIH",
+      "clubCatalogFiles": [
+        {
+          "country": 54,
+          "file": "data_json/worlds/2627/teams/BOSNIA_HERZ.json",
+          "sha": "9bfef902d61ca17d7560aaf03975afff90e43887"
+        }
+      ],
+      "nationalCandidate": null,
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "LVA",
+      "clubCatalogFiles": [
+        {
+          "country": 21,
+          "file": "data_json/worlds/2627/teams/LATVIA.json",
+          "sha": "d3e278bead1ad50a1ce7097132b082bec4bd6771"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20505,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "FRO",
+      "clubCatalogFiles": [
+        {
+          "country": 11,
+          "file": "data_json/worlds/2627/teams/FAROE_ISLANDS.json",
+          "sha": "3c2a2ad7cb175bc5097ae828b23122fdecc7f94b"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20494,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "MLT",
+      "clubCatalogFiles": [
+        {
+          "country": 24,
+          "file": "data_json/worlds/2627/teams/MALTA.json",
+          "sha": "427d005b060f00477c85647211cf9806aeb3e29c"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20510,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "LIE",
+      "clubCatalogFiles": [
+        {
+          "country": 90,
+          "file": "data_json/worlds/2627/teams/LIECHTENSTEIN.json",
+          "sha": "55736b21e36629f5aeb7ceb2435fd35b3817e7ef"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20506,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "EST",
+      "clubCatalogFiles": [
+        {
+          "country": 10,
+          "file": "data_json/worlds/2627/teams/ESTONIA.json",
+          "sha": "bee26f318b325985e12e360669e9eaa29e15aeb1"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20493,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "ALB",
+      "clubCatalogFiles": [
+        {
+          "country": 0,
+          "file": "data_json/worlds/2627/teams/ALBANIA.json",
+          "sha": "07dca3734ac57cd066cf2f2e6485c23f4f70537e"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20481,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "MKD",
+      "clubCatalogFiles": [
+        {
+          "country": 93,
+          "file": "data_json/worlds/2627/teams/N_MACEDONIA.json",
+          "sha": "fa476df23ada0ee9109bc10b9c40175431257efe"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20509,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "LTU",
+      "clubCatalogFiles": [
+        {
+          "country": 22,
+          "file": "data_json/worlds/2627/teams/LITHUANIA.json",
+          "sha": "32e8c4b391d59ffeda8145416a54013e08fbc3ea"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20507,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "NIR",
+      "clubCatalogFiles": [
+        {
+          "country": 26,
+          "file": "data_json/worlds/2627/teams/NORTHERN_IRELAND.json",
+          "sha": "7a19bc0fae91092ee24a80397928419a76629064"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20512,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "GIB",
+      "clubCatalogFiles": [
+        {
+          "country": 63,
+          "file": "data_json/worlds/2627/teams/GIBRALTAR.json",
+          "sha": "c92a8b2da738edcb51d1e74e4374fe283eb34b5f"
+        }
+      ],
+      "nationalCandidate": null,
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "AND",
+      "clubCatalogFiles": [
+        {
+          "country": 47,
+          "file": "data_json/worlds/2627/teams/ANDORRA.json",
+          "sha": "88d2c98c48972aab08c15eef8917fdc9f411f855"
+        }
+      ],
+      "nationalCandidate": null,
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "BLR",
+      "clubCatalogFiles": [
+        {
+          "country": 76,
+          "file": "data_json/worlds/2627/teams/BELARUS.json",
+          "sha": "910fd851fdf6551c437f51a48a966bdf58346d19"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20485,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "LUX",
+      "clubCatalogFiles": [
+        {
+          "country": 23,
+          "file": "data_json/worlds/2627/teams/LUXEMBOURG.json",
+          "sha": "383f4cfb8f32c699a5fc65ac9401bbae28317dad"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20508,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "MNE",
+      "clubCatalogFiles": [
+        {
+          "country": 94,
+          "file": "data_json/worlds/2627/teams/MONTENEGRO.json",
+          "sha": "87d1b476ed9e159fc66ddd6196c417588ca996a4"
+        }
+      ],
+      "nationalCandidate": null,
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "GEO",
+      "clubCatalogFiles": [
+        {
+          "country": 61,
+          "file": "data_json/worlds/2627/teams/GEORGIA.json",
+          "sha": "c535cd638451f0072fef8179c6500a741e91f365"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20497,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "WAL",
+      "clubCatalogFiles": [
+        {
+          "country": 40,
+          "file": "data_json/worlds/2627/teams/WALES.json",
+          "sha": "5ce10b168fdcd75622767d51ce762716660ea4e4"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20528,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    },
+    {
+      "code": "SMR",
+      "clubCatalogFiles": [
+        {
+          "country": 32,
+          "file": "data_json/worlds/2627/teams/SAN_MARINO.json",
+          "sha": "9d7ba2e4d963cce682c89901f7fbf16db0807404"
+        }
+      ],
+      "nationalCandidate": {
+        "stableClub": 20519,
+        "kind": "NATIONAL"
+      },
+      "status": "ASSOCIATION_CATALOG_CANDIDATE_NOT_RUNTIME"
+    }
+  ],
+  "coverage": {
+    "reviewed": 55,
+    "clubCatalogAssociations": 55,
+    "nationalCandidates": 49
+  }
+}

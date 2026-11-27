@@ -1,0 +1,2805 @@
+{
+  "schema": "research-fifa-national-identity-map-v1",
+  "world": 2627,
+  "baseCommit": "55f6824eee55ff204fd001d12b55b514b12ebfb2",
+  "seedBlob": "9d056cb948237657620015b5fc8a86ea577332b5",
+  "status": "REFERENCE_AND_SHARED_CATALOG_IDENTITY_CANDIDATES_NOT_RUNTIME",
+  "identityContract": "expanded_competition_identity.h: NATIONAL stable_club = (team file << 8 | ordinal)+1, not global_team_number",
+  "notes": [
+    "No dedicated modern national files for 80–85 found in tree. Shared catalog evidence is not proof of active 2627 selection/roster; original binary references recorded but not decoded in this audit.",
+    "FIFA ranking retains 211 codes including reference-only. No new playable team, no automatic Yugoslavia→Serbia or CONGO→CGO/COD mapping. National file grouping is not confederation membership (e.g. AUS, PNG, MRI)."
+  ],
+  "evidence": [
+    {
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "country": 81,
+      "recordCount": 34,
+      "originalBinary": "data/TEAM.081",
+      "originalBinaryBlob": "f4501328627ccd8726ac921725e993922c104b6a",
+      "worldOverridePresent": false
+    },
+    {
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "country": 84,
+      "recordCount": 31,
+      "originalBinary": "data/TEAM.084",
+      "originalBinaryBlob": "6d3470048ac57ec2f95a6e79e3bd638085696ef2",
+      "worldOverridePresent": false
+    },
+    {
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "country": 80,
+      "recordCount": 49,
+      "originalBinary": "data/TEAM.080",
+      "originalBinaryBlob": "e6ce4ce1938900fa74df2347c1cb39b0fc59809f",
+      "worldOverridePresent": false
+    },
+    {
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "country": 83,
+      "recordCount": 14,
+      "originalBinary": "data/TEAM.083",
+      "originalBinaryBlob": "a035380d774892c627a7afec73b1a5ed4c554ac3",
+      "worldOverridePresent": false
+    },
+    {
+      "sourceFile": "data_json/teams/OCEANIA.json",
+      "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
+      "country": 85,
+      "recordCount": 4,
+      "originalBinary": "data/TEAM.085",
+      "originalBinaryBlob": "7576fd66b46b158a0157d229ca8690e94affd66c",
+      "worldOverridePresent": false
+    },
+    {
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "country": 82,
+      "recordCount": 10,
+      "originalBinary": "data/TEAM.082",
+      "originalBinaryBlob": "3216eddf9d0bc94baa486850540d71a8aa72de1b",
+      "worldOverridePresent": false
+    }
+  ],
+  "records": [
+    {
+      "code": "ARG",
+      "nativeName": "ARGENTINA",
+      "teamFile": 82,
+      "ordinal": 0,
+      "ogTeamNumber": 20992,
+      "stableClub": 20993,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "7c91a1af-f177-534b-bfbf-6a6c72abee8d",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ESP",
+      "nativeName": "SPAIN",
+      "teamFile": 80,
+      "ordinal": 42,
+      "ogTeamNumber": 20522,
+      "stableClub": 20523,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "b52ac2ca-0a47-59c7-9c09-c2790be10bf8",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "FRA",
+      "nativeName": "FRANCE",
+      "teamFile": 80,
+      "ordinal": 15,
+      "ogTeamNumber": 20495,
+      "stableClub": 20496,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "203075df-1393-56ba-aa82-a6dc212e7219",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ENG",
+      "nativeName": "ENGLAND",
+      "teamFile": 80,
+      "ordinal": 11,
+      "ogTeamNumber": 20491,
+      "stableClub": 20492,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "fad1a2cf-b275-5972-a3fa-35bda74afa6f",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "POR",
+      "nativeName": "PORTUGAL",
+      "teamFile": 80,
+      "ordinal": 34,
+      "ogTeamNumber": 20514,
+      "stableClub": 20515,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "d64d78ab-e24c-547f-b952-a0e221d9b56a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BRA",
+      "nativeName": "BRAZIL",
+      "teamFile": 82,
+      "ordinal": 2,
+      "ogTeamNumber": 20994,
+      "stableClub": 20995,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "30e26617-4001-56c3-a068-8d88849c8398",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MAR",
+      "nativeName": "MOROCCO",
+      "teamFile": 81,
+      "ordinal": 19,
+      "ogTeamNumber": 20755,
+      "stableClub": 20756,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "b7b4a776-545d-5b0b-b06a-c148254e88bb",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NED",
+      "nativeName": "HOLLAND",
+      "teamFile": 80,
+      "ordinal": 19,
+      "ogTeamNumber": 20499,
+      "stableClub": 20500,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "1038aa79-ea25-56de-b729-559f21fbca47",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BEL",
+      "nativeName": "BELGIUM",
+      "teamFile": 80,
+      "ordinal": 5,
+      "ogTeamNumber": 20485,
+      "stableClub": 20486,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "d0f7a81d-5cb7-52de-b4a5-b0014af2f225",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GER",
+      "nativeName": "GERMANY",
+      "teamFile": 80,
+      "ordinal": 17,
+      "ogTeamNumber": 20497,
+      "stableClub": 20498,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "2bb28358-8981-5501-bee3-0916d4b736cc",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CRO",
+      "nativeName": "CROATIA",
+      "teamFile": 80,
+      "ordinal": 7,
+      "ogTeamNumber": 20487,
+      "stableClub": 20488,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "7eece36b-9ebd-54ec-8d31-168fc113a555",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ITA",
+      "nativeName": "ITALY",
+      "teamFile": 80,
+      "ordinal": 23,
+      "ogTeamNumber": 20503,
+      "stableClub": 20504,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "8250fcaa-bcdf-5f40-836a-87614846de84",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "COL",
+      "nativeName": "COLOMBIA",
+      "teamFile": 82,
+      "ordinal": 4,
+      "ogTeamNumber": 20996,
+      "stableClub": 20997,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "1bdc737f-0b1d-54bc-87d0-f46b4782e097",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MEX",
+      "nativeName": "MEXICO",
+      "teamFile": 83,
+      "ordinal": 8,
+      "ogTeamNumber": 21256,
+      "stableClub": 21257,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "f5b5fba3-6d5b-593a-b557-942e299bb572",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SEN",
+      "nativeName": "SENEGAL",
+      "teamFile": 81,
+      "ordinal": 23,
+      "ogTeamNumber": 20759,
+      "stableClub": 20760,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "83b11881-c315-535d-8aa9-c05b50612982",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "URU",
+      "nativeName": "URUGUAY",
+      "teamFile": 82,
+      "ordinal": 8,
+      "ogTeamNumber": 21000,
+      "stableClub": 21001,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "75593d4b-1978-5c8a-b690-87a6fe2e70f0",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "USA",
+      "nativeName": "UNITED STATES",
+      "teamFile": 83,
+      "ordinal": 13,
+      "ogTeamNumber": 21261,
+      "stableClub": 21262,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "ff09d11e-769a-57db-bc65-6d1eb1a9cc11",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "JPN",
+      "nativeName": "JAPAN",
+      "teamFile": 84,
+      "ordinal": 9,
+      "ogTeamNumber": 21513,
+      "stableClub": 21514,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "90354260-0987-5ed3-baff-2a731304b9e5",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SUI",
+      "nativeName": "SWITZERLAND",
+      "teamFile": 80,
+      "ordinal": 44,
+      "ogTeamNumber": 20524,
+      "stableClub": 20525,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "0bf7563a-fa56-5ffa-a685-906ab5cacff3",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "IRN",
+      "nativeName": "IRAN",
+      "teamFile": 84,
+      "ordinal": 7,
+      "ogTeamNumber": 21511,
+      "stableClub": 21512,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "2900a72b-68ea-5c0c-960f-71544e17e40a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "DEN",
+      "nativeName": "DENMARK",
+      "teamFile": 80,
+      "ordinal": 10,
+      "ogTeamNumber": 20490,
+      "stableClub": 20491,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "b9cc141c-dd87-58a0-85d1-21bc00af4a14",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "TUR",
+      "nativeName": "TURKEY",
+      "teamFile": 80,
+      "ordinal": 45,
+      "ogTeamNumber": 20525,
+      "stableClub": 20526,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "5f210819-63a9-5dd5-ab19-ab32e383533c",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ECU",
+      "nativeName": "ECUADOR",
+      "teamFile": 82,
+      "ordinal": 5,
+      "ogTeamNumber": 20997,
+      "stableClub": 20998,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "236c9c69-c7f7-5d8d-bb57-5825d0dc890a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "AUT",
+      "nativeName": "AUSTRIA",
+      "teamFile": 80,
+      "ordinal": 2,
+      "ogTeamNumber": 20482,
+      "stableClub": 20483,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "32feffa9-c6c9-5a16-ac8e-2199172dfa8a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "KOR",
+      "nativeName": "SOUTH KOREA",
+      "teamFile": 84,
+      "ordinal": 24,
+      "ogTeamNumber": 21528,
+      "stableClub": 21529,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "cc2f7e57-f8c7-53e5-abae-e0abd20761f2",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NGA",
+      "nativeName": "NIGERIA",
+      "teamFile": 81,
+      "ordinal": 22,
+      "ogTeamNumber": 20758,
+      "stableClub": 20759,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "49d52c84-0d45-56b0-aa66-1423a701e79e",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "AUS",
+      "nativeName": "AUSTRALIA",
+      "teamFile": 85,
+      "ordinal": 0,
+      "ogTeamNumber": 21760,
+      "stableClub": 21761,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/OCEANIA.json",
+      "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
+      "uuid": "d9f05a33-2eb2-530b-bed7-e20c404e9cc1",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ALG",
+      "nativeName": "ALGERIA",
+      "teamFile": 81,
+      "ordinal": 0,
+      "ogTeamNumber": 20736,
+      "stableClub": 20737,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "79402dc5-a0c3-5057-8932-50467b044329",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "EGY",
+      "nativeName": "EGYPT",
+      "teamFile": 81,
+      "ordinal": 8,
+      "ogTeamNumber": 20744,
+      "stableClub": 20745,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "cb0522ed-d58e-5c69-863a-cd7437d46b10",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CAN",
+      "nativeName": "CANADA",
+      "teamFile": 83,
+      "ordinal": 1,
+      "ogTeamNumber": 21249,
+      "stableClub": 21250,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "43c35e09-d086-5f6c-a6a3-57ef41238fe3",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NOR",
+      "nativeName": "NORWAY",
+      "teamFile": 80,
+      "ordinal": 32,
+      "ogTeamNumber": 20512,
+      "stableClub": 20513,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "620a07cb-0c2a-5f87-980a-1074cfc45786",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "UKR",
+      "nativeName": "UKRAINE",
+      "teamFile": 80,
+      "ordinal": 46,
+      "ogTeamNumber": 20526,
+      "stableClub": 20527,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "ae4c166a-55cc-5769-a793-d7580dee5ecf",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CIV",
+      "nativeName": "IVORY COAST",
+      "teamFile": 81,
+      "ordinal": 13,
+      "ogTeamNumber": 20749,
+      "stableClub": 20750,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "4ef57642-16fc-5e70-bbf3-f77d7dcac7fe",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "PAN",
+      "nativeName": "PANAMA",
+      "teamFile": 83,
+      "ordinal": 10,
+      "ogTeamNumber": 21258,
+      "stableClub": 21259,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "41691b6e-d4a1-5da6-8144-920da903fb42",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "RUS",
+      "nativeName": "RUSSIA",
+      "teamFile": 80,
+      "ordinal": 37,
+      "ogTeamNumber": 20517,
+      "stableClub": 20518,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "46632cd9-3298-5ec6-b59f-ab47d38ed4a6",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "POL",
+      "nativeName": "POLAND",
+      "teamFile": 80,
+      "ordinal": 33,
+      "ogTeamNumber": 20513,
+      "stableClub": 20514,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "9acbdcbe-8d18-58a7-9ba1-f3cac7a47036",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "WAL",
+      "nativeName": "WALES",
+      "teamFile": 80,
+      "ordinal": 47,
+      "ogTeamNumber": 20527,
+      "stableClub": 20528,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "47a64604-70c3-54c2-a21b-8bf8a575adbb",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SWE",
+      "nativeName": "SWEDEN",
+      "teamFile": 80,
+      "ordinal": 43,
+      "ogTeamNumber": 20523,
+      "stableClub": 20524,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "0e061d0f-f6a1-5da4-b64b-e2ae4cb2f373",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "HUN",
+      "nativeName": "HUNGARY",
+      "teamFile": 80,
+      "ordinal": 20,
+      "ogTeamNumber": 20500,
+      "stableClub": 20501,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "a52c5324-61c4-5818-9216-c12d9ea56e10",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CZE",
+      "nativeName": "CZECH REP.",
+      "teamFile": 80,
+      "ordinal": 9,
+      "ogTeamNumber": 20489,
+      "stableClub": 20490,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "25fd142c-d617-5148-90f9-2e5d09919a82",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "PAR",
+      "nativeName": "PARAGUAY",
+      "teamFile": 82,
+      "ordinal": 6,
+      "ogTeamNumber": 20998,
+      "stableClub": 20999,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "6f3afb9b-93f0-5a0a-92fb-ee30aa2e8f82",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SCO",
+      "nativeName": "SCOTLAND",
+      "teamFile": 80,
+      "ordinal": 39,
+      "ogTeamNumber": 20519,
+      "stableClub": 20520,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "ffcdd024-64c5-5134-a1dc-57df93f0f419",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SRB",
+      "nativeName": "YUGOSLAVIA",
+      "teamFile": 80,
+      "ordinal": 48,
+      "ogTeamNumber": 20528,
+      "stableClub": 20529,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "1309b649-9bf0-503a-840f-dd54780e7a2e",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME",
+      "matchMethod": "FEDERATION_SUCCESSOR_MODERN_CANDIDATE",
+      "sources": [
+        "https://www.uefa.com/nationalassociations/srb/"
+      ],
+      "notes": "UEFA recognizes federation continuity. Modern slot reuse candidate only; do not alter 9697 or use old squad as current Serbia.",
+      "modernName": "Serbia"
+    },
+    {
+      "code": "CMR",
+      "nativeName": "CAMEROON",
+      "teamFile": 81,
+      "ordinal": 6,
+      "ogTeamNumber": 20742,
+      "stableClub": 20743,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "240d3bc3-424c-5d1e-b0d9-70b260f9a0ad",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "TUN",
+      "nativeName": "TUNISIA",
+      "teamFile": 81,
+      "ordinal": 30,
+      "ogTeamNumber": 20766,
+      "stableClub": 20767,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "9598d1fd-b895-5f89-9d02-fd19b6ec97bf",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "COD",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "DR Congo",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null,
+        "notes": "Neither native Congo-labelled record is DR Congo: roster evidence resolves CGO and ZAM. New ID must be distinct."
+      }
+    },
+    {
+      "code": "SVK",
+      "nativeName": "SLOVAKIA",
+      "teamFile": 80,
+      "ordinal": 40,
+      "ogTeamNumber": 20520,
+      "stableClub": 20521,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "614f3b25-04d5-5687-bf3f-d4e22e88cc8f",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GRE",
+      "nativeName": "GREECE",
+      "teamFile": 80,
+      "ordinal": 18,
+      "ogTeamNumber": 20498,
+      "stableClub": 20499,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "f9233b35-615c-5a5a-960b-9388598c4370",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "VEN",
+      "nativeName": "VENEZUELA",
+      "teamFile": 82,
+      "ordinal": 9,
+      "ogTeamNumber": 21001,
+      "stableClub": 21002,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "9a3409d0-9a01-5523-8fb8-03e3e32e6d0f",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "UZB",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Uzbekistan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "CHI",
+      "nativeName": "CHILE",
+      "teamFile": 82,
+      "ordinal": 3,
+      "ogTeamNumber": 20995,
+      "stableClub": 20996,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "017eb05b-435d-5dc2-ba1d-f5051a2f0f14",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "PER",
+      "nativeName": "PERU",
+      "teamFile": 82,
+      "ordinal": 7,
+      "ogTeamNumber": 20999,
+      "stableClub": 21000,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "fbd4deaa-4d0d-5d14-802f-68f3423b81ee",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CRC",
+      "nativeName": "COSTA RICA",
+      "teamFile": 83,
+      "ordinal": 2,
+      "ogTeamNumber": 21250,
+      "stableClub": 21251,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "07693799-1cf1-5c79-bdf6-9f590ed09ca6",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ROU",
+      "nativeName": "ROMANIA",
+      "teamFile": 80,
+      "ordinal": 36,
+      "ogTeamNumber": 20516,
+      "stableClub": 20517,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "d8e82b6a-dc2c-51f4-b132-a46031c65816",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MLI",
+      "nativeName": "MALI",
+      "teamFile": 81,
+      "ordinal": 18,
+      "ogTeamNumber": 20754,
+      "stableClub": 20755,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "eba8dc70-82bb-5135-b28a-727e4441a423",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "QAT",
+      "nativeName": "QATAR",
+      "teamFile": 84,
+      "ordinal": 21,
+      "ogTeamNumber": 21525,
+      "stableClub": 21526,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "894db4e3-198d-5084-bfb2-c0ad6f96eab3",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "IRQ",
+      "nativeName": "IRAQ",
+      "teamFile": 84,
+      "ordinal": 8,
+      "ogTeamNumber": 21512,
+      "stableClub": 21513,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "a234f4dd-a04a-5661-883c-8e197f09c05a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "IRL",
+      "nativeName": "REPUBLIC IRELAND",
+      "teamFile": 80,
+      "ordinal": 35,
+      "ogTeamNumber": 20515,
+      "stableClub": 20516,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "874b61d6-56a2-5e8f-b683-7e0d5a4c2ccd",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SVN",
+      "nativeName": "SLOVENIA",
+      "teamFile": 80,
+      "ordinal": 41,
+      "ogTeamNumber": 20521,
+      "stableClub": 20522,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "f82322f1-b6c8-5b33-a819-e2d24464cb3a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "RSA",
+      "nativeName": "SOUTH AFRICA",
+      "teamFile": 81,
+      "ordinal": 25,
+      "ogTeamNumber": 20761,
+      "stableClub": 20762,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "9cebafd9-4435-5eb5-8de7-7d5603daa915",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "KSA",
+      "nativeName": "SAUDI ARABIA",
+      "teamFile": 84,
+      "ordinal": 22,
+      "ogTeamNumber": 21526,
+      "stableClub": 21527,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "e125c4ab-fe60-5fa2-889f-e86f37e180cd",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BFA",
+      "nativeName": "BURKINA FASO",
+      "teamFile": 81,
+      "ordinal": 4,
+      "ogTeamNumber": 20740,
+      "stableClub": 20741,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "702205f8-2775-585f-8c0a-dd07fa52e58d",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "JOR",
+      "nativeName": "JORDAN",
+      "teamFile": 84,
+      "ordinal": 10,
+      "ogTeamNumber": 21514,
+      "stableClub": 21515,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "ad17027a-bc52-5b59-9416-b226955e30d9",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BIH",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Bosnia and Herzegovina",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "HON",
+      "nativeName": "HONDURAS",
+      "teamFile": 83,
+      "ordinal": 6,
+      "ogTeamNumber": 21254,
+      "stableClub": 21255,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "597d30d6-067c-54c2-9829-132a8579cc4b",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ALB",
+      "nativeName": "ALBANIA",
+      "teamFile": 80,
+      "ordinal": 0,
+      "ogTeamNumber": 20480,
+      "stableClub": 20481,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "44799e88-90a7-53dc-a733-40ace56ca442",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CPV",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Cabo Verde",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "UAE",
+      "nativeName": "UNITED ARAB EMIS",
+      "teamFile": 84,
+      "ordinal": 28,
+      "ogTeamNumber": 21532,
+      "stableClub": 21533,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "b6683c43-1eeb-5a6f-bc72-fa1cf876de1d",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MKD",
+      "nativeName": "FYR MACEDONIA",
+      "teamFile": 80,
+      "ordinal": 28,
+      "ogTeamNumber": 20508,
+      "stableClub": 20509,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "28bc08a3-27b7-5108-983a-e047938da36e",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NIR",
+      "nativeName": "NORTHERN IRELAND",
+      "teamFile": 80,
+      "ordinal": 31,
+      "ogTeamNumber": 20511,
+      "stableClub": 20512,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "c8fbd165-c431-54ac-82f5-a8a16c8e8e04",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "JAM",
+      "nativeName": "JAMAICA",
+      "teamFile": 83,
+      "ordinal": 7,
+      "ogTeamNumber": 21255,
+      "stableClub": 21256,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "b40146a7-50f5-5718-8213-c7e8d155ad92",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GEO",
+      "nativeName": "GEORGIA",
+      "teamFile": 80,
+      "ordinal": 16,
+      "ogTeamNumber": 20496,
+      "stableClub": 20497,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "15606ae7-d9c0-53b6-8a7c-979976976e02",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GHA",
+      "nativeName": "GHANA",
+      "teamFile": 81,
+      "ordinal": 11,
+      "ogTeamNumber": 20747,
+      "stableClub": 20748,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "cdefb5d2-d68e-50b4-bd0c-223d8bad4ee5",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ISL",
+      "nativeName": "ICELAND",
+      "teamFile": 80,
+      "ordinal": 21,
+      "ogTeamNumber": 20501,
+      "stableClub": 20502,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "4e957a31-d065-5a04-a43e-c4cbae373f23",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "FIN",
+      "nativeName": "FINLAND",
+      "teamFile": 80,
+      "ordinal": 14,
+      "ogTeamNumber": 20494,
+      "stableClub": 20495,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "0786f877-ca94-543b-8977-a32353c5eaf7",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ISR",
+      "nativeName": "ISRAEL",
+      "teamFile": 80,
+      "ordinal": 22,
+      "ogTeamNumber": 20502,
+      "stableClub": 20503,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "5e3731d5-a5c9-5390-af14-49a24dd6242f",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BOL",
+      "nativeName": "BOLIVIA",
+      "teamFile": 82,
+      "ordinal": 1,
+      "ogTeamNumber": 20993,
+      "stableClub": 20994,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/SOUTH_AMERICA.json",
+      "sourceBlob": "5d988c4e3a5f094a7bf235e8af9be81701ba68cd",
+      "uuid": "eebbe73f-02b9-5fef-a947-f0c41e2a6da6",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "KOS",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Kosovo",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "OMA",
+      "nativeName": "OMAN",
+      "teamFile": 84,
+      "ordinal": 17,
+      "ogTeamNumber": 21521,
+      "stableClub": 21522,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "e8f2489e-bdad-51fa-9830-5ffbd56812ef",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MNE",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Montenegro",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "GUI",
+      "nativeName": "GUINEA",
+      "teamFile": 81,
+      "ordinal": 12,
+      "ogTeamNumber": 20748,
+      "stableClub": 20749,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "1177a055-c11d-5cc8-a7ff-8efe09887a50",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CUW",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Curaçao",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "HAI",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Haiti",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SYR",
+      "nativeName": "SYRIA",
+      "teamFile": 84,
+      "ordinal": 26,
+      "ogTeamNumber": 21530,
+      "stableClub": 21531,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "b45b2ebd-29cd-5b0f-99fc-c601ceb2c42e",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NZL",
+      "nativeName": "NEW ZEALAND",
+      "teamFile": 85,
+      "ordinal": 2,
+      "ogTeamNumber": 21762,
+      "stableClub": 21763,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/OCEANIA.json",
+      "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
+      "uuid": "d2b0ce09-90e8-58d3-b0e6-ca5050257e42",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GAB",
+      "nativeName": "GABON",
+      "teamFile": 81,
+      "ordinal": 10,
+      "ogTeamNumber": 20746,
+      "stableClub": 20747,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "6c4056c7-9291-504f-b206-ddf348ea8cb4",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BUL",
+      "nativeName": "BULGARIA",
+      "teamFile": 80,
+      "ordinal": 6,
+      "ogTeamNumber": 20486,
+      "stableClub": 20487,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "fdb08546-d0f3-5210-bfc5-721576b9e082",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ANG",
+      "nativeName": "ANGOLA",
+      "teamFile": 81,
+      "ordinal": 1,
+      "ogTeamNumber": 20737,
+      "stableClub": 20738,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "db4700e7-676b-5685-b333-a5959c613162",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "UGA",
+      "nativeName": "UGANDA",
+      "teamFile": 81,
+      "ordinal": 31,
+      "ogTeamNumber": 20767,
+      "stableClub": 20768,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "9f3ac516-40e8-5544-923c-2a195c6db87e",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ZAM",
+      "nativeName": "REPUBLIC CONGO",
+      "teamFile": 81,
+      "ordinal": 32,
+      "ogTeamNumber": 20768,
+      "stableClub": 20769,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "937b2651-34f2-5af6-bba0-c94e4117dafe",
+      "status": "NATIONAL_IDENTITY_VERIFIED_RUNTIME_NAME_FIX_PREPARED_NOT_TESTED",
+      "matchMethod": "ROSTER_HISTORICAL_MISLABEL_VERIFIED",
+      "sources": [
+        "https://www.rsssf.org/tables/96a-det.html",
+        "https://www.rsssf.org/intldetails/1996af.html"
+      ],
+      "notes": "Original label is wrong; Kalusha Bwalya, Elijah Litana, Mordon Malitoli, John Lungu, Ian Porterfield identify Zambia.",
+      "modernName": "Zambia",
+      "nativeNationalityCode": 87,
+      "binaryEvidence": {
+        "sha": "f4501328627ccd8726ac921725e993922c104b6a",
+        "recordIndex": 23,
+        "unpackedBytes": 23258,
+        "crc16": 17752,
+        "all16Nationalities": 87
+      },
+      "runtimeName": "ZAMBIA"
+    },
+    {
+      "code": "CHN",
+      "nativeName": "CHINA",
+      "teamFile": 84,
+      "ordinal": 3,
+      "ogTeamNumber": 21507,
+      "stableClub": 21508,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "668a116d-2fd9-53e0-a087-2eb3fbf2e232",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BHR",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Bahrain",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BEN",
+      "nativeName": "BENIN",
+      "teamFile": 81,
+      "ordinal": 2,
+      "ogTeamNumber": 20738,
+      "stableClub": 20739,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "83d777c6-8f0a-589e-96f5-6dc580887df7",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "THA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Thailand",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "PLE",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Palestine",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BLR",
+      "nativeName": "BELARUS",
+      "teamFile": 80,
+      "ordinal": 4,
+      "ogTeamNumber": 20484,
+      "stableClub": 20485,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "432a8216-6ea4-569a-8a19-b848a0353686",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GUA",
+      "nativeName": "GUATEMALA",
+      "teamFile": 83,
+      "ordinal": 4,
+      "ogTeamNumber": 21252,
+      "stableClub": 21253,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "4da1239f-df46-51a3-b5b2-0a8f3ba228b3",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "LUX",
+      "nativeName": "LUXEMBOURG",
+      "teamFile": 80,
+      "ordinal": 27,
+      "ogTeamNumber": 20507,
+      "stableClub": 20508,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "c5c60571-0563-5ada-8203-b847f2b79f84",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "VIE",
+      "nativeName": "VIETNAM",
+      "teamFile": 84,
+      "ordinal": 29,
+      "ogTeamNumber": 21533,
+      "stableClub": 21534,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "a58d9579-8b2b-5040-ba01-6dcdb2891290",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SLV",
+      "nativeName": "EL SALVADOR",
+      "teamFile": 83,
+      "ordinal": 3,
+      "ogTeamNumber": 21251,
+      "stableClub": 21252,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "c96e194e-ae83-5c31-9eed-8ad9e450676a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "TJK",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Tajikistan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "TRI",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Trinidad and Tobago",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MOZ",
+      "nativeName": "MOZAMBIQUE",
+      "teamFile": 81,
+      "ordinal": 20,
+      "ogTeamNumber": 20756,
+      "stableClub": 20757,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "86c197a1-f107-56d5-9a25-4437f82195f2",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MAD",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Madagascar",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "EQG",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Equatorial Guinea",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "KGZ",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Kyrgyzstan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "ARM",
+      "nativeName": "ARMENIA",
+      "teamFile": 80,
+      "ordinal": 1,
+      "ogTeamNumber": 20481,
+      "stableClub": 20482,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "f471ffd8-ad2d-5f99-9fa6-64dc56c4fdf1",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "COM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Comoros",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "KEN",
+      "nativeName": "KENYA",
+      "teamFile": 81,
+      "ordinal": 14,
+      "ogTeamNumber": 20750,
+      "stableClub": 20751,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "88f6ab07-2bd9-5756-a361-a52b4289b4c6",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "LBY",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Libya",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "KAZ",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Kazakhstan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "TAN",
+      "nativeName": "TANZANIA",
+      "teamFile": 81,
+      "ordinal": 28,
+      "ogTeamNumber": 20764,
+      "stableClub": 20765,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "ba8234ad-6904-5340-85be-a4057844b776",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MTN",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Mauritania",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "NIG",
+      "nativeName": "NIGER",
+      "teamFile": 81,
+      "ordinal": 21,
+      "ogTeamNumber": 20757,
+      "stableClub": 20758,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "2e7caabe-ca91-5ca4-b5fc-d7c9f5af197c",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "LBN",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Lebanon",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "GAM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Gambia",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SDN",
+      "nativeName": "SUDAN",
+      "teamFile": 81,
+      "ordinal": 26,
+      "ogTeamNumber": 20762,
+      "stableClub": 20763,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "4efb62d1-6306-551e-ab62-497d5a77b573",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "IDN",
+      "nativeName": "INDONESIA",
+      "teamFile": 84,
+      "ordinal": 6,
+      "ogTeamNumber": 21510,
+      "stableClub": 21511,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "6b88cacc-95a6-56da-aebd-bb8d647206f9",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "TOG",
+      "nativeName": "TOGO",
+      "teamFile": 81,
+      "ordinal": 29,
+      "ogTeamNumber": 20765,
+      "stableClub": 20766,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "91b8f9a1-08e1-590c-ae7f-7d534e17d7a4",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "PRK",
+      "nativeName": "NORTH KOREA",
+      "teamFile": 84,
+      "ordinal": 16,
+      "ogTeamNumber": 21520,
+      "stableClub": 21521,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "8212be9b-68ec-5379-97bb-09eec8869af9",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NAM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Namibia",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SLE",
+      "nativeName": "SIERRA LEONE",
+      "teamFile": 81,
+      "ordinal": 24,
+      "ogTeamNumber": 20760,
+      "stableClub": 20761,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "fec870ad-aecb-5a16-be06-15dd14c28c5e",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "FRO",
+      "nativeName": "FAROE ISLES",
+      "teamFile": 80,
+      "ordinal": 13,
+      "ogTeamNumber": 20493,
+      "stableClub": 20494,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "6046ceda-3ee1-5f56-a449-830bc6128885",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CYP",
+      "nativeName": "CYPRUS",
+      "teamFile": 80,
+      "ordinal": 8,
+      "ogTeamNumber": 20488,
+      "stableClub": 20489,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "bc05604b-1d5f-5e6a-b095-c69332ea0b1c",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SUR",
+      "nativeName": "SURINAM",
+      "teamFile": 83,
+      "ordinal": 12,
+      "ogTeamNumber": 21260,
+      "stableClub": 21261,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "af64add4-e344-5669-8bb8-a3a2cd073151",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "AZE",
+      "nativeName": "AZERBAIJAN",
+      "teamFile": 80,
+      "ordinal": 3,
+      "ogTeamNumber": 20483,
+      "stableClub": 20484,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "b1ccf3b8-db7c-541b-9820-17117ccaac9c",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "EST",
+      "nativeName": "ESTONIA",
+      "teamFile": 80,
+      "ordinal": 12,
+      "ogTeamNumber": 20492,
+      "stableClub": 20493,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "b70a31f3-0f1f-5b35-9f1a-f17d0e62519b",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "RWA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Rwanda",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MWI",
+      "nativeName": "MALAWI",
+      "teamFile": 81,
+      "ordinal": 17,
+      "ogTeamNumber": 20753,
+      "stableClub": 20754,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "81319193-7946-5e3c-9de5-add8782ea666",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ZIM",
+      "nativeName": "ZIMBABWE",
+      "teamFile": 81,
+      "ordinal": 33,
+      "ogTeamNumber": 20769,
+      "stableClub": 20770,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "83790adc-e373-5eed-aa1e-d92838407e4a",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NCA",
+      "nativeName": "NICARAGUA",
+      "teamFile": 83,
+      "ordinal": 9,
+      "ogTeamNumber": 21257,
+      "stableClub": 21258,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "c53d5599-e74b-58a6-9e56-6e1b499a9055",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GNB",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Guinea-Bissau",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "KUW",
+      "nativeName": "KUWAIT",
+      "teamFile": 84,
+      "ordinal": 11,
+      "ogTeamNumber": 21515,
+      "stableClub": 21516,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "fa9eb2c6-fbb0-562e-8870-c1c19068083c",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CGO",
+      "nativeName": "CONGO",
+      "teamFile": 81,
+      "ordinal": 7,
+      "ogTeamNumber": 20743,
+      "stableClub": 20744,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "7fc69b54-698c-5711-bad7-60036071b26f",
+      "status": "NATIONAL_IDENTITY_VERIFIED_NOT_RUNTIME_TESTED",
+      "matchMethod": "ROSTER_HISTORICAL_IDENTITY_VERIFIED",
+      "sources": [
+        "https://www.rsssf.org/miscellaneous/kongb-recintlp.html",
+        "https://rsssf.org/tables/92a.html"
+      ],
+      "notes": "Congo-Brazzaville; Brice Samba, Jean-Jacques Ndomba and Noel Pepe Minga corroborate.",
+      "modernName": "Congo",
+      "nativeNationalityCode": 112,
+      "binaryEvidence": {
+        "sha": "f4501328627ccd8726ac921725e993922c104b6a",
+        "recordIndex": 7,
+        "unpackedBytes": 23258,
+        "crc16": 17752,
+        "all16Nationalities": 112
+      }
+    },
+    {
+      "code": "PHI",
+      "nativeName": "PHILIPPINES",
+      "teamFile": 84,
+      "ordinal": 20,
+      "ogTeamNumber": 21524,
+      "stableClub": 21525,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "ec1b1e73-2608-5933-84fd-3670ccef425e",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MAS",
+      "nativeName": "MALAYSIA",
+      "teamFile": 84,
+      "ordinal": 13,
+      "ogTeamNumber": 21517,
+      "stableClub": 21518,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "1f1fdb6a-cac5-55f7-a7d6-a6e8d85c6620",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "LVA",
+      "nativeName": "LATVIA",
+      "teamFile": 80,
+      "ordinal": 24,
+      "ogTeamNumber": 20504,
+      "stableClub": 20505,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "1a89ba26-2c86-57c2-b7ee-21dd3d9d7337",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "IND",
+      "nativeName": "INDIA",
+      "teamFile": 84,
+      "ordinal": 5,
+      "ogTeamNumber": 21509,
+      "stableClub": 21510,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "27bb9a03-0f6c-5bbd-8000-bf1abba30172",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CTA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Central African Republic",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "LBR",
+      "nativeName": "LIBERIA",
+      "teamFile": 81,
+      "ordinal": 16,
+      "ogTeamNumber": 20752,
+      "stableClub": 20753,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "50015e4e-5b00-5a64-bd2b-fd98187a69a6",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "TKM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Turkmenistan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BDI",
+      "nativeName": "BURUNDI",
+      "teamFile": 81,
+      "ordinal": 5,
+      "ogTeamNumber": 20741,
+      "stableClub": 20742,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "809e5e84-514a-5681-a0f3-e1255822fa36",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ETH",
+      "nativeName": "ETHIOPIA",
+      "teamFile": 81,
+      "ordinal": 9,
+      "ogTeamNumber": 20745,
+      "stableClub": 20746,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "186aa8cc-7d95-52e3-94c6-ebe043038e41",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "DOM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Dominican Republic",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "YEM",
+      "nativeName": "YEMEN",
+      "teamFile": 84,
+      "ordinal": 30,
+      "ogTeamNumber": 21534,
+      "stableClub": 21535,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "7f47920e-1c3e-50cf-82d7-6a1ab60af59c",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "LES",
+      "nativeName": "LESOTHO",
+      "teamFile": 81,
+      "ordinal": 15,
+      "ogTeamNumber": 20751,
+      "stableClub": 20752,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "e27cb527-af15-5176-9910-9775310558c1",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BOT",
+      "nativeName": "BOTSWANA",
+      "teamFile": 81,
+      "ordinal": 3,
+      "ogTeamNumber": 20739,
+      "stableClub": 20740,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "7b7a5417-d05e-575b-9713-6ad5e72b0c8d",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SGP",
+      "nativeName": "SINGAPORE",
+      "teamFile": 84,
+      "ordinal": 23,
+      "ogTeamNumber": 21527,
+      "stableClub": 21528,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "0e5443b4-a8b8-5d0b-a146-be6a8a5a73a7",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "LTU",
+      "nativeName": "LITHUANIA",
+      "teamFile": 80,
+      "ordinal": 26,
+      "ogTeamNumber": 20506,
+      "stableClub": 20507,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "7e0ba826-b3e7-576f-9717-3047698a609b",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "GUY",
+      "nativeName": "GUYANA",
+      "teamFile": 83,
+      "ordinal": 5,
+      "ogTeamNumber": 21253,
+      "stableClub": 21254,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "4328ed23-cbcd-5c35-ab56-e2c2fac3825c",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "NCL",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "New Caledonia",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SKN",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "St Kitts and Nevis",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SOL",
+      "nativeName": "SOLOMON ISLANDS",
+      "teamFile": 85,
+      "ordinal": 3,
+      "ogTeamNumber": 21763,
+      "stableClub": 21764,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/OCEANIA.json",
+      "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
+      "uuid": "d29bc18c-e22b-5a9a-ac7a-8749b40e4778",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "PUR",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Puerto Rico",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "FIJ",
+      "nativeName": "FIJI",
+      "teamFile": 85,
+      "ordinal": 1,
+      "ogTeamNumber": 21761,
+      "stableClub": 21762,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/OCEANIA.json",
+      "sourceBlob": "29c9a844fa06dd654971509d4457d635365ccdc6",
+      "uuid": "21e4afd5-98d2-5587-9d11-210118e1b263",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "HKG",
+      "nativeName": "HONG KONG",
+      "teamFile": 84,
+      "ordinal": 4,
+      "ogTeamNumber": 21508,
+      "stableClub": 21509,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "af9c985a-d97e-5e66-909d-a67556ed6be6",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "TAH",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Tahiti",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MYA",
+      "nativeName": "MYANMAR",
+      "teamFile": 84,
+      "ordinal": 15,
+      "ogTeamNumber": 21519,
+      "stableClub": 21520,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "f595f500-aa22-5787-b315-2348a427eedf",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "MDA",
+      "nativeName": "MOLDOVA",
+      "teamFile": 80,
+      "ordinal": 30,
+      "ogTeamNumber": 20510,
+      "stableClub": 20511,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "d8e2d972-abb7-5248-9da3-c7a9fde67be5",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "VAN",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Vanuatu",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MLT",
+      "nativeName": "MALTA",
+      "teamFile": 80,
+      "ordinal": 29,
+      "ogTeamNumber": 20509,
+      "stableClub": 20510,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "fc739eb8-1c90-55da-b66a-f92cf53132eb",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "ATG",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Antigua and Barbuda",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "GRN",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Grenada",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "CUB",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Cuba",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SWZ",
+      "nativeName": "SWAZILAND",
+      "teamFile": 81,
+      "ordinal": 27,
+      "ogTeamNumber": 20763,
+      "stableClub": 20764,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/AFRICA.json",
+      "sourceBlob": "dee31553a181a03959bc3b490949454e2fa7bba4",
+      "uuid": "a276d1dc-821b-54a7-adf3-00007b7cf9d4",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "LCA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "St Lucia",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BER",
+      "nativeName": "BERMUDA",
+      "teamFile": 83,
+      "ordinal": 0,
+      "ogTeamNumber": 21248,
+      "stableClub": 21249,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "9f142ff2-85a7-5310-a1f7-0bda9e921d1d",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "PNG",
+      "nativeName": "PAPUA NEW GUINEA",
+      "teamFile": 84,
+      "ordinal": 19,
+      "ogTeamNumber": 21523,
+      "stableClub": 21524,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "98067492-d3a0-5ad5-bfcf-60554bbc6dd9",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SSD",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "South Sudan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "VIN",
+      "nativeName": "ST. VINCENT",
+      "teamFile": 83,
+      "ordinal": 11,
+      "ogTeamNumber": 21259,
+      "stableClub": 21260,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/NORTH_AMERICA.json",
+      "sourceBlob": "e70806e14c758d488ad6e5c71a56b5e8f418a659",
+      "uuid": "6c7edb69-bbda-55db-959c-fb38c5a2bb66",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "AFG",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Afghanistan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "AND",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Andorra",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MDV",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Maldives",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "TPE",
+      "nativeName": "TAIWAN",
+      "teamFile": 84,
+      "ordinal": 27,
+      "ogTeamNumber": 21531,
+      "stableClub": 21532,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "8530892b-9c9c-5d26-885e-1538afbad7d8",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "CAM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Cambodia",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MSR",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Montserrat",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "NEP",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Nepal",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MRI",
+      "nativeName": "MAURITIUS",
+      "teamFile": 84,
+      "ordinal": 14,
+      "ogTeamNumber": 21518,
+      "stableClub": 21519,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "ca5ebb7e-cc17-513e-9ffe-7aa229e47464",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BRB",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Barbados",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BLZ",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Belize",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BAN",
+      "nativeName": "BANGLADESH",
+      "teamFile": 84,
+      "ordinal": 1,
+      "ogTeamNumber": 21505,
+      "stableClub": 21506,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "97ba6fc2-ca99-5c70-8268-e323f2217797",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "DMA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Dominica",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "CHA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Chad",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "ERI",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Eritrea",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "LAO",
+      "nativeName": "LAOS",
+      "teamFile": 84,
+      "ordinal": 12,
+      "ogTeamNumber": 21516,
+      "stableClub": 21517,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "9133caa2-9591-5cbe-ab1e-e7496d799014",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "COK",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Cook Islands",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SRI",
+      "nativeName": "SRI LANKA",
+      "teamFile": 84,
+      "ordinal": 25,
+      "ogTeamNumber": 21529,
+      "stableClub": 21530,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "eb9f611b-208c-5a2f-9725-c02e18668d5b",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SAM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Samoa",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "ARU",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Aruba",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MNG",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Mongolia",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "ASA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "American Samoa",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BHU",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Bhutan",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "MAC",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Macau",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "BRU",
+      "nativeName": "BRUNEI",
+      "teamFile": 84,
+      "ordinal": 2,
+      "ogTeamNumber": 21506,
+      "stableClub": 21507,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "f5960f74-8f27-5d47-8e6e-3df36231d7d9",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "STP",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "São Tomé and Príncipe",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "DJI",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Djibouti",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "CAY",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Cayman Islands",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "PAK",
+      "nativeName": "PAKISTAN",
+      "teamFile": 84,
+      "ordinal": 18,
+      "ogTeamNumber": 21522,
+      "stableClub": 21523,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "90c20d99-3b9b-5f7c-a2fd-9b7e1215f682",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "SOM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Somalia",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "TGA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Tonga",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "TLS",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Timor-Leste",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "GIB",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Gibraltar",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "GUM",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Guam",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SEY",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Seychelles",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "TCA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Turks and Caicos Islands",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "LIE",
+      "nativeName": "LIECHTENSTEIN",
+      "teamFile": 80,
+      "ordinal": 25,
+      "ogTeamNumber": 20505,
+      "stableClub": 20506,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "104683a0-88b5-5ba1-8059-9e34b9997f94",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "BAH",
+      "nativeName": "BAHRAIN",
+      "teamFile": 84,
+      "ordinal": 0,
+      "ogTeamNumber": 21504,
+      "stableClub": 21505,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/ASIA.json",
+      "sourceBlob": "44acd8e6cd3ce8ca1c64857157a5c03e0ea785ff",
+      "uuid": "dc510d2b-6ee6-52a1-a334-b1e7abec62bd",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    },
+    {
+      "code": "VIR",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "US Virgin Islands",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "VGB",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "British Virgin Islands",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "AIA",
+      "status": "REFERENCE_ONLY_NO_MATCH_IN_SCANNED_NATIONAL_FILES",
+      "stableClub": null,
+      "kind": "NATIONAL",
+      "addition": {
+        "realName": "Anguilla",
+        "status": "TEST_ROSTER_CANDIDATE_PENDING_RUNTIME_REGISTRATION",
+        "rosterTemplate": "TEST_ZERO",
+        "stableClub": null
+      }
+    },
+    {
+      "code": "SMR",
+      "nativeName": "SAN MARINO",
+      "teamFile": 80,
+      "ordinal": 38,
+      "ogTeamNumber": 20518,
+      "stableClub": 20519,
+      "kind": "NATIONAL",
+      "sourceFile": "data_json/teams/EUROPE.json",
+      "sourceBlob": "1466834aed1c07d2376cbde268442a5a1aa1012e",
+      "uuid": "4f610b16-c3b0-5aca-8a20-8f8c34d1da9f",
+      "status": "NATIONAL_IDENTITY_CANDIDATE_SHARED_CATALOG_NOT_RUNTIME"
+    }
+  ],
+  "ambiguousNativeRecords": [],
+  "coverage": {
+    "reviewed": 211,
+    "matched": 142,
+    "referenceOnly": 69,
+    "ambiguous": 0,
+    "unmatched": 69,
+    "nativeRecords": 142
+  },
+  "additionPolicy": {
+    "decisionDate": "2026-11-27",
+    "userApproved": "Missing teams: real names and TEST players; ask about conflicts.",
+    "world": 2627,
+    "rosterTemplate": "TEST_ZERO",
+    "registration": "NOT_REGISTERED",
+    "rules": "No overwrite or duplicate of existing ID; no insertion into a league or qualification from ranking alone. Verify active status and native/global slots, world isolation, OG cache and CAR before registration. Existing historical source labels/points unchanged. Existing OG national routines must resolve modern roster independently from shared 9697 data. Never create club-key for a national. FIFA codes are stable external keys, not OG numbers.",
+    "kind": "NATIONAL",
+    "nameSources": [
+      "https://inside.fifa.com/en/about-fifa/associations",
+      "https://www.rsssf.org/miscellaneous/fifa-codes.html"
+    ],
+    "notes": "RSSSF historical spelling/code differences for KOS, PLE, MNG normalized to existing FIFA seed codes; names not new rating values."
+  }
+}

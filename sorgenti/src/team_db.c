@@ -295,6 +295,8 @@ static struct Country *country_of(int32_t country)
     for (i = 0; i < c->count; i++) {
         TeamDbEntry *e = &c->entries[i];
         memcpy(&e->team, records + 2 + (size_t)i * kTeamRecord, sizeof e->team);
+        TeamSource_CorrectNationalName(e->team.team.countryNumber,
+            e->team.team.teamOrdinal, e->team.team.teamName);
         e->ids = ids[i];
         /* What the file does not state is the 96/97 database's, by the formula. */
         if (!e->ids.uuid[0])

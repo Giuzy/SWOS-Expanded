@@ -89,6 +89,40 @@ def publish(db,folder,names):
         dest=folder/edition
         for c,rows in sorted(groups.items()):atomic(dest/(c+".json"),rows)
         atomic(dest/"INDEX.json",{"countries":{c:len(r) for c,r in sorted(groups.items())},"players":sum(map(len,groups.values()))})
+def snapshot_digest(db,edition):
+    h=hashlib.sha256();count=0
+    for uid,payload in db.execute("SELECT id,payload FROM players WHERE edition=? ORDER BY id",(edition,)):
+        h.update((json.dumps([uid,json.loads(payload)],ensure_ascii=False,sort_keys=True)+"\n").encode())
+        count+=1
+    return count,h.hexdigest()
+
+def ingest(db,edition,rows,source_hash=None):
+    added=0
+    with db:
+        for uid,row in rows.items():
+            payload=json.dumps(row,ensure_ascii=False,sort_keys=True)
+            previous=db.execute("SELECT payload FROM players WHERE edition=? AND id=?",(edition,uid)).fetchone()
+            if previous:
+                if json.loads(previous[0])!=row:raise ValueError("Existing EA snapshot differs; no automatic overwrite")
+                continue
+            db.execute("INSERT INTO players VALUES(?,?,?)",(edition,uid,payload));added+=1
+        count,digest=snapshot_digest(db,edition)
+        # A manual CSV or mixed local snapshot must not mark the pinned
+        # official-source archive as fully ingested.
+        if source_hash and count==len(rows):
+            db.execute("INSERT OR REPLACE INTO completed_snapshots VALUES(?,?,?,?)",(edition,source_hash,count,digest))
+        else:
+            db.execute("DELETE FROM completed_snapshots WHERE edition=?",(edition,))
+    return added
+
+def already_ingested(db,edition,source_hash):
+    mark=db.execute("SELECT source_hash,row_count,digest FROM completed_snapshots WHERE edition=?",(edition,)).fetchone()
+    return bool(mark and mark[0]==source_hash and (mark[1],mark[2])==snapshot_digest(db,edition))
+
+def schema(db):
+    db.execute("CREATE TABLE IF NOT EXISTS players(edition TEXT,id TEXT,payload TEXT,PRIMARY KEY(edition,id))")
+    db.execute("CREATE TABLE IF NOT EXISTS completed_snapshots(edition TEXT PRIMARY KEY,source_hash TEXT,row_count INTEGER,digest TEXT)")
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--self-test",action="store_true");ap.add_argument("--repo-root",type=Path,default=HERE.parent);ap.add_argument("--edition",choices=("fc27","fc26","both"),default="both");ap.add_argument("--fc26-csv",type=Path)
     a=ap.parse_args()
@@ -97,25 +131,33 @@ def main():
         rows=parse(data,"fc27");assert set(rows)=={"1"} and "edition" not in rows["1"] and rows["1"]["pace"]=="70"
         fc26=b"ID,Name,GENDER,OVR,Nation,Team,PAC,card\n7,Same Name,M,80,Egypt,A,75,https://example.com/card\n8,Same Name,M,79,Egypt,B,73,\n"
         rows=parse(fc26,"fc26",male_file=True);assert len(rows)==2 and "card" not in rows["7"]
+        db=sqlite3.connect(":memory:");schema(db)
+        assert ingest(db,"fc26",rows,"hash")==2
+        assert already_ingested(db,"fc26","hash") and not already_ingested(db,"fc27","hash")
+        assert ingest(db,"fc26",rows,"hash")==0
+        try:ingest(db,"fc26",{"7":dict(rows["7"],name="Different")},"hash")
+        except ValueError:pass
+        else:raise AssertionError("Conflicting snapshot accepted")
+        assert already_ingested(db,"fc26","hash")
+        db.execute("DELETE FROM players WHERE id='7'");assert not already_ingested(db,"fc26","hash")
+        db.close()
         print("EA self-test PASS");return
     LOCAL.mkdir(exist_ok=True);cache=LOCAL/"sources";cache.mkdir(exist_ok=True)
     names=country_names(a.repo_root);db=sqlite3.connect(LOCAL/"stats.sqlite3")
     db.execute("PRAGMA journal_mode=WAL")
-    db.execute("CREATE TABLE IF NOT EXISTS players(edition TEXT,id TEXT,payload TEXT,PRIMARY KEY(edition,id))")
+    schema(db)
     failures=[]
     try:
         for edition in ("fc27","fc26") if a.edition=="both" else (a.edition,):
             try:
-                data=a.fc26_csv.read_bytes() if edition=="fc26" and a.fc26_csv else download(edition,cache)
-                # Local CSV override requires explicit gender; verified men's file does not.
-                rows=parse(data,edition,male_file=edition=="fc26" and not a.fc26_csv)
-                with db:
-                    for uid,row in rows.items():
-                        payload=json.dumps(row,ensure_ascii=False,sort_keys=True)
-                        previous=db.execute("SELECT payload FROM players WHERE edition=? AND id=?",(edition,uid)).fetchone()
-                        if previous and previous[0]!=payload:raise ValueError("Existing EA snapshot differs; no automatic overwrite")
-                        db.execute("INSERT OR IGNORE INTO players VALUES(?,?,?)",(edition,uid,payload))
-                print(edition,len(rows),"male player rows",flush=True)
+                local=edition=="fc26" and a.fc26_csv is not None
+                source_hash=None if local else SOURCES[edition][1]
+                if source_hash and already_ingested(db,edition,source_hash):
+                    print(edition,"snapshot already complete; 0 new players",flush=True);continue
+                data=a.fc26_csv.read_bytes() if local else download(edition,cache)
+                rows=parse(data,edition,male_file=edition=="fc26" and not local)
+                added=ingest(db,edition,rows,source_hash)
+                print(edition,len(rows),"male player rows;",added,"new;",len(rows)-added,"already stored",flush=True)
             except Exception as e:
                 failures.append((edition,str(e)));print(edition,"ERROR",e,flush=True)
         publish(db,LOCAL/"countries",names)

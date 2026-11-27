@@ -171,11 +171,34 @@ def existing_query(fifa,name):
        {LABEL}
     }}"""
 def merge_players(club,rows,known):
-    saved={(p["player"],p.get("membership"),p.get("start"),p.get("end")):p for p in club.get("players",[])}
+    # Preserve legacy evidence byte-for-byte; only prevent new duplicates.
+    saved=list(club.get("players",[]))
+    def key(p):
+        membership=p.get("membership")
+        try:player=qid(p["player"])
+        except (ValueError,TypeError,AttributeError,KeyError):player=p.get("player")
+        return (player,membership.rsplit("/",1)[-1] if membership else None,p.get("start"),p.get("end"))
+    existing={key(p) for p in saved}
     for p in rows:
         if p.get("playerLabel") and p.get("start") and p["start"]<=CUTOFF and (not p.get("end") or p["end"]>CUTOFF):
-            if norm(p["playerLabel"]) not in known:saved.setdefault((p["player"],p.get("membership"),p.get("start"),p.get("end")),p)
-    return update_changed(club, players=list(saved.values()), status="P" if saved else "NO DATA")
+            k=key(p)
+            if norm(p["playerLabel"]) not in known and k not in existing:
+                saved.append(p);existing.add(k)
+    return update_changed(club, players=saved, status="P" if saved else "NO DATA")
+def extra_candidates_by_name(owner,native_names):
+    """Compute import review groups; never create a second roster or write TEAM."""
+    groups={}
+    for field in ("players","alternative_players","transfermarkt_players"):
+        for row in owner.get(field,[]):
+            label=row.get("playerLabel")
+            if placeholder(label):continue
+            k=norm(label)
+            if not k or k in native_names:continue
+            groups.setdefault(k,[]).append((field,row))
+    # Cross-source matches remain evidence, not extra people. Distinct IDs
+    # with identical names must be reviewed, not silently merged/imported.
+    return groups
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--self-test",action="store_true")
@@ -190,6 +213,15 @@ def main():
     c={};sample={"player":"Q1","playerLabel":"Real Name","start":"2026-01-01"}
     assert merge_players(c,[sample,sample],set()) and len(c["players"])==1
     assert not merge_players(c,[sample,sample],set())
+    assert not merge_players(c,[dict(sample,player="https://www.wikidata.org/entity/Q1",playerLabel="Alias")],set())
+    native={"joaosilva"}
+    d={}
+    merge_players(d,[dict(sample,player="Q2",playerLabel="João Silva")],native)
+    assert not d["players"]
+    grouped=extra_candidates_by_name({"players":[dict(sample,playerLabel="João Silva"),dict(sample,playerLabel="John Doe")],
+                                      "transfermarkt_players":[{"playerLabel":"Joao Silva","transfermarktPlayerId":"99"}]},
+                                     {"johndoe"})
+    assert list(grouped)==["joaosilva"] and len(grouped["joaosilva"])==2
     assert not merge_players(c,[],set()) and c["status"]=="P"
     if args.self_test:
         from tempfile import TemporaryDirectory
@@ -255,8 +287,8 @@ def main():
         for v in matches.values():
             uid=v["uuid"]
             if not uid:continue
-            known[uid]=v["players"]
             if len(v["players"])>=30 and not v["test_slots"]:continue
+            known[uid]=v["players"]
             cs=rawmap.get(v["country"],set()) if not v["file"].startswith("GUESTS_") else set()
             e=cp.ensure(gaps,uid,{"name":v["name"],"file":v["file"],"players":[],"status":"NO DATA","identity_candidates":[]})
             cp.update(e,real_names=len(v["players"]),test_slots=v["test_slots"],extra_count=v["extra_count"],capacity_gap=max(0,30-len(v["players"])),association=next(iter(cs)) if len(cs)==1 else None)
@@ -337,5 +369,9 @@ def main():
         try:
             save();store.publish()
         finally:store.close()
+    groups=[extra_candidates_by_name(e,known[uid]) for uid,e in gaps.items() if uid in known]
+    print("EXTRA review: distinct missing club/name groups",sum(map(len,groups)),
+          "multi-observation groups",sum(len(v)>1 for g in groups for v in g.values()),
+          "(not certified players)",flush=True)
     print("Canonical nominal matrix updated. NO DATA unresolved; P candidates; runtime unchanged. Errors:",len(results["errors"]))
 if __name__=="__main__":main()

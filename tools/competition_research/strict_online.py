@@ -8,6 +8,7 @@ sys.path.insert(0,str(ROOT/"SWOS_Roster_Research"))
 from http_retry import fetch as request_bytes
 from competition_sources import Cached, Discovery, fd_route, fd_packet, wanted as gap_fields, selftest as sources_selftest
 from research import COUNTRIES
+from evidence_delta import delta as evidence_delta, selftest as delta_selftest
 FIELDS=("name","identity","participants","format","regulation","movement","qualification","july1","roundDates","competitionDays","evolution","seasonChange")
 ROUTES=[
  (186,"ITA","div1","2026-27/it.1.json","Italian Serie A 2026/27",20),
@@ -80,7 +81,7 @@ def apply(root,download=fetch,refresh=False,only_country=None,only_world=None):
         ident=row.get("technicalIdentity",{})
         if (row.get("world"),ident.get("country"),ident.get("detail"),ident.get("category"))!=("2627",country,tier,"LEAGUE_DIVISION"):
             errors.append([rid,"identity mismatch"]);continue
-        wanted=[k for k in gap_fields(row,("participants","format","roundDates","july1")) if k not in row.get("strictAcquisitionFields",[])]
+        wanted=gap_fields(row,("participants","format","roundDates","july1"))
         if not wanted:continue
         attempted[rid].update(wanted)
         try:
@@ -96,13 +97,16 @@ def apply(root,download=fetch,refresh=False,only_country=None,only_world=None):
             if (rec.get("world"),rec.get("country"),rec.get("detail"),rec.get("id"))!=("2627",country,tier,ident.get("id")):raise ValueError("Sheet identity mismatch")
             packet={k:ev[k] for k in wanted if ev[k]}
             if not packet:continue
-            key=hashlib.sha256(raw).hexdigest()
-            target=rec.setdefault("automaticResearch",{}).setdefault("strictAcquisition",{})
-            if key not in target:
-                target[key]={"document":title,"fields":packet,"scope":"P evidence only: native IDs, nominal dates, complete cutoff and rules require review; no post-start scores"}
-                stage(sheet,records);inserted+=1
-            row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(packet))
-            row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
+            fresh=evidence_delta(rec,packet)
+            if fresh:
+                key="delta:"+hashlib.sha256(encode(fresh)).hexdigest()
+                target=rec.setdefault("automaticResearch",{}).setdefault("strictAcquisition",{})
+                if key not in target:
+                    target[key]={"document":title,"fields":fresh,"deltaOnly":True,"scope":"P delta only: not a complete roster or round list; native IDs, conflicts, dates and rules require review; no post-start scores"}
+                    stage(sheet,records);inserted+=1
+            if fresh:
+                row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(fresh))
+                row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
         except Exception as e:errors.append([rid,str(e)])
     for row in selected:
         fields=gap_fields(row,FIELDS)
@@ -143,13 +147,16 @@ def apply(root,download=fetch,refresh=False,only_country=None,only_world=None):
             if len(matches)!=1:raise ValueError("Sheet row mismatch")
             rec=matches[0]
             if (rec.get("world"),rec.get("country"),rec.get("detail"),rec.get("id"))!=(row["world"],ident.get("country"),ident.get("detail"),ident.get("id")):raise ValueError("Sheet identity mismatch")
-            key="football-data:"+hashlib.sha256(encode(wanted)).hexdigest()
-            target=rec.setdefault("automaticResearch",{}).setdefault("strictAcquisition",{})
-            if key not in target:
-                target[key]={"document":url,"fields":wanted,"scope":"P evidence only: observed dates and clubs, no scores, no certified rules"}
-                stage(sheet,records);inserted+=1
-            row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(wanted))
-            row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
+            fresh=evidence_delta(rec,wanted)
+            if fresh:
+                key="football-data:delta:"+hashlib.sha256(encode(fresh)).hexdigest()
+                target=rec.setdefault("automaticResearch",{}).setdefault("strictAcquisition",{})
+                if key not in target:
+                    target[key]={"document":url,"fields":fresh,"deltaOnly":True,"scope":"P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"}
+                    stage(sheet,records);inserted+=1
+            if fresh:
+                row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(fresh))
+                row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
         except Exception as e:errors.append([row.get("row"),"Football-Data: "+str(e)])
     for row in selected:
         s=states(row);partial=set(row.get("strictAcquisitionFields",[]))
@@ -180,6 +187,7 @@ def selftest():
     from matrix_storage import selftest as matrix_selftest
     matrix_selftest()
     sources_selftest()
+    delta_selftest()
     r=(1,"ENG","div1","2026-27/x.json","Men League 2026/27",2)
     a={"name":r[4],"matches":[{"round":"Matchday 1","date":"2026-08-01","team1":"A","team2":"B","score":{"ft":[9,0]}},{"round":"Matchday 2","date":"2026-08-08","team1":"B","team2":"A"}]}
     assert validate(encode(a),r)["july1"]==[]

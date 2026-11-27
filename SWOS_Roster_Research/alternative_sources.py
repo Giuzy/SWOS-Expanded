@@ -59,9 +59,51 @@ def datasets(tar,folder):
             if k in spec:tables[season,k]=extract(spec[k])
     return tables
 
+def observation_key(field,row):
+    # IDs are source-specific; seasonal candidates and July memberships
+    # are not interchangeable. Ignore only presentation/provenance changes.
+    if field in ("alternative_clubs","alternative_players"):
+        identity=(row.get("clubQid"),row.get("country"),row.get("competition"),row.get("season"))
+        if all(identity):
+            if field=="alternative_clubs":return ("ofb",)+identity
+            if row.get("player"):return ("ofb",)+identity+(row["player"],row.get("stint"),row.get("stint_date"))
+    if field in ("transfermarkt_clubs","transfermarkt_players"):
+        identity=(row.get("transfermarktClubId"),row.get("country"),row.get("competition"),row.get("season"),row.get("level"))
+        if all(identity):
+            if field=="transfermarkt_clubs":return ("tm",)+identity
+            if row.get("transfermarktPlayerId"):return ("tm",)+identity+(row["transfermarktPlayerId"],)
+    return None
+
+def player_name_scope(row):
+    # No fuzzy surname, initials, global or cross-edition name matching.
+    label=norm(row.get("playerLabel") or "")
+    club=norm(row.get("club") or "")
+    country=row.get("country");season=row.get("season")
+    return (country,season,club,label) if all((country,season,club,label)) else None
+
 def add_unique(cp,owner,field,row):
-    seq=cp.ensure(owner,field,[])
-    if row not in seq:cp.append(seq,row)
+    seq=owner.get(field,[])
+    key=observation_key(field,row)
+    if any(old==row or (key is not None and observation_key(field,old)==key) for old in seq):return False
+    other={"alternative_players":"transfermarkt_players","transfermarkt_players":"alternative_players"}.get(field)
+    scope=player_name_scope(row) if other else None
+    if scope:
+        matches=[old for old in owner.get(other,[]) if player_name_scope(old)==scope]
+        # Same displayed name in the same club/season is one import
+        # candidate until reviewed; preserve the other source ID as a
+        # compact unresolved match, not as a second automatic EXTRA.
+        # Distinct IDs from the same source may be real homonyms.
+        if len(matches)==1 and not any(player_name_scope(old)==scope for old in seq):
+            review={"status":"NAME_MATCH_REVIEW","field":field,"name":row["playerLabel"],
+                    "country":row["country"],"season":row["season"],"club":row["club"],
+                    "candidate":list(key) if key else None,
+                    "existing":list(observation_key(other,matches[0]) or ()),
+                    "source":row.get("source"),"source_title":row.get("source_title")}
+            reviews=cp.ensure(owner,"name_matches",[])
+            if review not in reviews:cp.append(reviews,review)
+            return False
+    cp.append(cp.ensure(owner,field,[]),row)
+    return True
 
 MALE_LEAGUES={"ENG-PL","ENG-CH","ESP-LL","ESP-SD","ITA-SA","ITA-SB","DEU-BL","DEU-B2","FRA-L1","FRA-L2","BEL-PL","PRT-PL","NLD-ED","TUR-SL","USA-MLS","SAU-PL","BRA-SA","ARG-PD"}
 MALE_LABELS={"men","male","men's association football","men's football","football masculin","football association masculin","association football masculin","masculin","hommes","männlicher fußball"}
@@ -128,13 +170,19 @@ def acquire(results,cp,cache,root,known,phase):
                     if row.get("stint")=="loan_out":continue
                     if uid and norm(row["player"]) in known[uid]:continue
                     observation=dict(entry,player=q,playerLabel=row["player"],source_title=row.get("source_title"),source_revid=row["source_revid"],stint=row.get("stint"),stint_date=row.get("stint_date"))
-                    for owner in owners:add_unique(cp,owner,"alternative_players",observation)
-                    count+=1
+                    for owner in owners:count+=int(add_unique(cp,owner,"alternative_players",observation))
                 cp.save()
             print("Alternative season player observations:",count,flush=True)
         finally:db.close()
 
 def selftest():
+    a={'clubQid':'Q1','country':'BRA','competition':'BRA-SA','season':'2026','player':'Q2','playerLabel':'A','source_revid':1}
+    assert observation_key('alternative_players',a)==observation_key('alternative_players',dict(a,playerLabel='Alias',source_revid=2))
+    assert observation_key('alternative_players',a)!=observation_key('alternative_players',dict(a,season='2026/27'))
+    assert observation_key('alternative_players',a)!=observation_key('alternative_players',dict(a,stint='loan_in'))
+    assert player_name_scope(dict(a,club="São Paulo",playerLabel="João Silva"))==player_name_scope(dict(a,club="Sao Paulo",playerLabel="Joao Silva"))
+    assert player_name_scope(dict(a,club="A",playerLabel="João Silva"))!=player_name_scope(dict(a,club="B",playerLabel="Joao Silva"))
+    assert player_name_scope(dict(a,club="A",playerLabel="João Silva"))!=player_name_scope(dict(a,club="A",playerLabel="João Silva",season="2026/27"))
     allowed={"GER"}
     assert scoped("DEU","A FC","men","Bundesliga",1,"2026/27",allowed)=="GER"
     assert scoped("DEU","A Women","men","Bundesliga",1,"2026/27",allowed) is None

@@ -28,6 +28,8 @@
 #ifdef SWOS_SDL_BUILD
 #include <stdlib.h>            /* getenv — SWOS_DATA_JSON team-load wire-in */
 #include <stdio.h>             /* OG DEBUG WORLD back-navigation trace */
+#include "expanded_national_2627.h"
+#include "team_db.h"
 #endif
 
 #ifdef SWOS_SDL_BUILD
@@ -223,6 +225,10 @@ void SetTeamGlobalNumbers(uint16_t numTeams, uint8_t *firstTeam)
         localNum = team->team.teamOrdinal & 0xFF;
         globalNum += localNum;
 
+#ifdef SWOS_SDL_BUILD
+        const ExpandedNationalRow *national=ExpandedNational_ByRaw((uint16_t)(((uint16_t)team->team.countryNumber<<8)|team->team.teamOrdinal));
+        if(national && national->added_global!=65535u)globalNum=national->added_global;
+#endif
         team->team.globalTeamNumber = (int16_t)globalNum;
 
         team++;
@@ -468,6 +474,14 @@ int16_t LoadTeamFile(uint16_t extNumber)
 #endif
         }
 
+#ifdef SWOS_SDL_BUILD
+        if(ExpandedNational_Active() && ext8>=80u && ext8<=85u &&
+           ExpandedNational_Append(ext8,_teamFileBuffer,*(uint16_t *)_teamFileBuffer,TEAM_FILE_MAX_TEAMS)<0) {
+            fprintf(stderr,"[national-2627] TEAM_APPEND_REJECTED file=%u\n",(unsigned)ext8);
+            _teamsLoaded=0;
+            return 1;
+        }
+#endif
         /* Shared post-load processing (binary OR json source). */
         if (ext8 == 81u) {
             uint16_t n = *(uint16_t *)_teamFileBuffer;
@@ -1159,6 +1173,12 @@ uint16_t GetPlayerSlotIndexByPlayerNumber(uint16_t teamNumber, uint16_t playerNu
 __attribute__((used, externally_visible))
 uint8_t *GetNationalityRecordPtr(uint16_t teamFileAndOrdinal)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedNational_Active()) {
+        const ExpandedNationalRow *r=ExpandedNational_ByRaw(teamFileAndOrdinal);
+        return r?(uint8_t *)&r->og:NULL;
+    }
+#endif
     NationalTeamRecord *rec = (NationalTeamRecord *)_nationalTeams;
     uint16_t count = _numNationalTeams;
     for (uint16_t i = 0; i < count; i++) {
@@ -1182,6 +1202,12 @@ uint8_t *GetNationalityRecordPtr(uint16_t teamFileAndOrdinal)
 __attribute__((used, externally_visible))
 int16_t GetNationalTeamNumber(uint16_t nationality)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedNational_Active()) {
+        const ExpandedNationalRow *r=ExpandedNational_ByNationality(nationality);
+        return r?(int16_t)ExpandedNational_Raw(r):-1;
+    }
+#endif
     NationalTeamRecord *rec = (NationalTeamRecord *)_nationalTeams;
     uint16_t count = _numNationalTeams;
     for (uint16_t i = 0; i < count; i++) {
@@ -1206,6 +1232,12 @@ int16_t GetNationalTeamNumber(uint16_t nationality)
 __attribute__((used, externally_visible))
 int16_t GetNationalTeamNumberFromTeamFileId(uint16_t teamFileId)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedNational_Active()) {
+        const ExpandedNationalRow *r=ExpandedNational_ByHome(teamFileId);
+        return r?(int16_t)ExpandedNational_Raw(r):-1;
+    }
+#endif
     NationalTeamRecord *rec = (NationalTeamRecord *)_nationalTeams;
     uint16_t count = _numNationalTeams;
     for (uint16_t i = 0; i < count; i++) {
@@ -3173,6 +3205,36 @@ extern int Expanded_UnemployedWorldPickerActive(void);
 extern int Expanded_OfferPickerActive(void);
 extern uint8_t Expanded_OfferPickerDivision(void);
 extern int Expanded_OfferPickerCupEligible(uint8_t,uint8_t);
+/* Viewer-only rows; never install a fake country or league in the OG graph. */
+static unsigned s_expNationalPickerMode,s_expNationalPickerBase,s_expNationalPickerCount;
+static const ExpandedNationalRow *s_expNationalPickerRows[64];
+int Expanded_NationalWorldButtonInactive(unsigned idx)
+{
+    return s_expNationalPickerMode==1u && idx>=s_expNationalPickerBase && idx<s_expNationalPickerCount;
+}
+static void Expanded_NationalWorldView(const ExpandedNationalRow *r)
+{
+    extern uint16_t _selTeamNumber;
+    extern TeamFile *_squadTeamPtr;
+    extern uintptr_t _viewSquadTitle;
+    extern uint32_t _viewSquadFlags,_viewSquadMaskLo,_viewSquadMaskHi;
+    extern uint16_t _viewSquadArg2,_viewSquadArg3;
+    extern volatile uint16_t _viewSquadSelectedPlayer,_viewSquadSelectedTeam;
+    extern int16_t ShowSquad(TeamFile *,uint8_t *,uint32_t,uint32_t,uint16_t,uint16_t);
+    static uint8_t title[]="VIEW SQUAD";
+    const TeamDbEntry *e=TeamDb_Team(r->og.countryNumber,r->og.teamOrdinal);
+    if(!e)return;
+    TeamFileEx copy=e->team;
+    TeamFile *oldTeam=_squadTeamPtr;
+    uintptr_t oldTitle=_viewSquadTitle;
+    uint32_t oldFlags=_viewSquadFlags,oldLo=_viewSquadMaskLo,oldHi=_viewSquadMaskHi;
+    uint16_t oldA=_viewSquadArg2,oldB=_viewSquadArg3,oldP=_viewSquadSelectedPlayer,oldT=_viewSquadSelectedTeam;
+    _viewSquadFlags=0;
+    ShowSquad(ExpandedNational_Raw(r)==_selTeamNumber?&_careerTeam.team:&copy.team,title,0,0,1,0xffffu);
+    _squadTeamPtr=oldTeam;_viewSquadTitle=oldTitle;_viewSquadFlags=oldFlags;
+    _viewSquadMaskLo=oldLo;_viewSquadMaskHi=oldHi;_viewSquadArg2=oldA;_viewSquadArg3=oldB;
+    _viewSquadSelectedPlayer=oldP;_viewSquadSelectedTeam=oldT;
+}
 static uint8_t s_expOGPickerLastCountry=255u;
 uint8_t Expanded_OGPicker_LastCountry(void) { return s_expOGPickerLastCountry; }
 #endif
@@ -3214,6 +3276,9 @@ void SelectTeamsFinalMenu(uint16_t mode)
 
     _leagueNumber = 0;
     s_groupLevel = -1;
+#ifdef SWOS_SDL_BUILD
+    s_expNationalPickerMode=0;
+#endif
     HLOG("SelectTeamsFinalMenu enter mode=%u\n", (unsigned)mode);
 
     /* Initialize customsLeague: offset 9 = comp.divisionsCount, offset 0xD = divisions[0].teams */
@@ -3585,6 +3650,27 @@ loc_E2D0:
         }
     }
 
+#ifdef SWOS_SDL_BUILD
+    s_expNationalPickerMode=0;
+    if(ExpandedNational_Active() && _gameType==GAME_TYPE_CAREER &&
+       _chooseCompetitionOnly && !Expanded_OfferPickerActive() && d7>=80u && d7<=85u) {
+        /* National careers see the regional national squads. Club careers
+         * retain every existing country row plus the 63 inactive new ones. */
+        s_expNationalPickerMode=_isNationalSelector?2u:1u;
+        if(s_expNationalPickerMode==2u){countryNamesPtr=_countryNames;cnCount=0;}
+        s_expNationalPickerBase=cnCount;
+        for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){
+            const ExpandedNationalRow *r=&kExpandedNational2627[i];
+            if(r->og.countryNumber!=d7)continue;
+            if(s_expNationalPickerMode==1u && (r->added_global==65535u || r->og.teamFileId!=255u))continue;
+            if(cnCount>=64u){fprintf(stderr,"[national-2627] WORLD_MENU_CAPACITY file=%u\n",(unsigned)d7);break;}
+            s_expNationalPickerRows[cnCount]=r;
+            *countryNamesPtr++=(void *)r->name;
+            cnCount++;
+        }
+        s_expNationalPickerCount=cnCount;
+    }
+#endif
     _chooseTeamsNumTeams = cnCount;
 
     /* loc_13E318: prepare menu */
@@ -3673,6 +3759,15 @@ loc_E2D0:
     goto loc_E50A;
 
 loc_E3DC:
+#ifdef SWOS_SDL_BUILD
+    if(s_expNationalPickerMode==2u && d7<s_expNationalPickerCount) {
+        PushLastSelectedTeam();
+        Expanded_NationalWorldView(s_expNationalPickerRows[d7]);
+        d7=d6;
+        goto loc_E012;
+    }
+    if(Expanded_NationalWorldButtonInactive(d7)){d7=d6;goto loc_E012;}
+#endif
     PushLastSelectedTeam();
 
     if (_showCupsAndOther != 0 || _playSeason != 0 || _teamsType != 0) {
@@ -3889,6 +3984,9 @@ exit_clear:
     /* loc_13E7A6: */
     _chooseTeamsResult = 0;
 exit_return:
+#ifdef SWOS_SDL_BUILD
+    s_expNationalPickerMode=0;
+#endif
     /* locret_13E7AC: */
     return;
 }

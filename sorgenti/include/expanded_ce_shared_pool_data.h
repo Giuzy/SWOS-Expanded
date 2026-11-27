@@ -2,6 +2,9 @@
 #define EXPANDED_CE_SHARED_POOL_DATA_H
 /* Shared immutable catalogue; no sporting decisions, no CAR writes. */
 #include "expanded_ce_shared_pool_identity.h"
+#include "expanded_test_zero.h"
+/* Pool globals stored in earlier CARs descend from the old 2560 ceiling. */
+#define EXP_CE_POOL_SAVED_CAPACITY ((GLOBAL_TEAM_NUMBERS)>2560u?2560u:(GLOBAL_TEAM_NUMBERS))
 #include "mjson.h"
 #include "swos_io.h"
 #include "game_types.h"
@@ -94,7 +97,7 @@ static inline int ExpCeSharedPool_Load(ExpCeSharedPoolData *out)
          x.key=(country<<16)|(slot+1u);
          snprintf(expect,sizeof expect,"%u:%u",(unsigned)country,(unsigned)slot+1u);}
         if(strcmp(key,expect) ||
-           !ExpCePool_GlobalSlot(GLOBAL_TEAM_NUMBERS,_teamsCountryNumbers[255],id,&x.global))
+           !ExpCePool_GlobalSlot(EXP_CE_POOL_SAVED_CAPACITY,_teamsCountryNumbers[255],id,&x.global))
             goto done;
         x.id=id;x.country=(uint8_t)country;x.division=(uint8_t)division;
         for(i=0;i<p.n;++i)
@@ -133,28 +136,5 @@ static inline int ExpCeSharedPool_SavedRosterOK(const ExpCeSharedPoolData *p,
     return !ExpCePool_IsReservedGlobal(_teamsCountryNumbers[255],g);
 }
 static inline void ExpCeSharedPool_Materialize(const ExpCeSharedPoolRow *x,TeamFileEx *t)
-{
-    /* One TEST_ZERO source copied by value; positions and shirt numbers
-     * are mechanical OG roster metadata, not fabricated skill. */
-    static const uint8_t roles[16]={0,1,2,3,3,4,5,6,6,7,7,0,1,3,6,7};
-    PlayerFile template_player={0};
-    unsigned i;
-    memset(t,0,sizeof *t);
-    t->team.countryNumber=(uint8_t)(x->raw>>8);t->team.teamOrdinal=(uint8_t)x->raw;
-    t->team.globalTeamNumber=(int16_t)x->global;
-    t->team.league=255u; /* outside league; CE membership is sole writer */
-    memcpy(t->team.teamName,x->name,strlen(x->name));
-    t->team.prShirtType=t->team.secShirtType=1u;
-    t->team.prBasicColor=2u;t->team.secBasicColor=0u;
-    t->team.prShortsColor=2u;t->team.secShortsColor=0u;
-    t->team.prSocksColor=2u;t->team.secSocksColor=0u;
-    t->team.playerValuesDirty=TEAM_VALUES_DIRTY;
-    memcpy(template_player.playerName,"TEST",4u);
-    for(i=0;i<16u;++i) {
-        t->players[i]=template_player;
-        t->players[i].shirtNumber=(int8_t)(i+1u);
-        t->players[i].positionAndFace=(uint8_t)(roles[i]<<PF_POSITION_SHIFT);
-        t->team.playerNumbers[i]=(uint8_t)i;
-    }
-}
+{ExpCeTestZero_Materialize(x->raw,x->global,x->name,t);}
 #endif

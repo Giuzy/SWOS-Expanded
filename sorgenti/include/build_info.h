@@ -265,7 +265,8 @@
 /* v00.13.341: five-year Australian cycle test; annual source dependencies bound to the right season; rivalries of absent clubs skipped; wider A-League finals windows. */
 /* v00.13.342: five-year Italian cycle test (A/B/C, Serie B 4 relegations in total); the CE planner now skips days on which a participating club already has a fixture of another competition (generic, no country code); Serie B relegated=4 in leagues.json. */
 /* v00.13.343: correct historic Zambia label and prepare isolated CE ranking kernel. Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.343"
+/* v00.13.344: 69 modern national TEST squads, 211 national identity lookups, CT/WORLD selection; Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.344"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

@@ -34,6 +34,7 @@
 #include "swos_io.h"
 #include "world.h"  /* TeamDb identities follow the selected world */
 #include "team_source.h"  /* shared historic CAREER TEAM path */
+#include "expanded_national_2627.h"
 
 extern uint16_t _gameType;
 
@@ -217,7 +218,8 @@ static int32_t read_country(int32_t country, uint8_t *records, uint32_t size, Te
         (count = DataJson_LoadTeamFileForCountry(country, records, kMaxTeamsInFile)) > 0) {
         if (DataJson_LoadTeamIdsForCountry(country, ids, kMaxTeamsInFile) != count)
             memset(ids, 0, sizeof *ids * kMaxTeamsInFile);
-        return count;
+        int appended=ExpandedNational_Append((uint8_t)country,records,count,kMaxTeamsInFile);
+        return appended<0?0:appended;
     }
     /* Match LoadTeamFile's career-only OpenSWOS files. When an optional
      * historic file is missing or invalid, use the original binary source;
@@ -260,7 +262,9 @@ static int32_t read_country(int32_t country, uint8_t *records, uint32_t size, Te
     if (LoadFileEx((uint8_t *)name, records, &got) != 0 || got < 2 || got > size)
         return 0;
     count = BE_READ_U16(records);
-    return (uint32_t)count * kTeamRecord + 2 <= got ? count : 0;
+    if((uint32_t)count*kTeamRecord+2u>got || count>kMaxTeamsInFile)return 0;
+    int appended=ExpandedNational_Append((uint8_t)country,records,count,kMaxTeamsInFile);
+    return appended<0?0:appended;
 }
 
 static struct Country *country_of(int32_t country)

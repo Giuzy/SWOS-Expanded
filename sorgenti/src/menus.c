@@ -31,6 +31,9 @@
 #include "game_utils.h"
 #include "game_types.h"
 #include "world.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_national_2627.h"
+#endif
 #include "frontend.h"
 #include "test_rules.h"
 #include "display.h"            /* AGA: which Amiga display this build is */
@@ -5705,7 +5708,6 @@ void SelectTeamsCommon(MenuEntry *entry)
         uint16_t ord = entry->ordinal;
         uint16_t idx;
 
-        _lastSelectedTeam = ord;
         idx = ord - 21 + _startingTeamIndex;
 
         /* Convert column ordinal to flat index */
@@ -5720,6 +5722,11 @@ void SelectTeamsCommon(MenuEntry *entry)
             idx += _numTeamsColumn1;
         }
 
+#ifdef SWOS_SDL_BUILD
+        { extern int Expanded_NationalWorldButtonInactive(unsigned);
+          if(Expanded_NationalWorldButtonInactive(idx))return; }
+#endif
+        _lastSelectedTeam=ord;
         _selectedTeamIndex = idx;
         _selectedLeagueIndex = 0xFFFF;
         _selectedTeamText = entry->fg;
@@ -5793,15 +5800,26 @@ extern uint8_t  _nationalityOrdinalsArray[];
  * 155, Yugoslavia 37 -- a coach can be one). */
 static const uint8_t *career_nationalities(int32_t *count)
 {
-    static uint8_t world[68];
+    static uint8_t world[256];
     if (World_Current() == WORLD_9697) {
         *count = 64;
         return _nationalityOrdinalsArray;
     }
     for (int32_t i = 0; i < 63; i++)
         world[i] = _nationalityOrdinalsArray[i];
-    world[63] = 153; world[64] = 154; world[65] = 155; world[66] = 37; world[67] = 0xFF;
-    *count = 68;
+    world[63] = 153; world[64] = 154; world[65] = 155; world[66] = 37;
+    unsigned n=67;
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedNational_Active()){
+        for(unsigned i=0;i<EXP_NATIONAL_COUNT;i++){
+            uint8_t nat=kExpandedNational2627[i].og.nationalityCode;
+            unsigned j=0;while(j<n && world[j]!=nat)j++;
+            if(j==n)world[n++]=nat;
+        }
+    }
+#endif
+    world[n++]=0xffu;
+    *count=(int32_t)n;
     return world;
 }
 extern uint8_t  _shortCountryNames[];
@@ -5835,6 +5853,10 @@ static void SetNationalityField(void)
         return;
     }
 
+#ifdef SWOS_SDL_BUILD
+    { const ExpandedNationalRow *r=ExpandedNational_ByNationality(nat);
+      if(r){memcpy(dest,r->fifa,3u);dest[3]=0;return;} }
+#endif
     /* Copy 3-char country code from table */
     {
         uint16_t idx = (uint16_t)nat;
@@ -6244,7 +6266,7 @@ __attribute__((used, externally_visible))
 void ChangeNationality(MenuEntry *entry)
 {
     uint16_t ctrl = _controlMask;
-    int8_t ord;
+    int16_t ord;
     int32_t count;
     const uint8_t *table = career_nationalities(&count);
 
@@ -6252,10 +6274,10 @@ void ChangeNationality(MenuEntry *entry)
      * Give LEFT priority so LEFT+FIRE does not accidentally increment. */
     if (ctrl & MENU_CTRL_LEFT)
     {
-        ord = (int8_t)_nationalityOrdinal;
+        ord = (int16_t)_nationalityOrdinal;
         ord--;
         if (ord < 0)
-            ord = (int8_t)(count - 1);
+            ord = (int16_t)(count - 1);
     }
     else if (ctrl & (MENU_CTRL_FIRE | MENU_CTRL_SHORT_FIRE))
     {
@@ -6267,7 +6289,7 @@ void ChangeNationality(MenuEntry *entry)
     }
     else if (ctrl & MENU_CTRL_RIGHT)
     {
-        ord = (int8_t)_nationalityOrdinal;
+        ord = (int16_t)_nationalityOrdinal;
         ord++;
         if (ord >= count)
             ord = 0;
@@ -6280,7 +6302,7 @@ void ChangeNationality(MenuEntry *entry)
 
     _nationalityOrdinal = (uint8_t)ord;
     {
-        int16_t idx = (int16_t)(int8_t)ord;  /* ext.w d0 */
+        int16_t idx = ord;
         _plNationality = table[idx];
     }
     SetNationalityField();
@@ -7492,6 +7514,10 @@ void Career_ShowAddInternationalPlayerDialog(uint16_t homeOrAbroadFlag)
 {
     _careerAddIntlPlayerResult = 0xFFFF;
     if (homeOrAbroadFlag == 0) {
+        /* A national-only federation has no domestic club database yet. */
+#ifdef SWOS_SDL_BUILD
+        if(ExpandedNational_Active() && _nationalTeamFileId==255u)return;
+#endif
         /* Home: filter by nationality */
         ChooseTeamsDialogWithNationality((uint16_t)_nationalTeamFileId, 1, 0, 0,
                                           _aAddInternation, (void *)AddInternationalPlayerHome);

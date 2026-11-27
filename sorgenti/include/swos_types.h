@@ -108,7 +108,7 @@ typedef unsigned long long uint64_t;
  * by them -- the league offsets (_diyLeagueSeasonStateTable, its scratch). The original's
  * 2000 held 96/97's 1730; a world's whole set needs more (World 2026-27: 2,226 clubs). */
 #if SWOS_WORLDS
-#define GLOBAL_TEAM_NUMBERS 2560
+#define GLOBAL_TEAM_NUMBERS 2629 /* existing 2560 + 69 modern national-only slots */
 #else
 #define GLOBAL_TEAM_NUMBERS 2000
 #endif

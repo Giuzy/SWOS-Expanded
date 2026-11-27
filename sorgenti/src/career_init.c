@@ -39,6 +39,7 @@
 #include "expanded_event_scheduler.h" /* event ordering and legacy July diagnostic */
 #include "expanded_native_timeline.h" /* live native OG world tick, no fixture dispatch */
 #include "world.h"
+#include "team_db.h"
 #include "squad_extras.h"
 #include "expanded_debug.h"
 #include "expanded_champions_view_route.h"
@@ -378,7 +379,9 @@ void ChooseTeamAndStartCareer(void)
         /* IsTeamCodeOkForNationalSelector is the OG OFFER timing gate
          * (season >= 3), not a validity check: not used for a direct start. */
         const int16_t national=GetNationalTeamNumber((uint16_t)_plNationality);
-        if (national<0 || !career_is_national_team((uint16_t)national)) {
+        if (national<0 || !career_is_national_team((uint16_t)national) ||
+            (World_Current()==WORLD_2627 &&
+             !TeamDb_Team((uint8_t)((uint16_t)national>>8),(uint8_t)national))) {
             static uint8_t err[]="NO NATIONAL TEAM FOR THIS NATIONALITY";
             fprintf(stderr,"[new-career] NATIONAL_COACH_START_REFUSED world=%s "
                     "nationality=%u team=%d reason=NO_OG_NATIONAL_TEAM\n",

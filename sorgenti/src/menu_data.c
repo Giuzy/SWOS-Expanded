@@ -7,6 +7,9 @@
 #include "menu_data.h"
 #include "menu_system.h"
 #include "project_identity.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_national_2627.h"
+#endif
 
 extern void MultiplayerMenuSelected(void);
 extern void CreditsMenuSelected(void);
@@ -10663,6 +10666,10 @@ static const struct { uint8_t code; const char *name; } s_natNames[] = {
     {155,"WEST GERMANY"},{37,"YUGOSLAVIA"},{255,"OTHER"}
 };
 static const char *nationality_name(uint8_t code) {
+#ifdef SWOS_SDL_BUILD
+    const ExpandedNationalRow *r=ExpandedNational_ByNationality(code);
+    if(r)return r->name;
+#endif
     for (unsigned i=0;i<sizeof s_natNames/sizeof s_natNames[0];i++)
         if (s_natNames[i].code==code) return s_natNames[i].name;
     return 0;

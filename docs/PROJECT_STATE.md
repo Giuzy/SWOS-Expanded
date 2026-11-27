@@ -2720,3 +2720,7 @@ Misura sullo screenshot Windows (7,2 px schermo per px di gioco in verticale): f
 Ranking 2627: kernel aritmetico FIFA/UEFA preparato, non collegato; seed, mapping, ledger/CAR e test ancora pendenti. 9697 invariato. Vedi CE_CALENDAR_GENERATOR.md e RG-CE-RANKING-2627.
 
 Ranking 2627: 415/415 club esaminati; 377 candidati DB, 38 irrisolti, non attivi. Mapping nazionali e crosscheck indipendente pendenti.
+
+
+### 27/11/2026 — v00.13.344: national registry and CT/WORLD
+Source integration: 2026/27 FIFA baseline 211 identities (142 existing + 69 TEST_ZERO), unique packed IDs and nationality keys, six existing country buttons reused and 63 new national-only buttons. CT START nationality selection and national WORLD route wired; club WORLD new national-only buttons are inert. Confederation reassignment deferred by user; no new national fixtures, real player database or sporting algorithm. 1996/97 unchanged by the new registry. ST identity/capacity checks passed; compilation, Windows gameplay and CAR migration not tested.

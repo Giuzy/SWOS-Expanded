@@ -14,6 +14,7 @@
 #include "expanded_car_compact.h"
 #include "expanded_edition_archive.h"
 #include "expanded_ce_engine.h"
+#include "expanded_fifa_ranking.h"
 #include <limits.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -31,6 +32,9 @@ typedef struct ExpandedCarWorld {
      * engine once the definitions exist (ExpandedUniversal_CarTakeLifecycle).
      * NULL = absent (pre-v296 CAR: the engine rebuilds from the registry). */
     char *lifecycle;
+    /* FIFA ranking "FR01;" text (2627), consumed by the engine restore.
+     * NULL = absent (pre-ranking CAR: rebuilt from persisted results). */
+    char *fifa;
     uint8_t active;
 } ExpandedCarWorld;
 static ExpandedCarWorld s_worlds[WORLD_COUNT];
@@ -40,7 +44,7 @@ static void exp_car_clear(ExpandedCarWorld *w)
     if(!w)return;
     free(w->fixtures);free(w->ledger);free(w->events);
     ExpArchive_Free(&w->archive);
-    free(w->lifecycle);
+    free(w->lifecycle);free(w->fifa);
     memset(w,0,sizeof *w);
 }
 static int exp_car_alloc(ExpandedCarWorld *w,uint16_t world,
@@ -76,6 +80,7 @@ ExpandedUniversalRegistry *ExpandedUniversal_CarRegistry(void)
 void ExpandedUniversal_CarResetCurrent(void)
 {
     if(World_Current()<WORLD_COUNT)exp_car_clear(&s_worlds[World_Current()]);
+    ExpFifa_Reset(); /* ranking state belongs to the career of this world */
     if(World_Current()==WORLD_2627)ExpandedUniversalLive_ResetCpuBatch();
 }
 int ExpandedUniversal_CarBegin(ExpandedWorldDate date,uint32_t capacity)
@@ -178,6 +183,7 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
                                  uint16_t expected_world,
                                  const ExpandedEditionArchive *archive,
                                  const char *lifecycle_hex,
+                                 const char *fifa_text,
                                  mjson_print_fn_t output,void *user)
 {
     ExpandedCarEventIndex *events=NULL;
@@ -250,6 +256,8 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
             free(lt);
         }
     }
+    if(result>0 && fifa_text) /* FIFA ranking: same atomic CAR, absent = none */
+        result=mjson_printf(output,user,",\n  %Q:%Q","fifa_ranking",fifa_text);
     fprintf(stderr,"[universal-perf] CAR_EMIT_TIMING format=UE02 "
         "fixtures=%lu binary_bytes=%lu json_bytes=%lu validate_ms=%llu "
         "encode_ms=%llu status=%s\n",
@@ -271,10 +279,12 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
         size_t ll=0u;
         char *hex=ExpCe_EditionCount()?ExpCe_EncodeHex((uint16_t)World_Current(),&ll):NULL;
         int ok;
-        if(ExpCe_EditionCount() && !hex)return 0; /* never drop the lifecycle */
+        char *fifa=ExpFifa_Active()?ExpFifa_Encode():NULL;
+        if(ExpCe_EditionCount() && !hex){free(fifa);return 0;} /* never drop the lifecycle */
+        if(ExpFifa_Active() && !fifa){free(hex);return 0;} /* never drop the ranking */
         ok=exp_car_emit_registry(r,(uint16_t)World_Current(),
-            &s_worlds[World_Current()].archive,hex,output,user);
-        free(hex);
+            &s_worlds[World_Current()].archive,hex,fifa,output,user);
+        free(hex);free(fifa);
         return ok;
     }
 }
@@ -290,6 +300,7 @@ struct ExpandedUniversalCarSnapshot {
     uint16_t world;   /* captured on the main thread: the worker never asks */
     ExpandedEditionArchive archive;   /* owned copy */
     ExpCeSnapshot *lifecycle;         /* Fase 2: owned copy, NULL = none */
+    char *fifa;                       /* FIFA ranking text, NULL = none */
 };
 int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
 {
@@ -319,6 +330,11 @@ int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
         ExpArchive_Free(&s->archive);free(s);
         return 0;
     }
+    if(ExpFifa_Active() && !(s->fifa=ExpFifa_Encode())) {
+        free(s->fixtures);free(s->ledger);free(s->events);
+        ExpArchive_Free(&s->archive);ExpCe_SnapshotRelease(s->lifecycle);free(s);
+        return 0;
+    }
     memcpy(s->fixtures,r->fixtures,(size_t)nf*sizeof *s->fixtures);
     memcpy(s->ledger,r->ledger.entries,(size_t)nl*sizeof *s->ledger);
     memcpy(s->events,r->scheduler.events,(size_t)ne*sizeof *s->events);
@@ -345,7 +361,7 @@ int ExpandedUniversal_CarEmitSnapshot(ExpandedUniversalCarSnapshot *s,
         char *hex=s->lifecycle?ExpCe_SnapshotEncodeHex(s->lifecycle,s->world,&ll):NULL;
         int ok;
         if(s->lifecycle && !hex)return 0;
-        ok=exp_car_emit_registry(&s->reg,s->world,&s->archive,hex,output,user);
+        ok=exp_car_emit_registry(&s->reg,s->world,&s->archive,hex,s->fifa,output,user);
         free(hex);
         return ok;
     }
@@ -358,7 +374,8 @@ void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
 {
     if(!s)return;
     free(s->fixtures);free(s->ledger);free(s->events);
-    ExpArchive_Free(&s->archive);ExpCe_SnapshotRelease(s->lifecycle);free(s);
+    ExpArchive_Free(&s->archive);ExpCe_SnapshotRelease(s->lifecycle);
+    free(s->fifa);free(s);
 }
 /* Parse a complete candidate in TEMPORARY heap memory. No current world
  * state changes on failed CRC, world, civil clock, event or ledger proof.
@@ -583,6 +600,26 @@ static int exp_car_parse_lifecycle(const char *json,int size,
     candidate->lifecycle=text;
     return 1;
 }
+/* FIFA ranking "FR01;" section: validated in scratch, kept for the restore. */
+static int exp_car_parse_fifa(const char *json,int size,
+    ExpandedCarWorld *candidate,int present,uint16_t world)
+{
+    const char *tok=NULL;
+    int tlen=0;
+    const int kind=mjson_find(json,size,"$.fifa_ranking",&tok,&tlen);
+    char *text;
+    if(kind==MJSON_TOK_INVALID || kind==MJSON_TOK_NULL)return 1;
+    if(!present || world!=WORLD_2627 || kind!=MJSON_TOK_STRING ||
+       tlen<8 || tlen>INT_MAX-1)return 0;
+    text=(char *)malloc((size_t)tlen+1u);
+    if(!text)return 0;
+    if(mjson_get_string(json,size,"$.fifa_ranking",text,tlen+1)<=0 ||
+       !ExpFifa_Validate(text)) {
+        free(text);return 0;
+    }
+    candidate->fifa=text;
+    return 1;
+}
 static int exp_car_parse(const char *json,int size,
                          ExpandedCarWorld *candidate,int *present,
                          uint16_t expected_world)
@@ -591,7 +628,8 @@ static int exp_car_parse(const char *json,int size,
     int tlen=0,kind;
     if(!exp_car_parse_registry(json,size,candidate,present,expected_world))
         return 0;
-    if(!exp_car_parse_lifecycle(json,size,candidate,*present,expected_world))
+    if(!exp_car_parse_lifecycle(json,size,candidate,*present,expected_world) ||
+       !exp_car_parse_fifa(json,size,candidate,*present,expected_world))
         goto fail;
     kind=mjson_find(json,size,"$.universal_archive",&tok,&tlen);
     if(kind==MJSON_TOK_INVALID || kind==MJSON_TOK_NULL) {
@@ -928,7 +966,14 @@ int ExpandedUniversal_CarSaveCompletion(void *user,
      * any disk write; a rejected proposal preserves the previous CAR. */
     ok=ExpandedUniversal_ValidateRestore((ExpandedUniversalRegistry *)r);
     validated_ms=Platform_NowMs();
-    if(ok)ok=Expanded_AutoCareer_SaveChecked("universal-fixture-complete");
+    {
+        /* FIFA ranking staged into the SAME atomic CAR; rolled back exactly
+         * if the save is rejected (no point without its persisted result). */
+        static ExpFifaUndo fifa_undo;
+        const int fifa=ok?ExpandedUniversal_FifaRecord(f,&proposal->played.score,&fifa_undo):0;
+        if(ok)ok=Expanded_AutoCareer_SaveChecked("universal-fixture-complete");
+        if(!ok && fifa==1)ExpFifa_Undo(&fifa_undo);
+    }
     saved_ms=Platform_NowMs();
     *entry=saved;*event=old_event;
     fprintf(stderr,"[universal-perf] CAR_COMPLETE_TIMING "
@@ -983,6 +1028,36 @@ char *ExpandedUniversal_CarTakeLifecycle(void)
     t=s_worlds[World_Current()].lifecycle;
     s_worlds[World_Current()].lifecycle=NULL;
     return t;
+}
+char *ExpandedUniversal_CarTakeFifa(void)
+{
+    char *t;
+    if(World_Current()>=WORLD_COUNT)return NULL;
+    t=s_worlds[World_Current()].fifa;
+    s_worlds[World_Current()].fifa=NULL;
+    return t;
+}
+/* FIFA ranking update of one completed CE fixture, from the single CE
+ * completion writer (durable save and CPU QUICK batch alike). 1 applied,
+ * 0 not eligible / already counted, -1 refused (eligible but unknown
+ * nation: logged, the fixture result itself is unaffected). */
+int ExpandedUniversal_FifaRecord(const ExpandedUniversalFixture *f,
+                                 const ExpandedFixtureScore *sc,struct ExpFifaUndo *undo)
+{
+    int importance=0,protect=0,r;
+    if(undo)memset(undo,0,sizeof *undo);
+    if(!f || !sc || !ExpFifa_Active() ||
+       !ExpCe_FixtureFifa(f,&importance,&protect))return 0;
+    r=ExpFifa_Apply(f->event_id,f->day_index,f->home.stable_club,f->away.stable_club,
+                    importance,protect,
+                    ExpFifa_ResultFromScore(sc->home,sc->away,
+                        sc->penalties_home,sc->penalties_away),undo);
+    fprintf(stderr,"[fifa-ranking] %s event=%llu home=%lu away=%lu score=%u:%u "
+        "pen=%u:%u I=%d protect=%d\n",r==1?"APPLIED":r==0?"ALREADY":"REFUSED",
+        (unsigned long long)f->event_id,(unsigned long)f->home.stable_club,
+        (unsigned long)f->away.stable_club,(unsigned)sc->home,(unsigned)sc->away,
+        (unsigned)sc->penalties_home,(unsigned)sc->penalties_away,importance,protect);
+    return r;
 }
 static int exp_car_reserve(ExpandedCarWorld *w,uint32_t need)
 {

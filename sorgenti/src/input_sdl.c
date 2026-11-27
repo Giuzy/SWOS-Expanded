@@ -1201,6 +1201,16 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             Expanded_BusinessBack();
             break;
         }
+        /* NATION RANKING (child of the WORLD selector): B closes only it;
+         * the queued edge is consumed by its own MenuProc handler first. */
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B && !_playGame) {
+            extern int Expanded_NationRanking_Active(void);
+            if(Expanded_NationRanking_Active()) {
+                s_debugWorldPickerBackPending=1;
+                s_modalBackUntilRelease=1;
+                break;
+            }
+        }
         /* Viewer may be nested inside a country picker: its B must close
          * that viewer, never pop the still-active parent picker or FIRE. */
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&

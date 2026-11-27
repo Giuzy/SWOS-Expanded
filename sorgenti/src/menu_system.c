@@ -1503,6 +1503,8 @@ void DrawMenu(void)
             DrawMenuTextCentered(160,171,2,(uint8_t*)date,(uint8_t*)_charTables[0]);
         }
     }
+    /* NATION RANKING rows (arrows, flags, coloured values) after the boxes. */
+    { extern void Expanded_NationRankingDraw(void); Expanded_NationRankingDraw(); }
     /* Expanded hub pictograms are overlaid on their clickable native entries. */
     {
         extern uint8_t _expandedClubOverviewMenu[];
@@ -1919,6 +1921,25 @@ void MenuProc(void)
             _pl1Fire = 0;
         } else {
             s_expandedModalReturnLatch = 0;
+        }
+    }
+    /* NATION RANKING is a child modal of the WORLD selector: its BACK
+     * (B pad, ESC, BACKSPACE) closes only the ranking, never the picker. */
+    {
+        extern int Expanded_NationRanking_Active(void);
+        extern int InputSDL_ConsumeDebugWorldPickerBack(void);
+        extern int InputSDL_ConsumeWorldViewBack(void);
+        if(Expanded_NationRanking_Active()) {
+            /* edge events only: a still-held B must not also close the
+             * parent WORLD viewer on the next frame */
+            const int pad=InputSDL_ConsumeDebugWorldPickerBack() |
+                          InputSDL_ConsumeWorldViewBack();
+            if(pad ||
+               _currentKey==27 || _currentKey==127 || _currentKey==8) {
+                SetExitMenuFlag();
+                _fire=_shortFire=_pl1Fire=0;
+                return;
+            }
         }
     }
     /* DEBUG WORLD country selector: B/ESC/BACKSPACE is a single-level
@@ -2493,6 +2514,7 @@ void ShowMenu(uint8_t *packedMenu)
         extern uint8_t _expandedOfferPreviewMenu[];
         extern uint8_t _expandedSponsorOfferMenu[],_expandedTvOfferMenu[];
         extern uint8_t _managementRecordMenu[];
+        extern uint8_t _expandedNationRankingMenu[];
         extern uint8_t *Expanded_UnemployedCalendarPointer(void);
         extern uint8_t _swosMainMenu[];
         if (packedMenu == _expandedNationalityPickerMenu ||
@@ -2507,7 +2529,8 @@ void ShowMenu(uint8_t *packedMenu)
             packedMenu == _expandedOfferPreviewMenu ||
             packedMenu == _expandedSponsorOfferMenu ||
             packedMenu == _expandedTvOfferMenu ||
-            packedMenu == _managementRecordMenu) {
+            packedMenu == _managementRecordMenu ||
+            packedMenu == _expandedNationRankingMenu) {
             if (oldPackedMenu != 0) {
                 if (oldPackedMenu == (uintptr_t)_swosMainMenu) {
                     extern void CommonMenuExit(void);

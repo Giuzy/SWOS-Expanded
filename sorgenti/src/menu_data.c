@@ -11229,3 +11229,49 @@ uint8_t *Expanded_UnemployedCalendarMenu(void) {
     s_unemployedOriginalCalendar.entry9.onSelect.funcPtr=SetExitMenuFlag;
     return (uint8_t*)&s_unemployedOriginalCalendar;
 }
+
+/* SWOS Expanded — FIFA NATION RANKING viewer (WORLD 2627, readonly).
+ * Native packed menu, original font/colours: title, column header strip,
+ * 15 row boxes and BACK. The row contents (arrows, flags, coloured values)
+ * are painted by Expanded_NationRankingDraw() after the native entries.
+ * BACK keeps the focus; UP/DOWN scroll the 211 rows one at a time. */
+extern void Expanded_NationRankingInit(void);
+extern void Expanded_NationRankingControl(void);
+static char s_nationRankingTitle[] = "NATION RANKING";
+static char s_nationRankingBack[] = "BACK";
+static char s_nationRankingEmpty[] = "";
+#pragma pack(push,1)
+typedef struct {
+    MenuCoords16 rc;
+    MenuCmd_Colors colors;
+    MenuCmd_TextPtr text;
+    uint16_t end;
+} NR_MenuBox;
+struct {
+    MenuHeader hdr;
+    MenuMark wideCoords;
+    CB_MenuTitle title;
+    NR_MenuBox header;
+    NR_MenuBox rows[15];
+    CB_MenuAction back;
+    MenuMark end;
+} _expandedNationRankingMenu = {
+    { Expanded_NationRankingInit, GlobalRetn, 0, 17 }, MENU_MARK_WIDE_COORDS,
+    { { 36, 0, 200, 15 }, { MENU_CMD_COLORS, 0x17 },
+      { MENU_CMD_TEXT_PTR, 0, s_nationRankingTitle }, MENU_CMD_END },
+    { { -16, 18, 304, 9 }, { MENU_CMD_COLORS, 0x17 },
+      { MENU_CMD_TEXT_PTR, 0, s_nationRankingEmpty }, MENU_CMD_END },
+    {
+#define NR_ROW(i) { { -16, 29+10*(i), 304, 9 }, { MENU_CMD_COLORS, 0xD }, \
+      { MENU_CMD_TEXT_PTR, 0, s_nationRankingEmpty }, MENU_CMD_END }
+        NR_ROW(0),NR_ROW(1),NR_ROW(2),NR_ROW(3),NR_ROW(4),NR_ROW(5),NR_ROW(6),
+        NR_ROW(7),NR_ROW(8),NR_ROW(9),NR_ROW(10),NR_ROW(11),NR_ROW(12),
+        NR_ROW(13),NR_ROW(14)
+#undef NR_ROW
+    },
+    { { 86, 185, 100, 15 }, { MENU_CMD_NAV, -1, -1, -1, -1 },
+      { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_nationRankingBack },
+      { MENU_CMD_ONSELECT_FIRE, Expanded_NationRankingControl }, MENU_CMD_END },
+    MENU_MARK_END_MENU
+};
+#pragma pack(pop)

@@ -7393,6 +7393,15 @@ extern uint8_t _aSelect1LessTea[];  /* "SELECT 1 LESS TEAM" */
 extern uint8_t _aSelect0LessTea[];  /* "SELECT %0 LESS TEAMS" */
 extern uint8_t _aError[];           /* "ERROR" */
 
+#ifdef SWOS_SDL_BUILD
+uint16_t g_expSelectTeamsCountry=0xffffu; /* country shown by the OG selector */
+static void Expanded_NationRankingSelect(MenuEntry *e)
+{
+    extern void Expanded_NationRankingOpen(void);
+    (void)e;
+    Expanded_NationRankingOpen();
+}
+#endif
 __attribute__((used, externally_visible))
 void CheckNumberOfTeams(void)
 {
@@ -7405,6 +7414,27 @@ void CheckNumberOfTeams(void)
         _menuEntries[89].isInvisible = 1;
         _menuEntries[90].isInvisible = 1;
         _menuEntries[87].isInvisible = 1;
+#ifdef SWOS_SDL_BUILD
+        /* WORLD 2026/27 career, WORLD -> regions screen: the approved green
+         * NATION RANKING button in the free bottom-right slot (entry 89,
+         * original green colour 14, original nav 88<->89). Only this screen;
+         * every other level/mode keeps entry 89 hidden as in OG. */
+        {
+            extern int Expanded_NationRankingButtonWanted(uint16_t,uint16_t);
+            extern uint16_t g_expSelectTeamsCountry;
+            if(Expanded_NationRankingButtonWanted(g_expSelectTeamsCountry,_teamDepthLevel)) {
+                static char label[]="NATION RANKING";
+                MenuEntry *e=&_menuEntries[89];
+                e->isInvisible=0;
+                e->isDisabled=0;
+                e->content=ENTRY_STRING;
+                e->fg=(uintptr_t)label;
+                e->bgColor=(uint16_t)((e->bgColor&0xFFF0u)+YELLOW_GREEN_BLACK_14);
+                e->onSelect=Expanded_NationRankingSelect;
+                e->controlMask=0x21u; /* FIRE only */
+            }
+        }
+#endif
         return;
     }
 

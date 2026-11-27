@@ -273,7 +273,11 @@
 /* v00.13.347 candidate: off-file EXTRA overlays and stable source-key cache.
  * Windows/CAR NOT PROVEN. */
 /* v00.13.348 candidate: correct modern national WORLD AFC/OFC grouping; raw IDs unchanged. */
-#define SWOS_EXPANDED_VERSION "00.13.348"
+/* v00.13.349: FIFA NATION RANKING 2627: 211-nation seed + flags, FIFA SUM
+ * updates from the single CE completion writer, lazy CE-week deltas, draw
+ * snapshots, FR01 in the same atomic CAR, readonly OG viewer from the WORLD
+ * regions screen. Isolated/headless + Windows build; gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.349"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

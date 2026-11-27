@@ -2834,3 +2834,12 @@ Source integration: 2026/27 FIFA baseline 211 identities (142 existing + 69 TEST
 - 27/11/2026, FORWARD TIME (richiesta utente): in `menus.c exp_universal_contest_action` se la prossima partita del manager è entro 7 giorni il bersaglio è direttamente la data della partita (prima: domenica successiva, quindi dopo una partita di sabato serviva un FORWARD in più fino alla domenica e un altro fino alla partita). Oltre i 7 giorni resta la tappa settimanale (domenica). Le SEASON BREAK sono solo per le settimane senza partite (regola già fissa). EXE 13:42, NON PROVATO.
 
 - 27/11/2026, valuta in SWOS.ini (richiesta utente): `expanded_career.c` non legge né scrive più `Expanded_Currency.txt`; la valuta Expanded usa la chiave già esistente `[general] currency = pound | euro | dollar` di SWOS.ini (`g_arcadeOpts->currency`), e il pulsante CURRENCY la cambia e salva con `Settings_Save`. Nel SWOS.ini dell'utente impostato `currency=euro` (il valore che aveva nel file txt). EXE 14:17, NON PROVATO.
+
+## 27/11/2026 — v00.13.349 FIFA NATION RANKING 2627 (build Windows OK, gameplay NON PROVATO)
+Scheda completa: REGRESSION_HISTORY_AND_DEPENDENCIES.md «RG-FIFA-NATION-RANKING-2627».
+- Stato: `expanded_fifa_ranking.c/.h` (211 nazionali, punti double, riferimenti settimanali, event id applicati, snapshot sorteggi, codec FR01). Seed `data_json/worlds/2627/rankings/fifa_nations.json` da `tools/fifa_ranking/build_fifa_nations.py`.
+- Writer unico: `ExpandedUniversal_FifaRecord` dentro le due completion CE (durevole con undo su CAR rifiutato; batch CPU QUICK in RAM).
+- Dati CE: fase JSON `"fifa":{"importance":5..60,"protect":bool,"seeding":"FIFA_RANKING"}`; eleggibile solo edizione NATIONAL con entrambi i lati NATIONAL.
+- CAR: chiave `fifa_ranking` (FR01) nello stesso salvataggio atomico; assente = CAR vecchio (ricostruzione dai risultati persistiti).
+- UI: entry 89 verde di `_selectTeamsMenu` a livello WORLD (paese 254) → `_expandedNationRankingMenu`, SU/GIÙ scorrono, BACK/B/ESC chiudono solo il ranking.
+- Limite: nessuna competizione nazionale CE 2627 definita oggi → ranking fermo al seed in gioco. Da confermare: parità, protezione Nations League, pubblicazione FIFA, data di riferimento sorteggi.

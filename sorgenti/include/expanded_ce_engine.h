@@ -141,6 +141,12 @@ typedef struct ExpCePhaseDef {
     uint8_t nrel,rel_anchor;
     uint16_t rel[4];
     uint8_t has_window;
+    /* FIFA ranking (2627, national editions only). JSON "fifa":
+     * {"importance":5|10|15|25|35|40|50|60, "protect":true|false,
+     *  "seeding":"FIFA_RANKING"}. importance 0 = not an eligible A-match.
+     * protect default: KNOCKOUT phase with importance >= 35 (final
+     * tournament knockout rounds). Hashed only when used. */
+    uint8_t fifa_importance, fifa_protect, fifa_seeding;
     ExpCeWindow window;           /* dates (GAME_TEMPLATE unless verified) */
     /* verified real round days of the FIRST edition (take precedence over
      * the window for that edition only; later editions use the window) */
@@ -366,6 +372,11 @@ int ExpCe_PlayoutLoser(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
  * does for playEachTeam==1). 1 ok. */
 int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,
                        uint8_t *meetings);
+/* FIFA ranking eligibility of a fixture: national edition, both sides
+ * NATIONAL, phase "fifa.importance" set. 1 eligible (importance/protect
+ * filled), 0 not eligible. Reader only. */
+int ExpCe_FixtureFifa(const ExpandedUniversalFixture *f,int *importance,
+                      int *protect);
 /* Competition name (from the CE definition) of a fixture, for readers. */
 int ExpCe_FixtureCompetitionName(const ExpandedUniversalFixture *f,
                                  char *out,size_t n);

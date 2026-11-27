@@ -20,7 +20,7 @@ done
   -DSDL_MAIN_HANDLED -Iinclude $SDL_INC \
   src/expanded_world_time.c src/expanded_car_compact.c \
   src/expanded_edition_archive.c src/expanded_universal_car.c \
-  src/expanded_ce_rules.c src/expanded_ce_table.c src/expanded_ce_engine.c \
+  src/expanded_ce_rules.c src/expanded_ce_table.c src/expanded_ce_engine.c src/expanded_fifa_ranking.c \
   src/expanded_universal_date_planner.c \
   tests/test_expanded_ce_engine.c "$DIR/mjson.o" -lm -o "$DIR/ce_engine"
 "$DIR/ce_engine"

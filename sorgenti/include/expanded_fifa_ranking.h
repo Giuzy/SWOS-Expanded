@@ -45,13 +45,14 @@ typedef struct ExpFifaViewRow {
     double week_delta;             /* points - week_points, this week only */
 } ExpFifaViewRow;
 
-typedef struct ExpFifaUndo {
+typedef struct ExpFifaUndo {           /* exact rollback of one Apply */
     uint8_t valid;
+    uint64_t event_id;
     int idx_a, idx_b;
-    double old_a, old_b, old_wa, old_wb;
+    double old_a, old_b;
+    double old_wpts[EXP_FIFA_NATIONS];
     uint16_t old_wpos[EXP_FIFA_NATIONS];
     int32_t old_week;
-    uint32_t old_events;
 } ExpFifaUndo;
 
 /* ---- state ---- */
@@ -60,8 +61,6 @@ int ExpFifa_Active(void);
 /* Parse the seed JSON (schema 1, world 2627, 211 rows). 1 ok (state replaced),
  * 0 malformed (state untouched). */
 int ExpFifa_LoadSeedJson(const char *json, int len, int32_t start_day);
-/* Load the seed file from data_json (2627 only). */
-int ExpFifa_LoadSeedFile(int32_t start_day);
 uint32_t ExpFifa_Count(void);
 int ExpFifa_FindClub(uint32_t stable_club);           /* index or -1 */
 const ExpFifaNation *ExpFifa_Nation(uint32_t index);

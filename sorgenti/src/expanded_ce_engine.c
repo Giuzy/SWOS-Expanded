@@ -8,6 +8,7 @@
 #include "expanded_universal_pairings.h"
 #include "expanded_world_time.h"
 #include "mjson.h"
+#include "expanded_fifa_ranking.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -111,6 +112,12 @@ static uint64_t def_hash(const ExpCeDef *d)
             for(z=0u;z<ph->nties*6u;++z){h^=ph->tsrc[z/6u][(z/3u)%2u][z%3u];h*=UINT64_C(1099511628211);}}
         if(ph->ngp){unsigned z;h^=0xE1u;h*=UINT64_C(1099511628211);
             for(z=0u;z<ph->ngp*4u;++z){h^=ph->gp[z/4u][z%4u];h*=UINT64_C(1099511628211);}}
+        if(ph->fifa_importance || ph->fifa_protect || ph->fifa_seeding) {
+            h^=0xF1u;h*=UINT64_C(1099511628211);
+            h^=ph->fifa_importance;h*=UINT64_C(1099511628211);
+            h^=ph->fifa_protect;h*=UINT64_C(1099511628211);
+            h^=ph->fifa_seeding;h*=UINT64_C(1099511628211);
+        }
         if(ph->nrel) { /* only when used: existing definitions keep their hash */
             h^=0xA5u;h*=UINT64_C(1099511628211);
             h^=ph->rel_anchor;h*=UINT64_C(1099511628211);
@@ -786,6 +793,33 @@ static void apply_host_rule(const ExpCeDef *d,uint32_t phase,KoPair *pairs,uint3
         }
     }
 }
+/* FIFA seeding (phase "fifa.seeding":"FIFA_RANKING", national editions):
+ * order the entrants best first by the ranking snapshot frozen at the FIRST
+ * draw of this edition phase; later ranking changes never alter it. Byes,
+ * SEEDED pairs and POTS then use the generic order. */
+static int fifa_seed_entrants(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
+                              ExpCeEntrant *ent,uint32_t n,char *why,size_t whylen)
+{
+    uint32_t clubs[EXP_FIFA_SNAPSHOT_CLUBS],i,k;
+    ExpCeEntrant tmp[EXP_CE_MAX_ENTRANTS];
+    if(!d->phases[phase].fifa_seeding || n<2u)return 1;
+    if(e->participant_kind!=EXP_PARTICIPANT_NATIONAL || n>EXP_FIFA_SNAPSHOT_CLUBS ||
+       n>EXP_CE_MAX_ENTRANTS || !ExpFifa_Active()) {
+        snprintf(why,whylen,"phase %u: FIFA seeding unavailable",(unsigned)phase);
+        return 0;
+    }
+    for(i=0;i<n;++i)clubs[i]=ent[i].club.stable_club;
+    if(!ExpFifa_SeedOrder(e->key.competition.stable_competition,e->key.start_day,
+                          e->key.sequence,phase,e->key.start_day,clubs,n)) {
+        snprintf(why,whylen,"phase %u: entrant without FIFA ranking",(unsigned)phase);
+        return 0;
+    }
+    memcpy(tmp,ent,(size_t)n*sizeof *ent);
+    for(i=0;i<n;++i)
+        for(k=0;k<n;++k)
+            if(tmp[k].club.stable_club==clubs[i]){ent[i]=tmp[k];ent[i].seed=(uint8_t)(i+1u);break;}
+    return 1;
+}
 static int ko_pairs_raw(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
                     ExpCeEntrant *ent,uint32_t n,KoPair *pairs,uint32_t *np,
                     char *why,size_t whylen)
@@ -864,7 +898,8 @@ static int ko_pairs(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
                     ExpCeEntrant *ent,uint32_t n,KoPair *pairs,uint32_t *np,
                     char *why,size_t whylen)
 {
-    if(!ko_pairs_raw(d,e,phase,ent,n,pairs,np,why,whylen))return 0;
+    if(!fifa_seed_entrants(d,e,phase,ent,n,why,whylen) ||
+       !ko_pairs_raw(d,e,phase,ent,n,pairs,np,why,whylen))return 0;
     apply_host_rule(d,phase,pairs,*np);
     return 1;
 }
@@ -875,6 +910,7 @@ static int form_groups(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
 {
     const ExpCePhaseDef *ph=&d->phases[phase];
     uint32_t i,g;
+    if(!fifa_seed_entrants(d,e,phase,ent,n,why,whylen))return 0;
     memset(size,0,EXP_CE_MAX_GROUPS*sizeof *size);
     if(ph->groups==1u) {
         for(i=0;i<n;++i)groups[0][size[0]++]=ent[i].club;
@@ -2606,6 +2642,26 @@ int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,
     if(meetings)*meetings=d->phases[phase].meetings;
     return 1;
 }
+int ExpCe_FixtureFifa(const ExpandedUniversalFixture *f,int *importance,int *protect)
+{
+    const ExpCeDef *d;
+    const ExpCeEdition *e;
+    const ExpCePhaseDef *ph;
+    uint32_t phase;
+    if(!f || f->key.edition.competition.world!=WORLD_2627 ||
+       f->home.kind!=EXP_PARTICIPANT_NATIONAL || f->away.kind!=EXP_PARTICIPANT_NATIONAL ||
+       !(d=def_find(f->key.edition.competition.stable_competition)))return 0;
+    phase=EXP_CE_STAGE_PHASE(f->key.stage);
+    if(phase>=d->nphases)return 0;
+    e=ExpCe_Edition(f->key.edition);
+    if(e && e->participant_kind!=EXP_PARTICIPANT_NATIONAL)return 0;
+    ph=&d->phases[phase];
+    if(!ph->fifa_importance)return 0;
+    if(importance)*importance=ph->fifa_importance;
+    if(protect)*protect=ph->fifa_protect==1u ||
+        (ph->fifa_protect==0u && ph->kind==EXP_CE_PHASE_KNOCKOUT && ph->fifa_importance>=35u);
+    return 1;
+}
 /* CE-derived competition name of a fixture (readers: calendar, viewers).
  * 1 ok, 0 unknown competition (the caller keeps a neutral label). */
 int ExpCe_FixtureCompetitionName(const ExpandedUniversalFixture *f,
@@ -2767,6 +2823,22 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
             snprintf(ph->missing,sizeof ph->missing,"host_rule");return 0;
         }
         ph->host_nonmember_comp=ExpCe_LeagueCompetitionId((uint8_t)cc,(uint8_t)cid,(uint8_t)dv);
+    }
+    if(mjson_find(j,l,"$.fifa",&o,&ol)==MJSON_TOK_OBJECT) {
+        double fi=0;
+        int fb=0;
+        char fs[32];
+        if(mjson_get_number(o,ol,"$.importance",&fi)>0) {
+            if(!ExpFifa_ImportanceValid((int)fi) || fi!=(double)(int)fi) {
+                snprintf(ph->missing,sizeof ph->missing,"fifa.importance");return 0;
+            }
+            ph->fifa_importance=(uint8_t)fi;
+        }
+        if(mjson_get_bool(o,ol,"$.protect",&fb)>0)ph->fifa_protect=fb?1u:2u;
+        if(json_str(o,ol,"$.seeding",fs,sizeof fs)) {
+            if(strcmp(fs,"FIFA_RANKING")){snprintf(ph->missing,sizeof ph->missing,"fifa.seeding");return 0;}
+            ph->fifa_seeding=1u;
+        }
     }
     if(mjson_find(j,l,"$.window",&o,&ol)==MJSON_TOK_OBJECT) {
         if(!parse_window(o,ol,&ph->window,ph->missing,sizeof ph->missing))return 0;

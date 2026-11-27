@@ -449,3 +449,6 @@ Optional additive field `squad_extras.match_records` for 2627: sorted arrays [ra
 
 ### 27/11/2026 — v00.13.344 national registry compatibility
 The 69 additional national global slots are 2560..2628; the pre-existing pool ceiling remains 2560 and existing packed/global IDs are unchanged. No new CAR schema or fixture writer is introduced by national insertion. Existing loader and CT call-up/restore semantics remain the authority. Actual Windows SAVE/EXIT/CONTINUE (old and new 2627 and 9697 saves) is not yet tested; do not infer compatibility from static registry checks.
+
+## 27/11/2026 — `fifa_ranking` (v00.13.349, WORLD 2627)
+Stringa `"FR01;<settimana>;211;CODE,stable_club,punti,punti_rif,pos_rif;...;E,<n>,<eventid hex>...;S,<n>;<comp>,<start>,<seq>,<fase>,<giorno>,<k>,<club>:<punti>...;#<fnv32>"`, double in %.17g. Scritta nello stesso CAR atomico della registry CE (anche nello snapshot del CarWriter), validata nel preflight: corrotta = intero CAR rifiutato; assente = CAR precedente, accettato (ricostruzione dai risultati persistiti, riferimenti settimanali dalla settimana corrente). Nessun file separato.

@@ -24,9 +24,10 @@ static int exp_batch_completion(void *user,const ExpandedUniversalRegistry *r,
                                 const ExpandedUniversalCompletion *proposal)
 {
     ExpandedFixtureLedgerEntry *e;
+    int ok;
     (void)user;
     e=ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,f);
-    return e && e->state==EXP_FIXTURE_CLAIMED &&
+    ok=e && e->state==EXP_FIXTURE_CLAIMED &&
         proposal && proposal->witness.valid &&
         ExpandedFixtureKey_Equal(proposal->witness.key,f->key) &&
         ExpandedFixtureScore_Equal(proposal->witness.score,
@@ -34,6 +35,10 @@ static int exp_batch_completion(void *user,const ExpandedUniversalRegistry *r,
         proposal->played.state==EXP_FIXTURE_PLAYED &&
         proposal->completed.id==f->event_id &&
         proposal->completed.state==EXP_EVENT_COMPLETE;
+    /* CPU QUICK batch: the FIFA ranking changes in RAM with the result and
+     * reaches disk in the same atomic batch CAR (or rolls back with it). */
+    if(ok)(void)ExpandedUniversal_FifaRecord(f,&proposal->played.score,NULL);
+    return ok;
 }
 
 

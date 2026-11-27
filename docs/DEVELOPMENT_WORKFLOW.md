@@ -1716,3 +1716,8 @@ Misura sullo screenshot Windows (7,2 px schermo per px di gioco in verticale): f
 - 27/11/2026, FORWARD TIME (richiesta utente): in `menus.c exp_universal_contest_action` se la prossima partita del manager è entro 7 giorni il bersaglio è direttamente la data della partita (prima: domenica successiva, quindi dopo una partita di sabato serviva un FORWARD in più fino alla domenica e un altro fino alla partita). Oltre i 7 giorni resta la tappa settimanale (domenica). Le SEASON BREAK sono solo per le settimane senza partite (regola già fissa). EXE 13:42, NON PROVATO.
 
 - 27/11/2026, valuta in SWOS.ini (richiesta utente): `expanded_career.c` non legge né scrive più `Expanded_Currency.txt`; la valuta Expanded usa la chiave già esistente `[general] currency = pound | euro | dollar` di SWOS.ini (`g_arcadeOpts->currency`), e il pulsante CURRENCY la cambia e salva con `Settings_Save`. Nel SWOS.ini dell'utente impostato `currency=euro` (il valore che aveva nel file txt). EXE 14:17, NON PROVATO.
+
+## 27/11/2026 — Test FIFA NATION RANKING (v00.13.349)
+- `bash sorgenti/tests/run_test_expanded_fifa_ranking.sh` (isolato, seed reale) e `bash sorgenti/tests/run_test_expanded_ce_engine.sh` (blocco FIFA_RANKING_CE_NATIONAL_...=PASS). Tutti gli script che linkano expanded_ce_engine.c ora linkano anche src/expanded_fifa_ranking.c.
+- `python tools/fifa_ranking/build_fifa_nations.py --check` deve dire UP TO DATE; rigenerare solo dal generatore, mai a mano.
+- Checklist Windows da eseguire: pulsante presente in WORLD→regioni (carriera club e disoccupato, solo 2627), 211 righe e bandiere, scorrimento fino a 211, BACK/B/ESC e focus di ritorno, assenza nel 9697/CLASSIC, SAVE/EXIT/CONTINUE con ranking identico.

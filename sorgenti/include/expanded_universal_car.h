@@ -63,6 +63,12 @@ void ExpandedUniversal_CarMarkRecovery(void);
  * Lifecycle text ("UL01" hex, without prefix) read from the restored CAR,
  * ownership to the caller; NULL = absent (pre-v296 CAR). */
 char *ExpandedUniversal_CarTakeLifecycle(void);
+/* FIFA ranking (2627): "FR01;" text read from the CAR (NULL = absent),
+ * and the one recorder called by the CE completion writers. */
+char *ExpandedUniversal_CarTakeFifa(void);
+struct ExpFifaUndo;
+int ExpandedUniversal_FifaRecord(const ExpandedUniversalFixture *f,
+                                 const ExpandedFixtureScore *sc,struct ExpFifaUndo *undo);
 /* Atomic insert (all or none) with the full registry proof. */
 int ExpandedUniversal_CarInsertFixtures(const ExpandedUniversalFixture *f,
                                         uint32_t n);

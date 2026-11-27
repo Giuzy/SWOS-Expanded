@@ -19,6 +19,7 @@
 #include "expanded_ce_table.h"
 #include "expanded_universal_pairings.h"
 #include "expanded_ce_pool.h"
+#include "expanded_fifa_ranking.h"
 
 /* ---- stubs required by the CAR module ---- */
 static WorldId s_world=WORLD_2627;
@@ -1326,6 +1327,7 @@ int main(void)
         assert(nat_fixtures==3u);
         free(disk2);
         puts("SAVE_EXIT_CONTINUE_NATIONAL_KIND_UE03_UL02=PASS");
+
         /* a v00.13.299 UL02 blob that carried one CE call-up list still
          * decodes; the list is discarded (OG national selector owns it) */
         {
@@ -2082,6 +2084,157 @@ int main(void)
                 free(disk);
                 puts("LEAGUE_EXCHANGE_SAVE_CONTINUE_NO_REPEAT=PASS");
             }
+        }
+    }
+    {
+        /* ----- FIFA ranking: CE national fixtures -> FIFA SUM, seeding,
+         * anti double counting, same atomic CAR (FR01), CONTINUE ----- */
+        {
+            static const char *fj=
+            "{\"schema\":1,\"competitions\":["
+            "{\"id\":13173250,\"name\":\"FIFA TEST CUP\",\"country\":200,\"type\":1,"
+            " \"match\":{\"bench\":5,\"subs\":3,\"discipline\":0,\"provenance\":\"GAME_TEMPLATE\"},"
+            " \"phases\":["
+            "  {\"kind\":\"KNOCKOUT\",\"pairing\":\"SEEDED\",\"higher_home\":1,"
+            "   \"fifa\":{\"importance\":40,\"seeding\":\"FIFA_RANKING\"},"
+            "   \"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},"
+            "   \"window\":{\"first\":\"09-01\",\"last\":\"09-30\",\"weekdays\":\"SAT\",\"rest\":3}},"
+            "  {\"kind\":\"KNOCKOUT\",\"pairing\":\"BRACKET\",\"higher_home\":1,"
+            "   \"fifa\":{\"importance\":60},"
+            "   \"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},"
+            "   \"window\":{\"first\":\"10-01\",\"last\":\"10-31\",\"weekdays\":\"SAT\",\"rest\":3}}],"
+            " \"first_edition\":{\"year\":2026,\"entrants\":["
+            "  {\"club\":\"30:1\",\"source\":\"VERIFIED\"},{\"club\":\"30:2\",\"source\":\"VERIFIED\"},"
+            "  {\"club\":\"30:3\",\"source\":\"VERIFIED\"},{\"club\":\"30:4\",\"source\":\"VERIFIED\"}]}}]}";
+            const uint32_t FT=13173250u;
+            FILE *sf=fopen("../data_json/worlds/2627/rankings/fifa_nations.json","rb");
+            char *seed,*disk3,*fr,*fr2;
+            long sl;
+            int len3;
+            ExpCeDef *fd;
+            uint32_t applied=0u,k2;
+            double before[4];
+            int idx4[4];
+            assert(sf);fseek(sf,0,SEEK_END);sl=ftell(sf);fseek(sf,0,SEEK_SET);
+            seed=(char *)malloc((size_t)sl+1u);assert(seed && fread(seed,1,(size_t)sl,sf)==(size_t)sl);
+            seed[sl]=0;fclose(sf);
+            ExpandedUniversal_CarResetCurrent();ExpCe_Reset();s_ran_n=0u;
+            assert(!ExpFifa_Active()); /* reset with the career state */
+            assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+            assert(ExpFifa_LoadSeedJson(seed,(int)sl,R()->scheduler.clock.day_index));
+            assert(ExpCe_LoadJsonDefinitions(fj,(int)strlen(fj),WORLD_2627,"f.json")==1);
+            fd=(ExpCeDef *)ExpCe_Definition(FT);
+            assert(fd && fd->phases[0].fifa_importance==40u && fd->phases[0].fifa_seeding==1u &&
+                   fd->phases[1].fifa_importance==60u);
+            for(k2=0;k2<4u;++k2) {
+                fd->first[k2].club=ExpandedNationalKey(WORLD_2627,(uint16_t)((80u<<8)|k2));
+                idx4[k2]=ExpFifa_FindClub(fd->first[k2].club.stable_club);
+                assert(idx4[k2]>=0);
+                before[k2]=ExpFifa_Nation((uint32_t)idx4[k2])->points;
+            }
+            assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+            /* run like the CPU QUICK batch writer: record each completed result */
+            for(;;) {
+                ExpandedUniversalRegistry *r=R();
+                const ExpandedUniversalFixture *f=NULL;
+                const int32_t today=r->scheduler.clock.day_index;
+                ExpandedUniversalResult res;
+                assert(ExpCe_Tick(r,&H,today)>=0);
+                r=R();
+                res=ExpandedUniversal_Peek(r,today,&f);
+                if(res==EXP_UNIVERSAL_DUE) {
+                    const uint64_t ev=f->event_id;
+                    const ExpandedUniversalFixture fc=*f;
+                    assert(ExpandedUniversal_RunDue(r,today,&OPS)==EXP_UNIVERSAL_OK);
+                    r=R();
+                    {
+                        const ExpandedUniversalFixture *pf=ExpandedUniversal_Find(r,ev);
+                        const ExpandedFixtureLedgerEntry *le=&r->ledger.entries[pf-r->fixtures];
+                        int imp=0,prot=0;
+                        assert(ExpCe_FixtureFifa(&fc,&imp,&prot) && prot==1 &&
+                               (imp==40||imp==60));
+                        if(ExpandedUniversal_FifaRecord(&fc,&le->score,NULL)==1)++applied;
+                        /* the same event can never count twice */
+                        assert(ExpandedUniversal_FifaRecord(&fc,&le->score,NULL)==0);
+                    }
+                    continue;
+                }
+                assert(res==EXP_UNIVERSAL_EMPTY);
+                if(today>=D(2026,11,30))break;
+                r->scheduler.clock.day_index=today+1;
+            }
+            assert(applied==3u && ExpFifa_EventCount()==3u);
+            /* knockout of a final tournament: nobody loses points */
+            for(k2=0;k2<4u;++k2)
+                assert(ExpFifa_Nation((uint32_t)idx4[k2])->points>=before[k2]);
+            /* seeding: the draw snapshot exists and SEEDED paired best v worst */
+            assert(ExpFifa_SnapshotCount()==1u);
+            {
+                uint32_t best=0,worst=0;
+                double bp=-1,wp=1e9;
+                for(k2=0;k2<4u;++k2) {
+                    if(before[k2]>bp){bp=before[k2];best=fd->first[k2].club.stable_club;}
+                    if(before[k2]<wp){wp=before[k2];worst=fd->first[k2].club.stable_club;}
+                }
+                for(k2=0;k2<R()->fixture_count;++k2) {
+                    const ExpandedUniversalFixture *f=&R()->fixtures[k2];
+                    if(f->key.edition.competition.stable_competition!=FT ||
+                       EXP_CE_STAGE_PHASE(f->key.stage)!=0u)continue;
+                    if(f->home.stable_club==best)assert(f->away.stable_club==worst);
+                }
+            }
+            /* SAVE: FR01 inside the same CAR; CONTINUE restores it exactly */
+            assert(Expanded_AutoCareer_SaveChecked("fifa"));
+            disk3=(char *)malloc((size_t)s_disk_len+1u);assert(disk3);
+            memcpy(disk3,s_disk,(size_t)s_disk_len);len3=s_disk_len;disk3[len3]=0;
+            assert(strstr(disk3,"\"fifa_ranking\":\"FR01;"));
+            fr=ExpFifa_Encode();assert(fr);
+            ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+            assert(!ExpFifa_Active());
+            assert(ExpCe_LoadJsonDefinitions(fj,(int)strlen(fj),WORLD_2627,"f.json")==1);
+            assert(ExpandedUniversal_CarRestore(disk3,len3));
+            {
+                char *hex=ExpandedUniversal_CarTakeLifecycle();
+                char *ft=ExpandedUniversal_CarTakeFifa();
+                assert(hex && ExpCe_DecodeHex(hex,strlen(hex),WORLD_2627));free(hex);
+                assert(ft && ExpFifa_LoadSeedJson(seed,(int)sl,R()->scheduler.clock.day_index) &&
+                       ExpFifa_Decode(ft));
+                free(ft);
+            }
+            fr2=ExpFifa_Encode();assert(fr2 && !strcmp(fr,fr2));
+            /* after CONTINUE every persisted result is refused again */
+            for(k2=0;k2<R()->fixture_count;++k2) {
+                const ExpandedUniversalFixture *f=&R()->fixtures[k2];
+                if(f->key.edition.competition.stable_competition!=FT)continue;
+                assert(ExpandedUniversal_FifaRecord(f,&R()->ledger.entries[k2].score,NULL)==0);
+            }
+            /* a club fixture is never eligible */
+            {
+                ExpandedUniversalFixture cf;
+                memset(&cf,0,sizeof cf);
+                cf.key.edition.competition.world=WORLD_2627;cf.key.edition.competition.stable_competition=FT;
+                cf.home=C(40,1);cf.away=C(40,2);cf.event_id=999;
+                assert(!ExpCe_FixtureFifa(&cf,NULL,NULL));
+            }
+            /* malformed FR01 in a CAR: the whole restore fails closed */
+            {
+                char *bad=strdup(disk3),*q=strstr(bad,"FR01;");
+                assert(q);q[6]=q[6]=='9'?'8':'9';
+                ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+                assert(!ExpandedUniversal_CarValidate(bad,len3));
+                free(bad);
+            }
+            /* an old CAR without the section is still accepted */
+            {
+                char *old=strdup(disk3),*q=strstr(old,",\n  \"fifa_ranking\"");
+                assert(q);
+                {char *e=strchr(q+18,'"');e=strchr(e+1,'"');memmove(q,e+1,strlen(e+1)+1);}
+                assert(ExpandedUniversal_CarValidate(old,(int)strlen(old)));
+                free(old);
+            }
+            free(fr);free(fr2);free(disk3);free(seed);
+            ExpFifa_Reset();
+            puts("FIFA_RANKING_CE_NATIONAL_SEEDING_PROTECT_ANTI_DOUBLE_FR01_CONTINUE=PASS");
         }
     }
     puts("FASE2_CE_ENGINE_ISOLATED=PASS");

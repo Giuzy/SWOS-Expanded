@@ -3337,6 +3337,9 @@ loc_E004:
 loc_E012:
     /* Main loop: enumerate competitions for country d7 */
     d7 &= 0xFF;
+#ifdef SWOS_SDL_BUILD
+    { extern uint16_t g_expSelectTeamsCountry; g_expSelectTeamsCountry=d7; }
+#endif
     countryForName = d7;
     if (_isCountryNumber != 0)
         countryForName = d6;

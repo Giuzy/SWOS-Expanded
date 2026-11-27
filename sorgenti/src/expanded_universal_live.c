@@ -11,6 +11,7 @@
 #include "expanded_universal_native_match.h"
 #include "expanded_universal_json_leagues.h"
 #include "expanded_ce_engine.h" /* Fase 2: rules, lifecycle, editions */
+#include "expanded_fifa_ranking.h"
 #include "swos_io.h"
 #include "car_writer.h"
 #include "expanded_world_live.h"
@@ -215,9 +216,52 @@ static int exp_live_engine_definitions(void)
      * only the league definitions: leagues keep their lifecycle */
     return ExpCe_BuildWorldDefinitions((uint16_t)World_Current())!=-2;
 }
+/* FIFA ranking seed (2627 only): the user-approved 1 July 2026 projection. */
+static int exp_live_fifa_seed(int32_t start_day)
+{
+    char path[1024],*buf=NULL;
+    long len;
+    int ok=0;
+    FILE *f;
+    ExpFifa_Reset();
+    if(World_Current()!=WORLD_2627)return 1;
+    f=fopen(swos_data_path("data_json/worlds/2627/rankings/fifa_nations.json",
+                           path,(uint32_t)sizeof path),"rb");
+    if(f) {
+        if(fseek(f,0,SEEK_END)==0 && (len=ftell(f))>0 && len<0x7fffffffL &&
+           fseek(f,0,SEEK_SET)==0 && (buf=(char *)malloc((size_t)len+1u))!=NULL &&
+           fread(buf,1,(size_t)len,f)==(size_t)len) {
+            buf[len]=0;ok=ExpFifa_LoadSeedJson(buf,(int)len,start_day);
+        }
+        free(buf);fclose(f);
+    }
+    fprintf(stderr,"[fifa-ranking] SEED %s nations=%lu week=%ld\n",ok?"LOADED":"MISSING",
+        (unsigned long)ExpFifa_Count(),(long)ExpFifa_WeekId());
+    return ok;
+}
+/* Old CAR without a ranking: seed + every PERSISTED eligible result, in
+ * event order (no invented match, no silent seed for an advanced career). */
+static uint32_t exp_live_fifa_rebuild(const ExpandedUniversalRegistry *r)
+{
+    uint32_t i,applied=0;
+    for(i=0;i<r->scheduler.count;++i) {
+        const ExpandedScheduledEvent *ev=&r->scheduler.events[i];
+        uint32_t k;
+        if(ev->state!=EXP_EVENT_COMPLETE)continue;
+        for(k=0;k<r->fixture_count;++k)
+            if(r->fixtures[k].event_id==ev->id) {
+                const ExpandedFixtureLedgerEntry *e=&r->ledger.entries[k];
+                if(e->state==EXP_FIXTURE_PLAYED &&
+                   ExpandedUniversal_FifaRecord(&r->fixtures[k],&e->score,NULL)==1)++applied;
+                break;
+            }
+    }
+    return applied;
+}
 /* START: editions of the first season + JSON first editions. */
 static int exp_live_engine_start(ExpandedUniversalRegistry *r)
 {
+    (void)exp_live_fifa_seed(r->scheduler.clock.day_index);
     if(!exp_live_engine_definitions() ||
        !ExpCe_BeginWorld(r,&s_ce_host,(uint16_t)World_Current(),World_FirstYear())) {
         fprintf(stderr,"[ce-engine] BEGIN_FAILED world=%s (leagues still "
@@ -232,7 +276,7 @@ int ExpandedUniversalLive_EngineRestore(void)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
     char *hex;
-    if(World_Current()!=WORLD_2627 || !r)return 1;
+    if(World_Current()!=WORLD_2627 || !r){ExpFifa_Reset();return 1;}
     if(!exp_live_engine_definitions())return 0;
     hex=ExpandedUniversal_CarTakeLifecycle();
     if(hex) {
@@ -245,6 +289,26 @@ int ExpandedUniversalLive_EngineRestore(void)
     fprintf(stderr,"[ce-engine] RESTORED editions=%lu source=%s changed=%d\n",
         (unsigned long)ExpCe_EditionCount(),hex?"UL01":"REGISTRY_REBUILD",
         ExpCe_ValidateAfterRestore(r,&s_ce_host));
+    {
+        char *fifa=ExpandedUniversal_CarTakeFifa();
+        if(!exp_live_fifa_seed(r->scheduler.clock.day_index)) {
+            fprintf(stderr,"[fifa-ranking] RESTORE seed missing: ranking unavailable\n");
+        } else if(fifa) {
+            if(!ExpFifa_Decode(fifa)) {
+                /* validated in the preflight: only an identity change of the
+                 * seed (different 211 nations) can refuse it */
+                fprintf(stderr,"[fifa-ranking] RESTORE refused (identity): ranking unavailable\n");
+                ExpFifa_Reset();
+            } else fprintf(stderr,"[fifa-ranking] RESTORED FR01 events=%lu snapshots=%lu week=%ld\n",
+                (unsigned long)ExpFifa_EventCount(),(unsigned long)ExpFifa_SnapshotCount(),
+                (long)ExpFifa_WeekId());
+        } else {
+            const uint32_t n=exp_live_fifa_rebuild(r);
+            fprintf(stderr,"[fifa-ranking] OLD_CAR rebuilt from persisted results: "
+                "applied=%lu (weekly references restart from the current week)\n",(unsigned long)n);
+        }
+        free(fifa);
+    }
     return 1;
 }
 /* A refusal BEFORE any claim (rules/roster/tie context/lineup data): block

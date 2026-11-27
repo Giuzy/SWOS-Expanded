@@ -61786,6 +61786,98 @@
             ]
           },
           "scope": "P evidence only: native IDs, nominal dates, complete cutoff and rules require review; no post-start scores"
+        },
+        "delta:37139b5f068fd3baf2c2af54a89acd7a61330656dbaf3b00c8a49d82020a3fba": {
+          "document": "Spain Primera División 2026/27",
+          "fields": {
+            "format": {
+              "teams": 20,
+              "cycles": 2,
+              "rounds": 38
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster or round list; native IDs, conflicts, dates and rules require review; no post-start scores"
+        },
+        "football-data:delta:119752a186a10eecdf226b19140d2182a6946e1115e05cf69d7a82516d363884": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+          "fields": {
+            "calendar": {
+              "matches": 129,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-15",
+                "2026-08-16",
+                "2026-08-17",
+                "2026-08-19",
+                "2026-08-20",
+                "2026-08-21",
+                "2026-08-22",
+                "2026-08-23",
+                "2026-08-24",
+                "2026-08-25",
+                "2026-08-26",
+                "2026-08-27",
+                "2026-08-28",
+                "2026-08-29",
+                "2026-08-30",
+                "2026-08-31",
+                "2026-09-03",
+                "2026-09-04",
+                "2026-09-05",
+                "2026-09-06",
+                "2026-09-07",
+                "2026-09-11",
+                "2026-09-12",
+                "2026-09-13",
+                "2026-09-14",
+                "2026-09-15",
+                "2026-09-16",
+                "2026-09-17",
+                "2026-09-18",
+                "2026-09-19",
+                "2026-09-20",
+                "2026-10-09",
+                "2026-10-10",
+                "2026-10-11",
+                "2026-10-12",
+                "2026-10-16",
+                "2026-10-17",
+                "2026-10-18",
+                "2026-10-19",
+                "2026-10-21",
+                "2026-10-23",
+                "2026-10-24",
+                "2026-10-25",
+                "2026-10-26",
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01",
+                "2026-11-02",
+                "2026-11-06",
+                "2026-11-07",
+                "2026-11-08",
+                "2026-11-20",
+                "2026-11-21",
+                "2026-11-22",
+                "2026-11-23"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Sat": 42,
+                "Sun": 46,
+                "Mon": 13,
+                "Wed": 6,
+                "Thu": 6,
+                "Fri": 12,
+                "Tue": 4
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
         }
       }
     }
@@ -87069,6 +87161,113 @@
             "july1": "NA",
             "evolution": "I"
           }
+        }
+      },
+      "strictAcquisition": {
+        "football-data:delta:44e748d71bd8b8835f6dd9eee0ffffef63ce1e8d88f71d345ebeb684b9d6edb6": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/SP2.csv",
+          "fields": {
+            "participants": {
+              "fullDoubleRoundRobin": false,
+              "observed": [
+                "Albacete",
+                "Almeria",
+                "Andorra",
+                "Burgos",
+                "Cadiz",
+                "Castellon",
+                "Celta B",
+                "Ceuta",
+                "Cordoba",
+                "Eibar",
+                "Eldense",
+                "Girona",
+                "Granada",
+                "Las Palmas",
+                "Leganes",
+                "Mallorca",
+                "Oviedo",
+                "Sabadell",
+                "Sociedad B",
+                "Sp Gijon",
+                "Tenerife",
+                "Valladolid"
+              ]
+            },
+            "calendar": {
+              "matches": 162,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-14",
+                "2026-08-15",
+                "2026-08-16",
+                "2026-08-17",
+                "2026-08-21",
+                "2026-08-22",
+                "2026-08-23",
+                "2026-08-24",
+                "2026-08-28",
+                "2026-08-29",
+                "2026-08-30",
+                "2026-08-31",
+                "2026-09-04",
+                "2026-09-05",
+                "2026-09-06",
+                "2026-09-07",
+                "2026-09-11",
+                "2026-09-12",
+                "2026-09-13",
+                "2026-09-14",
+                "2026-09-18",
+                "2026-09-19",
+                "2026-09-20",
+                "2026-09-25",
+                "2026-09-26",
+                "2026-09-27",
+                "2026-09-28",
+                "2026-10-02",
+                "2026-10-03",
+                "2026-10-04",
+                "2026-10-05",
+                "2026-10-10",
+                "2026-10-11",
+                "2026-10-12",
+                "2026-10-16",
+                "2026-10-17",
+                "2026-10-18",
+                "2026-10-19",
+                "2026-10-23",
+                "2026-10-24",
+                "2026-10-25",
+                "2026-10-26",
+                "2026-10-31",
+                "2026-11-01",
+                "2026-11-02",
+                "2026-11-07",
+                "2026-11-08",
+                "2026-11-09",
+                "2026-11-13",
+                "2026-11-14",
+                "2026-11-15",
+                "2026-11-16",
+                "2026-11-20",
+                "2026-11-21",
+                "2026-11-22",
+                "2026-11-23"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Fri": 12,
+                "Sat": 63,
+                "Sun": 63,
+                "Mon": 24
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
         }
       }
     }

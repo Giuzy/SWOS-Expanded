@@ -1,0 +1,1928 @@
+{
+ "schema": 1,
+ "world": "2627",
+ "asOf": "2026-07-01",
+ "mode": "FIFA_SUM_SEED",
+ "source": "FIFA_WC2026_PRESTART_RANKING_INPUT.json projection (user accepted 27/11/2026)",
+ "flagSize": [
+  12,
+  8
+ ],
+ "palette": {
+  "R": "C8102E",
+  "W": "FFFFFF",
+  "B": "00247D",
+  "U": "0057B7",
+  "L": "64AAE6",
+  "G": "00823C",
+  "Y": "FACD00",
+  "K": "000000",
+  "O": "F07800",
+  "M": "82142D",
+  "N": "8C5A28",
+  "S": "A0A0A0",
+  "T": "3C3C3C"
+ },
+ "expectedRows": 211,
+ "records": [
+  {
+   "code": "FRA",
+   "name": "FRANCE",
+   "teamFile": 80,
+   "ordinal": 15,
+   "stableClub": 20496,
+   "points": "1916.2439443001103",
+   "flag": "BBBBWWWWRRRRBBBBWWWWRRRRBBBBWWWWRRRRBBBBWWWWRRRRBBBBWWWWRRRRBBBBWWWWRRRRBBBBWWWWRRRRBBBBWWWWRRRR"
+  },
+  {
+   "code": "ARG",
+   "name": "ARGENTINA",
+   "teamFile": 82,
+   "ordinal": 0,
+   "stableClub": 20993,
+   "points": "1907.4075621726547",
+   "flag": "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLWWWWWYYWWWWWWWWWWYYWWWWWLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+  },
+  {
+   "code": "ESP",
+   "name": "SPAIN",
+   "teamFile": 80,
+   "ordinal": 42,
+   "stableClub": 20523,
+   "points": "1879.5826895566154",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRYYYYYYYYYYYYYYYRYYYYYYYYYYYRYYYYYYYYYYYYYYYYYYYYRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "ENG",
+   "name": "ENGLAND",
+   "teamFile": 80,
+   "ordinal": 11,
+   "stableClub": 20492,
+   "points": "1840.4604099715218",
+   "flag": "WWWWWRRWWWWWWWWWWRRWWWWWWWWWWRRWWWWWRRRRRRRRRRRRRRRRRRRRRRRRWWWWWRRWWWWWWWWWWRRWWWWWWWWWWRRWWWWW"
+  },
+  {
+   "code": "BRA",
+   "name": "BRAZIL",
+   "teamFile": 82,
+   "ordinal": 2,
+   "stableClub": 20995,
+   "points": "1804.926554024277",
+   "flag": "GGGGGGGGGGGGGGGGYYYYGGGGGGGYYYYYYGGGGYYYYBBBYYYGGYYYYBBBYYYGGGGYYBBBYGGGGGGGYYYYGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "MAR",
+   "name": "MOROCCO",
+   "teamFile": 81,
+   "ordinal": 19,
+   "stableClub": 20756,
+   "points": "1788.855422564147",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRGGRRRRRRRRRRGGRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "NED",
+   "name": "HOLLAND",
+   "teamFile": 80,
+   "ordinal": 19,
+   "stableClub": 20500,
+   "points": "1775.5411240224128",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "POR",
+   "name": "PORTUGAL",
+   "teamFile": 80,
+   "ordinal": 34,
+   "stableClub": 20515,
+   "points": "1764.856595134144",
+   "flag": "GGGGGRRRRRRRGGGGGRRRRRRRGGGGGRRRRRRRGGGGYYRRRRRRGGGGYYRRRRRRGGGGGRRRRRRRGGGGGRRRRRRRGGGGGRRRRRRR"
+  },
+  {
+   "code": "MEX",
+   "name": "MEXICO",
+   "teamFile": 83,
+   "ordinal": 8,
+   "stableClub": 21257,
+   "points": "1754.2955980401048",
+   "flag": "GGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRRGGGGWNNWRRRRGGGGWNNWRRRRGGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRR"
+  },
+  {
+   "code": "BEL",
+   "name": "BELGIUM",
+   "teamFile": 80,
+   "ordinal": 5,
+   "stableClub": 20486,
+   "points": "1735.4174838722715",
+   "flag": "KKKKYYYYRRRRKKKKYYYYRRRRKKKKYYYYRRRRKKKKYYYYRRRRKKKKYYYYRRRRKKKKYYYYRRRRKKKKYYYYRRRRKKKKYYYYRRRR"
+  },
+  {
+   "code": "COL",
+   "name": "COLOMBIA",
+   "teamFile": 82,
+   "ordinal": 4,
+   "stableClub": 20997,
+   "points": "1729.2990625438524",
+   "flag": "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYUUUUUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "GER",
+   "name": "GERMANY",
+   "teamFile": 80,
+   "ordinal": 17,
+   "stableClub": 20498,
+   "points": "1726.2172732762272",
+   "flag": "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKRRRRRRRRRRRRRRRRRRRRRRRRYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+  },
+  {
+   "code": "CRO",
+   "name": "CROATIA",
+   "teamFile": 80,
+   "ordinal": 7,
+   "stableClub": 20488,
+   "points": "1723.0541099918528",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWRRRRRWWWWWWRWWWWWWWWWWRWWWWWWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "ITA",
+   "name": "ITALY",
+   "teamFile": 80,
+   "ordinal": 23,
+   "stableClub": 20504,
+   "points": "1704.73",
+   "flag": "GGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRRGGGGWWWWRRRR"
+  },
+  {
+   "code": "USA",
+   "name": "UNITED STATES",
+   "teamFile": 83,
+   "ordinal": 13,
+   "stableClub": 21262,
+   "points": "1677.16678241304",
+   "flag": "BBBBBRRRRRRRBWBWBWWWWWWWBBWBBRRRRRRRBBBBBWWWWWWWRRRRRRRRRRRRWWWWWWWWWWWWRRRRRRRRRRRRWWWWWWWWWWWW"
+  },
+  {
+   "code": "SUI",
+   "name": "SWITZERLAND",
+   "teamFile": 80,
+   "ordinal": 44,
+   "stableClub": 20525,
+   "points": "1675.9968020482756",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWRRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRRWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "JPN",
+   "name": "JAPAN",
+   "teamFile": 84,
+   "ordinal": 9,
+   "stableClub": 21514,
+   "points": "1673.6801650011755",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWRRRRWWWWWWWWRRRRWWWWWWWWRRRRWWWWWWWWRRRRWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  {
+   "code": "SEN",
+   "name": "SENEGAL",
+   "teamFile": 81,
+   "ordinal": 23,
+   "stableClub": 20760,
+   "points": "1653.4289680381828",
+   "flag": "GGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRRGGGGYGGYRRRRGGGGYGGYRRRRGGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRR"
+  },
+  {
+   "code": "URU",
+   "name": "URUGUAY",
+   "teamFile": 82,
+   "ordinal": 8,
+   "stableClub": 21001,
+   "points": "1634.7050705212166",
+   "flag": "WWWWWWWWWWWWWYYWLLLLLLLLWYYWWWWWWWWWWWWWLLLLLLLLWWWWWWWWWWWWLLLLLLLLLLLLWWWWWWWWWWWWLLLLLLLLLLLL"
+  },
+  {
+   "code": "DEN",
+   "name": "DENMARK",
+   "teamFile": 80,
+   "ordinal": 10,
+   "stableClub": 20491,
+   "points": "1619.47",
+   "flag": "RRRWWRRRRRRRRRRWWRRRRRRRRRRWWRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWRRRWWRRRRRRRRRRWWRRRRRRRRRRWWRRRRRRR"
+  },
+  {
+   "code": "NOR",
+   "name": "NORWAY",
+   "teamFile": 80,
+   "ordinal": 32,
+   "stableClub": 20513,
+   "points": "1617.674026346718",
+   "flag": "RRWBBWRRRRRRRRWBBWRRRRRRWWWBBWWWWWWWBBBBBBBBBBBBBBBBBBBBBBBBWWWBBWWWWWWWRRWBBWRRRRRRRRWBBWRRRRRR"
+  },
+  {
+   "code": "IRN",
+   "name": "IRAN",
+   "teamFile": 84,
+   "ordinal": 7,
+   "stableClub": 21512,
+   "points": "1609.8439789492631",
+   "flag": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGWWWWWRRWWWWWWWWWWRRWWWWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "AUT",
+   "name": "AUSTRIA",
+   "teamFile": 80,
+   "ordinal": 2,
+   "stableClub": 20483,
+   "points": "1598.8192848846625",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "ECU",
+   "name": "ECUADOR",
+   "teamFile": 82,
+   "ordinal": 5,
+   "stableClub": 20998,
+   "points": "1592.5923447230682",
+   "flag": "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYNNYYYYYUUUUUNNUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "NGA",
+   "name": "NIGERIA",
+   "teamFile": 81,
+   "ordinal": 22,
+   "stableClub": 20759,
+   "points": "1585.02",
+   "flag": "GGGGWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGG"
+  },
+  {
+   "code": "EGY",
+   "name": "EGYPT",
+   "teamFile": 81,
+   "ordinal": 8,
+   "stableClub": 20745,
+   "points": "1584.7078518373835",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWYYWWWWWWWWWWYYWWWWWKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "code": "TUR",
+   "name": "TURKEY",
+   "teamFile": 80,
+   "ordinal": 45,
+   "stableClub": 20526,
+   "points": "1582.543653046187",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRWWRRRRRRRRRRWRRRWWRRRRRRWRRRWWRRRRRRWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "AUS",
+   "name": "AUSTRALIA",
+   "teamFile": 85,
+   "ordinal": 0,
+   "stableClub": 21761,
+   "points": "1581.345660917352",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBBWBBWBRRBWBBBBBBBBBBBBBBBBBBBBBBBBBBWBWBBBBWBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "ALG",
+   "name": "ALGERIA",
+   "teamFile": 81,
+   "ordinal": 0,
+   "stableClub": 20737,
+   "points": "1576.7998863398545",
+   "flag": "GGGGGGWWWWWWGGGGGGWWWWWWGGGGGRWWWWWWGGGGRWWRWWWWGGGGRWWWWWWWGGGGGRWWWWWWGGGGGGWWWWWWGGGGGGWWWWWW"
+  },
+  {
+   "code": "CAN",
+   "name": "CANADA",
+   "teamFile": 83,
+   "ordinal": 1,
+   "stableClub": 21250,
+   "points": "1571.3420598774921",
+   "flag": "RRRWWWWWWRRRRRRWWWWWWRRRRRRWWRRWWRRRRRRWRRRRWRRRRRRWRRRRWRRRRRRWWRRWWRRRRRRWWWWWWRRRRRRWWWWWWRRR"
+  },
+  {
+   "code": "CIV",
+   "name": "IVORY COAST",
+   "teamFile": 81,
+   "ordinal": 13,
+   "stableClub": 20750,
+   "points": "1565.4750431391478",
+   "flag": "OOOOWWWWGGGGOOOOWWWWGGGGOOOOWWWWGGGGOOOOWWWWGGGGOOOOWWWWGGGGOOOOWWWWGGGGOOOOWWWWGGGGOOOOWWWWGGGG"
+  },
+  {
+   "code": "KOR",
+   "name": "SOUTH KOREA",
+   "teamFile": 84,
+   "ordinal": 24,
+   "stableClub": 21529,
+   "points": "1558.7187747813743",
+   "flag": "WWWWWWWWWWWWWKWWWWWWWWKWWWWWWRRWWWWWWWWWRRRRWWWWWWWWUUUUWWWWWWWWWUUWWWWWWKWWWWWWWWKWWWWWWWWWWWWW"
+  },
+  {
+   "code": "UKR",
+   "name": "UKRAINE",
+   "teamFile": 80,
+   "ordinal": 46,
+   "stableClub": 20527,
+   "points": "1549.29",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+  },
+  {
+   "code": "PAR",
+   "name": "PARAGUAY",
+   "teamFile": 82,
+   "ordinal": 6,
+   "stableClub": 20999,
+   "points": "1542.475901115849",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWYYWWWWWWWWWWYYWWWWWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "RUS",
+   "name": "RUSSIA",
+   "teamFile": 80,
+   "ordinal": 37,
+   "stableClub": 20518,
+   "points": "1529.6",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUUUUUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "POL",
+   "name": "POLAND",
+   "teamFile": 80,
+   "ordinal": 33,
+   "stableClub": 20514,
+   "points": "1526.18",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "SWE",
+   "name": "SWEDEN",
+   "teamFile": 80,
+   "ordinal": 43,
+   "stableClub": 20524,
+   "points": "1525.5833273606477",
+   "flag": "UUUYYUUUUUUUUUUYYUUUUUUUUUUYYUUUUUUUYYYYYYYYYYYYYYYYYYYYYYYYUUUYYUUUUUUUUUUYYUUUUUUUUUUYYUUUUUUU"
+  },
+  {
+   "code": "WAL",
+   "name": "WALES",
+   "teamFile": 80,
+   "ordinal": 47,
+   "stableClub": 20528,
+   "points": "1516.95",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWRRRRRWWWWWWRRRRRWWWWGGGGRRRRGGGGGGGGRRRRGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "HUN",
+   "name": "HUNGARY",
+   "teamFile": 80,
+   "ordinal": 20,
+   "stableClub": 20501,
+   "points": "1506.39",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "SRB",
+   "name": "SERBIA",
+   "teamFile": 80,
+   "ordinal": 48,
+   "stableClub": 20529,
+   "points": "1502.13",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRUUWRUUUUUUUUUURRUUUUUUUUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  {
+   "code": "COD",
+   "name": "DR CONGO",
+   "teamFile": 81,
+   "ordinal": 35,
+   "stableClub": 20772,
+   "points": "1495.478266920363",
+   "flag": "LLLLLLLYYRRRLYYLLLYRRRRRLYYLYYRRRRRYLLLYRRRRRYYLLYYRRRRRYLLLYRRRRRYYLLLLRRRRRYLLLLLLRRRYYLLLLLLL"
+  },
+  {
+   "code": "SCO",
+   "name": "SCOTLAND",
+   "teamFile": 80,
+   "ordinal": 39,
+   "stableClub": 20520,
+   "points": "1491.2239064267728",
+   "flag": "WUUUUUUUUUUWUWWUUUUUUWWUUUUWUUUUWUUUUUUUWWWWUUUUUUUUWWWWUUUUUUUWUUUUWUUUUWWUUUUUUWWUWUUUUUUUUUUW"
+  },
+  {
+   "code": "CMR",
+   "name": "CAMEROON",
+   "teamFile": 81,
+   "ordinal": 6,
+   "stableClub": 20743,
+   "points": "1481.24",
+   "flag": "GGGGRRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGGRYYRYYYYGGGGRYYRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYY"
+  },
+  {
+   "code": "PAN",
+   "name": "PANAMA",
+   "teamFile": 83,
+   "ordinal": 10,
+   "stableClub": 21259,
+   "points": "1478.4155551923366",
+   "flag": "WWWWWWRRRRRRWWWWWWRRRRRRWWWBWWRRRRRRWWWWWWRRRRRRBBBBBBWWWWWWBBBBBBWWRWWWBBBBBBWWWWWWBBBBBBWWWWWW"
+  },
+  {
+   "code": "SVK",
+   "name": "SLOVAKIA",
+   "teamFile": 80,
+   "ordinal": 40,
+   "stableClub": 20521,
+   "points": "1473.66",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWRRRWWWWWWWUURWRUUUUUUUUURRRUUUUUUURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "GRE",
+   "name": "GREECE",
+   "teamFile": 80,
+   "ordinal": 18,
+   "stableClub": 20499,
+   "points": "1473.19",
+   "flag": "UUWUUUUUUUUUWWWWWWWWWWWWUUWUUUUUUUUUUUWUUWWWWWWWUUUUUUUUUUUUWWWWWWWWWWWWUUUUUUUUUUUUWWWWWWWWWWWW"
+  },
+  {
+   "code": "VEN",
+   "name": "VENEZUELA",
+   "teamFile": 82,
+   "ordinal": 9,
+   "stableClub": 21002,
+   "points": "1469.18",
+   "flag": "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYWYWYYYYUUUWUUUUUWUUUUUUUUUUUUUURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "CZE",
+   "name": "CZECHIA",
+   "teamFile": 80,
+   "ordinal": 9,
+   "stableClub": 20490,
+   "points": "1467.2620149184959",
+   "flag": "UWWWWWWWWWWWUUWWWWWWWWWWUUUUWWWWWWWWUUUUUWWWWWWWUUUUURRRRRRRUUUURRRRRRRRUURRRRRRRRRRURRRRRRRRRRR"
+  },
+  {
+   "code": "CHI",
+   "name": "CHILE",
+   "teamFile": 82,
+   "ordinal": 3,
+   "stableClub": 20996,
+   "points": "1458.2",
+   "flag": "BBBBWWWWWWWWBBBBWWWWWWWWBBWBWWWWWWWWBBBBWWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "PER",
+   "name": "PERU",
+   "teamFile": 82,
+   "ordinal": 7,
+   "stableClub": 21000,
+   "points": "1457.69",
+   "flag": "RRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRR"
+  },
+  {
+   "code": "CRC",
+   "name": "COSTA RICA",
+   "teamFile": 83,
+   "ordinal": 2,
+   "stableClub": 21251,
+   "points": "1456.03",
+   "flag": "BBBBBBBBBBBBWWWWWWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWBBBBBBBBBBBB"
+  },
+  {
+   "code": "ROU",
+   "name": "ROMANIA",
+   "teamFile": 80,
+   "ordinal": 36,
+   "stableClub": 20517,
+   "points": "1455.89",
+   "flag": "BBBBYYYYRRRRBBBBYYYYRRRRBBBBYYYYRRRRBBBBYYYYRRRRBBBBYYYYRRRRBBBBYYYYRRRRBBBBYYYYRRRRBBBBYYYYRRRR"
+  },
+  {
+   "code": "MLI",
+   "name": "MALI",
+   "teamFile": 81,
+   "ordinal": 18,
+   "stableClub": 20755,
+   "points": "1455.59",
+   "flag": "GGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRRGGGGYYYYRRRR"
+  },
+  {
+   "code": "RSA",
+   "name": "SOUTH AFRICA",
+   "teamFile": 81,
+   "ordinal": 25,
+   "stableClub": 20762,
+   "points": "1451.2425066608257",
+   "flag": "YRRRRRRRRRRRKKRRRRRRRRRRKKYWWWWWWWWWKKKKGGGGGGGGKKKKGGGGGGGGKKYWWWWWWWWWKKBBBBBBBBBBYBBBBBBBBBBB"
+  },
+  {
+   "code": "IRL",
+   "name": "REPUBLIC IRELAND",
+   "teamFile": 80,
+   "ordinal": 35,
+   "stableClub": 20516,
+   "points": "1441.1",
+   "flag": "GGGGWWWWOOOOGGGGWWWWOOOOGGGGWWWWOOOOGGGGWWWWOOOOGGGGWWWWOOOOGGGGWWWWOOOOGGGGWWWWOOOOGGGGWWWWOOOO"
+  },
+  {
+   "code": "SVN",
+   "name": "SLOVENIA",
+   "teamFile": 80,
+   "ordinal": 41,
+   "stableClub": 20522,
+   "points": "1441.09",
+   "flag": "WWWWWWWWWWWWWWUUUWWWWWWWWWUWUWWWWWWWUUUUUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "TUN",
+   "name": "TUNISIA",
+   "teamFile": 81,
+   "ordinal": 30,
+   "stableClub": 20767,
+   "points": "1426.5885912888089",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRWWRWRRRRRRRRWRWRRRRRRRRRWRRRRRRRRRRRWWRWRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "KSA",
+   "name": "SAUDI ARABIA",
+   "teamFile": 84,
+   "ordinal": 22,
+   "stableClub": 21527,
+   "points": "1425.5143064943186",
+   "flag": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGWWWWWWGGGGGGGGGGGGGGGGGGWWWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "QAT",
+   "name": "QATAR",
+   "teamFile": 84,
+   "ordinal": 21,
+   "stableClub": 21526,
+   "points": "1411.0657653168105",
+   "flag": "WWWMMMMMMMMMWWWMMMMMMMMMWWWMMMMMMMMMWWWMMMMMMMMMWWWMMMMMMMMMWWWMMMMMMMMMWWWMMMMMMMMMWWWMMMMMMMMM"
+  },
+  {
+   "code": "UZB",
+   "name": "UZBEKISTAN",
+   "teamFile": 84,
+   "ordinal": 46,
+   "stableClub": 21551,
+   "points": "1409.7260754016404",
+   "flag": "LLLLLLLLLLLLLWLLLLLLLLLLRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWRRRRRRRRRRRRGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "BIH",
+   "name": "BOSNIA-HERZ.",
+   "teamFile": 80,
+   "ordinal": 50,
+   "stableClub": 20531,
+   "points": "1408.9341672972",
+   "flag": "BBBWYYYYYYYYBBBBYYYYYYYYBBBBBWYYYYYYBBBBBBYYYYYYBBBBBBBWYYYYBBBBBBBBYYYYBBBBBBBBBWYYBBBBBBBBBBYY"
+  },
+  {
+   "code": "BFA",
+   "name": "BURKINA FASO",
+   "teamFile": 81,
+   "ordinal": 4,
+   "stableClub": 20741,
+   "points": "1406.99",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRYYRRRRRGGGGGYYGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "IRQ",
+   "name": "IRAQ",
+   "teamFile": 84,
+   "ordinal": 8,
+   "stableClub": 21513,
+   "points": "1404.1733536474014",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWGGGGWWWWWWWWGGGGWWWWKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "code": "CPV",
+   "name": "CAPE VERDE",
+   "teamFile": 81,
+   "ordinal": 37,
+   "stableClub": 20774,
+   "points": "1402.9679334278494",
+   "flag": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBWWWYYYWWWWWWRRRYBYRRRRRRWWWYYYWWWWWWBBBBBBBBBBBB"
+  },
+  {
+   "code": "GHA",
+   "name": "GHANA",
+   "teamFile": 81,
+   "ordinal": 11,
+   "stableClub": 20748,
+   "points": "1386.999924844289",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRYYYYYKKYYYYYYYYYYKKYYYYYGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "HON",
+   "name": "HONDURAS",
+   "teamFile": 83,
+   "ordinal": 6,
+   "stableClub": 21255,
+   "points": "1378.97",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUWWWWWUWUWWWWWWWWUWUWWWWWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "ALB",
+   "name": "ALBANIA",
+   "teamFile": 80,
+   "ordinal": 0,
+   "stableClub": 20481,
+   "points": "1376.03",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRKKKKKKRRRRRRRKKKKRRRRRRRRKKKKRRRRRRRRKKKKRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "UAE",
+   "name": "UNITED ARAB EMIS",
+   "teamFile": 84,
+   "ordinal": 28,
+   "stableClub": 21533,
+   "points": "1370.47",
+   "flag": "RRRGGGGGGGGGRRRGGGGGGGGGRRRGGGGGGGGGRRRWWWWWWWWWRRRWWWWWWWWWRRRKKKKKKKKKRRRKKKKKKKKKRRRKKKKKKKKK"
+  },
+  {
+   "code": "MKD",
+   "name": "NORTH MACEDONIA",
+   "teamFile": 80,
+   "ordinal": 28,
+   "stableClub": 20509,
+   "points": "1369.16",
+   "flag": "YRRRRYYRRRRYRYYRRYYRRYYRRRRYRYYRYRRRYYYYYYYYYYYYYYYYYYYYYYYYRRRYRYYRYRRRRYYRRYYRRYYRYRRRRYYRRRRY"
+  },
+  {
+   "code": "NIR",
+   "name": "NORTHERN IRELAND",
+   "teamFile": 80,
+   "ordinal": 31,
+   "stableClub": 20512,
+   "points": "1365.3",
+   "flag": "WWWWWRRWWWWWWWWWWRRWWWWWWWWWWRRWWWWWRRRRRRWRRRRRRRRRRWWRRRRRWWWWWRRWWWWWWWWWWRRWWWWWWWWWWRRWWWWW"
+  },
+  {
+   "code": "JAM",
+   "name": "JAMAICA",
+   "teamFile": 83,
+   "ordinal": 7,
+   "stableClub": 21256,
+   "points": "1357.84",
+   "flag": "YGGGGGGGGGGYKYYGGGGGGYYKKKKYGGGGYKKKKKKKYYYYKKKKKKKKYYYYKKKKKKKYGGGGYKKKKYYGGGGGGYYKYGGGGGGGGGGY"
+  },
+  {
+   "code": "GEO",
+   "name": "GEORGIA",
+   "teamFile": 80,
+   "ordinal": 16,
+   "stableClub": 20497,
+   "points": "1355.26",
+   "flag": "WWWWWRRWWWWWWWRWWRRWWRWWWWWWWRRWWWWWRRRRRRRRRRRRRRRRRRRRRRRRWWWWWRRWWWWWWWRWWRRWWRWWWWWWWRRWWWWW"
+  },
+  {
+   "code": "JOR",
+   "name": "JORDAN",
+   "teamFile": 84,
+   "ordinal": 10,
+   "stableClub": 21515,
+   "points": "1350.4132666028283",
+   "flag": "RKKKKKKKKKKKRRKKKKKKKKKKRRRKKKKKKKKKRRRRWWWWWWWWRWRRWWWWWWWWRRRGGGGGGGGGRRGGGGGGGGGGRGGGGGGGGGGG"
+  },
+  {
+   "code": "ISL",
+   "name": "ICELAND",
+   "teamFile": 80,
+   "ordinal": 21,
+   "stableClub": 20502,
+   "points": "1342.77",
+   "flag": "UUWRRWUUUUUUUUWRRWUUUUUUWWWRRWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRRWWWRRWWWWWWWUUWRRWUUUUUUUUWRRWUUUUUU"
+  },
+  {
+   "code": "FIN",
+   "name": "FINLAND",
+   "teamFile": 80,
+   "ordinal": 14,
+   "stableClub": 20495,
+   "points": "1341.92",
+   "flag": "WWWUUWWWWWWWWWWUUWWWWWWWWWWUUWWWWWWWUUUUUUUUUUUUUUUUUUUUUUUUWWWUUWWWWWWWWWWUUWWWWWWWWWWUUWWWWWWW"
+  },
+  {
+   "code": "ISR",
+   "name": "ISRAEL",
+   "teamFile": 80,
+   "ordinal": 22,
+   "stableClub": 20503,
+   "points": "1333.9",
+   "flag": "WWWWWWWWWWWWUUUUUUUUUUUUWWWWWWWWWWWWWWWWWWUWWWWWWWWWWUUWWWWWWWWWWWWWWWWWUUUUUUUUUUUUWWWWWWWWWWWW"
+  },
+  {
+   "code": "BOL",
+   "name": "BOLIVIA",
+   "teamFile": 82,
+   "ordinal": 1,
+   "stableClub": 20994,
+   "points": "1326.0",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRYYYYYYYYYYYYYYYYYYYYYYYYGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "KOS",
+   "name": "KOSOVO",
+   "teamFile": 80,
+   "ordinal": 53,
+   "stableClub": 20534,
+   "points": "1319.12",
+   "flag": "UUUUUUUUUUUUUUUWUWUWUWUUUUUUUUUUUUUUUUUUYYYYUUUUUUUUYYYYUUUUUUUUYYYYUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "OMA",
+   "name": "OMAN",
+   "teamFile": 84,
+   "ordinal": 17,
+   "stableClub": 21522,
+   "points": "1306.9",
+   "flag": "RRRWWWWWWWWWRWRWWWWWWWWWRRRWWWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRRRRRGGGGGGGGGRRRGGGGGGGGGRRRGGGGGGGGG"
+  },
+  {
+   "code": "MNE",
+   "name": "MONTENEGRO",
+   "teamFile": 80,
+   "ordinal": 54,
+   "stableClub": 20535,
+   "points": "1301.98",
+   "flag": "YYYYYYYYYYYYYRRRRRRRRRRYYRRRYYYYRRRYYRRRYYYYRRRYYRRRYYYYRRRYYRRRYYYYRRRYYRRRRRRRRRRYYYYYYYYYYYYY"
+  },
+  {
+   "code": "GUI",
+   "name": "GUINEA",
+   "teamFile": 81,
+   "ordinal": 12,
+   "stableClub": 20749,
+   "points": "1295.6",
+   "flag": "RRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGGRRRRYYYYGGGG"
+  },
+  {
+   "code": "CUW",
+   "name": "CURACAO",
+   "teamFile": 83,
+   "ordinal": 22,
+   "stableClub": 21271,
+   "points": "1285.6453388615566",
+   "flag": "UUUUUUUUUUUUUUWUUUUUUUUUUUUWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUYYYYYYYYYYYYUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "SYR",
+   "name": "SYRIA",
+   "teamFile": 84,
+   "ordinal": 26,
+   "stableClub": 21531,
+   "points": "1283.05",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWGWWGWWWWWWWWWWWWWWWWKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "code": "GAB",
+   "name": "GABON",
+   "teamFile": 81,
+   "ordinal": 10,
+   "stableClub": 20747,
+   "points": "1272.51",
+   "flag": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGYYYYYYYYYYYYYYYYYYYYYYYYUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "BUL",
+   "name": "BULGARIA",
+   "teamFile": 80,
+   "ordinal": 6,
+   "stableClub": 20487,
+   "points": "1271.68",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGGRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "NZL",
+   "name": "NEW ZEALAND",
+   "teamFile": 85,
+   "ordinal": 2,
+   "stableClub": 21763,
+   "points": "1269.8006853410816",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBBRBBWBRRBWBBBBBBBBBBBBBBRBRBBBBBBBBBBBBBBBBBBBBBBRBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "ANG",
+   "name": "ANGOLA",
+   "teamFile": 81,
+   "ordinal": 1,
+   "stableClub": 20738,
+   "points": "1265.58",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRYYRRRRRKKKKKYYKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "code": "HAI",
+   "name": "HAITI",
+   "teamFile": 83,
+   "ordinal": 26,
+   "stableClub": 21275,
+   "points": "1264.581620919226",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUWWUUUUURRRRRWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "UGA",
+   "name": "UGANDA",
+   "teamFile": 81,
+   "ordinal": 31,
+   "stableClub": 20768,
+   "points": "1264.09",
+   "flag": "KKKKKKKKKKKKYYYYYYYYYYYYRRRRRWWRRRRRRRRRWWWWRRRRKKKKWWWWKKKKYYYYYWWYYYYYRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "ZAM",
+   "name": "ZAMBIA",
+   "teamFile": 81,
+   "ordinal": 32,
+   "stableClub": 20769,
+   "points": "1255.82",
+   "flag": "GGGGGGGGGGGGGGGGGGGGOOOGGGGGGGGGGGGGGGGGGGGGRKOGGGGGGGGGRKOGGGGGGGGGRKOGGGGGGGGGRKOGGGGGGGGGRKOG"
+  },
+  {
+   "code": "CHN",
+   "name": "CHINA",
+   "teamFile": 84,
+   "ordinal": 3,
+   "stableClub": 21508,
+   "points": "1254.81",
+   "flag": "RRRRRRRRRRRRRYYRYRRRRRRRRYYRRRRRRRRRRRRRYRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "BHR",
+   "name": "BAHRAIN",
+   "teamFile": 84,
+   "ordinal": 0,
+   "stableClub": 21505,
+   "points": "1254.41",
+   "flag": "WWWRRRRRRRRRWWWRRRRRRRRRWWWRRRRRRRRRWWWRRRRRRRRRWWWRRRRRRRRRWWWRRRRRRRRRWWWRRRRRRRRRWWWRRRRRRRRR"
+  },
+  {
+   "code": "BEN",
+   "name": "BENIN",
+   "teamFile": 81,
+   "ordinal": 2,
+   "stableClub": 20739,
+   "points": "1252.17",
+   "flag": "GGGGGYYYYYYYGGGGGYYYYYYYGGGGGYYYYYYYGGGGGYYYYYYYGGGGGRRRRRRRGGGGGRRRRRRRGGGGGRRRRRRRGGGGGRRRRRRR"
+  },
+  {
+   "code": "THA",
+   "name": "THAILAND",
+   "teamFile": 84,
+   "ordinal": 42,
+   "stableClub": 21547,
+   "points": "1250.8",
+   "flag": "RRRRRRRRRRRRWWWWWWWWWWWWBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBWWWWWWWWWWWWRRRRRRRRRRRR"
+  },
+  {
+   "code": "PLE",
+   "name": "PALESTINE",
+   "teamFile": 84,
+   "ordinal": 41,
+   "stableClub": 21546,
+   "points": "1243.71",
+   "flag": "RKKKKKKKKKKKRRKKKKKKKKKKRRRKKKKKKKKKRRRRWWWWWWWWRRRRWWWWWWWWRRRGGGGGGGGGRRGGGGGGGGGGRGGGGGGGGGGG"
+  },
+  {
+   "code": "BLR",
+   "name": "BELARUS",
+   "teamFile": 80,
+   "ordinal": 4,
+   "stableClub": 20485,
+   "points": "1242.88",
+   "flag": "WWRRRRRRRRRRWWRRRRRRRRRRWRRRRRRRRRRRWWRRRRRRRRRRWWRRRRRRRRRRWRGGGGGGGGGGWWGGGGGGGGGGWWGGGGGGGGGG"
+  },
+  {
+   "code": "GUA",
+   "name": "GUATEMALA",
+   "teamFile": 83,
+   "ordinal": 4,
+   "stableClub": 21253,
+   "points": "1238.74",
+   "flag": "LLLLWWWWLLLLLLLLWWWWLLLLLLLLWWWWLLLLLLLLWGGWLLLLLLLLWGGWLLLLLLLLWWWWLLLLLLLLWWWWLLLLLLLLWWWWLLLL"
+  },
+  {
+   "code": "LUX",
+   "name": "LUXEMBOURG",
+   "teamFile": 80,
+   "ordinal": 27,
+   "stableClub": 20508,
+   "points": "1232.82",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+  },
+  {
+   "code": "VIE",
+   "name": "VIETNAM",
+   "teamFile": 84,
+   "ordinal": 29,
+   "stableClub": 21534,
+   "points": "1225.68",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRYRRRRRRRRRYYYYRRRRRRRRRYYRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "SLV",
+   "name": "EL SALVADOR",
+   "teamFile": 83,
+   "ordinal": 3,
+   "stableClub": 21252,
+   "points": "1225.34",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUWWWWWYYWWWWWWWWWWYYWWWWWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "TJK",
+   "name": "TAJIKISTAN",
+   "teamFile": 84,
+   "ordinal": 43,
+   "stableClub": 21548,
+   "points": "1224.19",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWYYWWWWWWWWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "TRI",
+   "name": "TRINIDAD-TOBAGO",
+   "teamFile": 83,
+   "ordinal": 32,
+   "stableClub": 21281,
+   "points": "1219.59",
+   "flag": "RRRRRRRWWKKKRRRRRRWKKKKKRRRRWWKKKKKWRRRWKKKKKWWRRWWKKKKKWRRRWKKKKKWWRRRRKKKKKWRRRRRRKKKWWRRRRRRR"
+  },
+  {
+   "code": "MOZ",
+   "name": "MOZAMBIQUE",
+   "teamFile": 81,
+   "ordinal": 20,
+   "stableClub": 20757,
+   "points": "1218.62",
+   "flag": "RGGGGGGGGGGGRRGGGGGGGGGGRRRWWWWWWWWWRRRRKKKKKKKKRYRRKKKKKKKKRRRWWWWWWWWWRRYYYYYYYYYYRYYYYYYYYYYY"
+  },
+  {
+   "code": "MAD",
+   "name": "MADAGASCAR",
+   "teamFile": 81,
+   "ordinal": 45,
+   "stableClub": 20782,
+   "points": "1202.69",
+   "flag": "WWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWRRRRRRRRWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGG"
+  },
+  {
+   "code": "EQG",
+   "name": "EQUAT. GUINEA",
+   "teamFile": 81,
+   "ordinal": 40,
+   "stableClub": 20777,
+   "points": "1195.2",
+   "flag": "GGGGGGGGGGGGLLGGGGGGGGGGLLGGGGGGGGGGLLLLWGGWWWWWLLLLWGGWWWWWLLRRRRRRRRRRLLRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "KGZ",
+   "name": "KYRGYZSTAN",
+   "teamFile": 84,
+   "ordinal": 35,
+   "stableClub": 21540,
+   "points": "1192.16",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRYYYYRRRRRRRRYRRYRRRRRRRRYRRYRRRRRRRRYYYYRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "ARM",
+   "name": "ARMENIA",
+   "teamFile": 80,
+   "ordinal": 1,
+   "stableClub": 20482,
+   "points": "1189.63",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUUOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+  },
+  {
+   "code": "COM",
+   "name": "COMOROS",
+   "teamFile": 81,
+   "ordinal": 36,
+   "stableClub": 20773,
+   "points": "1187.91",
+   "flag": "GYYYYYYYYYYYGGYYYYYYYYYYGGGWWWWWWWWWGGGGWWWWWWWWGWGGRRRRRRRRGGGRRRRRRRRRGGUUUUUUUUUUGUUUUUUUUUUU"
+  },
+  {
+   "code": "KEN",
+   "name": "KENYA",
+   "teamFile": 81,
+   "ordinal": 14,
+   "stableClub": 20751,
+   "points": "1185.08",
+   "flag": "KKKKKKKKKKKKKKKKKKKKKKKKWWWWWKKWWWWWRRRRRRKRRRRRRRRRRKRRRRRRWWWWWKKWWWWWGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "LBY",
+   "name": "LIBYA",
+   "teamFile": 81,
+   "ordinal": 44,
+   "stableClub": 20781,
+   "points": "1182.08",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRKKKKKKKKKKKKKKKKKWKKKKKKKKKKKWWKKKKKKKKKKKKKKKKKGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "KAZ",
+   "name": "KAZAKHSTAN",
+   "teamFile": 80,
+   "ordinal": 52,
+   "stableClub": 20533,
+   "points": "1180.78",
+   "flag": "YLLLLLLLLLLLYLLLLLLLLLLLYLLLLYYLLLLLYLLLYYYYLLLLYLLLYYYYLLLLYLLLLYYLLLLLYLLLLLLLLLLLYLLLLLLLLLLL"
+  },
+  {
+   "code": "TAN",
+   "name": "TANZANIA",
+   "teamFile": 81,
+   "ordinal": 28,
+   "stableClub": 20765,
+   "points": "1180.27",
+   "flag": "GGGGGGGYYKKKGGGGGGYKKKKKGGGGYYKKKKKYGGGYKKKKKYYLGYYKKKKKYLLLYKKKKKYYLLLLKKKKKYLLLLLLKKKYYLLLLLLL"
+  },
+  {
+   "code": "MTN",
+   "name": "MAURITANIA",
+   "teamFile": 81,
+   "ordinal": 46,
+   "stableClub": 20783,
+   "points": "1176.68",
+   "flag": "RRRRRRRRRRRRGGGGGGGGGGGGGGGGYGGYGGGGGGGGGYYGGGGGGGGGGYYGGGGGGGGGGGGGGGGGGGGGGGGGGGGGRRRRRRRRRRRR"
+  },
+  {
+   "code": "NIG",
+   "name": "NIGER",
+   "teamFile": 81,
+   "ordinal": 21,
+   "stableClub": 20758,
+   "points": "1175.33",
+   "flag": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWWWWWOOWWWWWWWWWWOOWWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "LBN",
+   "name": "LEBANON",
+   "teamFile": 84,
+   "ordinal": 36,
+   "stableClub": 21541,
+   "points": "1172.22",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRWWWWWGGWWWWWWWWWWGGWWWWWWWWWWGGWWWWWWWWWWWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "GAM",
+   "name": "GAMBIA",
+   "teamFile": 81,
+   "ordinal": 42,
+   "stableClub": 20779,
+   "points": "1159.64",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWUUUUUUUUUUUUUUUUUUUUUUUUWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "SDN",
+   "name": "SUDAN",
+   "teamFile": 81,
+   "ordinal": 26,
+   "stableClub": 20763,
+   "points": "1157.22",
+   "flag": "GRRRRRRRRRRRGGRRRRRRRRRRGGGRRRRRRRRRGGGGWWWWWWWWGGGGWWWWWWWWGGGKKKKKKKKKGGKKKKKKKKKKGKKKKKKKKKKK"
+  },
+  {
+   "code": "IDN",
+   "name": "INDONESIA",
+   "teamFile": 84,
+   "ordinal": 6,
+   "stableClub": 21511,
+   "points": "1157.14",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  {
+   "code": "TOG",
+   "name": "TOGO",
+   "teamFile": 81,
+   "ordinal": 29,
+   "stableClub": 20766,
+   "points": "1152.76",
+   "flag": "RRRRRGGGGGGGRRRRRGGGGGGGRRWRRYYYYYYYRRRRRGGGGGGGGGGGGGGGGGGGYYYYYYYYYYYYGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "PRK",
+   "name": "NORTH KOREA",
+   "teamFile": 84,
+   "ordinal": 16,
+   "stableClub": 21521,
+   "points": "1151.05",
+   "flag": "UUUUUUUUUUUURRRRRRRRRRRRRRRWWRRRRRRRRRWRWWRRRRRRRRWWWWRRRRRRRRRWWRRRRRRRRRRRRRRRRRRRUUUUUUUUUUUU"
+  },
+  {
+   "code": "NAM",
+   "name": "NAMIBIA",
+   "teamFile": 81,
+   "ordinal": 47,
+   "stableClub": 20784,
+   "points": "1148.84",
+   "flag": "UUUUUUUWWRRRUUYUUUWRRRRRUUUUWWRRRRRWUUUWRRRRRWWGUWWRRRRRWGGGWRRRRRWWGGGGRRRRRWGGGGGGRRRWWGGGGGGG"
+  },
+  {
+   "code": "SLE",
+   "name": "SIERRA LEONE",
+   "teamFile": 81,
+   "ordinal": 24,
+   "stableClub": 20761,
+   "points": "1147.56",
+   "flag": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGWWWWWWWWWWWWWWWWWWWWWWWWLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+  },
+  {
+   "code": "FRO",
+   "name": "FAROE ISLES",
+   "teamFile": 80,
+   "ordinal": 13,
+   "stableClub": 20494,
+   "points": "1136.59",
+   "flag": "WWURRUWWWWWWWWURRUWWWWWWUUURRUUUUUUURRRRRRRRRRRRRRRRRRRRRRRRUUURRUUUUUUUWWURRUWWWWWWWWURRUWWWWWW"
+  },
+  {
+   "code": "CYP",
+   "name": "CYPRUS",
+   "teamFile": 80,
+   "ordinal": 8,
+   "stableClub": 20489,
+   "points": "1133.25",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWOOOOWWWWWWWWOOOOWWWWWWWWWGGWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  {
+   "code": "SUR",
+   "name": "SURINAM",
+   "teamFile": 83,
+   "ordinal": 12,
+   "stableClub": 21261,
+   "points": "1132.43",
+   "flag": "GGGGGGGGGGGGGGGGGGGGGGGGWWWWWWWWWWWWRRRRRYYRRRRRRRRRRYYRRRRRWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "AZE",
+   "name": "AZERBAIJAN",
+   "teamFile": 80,
+   "ordinal": 3,
+   "stableClub": 20484,
+   "points": "1132.0",
+   "flag": "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLRRRRRWRRRRRRRRRRRWWRRRRRGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "EST",
+   "name": "ESTONIA",
+   "teamFile": 80,
+   "ordinal": 12,
+   "stableClub": 20493,
+   "points": "1130.64",
+   "flag": "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLKKKKKKKKKKKKKKKKKKKKKKKKWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  {
+   "code": "RWA",
+   "name": "RWANDA",
+   "teamFile": 81,
+   "ordinal": 48,
+   "stableClub": 20785,
+   "points": "1126.62",
+   "flag": "LLLLLLLLLLLLLLLLLLLLLYYLLLLLLLLLLYYLLLLLLLLLLLLLYYYYYYYYYYYYYYYYYYYYYYYYGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "MWI",
+   "name": "MALAWI",
+   "teamFile": 81,
+   "ordinal": 17,
+   "stableClub": 20754,
+   "points": "1122.05",
+   "flag": "KKKKKKKKKKKKKKKKRRRRKKKKKKKKKKKKKKKKRRRRRRRRRRRRRRRRRRRRRRRRGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "ZIM",
+   "name": "ZIMBABWE",
+   "teamFile": 81,
+   "ordinal": 33,
+   "stableClub": 20770,
+   "points": "1119.78",
+   "flag": "WGGGGGGGGGGGWWYYYYYYYYYYWWWRRRRRRRRRWWWWKKKKKKKKWRWWKKKKKKKKWWWRRRRRRRRRWWYYYYYYYYYYWGGGGGGGGGGG"
+  },
+  {
+   "code": "NCA",
+   "name": "NICARAGUA",
+   "teamFile": 83,
+   "ordinal": 9,
+   "stableClub": 21258,
+   "points": "1114.63",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUWWWWWLLWWWWWWWWWWLLWWWWWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "GNB",
+   "name": "GUINEA-BISSAU",
+   "teamFile": 81,
+   "ordinal": 43,
+   "stableClub": 20780,
+   "points": "1108.38",
+   "flag": "RRRRYYYYYYYYRRRRYYYYYYYYRRRRYYYYYYYYRRRRYYYYYYYYRRKRGGGGGGGGRRRRGGGGGGGGRRRRGGGGGGGGRRRRGGGGGGGG"
+  },
+  {
+   "code": "KUW",
+   "name": "KUWAIT",
+   "teamFile": 84,
+   "ordinal": 11,
+   "stableClub": 21516,
+   "points": "1106.47",
+   "flag": "GGGGGGGGGGGGKKGGGGGGGGGGKKGGGGGGGGGGKKKKWWWWWWWWKKKKWWWWWWWWKKRRRRRRRRRRKKRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "CGO",
+   "name": "CONGO",
+   "teamFile": 81,
+   "ordinal": 7,
+   "stableClub": 20744,
+   "points": "1105.96",
+   "flag": "GGGGGGGGGYYYGGGGGGGYYYYYGGGGGGYYYYYRGGGGYYYYYRRRGGGYYYYYRRRRGYYYYYRRRRRRYYYYYRRRRRRRYYYRRRRRRRRR"
+  },
+  {
+   "code": "PHI",
+   "name": "PHILIPPINES",
+   "teamFile": 84,
+   "ordinal": 20,
+   "stableClub": 21525,
+   "points": "1100.95",
+   "flag": "WBBBBBBBBBBBWWBBBBBBBBBBWWWWBBBBBBBBWWWWWBBBBBBBWWYWWRRRRRRRWWWWRRRRRRRRWWRRRRRRRRRRWRRRRRRRRRRR"
+  },
+  {
+   "code": "MAS",
+   "name": "MALAYSIA",
+   "teamFile": 84,
+   "ordinal": 13,
+   "stableClub": 21518,
+   "points": "1086.22",
+   "flag": "BBBBBBRRRRRRBBBYBBWWWWWWBBYBBBRRRRRRBBBBBBWWWWWWRRRRRRRRRRRRWWWWWWWWWWWWRRRRRRRRRRRRWWWWWWWWWWWW"
+  },
+  {
+   "code": "LVA",
+   "name": "LATVIA",
+   "teamFile": 80,
+   "ordinal": 24,
+   "stableClub": 20505,
+   "points": "1085.66",
+   "flag": "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWWWWWWWWWWWWWWWWWWWWWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+  },
+  {
+   "code": "IND",
+   "name": "INDIA",
+   "teamFile": 84,
+   "ordinal": 5,
+   "stableClub": 21510,
+   "points": "1084.93",
+   "flag": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWWWWWBBWWWWWWWWWWBBWWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "CTA",
+   "name": "CENTRAL AFRICA",
+   "teamFile": 81,
+   "ordinal": 38,
+   "stableClub": 20775,
+   "points": "1080.82",
+   "flag": "BYBBBRRBBBBBBBBBBRRBBBBBWWWWWRRWWWWWWWWWWRRWWWWWGGGGGRRGGGGGGGGGGRRGGGGGYYYYYRRYYYYYYYYYYRRYYYYY"
+  },
+  {
+   "code": "LBR",
+   "name": "LIBERIA",
+   "teamFile": 81,
+   "ordinal": 16,
+   "stableClub": 20753,
+   "points": "1080.44",
+   "flag": "BBBBRRRRRRRRBBBBWWWWWWWWBBWBRRRRRRRRBBBBWWWWWWWWRRRRRRRRRRRRWWWWWWWWWWWWRRRRRRRRRRRRWWWWWWWWWWWW"
+  },
+  {
+   "code": "TKM",
+   "name": "TURKMENISTAN",
+   "teamFile": 84,
+   "ordinal": 44,
+   "stableClub": 21549,
+   "points": "1078.65",
+   "flag": "GMMMGGGGGGGGGMMMGWGWGGGGGMMMGWGGGGGGGMMMGGGGGGGGGMMMGGGGGGGGGMMMGGGGGGGGGMMMGGGGGGGGGMMMGGGGGGGG"
+  },
+  {
+   "code": "BDI",
+   "name": "BURUNDI",
+   "teamFile": 81,
+   "ordinal": 5,
+   "stableClub": 20742,
+   "points": "1078.01",
+   "flag": "WRRRRRRRRRRWGWWRRRRRRWWGGGGWRWWRWGGGGGGGWRWWGGGGGGGGWWRWGGGGGGGWRWWRWGGGGWWRRRRRRWWGWRRRRRRRRRRW"
+  },
+  {
+   "code": "ETH",
+   "name": "ETHIOPIA",
+   "teamFile": 81,
+   "ordinal": 9,
+   "stableClub": 20746,
+   "points": "1077.52",
+   "flag": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGUUGGGGGYYYYUYUUYYYYYYYYUUYUYYYYRRRRRUURRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "DOM",
+   "name": "DOMINICAN REP.",
+   "teamFile": 83,
+   "ordinal": 24,
+   "stableClub": 21273,
+   "points": "1076.5",
+   "flag": "UUUUUWWRRRRRUUUUUWWRRRRRUUUUUWWRRRRRWWWWWGGWWWWWWWWWWGGWWWWWRRRRRWWUUUUURRRRRWWUUUUURRRRRWWUUUUU"
+  },
+  {
+   "code": "YEM",
+   "name": "YEMEN",
+   "teamFile": 84,
+   "ordinal": 30,
+   "stableClub": 21535,
+   "points": "1065.24",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "code": "LES",
+   "name": "LESOTHO",
+   "teamFile": 81,
+   "ordinal": 15,
+   "stableClub": 20752,
+   "points": "1064.29",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUUWWWWWWWWWWWWWWWWWKKWWWWWWWWWWKKWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "BOT",
+   "name": "BOTSWANA",
+   "teamFile": 81,
+   "ordinal": 3,
+   "stableClub": 20740,
+   "points": "1063.63",
+   "flag": "LLLLLLLLLLLLLLLLLLLLLLLLWWWWWWWWWWWWKKKKKKKKKKKKKKKKKKKKKKKKWWWWWWWWWWWWLLLLLLLLLLLLLLLLLLLLLLLL"
+  },
+  {
+   "code": "SGP",
+   "name": "SINGAPORE",
+   "teamFile": 84,
+   "ordinal": 23,
+   "stableClub": 21528,
+   "points": "1057.95",
+   "flag": "RRRRRRRRRRRRRWRWRRRRRRRRRWRWRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  {
+   "code": "LTU",
+   "name": "LITHUANIA",
+   "teamFile": 80,
+   "ordinal": 26,
+   "stableClub": 20507,
+   "points": "1056.85",
+   "flag": "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYGGGGGGGGGGGGGGGGGGGGGGGGRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "GUY",
+   "name": "GUYANA",
+   "teamFile": 83,
+   "ordinal": 5,
+   "stableClub": 21254,
+   "points": "1049.32",
+   "flag": "RWGGGGGGGGGGRRYYGGGGGGGGRRRKYYYWGGGGRRRRKYYYYYGGRRRRKYYYYYGGRRRKYYYWGGGGRRYYGGGGGGGGRWGGGGGGGGGG"
+  },
+  {
+   "code": "NCL",
+   "name": "NEW CALEDONIA",
+   "teamFile": 85,
+   "ordinal": 6,
+   "stableClub": 21767,
+   "points": "1036.95",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUUUUYKYYUUUUUURRYKYYRRRRRRRRYKYYRRRRRRGGYKYYGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "SKN",
+   "name": "ST. KITTS-NEVIS",
+   "teamFile": 83,
+   "ordinal": 30,
+   "stableClub": 21279,
+   "points": "1036.33",
+   "flag": "GGGGGGGYYKKKGGGGGGYKKKKKGGGGYYKWKKKYGGGYKKKKKYYRGYYKKKKKYRRRYKKKWKYYRRRRKKKKKYRRRRRRKKKYYRRRRRRR"
+  },
+  {
+   "code": "SOL",
+   "name": "SOLOMON ISLANDS",
+   "teamFile": 85,
+   "ordinal": 3,
+   "stableClub": 21764,
+   "points": "1031.89",
+   "flag": "BBBBBBBBBYYYBWBWBBBYYYYYBBWBBBYYYYYGBBBBYYYYYGGGBBBYYYYYGGGGBYYYYYGGGGGGYYYYYGGGGGGGYYYGGGGGGGGG"
+  },
+  {
+   "code": "PUR",
+   "name": "PUERTO RICO",
+   "teamFile": 83,
+   "ordinal": 29,
+   "stableClub": 21278,
+   "points": "1024.3",
+   "flag": "LRRRRRRRRRRRLLRRRRRRRRRRLLLWWWWWWWWWLLLLRRRRRRRRLWLLRRRRRRRRLLLWWWWWWWWWLLRRRRRRRRRRLRRRRRRRRRRR"
+  },
+  {
+   "code": "FIJ",
+   "name": "FIJI",
+   "teamFile": 85,
+   "ordinal": 1,
+   "stableClub": 21762,
+   "points": "1024.17",
+   "flag": "WBRRBWLLLLLLRRRRRRLLLLLLBWRRWBLLRRRLWBRRBWLLWWWLLLLLLLLLWWWLLLLLLLLLWWWLLLLLLLLLLLLLLLLLLLLLLLLL"
+  },
+  {
+   "code": "HKG",
+   "name": "HONG KONG",
+   "teamFile": 84,
+   "ordinal": 4,
+   "stableClub": 21509,
+   "points": "1024.16",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRWWRRRRRRRRRWRWWRRRRRRRRWWRWRRRRRRRRRWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "TAH",
+   "name": "TAHITI",
+   "teamFile": 85,
+   "ordinal": 8,
+   "stableClub": 21769,
+   "points": "1019.04",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRWWWWWWWWWWWWWWWWWYYWWWWWWWWWWRYWWWWWWWWWWWWWWWWWRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "MYA",
+   "name": "MYANMAR",
+   "teamFile": 84,
+   "ordinal": 15,
+   "stableClub": 21520,
+   "points": "1010.91",
+   "flag": "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYWWYYYYYGGGGWWWWGGGGGGGGGWWGGGGGRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "MDA",
+   "name": "MOLDOVA",
+   "teamFile": 80,
+   "ordinal": 30,
+   "stableClub": 20511,
+   "points": "1008.24",
+   "flag": "UUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYNNYRRRRUUUUYNNYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRR"
+  },
+  {
+   "code": "VAN",
+   "name": "VANUATU",
+   "teamFile": 85,
+   "ordinal": 10,
+   "stableClub": 21771,
+   "points": "1002.53",
+   "flag": "KRRRRRRRRRRRKKRRRRRRRRRRKKKYRRRRRRRRKKKKYKKKKKKKKYKKYKKKKKKKKKKYGGGGGGGGKKGGGGGGGGGGKGGGGGGGGGGG"
+  },
+  {
+   "code": "MLT",
+   "name": "MALTA",
+   "teamFile": 80,
+   "ordinal": 29,
+   "stableClub": 20510,
+   "points": "992.79",
+   "flag": "WWWWWWRRRRRRWSWWWWRRRRRRWWWWWWRRRRRRWWWWWWRRRRRRWWWWWWRRRRRRWWWWWWRRRRRRWWWWWWRRRRRRWWWWWWRRRRRR"
+  },
+  {
+   "code": "ATG",
+   "name": "ANTIGUA-BARBUDA",
+   "teamFile": 83,
+   "ordinal": 16,
+   "stableClub": 21265,
+   "points": "986.58",
+   "flag": "KKKKKKKKKKKKRKKKKKKKKKKRRRKKKYYKKKRRRRUUUUUUUURRRRRUUUUUURRRRRRRWWWWRRRRRRRRRWWRRRRRRRRRRWWRRRRR"
+  },
+  {
+   "code": "GRN",
+   "name": "GRENADA",
+   "teamFile": 83,
+   "ordinal": 25,
+   "stableClub": 21274,
+   "points": "981.82",
+   "flag": "RRRRRRRRRRRRRGGYYYYYYGGRRGGGGYYGGGGRRGGGGRRGGGGRRGGGGRRGGGGRRGGGGYYGGGGRRGGYYYYYYGGRRRRRRRRRRRRR"
+  },
+  {
+   "code": "CUB",
+   "name": "CUBA",
+   "teamFile": 83,
+   "ordinal": 21,
+   "stableClub": 21270,
+   "points": "981.42",
+   "flag": "RUUUUUUUUUUURRUUUUUUUUUURRRWWWWWWWWWRRRRUUUUUUUURWRRUUUUUUUURRRWWWWWWWWWRRUUUUUUUUUURUUUUUUUUUUU"
+  },
+  {
+   "code": "SWZ",
+   "name": "ESWATINI",
+   "teamFile": 81,
+   "ordinal": 27,
+   "stableClub": 20764,
+   "points": "979.01",
+   "flag": "UUUUUUUUUUUUYYYYYYYYYYYYRRRRRRRRRRRRRRRRKKWWRRRRRRRRKKWWRRRRRRRRRRRRRRRRYYYYYYYYYYYYUUUUUUUUUUUU"
+  },
+  {
+   "code": "LCA",
+   "name": "ST. LUCIA",
+   "teamFile": 83,
+   "ordinal": 27,
+   "stableClub": 21276,
+   "points": "976.71",
+   "flag": "LLLLLLLLLLLLLLLLLWWLLLLLLLLLLWWLLLLLLLLLWKKWLLLLLLLLWKKWLLLLLLLWKYYKWLLLLLLYYYYYYLLLLLYYYYYYYYLL"
+  },
+  {
+   "code": "BER",
+   "name": "BERMUDA",
+   "teamFile": 83,
+   "ordinal": 0,
+   "stableClub": 21249,
+   "points": "975.05",
+   "flag": "WBRRBWRRRRRRRRRRRRRRRRRRBWRRWBRRRRRRWBRRBWRRWWRRRRRRRRRRWWRRRRRRRRRRRWRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "PNG",
+   "name": "PAPUA NEW GUINEA",
+   "teamFile": 84,
+   "ordinal": 19,
+   "stableClub": 21524,
+   "points": "974.9",
+   "flag": "KRRRRRRRRRRRKKRRRRRYYRRRKKKKRRRYYRRRKKKKKRRRRRRRKKKKKKKRRRRRKKWKKKKKRRRRKWKWKKKKKKRRKKKKKKKKKKKR"
+  },
+  {
+   "code": "SSD",
+   "name": "SOUTH SUDAN",
+   "teamFile": 81,
+   "ordinal": 51,
+   "stableClub": 20788,
+   "points": "970.94",
+   "flag": "UKKKKKKKKKKKUUKKKKKKKKKKUUUWWWWWWWWWUUUURRRRRRRRUYUURRRRRRRRUUUWWWWWWWWWUUGGGGGGGGGGUGGGGGGGGGGG"
+  },
+  {
+   "code": "VIN",
+   "name": "ST. VINCENT",
+   "teamFile": 83,
+   "ordinal": 11,
+   "stableClub": 21260,
+   "points": "968.27",
+   "flag": "UUUYYYYYYGGGUUUYYYYYYGGGUUUYYYYYYGGGUUUYYGYGYGGGUUUYGYGYYGGGUUUYYYYYYGGGUUUYYYYYYGGGUUUYYYYYYGGG"
+  },
+  {
+   "code": "AFG",
+   "name": "AFGHANISTAN",
+   "teamFile": 84,
+   "ordinal": 31,
+   "stableClub": 21536,
+   "points": "968.07",
+   "flag": "KKKKRRRRGGGGKKKKRRRRGGGGKKKKRRRRGGGGKKKKRWWRGGGGKKKKRWWRGGGGKKKKRRRRGGGGKKKKRRRRGGGGKKKKRRRRGGGG"
+  },
+  {
+   "code": "AND",
+   "name": "ANDORRA",
+   "teamFile": 80,
+   "ordinal": 49,
+   "stableClub": 20530,
+   "points": "946.43",
+   "flag": "UUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYNNYRRRRUUUUYNNYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRR"
+  },
+  {
+   "code": "MDV",
+   "name": "MALDIVES",
+   "teamFile": 84,
+   "ordinal": 38,
+   "stableClub": 21543,
+   "points": "943.92",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRRRGGGGGGGGRRRRGGGWGGGGRRRRGGGWWGGGRRRRGGGGGGGGRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "TPE",
+   "name": "TAIWAN",
+   "teamFile": 84,
+   "ordinal": 27,
+   "stableClub": 21532,
+   "points": "923.78",
+   "flag": "WWWWWWWWWWWWWWWWWRRWWWWWWWWWRUURWWWWWWWWRWWRWWWWWWWWRUURWWWWWWWWRRRRWWWWWWWWWWWWWWWWWWWWUUUUWWWW"
+  },
+  {
+   "code": "CAM",
+   "name": "CAMBODIA",
+   "teamFile": 84,
+   "ordinal": 33,
+   "stableClub": 21538,
+   "points": "922.32",
+   "flag": "UUUUUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRRWWRRRRRRRRRWWWWRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUU"
+  },
+  {
+   "code": "MSR",
+   "name": "MONTSERRAT",
+   "teamFile": 83,
+   "ordinal": 28,
+   "stableClub": 21277,
+   "points": "916.75",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBLGBBWBRRBWBBGGBBBBBBBBBBGGBBBBBBBBBBGGBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "NEP",
+   "name": "NEPAL",
+   "teamFile": 84,
+   "ordinal": 40,
+   "stableClub": 21545,
+   "points": "914.54",
+   "flag": "URRRRRRRTTTTURRRRRTTTTTTURWRTTTTTTTTURTTTTTTTTTTURRRRRRRRTTTURRRRRRTTTTTURWRRTTTTTTTURRTTTTTTTTT"
+  },
+  {
+   "code": "MRI",
+   "name": "MAURITIUS",
+   "teamFile": 84,
+   "ordinal": 14,
+   "stableClub": 21519,
+   "points": "911.49",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUUYYYYYYYYYYYYYYYYYYYYYYYYGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "BRB",
+   "name": "BARBADOS",
+   "teamFile": 83,
+   "ordinal": 19,
+   "stableClub": 21268,
+   "points": "909.89",
+   "flag": "UUUUYYYYUUUUUUUUYYYYUUUUUUUUKKKKUUUUUUUUYKKYUUUUUUUUYKKYUUUUUUUUYKKYUUUUUUUUYYYYUUUUUUUUYYYYUUUU"
+  },
+  {
+   "code": "BLZ",
+   "name": "BELIZE",
+   "teamFile": 83,
+   "ordinal": 18,
+   "stableClub": 21267,
+   "points": "907.0",
+   "flag": "RRRRRRRRRRRRUUUUUUUUUUUUUUUUUWWUUUUUUUUUWGWWUUUUUUUUWWGWUUUUUUUUUWWUUUUUUUUUUUUUUUUURRRRRRRRRRRR"
+  },
+  {
+   "code": "BAN",
+   "name": "BANGLADESH",
+   "teamFile": 84,
+   "ordinal": 1,
+   "stableClub": 21506,
+   "points": "902.93",
+   "flag": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGRRRGGGGGGGGRRRRRGGGGGGGRRRRRGGGGGGGGRRRGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "DMA",
+   "name": "DOMINICA",
+   "teamFile": 83,
+   "ordinal": 23,
+   "stableClub": 21272,
+   "points": "897.69",
+   "flag": "GGGGYKKYGGGGGGGGYKKYGGGGYYYYYRRYYYYYKKKKRRRRKKKKKKKKRRRRKKKKYYYYYRRYYYYYGGGGYKKYGGGGGGGGYKKYGGGG"
+  },
+  {
+   "code": "CHA",
+   "name": "CHAD",
+   "teamFile": 81,
+   "ordinal": 34,
+   "stableClub": 20771,
+   "points": "896.85",
+   "flag": "UUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRRUUUUYYYYRRRR"
+  },
+  {
+   "code": "ERI",
+   "name": "ERITREA",
+   "teamFile": 81,
+   "ordinal": 41,
+   "stableClub": 20778,
+   "points": "887.06",
+   "flag": "RRGGGGGGGGGGRRRRGGGGGGGGRRRRRRRRGGGGRRRRRRRRRRGGRRRYRRRRRRUURRRRRRRRUUUURRRRUUUUUUUURRUUUUUUUUUU"
+  },
+  {
+   "code": "LAO",
+   "name": "LAOS",
+   "teamFile": 84,
+   "ordinal": 12,
+   "stableClub": 21517,
+   "points": "885.03",
+   "flag": "RRRRRRRRRRRRRRRRRRRRRRRRUUUUUWWUUUUUUUUUWWWWUUUUUUUUWWWWUUUUUUUUUWWUUUUURRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "COK",
+   "name": "COOK ISLANDS",
+   "teamFile": 85,
+   "ordinal": 5,
+   "stableClub": 21766,
+   "points": "877.53",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBBWBBWBRRBWBBWBWBBBBBBBBBWBWBBBBBBBBBBWBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "SRI",
+   "name": "SRI LANKA",
+   "teamFile": 84,
+   "ordinal": 25,
+   "stableClub": 21530,
+   "points": "876.86",
+   "flag": "YYYYYYYYYYYYYGGOYMMMMMMYYGGOYMMMMMMYYGGOYMMYMMMYYGGOYMMMYMMYYGGOYMMMMMMYYGGOYMMMMMMYYYYYYYYYYYYY"
+  },
+  {
+   "code": "SAM",
+   "name": "SAMOA",
+   "teamFile": 85,
+   "ordinal": 7,
+   "stableClub": 21768,
+   "points": "876.41",
+   "flag": "BBBBBBRRRRRRBBWBBBRRRRRRBWBWBBRRRRRRBBBBBBRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "ARU",
+   "name": "ARUBA",
+   "teamFile": 83,
+   "ordinal": 15,
+   "stableClub": 21264,
+   "points": "875.61",
+   "flag": "LLLLLLLLLLLLLRLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLYYYYYYYYYYYYLLLLLLLLLLLLYYYYYYYYYYYY"
+  },
+  {
+   "code": "MNG",
+   "name": "MONGOLIA",
+   "teamFile": 84,
+   "ordinal": 39,
+   "stableClub": 21544,
+   "points": "874.47",
+   "flag": "RRRRUUUURRRRRRRRUUUURRRRRYYRUUUURRRRRYYRUUUURRRRRYYRUUUURRRRRYYRUUUURRRRRRRRUUUURRRRRRRRUUUURRRR"
+  },
+  {
+   "code": "ASA",
+   "name": "AMERICAN SAMOA",
+   "teamFile": 85,
+   "ordinal": 4,
+   "stableClub": 21765,
+   "points": "871.61",
+   "flag": "UUUUUUUUUURWUUUUUUUUWWWWUUUURWWWWWWWUUWWWWWNNWWWUUWWWWWNNWWWUUUURWWWWWWWUUUUUUUUWWWWUUUUUUUUUURW"
+  },
+  {
+   "code": "BHU",
+   "name": "BHUTAN",
+   "teamFile": 84,
+   "ordinal": 32,
+   "stableClub": 21537,
+   "points": "870.81",
+   "flag": "YYYYYYYYYYYOYYYYYYYYYYOOYYYYYYYYOOOOYYYYWWWWOOOOYYYYWWWWOOOOYYYYOOOOOOOOYYOOOOOOOOOOYOOOOOOOOOOO"
+  },
+  {
+   "code": "MAC",
+   "name": "MACAU",
+   "teamFile": 84,
+   "ordinal": 37,
+   "stableClub": 21542,
+   "points": "858.03",
+   "flag": "GGGGGGGGGGGGGGGGGYGYGGGGGGGGGGYGGGGGGGGGWWWWGGGGGGGGWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "BRU",
+   "name": "BRUNEI",
+   "teamFile": 84,
+   "ordinal": 2,
+   "stableClub": 21507,
+   "points": "857.73",
+   "flag": "YKKYYYYYYYYYWYYKYYYYYYYYYWWYKKYYYYYYYYYWYRRYYYYYYYYYWRRKKYYYYYYYYYWYYKYYYYYYYYYWWYKKYYYYYYYYYWYY"
+  },
+  {
+   "code": "STP",
+   "name": "SAO TOME",
+   "teamFile": 81,
+   "ordinal": 52,
+   "stableClub": 20789,
+   "points": "855.44",
+   "flag": "GGGGGGGGGGGGRRGGGGGGGGGGRRGGGGGGGGGGRRRRYYYYYYYYRRRRYYKYYKYYRRGGGGGGGGGGRRGGGGGGGGGGGGGGGGGGGGGG"
+  },
+  {
+   "code": "DJI",
+   "name": "DJIBOUTI",
+   "teamFile": 81,
+   "ordinal": 39,
+   "stableClub": 20776,
+   "points": "853.58",
+   "flag": "WLLLLLLLLLLLWWLLLLLLLLLLWWWWLLLLLLLLWWWWWLLLLLLLWWRWWGGGGGGGWWWWGGGGGGGGWWGGGGGGGGGGWGGGGGGGGGGG"
+  },
+  {
+   "code": "CAY",
+   "name": "CAYMAN ISLANDS",
+   "teamFile": 83,
+   "ordinal": 20,
+   "stableClub": 21269,
+   "points": "850.06",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBBBBBWBRRBWBBRWBBBBBBBBBBWWBBBBBBBBBBWWBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "PAK",
+   "name": "PAKISTAN",
+   "teamFile": 84,
+   "ordinal": 18,
+   "stableClub": 21523,
+   "points": "840.28",
+   "flag": "WWWGGGGGGGGGWWWGGGGGGGGGWWWGGGGWWGGGWWWGGGWGGGGGWWWGGWGGGGGGWWWGGGWGGGGGWWWGGGGWGGGGWWWGGGGGGGGG"
+  },
+  {
+   "code": "SOM",
+   "name": "SOMALIA",
+   "teamFile": 81,
+   "ordinal": 50,
+   "stableClub": 20787,
+   "points": "839.17",
+   "flag": "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLWLLLLLLLLLLLWWLLLLLLLLLWWWWLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+  },
+  {
+   "code": "TGA",
+   "name": "TONGA",
+   "teamFile": 85,
+   "ordinal": 9,
+   "stableClub": 21770,
+   "points": "835.64",
+   "flag": "WWWWWRRRRRRRWWRWWRRRRRRRWRRRWRRRRRRRWWRWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "TLS",
+   "name": "TIMOR-LESTE",
+   "teamFile": 84,
+   "ordinal": 45,
+   "stableClub": 21550,
+   "points": "831.0",
+   "flag": "KRRRRRRRRRRRKKYRRRRRRRRRKKKYRRRRRRRRKKKKYYRRRRRRKWKKYYRRRRRRKKKYRRRRRRRRKKYRRRRRRRRRKRRRRRRRRRRR"
+  },
+  {
+   "code": "GIB",
+   "name": "GIBRALTAR",
+   "teamFile": 80,
+   "ordinal": 51,
+   "stableClub": 20532,
+   "points": "820.26",
+   "flag": "WWWWWWWWWWWWWWWWRRRRWWWWWWWWRRRRWWWWWWWWRRRRWWWWWWWWWYWWWWWWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "GUM",
+   "name": "GUAM",
+   "teamFile": 84,
+   "ordinal": 34,
+   "stableClub": 21539,
+   "points": "819.54",
+   "flag": "RRRRRRRRRRRRRBBBBBBBBBBRRBBBBLLBBBBRRBBBLLLLBBBRRBBBLNNLBBBRRBBBBLLBBBBRRBBBBBBBBBBRRRRRRRRRRRRR"
+  },
+  {
+   "code": "SEY",
+   "name": "SEYCHELLES",
+   "teamFile": 81,
+   "ordinal": 49,
+   "stableClub": 20786,
+   "points": "804.16",
+   "flag": "UUUUYYYYRRRRUUUYYYYRRRRRUUUYYYRRRRRWUUYYYRRRRWWWUUYYRRRWWWWWUYYRRWWWWWWWUYRWWWWGGGGGYWGGGGGGGGGG"
+  },
+  {
+   "code": "TCA",
+   "name": "TURKS-CAICOS",
+   "teamFile": 83,
+   "ordinal": 31,
+   "stableClub": 21280,
+   "points": "803.98",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBYYBBWBRRBWBBOYBBBBBBBBBBYYBBBBBBBBBBYYBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "LIE",
+   "name": "LIECHTENSTEIN",
+   "teamFile": 80,
+   "ordinal": 25,
+   "stableClub": 20506,
+   "points": "797.7",
+   "flag": "UUUUUUUUUUUUUUYYUUUUUUUUUUYYUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  },
+  {
+   "code": "BAH",
+   "name": "BAHAMAS",
+   "teamFile": 83,
+   "ordinal": 17,
+   "stableClub": 21266,
+   "points": "786.82",
+   "flag": "KLLLLLLLLLLLKKLLLLLLLLLLKKKLLLLLLLLLKKKKYYYYYYYYKKKKYYYYYYYYKKKLLLLLLLLLKKLLLLLLLLLLKLLLLLLLLLLL"
+  },
+  {
+   "code": "VIR",
+   "name": "US VIRGIN IS.",
+   "teamFile": 83,
+   "ordinal": 34,
+   "stableClub": 21283,
+   "points": "779.76",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWYYYYWWWWWWWWYUUYWWWWWWWWYUUYWWWWWWWWYYYYWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  {
+   "code": "VGB",
+   "name": "BRIT. VIRGIN IS.",
+   "teamFile": 83,
+   "ordinal": 33,
+   "stableClub": 21282,
+   "points": "777.41",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBBBBBWBRRBWBBWGBBBBBBBBBBGGBBBBBBBBBBGGBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "AIA",
+   "name": "ANGUILLA",
+   "teamFile": 83,
+   "ordinal": 14,
+   "stableClub": 21263,
+   "points": "760.25",
+   "flag": "WBRRBWBBBBBBRRRRRRBBBBBBBWRRWBBBBBBBWBRRBWBBWWBBBBBBBBBBWOBBBBBBBBBBLLBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+   "code": "SMR",
+   "name": "SAN MARINO",
+   "teamFile": 80,
+   "ordinal": 38,
+   "stableClub": 20519,
+   "points": "721.2",
+   "flag": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWYYWWWWWLLLLLYYLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+  }
+ ]
+}

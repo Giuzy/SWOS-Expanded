@@ -21809,6 +21809,134 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "football-data:delta:cbb53c498165063ccac3ba519347e5ae48998c4affd7e8a989b57fe09cd0931e": {
+          "document": "https://www.football-data.co.uk/mmz4281/9697/G1.csv",
+          "fields": {
+            "participants": {
+              "fullDoubleRoundRobin": true,
+              "observed": [
+                "AEK",
+                "Apollon",
+                "Aris",
+                "Athinaikos",
+                "Edessaikos",
+                "Heracles",
+                "Ionikos",
+                "Kalamata",
+                "Kastoria",
+                "Kavala",
+                "OFI",
+                "Olympiakos",
+                "PAOK",
+                "Panahaiki",
+                "Panathinaikos",
+                "Paniliakos",
+                "Veroia",
+                "Xanthi"
+              ]
+            },
+            "calendar": {
+              "matches": 306,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "1996-09-06",
+                "1996-09-07",
+                "1996-09-08",
+                "1996-09-14",
+                "1996-09-15",
+                "1996-09-16",
+                "1996-09-28",
+                "1996-09-29",
+                "1996-09-30",
+                "1996-10-12",
+                "1996-10-13",
+                "1996-10-14",
+                "1996-10-19",
+                "1996-10-20",
+                "1996-10-21",
+                "1996-10-26",
+                "1996-10-27",
+                "1996-10-28",
+                "1996-11-02",
+                "1996-11-03",
+                "1996-11-04",
+                "1996-11-16",
+                "1996-11-17",
+                "1996-11-18",
+                "1996-11-23",
+                "1996-11-24",
+                "1996-11-25",
+                "1996-12-01",
+                "1996-12-02",
+                "1996-12-08",
+                "1996-12-09",
+                "1996-12-14",
+                "1996-12-15",
+                "1996-12-16",
+                "1996-12-21",
+                "1996-12-22",
+                "1996-12-23",
+                "1997-01-04",
+                "1997-01-05",
+                "1997-01-06",
+                "1997-01-11",
+                "1997-01-12",
+                "1997-01-13",
+                "1997-01-15",
+                "1997-01-16",
+                "1997-01-19",
+                "1997-01-20",
+                "1997-01-25",
+                "1997-01-26",
+                "1997-01-27",
+                "1997-02-02",
+                "1997-02-09",
+                "1997-02-10",
+                "1997-02-16",
+                "1997-02-17",
+                "1997-02-23",
+                "1997-02-24",
+                "1997-03-02",
+                "1997-03-03",
+                "1997-03-09",
+                "1997-03-10",
+                "1997-03-16",
+                "1997-03-23",
+                "1997-03-24",
+                "1997-03-26",
+                "1997-04-06",
+                "1997-04-07",
+                "1997-04-13",
+                "1997-04-20",
+                "1997-04-21",
+                "1997-05-04",
+                "1997-05-11",
+                "1997-05-18",
+                "1997-05-25"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Fri": 1,
+                "Sat": 14,
+                "Sun": 242,
+                "Mon": 31,
+                "Wed": 16,
+                "Thu": 2
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            },
+            "format": {
+              "observedTeams": 18,
+              "observedCycles": 2,
+              "scope": "OBSERVED_DOUBLE_RR_NOT_OFFICIAL_RULE"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
+        }
       }
     }
   }

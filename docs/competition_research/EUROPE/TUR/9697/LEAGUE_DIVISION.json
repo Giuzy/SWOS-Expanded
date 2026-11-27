@@ -45711,6 +45711,89 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "football-data:delta:cb60a6605e578e0698265e7a51e6d0b42200b69d79e2d87cd6377c3b49a5fe96": {
+          "document": "https://www.football-data.co.uk/mmz4281/9697/T1.csv",
+          "fields": {
+            "participants": {
+              "fullDoubleRoundRobin": true,
+              "observed": [
+                "Altay",
+                "Ankaragucu",
+                "Antalyaspor",
+                "Besiktas",
+                "Bursaspor",
+                "Dardanelspor",
+                "Denizlispor",
+                "Fenerbahce",
+                "Galatasaray",
+                "Gaziantepspor",
+                "Genclerbirligi",
+                "Istanbulspor",
+                "Kocaelispor",
+                "Samsunspor",
+                "Sariyer",
+                "Trabzonspor",
+                "Vanspor",
+                "Zeytinburnu"
+              ]
+            },
+            "calendar": {
+              "matches": 306,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "1996-08-11",
+                "1996-08-18",
+                "1996-08-25",
+                "1996-09-08",
+                "1996-09-15",
+                "1996-09-22",
+                "1996-09-29",
+                "1996-10-06",
+                "1996-10-13",
+                "1996-10-20",
+                "1996-10-27",
+                "1996-11-03",
+                "1996-11-17",
+                "1996-11-24",
+                "1996-12-01",
+                "1996-12-08",
+                "1996-12-22",
+                "1997-01-19",
+                "1997-01-26",
+                "1997-02-02",
+                "1997-02-09",
+                "1997-02-16",
+                "1997-02-23",
+                "1997-03-02",
+                "1997-03-09",
+                "1997-03-16",
+                "1997-03-23",
+                "1997-04-06",
+                "1997-04-13",
+                "1997-04-20",
+                "1997-05-04",
+                "1997-05-11",
+                "1997-05-18",
+                "1997-05-25"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Sun": 306
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            },
+            "format": {
+              "observedTeams": 18,
+              "observedCycles": 2,
+              "scope": "OBSERVED_DOUBLE_RR_NOT_OFFICIAL_RULE"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
+        }
       }
     }
   }

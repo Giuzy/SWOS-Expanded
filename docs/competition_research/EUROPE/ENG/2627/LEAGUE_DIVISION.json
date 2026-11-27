@@ -69478,6 +69478,75 @@
             ]
           },
           "scope": "P evidence only: native IDs, nominal dates, complete cutoff and rules require review; no post-start scores"
+        },
+        "delta:37139b5f068fd3baf2c2af54a89acd7a61330656dbaf3b00c8a49d82020a3fba": {
+          "document": "English Premier League 2026/27",
+          "fields": {
+            "format": {
+              "teams": 20,
+              "cycles": 2,
+              "rounds": 38
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster or round list; native IDs, conflicts, dates and rules require review; no post-start scores"
+        },
+        "football-data:delta:272bfa7e12c5fcf702e5841c538f2c5d9d2a97ff03f8ae9e52bf16e798154d6d": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+          "fields": {
+            "calendar": {
+              "matches": 110,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-21",
+                "2026-08-22",
+                "2026-08-23",
+                "2026-08-24",
+                "2026-08-28",
+                "2026-08-29",
+                "2026-08-30",
+                "2026-08-31",
+                "2026-09-04",
+                "2026-09-05",
+                "2026-09-06",
+                "2026-09-12",
+                "2026-09-13",
+                "2026-09-14",
+                "2026-09-18",
+                "2026-09-19",
+                "2026-09-20",
+                "2026-10-10",
+                "2026-10-11",
+                "2026-10-12",
+                "2026-10-17",
+                "2026-10-18",
+                "2026-10-19",
+                "2026-10-23",
+                "2026-10-24",
+                "2026-10-25",
+                "2026-10-31",
+                "2026-11-01",
+                "2026-11-02",
+                "2026-11-06",
+                "2026-11-07",
+                "2026-11-08",
+                "2026-11-21",
+                "2026-11-22",
+                "2026-11-23"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Fri": 6,
+                "Sat": 62,
+                "Sun": 35,
+                "Mon": 7
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
         }
       }
     }
@@ -116443,6 +116512,83 @@
             ]
           },
           "scope": "P evidence only: native IDs, nominal dates, complete cutoff and rules require review; no post-start scores"
+        },
+        "delta:41a199caf87a43c28e6b8bf7d5f2e72e1bbce395ca27cd4fc05df80152400f2e": {
+          "document": "English Championship 2026/27",
+          "fields": {
+            "format": {
+              "teams": 24,
+              "cycles": 2,
+              "rounds": 46
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster or round list; native IDs, conflicts, dates and rules require review; no post-start scores"
+        },
+        "football-data:delta:b431de2483a7df839e123ad093ab23818494bf9d889242d4b4dc8d2e7df9ea7b": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/E1.csv",
+          "fields": {
+            "calendar": {
+              "matches": 204,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-14",
+                "2026-08-15",
+                "2026-08-16",
+                "2026-08-17",
+                "2026-08-22",
+                "2026-08-23",
+                "2026-08-28",
+                "2026-08-29",
+                "2026-09-01",
+                "2026-09-02",
+                "2026-09-05",
+                "2026-09-06",
+                "2026-09-08",
+                "2026-09-09",
+                "2026-09-11",
+                "2026-09-12",
+                "2026-09-13",
+                "2026-09-15",
+                "2026-09-18",
+                "2026-09-19",
+                "2026-09-20",
+                "2026-10-09",
+                "2026-10-10",
+                "2026-10-11",
+                "2026-10-13",
+                "2026-10-14",
+                "2026-10-16",
+                "2026-10-17",
+                "2026-10-20",
+                "2026-10-23",
+                "2026-10-24",
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-06",
+                "2026-11-07",
+                "2026-11-21",
+                "2026-11-22",
+                "2026-11-24",
+                "2026-11-25"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Fri": 9,
+                "Sat": 125,
+                "Sun": 9,
+                "Mon": 1,
+                "Tue": 42,
+                "Wed": 18
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
         }
       }
     }
@@ -138755,6 +138901,92 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "football-data:delta:43818b296de174c3dd396268f3ad3817d19001f119f98a737917e65bfb7b4299": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/E2.csv",
+          "fields": {
+            "participants": {
+              "fullDoubleRoundRobin": false,
+              "observed": [
+                "AFC Wimbledon",
+                "Barnsley",
+                "Blackpool",
+                "Bradford",
+                "Bromley",
+                "Burton",
+                "Cambridge",
+                "Doncaster",
+                "Huddersfield",
+                "Leicester",
+                "Leyton Orient",
+                "Luton",
+                "Mansfield",
+                "Milton Keynes Dons",
+                "Notts County",
+                "Oxford",
+                "Peterboro",
+                "Plymouth",
+                "Reading",
+                "Sheffield Weds",
+                "Stevenage",
+                "Stockport",
+                "Wigan",
+                "Wycombe"
+              ]
+            },
+            "calendar": {
+              "matches": 179,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-15",
+                "2026-08-20",
+                "2026-08-22",
+                "2026-08-29",
+                "2026-08-30",
+                "2026-09-01",
+                "2026-09-02",
+                "2026-09-05",
+                "2026-09-07",
+                "2026-09-10",
+                "2026-09-12",
+                "2026-09-17",
+                "2026-09-19",
+                "2026-09-26",
+                "2026-10-03",
+                "2026-10-10",
+                "2026-10-15",
+                "2026-10-17",
+                "2026-10-20",
+                "2026-10-21",
+                "2026-10-24",
+                "2026-10-27",
+                "2026-10-31",
+                "2026-11-01",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-14",
+                "2026-11-20",
+                "2026-11-21",
+                "2026-11-24"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Sat": 134,
+                "Thu": 4,
+                "Sun": 3,
+                "Tue": 29,
+                "Wed": 7,
+                "Mon": 1,
+                "Fri": 1
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
+        }
       }
     }
   },
@@ -153381,6 +153613,80 @@
             "july1": "NA",
             "evolution": "I"
           }
+        }
+      },
+      "strictAcquisition": {
+        "football-data:delta:164f65e311e18c510f3231a12c8b82c4526dbd2895aed8707eecccb0091337bb": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/E3.csv",
+          "fields": {
+            "participants": {
+              "fullDoubleRoundRobin": false,
+              "observed": [
+                "Accrington",
+                "Barnet",
+                "Bristol Rvs",
+                "Cheltenham",
+                "Chesterfield",
+                "Colchester",
+                "Crawley Town",
+                "Crewe",
+                "Exeter",
+                "Fleetwood Town",
+                "Gillingham",
+                "Grimsby",
+                "Newport County",
+                "Northampton",
+                "Oldham",
+                "Port Vale",
+                "Rochdale",
+                "Rotherham",
+                "Salford",
+                "Shrewsbury",
+                "Swindon",
+                "Tranmere",
+                "Walsall",
+                "York"
+              ]
+            },
+            "calendar": {
+              "matches": 188,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-15",
+                "2026-08-22",
+                "2026-08-29",
+                "2026-09-01",
+                "2026-09-05",
+                "2026-09-12",
+                "2026-09-19",
+                "2026-09-26",
+                "2026-10-03",
+                "2026-10-10",
+                "2026-10-17",
+                "2026-10-20",
+                "2026-10-24",
+                "2026-10-26",
+                "2026-10-27",
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-03",
+                "2026-11-14",
+                "2026-11-21",
+                "2026-11-24"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Sat": 158,
+                "Tue": 28,
+                "Mon": 1,
+                "Fri": 1
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
         }
       }
     }

@@ -8774,6 +8774,63 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "football-data:delta:bbb586c731f9b75ccf540961a1666964ccdf7a54986f4f5981c7d2cf43963e00": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/SC0.csv",
+          "fields": {
+            "calendar": {
+              "matches": 83,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-07-31",
+                "2026-08-01",
+                "2026-08-02",
+                "2026-08-03",
+                "2026-08-08",
+                "2026-08-09",
+                "2026-08-22",
+                "2026-08-29",
+                "2026-08-30",
+                "2026-09-02",
+                "2026-09-03",
+                "2026-09-05",
+                "2026-09-06",
+                "2026-09-09",
+                "2026-09-15",
+                "2026-09-19",
+                "2026-09-20",
+                "2026-10-10",
+                "2026-10-11",
+                "2026-10-17",
+                "2026-10-18",
+                "2026-10-24",
+                "2026-10-25",
+                "2026-10-28",
+                "2026-10-31",
+                "2026-11-01",
+                "2026-11-07",
+                "2026-11-08",
+                "2026-11-21",
+                "2026-11-24"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Fri": 1,
+                "Sat": 42,
+                "Sun": 20,
+                "Mon": 1,
+                "Wed": 13,
+                "Thu": 1,
+                "Tue": 5
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
+        }
       }
     }
   },
@@ -17042,6 +17099,59 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "football-data:delta:c81dac01dac612b7bc47d76381c03276e02010a75e33271e2659b14d3bdec38e": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/SC1.csv",
+          "fields": {
+            "calendar": {
+              "matches": 77,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-01",
+                "2026-08-07",
+                "2026-08-08",
+                "2026-08-21",
+                "2026-08-22",
+                "2026-08-28",
+                "2026-08-29",
+                "2026-09-04",
+                "2026-09-05",
+                "2026-09-11",
+                "2026-09-12",
+                "2026-09-15",
+                "2026-09-18",
+                "2026-09-19",
+                "2026-09-25",
+                "2026-10-03",
+                "2026-10-10",
+                "2026-10-13",
+                "2026-10-16",
+                "2026-10-17",
+                "2026-10-20",
+                "2026-10-24",
+                "2026-10-27",
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-06",
+                "2026-11-07",
+                "2026-11-14",
+                "2026-11-20",
+                "2026-11-21"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Sat": 59,
+                "Fri": 14,
+                "Tue": 4
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
+        }
       }
     }
   },
@@ -24864,6 +24974,46 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "football-data:delta:04b01c93d7369d91279bd46390fbb4826830757f55e5367183df5035ec2b5a43": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/SC2.csv",
+          "fields": {
+            "calendar": {
+              "matches": 79,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-01",
+                "2026-08-08",
+                "2026-08-15",
+                "2026-08-22",
+                "2026-08-29",
+                "2026-09-05",
+                "2026-09-12",
+                "2026-09-15",
+                "2026-09-19",
+                "2026-10-03",
+                "2026-10-10",
+                "2026-10-17",
+                "2026-10-24",
+                "2026-10-27",
+                "2026-10-31",
+                "2026-11-07",
+                "2026-11-14",
+                "2026-11-21"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Sat": 77,
+                "Tue": 2
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
+        }
       }
     }
   },
@@ -31930,6 +32080,44 @@
             "july1": "NA",
             "evolution": "I"
           }
+        }
+      },
+      "strictAcquisition": {
+        "football-data:delta:3e2eda2810fa4218d45dd509499d47426808294e7d93ca91425ee5a3fb7614b6": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/SC3.csv",
+          "fields": {
+            "calendar": {
+              "matches": 74,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-01",
+                "2026-08-08",
+                "2026-08-15",
+                "2026-08-22",
+                "2026-08-28",
+                "2026-08-29",
+                "2026-09-05",
+                "2026-09-12",
+                "2026-09-19",
+                "2026-10-03",
+                "2026-10-10",
+                "2026-10-17",
+                "2026-10-31",
+                "2026-11-07",
+                "2026-11-14",
+                "2026-11-21"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Sat": 73,
+                "Fri": 1
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
         }
       }
     }

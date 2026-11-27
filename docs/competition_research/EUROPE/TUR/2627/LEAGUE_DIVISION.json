@@ -33158,6 +33158,98 @@
             "evolution": "I"
           }
         }
+      },
+      "strictAcquisition": {
+        "football-data:delta:550df20d28d10303344f4c706dee9a8ca513dcfb87f625128db17c92b40b5c0c": {
+          "document": "https://www.football-data.co.uk/mmz4281/2627/T1.csv",
+          "fields": {
+            "participants": {
+              "fullDoubleRoundRobin": false,
+              "observed": [
+                "Alanyaspor",
+                "Amedspor",
+                "Besiktas",
+                "Buyuksehyr",
+                "Corum",
+                "Erzurumspor",
+                "Eyupspor",
+                "Fenerbahce",
+                "Galatasaray",
+                "Gaziantep",
+                "Genclerbirligi",
+                "Goztep",
+                "Kasimpasa",
+                "Kocaelispor",
+                "Konyaspor",
+                "Rizespor",
+                "Samsunspor",
+                "Trabzonspor"
+              ]
+            },
+            "calendar": {
+              "matches": 108,
+              "scope": "OBSERVED_DATES_NOT_ROUND_TEMPLATE",
+              "observedDates": [
+                "2026-08-14",
+                "2026-08-15",
+                "2026-08-16",
+                "2026-08-17",
+                "2026-08-21",
+                "2026-08-22",
+                "2026-08-23",
+                "2026-08-24",
+                "2026-08-28",
+                "2026-08-29",
+                "2026-08-30",
+                "2026-08-31",
+                "2026-09-04",
+                "2026-09-05",
+                "2026-09-06",
+                "2026-09-07",
+                "2026-09-11",
+                "2026-09-12",
+                "2026-09-13",
+                "2026-09-14",
+                "2026-09-18",
+                "2026-09-19",
+                "2026-09-20",
+                "2026-10-09",
+                "2026-10-10",
+                "2026-10-11",
+                "2026-10-12",
+                "2026-10-16",
+                "2026-10-17",
+                "2026-10-18",
+                "2026-10-19",
+                "2026-10-23",
+                "2026-10-24",
+                "2026-10-25",
+                "2026-10-26",
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01",
+                "2026-11-02",
+                "2026-11-06",
+                "2026-11-07",
+                "2026-11-08",
+                "2026-11-21",
+                "2026-11-22",
+                "2026-11-23"
+              ]
+            },
+            "competitionDays": {
+              "observedWeekdays": {
+                "Fri": 11,
+                "Sat": 42,
+                "Sun": 41,
+                "Mon": 14
+              },
+              "scope": "OBSERVED_NOT_TEMPLATE_POSTPONEMENTS_NOT_RESOLVED"
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster; observed dates and clubs, no scores, no certified rules"
+        }
       }
     }
   },

@@ -21785,6 +21785,18 @@
             ]
           },
           "scope": "P evidence only: native IDs, nominal dates, complete cutoff and rules require review; no post-start scores"
+        },
+        "delta:37139b5f068fd3baf2c2af54a89acd7a61330656dbaf3b00c8a49d82020a3fba": {
+          "document": "Brasileiro Série A 2026",
+          "fields": {
+            "format": {
+              "teams": 20,
+              "cycles": 2,
+              "rounds": 38
+            }
+          },
+          "deltaOnly": true,
+          "scope": "P delta only: not a complete roster or round list; native IDs, conflicts, dates and rules require review; no post-start scores"
         }
       }
     }

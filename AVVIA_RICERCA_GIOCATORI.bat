@@ -5,6 +5,7 @@ where py >nul 2>&1
 if errorlevel 1 (set "PY=python") else (set "PY=py -3")
 if /i "%~1"=="--self-test" goto base
 if /i "%~1"=="--export-only" goto base
+if /i "%~1"=="--prepare-import" goto base
 if not exist "SWOS_Roster_Research\.venv\Scripts\python.exe" %PY% -m venv "SWOS_Roster_Research\.venv"
 if not exist "SWOS_Roster_Research\.venv\Scripts\python.exe" goto base
 "SWOS_Roster_Research\.venv\Scripts\python.exe" -c "import duckdb" >nul 2>&1

@@ -5,5 +5,5 @@ def report(label,status,detail=""):
 def outcome(found,added,review=0):
     if added:return "ACQUIRED",f"+{added} new; {found} eligible; {review} review"
     if review:return "REVIEW",f"+{review} unresolved matches"
-    if found:return "SKIPPED",f"{found} eligible; no new records"
+    if found:return "NO NEW DATA",f"{found} eligible; no new records"
     return "NO DATA","no eligible records from this source"

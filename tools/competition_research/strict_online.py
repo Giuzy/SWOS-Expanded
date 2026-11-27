@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/"SWOS_Roster_Research"))
 from http_retry import fetch as request_bytes
 from research_status import report, outcome
-from competition_sources import Cached, Discovery, fd_route, fd_packet, wanted as gap_fields, selftest as sources_selftest
+from competition_sources import Cached, Discovery, fd_route, fd_packet, rsssf_route, rsssf_packet, RSSSF, wanted as gap_fields, selftest as sources_selftest
 from research import COUNTRIES
 from evidence_delta import delta as evidence_delta, selftest as delta_selftest
 FIELDS=("name","identity","participants","format","regulation","movement","qualification","july1","roundDates","competitionDays","evolution","seasonChange")
@@ -109,7 +109,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
         if not complete and not changes and matrix_digest(matrix)==baseline:return
         if matrix_digest(read_matrix(mp))!=baseline or cp.read_bytes()!=coverage_baseline:
             raise RuntimeError("Concurrent matrix change; preserve current files and restart")
-        matrix["strictAcquisitionSummary"]={"routes":len(ROUTES),"footballDataRoutes":fd_routes,"rowsScanned":scanned,"inventorySelected":len(selected),"gapCounts":gaps,"newObservations":inserted,"newSourceLeads":lead_count,"rowsWithoutRouteOrLead":no_source,"july1ApplicabilityUnknown":sum(states(r).get("july1","?")=="?" for r in selected),"errors":errors,"archiveIndexErrors":discovery.errors,"runComplete":complete,"rowsProcessed":len(processed),"scope":"OpenFootball exact routes, Football-Data observed league CSV, RSSSF archive leads only; NO DATA is not absence; UNKNOWN is unreviewed; SOURCE_ERROR and NOT_SEARCHED distinguish missing adapter from a successful search. RSSSF links are not field evidence. No automatic status promotion."}
+        matrix["strictAcquisitionSummary"]={"routes":len(ROUTES),"footballDataRoutes":fd_routes,"rowsScanned":scanned,"inventorySelected":len(selected),"gapCounts":gaps,"newObservations":inserted,"newSourceLeads":lead_count,"rowsWithoutRouteOrLead":no_source,"july1ApplicabilityUnknown":sum(states(r).get("july1","?")=="?" for r in selected),"errors":errors,"archiveIndexErrors":discovery.errors,"runComplete":complete,"rowsProcessed":len(processed),"scope":"OpenFootball exact routes, Football-Data observed league CSV, RSSSF two scoped 2026 participant routes plus archive leads; NO DATA is not absence; UNKNOWN is unreviewed; SOURCE_ERROR and NOT_SEARCHED distinguish missing adapter from a successful search. RSSSF links are not field evidence. No automatic status promotion."}
         coverage["strictAcquisitionSummary"]=matrix["strictAcquisitionSummary"]
         stage(cp,coverage)
         pending={p:(old,encode(obj)) for p,(old,obj) in changes.items() if json.loads(old)!=obj}
@@ -154,7 +154,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
             if fresh:
                 row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(fresh))
                 row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
-            report(label,"ACQUIRED" if inserted>before else "SKIPPED","staged; next checkpoint" if inserted>before else "no new evidence")
+            report(label,"ACQUIRED" if inserted>before else "NO NEW DATA","staged; next checkpoint" if inserted>before else "no new evidence")
         except Exception as e:
             errors.append([rid,str(e)]);report(label,"ERROR",str(e))
     checkpoint("OpenFootball")
@@ -172,7 +172,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
             report(label,"SKIPPED","no applicable gaps");continue
         scanned+=1
         ident=row.get("technicalIdentity",{})
-        report(label,"SEARCHING","missing "+",".join(fields));old_lead_count=lead_count
+        old_lead_count=lead_count
         # Store source leads only in the canonical row, never promote V/P/I.
         leads=discovery.leads(row)
         if leads:
@@ -183,10 +183,37 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
                     merged[lead["url"]]=lead;lead_count+=1
             row["strictSourceLeads"]=list(merged.values())
         if lead_count>old_lead_count:report(label,"LEAD",f"+{lead_count-old_lead_count} archive references; not field evidence")
+        rr=rsssf_route(row)
+        if rr and "participants" in fields:
+            rid=row["row"];url=RSSSF+rr[0];source_label="RSSSF "+label
+            attempted[rid].add("participants")
+            report(source_label,"SEARCHING","participants")
+            try:
+                packet=rsssf_packet(cache.get(url),rr)
+                rel=index["rowPath"][str(rid)];sheet=(docs/rel).resolve()
+                if not sheet.is_relative_to(docs.resolve()) or sheet.suffix!=".json":raise ValueError("Bad path")
+                records=changes[sheet][1] if sheet in changes else read(sheet)
+                matches=[r for r in records if r.get("row")==rid]
+                if len(matches)!=1:raise ValueError("Sheet row mismatch")
+                rec=matches[0]
+                if (rec.get("world"),rec.get("country"),rec.get("detail"),rec.get("id"))!=(row["world"],ident.get("country"),ident.get("detail"),ident.get("id")):raise ValueError("Sheet identity mismatch")
+                searched[rid].add("participants")
+                fresh=evidence_delta(rec,packet,scope(row),quarantine[rid])
+                if fresh:
+                    key="rsssf:delta:"+hashlib.sha256(encode(fresh)).hexdigest()
+                    target=rec.setdefault("automaticResearch",{}).setdefault("strictAcquisition",{})
+                    if key not in target:
+                        target[key]={"document":url,"fields":fresh,"deltaOnly":True,"scope":"2026 participant labels from exact men's league section; not July scores or rules"}
+                        stage(sheet,records);inserted+=1
+                    row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(fresh))
+                    row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
+                report(source_label,"ACQUIRED" if fresh else "NO NEW DATA",f"{len(fresh.get('participants',[]))} new labels; {len(packet['participants'])} observed")
+            except Exception as e:
+                errors.append([rid,"RSSSF: "+str(e)]);report(source_label,"ERROR",str(e))
         route=fd_route(row)
         if not route or "row" not in row:
             if not leads and row.get("row") not in attempted:no_source+=1
-            report(label,"SKIPPED","no supported Football-Data route; archive lead only" if leads else "no supported Football-Data route")
+            report(label,"NO ADAPTER","archive lead only" if leads else "no supported route")
             continue
         target_fields=[k for k in fields if k in ("participants","format","calendar","competitionDays")]
         if not target_fields:
@@ -218,7 +245,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
             if fresh:
                 row["strictAcquisitionFields"]=sorted(set(row.get("strictAcquisitionFields",[]))|set(fresh))
                 row.setdefault("evidenceRefs",{})["strictAcquisition"]=rel+"#row"+str(rid)
-            report("Football-Data "+label,"ACQUIRED" if inserted>before else "SKIPPED","staged; country checkpoint follows" if inserted>before else "no new evidence")
+            report("Football-Data "+label,"ACQUIRED" if inserted>before else "NO NEW DATA","staged; country checkpoint follows" if inserted>before else "no new evidence")
         except Exception as e:
             errors.append([row.get("row"),"Football-Data: "+str(e)]);report("Football-Data "+label,"ERROR",str(e))
     checkpoint(last_country or "Competition matrix",complete=True)
@@ -245,9 +272,19 @@ def selftest():
     assert not missing({"fields":{"format":"V"}},"format")
     assert not missing({"fields":{"july1":"?"}},"july1")
 def main():
-    a=argparse.ArgumentParser();a.add_argument("--self-test",action="store_true");a.add_argument("--repo-root",type=Path,default=ROOT);a.add_argument("--refresh",action="store_true");a.add_argument("--country");a.add_argument("--world",choices=("9697","2627"))
+    a=argparse.ArgumentParser();a.add_argument("--self-test",action="store_true");a.add_argument("--repo-root",type=Path,default=ROOT);a.add_argument("--refresh",action="store_true");a.add_argument("--country");a.add_argument("--world",choices=("9697","2627"),default="2627")
     x=a.parse_args();selftest()
+    from domestic_discovery import selftest as domestic_selftest, run as domestic_run
+    domestic_selftest()
     if x.country:x.country=x.country.upper()
     if x.self_test:print("Self-test PASS");return
-    apply(x.repo_root.resolve(),refresh=x.refresh,only_country=x.country,only_world=x.world)
+    root=x.repo_root.resolve()
+    if x.world=="2627":domestic_run(root,x.country)
+    apply(root,refresh=x.refresh,only_country=x.country,only_world=x.world)
+    if x.world=="2627":
+        from import_candidates import prepare
+        snapshot=root/"SWOS_Roster_Research/results_2627/candidates.json"
+        if snapshot.exists():
+            # Read-only derived preview; never insert non-catalogue leagues in matrix.
+            prepare(snapshot,root/"tools/competition_research/output/competition_roster_import",x.country,include_extras=False)
 if __name__=="__main__":main()

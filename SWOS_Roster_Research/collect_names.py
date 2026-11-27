@@ -107,7 +107,7 @@ def league_query(codes):
     quoted = ' '.join(json.dumps(c) for c in codes)
     return f'''SELECT DISTINCT ?fifa ?country ?countryLabel ?league ?leagueLabel ?class WHERE {{
       VALUES ?fifa {{ {quoted} }}
-      {{ ?country wdt:P3441 ?fifa. }} UNION {{ ?entity wdt:P3441 ?fifa; wdt:P17 ?country. }}
+      {{ ?country wdt:P3441 ?fifa. }} UNION {{ ?entity wdt:P3441 ?fifa; (wdt:P1532|wdt:P17) ?country. }}
       ?league wdt:P17 ?country; wdt:P3983 1; wdt:P2094 ?class.
       VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
       FILTER NOT EXISTS {{ ?league wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
@@ -165,7 +165,7 @@ def existing_query(fifa,name):
     return f"""PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     SELECT DISTINCT ?club ?clubLabel WHERE {{
        VALUES ?label {{ {labels} }}
-       {{ ?country wdt:P3441 {json.dumps(fifa)}. }} UNION {{ ?entity wdt:P3441 {json.dumps(fifa)}; wdt:P17 ?country. }}
+       {{ ?country wdt:P3441 {json.dumps(fifa)}. }} UNION {{ ?entity wdt:P3441 {json.dumps(fifa)}; (wdt:P1532|wdt:P17) ?country. }}
        ?club (rdfs:label|<http://www.w3.org/2004/02/skos/core#altLabel>) ?label; wdt:P17 ?country; wdt:P2094 ?class.
        VALUES ?class {{ wd:Q31930761 wd:Q35554451 }}
        FILTER NOT EXISTS {{ ?club wdt:P2094 ?other. FILTER(?other NOT IN (wd:Q31930761,wd:Q35554451)) }}
@@ -205,6 +205,8 @@ def main():
     ap.add_argument("--self-test",action="store_true")
     ap.add_argument("--repo-root",type=Path,default=HERE.parent)
     ap.add_argument("--export-only",action="store_true")
+    ap.add_argument("--prepare-import",action="store_true",help="Read published JSON only, generate country candidate lists; no downloads")
+    ap.add_argument("--country",help="Limit import preview to one FIFA code (requires --prepare-import)")
     ap.add_argument("--skip-alternative",action="store_true")
     ap.add_argument("--alternative-only",action="store_true")
     ap.add_argument("--skip-transfermarkt",action="store_true")
@@ -250,15 +252,26 @@ def main():
         alt_selftest()
         from transfermarkt_source import selftest as tm_selftest
         tm_selftest()
+        from import_candidates import selftest as import_selftest
+        import_selftest()
         print("Self-test PASS");return
     root=args.repo_root.resolve();raw=(root/MAP).read_bytes();national=json.loads(raw)["records"]
+    if args.country:args.country=args.country.upper()
+    from import_candidates import prepare as prepare_import
+    out=root/"SWOS_Roster_Research/results_2627";preview=out/"import_candidates"
+    if args.prepare_import:
+        prepare_import(out/"candidates.json",preview,args.country);return
     targets=[dict(fifa=r["fifa"],name=r["source"]["name"],new=r["expanded"]["globalNumber"]>=2560) for r in national if r["source"]["team_file"]==255]
     targets.sort(key=lambda r:(not r["new"],r["fifa"]))
+    if args.country:ap.error("--country requires --prepare-import")
     index=existing_index(root);path=OUT/"candidates.json";CACHE.mkdir(parents=True,exist_ok=True)
     store=Store(path,OUT/'research.sqlite3')
     results=store.load()
     if args.export_only:
-        store.publish();store.close();return
+        try:
+            store.publish();prepare_import(path,preview,data=results)
+        finally:store.close()
+        return
     # Recover/publish work from earlier interrupted or pre-checkpoint runs first.
     store.publish()
     cp=Checkpoint(path,results,None)
@@ -376,6 +389,7 @@ def main():
                             cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"});added+=1
                 save()
                 if not query_failed:report("Wikidata "+label,*outcome(sum(bool(x.get("club")) for x in rr),added))
+        prepare_import(path,preview,include_extras=False,data=results)
         print("PHASE 2/3: players of discovered clubs",flush=True)
         alternative("players")
         if not args.alternative_only:
@@ -386,6 +400,7 @@ def main():
                     for s in l["seasons"]:
                         for c in s["clubs"]:byclub.setdefault(c["club"],[]).append((c,set()))
             collect_players(byclub)
+        prepare_import(path,preview,include_extras=False,data=results)
         print("PHASE 3/3: existing club roster gaps / extra players",flush=True)
         alternative("extras")
         if not args.alternative_only:
@@ -407,6 +422,7 @@ def main():
             save();store.publish()
         finally:store.close()
     groups=[extra_candidates_by_name(e,known[uid]) for uid,e in gaps.items() if uid in known]
+    prepare_import(path,preview,data=results)
     print("EXTRA review: distinct missing club/name groups",sum(map(len,groups)),
           "multi-observation groups",sum(len(v)>1 for g in groups for v in g.values()),
           "(not certified players)",flush=True)

@@ -53,6 +53,59 @@ def fd_packet(raw,row,code):
     if complete:packet["format"]={"observedTeams":n,"observedCycles":2,"scope":"OBSERVED_DOUBLE_RR_NOT_OFFICIAL_RULE"}
     return packet
 
+
+# Current-season routes with positively identified archive sections.
+RSSSF_TABLES={
+ (256,"ISL","_icelandicLeague","div1"):("tablesi/ijs2026.html","Iceland 2026","Urvalsdeild","Regular Stage",12,22),
+ (307,"SWE","_swedishLeague","div1"):("tablesz/zwed2026.html","Sweden 2026","Allsvenskan",None,16,30),
+}
+def rsssf_route(row):
+    i=row.get("technicalIdentity",{})
+    if row.get("world")!="2627" or i.get("category")!="LEAGUE_DIVISION":return None
+    return RSSSF_TABLES.get((row.get("row"),i.get("country"),i.get("id"),i.get("detail")))
+class ArchiveText(HTMLParser):
+    def __init__(self,raw):
+        super().__init__(convert_charrefs=True);self.parts=[];self.hidden=0
+        try:s=raw.decode("utf-8")
+        except UnicodeDecodeError:s=raw.decode("cp1252")
+        self.feed(s);self.close()
+    def handle_starttag(self,tag,attrs):
+        if tag in ("script","style"):self.hidden+=1
+        if tag in ("title","h1","h2","h3","h4","h5","h6","pre","p","br","div","li","tr"):self.parts.append("\n")
+    def handle_endtag(self,tag):
+        if tag in ("script","style") and self.hidden:self.hidden-=1
+        if tag in ("title","h1","h2","h3","h4","h5","h6","pre","p","div","li","tr"):self.parts.append("\n")
+    def handle_data(self,data):
+        if not self.hidden:self.parts.append(data)
+def rsssf_packet(raw,route):
+    path,title,section,stage,n,max_games=route
+    lines=[s.strip() for s in "".join(ArchiveText(raw).parts).splitlines()]
+    key=lambda x:" ".join(x.split()).casefold()
+    if not any(key(s)==key(title) for s in lines):raise ValueError("RSSSF edition heading missing")
+    # Navigation links may repeat the heading. Accept only a unique valid
+    # adjacent section/stage/table sequence, never an unrelated later table.
+    tables=[]
+    for start,s in enumerate(lines):
+        if key(s)!=key(section):continue
+        window=[v for v in lines[start+1:start+45] if v]
+        if stage:
+            if key(stage) not in [key(v) for v in window[:5]]:continue
+            window=window[[key(v) for v in window].index(key(stage))+1:]
+        if not window or key(window[0]) not in ("table:","current table:","final table:"):continue
+        names=[]
+        for line in window[1:]:
+            if re.fullmatch(r"[-= ]+",line):continue
+            m=re.match(r"^(\d+)\.\s*(.+?)\s{2,}(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+\d+\s*-\s*\d+\s+",line)
+            if not m:break
+            rank,name,played,w,d,l=m.groups()
+            if int(rank)!=len(names)+1 or not 0<=int(played)<=max_games or int(w)+int(d)+int(l)!=int(played) or BAD.search(name) or "\ufffd" in name:break
+            names.append(name)
+            if len(names)==n:break
+        if len(names)==n and len({norm(x) for x in names})==n:tables.append(sorted(names))
+    if len(tables)!=1:raise ValueError("RSSSF exact table missing/ambiguous")
+    # Membership labels only, not ranks, points, results, or official rules.
+    return {"participants":tables[0]}
+
 class Links(HTMLParser):
     def __init__(self,raw):
         super().__init__(convert_charrefs=True);self.items=[];self.current=None
@@ -128,6 +181,13 @@ def selftest():
     for country,tier in (("ITA","div2"),("SCO","div3"),("SCO","div4")):
         assert fd_route(dict(row,technicalIdentity=dict(row["technicalIdentity"],country=country,detail=tier))) is None
     assert wanted(row,("participants","format","july1"))==["participants","format"]
+    route=("x","Test 2026","First Division","Regular Stage",2,2)
+    raw=b"<h2>Test 2026</h2><h4>First Division</h4><pre>Regular Stage\nFinal Table:\n1.A  2 1 1 0 3-1 4\n2.B  2 0 1 1 1-3 1\n</pre>"
+    assert rsssf_packet(raw,route)=={"participants":["A","B"]}
+    for bad in (raw.replace(b"Test 2026",b"Test 2025"),raw.replace(b"First Division",b"Second Division"),raw.replace(b"2.B",b"2.Women B")):
+        try:rsssf_packet(bad,route)
+        except ValueError:pass
+        else:raise AssertionError("RSSSF wrong scope accepted")
     b=b"Div,Date,HomeTeam,AwayTeam,FTHG,FTAG\nE0,10/08/96,A,B,9,0\nE0,10/09/96,B,A,0,1\n"
     p=fd_packet(b,row,"E0")
     assert p["format"]["observedCycles"]==2 and "FTHG" not in json.dumps(p) and "july1" not in p

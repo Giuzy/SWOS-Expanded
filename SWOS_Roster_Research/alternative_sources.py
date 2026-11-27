@@ -143,9 +143,13 @@ def acquire(results,cp,cache,root,known,phase):
             from collections import Counter
             found=Counter();new=Counter();review=Counter()
             countries=set(targets) if phase!="extras" else {c for c,_ in gaps}
-            report("OpenFootballBase "+phase,"SEARCHING",f"{len(countries)} countries")
-            for season in ("2026","2026/27"):
-                if (season,"club_season") not in tables:continue
+            label="OpenFootballBase "+phase
+            required=("club_season",) if phase=="clubs" else ("club_season","squad")
+            available=[s for s in ("2026","2026/27") if all((s,k) in tables for k in required)]
+            if not available:
+                report(label,"NO ADAPTER","archive has no required 2026/27 edition tables");return
+            report(label,"SEARCHING",f"{len(countries)} countries; editions {available}")
+            for season in available:
                 eligible={}
                 last_country=None
                 def club_country(row):
@@ -196,7 +200,7 @@ def acquire(results,cp,cache,root,known,phase):
                         count+=added;new[c]+=added;review[c]+=len(owner.get("name_matches",[]))-before
                 cp.save()
             for c in sorted(countries):report("OpenFootballBase "+phase+" "+c,*outcome(found[c],new[c],review[c]))
-            print("Alternative season "+("club" if phase=="clubs" else "player")+" observations (new):",count,flush=True)
+            report(label,"ACQUIRED" if count else "NO NEW DATA" if sum(found.values()) else "NO DATA",f"{count} new observations; {sum(found.values())} eligible; {sum(review.values())} reviews; editions {available}")
         finally:db.close()
 
 def selftest():

@@ -18,6 +18,7 @@ SEED={"BHU":"22","KGZ":"90","SEN":"149"}
 COUNTRY_DIRECTORY="https://transfermarkt-api.fly.dev/countries/"
 ALIASES={"NED":"Netherlands","FRO":"Faroe Islands","IRL":"Ireland","KOR":"South Korea","PRK":"North Korea","TPE":"Chinese Taipei","USA":"United States","COD":"DR Congo","CGO":"Congo","CIV":"Ivory Coast","SWZ":"Eswatini","TUR":"Türkiye","VIE":"Vietnam"}
 TIER={"First Tier":1,"Second Tier":2,"Third Tier":3,"Fourth Tier":4}
+NON_LEAGUE=re.compile(r"\b(cup|supercup|play[- ]?offs?|qualif(?:ication|ying|iers?)|relegation round|promotion round|pokal|copa|coupe|coppa)\b",re.I)
 SCOPE="SEASON_CANDIDATE_NOT_JULY1"
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
@@ -118,7 +119,7 @@ def leagues(page,country_id,maxlevel):
             if txt in ("Domestic Cup","Super Cup") or "Youth" in txt or "Women" in txt:level=None
             if level is not None and level<=maxlevel:
                 for code,name in links(tr,r"/startseite/wettbewerb/([A-Z0-9]+)(?:/|$)").items():
-                    out[code]=(name,level)
+                    if not NON_LEAGUE.search(name):out[code]=(name,level)
     return out
 
 def page_route_ids(page,kind):
@@ -253,7 +254,7 @@ class Transfermarkt:
                 page=self.page(path);season=season_label(page,"clubs",name,code)
                 # Positive domestic tier inherited from exact country selector.
                 for cid,club in table_links(page,r"/startseite/verein/([1-9][0-9]*)(?:/|$)").items():
-                    out.append({"club":club,"transfermarktClubId":cid,"country":c,"competition":code,"level":level,"season":season,"source":BASE+path,"scope":SCOPE})
+                    out.append({"club":club,"transfermarktClubId":cid,"country":c,"competition":code,"competitionName":name,"level":level,"season":season,"source":BASE+path,"scope":SCOPE})
                 report("Transfermarkt "+c+"/"+code,"FOUND" if len(out)>before else "NO DATA",f"{len(out)-before} eligible club candidates")
             except Exception as e:
                 self.error(c+"/"+code,e)
@@ -292,7 +293,8 @@ class Transfermarkt:
                     status,detail=outcome(len(entries),added)
                     if self.error_count!=failures:report(label,"PARTIAL" if entries else "ERROR",status+"; "+detail+"; some competition requests failed")
                     else:report(label,status,detail)
-                except Exception as e:self.error(c,e)
+                except Exception as e:
+                    self.error(c,e);report(label,"ERROR",str(e))
         elif phase=="players":
             for t in targets:
                 if self.blocked:break
@@ -301,7 +303,9 @@ class Transfermarkt:
                 for row in owner.get("transfermarkt_clubs",[]):
                     if self.blocked:break
                     try:self.players(row,owner,set())
-                    except Exception as e:self.error(t["fifa"]+"/"+row["transfermarktClubId"],e)
+                    except Exception as e:
+                        self.error(t["fifa"]+"/"+row["transfermarktClubId"],e)
+                        report("Transfermarkt players "+row["country"]+"/"+row["club"],"ERROR",str(e))
         elif phase=="extras":
             groups={}
             for uid,e in self.results["existing_club_gaps"].items():
@@ -317,18 +321,29 @@ class Transfermarkt:
                     for uid,e in sorted(owners,key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
                         if self.blocked:break
                         rows=matches.get(norm(e["name"]),[])
-                        if len({x["transfermarktClubId"] for x in rows})!=1 or len(rows)!=1:
+                        if len({x["transfermarktClubId"] for x in rows})!=1:
                             report("Transfermarkt extras "+c+"/"+e["name"],"SKIPPED","no unique club identity")
                             continue
-                        row=rows[0];add_unique(self.cp,e,"transfermarkt_clubs",row);self.cp.save()
-                        try:self.players(row,e,self.known[uid])
-                        except Exception as exc:self.error(c+"/"+row["transfermarktClubId"],exc)
-                except Exception as exc:self.error(c,exc)
+                        editions={}
+                        for row in rows:
+                            add_unique(self.cp,e,"transfermarkt_clubs",row)
+                            editions.setdefault(row["season"],row)
+                        self.cp.save()
+                        for row in editions.values():
+                            if self.blocked:break
+                            try:self.players(row,e,self.known[uid])
+                            except Exception as exc:
+                                self.error(c+"/"+row["transfermarktClubId"],exc)
+                                report("Transfermarkt players "+row["country"]+"/"+row["club"],"ERROR",str(exc))
+                    report("Transfermarkt extras "+c,"PARTIAL" if self.blocked else "FOUND",f"{len(entries)} club candidates; individual squad outcomes above")
+                except Exception as exc:
+                    self.error(c,exc);report("Transfermarkt extras "+c,"ERROR",str(exc))
         else:raise ValueError("Unknown research phase")
 
 def selftest():
     country=parse('<select><option value="22" selected>Bhutan</option><option value="90">Kyrgyzstan</option></select><table><tr><td>First Tier</td></tr><tr><td><a href="/bhutan/startseite/wettbewerb/BH1L">Bhutan Premier League</a></td></tr><tr><td>Domestic Cup</td></tr><tr><td><a href="/cup/startseite/wettbewerb/BHPO">Cup</a></td></tr></table>')
     assert leagues(country,"22",1)=={"BH1L":("Bhutan Premier League",1)}
+    assert NON_LEAGUE.search("Premier League Playoffs") and NON_LEAGUE.search("National Cup") and not NON_LEAGUE.search("Premier League")
     no_selector=parse('<link rel="canonical" href="https://www.transfermarkt.com/senegal/national/wettbewerbe/149"><table><tr><td>First Tier</td></tr><tr><td><a href="/ligue-1/startseite/wettbewerb/SEN1">Ligue 1</a></td></tr></table>')
     assert leagues(no_selector,"149",1)=={"SEN1":("Ligue 1",1)}
     assert not country_page_matches(no_selector,"90")

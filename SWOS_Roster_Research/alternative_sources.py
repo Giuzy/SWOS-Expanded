@@ -10,7 +10,7 @@ import urllib.request
 from pathlib import Path
 from http_retry import fetch
 from roster_storage import atomic, digest
-from research_status import report, outcome
+from research_status import report, outcome, progress
 from player_roles import position_evidence, enrich
 
 URL="https://github.com/florentfougeres/OpenFootballBase-Data/releases/download/data-1.26.0/openfootballbase-data.tar.gz"
@@ -156,12 +156,12 @@ def acquire(results,cp,cache,root,known,phase,year=2026):
             if not available:
                 report(label,"NO ADAPTER","archive has no required requested edition tables");return
             report(label,"SEARCHING",f"{len(countries)} countries; editions {available}")
-            for season in available:
+            for season in progress(label+" editions",available):
                 eligible={}
                 last_country=None
                 def club_country(row):
                     return code(competitions.get(row.get("competition"),{}).get("country_code"),allowed) or ""
-                for row in sorted(load((season,"club_season")),key=club_country):
+                for row in progress(label+" club rows "+season,sorted(load((season,"club_season")),key=club_country),every=1000):
                     cl=clubs.get(row["club"],{});comp=competitions.get(row["competition"],{})
                     if row.get("season")!=season or not cl or not comp:continue
                     c=scoped(comp.get("country_code"),row["club"],cl.get("category"),comp.get("name_en",""),comp.get("level"),season,allowed,row["competition"],year)
@@ -189,7 +189,7 @@ def acquire(results,cp,cache,root,known,phase,year=2026):
                 def squad_country(row):
                     match=eligible.get((row.get("club"),row.get("competition")))
                     return match[0]["country"] if match else ""
-                for row in sorted(load((season,"squad")),key=squad_country):
+                for row in progress(label+" squad rows "+season,sorted(load((season,"squad")),key=squad_country),every=1000):
                     match=eligible.get((row.get("club"),row.get("competition")))
                     if not match or row.get("season")!=season:continue
                     entry,owners,uid=match
@@ -209,7 +209,7 @@ def acquire(results,cp,cache,root,known,phase,year=2026):
                         added=int(add_unique(cp,owner,"alternative_players",observation))
                         count+=added;new[c]+=added;review[c]+=len(owner.get("name_matches",[]))-before
                 cp.save()
-            for c in sorted(countries):report("OpenFootballBase "+phase+" "+c,*outcome(found[c],new[c],review[c]))
+            for c in progress(label+" country summaries",sorted(countries)):report("OpenFootballBase "+phase+" "+c,*outcome(found[c],new[c],review[c]))
             report(label,"ACQUIRED" if count else "NO NEW DATA" if sum(found.values()) else "NO DATA",f"{count} new observations; {sum(found.values())} eligible; {sum(review.values())} reviews; editions {available}")
         finally:db.close()
 

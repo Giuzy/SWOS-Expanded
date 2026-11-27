@@ -14,7 +14,7 @@ import zipfile
 from pathlib import Path
 from http_retry import fetch
 from roster_storage import atomic, read
-from research_status import report, outcome
+from research_status import report, outcome, progress, show_progress
 
 HERE=Path(__file__).resolve().parent
 LOCAL=HERE/"ea_local"
@@ -89,7 +89,7 @@ def publish(db,folder,names,only_edition=None):
             groups.setdefault(c,[]).append(row)
         if not groups:continue
         dest=folder/edition
-        for c,rows in sorted(groups.items()):
+        for c,rows in progress("EA publication "+edition.upper()+" countries",sorted(groups.items())):
             path=dest/(c+".json")
             if path.exists():
                 current={str(row["player_id"]):row for row in rows}
@@ -104,7 +104,7 @@ def recover_published(db,folder,names):
     # a published country with a partial local database; validate and merge IDs.
     for edition in ("fc27","fc26"):
         recovered={}
-        for p in sorted((folder/edition).glob("*.json")):
+        for p in progress("EA recovery "+edition.upper()+" country files",sorted((folder/edition).glob("*.json"))):
             if p.name=="INDEX.json":continue
             rows=read(p)
             if not isinstance(rows,list):raise ValueError("Invalid EA country shard: "+str(p))
@@ -158,6 +158,8 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument("--self-test",action="store_true");ap.add_argument("--repo-root",type=Path,default=HERE.parent);ap.add_argument("--edition",choices=("fc27","fc26","both"),default="both");ap.add_argument("--fc26-csv",type=Path);ap.add_argument("--export-only",action="store_true")
     a=ap.parse_args()
     if a.self_test:
+        from research_status import selftest as progress_selftest
+        progress_selftest()
         from http_retry import selftest as http_selftest
         http_selftest()
         data=b"player_id,first_name,last_name,overall_rating,nationality,gender,edition,snapshot_date,pace\n1,A,B,80,Germany,Men's Football,fc27,12-09-2026,70\n2,C,D,80,Germany,Women's Football,fc27,2026-09-12,90\n"
@@ -181,10 +183,14 @@ def main():
     schema(db)
     failures=[];folder=LOCAL/"countries"
     try:
+        phase_total=2 if a.export_only else 3
+        show_progress("EA research phases",0,phase_total)
         recover_published(db,folder,names)
+        show_progress("EA research phases",1,phase_total)
         publish(db,folder,names)
+        show_progress("EA research phases",2,phase_total)
         if a.export_only:return
-        for edition in ("fc27","fc26") if a.edition=="both" else (a.edition,):
+        for edition in progress("EA source editions",("fc27","fc26") if a.edition=="both" else (a.edition,)):
             try:
                 local=edition=="fc26" and a.fc26_csv is not None
                 source_hash=None if local else SOURCES[edition][1]
@@ -201,11 +207,12 @@ def main():
                 totals=Counter();new=Counter()
                 for uid,row in rows.items():
                     c=names.get(norm(row["nationality"]),"UNMAPPED");totals[c]+=1;new[c]+=int(uid not in prior)
-                for c in sorted(totals):report(edition.upper()+" "+c,*outcome(totals[c],new[c]))
+                for c in progress("EA "+edition.upper()+" country summaries",sorted(totals)):report(edition.upper()+" "+c,*outcome(totals[c],new[c]))
                 publish(db,folder,names,edition)
                 report(edition.upper(),*outcome(len(rows),added))
             except Exception as e:
                 failures.append((edition,str(e)));report(edition.upper(),"ERROR",str(e))
     finally:db.close()
+    show_progress("EA research phases",phase_total,phase_total)
     if failures:raise SystemExit(1)
 if __name__=="__main__":main()

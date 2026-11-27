@@ -4,7 +4,7 @@ import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, u
 from pathlib import Path
 from roster_storage import Store, StorageFailure, PublicationConflict, recover_snapshot, selftest as storage_selftest
 from http_retry import fetch, HostCooldown, DeadlineExceeded, BLOCKED, INFLIGHT
-from research_status import report, outcome
+from research_status import report, outcome, progress, show_progress
 from player_roles import position_evidence, merge_positions
 from season_config import output_dir, cutoff, year_value
 
@@ -302,6 +302,8 @@ def main():
     assert list(grouped)==["joaosilva"] and len(grouped["joaosilva"])==2
     assert not merge_players(c,[],set()) and c["status"]=="P"
     if args.self_test:
+        from research_status import selftest as progress_selftest
+        progress_selftest()
         from http_retry import selftest as http_selftest
         http_selftest()
         from tempfile import TemporaryDirectory
@@ -464,11 +466,11 @@ def main():
             report("Wikidata "+phase,"DEFERRED" if deferred_error(e) else "ERROR",str(e));return []
     def query_batches(jobs):
         pending=[]
-        for payload,q,label in jobs:
+        for payload,q,label in progress("Wikidata query batches",jobs):
             rows=run(q,label)
             if query_failed:pending.append((payload,q,label))
             else:yield payload,rows
-        for payload,q,label in pending:
+        for payload,q,label in progress("Wikidata deferred retry batches",pending):
             if not wiki_ready():break
             rows=run(q,label)
             if not query_failed:yield payload,rows
@@ -543,9 +545,10 @@ def main():
             save()
             report("Wikidata "+label,*outcome(len(rr),added))
     try:
-        print("PHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
+        show_progress("Roster phases",0,3)
+        print("\nPHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
         alternative("clubs")
-        for t in targets:
+        for t in progress("Domestic roster catalogue countries",targets):
             code=t["fifa"];owner=bycode[code]
             packets,seeds,errors=catalogue.country(code,YEAR)
             observations=cp.ensure(owner,"domestic_source_observations",[])
@@ -562,7 +565,7 @@ def main():
                         cp.append(owner["leagues"],dict(seed,seasons=[]))
                 # Archive entrant names are identity review leads, never a seasonal club binding.
                 labels={v["name"]:p for p in packets if p.get("source")=="RSSSF" and p.get("kind")=="LEAGUE_DIVISION" for v in p.get("participants",[]) if valid_club_name(v.get("name",""))}
-                for group in chunks(sorted(labels),12):
+                for group in progress("Archive identity batches "+code,list(chunks(sorted(labels),12))):
                     rows=run(existing_queries(code,group),"Archive club identities "+code)
                     for name in group:
                         matches={safe_qid(row.get("club")):row for row in rows if row.get("input")==name and safe_qid(row.get("club")) and valid_club_name(row.get("clubLabel",""))}
@@ -577,7 +580,7 @@ def main():
                 if any(eligible_league(l) for l in bycode[code]["leagues"]) and not args.refresh_wiki:
                     report("Wikidata League "+code,"SKIPPED","existing league candidates")
                 else:pending.append(code)
-            for group in chunks(pending,5):
+            for group in progress("Wikidata league batches",list(chunks(pending,5))):
                 rr=run(league_query(group),"Leagues "+",".join(group))
                 for code in group:
                     owner=bycode[code];added=0;found=0
@@ -594,7 +597,7 @@ def main():
             for t in (bycode[x["fifa"]] for x in targets):
                 for l in t["leagues"]:
                     if eligible_league(l):byleague.setdefault(l["league"],[]).append(l)
-            for league,ls in byleague.items():
+            for league,ls in progress("Wikidata league editions",byleague.items()):
                 label="Edition "+qid(league);rr=run(clubs_query([league]),label);added=0
                 for r in rr:
                     if safe_qid(r.get("league"))!=safe_qid(league) or not safe_qid(r.get("season")) or not edition_label(r.get("seasonLabel",""),YEAR) or not valid_club_name(r.get("seasonLabel","")):continue
@@ -607,7 +610,7 @@ def main():
                 save()
                 if not query_failed:report("Wikidata "+label,*outcome(sum(bool(x.get("club")) for x in rr),added))
             # P118 is a league/club identity lead, not proof of the 2026 edition.
-            for t in targets:
+            for t in progress("Wikidata league identity countries",targets):
                 owner=bycode[t['fifa']]
                 for l in owner['leagues']:
                     if not eligible_league(l) or any(s.get('clubs') for s in l.get('seasons',[])):continue
@@ -617,7 +620,8 @@ def main():
                     save()
         flush_query_status()
         prepare_import(path,preview,include_extras=False,data=results,year=YEAR)
-        print("PHASE 2/3: players of discovered clubs",flush=True)
+        show_progress("Roster phases",1,3)
+        print("\nPHASE 2/3: players of discovered clubs",flush=True)
         alternative("players")
         if not args.alternative_only:
             byclub={}
@@ -628,24 +632,25 @@ def main():
                         for c in s["clubs"]:byclub.setdefault(c["club"],[]).append((c,set()))
             collect_players(byclub)
         if not args.skip_wikipedia and not args.alternative_only:
-            for t in targets:
+            for t in progress("Wikipedia roster countries",targets):
                 wiki.target(bycode[t['fifa']]);save()
         from role_backfill import backfill
         def run_role(q,label):
             rows=run(q,label)
             return None if query_failed else rows
-        print("PHASE 2/3: backfill missing roles on existing country observations",flush=True)
+        print("\nPHASE 2/3: backfill missing roles on existing country observations",flush=True)
         backfill([bycode[t["fifa"]] for t in targets],cp,tm,run_role,YEAR,allow_tm=not args.skip_transfermarkt,allow_wd=not args.alternative_only)
         flush_query_status()
         prepare_import(path,preview,include_extras=False,data=results,year=YEAR)
-        print("PHASE 3/3: existing club roster gaps / extra players",flush=True)
+        show_progress("Roster phases",2,3)
+        print("\nPHASE 3/3: existing club roster gaps / extra players",flush=True)
         alternative("extras")
         if not args.alternative_only:
             byclub={}
             jobs=[(entries,existing_queries(code,[e["name"] for _,e in entries]),"Club identities "+code+" ("+str(len(entries))+")") for code,entries in identity_batches(gaps,known)]
             for entries,rows in query_batches(jobs):
                 apply_identities(cp,entries,rows);save()
-            for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
+            for uid,e in progress("Wikidata EXTRA club review",sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0]))):
                 if uid not in known or not e.get("association"):
                     report("Wikidata extras "+e["name"],"SKIPPED","not eligible or association unresolved")
                     continue
@@ -658,10 +663,10 @@ def main():
         if not args.skip_wikipedia and not args.alternative_only:
             wiki.bridge([row for uid,e in gaps.items() if uid in known for row in e.get('transfermarkt_clubs',[])])
             save()
-            for uid,e in sorted(gaps.items()):
+            for uid,e in progress("Wikipedia EXTRA clubs",sorted(gaps.items())):
                 if uid in known and e.get('association'):
                     wiki.extra(e,known[uid]);save()
-        print("PHASE 3/3: backfill missing roles on already collected EXTRA observations",flush=True)
+        print("\nPHASE 3/3: backfill missing roles on already collected EXTRA observations",flush=True)
         backfill(gaps.values(),cp,tm,run_role,YEAR,allow_tm=not args.skip_transfermarkt,allow_wd=not args.alternative_only)
     finally:
         try:
@@ -673,7 +678,8 @@ def main():
     if YEAR!=2026:
         from annual_delta import write_delta
         write_delta(root,YEAR,scope='rosters')
-    print("EXTRA review: distinct missing club/name groups",sum(map(len,groups)),
+    show_progress("Roster phases",3,3)
+    print("\nEXTRA review: distinct missing club/name groups",sum(map(len,groups)),
           "multi-observation groups",sum(len(v)>1 for g in groups for v in g.values()),
           "(not certified players)",flush=True)
     print("Canonical nominal matrix updated. NO DATA unresolved; P candidates; runtime unchanged. Errors:",len(results["errors"]))

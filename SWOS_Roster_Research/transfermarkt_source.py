@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from alternative_sources import norm, BAD, add_unique
 from http_retry import fetch
-from research_status import report, outcome
+from research_status import report, outcome, progress
 from roster_storage import StorageFailure
 
 BASE="https://www.transfermarkt.com"
@@ -284,7 +284,7 @@ class Transfermarkt:
             return self.discovered[key]
         country_id=self.country_id(c)
         out=[]
-        for code,(name,level) in leagues(self.page(COUNTRY+country_id+"/saison_id/"+str(self.year)),country_id,maxlevel).items():
+        for code,(name,level) in progress("Transfermarkt competition routes "+c,leagues(self.page(COUNTRY+country_id+"/saison_id/"+str(self.year)),country_id,maxlevel).items()):
             path="/-/startseite/wettbewerb/"+code+"/saison_id/"+str(self.year)
             try:
                 report("Transfermarkt "+c+"/"+code,"SEARCHING",name)
@@ -321,7 +321,7 @@ class Transfermarkt:
             return
         bycode={t["fifa"]:t for t in self.results["targets"]}
         if phase=="clubs":
-            for t in targets:
+            for t in progress("Transfermarkt club countries",targets):
                 if self.blocked:break
                 c=t["fifa"]
                 label="Transfermarkt clubs "+c
@@ -336,11 +336,11 @@ class Transfermarkt:
                 except Exception as e:
                     self.error(c,e);report(label,"ERROR",str(e))
         elif phase=="players":
-            for t in targets:
+            for t in progress("Transfermarkt player countries",targets):
                 if self.blocked:break
                 owner=bycode[t["fifa"]]
                 if not owner.get("transfermarkt_clubs"):report("Transfermarkt players "+t["fifa"],"SKIPPED","no discovered clubs")
-                for row in owner.get("transfermarkt_clubs",[]):
+                for row in progress("Transfermarkt squads "+t["fifa"],owner.get("transfermarkt_clubs",[])):
                     if self.blocked:break
                     try:self.players(row,owner,set())
                     except Exception as e:
@@ -351,14 +351,14 @@ class Transfermarkt:
             for uid,e in self.results["existing_club_gaps"].items():
                 if uid in self.known and e.get("association"):
                     groups.setdefault(e["association"],[]).append((uid,e))
-            for c,owners in sorted(groups.items()):
+            for c,owners in progress("Transfermarkt EXTRA countries",sorted(groups.items())):
                 if self.blocked:break
                 try:
                     report("Transfermarkt extras "+c,"SEARCHING")
                     entries=self.clubs(c,4)
                     matches={}
                     for row in entries:matches.setdefault(norm(row["club"]),[]).append(row)
-                    for uid,e in sorted(owners,key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
+                    for uid,e in progress("Transfermarkt EXTRA clubs "+c,sorted(owners,key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0]))):
                         if self.blocked:break
                         rows=matches.get(norm(e["name"]),[])
                         if len({x["transfermarktClubId"] for x in rows})!=1:
@@ -369,7 +369,7 @@ class Transfermarkt:
                             add_unique(self.cp,e,"transfermarkt_clubs",row)
                             editions.setdefault(row["season"],row)
                         self.cp.save()
-                        for row in editions.values():
+                        for row in progress("Transfermarkt EXTRA editions "+c+"/"+e["name"],editions.values()):
                             if self.blocked:break
                             try:self.players(row,e,self.known[uid])
                             except Exception as exc:

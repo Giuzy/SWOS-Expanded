@@ -3,7 +3,7 @@ Derived research only; no native IDs, no CE writes, no future results.
 """
 import json,re,urllib.error
 from roster_storage import atomic,read
-from research_status import report
+from research_status import report, progress
 from http_retry import time_budget, check_budget, DeadlineExceeded, HostCooldown
 from transfermarkt_source import (Transfermarkt,BASE,COUNTRY,TIER,NON_LEAGUE,BAD,
     country_page_matches,links,season_label,table_links,parse)
@@ -51,7 +51,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
     from competition_sources import Cached, Discovery
     country_names={r["source"].get("name",""):r["fifa"] for r in national if r["source"].get("name")}
     archive=Discovery(Cached(root/"tools/competition_research/cache/domestic_archive",refresh),country_names) if source_catalog and year==2026 else None
-    for r in targets:
+    for r in progress("Domestic competition countries",targets):
         with time_budget(120):
             country=r["fifa"];label="Domestic competitions "+country
             if tm.blocked and wiki_query is None and catalogue is None:
@@ -145,7 +145,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                 cid=tm.country_id(country)
                 country_path=COUNTRY+cid+"/saison_id/"+str(year)
                 candidates=routes(tm.page(country_path),cid)
-                for code,(kind,name) in sorted(candidates.items()):
+                for code,(kind,name) in progress("Domestic competition routes "+country,sorted(candidates.items())):
                     check_budget()
                     if tm.blocked:break
                     item=label+"/"+code

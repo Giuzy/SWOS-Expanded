@@ -41,6 +41,7 @@ def wait_after(header, now=None):
 def fetch(req,timeout=60,attempts=4,interval=2,limit=64*1024*1024,opener=None,sleep=None,clock=None,total=180):
     opener=opener or urllib.request.urlopen;sleep=sleep or time.sleep;clock=clock or time.monotonic
     url=urllib.parse.urlsplit(req.full_url);host=url.netloc;label=host+url.path
+    print("",flush=True)
     start=clock();deadline=start+total
     if _DEADLINE is not None:deadline=min(deadline,_DEADLINE)
     def log(message):print(f"HTTP {label} — {message} ({clock()-start:.0f}s elapsed)",flush=True)

@@ -3,7 +3,7 @@ import json,re
 from collections import defaultdict
 from player_roles import position_evidence,projection,enrich,merge_positions
 from alternative_sources import norm
-from research_status import report
+from research_status import report, progress
 from season_config import seasons
 
 def qid(value):
@@ -81,7 +81,7 @@ def backfill(owners,cp,tm,run,year,allow_tm=True,allow_wd=True):
     from transfermarkt_source import table_links,require_squad_season,BASE
     owners=list(owners)
     if allow_tm and not tm.blocked:
-        for (cid,season),rows in tm_jobs(owners,year,tm.role_squad_attempts).items():
+        for (cid,season),rows in progress("Transfermarkt missing-role squads",tm_jobs(owners,year,tm.role_squad_attempts).items()):
             if tm.blocked:break
             tm.role_squad_attempts.add((cid,season))
             path="/-/kader/verein/"+cid+"/saison_id/"+str(year)
@@ -108,7 +108,7 @@ def backfill(owners,cp,tm,run,year,allow_tm=True,allow_wd=True):
         if key:targets[source][key].append(row)
     for source,entries in targets.items():
         keys=sorted(entries)
-        for i in range(0,len(keys),25):
+        for i in progress("Wikidata missing-role batches "+source,range(0,len(keys),25)):
             group=keys[i:i+25];batch={k:entries[k] for k in group}
             label="Missing roles "+source+" "+str(i+1)+"-"+str(i+len(group))+"/"+str(len(keys))
             rows=run(wd_query(group,source=="TM"),label)

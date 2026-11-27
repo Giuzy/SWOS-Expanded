@@ -3,7 +3,7 @@ import hashlib,json,re,time,urllib.parse,urllib.request
 from pathlib import Path
 from http_retry import fetch, HostCooldown
 from roster_storage import atomic
-from research_status import report
+from research_status import report, progress
 from alternative_sources import norm,BAD
 
 UA="SWOS-Expanded-Roster-Research/1.2 (https://github.com/Giuzy/SWOS-Expanded/issues/2)"
@@ -108,7 +108,7 @@ class Wiki:
         ids=sorted({str(x.get("transfermarktClubId")) for x in rows if re.fullmatch(r"[1-9][0-9]*",str(x.get("transfermarktClubId")))})
         ids=[cid for cid in ids if cid not in self.bridge_checked]
         found={}
-        for i in range(0,len(ids),30):
+        for i in progress("Wikipedia identity bridge batches",range(0,len(ids),30)):
             try:matches=self.query(tm_bridge_query(ids[i:i+30]))
             except HostCooldown as e:report("Wiki club bridge","DEFERRED",str(e));continue
             except Exception as e:self.error("Wiki club bridge",e);continue
@@ -167,7 +167,7 @@ class Wiki:
         for row in owner.get("wiki_club_leads",[]):
             q=qid(row.get("club"))
             if q:jobs[("WD_LEAD",q)]=(q,row.get("clubLabel"))
-        for (source,cid),(q,name) in jobs.items():
+        for (source,cid),(q,name) in progress("Wikipedia squads "+c,jobs.items()):
             self.collect(owner,q,name,c,source,cid,set())
             self.cp.save()
     def extra(self,owner,known):

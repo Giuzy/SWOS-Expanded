@@ -1,3 +1,7 @@
+## 27/11/2026 — Progresso dei tre BAT ricerca
+
+PROGRESS mostra unità gestite/totale e rimanenti per fase e lista nota; ACTION mostra unità corrente. Totali delle liste successive emergono dalla ricerca, non sono percentuale globale di completezza dei dati. ERROR/SKIPPED restano esiti separati; interruzioni non contano l'unità attiva, le scansioni OFB grandi avanzano ogni 1000 righe. Una riga vuota separa stati e inizio HTTP. Preflight verifica contatori; nessuna modifica a writer, cache o dati. RG-RESEARCH-CONSOLE-PROGRESS.
+
 ## 27/11/2026 — Correzione preflight ricerca nomi
 
 Il conflitto simulato raggiunge il test, ma il riferimento locale a recover_snapshot mascherava l'import globale; rimuovere l'import ridondante. Non disabilitare il preflight. Dopo pull a BAT chiusi, doppio clic e attendere Self-test PASS prima della ricerca. RG-ROSTER-RECOVERY-IMPORT-SCOPE; ISO SI, full Windows/live NP.

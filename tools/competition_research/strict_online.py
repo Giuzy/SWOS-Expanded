@@ -7,7 +7,7 @@ from research_checkpoint import publish as publish_checkpoint, recover as recove
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/"SWOS_Roster_Research"))
 from http_retry import fetch as request_bytes
-from research_status import report, outcome
+from research_status import report, outcome, progress, show_progress
 from competition_sources import Cached, Discovery, fd_route, fd_packet, rsssf_route, rsssf_packet, RSSSF, wanted as gap_fields, selftest as sources_selftest
 from research import COUNTRIES
 from evidence_delta import delta as evidence_delta, selftest as delta_selftest
@@ -117,7 +117,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
         n=publish_checkpoint(root,journal,pending)
         written_count+=n;changes.clear();baseline=matrix_digest(matrix);coverage_baseline=cp.read_bytes()
         if n:report(label,"SAVED",f"{n} files; {inserted} new evidence packets so far")
-    for route in ROUTES:
+    for route in progress("OpenFootball catalogue routes",ROUTES):
         if changes:checkpoint("OpenFootball")
         rid,country,tier,path,title,n=route
         row=rows.get(rid)
@@ -159,7 +159,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
             errors.append([rid,str(e)]);report(label,"ERROR",str(e))
     checkpoint("OpenFootball")
     last_country=None
-    for row in sorted(selected,key=group_key):
+    for row in progress("Competition matrix rows",sorted(selected,key=group_key)):
         country=group_key(row)
         if last_country is not None and country!=last_country:checkpoint(last_country)
         last_country=country
@@ -276,6 +276,8 @@ def main():
     from season_config import year_value,output_dir,cutoff
     a.add_argument("--year",type=year_value,default=2026,help="Later years: isolated domestic identity/entrant survey; no old matrix writes")
     x=a.parse_args();selftest()
+    from research_status import selftest as progress_selftest
+    progress_selftest()
     from domestic_discovery import selftest as domestic_selftest, run as domestic_run
     # Synthetic country runs must never look like live acquisitions.
     import contextlib,io
@@ -290,6 +292,8 @@ def main():
     if x.self_test:return
     root=x.repo_root.resolve()
     if x.year!=2026 and x.world!="2627":a.error("--year cannot be combined with historical world")
+    phase_total=2 if x.world=="2627" else 1
+    show_progress("Competition research phases",0,phase_total)
     if x.world=="2627":
         import collect_names as roster_wiki
         roster_wiki.YEAR=x.year;roster_wiki.CUTOFF=cutoff(x.year)
@@ -297,9 +301,11 @@ def main():
         roster_wiki.CACHE.mkdir(parents=True,exist_ok=True)
         roster_wiki.REFRESH_WIKI=x.refresh
         domestic_run(root,x.country,wiki_query=roster_wiki.query,year=x.year,source_catalog=True,refresh=x.refresh)
+        show_progress("Competition research phases",1,phase_total)
     if x.year!=2026:
         from annual_delta import write_delta
         write_delta(root,x.year,scope='competitions')
+        show_progress("Competition research phases",phase_total,phase_total)
         return
     apply(root,refresh=x.refresh,only_country=x.country,only_world=x.world)
     if x.world=="2627":
@@ -308,4 +314,5 @@ def main():
         if snapshot.exists():
             # Read-only derived preview; never insert non-catalogue leagues in matrix.
             prepare(snapshot,root/"tools/competition_research/output/competition_roster_import",x.country,include_extras=False)
+    show_progress("Competition research phases",phase_total,phase_total)
 if __name__=="__main__":main()

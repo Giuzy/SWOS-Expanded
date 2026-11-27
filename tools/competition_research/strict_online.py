@@ -282,12 +282,12 @@ def main():
     with contextlib.redirect_stdout(io.StringIO()):
         domestic_selftest()
     if x.country:x.country=x.country.upper()
-    if x.self_test:
-        from http_retry import selftest as http_selftest
-        http_selftest()
-        from domestic_catalog import selftest as catalogue_selftest
-        catalogue_selftest()
-        print("Self-test PASS");return
+    from http_retry import selftest as http_selftest
+    http_selftest()
+    from domestic_catalog import selftest as catalogue_selftest
+    catalogue_selftest()
+    print("Self-test PASS",flush=True)
+    if x.self_test:return
     root=x.repo_root.resolve()
     if x.year!=2026 and x.world!="2627":a.error("--year cannot be combined with historical world")
     if x.world=="2627":

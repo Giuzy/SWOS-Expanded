@@ -19,10 +19,22 @@ if not exist "SWOS_Roster_Research\.venv\Scripts\python.exe" %PY% -m venv "SWOS_
 if not exist "SWOS_Roster_Research\.venv\Scripts\python.exe" goto base
 "SWOS_Roster_Research\.venv\Scripts\python.exe" -c "import duckdb" >nul 2>&1
 if errorlevel 1 "SWOS_Roster_Research\.venv\Scripts\python.exe" -m pip install "duckdb>=1.1,<2"
-"SWOS_Roster_Research\.venv\Scripts\python.exe" "SWOS_Roster_Research\collect_names.py" %ROSTER_DEFAULT_ARGS% %*
-goto done
+set RUNPY="SWOS_Roster_Research\.venv\Scripts\python.exe"
+goto launch
 :base
-%PY% "SWOS_Roster_Research\collect_names.py" %ROSTER_DEFAULT_ARGS% %*
+set "RUNPY=%PY%"
+:launch
+if "%~1"=="" (
+    echo Verifica automatica ricerca giocatori...
+    %RUNPY% "SWOS_Roster_Research\collect_names.py" --self-test
+    if errorlevel 1 goto failedtest
+)
+%RUNPY% "SWOS_Roster_Research\collect_names.py" %ROSTER_DEFAULT_ARGS% %*
+goto done
+:failedtest
+echo Verifica non superata. Dati esistenti preservati. Inviare il log.
+pause
+exit /b 1
 :done
 set "RC=%ERRORLEVEL%"
 pause

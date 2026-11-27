@@ -70,12 +70,18 @@ def reconcile_additive(work,published):
     if "errors" in work or "errors" in published:merged["errors"]=errors
     return merged
 
+class PublicationConflict(RuntimeError):
+    def __init__(self,message,dbpath):
+        super().__init__(message)
+        self.dbpath=Path(dbpath)
+
 class Store:
     """One row per target/gap, original nested observations preserved losslessly.
     SQLite is the work authority, JSON publication only; refuse divergent seeds.
     """
     def __init__(self,path,dbpath):
         self.path=path
+        self.dbpath=Path(dbpath)
         self.db=sqlite3.connect(dbpath,timeout=10)
         self.db.execute("PRAGMA journal_mode=WAL")
         self.db.execute("PRAGMA synchronous=FULL")
@@ -100,7 +106,7 @@ class Store:
                 if digest(work)!=digest(seed):
                     merged=reconcile_additive(work,seed)
                     if merged is None:
-                        raise RuntimeError("Published roster changed independently; preserve DB and use --recover-snapshot; conflicting data require reconciliation")
+                        raise PublicationConflict("Published roster changed independently; conflicting data require reconciliation",self.dbpath)
                     self._write(merged)
                     previous=int(self.db.execute("SELECT value FROM state WHERE key='generation'").fetchone()[0])
                     self._state("generation",str(previous+1))
@@ -196,7 +202,7 @@ class Store:
             relative=p.relative_to(self.path.parent).as_posix()
             current=digest(read(p)) if p.exists() else None
             if current not in (expected[relative],digest(value)):
-                raise RuntimeError("External edit during publication: "+str(p))
+                raise PublicationConflict("External edit during publication: "+str(p),self.dbpath)
         for p,value in paths.items():atomic(p,value)
         if digest(load_snapshot(self.path))!=digest(data):
             raise RuntimeError("Roster export verification failed")
@@ -210,7 +216,7 @@ class Store:
                 data=self.load()
                 published=self.db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()[0]
                 if digest(load_snapshot(self.path))!=published:
-                    raise RuntimeError("Published roster changed; refusing overwrite; SQLite checkpoint retained. Reopen after closing other writers or use --recover-snapshot")
+                    raise PublicationConflict("Published roster changed; refusing overwrite; SQLite checkpoint retained",self.dbpath)
                 if digest(data)==published and read(self.path).get("storage")==SCHEMA:
                     self.db.commit();return
                 paths=self._publication(data)
@@ -280,3 +286,21 @@ def selftest():
         assert load_snapshot(recovered/"candidates.json")==expected==load_snapshot(p)
         assert reconcile_additive({"x":[1,2]},{"x":[1]})=={"x":[1,2]}
         assert reconcile_additive({"x":[1]},{"x":[2]}) is None
+        s=Store(p,Path(d)/"test.sqlite3")
+        published=load_snapshot(p)
+        divergent=load_snapshot(p)
+        divergent["existing_club_gaps"]["x"]["players"][0]["player"]="Q99"
+        for k,v in s._publication(divergent).items():atomic(k,v)
+        try:s.publish()
+        except PublicationConflict as exc:
+            assert exc.dbpath==Path(d)/"test.sqlite3"
+        else:raise AssertionError("Divergent publication accepted")
+        assert s.load()==published and load_snapshot(p)==divergent
+        s.close()
+        try:Store(p,Path(d)/"test.sqlite3")
+        except PublicationConflict as exc:
+            assert exc.dbpath==Path(d)/"test.sqlite3"
+            dest=recover_snapshot(exc.dbpath,Path(d)/"local")
+            assert load_snapshot(dest/"candidates.json")==published
+            assert load_snapshot(p)==divergent
+        else:raise AssertionError("Divergent startup accepted")

@@ -1,6 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
+echo Verifica automatica e ripresa ricerca competizioni...
 where py >nul 2>&1
 if not errorlevel 1 (
   py -3 "tools\competition_research\strict_online.py" %*

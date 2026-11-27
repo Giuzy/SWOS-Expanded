@@ -1,3 +1,7 @@
+## 27/11/2026 — REGOLA UTENTE TASSATIVA: SOLO DOPPIO CLIC, NESSUN COMANDO MANUALE
+
+Per ogni operazione sul PC dell'utente (ricerca, compilazione, diagnostica, avvio, test, export, recupero e ripresa), NON chiedere comandi da digitare, terminale, CMD, PowerShell, Python o argomenti BAT. Usare i BAT ufficiali con doppio clic: parametri, preflight, test, recovery ed export interni e automatici; eventuali scelte tramite menu semplice nel BAT. Le vecchie istruzioni con comandi sono riferimenti tecnici interni per agenti/sviluppatori, non istruzioni per l'utente; questa regola prevale. Chiudere i BAT prima del pull in GitKraken, poi doppio clic. Preservare cache, SQLite/WAL, JSON e CAR; nessun bypass delle protezioni. In caso di conflitto reale non riconciliabile, recuperare automaticamente in sola lettura e chiedere solo il log. Mai cancellare o sovrascrivere dati validi.
+
 ## 27/11/2026 — Ricerca: delta semantici e EXTRA per nome
 I tre BAT confrontano i contenuti già raccolti: competizioni delta per riga/edizione, mai promuovere automaticamente P/V; rose confronto nomi normalizzati per club con TEAM+EXTRA, ID per omonimi, NAME_MATCH_REVIEW tra fonti e gruppi EXTRA da verificare (non importare automaticamente); EA snapshot verificato hash/conteggio/digest e ID separati FC26/FC27, skip se completo. Conservare evidenze pregresse, cache e SQLite; no dedup globale per solo nome, no cancellazioni. Consultare RG-RESEARCH-SEMANTIC-DELTAS / RG-ROSTER-EXTRA-NAME. Test Python/Windows/online ancora NP.
 

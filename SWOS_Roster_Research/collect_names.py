@@ -2,7 +2,7 @@
 """Read-only Expanded catalogue survey; Wikidata candidates, not runtime data."""
 import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
-from roster_storage import Store, selftest as storage_selftest
+from roster_storage import Store, PublicationConflict, recover_snapshot, selftest as storage_selftest
 from http_retry import fetch, HostCooldown, DeadlineExceeded, BLOCKED, INFLIGHT
 from research_status import report, outcome
 from player_roles import position_evidence, merge_positions
@@ -366,7 +366,9 @@ def main():
         finally:store.close()
         return
     # Recover/publish work from earlier interrupted or pre-checkpoint runs first.
-    store.publish()
+    try:store.publish()
+    except BaseException:
+        store.close();raise
     cp=Checkpoint(path,results,None)
     publication_failed=False
     def save_sqlite():
@@ -633,4 +635,18 @@ def main():
           "multi-observation groups",sum(len(v)>1 for g in groups for v in g.values()),
           "(not certified players)",flush=True)
     print("Canonical nominal matrix updated. NO DATA unresolved; P candidates; runtime unchanged. Errors:",len(results["errors"]))
-if __name__=="__main__":main()
+def launch():
+    try:main()
+    except PublicationConflict as exc:
+        print("ROSTER RECOVERY — CONFLICT: "+str(exc),flush=True)
+        try:
+            dest=recover_snapshot(exc.dbpath,exc.dbpath.parent/"sources")
+        except Exception as error:
+            print("ROSTER RECOVERY — ERROR: "+str(error),flush=True)
+            print("Original SQLite and JSON preserved. Send this window log.",flush=True)
+        else:
+            print("ROSTER RECOVERY — SAVED: "+str(dest),flush=True)
+            print("Original SQLite and JSON preserved. Conflicting observations need review; send this window log.",flush=True)
+        raise SystemExit(2)
+
+if __name__=="__main__":launch()

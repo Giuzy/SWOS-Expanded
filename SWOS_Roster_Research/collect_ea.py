@@ -13,7 +13,8 @@ import urllib.request
 import zipfile
 from pathlib import Path
 from http_retry import fetch
-from roster_storage import atomic
+from roster_storage import atomic, read
+from research_status import report, outcome
 
 HERE=Path(__file__).resolve().parent
 LOCAL=HERE/"ea_local"
@@ -76,19 +77,49 @@ def country_names(root):
         if c in allowed:names.setdefault(norm(n),set()).add(c)
     return {n:next(iter(v)) for n,v in names.items() if len(v)==1}
 
-def publish(db,folder,names):
+def publish(db,folder,names,only_edition=None):
     # FC27 and FC26 source IDs are kept in separate internal namespaces.
     # Do not assume cross-source IDs identify the same person. FC26 remains
     # a separate set; output records omit edition/source/provenance as requested.
     for edition in ("fc27","fc26"):
+        if only_edition and edition!=only_edition:continue
         groups={}
         for uid,p in db.execute("SELECT id,payload FROM players WHERE edition=? ORDER BY id",(edition,)):
             row=json.loads(p);c=names.get(norm(row["nationality"]),"UNMAPPED")
             groups.setdefault(c,[]).append(row)
         if not groups:continue
         dest=folder/edition
-        for c,rows in sorted(groups.items()):atomic(dest/(c+".json"),rows)
+        for c,rows in sorted(groups.items()):
+            path=dest/(c+".json")
+            if path.exists():
+                current={str(row["player_id"]):row for row in rows}
+                previous=read(path)
+                if not isinstance(previous,list) or any(current.get(str(row["player_id"]))!=row for row in previous):
+                    raise RuntimeError("EA published country differs; preserve and reconcile: "+str(path))
+            atomic(path,rows)
+            report(edition.upper()+" "+c,"SAVED",f"{len(rows)} players")
         atomic(dest/"INDEX.json",{"countries":{c:len(r) for c,r in sorted(groups.items())},"players":sum(map(len,groups.values()))})
+def recover_published(db,folder,names):
+    # A fresh clone can have published JSON but no local SQLite. Never replace
+    # a published country with a partial local database; validate and merge IDs.
+    for edition in ("fc27","fc26"):
+        recovered={}
+        for p in sorted((folder/edition).glob("*.json")):
+            if p.name=="INDEX.json":continue
+            rows=read(p)
+            if not isinstance(rows,list):raise ValueError("Invalid EA country shard: "+str(p))
+            for row in rows:
+                uid=str(row["player_id"])
+                if not uid.isdigit() or not row.get("name") or not row.get("nationality") or names.get(norm(row["nationality"]),"UNMAPPED")!=p.stem or uid in recovered:
+                    raise ValueError("Invalid/duplicate EA published identity: "+str(p))
+                recovered[uid]=row
+        missing={}
+        for uid,row in recovered.items():
+            old=db.execute("SELECT payload FROM players WHERE edition=? AND id=?",(edition,uid)).fetchone()
+            if old and json.loads(old[0])!=row:raise ValueError("EA local/published ID conflict: "+uid)
+            if old is None:missing[uid]=row
+        if missing:ingest(db,edition,missing)
+
 def snapshot_digest(db,edition):
     h=hashlib.sha256();count=0
     for uid,payload in db.execute("SELECT id,payload FROM players WHERE edition=? ORDER BY id",(edition,)):
@@ -124,7 +155,7 @@ def schema(db):
     db.execute("CREATE TABLE IF NOT EXISTS completed_snapshots(edition TEXT PRIMARY KEY,source_hash TEXT,row_count INTEGER,digest TEXT)")
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument("--self-test",action="store_true");ap.add_argument("--repo-root",type=Path,default=HERE.parent);ap.add_argument("--edition",choices=("fc27","fc26","both"),default="both");ap.add_argument("--fc26-csv",type=Path)
+    ap=argparse.ArgumentParser();ap.add_argument("--self-test",action="store_true");ap.add_argument("--repo-root",type=Path,default=HERE.parent);ap.add_argument("--edition",choices=("fc27","fc26","both"),default="both");ap.add_argument("--fc26-csv",type=Path);ap.add_argument("--export-only",action="store_true")
     a=ap.parse_args()
     if a.self_test:
         data=b"player_id,first_name,last_name,overall_rating,nationality,gender,edition,snapshot_date,pace\n1,A,B,80,Germany,Men's Football,fc27,12-09-2026,70\n2,C,D,80,Germany,Women's Football,fc27,2026-09-12,90\n"
@@ -146,21 +177,31 @@ def main():
     names=country_names(a.repo_root);db=sqlite3.connect(LOCAL/"stats.sqlite3")
     db.execute("PRAGMA journal_mode=WAL")
     schema(db)
-    failures=[]
+    failures=[];folder=LOCAL/"countries"
     try:
+        recover_published(db,folder,names)
+        publish(db,folder,names)
+        if a.export_only:return
         for edition in ("fc27","fc26") if a.edition=="both" else (a.edition,):
             try:
                 local=edition=="fc26" and a.fc26_csv is not None
                 source_hash=None if local else SOURCES[edition][1]
+                report(edition.upper(),"SEARCHING","local CSV" if local else "pinned snapshot")
                 if source_hash and already_ingested(db,edition,source_hash):
-                    print(edition,"snapshot already complete; 0 new players",flush=True);continue
+                    report(edition.upper(),"SKIPPED","verified complete snapshot; 0 new players");continue
                 data=a.fc26_csv.read_bytes() if local else download(edition,cache)
                 rows=parse(data,edition,male_file=edition=="fc26" and not local)
+                prior={uid for uid, in db.execute("SELECT id FROM players WHERE edition=?",(edition,))}
                 added=ingest(db,edition,rows,source_hash)
-                print(edition,len(rows),"male player rows;",added,"new;",len(rows)-added,"already stored",flush=True)
+                from collections import Counter
+                totals=Counter();new=Counter()
+                for uid,row in rows.items():
+                    c=names.get(norm(row["nationality"]),"UNMAPPED");totals[c]+=1;new[c]+=int(uid not in prior)
+                for c in sorted(totals):report(edition.upper()+" "+c,*outcome(totals[c],new[c]))
+                publish(db,folder,names,edition)
+                report(edition.upper(),*outcome(len(rows),added))
             except Exception as e:
-                failures.append((edition,str(e)));print(edition,"ERROR",e,flush=True)
-        publish(db,LOCAL/"countries",names)
+                failures.append((edition,str(e)));report(edition.upper(),"ERROR",str(e))
     finally:db.close()
     if failures:raise SystemExit(1)
 if __name__=="__main__":main()

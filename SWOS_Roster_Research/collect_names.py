@@ -4,6 +4,7 @@ import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, u
 from pathlib import Path
 from roster_storage import Store, selftest as storage_selftest
 from http_retry import fetch
+from research_status import report, outcome
 
 HERE = Path(__file__).resolve().parent
 MAP = Path('docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json')
@@ -258,10 +259,21 @@ def main():
     results=store.load()
     if args.export_only:
         store.publish();store.close();return
+    # Recover/publish work from earlier interrupted or pre-checkpoint runs first.
+    store.publish()
     cp=Checkpoint(path,results,None)
+    publication_failed=False
     def save_sqlite():
+        nonlocal publication_failed
+        if publication_failed:raise RuntimeError("Roster publication failed; close and reopen before continuing")
         if not cp.dirty:return False
         changed=store.save(results);cp.dirty=False
+        if changed:
+            try:store.publish()
+            except BaseException:
+                publication_failed=True
+                raise
+            report("Roster country JSON","SAVED","SQLite checkpoint published")
         return changed
     cp.save=save_sqlite
     cp.update(results,status="CANONICAL_NOMINAL_RESEARCH_NOT_RUNTIME",map_sha256=hashlib.sha256(raw).hexdigest())
@@ -271,13 +283,20 @@ def main():
     for t in targets:cp.ensure(bycode,t["fifa"],dict(t,leagues=[],status="NO DATA"))
     cp.update(results,targets=list(bycode.values()))
     save=cp.save
+    query_failed=False
     def run(q,phase):
-        print(phase,flush=True)
-        try:return query(q)
+        nonlocal query_failed
+        query_failed=False
+        report("Wikidata "+phase,"SEARCHING")
+        try:
+            rows=query(q)
+            report("Wikidata "+phase,"FOUND" if rows else "NO DATA",f"{len(rows)} source rows; validation follows")
+            return rows
         except Exception as e:
             error={"phase":phase,"error":str(e)}
             if error not in results["errors"]:cp.append(results["errors"],error)
-            save();return []
+            query_failed=True
+            save();report("Wikidata "+phase,"ERROR",str(e));return []
     rawmap={}
     for r in national:
         f=r["source"]["team_file"]
@@ -310,40 +329,53 @@ def main():
             except Exception as e:
                 error={"phase":"OpenFootballBase/"+phase,"error":str(e)}
                 if error not in results["errors"]:cp.append(results["errors"],error)
-                save();print(error,flush=True)
+                save();report("OpenFootballBase "+phase,"ERROR",str(e))
         if not args.skip_transfermarkt:
             tm.acquire(phase,targets)
             save()
     def collect_players(byclub):
         for group in chunks(sorted(byclub),5):
-            rr=run(players_query(group),"Players "+",".join(qid(q) for q in group))
+            label="Players "+",".join(qid(q) for q in group)
+            rr=run(players_query(group),label)
+            added=0
             for q in group:
                 for c,k in byclub[q]:
+                    before=len(c.get("players",[]))
                     if merge_players(c,[r for r in rr if qid(r["club"])==qid(q)],k):cp.dirty=True
+                    added+=len(c.get("players",[]))-before
             save()
+            if not query_failed:report("Wikidata "+label,*outcome(len(rr),added))
     try:
         print("PHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
         alternative("clubs")
         if not args.alternative_only:
             for t in targets:
                 c=bycode[t["fifa"]]
-                if c.get("leagues"):continue
-                for r in run(league_query([t["fifa"]]),"League "+t["fifa"]):
+                label="League "+t["fifa"]
+                if c.get("leagues"):
+                    report("Wikidata "+label,"SKIPPED","existing league candidates")
+                    continue
+                rr=run(league_query([t["fifa"]]),label)
+                for r in rr:
                     if r.get("class","").rsplit("/",1)[-1] not in ("Q31930761","Q35554451"):continue
                     if not any(x["league"]==r["league"] for x in c["leagues"]):cp.append(c["leagues"],dict(r,seasons=[]))
                 cp.update(c,status="P" if c["leagues"] else "NO DATA");save()
+                if not query_failed:report("Wikidata "+label,*outcome(len(rr),len(c["leagues"])))
             byleague={}
             for t in (bycode[x["fifa"]] for x in targets):
                 for l in t["leagues"]:
                     if l.get("class","").rsplit("/",1)[-1] in ("Q31930761","Q35554451"):byleague.setdefault(l["league"],[]).append(l)
             for league,ls in byleague.items():
-                for r in run(clubs_query([league]),"Edition "+qid(league)):
+                label="Edition "+qid(league);rr=run(clubs_query([league]),label);added=0
+                for r in rr:
                     for l in ls:
                         s=next((s for s in l["seasons"] if s["season"]==r["season"]),None)
                         if s is None:
                             s={k:v for k,v in r.items() if k not in ("club","clubLabel","league")};s["clubs"]=[];cp.append(l["seasons"],s)
-                        if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"})
+                        if r.get("club") and not any(x["club"]==r["club"] for x in s["clubs"]):
+                            cp.append(s["clubs"],{"club":r["club"],"name":r.get("clubLabel",qid(r["club"])),"players":[],"status":"NO DATA"});added+=1
                 save()
+                if not query_failed:report("Wikidata "+label,*outcome(sum(bool(x.get("club")) for x in rr),added))
         print("PHASE 2/3: players of discovered clubs",flush=True)
         alternative("players")
         if not args.alternative_only:
@@ -359,11 +391,16 @@ def main():
         if not args.alternative_only:
             byclub={}
             for uid,e in sorted(gaps.items(),key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
-                if uid not in known or not e.get("association"):continue
+                if uid not in known or not e.get("association"):
+                    report("Wikidata extras "+e["name"],"SKIPPED","not eligible or association unresolved")
+                    continue
                 if not e.get("identity_candidates"):
                     cp.update(e,identity_candidates=sorted({r["club"] for r in run(existing_query(e["association"],e["name"]),"Club "+e["name"])}));save()
                 qs=e["identity_candidates"]
-                if len(qs)==1:byclub.setdefault(qs[0],[]).append((e,known[uid]))
+                if len(qs)==1:
+                    report("Wikidata extras "+e["association"]+"/"+e["name"],"FOUND","unique identity candidate; player search follows")
+                    byclub.setdefault(qs[0],[]).append((e,known[uid]))
+                elif qs:report("Wikidata extras "+e["association"]+"/"+e["name"],"REVIEW","ambiguous identity")
             collect_players(byclub)
     finally:
         try:

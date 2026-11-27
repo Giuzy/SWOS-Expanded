@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from alternative_sources import norm, BAD, add_unique
 from http_retry import fetch
+from research_status import report, outcome
 
 BASE="https://www.transfermarkt.com"
 COUNTRY="/wettbewerbe/national/wettbewerbe/"
@@ -22,7 +23,7 @@ VOID={"area","base","br","col","embed","hr","img","input","link","meta","param",
 
 class Node:
     def __init__(self,tag="",attrs=()):
-        self.tag=tag;self.attrs=dict(attrs);self.parts=[];self.children=[]
+        self.tag=tag;self.attrs=dict(attrs);self.parts=[];self.children=[];self.parent=None
     def text(self):
         return " ".join(" ".join(x.text() if isinstance(x,Node) else x for x in self.parts).split())
     def all(self,tag):
@@ -35,7 +36,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True);self.root=Node();self.stack=[self.root];self.feed(html);self.close()
     def handle_starttag(self,tag,attrs):
         if tag in ("tr","td","th","option") and self.stack[-1].tag==tag:self.stack.pop()
-        n=Node(tag,attrs);self.stack[-1].children.append(n);self.stack[-1].parts.append(n)
+        n=Node(tag,attrs);n.parent=self.stack[-1];self.stack[-1].children.append(n);self.stack[-1].parts.append(n)
         if tag not in VOID:self.stack.append(n)
     def handle_startendtag(self,tag,attrs):
         self.handle_starttag(tag,attrs)
@@ -120,34 +121,85 @@ def leagues(page,country_id,maxlevel):
                     out[code]=(name,level)
     return out
 
-def season_label(page,kind,identity):
-    # Explicit season in the relevant heading; no fallback to the current year.
-    for tag in ("h1","h2","h3"):
-        for n in page.all(tag):
-            t=n.text()
-            if kind=="clubs" and not (t.lower().startswith("clubs -") or norm(identity) in norm(t)):continue
-            if kind=="players" and not re.search(r"\bsquad\b",t,re.I):continue
-            if norm(identity) not in norm(t):continue
-            m=re.search(r"\b(2026/27|26/27|2026)\b(?![/\d])",t)
-            if m:return "2026/27" if "/" in m.group(1) else "2026"
-    raise ValueError("Requested season/name not evidenced in page heading")
+def page_route_ids(page,kind):
+    urls=[n.attrs.get("href","") for n in page.all("link") if "canonical" in n.attrs.get("rel","").split()]
+    urls += [n.attrs.get("content","") for n in page.all("meta") if n.attrs.get("property")=="og:url"]
+    pattern=r"/startseite/wettbewerb/([A-Z0-9]+)(?:/|$)" if kind=="clubs" else r"/kader/verein/([1-9][0-9]*)(?:/|$)"
+    ids=set()
+    for url in urls:
+        u=urlsplit(url)
+        if u.netloc not in ("","www.transfermarkt.com","transfermarkt.com"):continue
+        m=re.search(pattern,u.path)
+        if m:ids.add(m.group(1))
+    return ids
+
+def season_tokens(text):
+    # Read whole season tokens, never the trailing year of 2025/2026.
+    found=set()
+    for m in re.finditer(r"(?<![\d/–-])(?:20)?\d{2}[/–-](?:20)?\d{2}(?![\d/–-])|(?<![\d/–-])20\d{2}(?![\d/–-])",text):
+        t=m.group()
+        if re.search(r"[/–-]",t):
+            a,b=re.split(r"[/–-]",t)
+            found.add(a[-2:]+"/"+b[-2:])
+        else:found.add(t)
+    return found
+
+def season_label(page,kind,identity,expected_id=None):
+    ids=page_route_ids(page,kind)
+    if expected_id and ids and ids!={expected_id}:raise ValueError("Page ID mismatch")
+    exact=bool(expected_id and ids=={expected_id})
+    headings=[n.text() for tag in ("h1","h2","h3") for n in page.all(tag)]
+    section=re.compile(r"^clubs\s*[-–:]\s*" if kind=="clubs" else r"^squad\b",re.I)
+    relevant=[t for t in headings if section.search(t) and not BAD.search(t)]
+    # A name change is accepted only for the same canonical competition/club ID.
+    named=[t for t in relevant if norm(identity) in norm(t)]
+    if not named and not (exact and len(relevant)==1):
+        raise ValueError("Requested entity not evidenced in primary heading")
+    relevant=named or relevant
+    tokens=set().union(*(season_tokens(t) for t in relevant))
+    if not tokens:
+        titles=[n.text() for n in page.all("title")]
+        titles += [n.attrs.get("content","") for n in page.all("meta") if n.attrs.get("property")=="og:title"]
+        # Squad headings often omit the year; page title supplies it.
+        matching=[t for t in titles if not BAD.search(t) and (norm(identity) in norm(t) or exact)]
+        tokens=set().union(*(season_tokens(t) for t in matching))
+    if tokens=={"26/27"}:return "2026/27"
+    if tokens=={"2026"}:return "2026"
+    raise ValueError("Requested season not evidenced or ambiguous: "+str(sorted(tokens)))
 
 def table_links(page,pattern):
-    # Only the primary data table; never menus, national teams or sidebars.
-    tables=[t for t in page.all("table") if "items" in t.attrs.get("class","").split()]
-    if len(tables)!=1:raise ValueError("Ambiguous primary data table")
-    return links(tables[0],pattern)
+    # Use primary schema, not the count of tables with class items.
+    # Header columns from nested tables are excluded.
+    players="/profil/spieler/" in pattern
+    candidates=[]
+    for t in page.all("table"):
+        if "items" not in t.attrs.get("class","").split():continue
+        def own(n):
+            p=n.parent
+            while p is not None and p.tag!="table":p=p.parent
+            return p is t
+        headers={norm(n.text()) for n in t.all("th") if own(n)}
+        if players:
+            valid=("player" in headers and bool(headers & {"age","dateofbirthage","dateofbirth","position","marketvalue","nationality"}))
+        else:
+            valid=("club" in headers and bool(headers & {"squad","squadsize"}) and not bool(headers & {"pts","points","goals","w","d","l"}))
+        if not valid:continue
+        rows=links(t,pattern)
+        if rows:candidates.append(rows)
+    if len(candidates)!=1:raise ValueError("Primary data table missing or ambiguous: "+str(len(candidates)))
+    return candidates[0]
 
 class Transfermarkt:
     def __init__(self,cache,cp,results,national,known):
         self.cache=cache/"transfermarkt";self.cp=cp;self.results=results;self.known=known
         self.names={r["fifa"]:r["source"]["name"] for r in national}
-        self.blocked=False;self.options=None;self.directory=None;self.discovered={}
+        self.blocked=False;self.options=None;self.directory=None;self.discovered={};self.error_count=0
     def error(self,phase,exc):
+        self.error_count+=1
         record={"phase":"Transfermarkt/"+phase,"error":str(exc)}
         if record not in self.results["errors"]:self.cp.append(self.results["errors"],record)
         self.cp.save()
-        print(record,flush=True)
+        report("Transfermarkt "+phase,"ERROR",str(exc))
         if isinstance(exc,PermissionError) or isinstance(exc,urllib.error.HTTPError) and exc.code in (401,403,429):self.blocked=True
     def page(self,path):
         if self.blocked:raise PermissionError("Transfermarkt paused for this run")
@@ -188,16 +240,21 @@ class Transfermarkt:
         raise ValueError("Country identity unavailable: "+c)
     def clubs(self,c,maxlevel):
         key=(c,maxlevel)
-        if key in self.discovered:return self.discovered[key]
+        if key in self.discovered:
+            report("Transfermarkt clubs "+c,"SKIPPED","reusing in-run club discovery")
+            return self.discovered[key]
         country_id=self.country_id(c)
         out=[]
         for code,(name,level) in leagues(self.page(COUNTRY+country_id+"/saison_id/2026"),country_id,maxlevel).items():
             path="/-/startseite/wettbewerb/"+code+"/saison_id/2026"
             try:
-                page=self.page(path);season=season_label(page,"clubs",name)
+                report("Transfermarkt "+c+"/"+code,"SEARCHING",name)
+                before=len(out)
+                page=self.page(path);season=season_label(page,"clubs",name,code)
                 # Positive domestic tier inherited from exact country selector.
                 for cid,club in table_links(page,r"/startseite/verein/([1-9][0-9]*)(?:/|$)").items():
                     out.append({"club":club,"transfermarktClubId":cid,"country":c,"competition":code,"level":level,"season":season,"source":BASE+path,"scope":SCOPE})
+                report("Transfermarkt "+c+"/"+code,"FOUND" if len(out)>before else "NO DATA",f"{len(out)-before} eligible club candidates")
             except Exception as e:
                 self.error(c+"/"+code,e)
                 if self.blocked:break
@@ -205,29 +262,42 @@ class Transfermarkt:
         return out
     def players(self,entry,owner,known):
         path="/-/kader/verein/"+entry["transfermarktClubId"]+"/saison_id/2026"
+        label="Transfermarkt players "+entry["country"]+"/"+entry["club"]
+        report(label,"SEARCHING")
+        before=len(owner.get("transfermarkt_players",[]));reviews=len(owner.get("name_matches",[]));found=0
         page=self.page(path)
-        if season_label(page,"players",entry["club"])!=entry["season"]:raise ValueError("Squad season mismatch")
+        if season_label(page,"players",entry["club"],entry["transfermarktClubId"])!=entry["season"]:raise ValueError("Squad season mismatch")
         for pid,name in table_links(page,r"/profil/spieler/([1-9][0-9]*)(?:/|$)").items():
             if norm(name) in known:continue
+            found+=1
             row=dict(entry,transfermarktPlayerId=pid,playerLabel=name,source=BASE+path)
             add_unique(self.cp,owner,"transfermarkt_players",row)
         self.cp.save()
+        report(label,*outcome(found,len(owner.get("transfermarkt_players",[]))-before,len(owner.get("name_matches",[]))-reviews))
     def acquire(self,phase,targets):
-        if self.blocked:return
+        if self.blocked:
+            report("Transfermarkt "+phase,"SKIPPED","source paused after access error")
+            return
         bycode={t["fifa"]:t for t in self.results["targets"]}
         if phase=="clubs":
             for t in targets:
                 if self.blocked:break
                 c=t["fifa"]
-                print("Transfermarkt clubs",c,flush=True)
+                label="Transfermarkt clubs "+c
+                report(label,"SEARCHING")
                 try:
-                    for row in self.clubs(c,1):add_unique(self.cp,bycode[c],"transfermarkt_clubs",row)
+                    failures=self.error_count;entries=self.clubs(c,1)
+                    added=sum(int(add_unique(self.cp,bycode[c],"transfermarkt_clubs",row)) for row in entries)
                     self.cp.save()
+                    status,detail=outcome(len(entries),added)
+                    if self.error_count!=failures:report(label,"PARTIAL" if entries else "ERROR",status+"; "+detail+"; some competition requests failed")
+                    else:report(label,status,detail)
                 except Exception as e:self.error(c,e)
         elif phase=="players":
             for t in targets:
                 if self.blocked:break
                 owner=bycode[t["fifa"]]
+                if not owner.get("transfermarkt_clubs"):report("Transfermarkt players "+t["fifa"],"SKIPPED","no discovered clubs")
                 for row in owner.get("transfermarkt_clubs",[]):
                     if self.blocked:break
                     try:self.players(row,owner,set())
@@ -240,13 +310,16 @@ class Transfermarkt:
             for c,owners in sorted(groups.items()):
                 if self.blocked:break
                 try:
+                    report("Transfermarkt extras "+c,"SEARCHING")
                     entries=self.clubs(c,4)
                     matches={}
                     for row in entries:matches.setdefault(norm(row["club"]),[]).append(row)
                     for uid,e in sorted(owners,key=lambda x:(not bool(x[1].get("test_slots")),x[1].get("real_names",0),x[0])):
                         if self.blocked:break
                         rows=matches.get(norm(e["name"]),[])
-                        if len({x["transfermarktClubId"] for x in rows})!=1 or len(rows)!=1:continue
+                        if len({x["transfermarktClubId"] for x in rows})!=1 or len(rows)!=1:
+                            report("Transfermarkt extras "+c+"/"+e["name"],"SKIPPED","no unique club identity")
+                            continue
                         row=rows[0];add_unique(self.cp,e,"transfermarkt_clubs",row);self.cp.save()
                         try:self.players(row,e,self.known[uid])
                         except Exception as exc:self.error(c+"/"+row["transfermarktClubId"],exc)
@@ -265,12 +338,23 @@ def selftest():
     try:leagues(country,"90",1)
     except ValueError:pass
     else:raise AssertionError("Wrong country accepted")
-    club=parse('<h2>Clubs - Bhutan Premier League 2026</h2><table class="items"><tr><td><a href="/paro/startseite/verein/123">Paro FC</a></td></tr></table>')
+    club=parse('<h2>Clubs - Bhutan Premier League 2026</h2><table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/paro/startseite/verein/123">Paro FC</a></td></tr></table>')
     assert season_label(club,"clubs","Bhutan Premier League")=="2026"
     assert table_links(club,r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Paro FC"}
-    squad=parse('<h2>Squad Paro FC 2026</h2><table class="items"><tr><td><a href="/a/profil/spieler/456">Real Name</a></td></tr></table>')
+    squad=parse('<h2>Squad Paro FC 2026</h2><table class="items"><tr><th>Player</th><th>Age</th></tr><tr><td><a href="/a/profil/spieler/456">Real Name</a></td></tr></table>')
     assert season_label(squad,"players","Paro FC")=="2026"
     assert table_links(squad,r"/profil/spieler/([1-9][0-9]*)(?:/|$)")=={"456":"Real Name"}
+    multi=parse('<link rel="canonical" href="/jogorku-liga/startseite/wettbewerb/KG1L"><h2>Clubs - Jogorku Liga 2026</h2><table class="items"><tr><th>Club</th><th>Pts</th></tr><tr><td><a href="/other/startseite/verein/999">Other</a></td></tr></table><table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/real/startseite/verein/123">Real</a></td></tr></table>')
+    assert season_label(multi,"clubs","Kyrgyz Premier League","KG1L")=="2026"
+    assert table_links(multi,r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Real"}
+    assert season_tokens("2025/2026")=={"25/26"}
+    assert season_tokens("2026-2027")=={"26/27"}
+    title=parse('<title>Paro FC - Detailed squad 2026 | Transfermarkt</title><h2>Squad Paro FC</h2><table></table>')
+    assert season_label(title,"players","Paro FC")=="2026"
+    for bad in (lambda:season_label(multi,"clubs","Kyrgyz Premier League","OTHER"),lambda:season_label(parse('<h2>Clubs - Bhutan Premier League 2025/2026</h2><table></table>'),"clubs","Bhutan Premier League"),lambda:table_links(parse('<table class="items"><tr><th>Club</th><th>Pts</th></tr></table>'),r"/startseite/verein/([1-9][0-9]*)(?:/|$)")):
+        try:bad()
+        except ValueError:pass
+        else:raise AssertionError("Wrong ID/season/table accepted")
     try:parse("<h1>JavaScript is disabled</h1><p>verify that you're not a robot</p>")
     except PermissionError:pass
     else:raise AssertionError("Challenge accepted")

@@ -10,6 +10,7 @@ import urllib.request
 from pathlib import Path
 from http_retry import fetch
 from roster_storage import atomic, digest
+from research_status import report, outcome
 
 URL="https://github.com/florentfougeres/OpenFootballBase-Data/releases/download/data-1.26.0/openfootballbase-data.tar.gz"
 SHA="f5f9ce5d5efd3732a8e730c7354a5c4e94f19007e37130c2cb67739d0478aabe"
@@ -139,10 +140,17 @@ def acquire(results,cp,cache,root,known,phase):
             clubs={x["wikipedia_title"]:x for x in load("club") if x.get("wikipedia_title")}
             competitions={x["code"]:x for x in load("competition")}
             count=0
+            from collections import Counter
+            found=Counter();new=Counter();review=Counter()
+            countries=set(targets) if phase!="extras" else {c for c,_ in gaps}
+            report("OpenFootballBase "+phase,"SEARCHING",f"{len(countries)} countries")
             for season in ("2026","2026/27"):
                 if (season,"club_season") not in tables:continue
                 eligible={}
-                for row in load((season,"club_season")):
+                last_country=None
+                def club_country(row):
+                    return code(competitions.get(row.get("competition"),{}).get("country_code"),allowed) or ""
+                for row in sorted(load((season,"club_season")),key=club_country):
                     cl=clubs.get(row["club"],{});comp=competitions.get(row["competition"],{})
                     if row.get("season")!=season or not cl or not comp:continue
                     c=scoped(comp.get("country_code"),row["club"],cl.get("category"),comp.get("name_en",""),comp.get("level"),season,allowed,row["competition"])
@@ -155,13 +163,22 @@ def acquire(results,cp,cache,root,known,phase):
                     matches=gaps.get((c,norm(row["club"])),[])
                     if phase == "extras" and len(matches)==1:owners.append(matches[0][1])
                     if not owners:continue
+                    if last_country is not None and c!=last_country:cp.save()
+                    last_country=c
                     if phase in ("clubs","extras"):
-                        for owner in owners:add_unique(cp,owner,"alternative_clubs",entry)
+                        for owner in owners:
+                            added=add_unique(cp,owner,"alternative_clubs",entry)
+                            if phase=="clubs":
+                                count+=int(added);found[c]+=1;new[c]+=int(added)
                     eligible[(row["club"],row["competition"])]=(entry,owners,matches[0][0] if phase=="extras" and len(matches)==1 else None)
-                if phase=="clubs":
-                    cp.save();continue
+                cp.save()
+                if phase=="clubs":continue
                 if (season,"squad") not in tables:continue
-                for row in load((season,"squad")):
+                last_country=None
+                def squad_country(row):
+                    match=eligible.get((row.get("club"),row.get("competition")))
+                    return match[0]["country"] if match else ""
+                for row in sorted(load((season,"squad")),key=squad_country):
                     match=eligible.get((row.get("club"),row.get("competition")))
                     if not match or row.get("season")!=season:continue
                     entry,owners,uid=match
@@ -169,10 +186,17 @@ def acquire(results,cp,cache,root,known,phase):
                     if not isinstance(q,str) or not re.fullmatch(r"Q[1-9][0-9]*",q) or not row.get("player") or not row.get("source_revid"):continue
                     if row.get("stint")=="loan_out":continue
                     if uid and norm(row["player"]) in known[uid]:continue
+                    c=entry["country"]
+                    if last_country is not None and c!=last_country:cp.save()
+                    last_country=c
                     observation=dict(entry,player=q,playerLabel=row["player"],source_title=row.get("source_title"),source_revid=row["source_revid"],stint=row.get("stint"),stint_date=row.get("stint_date"))
-                    for owner in owners:count+=int(add_unique(cp,owner,"alternative_players",observation))
+                    for owner in owners:
+                        c=entry["country"];found[c]+=1;before=len(owner.get("name_matches",[]))
+                        added=int(add_unique(cp,owner,"alternative_players",observation))
+                        count+=added;new[c]+=added;review[c]+=len(owner.get("name_matches",[]))-before
                 cp.save()
-            print("Alternative season player observations:",count,flush=True)
+            for c in sorted(countries):report("OpenFootballBase "+phase+" "+c,*outcome(found[c],new[c],review[c]))
+            print("Alternative season "+("club" if phase=="clubs" else "player")+" observations (new):",count,flush=True)
         finally:db.close()
 
 def selftest():

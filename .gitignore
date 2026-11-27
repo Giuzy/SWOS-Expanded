@@ -72,7 +72,15 @@ RAPPORTO_PULIZIA_SWOS.txt
 /SWOS_Roster_Research/results_2627/research.sqlite3*
 /SWOS_Roster_Research/.venv/
 /SWOS_Roster_Research/__pycache__/
-/SWOS_Roster_Research/ea_local/
+/SWOS_Roster_Research/ea_local/*
+!/SWOS_Roster_Research/ea_local/countries/
+/SWOS_Roster_Research/ea_local/countries/*
+!/SWOS_Roster_Research/ea_local/countries/fc26/
+!/SWOS_Roster_Research/ea_local/countries/fc27/
+/SWOS_Roster_Research/ea_local/countries/fc26/*
+/SWOS_Roster_Research/ea_local/countries/fc27/*
+!/SWOS_Roster_Research/ea_local/countries/fc26/*.json
+!/SWOS_Roster_Research/ea_local/countries/fc27/*.json
 !/AVVIA_RICERCA_GIOCATORI.bat
 !/AVVIA_RICERCA_COMPETIZIONI.bat
 !/AVVIA_RICERCA_STATS_EA.bat

@@ -186,6 +186,8 @@ class Store:
                 published=self.db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()[0]
                 if digest(load_snapshot(self.path))!=published:
                     raise RuntimeError("Published roster changed; refusing overwrite")
+                if digest(data)==published and read(self.path).get("storage")==SCHEMA:
+                    self.db.commit();return
                 paths=self._publication(data)
                 self._state("export_pending",encode({"digest":digest(data),"old":{
                     p.relative_to(self.path.parent).as_posix():digest(read(p)) if p.exists() else None for p in paths}}))
@@ -214,6 +216,10 @@ def selftest():
         s=Store(p,Path(d)/"test.sqlite3")
         assert s.load()==a
         s.publish();assert load_snapshot(p)==a
+        before=p.read_bytes();s.publish();assert p.read_bytes()==before
+        a["existing_club_gaps"]["x"]["players"].append({"player":"Q2"})
+        assert s.save(a);s.publish();assert load_snapshot(p)==a
+        assert read(p.parent/"countries"/"ENG.json")["existing_club_gaps"]["x"]["players"][-1]["player"]=="Q2"
         competing=Store(p,Path(d)/"test.sqlite3")
         a["errors"].append({"phase":"new"})
         s.save(a)

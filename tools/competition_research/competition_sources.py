@@ -22,7 +22,10 @@ def fd_route(row):
     m=re.fullmatch(r"div([1-9][0-9]*)",i.get("detail",""))
     codes=FD_CODES.get(i.get("country"),())
     if not m or int(m[1])>len(codes):return None
-    return FD+row["world"]+"/"+codes[int(m[1])-1]+".csv",codes[int(m[1])-1]
+    code=codes[int(m[1])-1]
+    # Publisher historical index: 1996/97 Italy A only; Scotland Premier/Div1 only.
+    if row["world"]=="9697" and code in ("I2","SC2","SC3"):return None
+    return FD+row["world"]+"/"+code+".csv",code
 def fd_packet(raw,row,code):
     try:text=raw.decode("utf-8-sig")
     except UnicodeDecodeError:text=raw.decode("cp1252")
@@ -122,6 +125,8 @@ class Discovery:
 def selftest():
     row={"world":"9697","technicalIdentity":{"country":"ENG","category":"LEAGUE_DIVISION","detail":"div1"},"fields":{"participants":"P","format":"I","july1":"?"}}
     assert fd_route(row)==(FD+"9697/E0.csv","E0")
+    for country,tier in (("ITA","div2"),("SCO","div3"),("SCO","div4")):
+        assert fd_route(dict(row,technicalIdentity=dict(row["technicalIdentity"],country=country,detail=tier))) is None
     assert wanted(row,("participants","format","july1"))==["participants","format"]
     b=b"Div,Date,HomeTeam,AwayTeam,FTHG,FTAG\nE0,10/08/96,A,B,9,0\nE0,10/09/96,B,A,0,1\n"
     p=fd_packet(b,row,"E0")

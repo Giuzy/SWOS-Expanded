@@ -99,7 +99,7 @@ def query(sparql):
             data=cached
     if data is None:
         req = urllib.request.Request(ENDPOINT, data=urllib.parse.urlencode({'query':q,'format':'json'}).encode(), headers={'User-Agent':'SWOS-Expanded-Roster-Research/1.1 (https://github.com/Giuzy/SWOS-Expanded/issues/2)','Accept':'application/sparql-results+json','Content-Type':'application/x-www-form-urlencoded'})
-        data = json.loads(fetch(req, timeout=75, interval=3))
+        data = json.loads(fetch(req, timeout=40, attempts=2, interval=3, total=90))
         if 'results' not in data or 'bindings' not in data['results']:
             raise ValueError('Unexpected query result')
         from roster_storage import atomic
@@ -239,6 +239,8 @@ def main():
     assert list(grouped)==["joaosilva"] and len(grouped["joaosilva"])==2
     assert not merge_players(c,[],set()) and c["status"]=="P"
     if args.self_test:
+        from http_retry import selftest as http_selftest
+        http_selftest()
         from tempfile import TemporaryDirectory
         with TemporaryDirectory() as folder:
             testpath=Path(folder)/"candidates.json"

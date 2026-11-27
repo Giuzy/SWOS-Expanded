@@ -158,6 +158,8 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument("--self-test",action="store_true");ap.add_argument("--repo-root",type=Path,default=HERE.parent);ap.add_argument("--edition",choices=("fc27","fc26","both"),default="both");ap.add_argument("--fc26-csv",type=Path);ap.add_argument("--export-only",action="store_true")
     a=ap.parse_args()
     if a.self_test:
+        from http_retry import selftest as http_selftest
+        http_selftest()
         data=b"player_id,first_name,last_name,overall_rating,nationality,gender,edition,snapshot_date,pace\n1,A,B,80,Germany,Men's Football,fc27,12-09-2026,70\n2,C,D,80,Germany,Women's Football,fc27,2026-09-12,90\n"
         rows=parse(data,"fc27");assert set(rows)=={"1"} and "edition" not in rows["1"] and rows["1"]["pace"]=="70"
         fc26=b"ID,Name,GENDER,OVR,Nation,Team,PAC,card\n7,Same Name,M,80,Egypt,A,75,https://example.com/card\n8,Same Name,M,79,Egypt,B,73,\n"
@@ -190,8 +192,10 @@ def main():
                 if source_hash and already_ingested(db,edition,source_hash):
                     report(edition.upper(),"SKIPPED","verified complete snapshot; 0 new players");continue
                 data=a.fc26_csv.read_bytes() if local else download(edition,cache)
+                report(edition.upper(),"VALIDATING",f"{len(data)} bytes; snapshot parser")
                 rows=parse(data,edition,male_file=edition=="fc26" and not local)
                 prior={uid for uid, in db.execute("SELECT id FROM players WHERE edition=?",(edition,))}
+                report(edition.upper(),"SAVING",f"{len(rows)} validated players; SQLite")
                 added=ingest(db,edition,rows,source_hash)
                 from collections import Counter
                 totals=Counter();new=Counter()

@@ -4693,6 +4693,191 @@
           }
         }
       }
+    },
+    "uefa2030Research": {
+      "scope": "CONCEPT_ONLY_NO_RUNTIME; separate from completed 2026 qualification; no future entrants or fixtures",
+      "fields": {
+        "name": "V",
+        "identity": "V",
+        "participants": "P",
+        "format": "P",
+        "regulation": "P",
+        "movement": "NA",
+        "qualification": "P",
+        "july1": "NA",
+        "roundDates": "I",
+        "competitionDays": "I",
+        "evolution": "P",
+        "seasonChange": "P"
+      },
+      "conceptDate": "2026-05-20",
+      "UNL2028": {
+        "leagues": 3,
+        "teamsPerLeague": 18,
+        "groupsPerLeague": 3,
+        "groupSize": 6,
+        "potsPerGroup": 3,
+        "matchesPerTeam": 6,
+        "differentOpponents": 5,
+        "samePotLegs": 2,
+        "otherPotsLegs": 1,
+        "if55": "one seven-team group in C starts one window earlier; details pending"
+      },
+      "EuropeanQualifiers": {
+        "league1": {
+          "teams": 36,
+          "from": "UNL A/B",
+          "groups": 3,
+          "groupSize": 12,
+          "potSizes": [
+            12,
+            12,
+            12
+          ],
+          "matchesPerTeam": 6,
+          "opponentsPerPot": 2,
+          "groupMatches": 108
+        },
+        "league2": {
+          "teams": 18,
+          "from": "UNL C",
+          "groups": 3,
+          "groupSize": 6,
+          "matchesPerTeam": 6,
+          "groupMatches": 54,
+          "if55": "19 teams, one group of seven"
+        },
+        "hosts": "already qualified but play for future UNL ranking; exact method pending",
+        "direct": "highest League1 group ranks, exact slots unknown",
+        "playoffs": "remaining berths include League2, exact allocation unknown"
+      },
+      "sources": [
+        "https://www.uefa.com/news-media/news/02a5-20aba2a6e7e9-38897428c81f-1000--new-concept-for-men-s-national-team-competitions-as-of-2028/",
+        "https://www.figc.it/en/figc/news/from-2028-a-new-format-for-mens-national-team-matches-changes-to-the-uefa-nations-league-and-the-european-qualifiers-dc352naq"
+      ],
+      "limitations": "Detailed final qualification slots, dates, draw restrictions, host-rank mechanism not verified; no assumption 2026 quotas persist.",
+      "block7Availability": {
+        "sources": [
+          "https://www.uefa.com/news-media/news/02a5-20aba2a6e7e9-38897428c81f-1000/",
+          "https://ar.uefa.com/news-media/news/02a9-218c995702ec-8f3e63bbb8dd-1000--uefa-executive-committee-agenda-for-thessaloniki-meeting/",
+          "https://www.uefa.com/news-media/documents/circular-letters/"
+        ],
+        "status": "DETAILED_FORMAT_NOT_LOCATED",
+        "conceptApproved": "2026-05-20",
+        "septemberAgenda": "2026-09-15 transition/playoff amendments",
+        "circular58": "indexed in official circular list; exact document not retrieved",
+        "limits": "No direct/PO slot quotas, final dates or exact detailed regulations certified; do not reuse 2026 allocation as fact."
+      },
+      "block8HostQualification": {
+        "sources": [
+          "https://inside.fifa.com/tournament-organisation/world-cup-2030",
+          "https://inside.fifa.com/organisation/congress/media-releases/extraordinary-congress-appoints-hosts-of-2030-and-2034-editions-of-fifa-world-cup",
+          "https://www.uefa.com/news-media/news/02a5-20aba2a6e7e9-38897428c81f-1000/",
+          "https://inside.fifa.com/en/organisation/fifa-council/media-releases/fifa-council-prepares-congress-takes-key-decisions-for-the-future-of-the-fifa-world-cup-tm-2883353"
+        ],
+        "confirmedEuropeanHosts": [
+          "ESP",
+          "POR"
+        ],
+        "automaticWithinConfederationQuota": true,
+        "playEuropeanQualifiersForFutureUNLPosition": true,
+        "existingFifaAllocationBaselineUEFA": 16,
+        "baselineScope": "FIFA 2017 approved allocation effective from 2026; 2030 host FAQ confirms hosts within respective quota. 14 remaining if UEFA quota unchanged, not a separately certified detailed 2030 berth count.",
+        "remainingIfUnchanged": 14,
+        "exactDirectAndPlayoffSplit": null,
+        "limits": "Do not treat host participation as a second berth; don't invent specific allocation, playoff or standings treatment. Future detailed UEFA rules still not located."
+      },
+      "block9FormatConcept": {
+        "status": "OFFICIAL_MAY_2026_CONCEPT_NOT_FINAL_REGULATION",
+        "sources": [
+          "https://editorial.uefa.com/resources/02a5-20ab6d2f8514-897923904829-1000/ntc_review._compilation_of_slides_for_media.pdf",
+          "https://www.uefa.com/european-qualifiers/news/02a5-20abaa999b8a-b0a852eae001-1000--new-concept-for-men-s-national-team-competitions-as-of-202/",
+          "https://www.uefa.com/news-media/news/02a9-218c995702ec-8f3e63bbb8dd-1000--uefa-executive-committee-agenda-for-thessaloniki-meeting/"
+        ],
+        "visualPages": [
+          4,
+          6,
+          7,
+          8,
+          9
+        ],
+        "league1": {
+          "groups": 3,
+          "groupSize": 12,
+          "pots": [
+            12,
+            12,
+            12
+          ],
+          "membersPerPotPerGroup": 4,
+          "topHalfPerPot": 2,
+          "bottomHalfPerPot": 2,
+          "rounds": 6,
+          "opponents": 6,
+          "opponentsPerPot": 2,
+          "homePerPot": 1,
+          "awayPerPot": 1,
+          "homeTotal": 3,
+          "awayTotal": 3,
+          "repeatOpponent": false,
+          "matchesPerGroup": 36,
+          "matchesPerLeague": 108
+        },
+        "league2": {
+          "groups": 3,
+          "groupSize": 6,
+          "pots": [
+            6,
+            6,
+            6
+          ],
+          "membersPerPotPerGroup": 2,
+          "rounds": 6,
+          "opponents": 5,
+          "ownPot": {
+            "opponents": 1,
+            "legs": 2
+          },
+          "otherPot": {
+            "opponentsPerPot": 2,
+            "legs": 1,
+            "home": 1,
+            "away": 1
+          },
+          "homeTotal": 3,
+          "awayTotal": 3,
+          "matchesPerGroup": 18,
+          "matchesPerLeague": 54
+        },
+        "groupMatches": 162,
+        "entrySnapshot": {
+          "league1": "UNL A and B after B/C movement completed",
+          "league2": "UNL C after B/C movement completed",
+          "abMovement": "affects next UNL only, no EQ tier change",
+          "bcMovement": "affects EQ tier and next UNL",
+          "sourcePage": 9
+        },
+        "qualification": {
+          "direct": "top ranked League1 only",
+          "playoffs": "League1 and League2",
+          "exactBerths": null,
+          "exactPlayoffEntry": null
+        },
+        "exceptions53or55": "one League2 group of 5 or 7; adjustments not specified",
+        "test": [
+          {
+            "groupSize": 6,
+            "edges": 18,
+            "balanced": true
+          },
+          {
+            "groupSize": 12,
+            "edges": 36,
+            "balanced": true
+          }
+        ],
+        "limits": "Official concept slides May2026, not final 2030 regulations; no specific dates, direct berth split, host ranking comparator or 53/55 adjustment invented."
+      }
     }
   },
   {
@@ -4834,6 +5019,4597 @@
             "evolution": "I"
           }
         }
+      }
+    },
+    "roundTemplateAudit": {
+      "edition": "2028",
+      "scope": "RESEARCH_ONLY, not runtime; rules effective 2026-07-29 after START, future dates GAME_TEMPLATE candidates; never use real post-START ranking, results or draws",
+      "fields": {
+        "name": "V",
+        "identity": "V",
+        "participants": "P",
+        "format": "V",
+        "regulation": "P",
+        "movement": "NA",
+        "qualification": "V",
+        "july1": "NA",
+        "roundDates": "V",
+        "competitionDays": "P",
+        "evolution": "P",
+        "seasonChange": "P"
+      },
+      "operationalStatus": "INCOMPLETA",
+      "participantCandidates": {
+        "count": 54,
+        "source": "UNL 2627 preSTART 54 matched roster IDs, EURO entry subject to competition eligibility; 54 scheduled in secondary source, Russia suspended; no future pot membership",
+        "members": [
+          {
+            "code": "FRA",
+            "stableClub": 20496,
+            "uuid": "203075df-1393-56ba-aa82-a6dc212e7219"
+          },
+          {
+            "code": "ITA",
+            "stableClub": 20504,
+            "uuid": "8250fcaa-bcdf-5f40-836a-87614846de84"
+          },
+          {
+            "code": "BEL",
+            "stableClub": 20486,
+            "uuid": "d0f7a81d-5cb7-52de-b4a5-b0014af2f225"
+          },
+          {
+            "code": "TUR",
+            "stableClub": 20526,
+            "uuid": "5f210819-63a9-5dd5-ab19-ab32e383533c"
+          },
+          {
+            "code": "GER",
+            "stableClub": 20498,
+            "uuid": "2bb28358-8981-5501-bee3-0916d4b736cc"
+          },
+          {
+            "code": "NED",
+            "stableClub": 20500,
+            "uuid": "1038aa79-ea25-56de-b729-559f21fbca47"
+          },
+          {
+            "code": "SRB",
+            "stableClub": 20529,
+            "uuid": "1309b649-9bf0-503a-840f-dd54780e7a2e"
+          },
+          {
+            "code": "GRE",
+            "stableClub": 20499,
+            "uuid": "f9233b35-615c-5a5a-960b-9388598c4370"
+          },
+          {
+            "code": "ESP",
+            "stableClub": 20523,
+            "uuid": "b52ac2ca-0a47-59c7-9c09-c2790be10bf8"
+          },
+          {
+            "code": "CRO",
+            "stableClub": 20488,
+            "uuid": "7eece36b-9ebd-54ec-8d31-168fc113a555"
+          },
+          {
+            "code": "ENG",
+            "stableClub": 20492,
+            "uuid": "fad1a2cf-b275-5972-a3fa-35bda74afa6f"
+          },
+          {
+            "code": "CZE",
+            "stableClub": 20490,
+            "uuid": "25fd142c-d617-5148-90f9-2e5d09919a82"
+          },
+          {
+            "code": "POR",
+            "stableClub": 20515,
+            "uuid": "d64d78ab-e24c-547f-b952-a0e221d9b56a"
+          },
+          {
+            "code": "DEN",
+            "stableClub": 20491,
+            "uuid": "b9cc141c-dd87-58a0-85d1-21bc00af4a14"
+          },
+          {
+            "code": "NOR",
+            "stableClub": 20513,
+            "uuid": "620a07cb-0c2a-5f87-980a-1074cfc45786"
+          },
+          {
+            "code": "WAL",
+            "stableClub": 20528,
+            "uuid": "47a64604-70c3-54c2-a21b-8bf8a575adbb"
+          },
+          {
+            "code": "SCO",
+            "stableClub": 20520,
+            "uuid": "ffcdd024-64c5-5134-a1dc-57df93f0f419"
+          },
+          {
+            "code": "SUI",
+            "stableClub": 20525,
+            "uuid": "0bf7563a-fa56-5ffa-a685-906ab5cacff3"
+          },
+          {
+            "code": "SVN",
+            "stableClub": 20522,
+            "uuid": "f82322f1-b6c8-5b33-a819-e2d24464cb3a"
+          },
+          {
+            "code": "MKD",
+            "stableClub": 20509,
+            "uuid": "28bc08a3-27b7-5108-983a-e047938da36e"
+          },
+          {
+            "code": "HUN",
+            "stableClub": 20501,
+            "uuid": "a52c5324-61c4-5818-9216-c12d9ea56e10"
+          },
+          {
+            "code": "UKR",
+            "stableClub": 20527,
+            "uuid": "ae4c166a-55cc-5769-a793-d7580dee5ecf"
+          },
+          {
+            "code": "GEO",
+            "stableClub": 20497,
+            "uuid": "15606ae7-d9c0-53b6-8a7c-979976976e02"
+          },
+          {
+            "code": "NIR",
+            "stableClub": 20512,
+            "uuid": "c8fbd165-c431-54ac-82f5-a8a16c8e8e04"
+          },
+          {
+            "code": "ISR",
+            "stableClub": 20503,
+            "uuid": "5e3731d5-a5c9-5390-af14-49a24dd6242f"
+          },
+          {
+            "code": "AUT",
+            "stableClub": 20483,
+            "uuid": "32feffa9-c6c9-5a16-ac8e-2199172dfa8a"
+          },
+          {
+            "code": "IRL",
+            "stableClub": 20516,
+            "uuid": "874b61d6-56a2-5e8f-b683-7e0d5a4c2ccd"
+          },
+          {
+            "code": "KOS",
+            "stableClub": 20534,
+            "uuid": "3c999ccb-72ae-51c4-9a2b-f6b5b4c79caf"
+          },
+          {
+            "code": "POL",
+            "stableClub": 20514,
+            "uuid": "9acbdcbe-8d18-58a7-9ba1-f3cac7a47036"
+          },
+          {
+            "code": "BIH",
+            "stableClub": 20531,
+            "uuid": "9c25a2f3-0b60-5180-ae12-23ff1484a6c1"
+          },
+          {
+            "code": "ROU",
+            "stableClub": 20517,
+            "uuid": "d8e82b6a-dc2c-51f4-b132-a46031c65816"
+          },
+          {
+            "code": "SWE",
+            "stableClub": 20524,
+            "uuid": "0e061d0f-f6a1-5da4-b64b-e2ae4cb2f373"
+          },
+          {
+            "code": "ALB",
+            "stableClub": 20481,
+            "uuid": "44799e88-90a7-53dc-a733-40ace56ca442"
+          },
+          {
+            "code": "FIN",
+            "stableClub": 20495,
+            "uuid": "0786f877-ca94-543b-8977-a32353c5eaf7"
+          },
+          {
+            "code": "BLR",
+            "stableClub": 20485,
+            "uuid": "432a8216-6ea4-569a-8a19-b848a0353686"
+          },
+          {
+            "code": "SMR",
+            "stableClub": 20519,
+            "uuid": "4f610b16-c3b0-5aca-8a20-8f8c34d1da9f"
+          },
+          {
+            "code": "MNE",
+            "stableClub": 20535,
+            "uuid": "346880e4-438c-5f9a-a89c-f9a34df48393"
+          },
+          {
+            "code": "ARM",
+            "stableClub": 20482,
+            "uuid": "f471ffd8-ad2d-5f99-9fa6-64dc56c4fdf1"
+          },
+          {
+            "code": "CYP",
+            "stableClub": 20489,
+            "uuid": "bc05604b-1d5f-5e6a-b095-c69332ea0b1c"
+          },
+          {
+            "code": "LVA",
+            "stableClub": 20505,
+            "uuid": "1a89ba26-2c86-57c2-b7ee-21dd3d9d7337"
+          },
+          {
+            "code": "KAZ",
+            "stableClub": 20533,
+            "uuid": "5b56be53-236c-5ee9-84dd-73bdaf6c26ca"
+          },
+          {
+            "code": "SVK",
+            "stableClub": 20521,
+            "uuid": "614f3b25-04d5-5687-bf3f-d4e22e88cc8f"
+          },
+          {
+            "code": "FRO",
+            "stableClub": 20494,
+            "uuid": "6046ceda-3ee1-5f56-a449-830bc6128885"
+          },
+          {
+            "code": "MDA",
+            "stableClub": 20511,
+            "uuid": "d8e2d972-abb7-5248-9da3-c7a9fde67be5"
+          },
+          {
+            "code": "ISL",
+            "stableClub": 20502,
+            "uuid": "4e957a31-d065-5a04-a43e-c4cbae373f23"
+          },
+          {
+            "code": "BUL",
+            "stableClub": 20487,
+            "uuid": "fdb08546-d0f3-5210-bfc5-721576b9e082"
+          },
+          {
+            "code": "EST",
+            "stableClub": 20493,
+            "uuid": "b70a31f3-0f1f-5b35-9f1a-f17d0e62519b"
+          },
+          {
+            "code": "LUX",
+            "stableClub": 20508,
+            "uuid": "c5c60571-0563-5ada-8203-b847f2b79f84"
+          },
+          {
+            "code": "GIB",
+            "stableClub": 20532,
+            "uuid": "8d32f93a-1880-5888-a608-1acb89efe4b3"
+          },
+          {
+            "code": "MLT",
+            "stableClub": 20510,
+            "uuid": "fc739eb8-1c90-55da-b66a-f92cf53132eb"
+          },
+          {
+            "code": "AND",
+            "stableClub": 20530,
+            "uuid": "3d774ecf-79b1-5e7f-b592-05d127eca855"
+          },
+          {
+            "code": "LTU",
+            "stableClub": 20507,
+            "uuid": "7e0ba826-b3e7-576f-9717-3047698a609b"
+          },
+          {
+            "code": "AZE",
+            "stableClub": 20484,
+            "uuid": "b1ccf3b8-db7c-541b-9820-17117ccaac9c"
+          },
+          {
+            "code": "LIE",
+            "stableClub": 20506,
+            "uuid": "104683a0-88b5-5ba1-8059-9e34b9997f94"
+          }
+        ]
+      },
+      "format": {
+        "groupsOf4": 6,
+        "groupsOf5": 6,
+        "cycles": 2,
+        "groupMatches": 192,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "groupWinners": 12,
+        "bestRunnersUp": 8
+      },
+      "draw": {
+        "source": "UNL_2627_INTERIM_OVERALL",
+        "after": "UNL league phase",
+        "pots": [
+          12,
+          12,
+          12,
+          12,
+          6
+        ],
+        "separate": [
+          "ENG",
+          "IRL",
+          "SCO",
+          "WAL",
+          "NIR"
+        ],
+        "quarterfinalWinners": "one unresolved position each in distinct 4-team groups",
+        "fiveTeamGroupMax": "one UNL QF loser or A/B or B/C playoff participant",
+        "additionalRestrictions": "P"
+      },
+      "regulation": {
+        "tieBreak": [
+          "H2H_POINTS",
+          "H2H_GD",
+          "H2H_GF",
+          "REAPPLY_REMAINING_TIED",
+          "GD",
+          "GF",
+          "AWAY_GF",
+          "WINS",
+          "AWAY_WINS",
+          "DISCIPLINE_ASC",
+          "UNL_INTERIM_RANK_ASC"
+        ],
+        "discipline": {
+          "red": "next competition match, additional sanction possible",
+          "qualifyingYellowThresholds": [
+            3,
+            5,
+            "EVERY_SUBSEQUENT"
+          ],
+          "finalYellowThresholds": [
+            2,
+            4
+          ],
+          "clearUnusedYellowAfter": [
+            "QUALIFYING_GROUP",
+            "QUALIFYING_PLAYOFF",
+            "FINAL_QF"
+          ],
+          "clearPendingYellowSuspensionsAfter": [
+            "QUALIFYING_COMPETITION",
+            "FINAL_TOURNAMENT"
+          ],
+          "redCarry": "do not clear with yellow resets",
+          "includesTeamOfficials": true
+        },
+        "comparison": "For top four in 5-team groups exclude matches vs fifth; fifth itself all matches",
+        "overallRanking": [
+          "GROUP_RANK",
+          "POINTS",
+          "GD",
+          "GF",
+          "AWAY_GF",
+          "WINS",
+          "AWAY_WINS",
+          "DISCIPLINE_ASC",
+          "UNL_INTERIM_RANK_ASC"
+        ],
+        "squad": 23,
+        "benchDerived": 12,
+        "substitutions": 5,
+        "windows": 3,
+        "extraTimeAdditionalSub": 1,
+        "extraTimeAdditionalWindow": 1,
+        "detailsPending": "additional draw conditions and game integration; discipline Art64 recovered",
+        "matchSheet": 23,
+        "bench": 12
+      },
+      "qualification": {
+        "direct": 20,
+        "hosts": [
+          "ENG",
+          "IRL",
+          "SCO",
+          "WAL"
+        ],
+        "reservedMax": 2,
+        "hostsRank": "highest overall EQ among non-direct",
+        "northernIrelandNotHostReserved": true,
+        "playoffCases": [
+          {
+            "reservedUsed": 2,
+            "entrants": 8,
+            "paths": 2,
+            "singleLeg": true,
+            "matches": 6,
+            "qualify": 2
+          },
+          {
+            "reservedUsed": 1,
+            "entrants": 12,
+            "paths": 3,
+            "singleLeg": true,
+            "matches": 9,
+            "qualify": 3
+          },
+          {
+            "reservedUsed": 0,
+            "entrants": 8,
+            "ties": 4,
+            "legs": 2,
+            "matches": 8,
+            "qualify": 4
+          }
+        ],
+        "priority": "remaining 2–4 runners-up after host allocation; nonqualified A/B/C group winners in UNL interim order; best D winner if eligible and needed; remaining highest UNL interim not already qualified/allocated",
+        "singleLegDraw": "4 equal pots, runners-up then UNL interim order; P1-P4/P2-P3; P1/P2 host semi, P1 path hosts final",
+        "twoLegDraw": "P1 four seeds, runners-up first then highest UNL; P2 remaining, seeds host return",
+        "hostsSeparate": true,
+        "NISeparateIfPossible": true
+      },
+      "calendar": {
+        "drawReference": "2026-12-06",
+        "groupWindow": "2027-03..2027-11",
+        "playoffWindow": "2028-03-23..28 candidate",
+        "matchdayWindowCandidates": [
+          "03-26",
+          "03-29",
+          "06-11/12",
+          "06-14/15",
+          "09-23/25",
+          "09-26/28",
+          "09-30..10-02",
+          "10-03/05",
+          "11-11/13",
+          "11-14/16"
+        ],
+        "windowStatus": "UEFA November official published windows; Art24 exception retained separately; GAME_TEMPLATE candidate",
+        "minFreeDays": 2,
+        "sameGroupSameDay": true,
+        "regularHAandWeekdayBalance": true,
+        "profile": "P, no individual fixture allocations before draw",
+        "seasonChangeCandidate": "day before next actual generated opening, no July reset"
+      },
+      "history": "2028 current format; 2000 and 2026 separate evidence; evolution full 1996–2026 not reconciled",
+      "sourceLocator": "CE_CALENDAR_GENERATOR.md 28/11 UEFA block1",
+      "unlDependencyRevision": {
+        "scope": "DEPENDENCY_RESEARCH_ONLY_NO_NEW_CATALOG_ROW; February draw preSTART; revised rules effective 2026-09-15 postSTART reference only; no future results/pots; preserve July edition separately",
+        "fields": {
+          "name": "V",
+          "identity": "P",
+          "participants": "V",
+          "format": "V",
+          "regulation": "P",
+          "movement": "V",
+          "qualification": "V",
+          "july1": "NA",
+          "roundDates": "V",
+          "competitionDays": "V",
+          "evolution": "P",
+          "seasonChange": "P"
+        },
+        "groups": {
+          "A1": [
+            "FRA",
+            "ITA",
+            "BEL",
+            "TUR"
+          ],
+          "A2": [
+            "GER",
+            "NED",
+            "SRB",
+            "GRE"
+          ],
+          "A3": [
+            "ESP",
+            "CRO",
+            "ENG",
+            "CZE"
+          ],
+          "A4": [
+            "POR",
+            "DEN",
+            "NOR",
+            "WAL"
+          ],
+          "B1": [
+            "SCO",
+            "SUI",
+            "SVN",
+            "MKD"
+          ],
+          "B2": [
+            "HUN",
+            "UKR",
+            "GEO",
+            "NIR"
+          ],
+          "B3": [
+            "ISR",
+            "AUT",
+            "IRL",
+            "KOS"
+          ],
+          "B4": [
+            "POL",
+            "BIH",
+            "ROU",
+            "SWE"
+          ],
+          "C1": [
+            "ALB",
+            "FIN",
+            "BLR",
+            "SMR"
+          ],
+          "C2": [
+            "MNE",
+            "ARM",
+            "CYP",
+            "LVA"
+          ],
+          "C3": [
+            "KAZ",
+            "SVK",
+            "FRO",
+            "MDA"
+          ],
+          "C4": [
+            "ISL",
+            "BUL",
+            "EST",
+            "LUX"
+          ],
+          "D1": [
+            "GIB",
+            "MLT",
+            "AND"
+          ],
+          "D2": [
+            "LTU",
+            "AZE",
+            "LIE"
+          ]
+        },
+        "groupMatches": 156,
+        "interim": {
+          "leagueOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rankRanges": [
+            [
+              1,
+              16
+            ],
+            [
+              17,
+              32
+            ],
+            [
+              33,
+              48
+            ],
+            [
+              49,
+              54
+            ]
+          ],
+          "compare": [
+            "GROUP_RANK",
+            "POINTS",
+            "GD",
+            "GF",
+            "AWAY_GF",
+            "WINS",
+            "AWAY_WINS",
+            "DISCIPLINE_ASC",
+            "ACCESS_LIST_RANK_ASC"
+          ],
+          "differentGroupSize": "exclude fourth-place opponent for comparisons of first through third; fourth-place teams use all games",
+          "disciplinePoints": {
+            "yellow": 1,
+            "red": 3,
+            "twoYellowDismissal": 3
+          },
+          "lastTieAccessList": "block8VerifiedAccessSeed ranked array; source-backed preSTART final table; Annex C graphic itself unavailable",
+          "disciplineIncludesTeamOfficials": true
+        },
+        "revisedMovement": {
+          "effective": "2026-09-15",
+          "AB": {
+            "higher": [
+              11,
+              12,
+              13,
+              14
+            ],
+            "lower": [
+              21,
+              22,
+              23,
+              24
+            ]
+          },
+          "BC": {
+            "higher": [
+              29,
+              30,
+              31,
+              32
+            ],
+            "lower": [
+              37,
+              38,
+              39,
+              40
+            ]
+          },
+          "legs": 2,
+          "higherSeedHostsReturn": true,
+          "CDPlayoff": false,
+          "finalRankBuckets": [
+            [
+              "QF winners final four",
+              4
+            ],
+            [
+              "QF losers",
+              4
+            ],
+            [
+              "A best thirds",
+              2
+            ],
+            [
+              "B winners and AB winners",
+              8
+            ],
+            [
+              "A lowest fourths and AB losers",
+              6
+            ],
+            [
+              "B thirds",
+              4
+            ],
+            [
+              "C winners and BC winners",
+              8
+            ],
+            [
+              "BC losers",
+              4
+            ],
+            [
+              "C thirds",
+              4
+            ],
+            [
+              "C fourths",
+              4
+            ],
+            [
+              "D all",
+              6
+            ]
+          ],
+          "nextLeagueSizes": [
+            18,
+            18,
+            18
+          ],
+          "withinBucket": "interim ranking, top four determined by finals"
+        },
+        "knockout": {
+          "quarterfinals": 4,
+          "legs": 2,
+          "seed": "A group winners vs runners-up different group; runner-up home first",
+          "semifinals": "draw; single leg",
+          "thirdPlace": true,
+          "final": true,
+          "thirdPlaceTie": "PENALTIES_DIRECT_AFTER_90"
+        },
+        "discipline": {
+          "red": "next competition match, serious offence may extend",
+          "yellowLeaguePhase": "suspension after each even-numbered yellow",
+          "clearYellow": "after quarterfinals including pending yellow suspensions; at end of team involvement"
+        },
+        "calendar": {
+          "md": [
+            "2026-09-24..26",
+            "2026-09-27..29",
+            "2026-09-30..10-03",
+            "2026-10-04..06",
+            "2026-11-12..14",
+            "2026-11-15..17"
+          ],
+          "QF_AB_BC": "2027-03-25..30",
+          "finals": "2027-06-09..13",
+          "obsoleteCD": "2028-03-23..28 (July scheme only)",
+          "revisedTotalMatches": 184,
+          "dayProfile": "V reference group-day distribution 18 days, 6x26, min2 free days; KO anonymous dates for revised rule; individual matches generated by CE"
+        },
+        "sources": {
+          "rank": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online",
+          "playoff": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-16-Match-system-play-offs-Online?contentId=pmSVnvy2TN~doclfAfE5WQ",
+          "ko": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-17-Match-system-League-A-knockout-stage-Online",
+          "discipline": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-60-Yellow-and-red-cards-Online?contentId=tN~5eF_icpCru0jLbsWHgg",
+          "revision": "https://it.uefa.com/uefanationsleague/news/02a9-2198a3fd8955-5de41c73a156-1000--approvato-il-nuovo-sistema-di-promozioni-retrocessioni-del/",
+          "draw": "https://www.uefa.com/uefanationsleague/news/02a2-1fe8e0405d9d-cc8f1ee7068b-1000--draw-for-the-league-phase-of-the-2026-27-uefa-nations-league/",
+          "concept": "https://www.uefa.com/news-media/news/02a5-20aba2a6e7e9-38897428c81f-1000--new-concept-for-men-s-national-team-competitions-as-of-2028/",
+          "figc": "https://www.figc.it/en/figc/news/from-2028-a-new-format-for-mens-national-team-matches-changes-to-the-uefa-nations-league-and-the-european-qualifiers-dc352naq"
+        },
+        "block3Seed": {
+          "status": "SUPERSEDED_FOR_OPERATIONAL_USE_BY_block8VerifiedAccessSeed; preserve original candidate evidence",
+          "rankOrderCandidate": [
+            "POR",
+            "ESP",
+            "FRA",
+            "GER",
+            "ITA",
+            "NED",
+            "DEN",
+            "CRO",
+            "SRB",
+            "BEL",
+            "ENG",
+            "NOR",
+            "WAL",
+            "CZE",
+            "GRE",
+            "TUR",
+            "SCO",
+            "HUN",
+            "POL",
+            "ISR",
+            "SUI",
+            "BIH",
+            "AUT",
+            "UKR",
+            "SVN",
+            "GEO",
+            "IRL",
+            "ROU",
+            "SWE",
+            "MKD",
+            "NIR",
+            "KOS",
+            "ISL",
+            "ALB",
+            "MNE",
+            "KAZ",
+            "FIN",
+            "SVK",
+            "BUL",
+            "ARM",
+            "BLR",
+            "FRO",
+            "CYP",
+            "EST",
+            "LVA",
+            "LUX",
+            "MDA",
+            "SMR",
+            "AZE",
+            "LTU",
+            "MLT",
+            "GIB",
+            "LIE",
+            "AND"
+          ],
+          "pots": {
+            "A": [
+              [
+                "POR",
+                "ESP",
+                "FRA",
+                "GER"
+              ],
+              [
+                "ITA",
+                "NED",
+                "DEN",
+                "CRO"
+              ],
+              [
+                "SRB",
+                "BEL",
+                "ENG",
+                "NOR"
+              ],
+              [
+                "WAL",
+                "CZE",
+                "GRE",
+                "TUR"
+              ]
+            ],
+            "B": [
+              [
+                "SCO",
+                "HUN",
+                "POL",
+                "ISR"
+              ],
+              [
+                "SUI",
+                "BIH",
+                "AUT",
+                "UKR"
+              ],
+              [
+                "SVN",
+                "GEO",
+                "IRL",
+                "ROU"
+              ],
+              [
+                "SWE",
+                "MKD",
+                "NIR",
+                "KOS"
+              ]
+            ],
+            "C": [
+              [
+                "ISL",
+                "ALB",
+                "MNE",
+                "KAZ"
+              ],
+              [
+                "FIN",
+                "SVK",
+                "BUL",
+                "ARM"
+              ],
+              [
+                "BLR",
+                "FRO",
+                "CYP",
+                "EST"
+              ],
+              [
+                "LVA",
+                "LUX",
+                "MDA",
+                "SMR"
+              ]
+            ],
+            "D": [
+              [
+                "AZE",
+                "LTU",
+                "MLT",
+                "GIB"
+              ],
+              [
+                "LIE",
+                "AND"
+              ]
+            ]
+          },
+          "restrictions": {
+            "prohibited": [
+              [
+                "BIH",
+                "KOS"
+              ]
+            ],
+            "excessiveTravel": {
+              "maxPairsPerGroup": 1,
+              "thresholdHours": 8,
+              "pairs": [
+                [
+                  "ISL",
+                  "ARM"
+                ],
+                [
+                  "ISL",
+                  "CYP"
+                ],
+                [
+                  "KAZ",
+                  "FRO"
+                ]
+              ],
+              "conditionalBeforeMarch": [
+                [
+                  "KAZ",
+                  "GIB"
+                ],
+                [
+                  "KAZ",
+                  "MLT"
+                ]
+              ]
+            },
+            "winter": {
+              "maxPerGroup": 2,
+              "teams": [
+                "EST",
+                "FRO",
+                "FIN",
+                "ISL",
+                "LVA",
+                "LTU",
+                "NOR"
+              ]
+            },
+            "procedure": "D then C then B then A; D two teams pot1 and one pot2 per group, A/B/C one each pot; choose first feasible group in order with lookahead; no alternate solver"
+          },
+          "sourceDates": "Feb press kit, March final groups and prior results preSTART; July regulations reference only",
+          "groupTie": [
+            "H2H_POINTS",
+            "H2H_GD",
+            "H2H_GF",
+            "REAPPLY_REMAINING_TIED",
+            "GD",
+            "GF",
+            "AWAY_GF",
+            "WINS",
+            "AWAY_WINS",
+            "DISCIPLINE_ASC",
+            "ACCESS_LIST_RANK_ASC"
+          ],
+          "calendarRules": {
+            "minFreeDays": 2,
+            "sameGroupSameDay": true,
+            "balancedWeekdays": true,
+            "regularHomeAway": true,
+            "exceptionalWednesday": "2026-09-30",
+            "dayWindows": [
+              "2026-09-24..26",
+              "2026-09-27..29",
+              "2026-09-30..10-03",
+              "2026-10-04..06",
+              "2026-11-12..14",
+              "2026-11-15..17"
+            ]
+          },
+          "sources": [
+            "https://editorial.uefa.com/resources/02a2-1fe6ccf35a2e-07e2c98e122b-1000/202627_unl_qualifying_draw_presskit_20260211184312.pdf",
+            "https://editorial.uefa.com/resources/029a-1df96111817a-2669251e926b-1000/unl_final_overall_rankings_after_unlf_2025.pdf",
+            "https://editorial.uefa.com/resources/0296-1d23fb95a9bd-bede76ddffb3-1000/unlrankings.pdf",
+            "https://www.uefa.com/uefanationsleague/news/028a-1a23b4c739a8-07fe752f503f-1000--202425-nations-league-all-the-fixtures-and-results/",
+            "https://www.uefa.com/uefanationsleague/news/02a2-1fe8e0405d9d-cc8f1ee7068b-1000--draw-for-the-league-phase-of-the-2026-27-uefa-nations-league/",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-20-Match-dates-and-fixtures-Online",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-15-Equality-of-points-league-phase-Online"
+          ],
+          "limits": "Annex C image-only; interim and provisional final PDF swap Gibraltar/Malta placeholder interim indices; rank51 MLT rank52 GIB inferred from Article19.05 actual interim ranking; do not silently mark exact seed final V. Old rules and September revision remain separate."
+        },
+        "block4MatchSheet": {
+          "phaseOrdinary": {
+            "matchSheet": 23,
+            "bench": 12
+          },
+          "finals": {
+            "matchSheet": 26,
+            "bench": 15
+          },
+          "startingPlayers": 11,
+          "minPlayers": 7,
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-52-Match-sheet-Online",
+          "scope": "Art52 effective 15 September 2026; reference only"
+        },
+        "block5RoundProfile": {
+          "scope": "PRESTART_2026-02-12 source; GAME_TEMPLATE_2026 reference group-day allocation; CE generates individual fixtures, no postSTART results",
+          "sources": [
+            "https://editorial.uefa.com/resources/02a2-1fea0cbd54af-e56dd26a4579-1000/unl_2627_-_league_phase_fixture_list_per_matchday.pdf",
+            "https://www.uefa.com/uefanationsleague/news/0296-1d165d4a3647-4d55eede66c2-1000/",
+            "https://www.uefa.com/uefanationsleague/news/0298-1d6ef1acfaef-b54fcf1da859-1000/"
+          ],
+          "visualPagesVerified": 7,
+          "groupRounds": [
+            {
+              "round": 1,
+              "days": [
+                {
+                  "date": "2026-09-24",
+                  "groups": [
+                    "A2",
+                    "A4",
+                    "B3",
+                    "D1",
+                    "D2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-09-25",
+                  "groups": [
+                    "A1",
+                    "B2",
+                    "B4",
+                    "C2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-09-26",
+                  "groups": [
+                    "A3",
+                    "B1",
+                    "C1",
+                    "C3",
+                    "C4"
+                  ],
+                  "matches": 10
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "days": [
+                {
+                  "date": "2026-09-27",
+                  "groups": [
+                    "A2",
+                    "A4",
+                    "B3",
+                    "D1",
+                    "D2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-09-28",
+                  "groups": [
+                    "A1",
+                    "B2",
+                    "B4",
+                    "C2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-09-29",
+                  "groups": [
+                    "A3",
+                    "B1",
+                    "C1",
+                    "C3",
+                    "C4"
+                  ],
+                  "matches": 10
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "days": [
+                {
+                  "date": "2026-10-01",
+                  "groups": [
+                    "A2",
+                    "A4",
+                    "B3",
+                    "D1",
+                    "D2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-10-02",
+                  "groups": [
+                    "A1",
+                    "B2",
+                    "B4",
+                    "C2",
+                    "C3"
+                  ],
+                  "matches": 10
+                },
+                {
+                  "date": "2026-10-03",
+                  "groups": [
+                    "A3",
+                    "B1",
+                    "C1",
+                    "C4"
+                  ],
+                  "matches": 8
+                }
+              ]
+            },
+            {
+              "round": 4,
+              "days": [
+                {
+                  "date": "2026-10-04",
+                  "groups": [
+                    "A2",
+                    "A4",
+                    "B3",
+                    "D1",
+                    "D2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-10-05",
+                  "groups": [
+                    "A1",
+                    "B2",
+                    "B4",
+                    "C2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-10-06",
+                  "groups": [
+                    "A3",
+                    "B1",
+                    "C1",
+                    "C3",
+                    "C4"
+                  ],
+                  "matches": 10
+                }
+              ]
+            },
+            {
+              "round": 5,
+              "days": [
+                {
+                  "date": "2026-11-12",
+                  "groups": [
+                    "A1",
+                    "A3",
+                    "C1",
+                    "C2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-11-13",
+                  "groups": [
+                    "A2",
+                    "B1",
+                    "C3",
+                    "C4",
+                    "D1",
+                    "D2"
+                  ],
+                  "matches": 10
+                },
+                {
+                  "date": "2026-11-14",
+                  "groups": [
+                    "A4",
+                    "B2",
+                    "B3",
+                    "B4"
+                  ],
+                  "matches": 8
+                }
+              ]
+            },
+            {
+              "round": 6,
+              "days": [
+                {
+                  "date": "2026-11-15",
+                  "groups": [
+                    "A1",
+                    "A3",
+                    "C1",
+                    "C2"
+                  ],
+                  "matches": 8
+                },
+                {
+                  "date": "2026-11-16",
+                  "groups": [
+                    "A2",
+                    "B1",
+                    "C3",
+                    "C4",
+                    "D1",
+                    "D2"
+                  ],
+                  "matches": 10
+                },
+                {
+                  "date": "2026-11-17",
+                  "groups": [
+                    "A4",
+                    "B2",
+                    "B3",
+                    "B4"
+                  ],
+                  "matches": 8
+                }
+              ]
+            }
+          ],
+          "groupDates": {
+            "A2": [
+              "2026-09-24",
+              "2026-09-27",
+              "2026-10-01",
+              "2026-10-04",
+              "2026-11-13",
+              "2026-11-16"
+            ],
+            "A4": [
+              "2026-09-24",
+              "2026-09-27",
+              "2026-10-01",
+              "2026-10-04",
+              "2026-11-14",
+              "2026-11-17"
+            ],
+            "B3": [
+              "2026-09-24",
+              "2026-09-27",
+              "2026-10-01",
+              "2026-10-04",
+              "2026-11-14",
+              "2026-11-17"
+            ],
+            "D1": [
+              "2026-09-24",
+              "2026-09-27",
+              "2026-10-01",
+              "2026-10-04",
+              "2026-11-13",
+              "2026-11-16"
+            ],
+            "D2": [
+              "2026-09-24",
+              "2026-09-27",
+              "2026-10-01",
+              "2026-10-04",
+              "2026-11-13",
+              "2026-11-16"
+            ],
+            "A1": [
+              "2026-09-25",
+              "2026-09-28",
+              "2026-10-02",
+              "2026-10-05",
+              "2026-11-12",
+              "2026-11-15"
+            ],
+            "B2": [
+              "2026-09-25",
+              "2026-09-28",
+              "2026-10-02",
+              "2026-10-05",
+              "2026-11-14",
+              "2026-11-17"
+            ],
+            "B4": [
+              "2026-09-25",
+              "2026-09-28",
+              "2026-10-02",
+              "2026-10-05",
+              "2026-11-14",
+              "2026-11-17"
+            ],
+            "C2": [
+              "2026-09-25",
+              "2026-09-28",
+              "2026-10-02",
+              "2026-10-05",
+              "2026-11-12",
+              "2026-11-15"
+            ],
+            "A3": [
+              "2026-09-26",
+              "2026-09-29",
+              "2026-10-03",
+              "2026-10-06",
+              "2026-11-12",
+              "2026-11-15"
+            ],
+            "B1": [
+              "2026-09-26",
+              "2026-09-29",
+              "2026-10-03",
+              "2026-10-06",
+              "2026-11-13",
+              "2026-11-16"
+            ],
+            "C1": [
+              "2026-09-26",
+              "2026-09-29",
+              "2026-10-03",
+              "2026-10-06",
+              "2026-11-12",
+              "2026-11-15"
+            ],
+            "C3": [
+              "2026-09-26",
+              "2026-09-29",
+              "2026-10-02",
+              "2026-10-06",
+              "2026-11-13",
+              "2026-11-16"
+            ],
+            "C4": [
+              "2026-09-26",
+              "2026-09-29",
+              "2026-10-03",
+              "2026-10-06",
+              "2026-11-13",
+              "2026-11-16"
+            ]
+          },
+          "matchCount": 156,
+          "minGapCalendarDays": 3,
+          "freeDays": 2,
+          "placeholdersResolvedPreStart": {
+            "C2": "LVA",
+            "C4": "LUX",
+            "D1": [
+              "GIB",
+              "MLT"
+            ],
+            "resolutionDate": "2026-03-31"
+          },
+          "september30": "permitted exception not used in February fixture list",
+          "leagueD": "six group matchdays, only four appearances per team; one bye per round per group; no additional fixture",
+          "knockoutProfile": {
+            "scope": "postSTART November20 official day template ONLY, no team names or pairings retained; revised September movement only",
+            "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-league-phase-results-by-team/",
+            "legs": [
+              [
+                "2027-03-25",
+                "2027-03-28"
+              ],
+              [
+                "2027-03-27",
+                "2027-03-30"
+              ]
+            ],
+            "matchesPerDay": 6,
+            "phasesPerDay": {
+              "QF": 2,
+              "AB": 2,
+              "BC": 2
+            },
+            "semifinals": [
+              "2027-06-09",
+              "2027-06-10"
+            ],
+            "final": "2027-06-13",
+            "thirdPlace": "2027-06-13",
+            "totalRevised": 184
+          },
+          "limits": "Feb table group-day counts verified visually; individual pairings not encoded, final kick-off D1 to be confirmed irrelevant to civil day; old C/D window separately retained; Annex C page has title and navigation only, no final rank graphic accessible."
+        },
+        "block5Evolution": {
+          "status": "PARTIAL historical format milestones, not complete edition-specific regulation archive",
+          "sources": [
+            "https://www.uefa.com/uefanationsleague/history/",
+            "https://www.uefa.com/uefanationsleague/news/0253-0d81ea357a91-d294c1ca65c7-1000--uefa-nations-league-format-confirmed/",
+            "https://www.uefa.com/news-media/news/0255-0e99f578e557-a64ea0ed91c9-1000/",
+            "https://www.uefa.com/uefanationsleague/news/026e-13698f20e8cb-8372848125f5-1000/",
+            "https://www.uefa.com/uefanationsleague/news/027d-1727c0e139f9-09e874c7a1cf-1000--nations-league-expansion/",
+            "https://www.uefa.com/news-media/news/02a5-20aba2a6e7e9-38897428c81f-1000/"
+          ],
+          "editions": [
+            {
+              "edition": "2018/19",
+              "sizes": [
+                12,
+                12,
+                15,
+                16
+              ],
+              "groupsPerLeague": [
+                4,
+                4,
+                4,
+                4
+              ],
+              "finals": "four A group winners, single-leg finals and third place",
+              "seed": "2017 UEFA national coefficient",
+              "euroPlayoff": "16 into 4 paths, 4 qualify"
+            },
+            {
+              "edition": "2020/21",
+              "sizes": [
+                16,
+                16,
+                16,
+                7
+              ],
+              "groupsPerLeague": [
+                4,
+                4,
+                4,
+                2
+              ],
+              "finals": "same final four",
+              "wcPlayoff": "2 UNL winners +10 qualifying runners-up, 3 paths"
+            },
+            {
+              "edition": "2022/23",
+              "nominalSizes": [
+                16,
+                16,
+                16,
+                7
+              ],
+              "actualTeams": 54,
+              "russia": "excluded; automatic fourth in B2",
+              "finals": "same final four",
+              "euroPlayoff": "12 teams in 3 paths"
+            },
+            {
+              "edition": "2024/25",
+              "sizes": [
+                16,
+                16,
+                16,
+                6
+              ],
+              "change": "two-leg A quarter-finals and movement playoffs"
+            },
+            {
+              "edition": "2026/27",
+              "sizes": [
+                16,
+                16,
+                16,
+                6
+              ],
+              "change": "September 2026 revised movement for three-league transition"
+            },
+            {
+              "edition": "2028/29",
+              "conceptSizes": [
+                18,
+                18,
+                18
+              ],
+              "status": "detailed rules not located"
+            }
+          ],
+          "sourceConflict": "UEFA history summary lists 14 in League C inaugural edition, contrary to 2017 official format announcement 15 and 55 total; use contemporary source 15. Do not use summary typo."
+        },
+        "block6OperationalRules": {
+          "scope": "UNL 2026/27 September15 reference, separate from July older version",
+          "lifecycle": {
+            "frequencyYears": 2,
+            "editionDurationSeasons": 1,
+            "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-3-Competition-frequency-and-entries-Online?contentId=VVB8Wj0YV33ytJzS8kUUbg",
+            "successor": "2028/29 top18 A, next18 B, rest C, final overall rank after knockout and movement playoffs",
+            "opening": "not verified; no July reset"
+          },
+          "roster": {
+            "ordinary": {
+              "list": 23,
+              "goalkeepers": 3,
+              "deadline": "23:59 CET preceding day"
+            },
+            "finals": {
+              "list": 26,
+              "goalkeepers": 3,
+              "deadlineDaysBeforeOpening": 7,
+              "goalkeeperSeriousInjuryReplacement": "before any match; approval required",
+              "outfieldSeriousInjuryReplacement": "before own first match only; replaced player excluded thereafter; approval required",
+              "deadlineAnchor": "first semifinal"
+            },
+            "preKickoffKeeperException": "physically incapable registered keeper may be replaced by unlisted/unregistered keeper under medical procedure; list amended",
+            "source": [
+              "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-28-Player-lists-Online",
+              "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-53-Player-replacements-and-substitutions-Online"
+            ]
+          },
+          "substitutions": {
+            "normal": 5,
+            "extraTimeOnlyAdditional": 1,
+            "windowsNormal": 3,
+            "windowsExtraTimeAdditional": 1,
+            "nonWindowPeriods": [
+              "PRE_KICKOFF",
+              "HALFTIME",
+              "BEFORE_ET",
+              "ET_HALFTIME"
+            ],
+            "returnAfterSubstitution": false
+          },
+          "knockout": {
+            "twoLeg": "aggregate equal at end of return leg → 2x15 ET → penalties",
+            "semiFinal": "2x15 ET then penalties if tied",
+            "final": "2x15 ET then penalties if tied",
+            "thirdPlace": "direct penalties after 90 minutes if tied, NO ET",
+            "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-18-Extra-time-and-penalty-shoot-outs-Online?contentId=0chjJF8rzmHV8w8t13P6UA"
+          },
+          "friendlies": {
+            "availableInternationalWindowDatesAfterOfficialFixtures": true,
+            "officialRecoveryPriority": true,
+            "source": [
+              "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-5-Duties-of-the-associations-Online",
+              "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-21-Friendly-matches-Online?contentId=qKRXnnJEiDAeJZWm8Biyvg"
+            ]
+          },
+          "suspendedMatch": {
+            "retainScoreAndRestartPoint": true,
+            "retainSanctionsAndRemainingSubsWindows": true,
+            "nextDay": "same pitch lineup and substitutes, changes consume remaining substitutions",
+            "laterDate": "previously dismissed/substituted/suspended-for-match players excluded; prior on-field players cannot restart as substitutes",
+            "singleYellowNotAppliedToOtherMatchesUntilComplete": true,
+            "noSecondFixture": true,
+            "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-25-Completion-of-suspended-matches-Online"
+          },
+          "administrativeExceptions": {
+            "refusal": "disciplinary authority may forfeit, sanction, disqualify; no automatic invented score",
+            "disqualification": "annul all results and awarded points",
+            "replacement": "authority discretionary based on previously eliminated teams; no arbitrary replacement",
+            "validateAbandonedResult": "only authority decision when current score harms responsible team"
+          },
+          "ranking": {
+            "disciplineIncludesTeamOfficials": true,
+            "normalizeUnequalGroupSizesOnly": true,
+            "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online?contentId=LUyRDKlp9n9YBqGezBhi4g"
+          },
+          "sources": [
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-3-Competition-frequency-and-entries-Online?contentId=VVB8Wj0YV33ytJzS8kUUbg",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-18-Extra-time-and-penalty-shoot-outs-Online?contentId=0chjJF8rzmHV8w8t13P6UA",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online?contentId=LUyRDKlp9n9YBqGezBhi4g",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-21-Friendly-matches-Online?contentId=qKRXnnJEiDAeJZWm8Biyvg",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-5-Duties-of-the-associations-Online",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-25-Completion-of-suspended-matches-Online",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-26-Refusal-to-play-and-similar-cases-Online",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-28-Player-lists-Online",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-53-Player-replacements-and-substitutions-Online",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-60-Yellow-and-red-cards-Online?contentId=tN~5eF_icpCru0jLbsWHgg"
+          ],
+          "limits": "OG suspended 50Hz snapshot and QUICK/manager sanctions/official-card capture not verified; don't fabricate result or add unapproved workaround. Annex C exact access list still P. Next edition detailed rules unknown."
+        },
+        "block7KnockoutDraw": {
+          "source": "https://editorial.uefa.com/resources/02ab-221968210209-84b5cf000df4-1000/unl_draw_procedure.pdf",
+          "procedureAdopted": "2026-11-09",
+          "scope": "postSTART reference only; use generic placeholders and current CE rankings; no actual November teams or results saved",
+          "order": [
+            "BC_PLAYOFF",
+            "AB_PLAYOFF",
+            "QUARTERFINAL",
+            "SEMIFINAL_PLACEHOLDERS"
+          ],
+          "movementDraw": {
+            "unseededLowerLeagueFirst": true,
+            "seededHigherLeagueSecond": true,
+            "pairSlots": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "firstLegHome": "lower league"
+          },
+          "qfDraw": {
+            "unseededRunnersFirst": true,
+            "seededWinnersSecond": true,
+            "forbidden": "same group",
+            "firstFeasibleSlot": "numeric order with lookahead",
+            "firstLegHome": "runner-up",
+            "validPairingPermutations": 9
+          },
+          "semiDraw": {
+            "pool": [
+              "QF1_WIN",
+              "QF2_WIN",
+              "QF3_WIN",
+              "QF4_WIN"
+            ],
+            "slotOrder": [
+              "SF_A_TEAM_A",
+              "SF_B_TEAM_A",
+              "SF_A_TEAM_B",
+              "SF_B_TEAM_B"
+            ],
+            "hostRule": "if selected host reaches semifinal, designate that semi SF1 and host Team A",
+            "final": "SF1 winner vs SF2 winner",
+            "third": "SF1 loser vs SF2 loser"
+          },
+          "sourceLimits": "PDF text sections A–E read; screenshots pages 3/5/7 cache miss; future additional draw conditions possible. July Annex C graphic still inaccessible via exact image link. Old July Article19 text shows 55 slots and obsolete CD; use revised September draw procedure for 54 and revised playoff rank ranges, keep versions separate."
+        },
+        "block8VerifiedAccessSeed": {
+          "status": "V_FINAL_PRIOR_EDITION_RANKING_USED_AS_ACCESS_SEED",
+          "asOf": "2026-03-31",
+          "sources": [
+            "https://editorial.uefa.com/resources/02a4-20491c2e77c9-ace7dc50605d-1000/unl_final_overall_rankings_after_cd_po_in_march_2026.pdf",
+            "https://www.uefa.com/uefanationsleague/news/02a1-1fc60cd57c4d-de2c1d716ed6-1000--2026-27-uefa-nations-league-league-phase-draw/"
+          ],
+          "pdfVisualVerified": true,
+          "ranked": [
+            {
+              "rank": 1,
+              "code": "POR",
+              "stableClub": 20515,
+              "uuid": "d64d78ab-e24c-547f-b952-a0e221d9b56a"
+            },
+            {
+              "rank": 2,
+              "code": "ESP",
+              "stableClub": 20523,
+              "uuid": "b52ac2ca-0a47-59c7-9c09-c2790be10bf8"
+            },
+            {
+              "rank": 3,
+              "code": "FRA",
+              "stableClub": 20496,
+              "uuid": "203075df-1393-56ba-aa82-a6dc212e7219"
+            },
+            {
+              "rank": 4,
+              "code": "GER",
+              "stableClub": 20498,
+              "uuid": "2bb28358-8981-5501-bee3-0916d4b736cc"
+            },
+            {
+              "rank": 5,
+              "code": "ITA",
+              "stableClub": 20504,
+              "uuid": "8250fcaa-bcdf-5f40-836a-87614846de84"
+            },
+            {
+              "rank": 6,
+              "code": "NED",
+              "stableClub": 20500,
+              "uuid": "1038aa79-ea25-56de-b729-559f21fbca47"
+            },
+            {
+              "rank": 7,
+              "code": "DEN",
+              "stableClub": 20491,
+              "uuid": "b9cc141c-dd87-58a0-85d1-21bc00af4a14"
+            },
+            {
+              "rank": 8,
+              "code": "CRO",
+              "stableClub": 20488,
+              "uuid": "7eece36b-9ebd-54ec-8d31-168fc113a555"
+            },
+            {
+              "rank": 9,
+              "code": "SRB",
+              "stableClub": 20529,
+              "uuid": "1309b649-9bf0-503a-840f-dd54780e7a2e"
+            },
+            {
+              "rank": 10,
+              "code": "BEL",
+              "stableClub": 20486,
+              "uuid": "d0f7a81d-5cb7-52de-b4a5-b0014af2f225"
+            },
+            {
+              "rank": 11,
+              "code": "ENG",
+              "stableClub": 20492,
+              "uuid": "fad1a2cf-b275-5972-a3fa-35bda74afa6f"
+            },
+            {
+              "rank": 12,
+              "code": "NOR",
+              "stableClub": 20513,
+              "uuid": "620a07cb-0c2a-5f87-980a-1074cfc45786"
+            },
+            {
+              "rank": 13,
+              "code": "WAL",
+              "stableClub": 20528,
+              "uuid": "47a64604-70c3-54c2-a21b-8bf8a575adbb"
+            },
+            {
+              "rank": 14,
+              "code": "CZE",
+              "stableClub": 20490,
+              "uuid": "25fd142c-d617-5148-90f9-2e5d09919a82"
+            },
+            {
+              "rank": 15,
+              "code": "GRE",
+              "stableClub": 20499,
+              "uuid": "f9233b35-615c-5a5a-960b-9388598c4370"
+            },
+            {
+              "rank": 16,
+              "code": "TUR",
+              "stableClub": 20526,
+              "uuid": "5f210819-63a9-5dd5-ab19-ab32e383533c"
+            },
+            {
+              "rank": 17,
+              "code": "SCO",
+              "stableClub": 20520,
+              "uuid": "ffcdd024-64c5-5134-a1dc-57df93f0f419"
+            },
+            {
+              "rank": 18,
+              "code": "HUN",
+              "stableClub": 20501,
+              "uuid": "a52c5324-61c4-5818-9216-c12d9ea56e10"
+            },
+            {
+              "rank": 19,
+              "code": "POL",
+              "stableClub": 20514,
+              "uuid": "9acbdcbe-8d18-58a7-9ba1-f3cac7a47036"
+            },
+            {
+              "rank": 20,
+              "code": "ISR",
+              "stableClub": 20503,
+              "uuid": "5e3731d5-a5c9-5390-af14-49a24dd6242f"
+            },
+            {
+              "rank": 21,
+              "code": "SUI",
+              "stableClub": 20525,
+              "uuid": "0bf7563a-fa56-5ffa-a685-906ab5cacff3"
+            },
+            {
+              "rank": 22,
+              "code": "BIH",
+              "stableClub": 20531,
+              "uuid": "9c25a2f3-0b60-5180-ae12-23ff1484a6c1"
+            },
+            {
+              "rank": 23,
+              "code": "AUT",
+              "stableClub": 20483,
+              "uuid": "32feffa9-c6c9-5a16-ac8e-2199172dfa8a"
+            },
+            {
+              "rank": 24,
+              "code": "UKR",
+              "stableClub": 20527,
+              "uuid": "ae4c166a-55cc-5769-a793-d7580dee5ecf"
+            },
+            {
+              "rank": 25,
+              "code": "SVN",
+              "stableClub": 20522,
+              "uuid": "f82322f1-b6c8-5b33-a819-e2d24464cb3a"
+            },
+            {
+              "rank": 26,
+              "code": "GEO",
+              "stableClub": 20497,
+              "uuid": "15606ae7-d9c0-53b6-8a7c-979976976e02"
+            },
+            {
+              "rank": 27,
+              "code": "IRL",
+              "stableClub": 20516,
+              "uuid": "874b61d6-56a2-5e8f-b683-7e0d5a4c2ccd"
+            },
+            {
+              "rank": 28,
+              "code": "ROU",
+              "stableClub": 20517,
+              "uuid": "d8e82b6a-dc2c-51f4-b132-a46031c65816"
+            },
+            {
+              "rank": 29,
+              "code": "SWE",
+              "stableClub": 20524,
+              "uuid": "0e061d0f-f6a1-5da4-b64b-e2ae4cb2f373"
+            },
+            {
+              "rank": 30,
+              "code": "MKD",
+              "stableClub": 20509,
+              "uuid": "28bc08a3-27b7-5108-983a-e047938da36e"
+            },
+            {
+              "rank": 31,
+              "code": "NIR",
+              "stableClub": 20512,
+              "uuid": "c8fbd165-c431-54ac-82f5-a8a16c8e8e04"
+            },
+            {
+              "rank": 32,
+              "code": "KOS",
+              "stableClub": 20534,
+              "uuid": "3c999ccb-72ae-51c4-9a2b-f6b5b4c79caf"
+            },
+            {
+              "rank": 33,
+              "code": "ISL",
+              "stableClub": 20502,
+              "uuid": "4e957a31-d065-5a04-a43e-c4cbae373f23"
+            },
+            {
+              "rank": 34,
+              "code": "ALB",
+              "stableClub": 20481,
+              "uuid": "44799e88-90a7-53dc-a733-40ace56ca442"
+            },
+            {
+              "rank": 35,
+              "code": "MNE",
+              "stableClub": 20535,
+              "uuid": "346880e4-438c-5f9a-a89c-f9a34df48393"
+            },
+            {
+              "rank": 36,
+              "code": "KAZ",
+              "stableClub": 20533,
+              "uuid": "5b56be53-236c-5ee9-84dd-73bdaf6c26ca"
+            },
+            {
+              "rank": 37,
+              "code": "FIN",
+              "stableClub": 20495,
+              "uuid": "0786f877-ca94-543b-8977-a32353c5eaf7"
+            },
+            {
+              "rank": 38,
+              "code": "SVK",
+              "stableClub": 20521,
+              "uuid": "614f3b25-04d5-5687-bf3f-d4e22e88cc8f"
+            },
+            {
+              "rank": 39,
+              "code": "BUL",
+              "stableClub": 20487,
+              "uuid": "fdb08546-d0f3-5210-bfc5-721576b9e082"
+            },
+            {
+              "rank": 40,
+              "code": "ARM",
+              "stableClub": 20482,
+              "uuid": "f471ffd8-ad2d-5f99-9fa6-64dc56c4fdf1"
+            },
+            {
+              "rank": 41,
+              "code": "BLR",
+              "stableClub": 20485,
+              "uuid": "432a8216-6ea4-569a-8a19-b848a0353686"
+            },
+            {
+              "rank": 42,
+              "code": "FRO",
+              "stableClub": 20494,
+              "uuid": "6046ceda-3ee1-5f56-a449-830bc6128885"
+            },
+            {
+              "rank": 43,
+              "code": "CYP",
+              "stableClub": 20489,
+              "uuid": "bc05604b-1d5f-5e6a-b095-c69332ea0b1c"
+            },
+            {
+              "rank": 44,
+              "code": "EST",
+              "stableClub": 20493,
+              "uuid": "b70a31f3-0f1f-5b35-9f1a-f17d0e62519b"
+            },
+            {
+              "rank": 45,
+              "code": "LVA",
+              "stableClub": 20505,
+              "uuid": "1a89ba26-2c86-57c2-b7ee-21dd3d9d7337"
+            },
+            {
+              "rank": 46,
+              "code": "LUX",
+              "stableClub": 20508,
+              "uuid": "c5c60571-0563-5ada-8203-b847f2b79f84"
+            },
+            {
+              "rank": 47,
+              "code": "MDA",
+              "stableClub": 20511,
+              "uuid": "d8e2d972-abb7-5248-9da3-c7a9fde67be5"
+            },
+            {
+              "rank": 48,
+              "code": "SMR",
+              "stableClub": 20519,
+              "uuid": "4f610b16-c3b0-5aca-8a20-8f8c34d1da9f"
+            },
+            {
+              "rank": 49,
+              "code": "AZE",
+              "stableClub": 20484,
+              "uuid": "b1ccf3b8-db7c-541b-9820-17117ccaac9c"
+            },
+            {
+              "rank": 50,
+              "code": "LTU",
+              "stableClub": 20507,
+              "uuid": "7e0ba826-b3e7-576f-9717-3047698a609b"
+            },
+            {
+              "rank": 51,
+              "code": "GIB",
+              "stableClub": 20532,
+              "uuid": "8d32f93a-1880-5888-a608-1acb89efe4b3"
+            },
+            {
+              "rank": 52,
+              "code": "MLT",
+              "stableClub": 20510,
+              "uuid": "fc739eb8-1c90-55da-b66a-f92cf53132eb"
+            },
+            {
+              "rank": 53,
+              "code": "LIE",
+              "stableClub": 20506,
+              "uuid": "104683a0-88b5-5ba1-8059-9e34b9997f94"
+            },
+            {
+              "rank": 54,
+              "code": "AND",
+              "stableClub": 20530,
+              "uuid": "3d774ecf-79b1-5e7f-b592-05d127eca855"
+            }
+          ],
+          "pots": {
+            "A": [
+              [
+                "POR",
+                "ESP",
+                "FRA",
+                "GER"
+              ],
+              [
+                "ITA",
+                "NED",
+                "DEN",
+                "CRO"
+              ],
+              [
+                "SRB",
+                "BEL",
+                "ENG",
+                "NOR"
+              ],
+              [
+                "WAL",
+                "CZE",
+                "GRE",
+                "TUR"
+              ]
+            ],
+            "B": [
+              [
+                "SCO",
+                "HUN",
+                "POL",
+                "ISR"
+              ],
+              [
+                "SUI",
+                "BIH",
+                "AUT",
+                "UKR"
+              ],
+              [
+                "SVN",
+                "GEO",
+                "IRL",
+                "ROU"
+              ],
+              [
+                "SWE",
+                "MKD",
+                "NIR",
+                "KOS"
+              ]
+            ],
+            "C": [
+              [
+                "ISL",
+                "ALB",
+                "MNE",
+                "KAZ"
+              ],
+              [
+                "FIN",
+                "SVK",
+                "BUL",
+                "ARM"
+              ],
+              [
+                "BLR",
+                "FRO",
+                "CYP",
+                "EST"
+              ],
+              [
+                "LVA",
+                "LUX",
+                "MDA",
+                "SMR"
+              ]
+            ],
+            "D": [
+              [
+                "AZE",
+                "LTU",
+                "GIB",
+                "MLT"
+              ],
+              [
+                "LIE",
+                "AND"
+              ]
+            ]
+          },
+          "correction": [
+            {
+              "rank": 51,
+              "code": "GIB",
+              "previous": "MLT"
+            },
+            {
+              "rank": 52,
+              "code": "MLT",
+              "previous": "GIB"
+            }
+          ],
+          "precedence": "Official final 2024/25 ranking after March C/D playoffs supersedes block3 inferred ordering. Draw procedure defines pots by access ranks, pending final prior edition results. Annex C graphic itself still unavailable; independent official final table and draw rules support operational seed. Preserve candidate evidence, never use it as active seed.",
+          "limits": "No FIFA points or postSTART ranking imported. 54 verified source codes, IDs joined to existing candidates; executable CT bindings not tested."
+        },
+        "block8SharedCalendarReference": "row536.block8SharedCalendar",
+        "block8Awards": {
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-10-Trophy-plaques-and-medals-Online?contentId=YcR0g5jxnd4znbTv5P0Dvg",
+          "trophyRecipient": "FINAL_WINNER",
+          "medals": {
+            "winner": 50,
+            "runnerUp": 50,
+            "third": 50
+          },
+          "recognition": {
+            "consecutiveWins": 3,
+            "totalWins": 5,
+            "resetCycle": true
+          },
+          "limits": "Source rule only; no new medal/badge/recognition UI authorized; historic recognition counters deferred, no invented history."
+        },
+        "block9FutureConcept": {
+          "status": "OFFICIAL_MAY_2026_CONCEPT_NOT_FINAL_REGULATION",
+          "sources": [
+            "https://editorial.uefa.com/resources/02a5-20ab6d2f8514-897923904829-1000/ntc_review._compilation_of_slides_for_media.pdf",
+            "https://www.uefa.com/european-qualifiers/news/02a5-20abaa999b8a-b0a852eae001-1000--new-concept-for-men-s-national-team-competitions-as-of-202/",
+            "https://www.uefa.com/news-media/news/02a9-218c995702ec-8f3e63bbb8dd-1000--uefa-executive-committee-agenda-for-thessaloniki-meeting/"
+          ],
+          "visualPages": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "leagueSizes": [
+            18,
+            18,
+            18
+          ],
+          "groupModel": {
+            "groups": 3,
+            "groupSize": 6,
+            "pots": [
+              6,
+              6,
+              6
+            ],
+            "membersPerPotPerGroup": 2,
+            "rounds": 6,
+            "opponents": 5,
+            "ownPot": {
+              "opponents": 1,
+              "legs": 2
+            },
+            "otherPot": {
+              "opponentsPerPot": 2,
+              "legs": 1,
+              "home": 1,
+              "away": 1
+            },
+            "homeTotal": 3,
+            "awayTotal": 3,
+            "matchesPerGroup": 18,
+            "matchesPerLeague": 54
+          },
+          "quarterFinalEntry": {
+            "groupWinners": 3,
+            "runnersUp": 3,
+            "additionalThirdPlaced": 2,
+            "selectionComparator": "NOT_SPECIFIED_IN_SLIDE"
+          },
+          "movement": {
+            "directUp": 3,
+            "directDown": 3,
+            "upperCandidates": {
+              "groupPlaces": [
+                4,
+                5
+              ],
+              "count": 6
+            },
+            "lowerCandidates": {
+              "groupPlaces": [
+                2,
+                3
+              ],
+              "count": 6
+            },
+            "tiesPerBoundary": 6,
+            "winnersUpper": 6,
+            "losersLower": 6,
+            "boundaries": [
+              "A/B",
+              "B/C"
+            ],
+            "sourcePage": 5,
+            "limits": "Pairing, seed and legs not explicitly given in slide 5; previous communiqué says no change to final phase/PO format; do not certify legs or tie-break rules for 2028 yet."
+          },
+          "exception53or55": "League C one group of 5 or 7, relevant adjustments; exact fixtures/tie-break not specified",
+          "groupMatches": 162,
+          "knockoutMatchCountConditional": {
+            "quarterfinals": 8,
+            "finalFour": 4,
+            "movement": 24,
+            "totalIncludingGroup": 198,
+            "assumption": "two-leg quarterfinal and movement retained from current format; not independently final 2028 regulations"
+          },
+          "transitionToEQ": "A/B movement changes next UNL only; B/C movement changes EQ tier as well as next UNL (slide9); freeze tier snapshot after completion, no double entry",
+          "limits": "No real future teams, dates, results or regulation beyond concept. Do not infer which two thirds on ranking criteria not yet published."
+        },
+        "block10ExactFixtureReference": {
+          "status": "V_PRESTART_TEMPLATE",
+          "sourceDate": "2026-02-12",
+          "source": "https://editorial.uefa.com/resources/02a2-1fea0cbd54af-e56dd26a4579-1000/unl_2627_-_league_phase_fixture_list_per_matchday.pdf",
+          "visualPages": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "resolvedPlaceholdersAsOf": "2026-03-31",
+          "fixtures": [
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "A2",
+              "home": "NED",
+              "away": "GER"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "A2",
+              "home": "SRB",
+              "away": "GRE"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "A4",
+              "home": "NOR",
+              "away": "DEN"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "A4",
+              "home": "POR",
+              "away": "WAL"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "B3",
+              "home": "AUT",
+              "away": "ISR"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "B3",
+              "home": "KOS",
+              "away": "IRL"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "D1",
+              "home": "AND",
+              "away": "MLT"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-24",
+              "group": "D2",
+              "home": "LIE",
+              "away": "LTU"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "B2",
+              "home": "GEO",
+              "away": "NIR"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "C2",
+              "home": "ARM",
+              "away": "LVA"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "A1",
+              "home": "ITA",
+              "away": "BEL"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "A1",
+              "home": "TUR",
+              "away": "FRA"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "B2",
+              "home": "HUN",
+              "away": "UKR"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "B4",
+              "home": "POL",
+              "away": "BIH"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "B4",
+              "home": "SWE",
+              "away": "ROU"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-25",
+              "group": "C2",
+              "home": "MNE",
+              "away": "CYP"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "B1",
+              "home": "SVN",
+              "away": "SCO"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "C1",
+              "home": "SMR",
+              "away": "FIN"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "C3",
+              "home": "FRO",
+              "away": "KAZ"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "C4",
+              "home": "BUL",
+              "away": "LUX"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "C4",
+              "home": "ISL",
+              "away": "EST"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "A3",
+              "home": "CZE",
+              "away": "CRO"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "A3",
+              "home": "ENG",
+              "away": "ESP"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "B1",
+              "home": "MKD",
+              "away": "SUI"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "C1",
+              "home": "ALB",
+              "away": "BLR"
+            },
+            {
+              "round": 1,
+              "date": "2026-09-26",
+              "group": "C3",
+              "home": "SVK",
+              "away": "MDA"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "D2",
+              "home": "LTU",
+              "away": "AZE"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "A2",
+              "home": "SRB",
+              "away": "NED"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "A4",
+              "home": "DEN",
+              "away": "WAL"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "B3",
+              "home": "AUT",
+              "away": "KOS"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "D1",
+              "home": "GIB",
+              "away": "AND"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "A2",
+              "home": "GER",
+              "away": "GRE"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "A4",
+              "home": "NOR",
+              "away": "POR"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-27",
+              "group": "B3",
+              "home": "ISR",
+              "away": "IRL"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "B2",
+              "home": "GEO",
+              "away": "UKR"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "C2",
+              "home": "ARM",
+              "away": "MNE"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "A1",
+              "home": "BEL",
+              "away": "FRA"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "A1",
+              "home": "TUR",
+              "away": "ITA"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "B2",
+              "home": "NIR",
+              "away": "HUN"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "B4",
+              "home": "ROU",
+              "away": "BIH"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "B4",
+              "home": "SWE",
+              "away": "POL"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-28",
+              "group": "C2",
+              "home": "LVA",
+              "away": "CYP"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "A3",
+              "home": "CZE",
+              "away": "ENG"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "A3",
+              "home": "ESP",
+              "away": "CRO"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "B1",
+              "home": "SCO",
+              "away": "SUI"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "B1",
+              "home": "SVN",
+              "away": "MKD"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "C1",
+              "home": "FIN",
+              "away": "BLR"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "C1",
+              "home": "SMR",
+              "away": "ALB"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "C3",
+              "home": "MDA",
+              "away": "FRO"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "C3",
+              "home": "SVK",
+              "away": "KAZ"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "C4",
+              "home": "BUL",
+              "away": "EST"
+            },
+            {
+              "round": 2,
+              "date": "2026-09-29",
+              "group": "C4",
+              "home": "LUX",
+              "away": "ISL"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "D2",
+              "home": "AZE",
+              "away": "LIE"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "A2",
+              "home": "GER",
+              "away": "SRB"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "A2",
+              "home": "GRE",
+              "away": "NED"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "A4",
+              "home": "DEN",
+              "away": "POR"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "A4",
+              "home": "WAL",
+              "away": "NOR"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "B3",
+              "home": "ISR",
+              "away": "KOS"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "B3",
+              "home": "IRL",
+              "away": "AUT"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-01",
+              "group": "D1",
+              "home": "MLT",
+              "away": "GIB"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "C3",
+              "home": "KAZ",
+              "away": "MDA"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "A1",
+              "home": "BEL",
+              "away": "TUR"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "A1",
+              "home": "FRA",
+              "away": "ITA"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "B2",
+              "home": "HUN",
+              "away": "GEO"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "B2",
+              "home": "UKR",
+              "away": "NIR"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "B4",
+              "home": "BIH",
+              "away": "SWE"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "B4",
+              "home": "POL",
+              "away": "ROU"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "C2",
+              "home": "CYP",
+              "away": "ARM"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "C2",
+              "home": "LVA",
+              "away": "MNE"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-02",
+              "group": "C3",
+              "home": "FRO",
+              "away": "SVK"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "C1",
+              "home": "FIN",
+              "away": "ALB"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "A3",
+              "home": "CRO",
+              "away": "ENG"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "C1",
+              "home": "BLR",
+              "away": "SMR"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "C4",
+              "home": "EST",
+              "away": "LUX"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "C4",
+              "home": "ISL",
+              "away": "BUL"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "A3",
+              "home": "ESP",
+              "away": "CZE"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "B1",
+              "home": "MKD",
+              "away": "SCO"
+            },
+            {
+              "round": 3,
+              "date": "2026-10-03",
+              "group": "B1",
+              "home": "SUI",
+              "away": "SVN"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "D2",
+              "home": "AZE",
+              "away": "LTU"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "B3",
+              "home": "KOS",
+              "away": "AUT"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "D1",
+              "home": "MLT",
+              "away": "AND"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "A2",
+              "home": "GRE",
+              "away": "GER"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "A2",
+              "home": "NED",
+              "away": "SRB"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "A4",
+              "home": "POR",
+              "away": "NOR"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "A4",
+              "home": "WAL",
+              "away": "DEN"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-04",
+              "group": "B3",
+              "home": "IRL",
+              "away": "ISR"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "A1",
+              "home": "FRA",
+              "away": "BEL"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "A1",
+              "home": "ITA",
+              "away": "TUR"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "B2",
+              "home": "NIR",
+              "away": "GEO"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "B2",
+              "home": "UKR",
+              "away": "HUN"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "B4",
+              "home": "BIH",
+              "away": "POL"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "B4",
+              "home": "ROU",
+              "away": "SWE"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "C2",
+              "home": "CYP",
+              "away": "LVA"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-05",
+              "group": "C2",
+              "home": "MNE",
+              "away": "ARM"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "C3",
+              "home": "KAZ",
+              "away": "FRO"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "A3",
+              "home": "CRO",
+              "away": "ESP"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "A3",
+              "home": "ENG",
+              "away": "CZE"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "B1",
+              "home": "SCO",
+              "away": "SVN"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "B1",
+              "home": "SUI",
+              "away": "MKD"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "C1",
+              "home": "ALB",
+              "away": "SMR"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "C1",
+              "home": "BLR",
+              "away": "FIN"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "C3",
+              "home": "MDA",
+              "away": "SVK"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "C4",
+              "home": "EST",
+              "away": "ISL"
+            },
+            {
+              "round": 4,
+              "date": "2026-10-06",
+              "group": "C4",
+              "home": "LUX",
+              "away": "BUL"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "A1",
+              "home": "TUR",
+              "away": "BEL"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "C2",
+              "home": "ARM",
+              "away": "CYP"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "A1",
+              "home": "ITA",
+              "away": "FRA"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "A3",
+              "home": "CZE",
+              "away": "ESP"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "A3",
+              "home": "ENG",
+              "away": "CRO"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "C1",
+              "home": "ALB",
+              "away": "FIN"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "C1",
+              "home": "SMR",
+              "away": "BLR"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-12",
+              "group": "C2",
+              "home": "MNE",
+              "away": "LVA"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "A2",
+              "home": "NED",
+              "away": "GRE"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "A2",
+              "home": "SRB",
+              "away": "GER"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "B1",
+              "home": "SCO",
+              "away": "MKD"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "B1",
+              "home": "SVN",
+              "away": "SUI"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "C3",
+              "home": "MDA",
+              "away": "KAZ"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "C3",
+              "home": "SVK",
+              "away": "FRO"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "C4",
+              "home": "BUL",
+              "away": "ISL"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "C4",
+              "home": "LUX",
+              "away": "EST"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "D1",
+              "home": "AND",
+              "away": "GIB"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-13",
+              "group": "D2",
+              "home": "LIE",
+              "away": "AZE"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "B3",
+              "home": "KOS",
+              "away": "ISR"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "A4",
+              "home": "NOR",
+              "away": "WAL"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "B2",
+              "home": "GEO",
+              "away": "HUN"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "A4",
+              "home": "POR",
+              "away": "DEN"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "B2",
+              "home": "NIR",
+              "away": "UKR"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "B3",
+              "home": "AUT",
+              "away": "IRL"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "B4",
+              "home": "ROU",
+              "away": "POL"
+            },
+            {
+              "round": 5,
+              "date": "2026-11-14",
+              "group": "B4",
+              "home": "SWE",
+              "away": "BIH"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "C2",
+              "home": "CYP",
+              "away": "MNE"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "C2",
+              "home": "LVA",
+              "away": "ARM"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "C1",
+              "home": "BLR",
+              "away": "ALB"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "C1",
+              "home": "FIN",
+              "away": "SMR"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "A1",
+              "home": "BEL",
+              "away": "ITA"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "A1",
+              "home": "FRA",
+              "away": "TUR"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "A3",
+              "home": "CRO",
+              "away": "CZE"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-15",
+              "group": "A3",
+              "home": "ESP",
+              "away": "ENG"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "C3",
+              "home": "FRO",
+              "away": "MDA"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "C3",
+              "home": "KAZ",
+              "away": "SVK"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "C4",
+              "home": "EST",
+              "away": "BUL"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "C4",
+              "home": "ISL",
+              "away": "LUX"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "D2",
+              "home": "LTU",
+              "away": "LIE"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "A2",
+              "home": "GER",
+              "away": "NED"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "A2",
+              "home": "GRE",
+              "away": "SRB"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "B1",
+              "home": "MKD",
+              "away": "SVN"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "B1",
+              "home": "SUI",
+              "away": "SCO"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-16",
+              "group": "D1",
+              "home": "GIB",
+              "away": "MLT"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "A4",
+              "home": "DEN",
+              "away": "NOR"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "A4",
+              "home": "WAL",
+              "away": "POR"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "B2",
+              "home": "HUN",
+              "away": "NIR"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "B2",
+              "home": "UKR",
+              "away": "GEO"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "B3",
+              "home": "ISR",
+              "away": "AUT"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "B3",
+              "home": "IRL",
+              "away": "KOS"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "B4",
+              "home": "BIH",
+              "away": "ROU"
+            },
+            {
+              "round": 6,
+              "date": "2026-11-17",
+              "group": "B4",
+              "home": "POL",
+              "away": "SWE"
+            }
+          ],
+          "validation": {
+            "matches": 156,
+            "distinctOrderedPairs": 156,
+            "roundCounts": [
+              26,
+              26,
+              26,
+              26,
+              26,
+              26
+            ],
+            "nationalTeams": 54,
+            "minimumCalendarGap": 3,
+            "sameDayCollision": 0
+          },
+          "scope": "Reference dates and ordered pairs, no scores or completed flags; CE only writer; no automatic repetition in later editions.",
+          "corroboration": {
+            "figc": "https://www.figc.it/it/nazionali/news/uefa-nations-league-il-25-settembre-lesordio-degli-azzurri-in-casa-con-il-belgio-poi-le-trasferte-in-turchia-e-francia-mjs52woi",
+            "fa": "https://learn.englandfootball.com/sitecore/content/EnglandFootball/Home/articles/2026/Feb/13/uefa-nations-league-2026-27-fixture-dates-confirmed-20261302",
+            "mfa": "https://www.mfa.com.mt/news/national-teams/uefa-nations-league-play-off-second-leg/",
+            "lff": "https://lff.lv/zinas/18890/latvijas-izlase-ar-uzvaru-nosarga-vietu-c-liga/",
+            "gfa": "https://www.gibraltarfa.com/news/tomorrow-2026-27-mens-uefa-nations-league-draw-832",
+            "reuters": "indexed draw corroboration only https://www.reuters.com/sports/soccer/uefa-nations-league-2026-27-draw-2026-02-12/",
+            "mirror": "indexed mirror, not independent certification https://as.com/descargables/2026/02/13/fase-liga-nations-league-2026.pdf"
+          }
+        },
+        "block10RuleDecision": {
+          "status": "USER_APPROVED_GAME_RULE",
+          "decisionDate": "2026-11-28",
+          "userQuote": "prendiamo questa",
+          "world": "2627",
+          "edition": "2026/27",
+          "selectedRevision": "2026-09-15",
+          "effectiveInGame": "FROM_START_2026-07-01",
+          "scope": "Use revised sporting movement for initial edition; preserve previous rules only as research evidence, never schedule obsolete C/D playoffs. Do not import postSTART outcomes. Future edition distinct concept, final rules remain pending.",
+          "source": [
+            "https://www.uefa.com/uefanationsleague/news/02a9-219880a004d4-2948b70a545e-1000--new-promotion-relegation-system-for-uefa-nations-league-20/",
+            "https://www.figc.it/it/federazione/news/cambia-la-nations-league-2026-27-le-due-migliori-terze-restano-nella-lega-a-retrocedono-direttamente-solo-le-due-peggiori-quarte-rlc2r7g9"
+          ],
+          "totalFixtures": 184,
+          "nextLeagueSizes": [
+            18,
+            18,
+            18
+          ],
+          "oldCDPlayoff": false,
+          "implementationStatus": "PENDING_NOT_RUNTIME"
+        },
+        "block11SuccessorEvidence": {
+          "scope": "UNL 2028/29 concept, expanded sources, not approved detailed regulation",
+          "sources": {
+            "fifaMirror": "https://fas.org.sg/wp-content/uploads/2024/07/Mens-International-Match-Calendar-2023-2030_EN-19122023.pdf",
+            "fifaCadence": "https://ipt.fifa.com/organisation/fifa-council/media-releases/fifa-council-approves-international-match-calendars",
+            "uefa": "https://www.uefa.com/uefanationsleague/news/02a5-20abaa999b8a-b0a852eae001-1000--new-concept-for-mens-national-team-competitions-as-of-2028-approved/",
+            "figc": "https://www.figc.it/en/figc/news/from-2028-a-new-format-for-mens-national-team-matches-changes-to-the-uefa-nations-league-and-the-european-qualifiers-dc352naq",
+            "uaf": "https://uaf.ua/en/news/approved-new-concept-for-mens-national-team-competitions-starting-in-2028",
+            "rfef": "https://rfef.es/en/noticias/Rafael-Louzan-Participates-in-the-UEFA-Executive-Committee-Meeting-in-Istanbul",
+            "agenda": "https://www.uefa.com/news-media/news/02a9-218c995702ec-8f3e63bbb8dd-1000--uefa-executive-committee-agenda-for-thessaloniki-meeting/",
+            "art19": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online",
+            "wiki": "https://en.wikipedia.org/wiki/2028%E2%80%9329_UEFA_Nations_League",
+            "circular": "https://www.uefa.com/news-media/documents/circular-letters/"
+          },
+          "calendar": {
+            "status": "FIFA_IMC_PUBLISHED_REFERENCE; UEFA_PHASE_ASSIGNMENT_CANDIDATE",
+            "documentVersion": "April 2023 text, federation-hosted copy filename 19122023",
+            "windows": [
+              {
+                "start": "2028-09-18",
+                "end": "2028-10-03",
+                "max": 4,
+                "phaseCandidate": "GROUP_MD1_4"
+              },
+              {
+                "start": "2028-11-13",
+                "end": "2028-11-21",
+                "max": 2,
+                "phaseCandidate": "GROUP_MD5_6"
+              },
+              {
+                "start": "2029-03-19",
+                "end": "2029-03-27",
+                "max": 2,
+                "phaseCandidate": "QF_AND_MOVEMENT"
+              },
+              {
+                "start": "2029-06-04",
+                "end": "2029-06-12",
+                "max": 2,
+                "phaseCandidate": "FINALS"
+              }
+            ],
+            "pdfTextRead": true,
+            "screenshot": "attempted p6/p7, cache miss",
+            "limit": "not definitive UEFA fixture dates; use GAME_TEMPLATE_2026 policy and do not claim official future fixture; exact start unavailable until generated/approved"
+          },
+          "transition": {
+            "leagueRanges": [
+              [
+                1,
+                18
+              ],
+              [
+                19,
+                36
+              ],
+              [
+                37,
+                54
+              ]
+            ],
+            "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online",
+            "rankWriter": "completed CE UNL2627 final overall rank, not FIFA or real-world later ranking",
+            "potBandsCandidate": [
+              [
+                [
+                  1,
+                  6
+                ],
+                [
+                  7,
+                  12
+                ],
+                [
+                  13,
+                  18
+                ]
+              ],
+              [
+                [
+                  19,
+                  24
+                ],
+                [
+                  25,
+                  30
+                ],
+                [
+                  31,
+                  36
+                ]
+              ],
+              [
+                [
+                  37,
+                  42
+                ],
+                [
+                  43,
+                  48
+                ],
+                [
+                  49,
+                  54
+                ]
+              ]
+            ],
+            "potStatus": "I: sequential ranks plausible and secondary indexed Wikipedia corroboration, no official detailed 2028 draw procedure located"
+          },
+          "continuity": {
+            "source": [
+              "https://www.figc.it/en/figc/news/from-2028-a-new-format-for-mens-national-team-matches-changes-to-the-uefa-nations-league-and-the-european-qualifiers-dc352naq",
+              "https://uaf.ua/en/news/approved-new-concept-for-mens-national-team-competitions-starting-in-2028",
+              "https://www.uefa.com/uefanationsleague/news/02a5-20abaa999b8a-b0a852eae001-1000--new-concept-for-mens-national-team-competitions-as-of-2028-approved/"
+            ],
+            "statement": "quarterfinals, final four, movement play-offs retain current format",
+            "twoLegs": "supported by continuity of current format, exact new regulations not located",
+            "count": {
+              "group": 162,
+              "qf": 8,
+              "movement": 24,
+              "finalFour": 4
+            },
+            "total": 198,
+            "countScope": "derived conditional on 54 entrants and current two-leg structure retained"
+          },
+          "exception55": {
+            "status": "V_CONCEPT",
+            "leagueCGroupSize": 7,
+            "startOneInternationalWindowEarlier": true,
+            "source": [
+              "https://www.figc.it/en/figc/news/from-2028-a-new-format-for-mens-national-team-matches-changes-to-the-uefa-nations-league-and-the-european-qualifiers-dc352naq",
+              "https://uaf.ua/en/news/approved-new-concept-for-mens-national-team-competitions-starting-in-2028"
+            ],
+            "exactDates": null,
+            "warning": "May/June 2028 FIFA window reserved for official matches or friendlies preparing continental finals; no confirmed UNL start dates or eight-match schedule. Do not add Russia or any extra entrant automatically."
+          },
+          "unresolved": [
+            "cross-group comparator for best thirds with incomplete opponent graph",
+            "within-group tie-break when tied teams did not all meet",
+            "exact sequential pot mapping and draw restrictions",
+            "exact playoff pairing/seeding/home-return procedure for 2028/29",
+            "53/55 group allocation and opponent pattern",
+            "individual UEFA dates and successor opening/close conditions"
+          ],
+          "searchLimits": "September agenda and announcement address 2627 transition; no final 2829 rulebook found. EN circular index snapshot tops at 48, German indexed 58 but fetched page stale, no PDF. Wikipedia indexed only (open cache miss); not certification. FIGC/UAF full articles checked; RFEF indexed."
+        },
+        "block12SuccessorConstraints": {
+          "scope": "UNL 2028/29 only, concept and mathematical audit, no adopted fallback",
+          "sources": {
+            "concept": "https://editorial.uefa.com/resources/02a5-20ab6d2f8514-897923904829-1000/ntc_review._compilation_of_slides_for_media.pdf",
+            "announcement": "https://www.uefa.com/uefanationsleague/news/02a5-20abaa999b8a-b0a852eae001-1000--new-concept-for-mens-national-team-competitions-as-of-2028-approved/",
+            "revisedIndex": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27-Online",
+            "art19": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online?contentId=LUyRDKlp9n9YBqGezBhi4g",
+            "oldCache": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online"
+          },
+          "visualPages": [
+            4,
+            5
+          ],
+          "bestThirds": {
+            "selectionCount": 2,
+            "from": 3,
+            "quarterfinalSlots": 8,
+            "status": "V_CONCEPT_COUNT_P_COMPARATOR",
+            "comparator": null
+          },
+          "ordinaryGroup": {
+            "teams": 6,
+            "pots": 3,
+            "teamsPerPot": 2,
+            "fixturesPerTeam": 6,
+            "distinctOpponents": 5,
+            "home": 3,
+            "away": 3,
+            "allPairsMeet": true,
+            "unequalHeadToHeadMultiplicity": true,
+            "unorderedPairs": 15,
+            "repeatPairs": 3,
+            "fixtures": 18,
+            "comparator": null,
+            "status": "V_CONCEPT_I_GRAPH_PROOF"
+          },
+          "oddGroups": {
+            "sizes": [
+              5,
+              7
+            ],
+            "status": "P_ADJUSTMENTS_UNSPECIFIED",
+            "five": "five distinct opponents impossible with five entrants",
+            "seven": "each team exactly one reciprocal repeat opponent impossible on odd cardinality (odd sum of degrees); six-game ordinary model cannot be applied unchanged",
+            "comparators": null,
+            "fixtures": null
+          },
+          "pots": {
+            "localBands": [
+              [
+                1,
+                6
+              ],
+              [
+                7,
+                12
+              ],
+              [
+                13,
+                18
+              ]
+            ],
+            "leagueAllocation": "final CE UNL2627 Art19.06",
+            "status": "V_CONCEPT_BANDS_P_OFFICIAL_2829_DRAW_RULE_AND_FINAL_RANK_BINDING",
+            "specificRestrictions": null
+          },
+          "calendar": {
+            "status": "P_WINDOWS_ONLY",
+            "newExactDates": null
+          },
+          "sourceVersionWarning": "Unparameterized Article19 open returns enforcement 29 July 2026 with obsolete C/D and 55 slots; current search index 15 September and revised Article19 indexed; revised contentId open cache miss. Do not downgrade adopted 2627 revision. No successor detailed rulebook located.",
+          "tests": {
+            "anonymousGraph": [
+              {
+                "i": 0,
+                "home": 3,
+                "away": 3,
+                "distinct": 5
+              },
+              {
+                "i": 1,
+                "home": 3,
+                "away": 3,
+                "distinct": 5
+              },
+              {
+                "i": 2,
+                "home": 3,
+                "away": 3,
+                "distinct": 5
+              },
+              {
+                "i": 3,
+                "home": 3,
+                "away": 3,
+                "distinct": 5
+              },
+              {
+                "i": 4,
+                "home": 3,
+                "away": 3,
+                "distinct": 5
+              },
+              {
+                "i": 5,
+                "home": 3,
+                "away": 3,
+                "distinct": 5
+              }
+            ],
+            "fixtureCount": 18,
+            "oddDegreeSum": [
+              5,
+              7
+            ],
+            "status": "ST JS SI; runtime NP"
+          },
+          "closure": "No canonical field promotion; no runtime, no fallback, no future real results."
+        },
+        "block13CalendarAndComparators": {
+          "scope": "UNL 2627 verified rules and 2829 separate candidate template",
+          "sources": {
+            "mou": "https://editorial.uefa.com/resources/0286-193a153f3660-f29fc244130b-1000/uefa-eca_mou_2024-30_signed_6_september_2023_.pdf",
+            "draw2627": "https://www.uefa.com/uefanationsleague/news/02a1-1fc60cd57c4d-de2c1d716ed6-1000/",
+            "art15": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-15-Equality-of-points-league-phase-Online",
+            "art19": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online",
+            "september": "https://www.uefa.com/news-media/news/02a9-21989b5df6ad-ebfe9f757b14-1000%E2%80%93munich-and-barcelona-to-host-uefa-champions-league-finals/",
+            "concept": "https://editorial.uefa.com/resources/02a5-20ab6d2f8514-897923904829-1000/ntc_review._compilation_of_slides_for_media.pdf",
+            "wiki": "https://en.wikipedia.org/wiki/2028%E2%80%9329_UEFA_Nations_League"
+          },
+          "art2627": {
+            "version": "15 September 2026",
+            "status": "V",
+            "groupTiebreak": [
+              "H2H_POINTS",
+              "H2H_GOAL_DIFFERENCE",
+              "H2H_GOALS",
+              "H2H_REAPPLY_REMAINING_SUBSET",
+              "OVERALL_GOAL_DIFFERENCE",
+              "OVERALL_GOALS",
+              "OVERALL_AWAY_GOALS",
+              "OVERALL_WINS",
+              "OVERALL_AWAY_WINS",
+              "DISCIPLINE_ASC",
+              "ACCESS_LIST_RANK_ASC"
+            ],
+            "crossGroupRanking": [
+              "GROUP_POSITION_ASC",
+              "POINTS",
+              "GOAL_DIFFERENCE",
+              "GOALS",
+              "AWAY_GOALS",
+              "WINS",
+              "AWAY_WINS",
+              "DISCIPLINE_ASC",
+              "ACCESS_LIST_RANK_ASC"
+            ],
+            "unequalGroupRule": "2627 only: disregard results vs fourth for comparing first/second/third; all for fourth. Do not mechanically extrapolate to 5/7 teams.",
+            "discipline": {
+              "yellow": 1,
+              "red": 3,
+              "secondYellowDismissal": 3,
+              "includesTeamOfficials": true
+            },
+            "finalRankingBlocks": [
+              [
+                1,
+                4,
+                "FINAL_FOUR_RESULT"
+              ],
+              [
+                5,
+                8,
+                "QF_LOSERS"
+              ],
+              [
+                9,
+                10,
+                "A_BEST_THIRDS"
+              ],
+              [
+                11,
+                18,
+                "B_WINNERS_AND_AB_WINNERS"
+              ],
+              [
+                19,
+                24,
+                "A_BOTTOM_FOURTHS_AND_AB_LOSERS"
+              ],
+              [
+                25,
+                28,
+                "B_THIRDS"
+              ],
+              [
+                29,
+                36,
+                "C_WINNERS_AND_BC_WINNERS"
+              ],
+              [
+                37,
+                40,
+                "BC_LOSERS"
+              ],
+              [
+                41,
+                44,
+                "C_THIRDS"
+              ],
+              [
+                45,
+                48,
+                "C_FOURTHS"
+              ],
+              [
+                49,
+                54,
+                "D_ALL"
+              ]
+            ],
+            "withinBlock": "interim ranking except final four",
+            "sourceVersion": "full September text retrieved via search index; open cache still older July article; no real postSTART results imported"
+          },
+          "successor": {
+            "potBands": [
+              [
+                [
+                  1,
+                  6
+                ],
+                [
+                  7,
+                  12
+                ],
+                [
+                  13,
+                  18
+                ]
+              ],
+              [
+                [
+                  19,
+                  24
+                ],
+                [
+                  25,
+                  30
+                ],
+                [
+                  31,
+                  36
+                ]
+              ],
+              [
+                [
+                  37,
+                  42
+                ],
+                [
+                  43,
+                  48
+                ],
+                [
+                  49,
+                  54
+                ]
+              ]
+            ],
+            "potBindingStatus": "I; official May slide confirms local bands and Article19.06 confirms league boundaries, prior-edition pot binding secondary only",
+            "bestThirdsComparatorCandidate": [
+              "POINTS",
+              "GOAL_DIFFERENCE",
+              "GOALS",
+              "AWAY_GOALS",
+              "WINS",
+              "AWAY_WINS",
+              "DISCIPLINE_ASC",
+              "ACCESS_LIST_RANK_ASC"
+            ],
+            "status": "REFERENCE_ONLY_NOT_ADOPTED",
+            "withinGroupComparatorCandidate": [
+              "H2H_POINTS",
+              "H2H_GOAL_DIFFERENCE",
+              "H2H_GOALS",
+              "H2H_REAPPLY_REMAINING_SUBSET",
+              "OVERALL_GOAL_DIFFERENCE",
+              "OVERALL_GOALS",
+              "OVERALL_AWAY_GOALS",
+              "OVERALL_WINS",
+              "OVERALL_AWAY_WINS",
+              "DISCIPLINE_ASC",
+              "ACCESS_LIST_RANK_ASC"
+            ],
+            "warning": "Unequal H2H multiplicity needs explicit 2829 rule; not automatically safe.",
+            "drawReference2627": {
+              "prohibitedClashes": "Bosnia-Herzegovina/Kosovo applicable in 2627 only; other prohibited clashes possible depending on league membership",
+              "maxExcessiveTravelPairsPerGroup": 1,
+              "travelDefinition": "8h or more direct flight plus 90 min ground operations",
+              "maxWinterRiskCountriesPerGroup": 2,
+              "winterRiskCountries": [
+                "EST",
+                "FRO",
+                "FIN",
+                "ISL",
+                "LVA",
+                "LTU",
+                "NOR"
+              ],
+              "status": "2627 reference only; 2829-specific lists/constraints unresolved"
+            },
+            "calendar": {
+              "status": "GAME_TEMPLATE_2026_CANDIDATE_NOT_OFFICIAL",
+              "method": "same offsets relative to FIFA window start; no actual 2829 UEFA dates certified",
+              "windows": [
+                [
+                  "2026-09-21",
+                  "2026-10-06",
+                  "2028-09-18",
+                  "2028-10-03"
+                ],
+                [
+                  "2026-11-09",
+                  "2026-11-17",
+                  "2028-11-13",
+                  "2028-11-21"
+                ],
+                [
+                  "2027-03-22",
+                  "2027-03-30",
+                  "2029-03-19",
+                  "2029-03-27"
+                ],
+                [
+                  "2027-06-07",
+                  "2027-06-15",
+                  "2029-06-04",
+                  "2029-06-12"
+                ]
+              ],
+              "bands": [
+                {
+                  "phase": "MD1",
+                  "sourceStart": "2026-09-24",
+                  "sourceEnd": "2026-09-26",
+                  "start": "2028-09-21",
+                  "end": "2028-09-23",
+                  "offsetDays": 728,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                },
+                {
+                  "phase": "MD2",
+                  "sourceStart": "2026-09-27",
+                  "sourceEnd": "2026-09-29",
+                  "start": "2028-09-24",
+                  "end": "2028-09-26",
+                  "offsetDays": 728,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                },
+                {
+                  "phase": "MD3",
+                  "sourceStart": "2026-09-30",
+                  "sourceEnd": "2026-10-03",
+                  "start": "2028-09-27",
+                  "end": "2028-09-30",
+                  "offsetDays": 728,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                },
+                {
+                  "phase": "MD4",
+                  "sourceStart": "2026-10-04",
+                  "sourceEnd": "2026-10-06",
+                  "start": "2028-10-01",
+                  "end": "2028-10-03",
+                  "offsetDays": 728,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                },
+                {
+                  "phase": "MD5",
+                  "sourceStart": "2026-11-12",
+                  "sourceEnd": "2026-11-14",
+                  "start": "2028-11-16",
+                  "end": "2028-11-18",
+                  "offsetDays": 735,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                },
+                {
+                  "phase": "MD6",
+                  "sourceStart": "2026-11-15",
+                  "sourceEnd": "2026-11-17",
+                  "start": "2028-11-19",
+                  "end": "2028-11-21",
+                  "offsetDays": 735,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                },
+                {
+                  "phase": "QF_AND_MOVEMENT",
+                  "sourceStart": "2027-03-25",
+                  "sourceEnd": "2027-03-30",
+                  "start": "2029-03-22",
+                  "end": "2029-03-27",
+                  "offsetDays": 728,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                },
+                {
+                  "phase": "FINAL_FOUR",
+                  "sourceStart": "2027-06-09",
+                  "sourceEnd": "2027-06-13",
+                  "start": "2029-06-06",
+                  "end": "2029-06-10",
+                  "offsetDays": 728,
+                  "status": "GAME_TEMPLATE_2026_CANDIDATE"
+                }
+              ],
+              "anonymousRestLanes": [
+                [
+                  "2028-09-21",
+                  "2028-09-24",
+                  "2028-09-28",
+                  "2028-10-01",
+                  "2028-11-16",
+                  "2028-11-19"
+                ],
+                [
+                  "2028-09-22",
+                  "2028-09-25",
+                  "2028-09-29",
+                  "2028-10-02",
+                  "2028-11-17",
+                  "2028-11-20"
+                ],
+                [
+                  "2028-09-23",
+                  "2028-09-26",
+                  "2028-09-30",
+                  "2028-10-03",
+                  "2028-11-18",
+                  "2028-11-21"
+                ]
+              ],
+              "mouRule": "E.9 last match in men's international window Tuesday; applies to calendar coordination, not assumed to override finals match structure",
+              "mouSourceQuality": "official UEFA-hosted signed MoU text pages20–23; screenshot attempt p21/22 cache miss; corroborates prior federation copy",
+              "exception55": "May/June2028 window restricted to continental-finals preparation; no automatic earlier start",
+              "fixtureSchedule": null
+            },
+            "unresolved": [
+              "official 2829 comparator, draw conditions, odd-size handling, exact individual dates and final regulation"
+            ]
+          },
+          "tests": {
+            "calendarBands": 8,
+            "rankCoverage": 54,
+            "restLanes": 3,
+            "minimumCalendarDayGap": 3,
+            "windowEndTuesday": true,
+            "status": "ST JS SI; no runtime, no global club collision test"
+          }
+        },
+        "block14OddGroupEvidence": {
+          "scope": "UNL 2829 only, official structural confirmation plus conditional combinatorial lower bounds",
+          "sources": {
+            "slides": "https://editorial.uefa.com/resources/02a5-20ab6d2f8514-897923904829-1000/ntc_review._compilation_of_slides_for_media.pdf",
+            "announcement": "https://www.uefa.com/uefanationsleague/news/02a5-20abaa999b8a-b0a852eae001-1000--new-concept-for-mens-national-team-competitions-as-of-2028-approved/",
+            "scope": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-1-Scope-of-application-Online",
+            "art19": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online",
+            "circular": "https://ar.uefa.com/news-media/documents/circular-letters/",
+            "index": "https://www.uefa.com/news-media/documents/circular-letters/?S6LK4C6AFdET5Yw=wBWorl4",
+            "draw2627": "https://editorial.uefa.com/resources/02a2-1fe81f47532b-33ea7fae9cab-1000/20260123_circular_2026_03_en_enclosure_1_unl_2627_league_phase_draw_procedure_en_1.pdf"
+          },
+          "visualPagesVerified": [
+            3,
+            4,
+            5
+          ],
+          "layouts": [
+            {
+              "entrants": 53,
+              "groups": [
+                [
+                  6,
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  6,
+                  5
+                ]
+              ],
+              "officialStatus": "V_CONCEPT_LAYOUT",
+              "oddFormat": "UNKNOWN",
+              "startsEarlier": null
+            },
+            {
+              "entrants": 54,
+              "groups": [
+                [
+                  6,
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  6,
+                  6
+                ]
+              ],
+              "officialStatus": "V_CONCEPT_LAYOUT",
+              "oddFormat": "NOT_APPLICABLE",
+              "startsEarlier": null
+            },
+            {
+              "entrants": 55,
+              "groups": [
+                [
+                  6,
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  6,
+                  6
+                ],
+                [
+                  6,
+                  6,
+                  7
+                ]
+              ],
+              "officialStatus": "V_CONCEPT_LAYOUT",
+              "oddFormat": "UNKNOWN",
+              "startsEarlier": true
+            }
+          ],
+          "movesOrdinary54": {
+            "A": {
+              "quarterfinal": "three firsts, three seconds, two thirds",
+              "directDown": "three sixths",
+              "playoffsDown": "fourth and fifth in each group (6)"
+            },
+            "B": {
+              "directUp": "three firsts",
+              "playoffsUp": "second and third in each group (6)",
+              "directDown": "three sixths",
+              "playoffsDown": "fourth and fifth in each group (6)"
+            },
+            "C": {
+              "directUp": "three firsts",
+              "playoffsUp": "second and third in each group (6)",
+              "remaining": "stay; odd group details unknown"
+            }
+          },
+          "movementTiesPerBoundary": 6,
+          "potStructure": {
+            "potsPerLeague": 3,
+            "teamsPerPot": 6,
+            "teamsPerPotPerGroup": 2,
+            "homeAwayPerPot": 1,
+            "status": "V_CONCEPT_54_ONLY"
+          },
+          "roundBounds": [
+            {
+              "teams": 5,
+              "conditionalMatchesPerTeam": 6,
+              "fixtures": 15,
+              "maxFixturesPerRound": 2,
+              "minRounds": 8,
+              "status": "I conditional on six matches per team, not an adopted odd-group format"
+            },
+            {
+              "teams": 6,
+              "conditionalMatchesPerTeam": 6,
+              "fixtures": 18,
+              "maxFixturesPerRound": 3,
+              "minRounds": 6,
+              "status": "I conditional on six matches per team, not an adopted odd-group format"
+            },
+            {
+              "teams": 7,
+              "conditionalMatchesPerTeam": 6,
+              "fixtures": 21,
+              "maxFixturesPerRound": 3,
+              "minRounds": 7,
+              "status": "I conditional on six matches per team, not an adopted odd-group format"
+            }
+          ],
+          "unknown": [
+            "odd-group actual games per team, pot sizes/assignment, draw conditions, comparison, 53 start window, 55 exact dates",
+            "official 2829 group and intergroup tie-break",
+            "political/travel/winter draw restrictions specific to 2829",
+            "official matchdays and exact draw rulebook"
+          ],
+          "circularAudit": {
+            "number58": "Arabic index search result confirms title Updates to the 2026/27 and 2028/29 UEFA Nations League and the 2026–28 European Qualifiers; open/find cache miss, no document content verified",
+            "priorRelease": "2025 circular71 entry/regulations/dates for 2627; 2026 circular3 draw procedure January23, historical precedent only",
+            "regulationScope": "Art1 expressly 2627 only; revised Art19.06 indexed gives 1–18 A,19–36 B,remaining C; old open cache not authoritative",
+            "search": "EN/DE/FR/IT and federation searches: no detailed 2829 rulebook obtained; does not establish nonpublication"
+          },
+          "tests": {
+            "layoutSum": true,
+            "roundBounds": true,
+            "status": "ST JS SI, runtime NP"
+          },
+          "noFallback": true
+        },
+        "block15ConditionalReuseDecision": {
+          "userQuote": "ok va bene se per 26 abbiamo tutto",
+          "date": "2026-11-28",
+          "status": "CONDITIONAL_USER_APPROVAL_COMPATIBLE_RULE_BASE_NOT_RUNTIME",
+          "initialEditionAudit": {
+            "teams": 54,
+            "groups": 14,
+            "accessSeedRows": 54,
+            "groupFixtures": 156,
+            "quarterfinalFixtures": 8,
+            "movementFixtures": 16,
+            "finalsFixtures": 4,
+            "totalFixtures": 184,
+            "primarySportingRules": "documented",
+            "remaining": [
+              "catalog/CE identity binding",
+              "Annex C original image unavailable; seed independently recovered from official final ranking and draw",
+              "September Art19 indexed EN/DE, exact open cache miss; older open index July29",
+              "OG handling of officials' disciplinary cards and suspended-match snapshots, roster exceptions, actual save/continue not validated",
+              "lifecycle/closure integration and full matrix promotion pending; historical evolution deferred"
+            ],
+            "sources": [
+              "https://www.uefa.com/uefanationsleague/news/02a1-1fc60cd57c4d-de2c1d716ed6-1000/",
+              "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-15-Equality-of-points-league-phase-Online",
+              "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Article-19-Individual-league-interim-overall-and-final-overall-rankings-Online?contentId=LUyRDKlp9n9YBqGezBhi4g",
+              "https://documents.uefa.com/r/Reglement-der-UEFA-Nations-League-2026/27/Artikel-19-Liga-Zwischen-und-Gesamttabelle-Online"
+            ]
+          },
+          "successorPolicy": {
+            "precedence": [
+              "official 2028/29 concept where specified",
+              "compatible 2026/27 verified sporting rules as provisional basis, subject to user's condition",
+              "no extrapolation of rules incompatible with new format"
+            ],
+            "reference": [
+              "block13CalendarAndComparators",
+              "block14OddGroupEvidence"
+            ],
+            "provisionalOnly": [
+              "cross-group ranking of equal-size groups",
+              "ordinary discipline, substitutions, extra time/penalties, rescheduling where applicable",
+              "2026 draw constraints as reference, exact 2028 lists unknown",
+              "calendar GAME_TEMPLATE_2026 candidate bands, not official dates",
+              "sequential pot bands candidate, not verified official allocation"
+            ],
+            "requiresSeparateResolution": [
+              "odd-group 53/55 opponent pattern, pot distribution and comparison",
+              "unequal multiplicity H2H and any altered comparator",
+              "exact successor playoff/draw pairing constraints where incompatible"
+            ],
+            "doNotCopy": [
+              "old A/B/C/D layout",
+              "obsolete C/D playoffs",
+              "2026 movement rank buckets into 2028/29",
+              "unequal-size exclusion of fourth without analysis",
+              "real-world postSTART standings or outcomes"
+            ],
+            "implementation": "PENDING; no new fallback executed, no canonical promotion"
+          },
+          "tests": "ST counts 54/14/156/184 SI; runtime NP"
+        }
+      },
+      "block4DrawAndCalendar": {
+        "scope": "POSTSTART_REFERENCE_ONLY; no real November ranking, pot membership, QF/PO participant names or actual results retained; generated CE state decides these",
+        "sources": [
+          "https://editorial.uefa.com/resources/02ab-221968265425-d5c7eee03b62-1000/eq_draw_procedure.pdf",
+          "https://www.uefa.com/euro2028/news/02ab-222391e639b1-eada623fd7a9-1000--uefa-euro-2028-qualifying-group-stage-draw-all-you-need-to/",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-24-Match-dates-and-fixtures-Online?contentId=P5WsjEPTZjyDWlwJ4Ol_2A",
+          "https://www.uefa.com/euro2028/news/0299-1dcf3fef69a9-41405d004b47-1000--qualification-system-for-uefa-euro-2028-approved/"
+        ],
+        "draw": {
+          "potSizes": [
+            12,
+            12,
+            12,
+            12,
+            6
+          ],
+          "order": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "firstFeasibleGroup": "alphabetical A..L, pot5 G..L, lookahead to prevent deadlock",
+          "groups4": "A..F; MD5..10 only",
+          "groups5": "G..L; MD1..10, one bye per team each cycle",
+          "QFWinner": "four unresolved placeholders into different groups A..F",
+          "QFLoserOrMovement": "maximum one per five-team group; both March slots bye if present",
+          "hostSeparate": [
+            "ENG",
+            "IRL",
+            "SCO",
+            "WAL",
+            "NIR"
+          ],
+          "prohibited": [
+            [
+              "ARM",
+              "AZE"
+            ],
+            [
+              "BLR",
+              "UKR"
+            ],
+            [
+              "GIB",
+              "ESP"
+            ],
+            [
+              "KOS",
+              "BIH"
+            ],
+            [
+              "KOS",
+              "SRB"
+            ]
+          ],
+          "winter": {
+            "teams": [
+              "EST",
+              "FRO",
+              "FIN",
+              "ISL",
+              "LVA",
+              "LTU",
+              "NOR"
+            ],
+            "maxPerGroup": 2
+          },
+          "travel": {
+            "pairs": [
+              [
+                "AND",
+                "KAZ"
+              ],
+              [
+                "ENG",
+                "KAZ"
+              ],
+              [
+                "FRA",
+                "KAZ"
+              ],
+              [
+                "GIB",
+                "KAZ"
+              ],
+              [
+                "ISL",
+                "KAZ"
+              ],
+              [
+                "MLT",
+                "KAZ"
+              ],
+              [
+                "NIR",
+                "KAZ"
+              ],
+              [
+                "POR",
+                "KAZ"
+              ],
+              [
+                "IRL",
+                "KAZ"
+              ],
+              [
+                "SCO",
+                "KAZ"
+              ],
+              [
+                "ESP",
+                "KAZ"
+              ],
+              [
+                "WAL",
+                "KAZ"
+              ],
+              [
+                "ISL",
+                "AZE"
+              ],
+              [
+                "POR",
+                "AZE"
+              ],
+              [
+                "ARM",
+                "ISL"
+              ],
+              [
+                "CYP",
+                "ISL"
+              ]
+            ],
+            "maxPerGroup": 1,
+            "thresholdHours": 8
+          },
+          "placeholderCondition": "if a QF pairing includes a restricted team, propagate its restriction to unresolved placeholder until resolved; no real QF pairing stored",
+          "neutralHome": [
+            "BLR",
+            "UKR"
+          ],
+          "neutralHomeScope": "November 2026 UEFA decision valid until further notice; no automatic extrapolation"
+        },
+        "calendar": {
+          "year": 2027,
+          "roundWindows": [
+            "03-26",
+            "03-29",
+            "06-11/12",
+            "06-14/15",
+            "09-23/25",
+            "09-26/28",
+            "09-30..10-02",
+            "10-03/05",
+            "11-11/13",
+            "11-14/16"
+          ],
+          "playoffs": "2028-03-23..28",
+          "exception": "2027-09-29 possible per Art24; November published MD7 starts Sep30; preserve both, do not force exception",
+          "restFreeDays": 2,
+          "sameGroupSameDay": true,
+          "weekdayAndHABalance": true
+        },
+        "limits": "draw PDF text read, screenshot cache miss; November article indexed only, open cache miss; preSTART qualification format independently confirmed May2025; exact Annex A image not acquired; calendar dates are reference templates not generated actual fixtures"
+      },
+      "block6OperationalRules": {
+        "scope": "2026–28 senior men; rules references, not new CT workflow or game authorization",
+        "sourceVersions": "EURO Art25/28/32/57 opened June1 preSTART cache; Art14/16/18/22/23/30/64 July29 reference. Do not extrapolate old regulation to other editions.",
+        "lifecycle": {
+          "frequencyYears": 4,
+          "editionDurationSeasons": 2,
+          "phaseOrder": [
+            "QUALIFYING_GROUP",
+            "QUALIFYING_PLAYOFF",
+            "FINAL_GROUP",
+            "FINAL_KO"
+          ],
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-3-Competition-frequency-and-entries-Online",
+          "policy": "CE independently closes each phase on completed results; keep one EURO edition identity linking qualifiers and finals. Exact next opening not official: don't invent date, no July reset. Game rule proposal only; no schema/runtime change."
+        },
+        "roster": {
+          "listPerMatch": 23,
+          "goalkeepers": 3,
+          "deadline": "23:59 CET day before match",
+          "afterDeadlineSeriousInjury": {
+            "goalkeeper": "allowed with approval/evidence",
+            "outfield": "not allowed"
+          },
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-32-Player-lists-Online?contentId=jOiVbIMugfqgLKm2BFjQcw"
+        },
+        "substitutions": {
+          "normal": 5,
+          "extraTimeOnlyAdditional": 1,
+          "windowsNormal": 3,
+          "windowsExtraTimeAdditional": 1,
+          "nonWindowPeriods": [
+            "PRE_KICKOFF",
+            "HALFTIME",
+            "BEFORE_ET",
+            "ET_HALFTIME"
+          ],
+          "returnAfterSubstitution": false
+        },
+        "knockout": {
+          "singleLeg": "90min then 2x15 ET then penalties",
+          "twoLeg": "if aggregate equal after return leg, 2x15 ET then penalties; no away-goals tiebreak",
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-22-Extra-time-and-penalty-shoot-outs-Online?contentId=c~5hdI57efBZbYSqvKpiUA"
+        },
+        "friendlies": {
+          "calendar": "international windows",
+          "officialRecoveryPriority": true,
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-25-Friendly-matches-Online?contentId=raHmKlgWpfB6OONG8JzEYw"
+        },
+        "rescheduling": {
+          "usual": "next day",
+          "otherwise": "within or closest to relevant window with authority decision",
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-28-Rescheduling-of-matches-Online?contentId=zjy07Tes2riiw0FqzEUkPQ"
+        },
+        "administrativeExceptions": {
+          "refusal": "disciplinary authority may forfeit, sanction, disqualify; no automatic invented score",
+          "disqualification": "annul all results and awarded points",
+          "replacement": "authority discretionary based on previously eliminated teams; no arbitrary replacement",
+          "validateAbandonedResult": "only authority decision when current score harms responsible team"
+        },
+        "classification": {
+          "compareAfterGroupComplete": true,
+          "excludeFifthForRank1to4InGroupsOf5": true,
+          "disciplineIncludesTeamOfficials": true,
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-23-Overall-European-Qualifiers-rankings-Online?contentId=MHKexLNL5xgGYTUolBOu5Q"
+        },
+        "qualificationVerification": {
+          "direct": 20,
+          "remainingPlayoffBerths": "4 minus used host reservations; 8/12/8 participants for 2/1/0 reserved used",
+          "dGroupFallback": "only highest ranked D group winner if eligible, else overall fallback; no automatic second D winner preference",
+          "source": [
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-14-Match-system-qualifying-group-stage-Online",
+            "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-16-Path-formation-play-offs-Online"
+          ]
+        },
+        "sources": [
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-3-Competition-frequency-and-entries-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-14-Match-system-qualifying-group-stage-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-16-Path-formation-play-offs-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-22-Extra-time-and-penalty-shoot-outs-Online?contentId=c~5hdI57efBZbYSqvKpiUA",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-23-Overall-European-Qualifiers-rankings-Online?contentId=MHKexLNL5xgGYTUolBOu5Q",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-25-Friendly-matches-Online?contentId=raHmKlgWpfB6OONG8JzEYw",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-28-Rescheduling-of-matches-Online?contentId=zjy07Tes2riiw0FqzEUkPQ",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-30-Refusal-to-play-and-similar-cases-Online?contentId=GonueNExoMyVZtWMrZAtpg",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-32-Player-lists-Online?contentId=jOiVbIMugfqgLKm2BFjQcw",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-57-Player-replacements-and-substitutions-Online?contentId=GKRwiqoyx~DTYWOPh4X4wQ",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-64-Yellow-and-red-cards-Online"
+        ],
+        "limits": "Disciplinary official events availability and OG restart state support not tested. Admin exceptional result is authority decision; no fabricated score. Exact edition opening and annex unresolved."
+      },
+      "block7Qualification": {
+        "status": "SOURCE_SUPPORTED_RULES_NOT_RUNTIME",
+        "sources": [
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-14-Match-system-qualifying-group-stage-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-16-Path-formation-play-offs-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-17-Match-system-play-offs-Online?contentId=imzI9w5C2UzKWk8jV6Ia8A"
+        ],
+        "order": [
+          "20_DIRECT",
+          "UP_TO_2_HIGHEST_RANKED_NON_DIRECT_HOSTS",
+          "REMAINING_LOWEST_4_RUNNERS_MINUS_RESERVED_HOSTS",
+          "UNL_ABC_GROUP_WINNERS_BY_INTERIM_RANK_EXCLUDING_PRIOR_QUALIFIERS",
+          "HIGHEST_D_GROUP_WINNER_IF_ELIGIBLE",
+          "UNL_OVERALL_REMAINING"
+        ],
+        "scenarios": [
+          {
+            "hostsNotDirect": 0,
+            "reservedUsed": 0,
+            "reservedAmongLowestRunners": 0,
+            "remainingRunners": 4,
+            "unlSlots": 4,
+            "playoffEntrants": 8,
+            "playoffBerths": 4
+          },
+          {
+            "hostsNotDirect": 1,
+            "reservedUsed": 1,
+            "reservedAmongLowestRunners": 0,
+            "remainingRunners": 4,
+            "unlSlots": 8,
+            "playoffEntrants": 12,
+            "playoffBerths": 3
+          },
+          {
+            "hostsNotDirect": 1,
+            "reservedUsed": 1,
+            "reservedAmongLowestRunners": 1,
+            "remainingRunners": 3,
+            "unlSlots": 9,
+            "playoffEntrants": 12,
+            "playoffBerths": 3
+          },
+          {
+            "hostsNotDirect": 2,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 0,
+            "remainingRunners": 4,
+            "unlSlots": 4,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 2,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 1,
+            "remainingRunners": 3,
+            "unlSlots": 5,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 2,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 2,
+            "remainingRunners": 2,
+            "unlSlots": 6,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 3,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 0,
+            "remainingRunners": 4,
+            "unlSlots": 4,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 3,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 1,
+            "remainingRunners": 3,
+            "unlSlots": 5,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 3,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 2,
+            "remainingRunners": 2,
+            "unlSlots": 6,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 4,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 0,
+            "remainingRunners": 4,
+            "unlSlots": 4,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 4,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 1,
+            "remainingRunners": 3,
+            "unlSlots": 5,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          },
+          {
+            "hostsNotDirect": 4,
+            "reservedUsed": 2,
+            "reservedAmongLowestRunners": 2,
+            "remainingRunners": 2,
+            "unlSlots": 6,
+            "playoffEntrants": 8,
+            "playoffBerths": 2
+          }
+        ],
+        "hostPool": [
+          "ENG",
+          "IRL",
+          "SCO",
+          "WAL"
+        ],
+        "excludeNorthernIrelandFromReservation": true,
+        "homeRules": {
+          "singleLegSemi": "pot1/2 host",
+          "singleLegFinal": "winner of semifinal involving pot1 hosts regardless of own seed",
+          "twoLeg": "seed hosts return"
+        },
+        "limits": "Scenario table derived from articles, not actual qualifiers; additional future restrictions not yet published; no new implementation."
+      },
+      "block7PlayerEligibility": {
+        "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-31-Player-eligibility-Online?contentId=X0nD4bXHQ1d1mQL7Wcdh1g",
+        "nationalityRequired": true,
+        "fifaStatutesArticles": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "eligibilityAuthority": "UEFA; disputes disciplinary bodies",
+        "medicalRequired": true,
+        "limits": "No new nationality-switch mechanic or CT callup rule; existing OG selection retained. FIFA substantive articles not independently audited."
+      },
+      "block8SharedCalendar": {
+        "status": "V_PRESTART_ANNEX_A_VISUAL_REFERENCE",
+        "sourceEffective": "2025-12-15",
+        "sources": [
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2026/27/Annex-A-2026-28-National-Team-Match-Calendar-Online?contentId=Px0VDTJ_Ffj9JZnv8aS7NA",
+          "https://documents.uefa.com/api/khub/maps/HlG1NvOr4H_30IjSKzlRKg/resources/vwOuM_WiXK8Oe7VUeoYPTA-HlG1NvOr4H_30IjSKzlRKg/content?v=fd91290f5e124da4",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Annex-A-2026-28-National-Team-Match-Calendar-Online?contentId=pL94Xn~U3HX42T4m7DWXuQ",
+          "https://inside.fifa.com/tournament-organisation/international-match-calendars",
+          "https://inside.fifa.com/en/organisation/fifa-council/media-releases/fifa-council-approves-international-match-calendars"
+        ],
+        "windows2026": [
+          {
+            "start": "2026-09-21",
+            "end": "2026-10-06",
+            "maxMatchesPerTeam": 4
+          },
+          {
+            "start": "2026-11-09",
+            "end": "2026-11-17",
+            "maxMatchesPerTeam": 2
+          }
+        ],
+        "cadence": {
+          "march": {
+            "days": 9,
+            "max": 2
+          },
+          "june": {
+            "days": 9,
+            "max": 2
+          },
+          "sepOct": {
+            "days": 16,
+            "max": 4
+          },
+          "nov": {
+            "days": 9,
+            "max": 2
+          }
+        },
+        "annexReference2027": {
+          "march": "03-25..30 EQ1/EQ2 OR UNL QF/PO",
+          "june": "06-09..15 UNL finals/EQ3/EQ4",
+          "sepOct": "09-23..10-05 EQ5..8; Sep29 exceptional",
+          "nov": "11-11..16 EQ9/10"
+        },
+        "annexReference2028": {
+          "march": "03-23..28 EQ PO; old UNL CD only",
+          "friendlies": "05-29..06-08 centralized friendlies",
+          "finals": "06-09..07-09 EURO"
+        },
+        "limits": "Annex A preliminary UEFA match allocations, not full FIFA window boundaries for 2027/28. UEFA explicitly leaves March/June 2027 exact allocation to later confirmation. The obsolete C/D March2028 block belongs only to old rule. Later reference schedules must be separated; no real future outcomes."
       }
     }
   }

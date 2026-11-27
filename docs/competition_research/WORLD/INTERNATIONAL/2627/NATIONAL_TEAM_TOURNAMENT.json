@@ -7346,6 +7346,685 @@
           }
         }
       }
+    },
+    "roundTemplateAudit": {
+      "edition": "2028",
+      "scope": "RESEARCH_ONLY, not runtime; rules effective 2026-07-29 after START, future dates GAME_TEMPLATE candidates; never use real post-START ranking, results or draws",
+      "fields": {
+        "name": "V",
+        "identity": "V",
+        "participants": "P",
+        "format": "V",
+        "regulation": "P",
+        "movement": "NA",
+        "qualification": "P",
+        "july1": "NA",
+        "roundDates": "V",
+        "competitionDays": "V",
+        "evolution": "P",
+        "seasonChange": "P"
+      },
+      "operationalStatus": "INCOMPLETA",
+      "format": {
+        "teams": 24,
+        "groups": 6,
+        "size": 4,
+        "groupMatches": 36,
+        "koMatches": 15,
+        "totalMatches": 51,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "advance": {
+          "first": 6,
+          "second": 6,
+          "third": 4
+        },
+        "thirdRanking": [
+          "POINTS",
+          "GD",
+          "GF",
+          "WINS",
+          "DISCIPLINE_ASC",
+          "EURO_QUALIFIER_RANK_ASC"
+        ],
+        "groupTie": [
+          "H2H_POINTS",
+          "H2H_GD",
+          "H2H_GF",
+          "REAPPLY_REMAINING_TIED",
+          "GD",
+          "GF",
+          "DISCIPLINE_ASC",
+          "EURO_QUALIFIER_RANK_ASC"
+        ],
+        "conditionalLastGroupPSO": "only two tied on points and goals for/against playing one another last match, still equal, no third team equal points",
+        "bracket": [
+          "WB:3ADEF",
+          "WA:RC",
+          "WF:3ABC",
+          "RD:RE",
+          "WE:3ABCD",
+          "WD:RF",
+          "WC:3DEF",
+          "RA:RB"
+        ],
+        "thirdMapping": {
+          "columns": [
+            "WB",
+            "WC",
+            "WE",
+            "WF"
+          ],
+          "rows": [
+            "ABCD:ADBC",
+            "ABCE:AEBC",
+            "ABCF:AFBC",
+            "ABDE:DEAB",
+            "ABDF:DFAB",
+            "ABEF:EFBA",
+            "ACDE:EDCA",
+            "ACDF:FDCA",
+            "ACEF:EFCA",
+            "ADEF:EFDA",
+            "BCDE:EDBC",
+            "BCDF:FDCB",
+            "BCEF:FECB",
+            "BDEF:FEDB",
+            "CDEF:FEDC"
+          ]
+        },
+        "qf": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "sf": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "final": [
+          1,
+          2
+        ],
+        "thirdPlace": false
+      },
+      "entry": {
+        "direct": 20,
+        "hostsReserved": "0..2",
+        "playoffWinners": "2..4",
+        "drawSeed": "EQ overall rank",
+        "hostPositions": {
+          "WAL": "A1",
+          "ENG": "B1",
+          "IRL": "E1",
+          "SCO": "F1",
+          "NIR": "D1 if qualified"
+        },
+        "potExceptions": "ENG pot1 if qualified at draw; highest IRL/SCO/WAL if none already pot1; playoff placeholders pot4, assigned corresponding host group but not position1",
+        "futureParticipants": "only earned from CE, no real future list",
+        "potExceptionsDetail": {
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-18-Group-formation-final-tournament-group-stage-Online",
+          "positionC1": "pot1",
+          "otherPosition1": "pot1 if no host or NIR assigned",
+          "drawPositionVsPot": "unrelated except designated position1",
+          "playoffPlaceholder": "pot4, host-associated group not position1",
+          "limits": "Annex C visual unavailable; exact pot displacement edge cases remain P"
+        }
+      },
+      "regulation": {
+        "squad": 26,
+        "substitutions": 5,
+        "windows": 3,
+        "extraTimeAdditionalSub": 1,
+        "extraTimeAdditionalWindow": 1,
+        "detailsPending": "Annex C detailed draw pot exceptions, subsequent Finalissima qualification; discipline and match sheet recovered",
+        "matchSheet": 26,
+        "bench": 15,
+        "discipline": {
+          "red": "next competition match, additional sanction possible",
+          "qualifyingYellowThresholds": [
+            3,
+            5,
+            "EVERY_SUBSEQUENT"
+          ],
+          "finalYellowThresholds": [
+            2,
+            4
+          ],
+          "clearUnusedYellowAfter": [
+            "QUALIFYING_GROUP",
+            "QUALIFYING_PLAYOFF",
+            "FINAL_QF"
+          ],
+          "clearPendingYellowSuspensionsAfter": [
+            "QUALIFYING_COMPETITION",
+            "FINAL_TOURNAMENT"
+          ],
+          "redCarry": "do not clear with yellow resets",
+          "includesTeamOfficials": true
+        }
+      },
+      "calendar": {
+        "opening": "2028-06-09",
+        "final": "2028-07-09",
+        "semifinals": [
+          "2028-07-04",
+          "2028-07-05"
+        ],
+        "groupDayWindows": [
+          "06-09..13",
+          "06-14..18",
+          "06-19..21"
+        ],
+        "groupWindowsStatus": "full venue HTML checked, see block3Schedule",
+        "lastGroupSameTime": true,
+        "restFreeDays": 2,
+        "venues": 9,
+        "hostCountries": 4,
+        "seasonChangeCandidate": "day before opening of next edition",
+        "policy": "GAME_TEMPLATE candidate, official schedule announced postSTART"
+      },
+      "sourceLocator": "CE_CALENDAR_GENERATOR.md 28/11 UEFA block1",
+      "block3Schedule": {
+        "status": "OFFICIAL_2026-07-16_POSTSTART_REFERENCE_ONLY",
+        "templateYear": 2028,
+        "groupSlotDates": {
+          "9": [
+            "A1-A2"
+          ],
+          "10": [
+            "A3-A4",
+            "B1-B2",
+            "B3-B4"
+          ],
+          "11": [
+            "C1-C2",
+            "C3-C4",
+            "D3-D4"
+          ],
+          "12": [
+            "D1-D2",
+            "E1-E2",
+            "E3-E4"
+          ],
+          "13": [
+            "F1-F2",
+            "F3-F4"
+          ],
+          "14": [
+            "A1-A3",
+            "A2-A4",
+            "B1-B3"
+          ],
+          "15": [
+            "B2-B4",
+            "C1-C3",
+            "C2-C4"
+          ],
+          "16": [
+            "D1-D3",
+            "D2-D4",
+            "E1-E3"
+          ],
+          "17": [
+            "E2-E4",
+            "F1-F3",
+            "F2-F4"
+          ],
+          "18": [
+            "A4-A1",
+            "A2-A3"
+          ],
+          "19": [
+            "B4-B1",
+            "B2-B3"
+          ],
+          "20": [
+            "C4-C1",
+            "C2-C3",
+            "D4-D1",
+            "D2-D3"
+          ],
+          "21": [
+            "E4-E1",
+            "E2-E3",
+            "F4-F1",
+            "F2-F3"
+          ]
+        },
+        "knockoutDates": [
+          [
+            "R16",
+            1,
+            "06-25"
+          ],
+          [
+            "R16",
+            2,
+            "06-24"
+          ],
+          [
+            "R16",
+            3,
+            "06-26"
+          ],
+          [
+            "R16",
+            4,
+            "06-26"
+          ],
+          [
+            "R16",
+            5,
+            "06-27"
+          ],
+          [
+            "R16",
+            6,
+            "06-27"
+          ],
+          [
+            "R16",
+            7,
+            "06-25"
+          ],
+          [
+            "R16",
+            8,
+            "06-24"
+          ],
+          [
+            "QF",
+            1,
+            "06-30"
+          ],
+          [
+            "QF",
+            2,
+            "06-30"
+          ],
+          [
+            "QF",
+            3,
+            "07-01"
+          ],
+          [
+            "QF",
+            4,
+            "07-01"
+          ],
+          [
+            "SF",
+            1,
+            "07-04"
+          ],
+          [
+            "SF",
+            2,
+            "07-05"
+          ],
+          [
+            "FINAL",
+            1,
+            "07-09"
+          ]
+        ],
+        "groupGames": 36,
+        "koGames": 15,
+        "total": 51,
+        "minFreeDays": 2,
+        "source": "https://www.uefa.com/euro2028/news/029f-1f316a6367f1-98285072ea82-1000--euro-2028-fixtures-by-venue-which-games-take-place-where/",
+        "limitations": "slot dates only; no real future participants/results; source venue schedule published after START; template dates must be tagged and not presented as future official generated dates"
+      },
+      "block4PreStartCalendar": {
+        "source": "https://editorial.uefa.com/resources/029f-1f2fc43d4317-f03cbd48c4b4-1000/euro2028_match_schedule_rvb.pdf",
+        "sourceVersion": "2025-11-12",
+        "visualVerified": true,
+        "independentLaterCrosscheck": "https://www.uefa.com/euro2028/news/029f-1f316a6367f1-98285072ea82-1000--euro-2028-fixtures-by-venue-which-games-take-place-where/",
+        "groupSlotDates": {
+          "9": [
+            "A1-A2"
+          ],
+          "10": [
+            "A3-A4",
+            "B1-B2",
+            "B3-B4"
+          ],
+          "11": [
+            "C1-C2",
+            "C3-C4",
+            "D3-D4"
+          ],
+          "12": [
+            "D1-D2",
+            "E1-E2",
+            "E3-E4"
+          ],
+          "13": [
+            "F1-F2",
+            "F3-F4"
+          ],
+          "14": [
+            "A1-A3",
+            "A2-A4",
+            "B1-B3"
+          ],
+          "15": [
+            "B2-B4",
+            "C1-C3",
+            "C2-C4"
+          ],
+          "16": [
+            "D1-D3",
+            "D2-D4",
+            "E1-E3"
+          ],
+          "17": [
+            "E2-E4",
+            "F1-F3",
+            "F2-F4"
+          ],
+          "18": [
+            "A4-A1",
+            "A2-A3"
+          ],
+          "19": [
+            "B4-B1",
+            "B2-B3"
+          ],
+          "20": [
+            "C4-C1",
+            "C2-C3",
+            "D4-D1",
+            "D2-D3"
+          ],
+          "21": [
+            "E4-E1",
+            "E2-E3",
+            "F4-F1",
+            "F2-F3"
+          ]
+        },
+        "knockoutDates": [
+          [
+            "R16",
+            1,
+            "06-25"
+          ],
+          [
+            "R16",
+            2,
+            "06-24"
+          ],
+          [
+            "R16",
+            3,
+            "06-26"
+          ],
+          [
+            "R16",
+            4,
+            "06-26"
+          ],
+          [
+            "R16",
+            5,
+            "06-27"
+          ],
+          [
+            "R16",
+            6,
+            "06-27"
+          ],
+          [
+            "R16",
+            7,
+            "06-25"
+          ],
+          [
+            "R16",
+            8,
+            "06-24"
+          ],
+          [
+            "QF",
+            1,
+            "06-30"
+          ],
+          [
+            "QF",
+            2,
+            "06-30"
+          ],
+          [
+            "QF",
+            3,
+            "07-01"
+          ],
+          [
+            "QF",
+            4,
+            "07-01"
+          ],
+          [
+            "SF",
+            1,
+            "07-04"
+          ],
+          [
+            "SF",
+            2,
+            "07-05"
+          ],
+          [
+            "FINAL",
+            1,
+            "07-09"
+          ]
+        ],
+        "matchCount": 51,
+        "scope": "published preSTART template; no actual future entrants or scores",
+        "sourceConflict": "PDF text extraction incorrectly dates W40 June26, W41/W42 June27, QF46 July1 and QF48 July2; visual grid shows June25, June26, June26, June30 and July1 respectively, matching 16 July 2026 venue page. Prefer visual dates; retain previous evidence."
+      },
+      "block4Finalissima": {
+        "status": "2026_CANCELLED_PRESTART",
+        "scheduled": "2026-03-27",
+        "participants": [
+          "ESP",
+          "ARG"
+        ],
+        "noFixtureAtStart": true,
+        "successor": "UNCONFIRMED",
+        "mouEnd": "2028-06-30",
+        "qualificationConcept": "EURO champion versus Copa America champion",
+        "sources": [
+          "https://it.uefa.com/news-media/news/02a3-2026cc4b6a4b-0ea5e3fd36ae-1000--cancellata-l-edizione-2026-della-finalissima/",
+          "https://www.uefa.com/news-media/news/0270-13f6f29ca74e-264305ef4e74-1000/"
+        ],
+        "limits": "No new catalog competition or future automatic fixture; no claim about future recurrence."
+      },
+      "block6OperationalRules": {
+        "scope": "senior men's EURO 2028, source facts not implementation",
+        "lifecycle": {
+          "frequencyYears": 4,
+          "editionDurationSeasons": 2,
+          "phaseOrder": [
+            "QUALIFYING_GROUP",
+            "QUALIFYING_PLAYOFF",
+            "FINAL_GROUP",
+            "FINAL_KO"
+          ],
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-3-Competition-frequency-and-entries-Online",
+          "policy": "CE independently closes each phase on completed results; keep one EURO edition identity linking qualifiers and finals. Exact next opening not official: don't invent date, no July reset. Game rule proposal only; no schema/runtime change."
+        },
+        "roster": {
+          "list": 26,
+          "goalkeepers": 3,
+          "deadlineDaysBeforeOpening": 7,
+          "goalkeeperSeriousInjuryReplacement": "before any match; approval required",
+          "outfieldSeriousInjuryReplacement": "before own first match only; replaced player excluded thereafter; approval required"
+        },
+        "substitutions": {
+          "normal": 5,
+          "extraTimeOnlyAdditional": 1,
+          "windowsNormal": 3,
+          "windowsExtraTimeAdditional": 1,
+          "nonWindowPeriods": [
+            "PRE_KICKOFF",
+            "HALFTIME",
+            "BEFORE_ET",
+            "ET_HALFTIME"
+          ],
+          "returnAfterSubstitution": false
+        },
+        "knockout": {
+          "normalTime": 90,
+          "extraTimePeriods": [
+            15,
+            15
+          ],
+          "penaltiesIfStillEqual": true,
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-22-Extra-time-and-penalty-shoot-outs-Online?contentId=c~5hdI57efBZbYSqvKpiUA"
+        },
+        "friendlies": {
+          "officialRecoveryPriority": true,
+          "hostTerritoryRestriction": {
+            "monthsBeforeOpening": 3,
+            "monthsAfterFinal": 1,
+            "exceptions": [
+              "ENG",
+              "IRL",
+              "SCO",
+              "WAL"
+            ],
+            "scope": "participating teams in host countries; exception for matches involving listed teams"
+          },
+          "monthBeforeOpening": {
+            "maxVsOtherFinalists": 2,
+            "sameGroupOpponent": false
+          },
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-25-Friendly-matches-Online?contentId=raHmKlgWpfB6OONG8JzEYw"
+        },
+        "administrativeExceptions": {
+          "refusal": "disciplinary authority may forfeit, sanction, disqualify; no automatic invented score",
+          "disqualification": "annul all results and awarded points",
+          "replacement": "authority discretionary based on previously eliminated teams; no arbitrary replacement",
+          "validateAbandonedResult": "only authority decision when current score harms responsible team"
+        },
+        "finalDraw": {
+          "positionVsPotIndependent": true,
+          "hostAssignedPositions": {
+            "WAL": "A1",
+            "ENG": "B1",
+            "IRL": "E1",
+            "SCO": "F1",
+            "NIR": "D1 if qualified"
+          },
+          "placeholderNotPosition1": true,
+          "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-18-Group-formation-final-tournament-group-stage-Online"
+        },
+        "sources": [
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-3-Competition-frequency-and-entries-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-18-Group-formation-final-tournament-group-stage-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-22-Extra-time-and-penalty-shoot-outs-Online?contentId=c~5hdI57efBZbYSqvKpiUA",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-25-Friendly-matches-Online?contentId=raHmKlgWpfB6OONG8JzEYw",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-30-Refusal-to-play-and-similar-cases-Online?contentId=GonueNExoMyVZtWMrZAtpg",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-32-Player-lists-Online?contentId=jOiVbIMugfqgLKm2BFjQcw",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-57-Player-replacements-and-substitutions-Online?contentId=GKRwiqoyx~DTYWOPh4X4wQ",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-64-Yellow-and-red-cards-Online"
+        ],
+        "limits": "Exact Annex C pot displacement and future extra draw rules not verified; replacement approval not automated. No new gameplay or UI."
+      },
+      "block7FinalDraw": {
+        "sources": [
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-18-Group-formation-final-tournament-group-stage-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Annex-C-From-the-European-Qualifiers-to-the-final-tournament-draw-pots-Online?contentId=K4iCWawPUGby2DSTLxWxmg",
+          "https://documents.uefa.com/api/khub/maps/~5J9InI8LvQKnj5QyJr1zw/resources/2OzeugUWgXlu5i3xakuguQ-~5J9InI8LvQKnj5QyJr1zw/content?v=e8492aee4e1bbb0d"
+        ],
+        "annexVisualRead": true,
+        "pots": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "rankingBandsIllustrated": [
+          [
+            1,
+            12
+          ],
+          [
+            13,
+            24
+          ],
+          [
+            25,
+            36
+          ],
+          [
+            37,
+            48
+          ],
+          [
+            49,
+            55
+          ]
+        ],
+        "rankingBandsNote": "diagram generic 55-team example; current 54 competition entries yield six groups of4 and six of5, not 55; use actual entries.",
+        "principles": {
+          "seedBy": "EQ overall rank among qualified",
+          "england": "pot1 if directly qualified at draw",
+          "otherHosts": "if none IRL/SCO/WAL assigned pot1 by rank, highest ranked of three receives pot1; actual displacement/edge cases await final pot composition",
+          "playoffPlaceholders": "pot4",
+          "positions": {
+            "WAL": "A1",
+            "ENG": "B1",
+            "IRL": "E1",
+            "SCO": "F1",
+            "NIR": "D1 if qualified"
+          },
+          "position1Default": "pot1 except reserved host/NI position",
+          "placeholderGroup": "relevant host group but not position1"
+        },
+        "limits": "Annex C graphic explicitly states final pot composition will be announced closer to draw. No exact displacement procedure or new postSTART participants. Do not invent unqualified-host or multi-placeholder edge handling."
+      },
+      "block8SharedCalendarReference": "row536.block8SharedCalendar",
+      "block8Awards": {
+        "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-10-Trophy-plaques-and-medals-Online",
+        "trophyRecipient": "FINAL_WINNER",
+        "medals": {
+          "winner": 50,
+          "runnerUp": 50
+        },
+        "recognition": {
+          "consecutiveWins": 3,
+          "totalWins": 5,
+          "resetCycle": true
+        },
+        "limits": "Source rule only; no new medal/badge/recognition UI authorized; historic counters deferred."
+      }
     }
   },
   {

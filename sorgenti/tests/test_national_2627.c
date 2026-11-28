@@ -179,8 +179,8 @@ int main(void)
     /* Catalog-only pilot: no native home, no fake PlayerFile/TEAM records.
      * All names remain available, including source rosters above 30. */
     {
-        const unsigned expectedClubs[]={7,11,8,12,28,10,9,18,16,13,13,18,11,18,20,14,10,12,10,20,14,10,8,18,14},expectedNames[]={168,328,190,350,908,312,231,538,506,442,369,671,340,563,554,372,279,359,250,879,505,315,203,639,429};
-        const uint16_t raw[]={0x5312u,0x5421u,0x5318u,0x5424u,0x512cu,0x5426u,0x531du,0x5130u,0x542au,0x5401u,0x5402u,0x5109u,0x5404u,0x5406u,0x5408u,0x5307u,0x540au,0x540du,0x5309u,0x5116u,0x5411u,0x5414u,0x5417u,0x511fu,0x541du};
+        const unsigned expectedClubs[]={7,11,8,12,28,10,9,18,16,13,13,18,11,18,20,14,10,12,10,20,14,10,8,18,14,16,12,16,10},expectedNames[]={168,328,190,350,908,312,231,538,506,442,369,671,340,563,554,372,279,359,250,879,505,315,203,639,429,439,274,431,355};
+        const uint16_t raw[]={0x5312u,0x5421u,0x5318u,0x5424u,0x512cu,0x5426u,0x531du,0x5130u,0x542au,0x5401u,0x5402u,0x5109u,0x5404u,0x5406u,0x5408u,0x5307u,0x540au,0x540du,0x5309u,0x5116u,0x5411u,0x5414u,0x5417u,0x511fu,0x541du,0x5423u,0x542bu,0x542eu,0x5501u};
         assert(EXP_NOMINAL_LEN(kExpNominalWorld2627)==EXP_NOMINAL_LEN(raw));
         for(unsigned k=0;k<EXP_NOMINAL_LEN(raw);++k){
             const ExpNominalCountry *c=ExpNominalWorld_Find(raw[k]);

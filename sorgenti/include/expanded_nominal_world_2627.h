@@ -568,20 +568,23 @@ static const ExpNominalClub expNominal_CAM[]={
     {"25383","SVAY RIENG",expNominal_CAM_25383,EXP_NOMINAL_LEN(expNominal_CAM_25383)},
     {"65680","VISAKHA FC",expNominal_CAM_65680,EXP_NOMINAL_LEN(expNominal_CAM_65680)},
 };
-/* 23 additional countries use the same immutable viewer path. */
+/* 27 additional countries use the same immutable viewer path. */
 #include "expanded_nominal_world_group1_2627.h"
 #include "expanded_nominal_world_group2_2627.h"
 #include "expanded_nominal_world_group3_2627.h"
+#include "expanded_nominal_world_group4_2627.h"
 static const ExpNominalCountry kExpNominalWorld2627[]={
     {0x5312u,"BELIZE","BZ1A",expNominal_BLZ,EXP_NOMINAL_LEN(expNominal_BLZ)},
     {0x5421u,"CAMBODIA","KHM1",expNominal_CAM,EXP_NOMINAL_LEN(expNominal_CAM)},
     EXP_NOMINAL_GROUP_1
     EXP_NOMINAL_GROUP_2
     EXP_NOMINAL_GROUP_3
+    EXP_NOMINAL_GROUP_4
 };
 #undef EXP_NOMINAL_GROUP_1
 #undef EXP_NOMINAL_GROUP_2
 #undef EXP_NOMINAL_GROUP_3
+#undef EXP_NOMINAL_GROUP_4
 static inline const ExpNominalCountry *ExpNominalWorld_Find(uint16_t raw)
 {
     for(unsigned i=0;i<EXP_NOMINAL_LEN(kExpNominalWorld2627);++i)

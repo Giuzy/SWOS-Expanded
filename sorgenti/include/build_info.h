@@ -296,7 +296,10 @@
  * biennial cycle_years; league phase 156 + QF/SF/third/final, FIFA I 15/25.
  * Play-offs A/B-B/C, overall ranking, promotions, UI, CT flow, shared player
  * identity NOT yet. Isolated/headless + build; gameplay NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.355"
+/* v00.13.356: four calendar-year 2026 nominal club countries (KGZ/TJK/UZB/FIJ).
+ * Same read-only START/WORLD contract and squad path, no sporting activation.
+ * Windows build/gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.356"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

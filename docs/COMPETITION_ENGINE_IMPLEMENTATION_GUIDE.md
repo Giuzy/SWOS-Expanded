@@ -1,3 +1,6 @@
+## 28/11/2026 — Rinnovo edizioni: decisione utente
+Applicare la gerarchia canonica e i limiti in [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md), sezione «Decisione utente: rinnovo universale delle edizioni e profili regolamentari». Vedi RG-CE-EDITION-PROFILE-POLICY. Approvazione progettuale, non nuovo runtime; mantenere precheck e guardie RULES_CHANGED.
+
 ## 26/11/2026 — Calendario CE, sorteggi, ranking (specifica, NON runtime)
 
 Consultare [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md) per i criteri, evidenze big five, vincoli, dipendenze e test. Ritorno simmetrico/asimmetrico da regolamento, distribuzione individuale e coordinamento continentale; fonti ranking FIFA/UEFA. Nessun cambio di UI o runtime autorizzato da questa sola documentazione. Restano validi precheck RG e autorizzazioni OG.

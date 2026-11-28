@@ -4877,6 +4877,160 @@
           }
         ],
         "limits": "Official concept slides May2026, not final 2030 regulations; no specific dates, direct berth split, host ranking comparator or 53/55 adjustment invented."
+      },
+      "block10WorldCup2030PreliminaryProfile": {
+        "status": "USER_APPROVED_REUSE_COMPATIBLE_2026_RULES_ONLY; NEW SPORTING ALLOCATION NOT APPROVED",
+        "scope": "2030 candidate profile; no actual future entrants/results",
+        "sources": {
+          "concept": "https://editorial.uefa.com/resources/02a5-20ab6d2f8514-897923904829-1000/ntc_review._compilation_of_slides_for_media.pdf",
+          "figc": "https://www.figc.it/en/figc/news/from-2028-a-new-format-for-mens-national-team-matches-changes-to-the-uefa-nations-league-and-the-european-qualifiers-dc352naq",
+          "fifa": "https://zifa.co.zw/wp-content/uploads/2025/09/FIFA-World-Cup-2026%E2%84%A2%EF%B8%8F-Preliminary-Competition.pdf",
+          "hosts": "https://www.fifa.com/en/articles/world-cup-2030-hosts-qualified-bidding-spain-argentina-morocco-uruguay-portugal-paraguay",
+          "po": "https://www.uefa.com/european-qualifiers/news/029f-1f3b80561189-baf8ec42c5d1-1000/",
+          "ucl": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Article-18-Equality-of-points-league-phase-Online?contentId=d~m2tmtG82UhZujMH0i~aQ",
+          "agenda": "https://ar.uefa.com/news-media/news/02a9-218c995702ec-8f3e63bbb8dd-1000--uefa-executive-committee-agenda-for-thessaloniki-meeting/"
+        },
+        "verifiedConcept": {
+          "visualPages": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "entry": "UNL A+B after B/C movement, C after B/C movement; A/B movement affects next UNL only",
+          "ordinaryMatches": 162,
+          "league1": "3x12; each group 4 per pot, 2 from each half; 6 different opponents, 1H1A per pot",
+          "league2": "3x6; same pot two legs, 1H1A vs each other pot",
+          "odd": "53 or 55 one group5 or7, relevant adjustments unspecified",
+          "hostParticipation": "ESP/POR automatic within quota; play for future UNL standing, exact conversion unknown",
+          "sportingQuotaIfUnchanged": 14
+        },
+        "previous2026": {
+          "scope": "FIFA preliminary regulation, not FIFA finals",
+          "visualPages": [
+            15,
+            20,
+            21,
+            31
+          ],
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "tiebreak": [
+            "POINTS",
+            "GD",
+            "GF",
+            "H2H_POINTS",
+            "H2H_GD",
+            "H2H_GF",
+            "AWAY_GOALS_ART11_5G",
+            "FIFA_CONDUCT_DESC",
+            "DRAW_LOTS"
+          ],
+          "awayGoalsNote": "Art11.5g follows H2H criteria; wording does not explicitly repeat between teams concerned; preserve source wording, do not invent scope",
+          "disciplineDeductions": {
+            "yellow": 1,
+            "secondYellowDismissal": 3,
+            "directRed": 4,
+            "yellowPlusDirectRed": 5,
+            "exclusivePerPersonMatch": true,
+            "playersAndTeamOfficials": true
+          },
+          "suspensions": "two cautions across matches -> next match; red -> next match, further sanctions possible; yellow and pending yellow cleared before finals, red carry",
+          "roster": {
+            "max23": 23,
+            "starters": 11,
+            "bench": 12,
+            "goalkeepers": 3,
+            "shirtRange": [
+              1,
+              23
+            ],
+            "number1": "GK",
+            "sheetMinutesBefore": 90,
+            "substitutions": 5
+          },
+          "resume": "same minute/score/players and bench, no extra subs, remaining allowance and sanctions; FIFA authority",
+          "knockout": "single or aggregate equality -> 2x15 ET then penalties; no away goal rule",
+          "playoff2026": {
+            "direct": 12,
+            "entrants": 16,
+            "paths": 4,
+            "berths": 4,
+            "legs": 1,
+            "semis": "pot1-pot4, pot2-pot3, seeded home",
+            "finalHome": "draw before semifinals",
+            "seed": "12 EQ runners-up FIFA ranking; 4 UNL entrants pot4",
+            "dates": [
+              "2026-03-26",
+              "2026-03-31"
+            ]
+          }
+        },
+        "compatibleReuse": {
+          "approved": [
+            "3/1/0",
+            "23/11/12/3GK, numbers, match sheet, five substitutions",
+            "discipline/suspension rules 2026 preliminary, subject to future regulations",
+            "ET/PSO, replay/resume authority, single-leg playoff mechanism, seeded semi and final home draw when paths retained"
+          ],
+          "notEquivalent": [
+            "H2H with missing opponents or unequal multiplicity",
+            "2026 direct12 + playoff4 without host deduction",
+            "12 runners-up from 12 groups",
+            "FIFA conduct not UEFA 1/3/3; no blanket deletion of draw lots"
+          ],
+          "calendar": "6 MD after UNL transition, generated by v354; use autumn 2029 4+2 lanes if feasible, March 2030 playoff candidate; no official individual dates; user-authorized previous compatible template only"
+        },
+        "candidateUnapproved": {
+          "league1Comparator": {
+            "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Article-18-Equality-of-points-league-phase-Online?contentId=d~m2tmtG82UhZujMH0i~aQ",
+            "chain": [
+              "POINTS",
+              "GD",
+              "GF",
+              "AWAY_GF",
+              "WINS",
+              "AWAY_WINS",
+              "OPPONENT_POINTS_SUM",
+              "OPPONENT_GD_SUM",
+              "OPPONENT_GF_SUM",
+              "FIFA_CONDUCT_DESC",
+              "UNL_SEED_RANK_ASC"
+            ],
+            "note": "UCL precedent has UEFA discipline and club coefficient; adaptation of FIFA conduct and UNL seed is proposed, not official or specifically approved; no H2H on missing fixtures"
+          },
+          "league2Comparator": "UNL 2028/29 comparator pending, unequal repeated opponent requires clarification; no unapproved extrapolation",
+          "allocation": {
+            "condition": "16 UEFA seats retained, two automatic hosts",
+            "direct": 10,
+            "playoffWinners": 4,
+            "playoffEntrants": 16,
+            "proposal": "exclude hosts from sporting berth allocation without removing their games/results; top3 nonhost per L1 group + best next-ranked nonhost; next 12 L1 nonhosts by group rank then agreed cross-group comparator; 3 L2 group winners + best remaining L2 nonhost; 4 paths use old 2026 mechanism",
+            "note": "new allocation not literal reuse, cross-group ranking and host skip need user approval; no claim UEFA adopted this; do not activate"
+          }
+        },
+        "unresolved": [
+          "2030 quota final confirmation, direct and playoff slots, exact host rank mechanism, ranking snapshots for pots",
+          "new H2H/strength-of-schedule comparator and cross-group comparator, 53/55 adjustments, exact draw restrictions",
+          "specific dates, full history, final regulations"
+        ],
+        "tests": {
+          "graphCardinality": [
+            {
+              "n": 12,
+              "edges": 36
+            },
+            {
+              "n": 6,
+              "edges": 18
+            }
+          ],
+          "notRoundSolver": true,
+          "noRuntime": true
+        }
       }
     }
   },
@@ -5027,7 +5181,7 @@
       "fields": {
         "name": "V",
         "identity": "V",
-        "participants": "P",
+        "participants": "V",
         "format": "V",
         "regulation": "P",
         "movement": "NA",
@@ -9610,6 +9764,423 @@
           "finals": "06-09..07-09 EURO"
         },
         "limits": "Annex A preliminary UEFA match allocations, not full FIFA window boundaries for 2027/28. UEFA explicitly leaves March/June 2027 exact allocation to later confirmation. The obsolete C/D March2028 block belongs only to old rule. Later reference schedules must be separated; no real future outcomes."
+      },
+      "block9EuroOperationalClosure": {
+        "scope": "EURO2028 men's senior; source rules only; no runtime changes",
+        "sources": [
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-29-Completion-of-suspended-matches-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-41-Numbers-and-names-Online",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-56-Match-sheet-Online?contentId=nzD~3Cd1wyCWMowh1ln9RA",
+          "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-12-Competition-stages-Online"
+        ],
+        "suspendedMatch": {
+          "nextDay": {
+            "sameMatchSheet": true,
+            "sameOnField": true,
+            "sameBench": true,
+            "unavailableOnField": "replacement counts as remaining substitution",
+            "unavailableBench": "no replacement"
+          },
+          "laterDate": {
+            "excludeOriginalSuspendedSubstitutedSentOff": true,
+            "previousOnFieldCannotBecomeSubstitute": true
+          },
+          "both": {
+            "retainSanctions": true,
+            "individualYellowCarryDeferredUntilCompletion": true,
+            "dismissedCannotBeReplaced": true,
+            "interveningOtherMatchSuspensionsDoNotPreventResumption": true,
+            "remainingSubstitutionsAndWindowsOnly": true,
+            "restartOriginalSituation": true,
+            "ballInPlay": "dropped ball at interruption location"
+          },
+          "engineSupport": "NOT_TESTED; preserve single fixture, no synthetic replay or score"
+        },
+        "matchSheet": {
+          "starting11": true,
+          "keeperAndCaptainRequired": true,
+          "minPlayers": 7,
+          "belowMinimum": "cancel or suspend; no invented forfeit",
+          "submissionMinutesBeforeKickoff": 75
+        },
+        "numbering": {
+          "ifNumber1Used": "goalkeeper only",
+          "qualifyingRange": [
+            1,
+            23
+          ],
+          "finalRange": [
+            1,
+            26
+          ],
+          "finalFixedExceptApprovedReplacement": true
+        },
+        "stageOrder": [
+          "QUALIFYING_GROUP",
+          "QUALIFYING_PLAYOFF",
+          "FINAL_GROUP",
+          "R16",
+          "QF",
+          "SF",
+          "FINAL"
+        ],
+        "halfTimeMinutes": 15,
+        "entrantSet": {
+          "status": "SOURCE_VERIFIED_SET_NOT_RUNTIME_BIND",
+          "source": "https://editorial.uefa.com/resources/02ab-221968265425-d5c7eee03b62-1000/eq_draw_procedure.pdf",
+          "sourcePages": [
+            2,
+            4
+          ],
+          "count": 54,
+          "codeSet": [
+            "ALB",
+            "AND",
+            "ARM",
+            "AUT",
+            "AZE",
+            "BEL",
+            "BIH",
+            "BLR",
+            "BUL",
+            "CRO",
+            "CYP",
+            "CZE",
+            "DEN",
+            "ENG",
+            "ESP",
+            "EST",
+            "FIN",
+            "FRO",
+            "FRA",
+            "GEO",
+            "GER",
+            "GIB",
+            "GRE",
+            "HUN",
+            "IRL",
+            "ISL",
+            "ISR",
+            "ITA",
+            "KAZ",
+            "KOS",
+            "LIE",
+            "LTU",
+            "LUX",
+            "LVA",
+            "MDA",
+            "MKD",
+            "MLT",
+            "MNE",
+            "NED",
+            "NIR",
+            "NOR",
+            "POL",
+            "POR",
+            "ROU",
+            "SCO",
+            "SMR",
+            "SRB",
+            "SUI",
+            "SVK",
+            "SVN",
+            "SWE",
+            "TUR",
+            "UKR",
+            "WAL"
+          ],
+          "identityJoin": "54/54 exact code/stableClub/uuid to verified UNL access seed; no actual November rank/pot/fixture names imported",
+          "potRankBands": [
+            [
+              1,
+              12
+            ],
+            [
+              13,
+              24
+            ],
+            [
+              25,
+              36
+            ],
+            [
+              37,
+              48
+            ],
+            [
+              49,
+              54
+            ]
+          ]
+        },
+        "drawClarification": {
+          "source": "https://editorial.uefa.com/resources/02ab-221968265425-d5c7eee03b62-1000/eq_draw_procedure.pdf",
+          "unresolvedQF": "each pairing represented by two complementary placeholders WIN and LOSE in pot 1; enforce restrictions for either possible identity",
+          "groupSize": "WIN only A-F, LOSE A-L subject to one UNL March commitment in five-team group",
+          "calendarPublication": "UEFA issues exact fixtures after 6 Dec 2026 draw; cannot source exact team-specific days now",
+          "screenshot": "pages 6/7/8 attempted cache miss; text read",
+          "noPostStartRealRank": true
+        },
+        "limitations": [
+          "No actual draw or fixture schedule published in consulted source before 6 December",
+          "No new policy for future exceptional restrictions",
+          "No CE bind/runtime/OG resume verification"
+        ]
+      },
+      "block10HistoricalDrawPrecedents": {
+        "source": "https://www.uefa.com/news/0279-1635b280d0c0-baf078224ec7-1000--lowdown-euro-2024-qualifying-draw/",
+        "finalDrawReference": "row529.roundTemplateAudit.block10HistoricalDrawPrecedents",
+        "status": "PRECEDENT_ONLY",
+        "qualifier2024": {
+          "entrants": 53,
+          "groupsOf5": 7,
+          "groupsOf6": 3,
+          "unlFinalistsGroups": "A–D, five teams each",
+          "constraints": "first feasible alphabetic group, anticipatory checks, winter/travel restrictions, separate slot draw",
+          "roundWindows": [
+            "2023-03-23..25",
+            "2023-03-26..28",
+            "2023-06-16..17",
+            "2023-06-19..20",
+            "2023-09-07..09",
+            "2023-09-10..12",
+            "2023-10-12..14",
+            "2023-10-15..17",
+            "2023-11-16..18",
+            "2023-11-19..21"
+          ],
+          "playoff": [
+            "2024-03-21",
+            "2024-03-26"
+          ],
+          "notApplicable": "2028 has six groups4 and six groups5, combined autumn window, different UNL QF/PO commitments, 54 entrants incl hosts; no direct dates copied"
+        },
+        "hostScenarios": [
+          {
+            "nonDirectHosts": 0,
+            "reserved": 0,
+            "maxHostsInPlayoffs": 0
+          },
+          {
+            "nonDirectHosts": 1,
+            "reserved": 1,
+            "maxHostsInPlayoffs": 0
+          },
+          {
+            "nonDirectHosts": 2,
+            "reserved": 2,
+            "maxHostsInPlayoffs": 0
+          },
+          {
+            "nonDirectHosts": 3,
+            "reserved": 2,
+            "maxHostsInPlayoffs": 1
+          },
+          {
+            "nonDirectHosts": 4,
+            "reserved": 2,
+            "maxHostsInPlayoffs": 2
+          }
+        ],
+        "exact2028Dates": "Not available before 2026-12-06 draw; individual dates derived by CE from approved template and windows, not actual future schedule",
+        "currentSource": "https://www.uefa.com/euro2028/news/02ab-222391e639b1-eada623fd7a9-1000--uefa-euro-2028-qualifying-group-stage-draw-all-you-need-to/"
+      },
+      "block11ApprovedPrecedents": {
+        "scope": "USER_APPROVED_GAME_TEMPLATE_NOT_OFFICIAL_FUTURE_FIXTURES",
+        "sources": {
+          "art16": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-16-Path-formation-play-offs-Online",
+          "art18": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-18-Group-formation-final-tournament-group-stage-Online",
+          "art21": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-21-Match-system-final-tournament-knockout-stage-Online",
+          "art24": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-24-Match-dates-and-fixtures-Online",
+          "draw": "https://editorial.uefa.com/resources/02ab-221968265425-d5c7eee03b62-1000/eq_draw_procedure.pdf",
+          "final2020": "https://www.uefa.com/multimediafiles/Download/competitions/General/02/63/38/43/2633843_DOWNLOAD.pdf",
+          "pre2020": "https://www.uefa.com/MultimediaFiles/Download/competitions/EURO/02/62/53/02/2625302_DOWNLOAD.pdf",
+          "final2024": "https://editorial.uefa.com/resources/0282-185b758ac450-55e5038c97ad-1000/uefa_euro_2024_final_draw_procedure.pdf",
+          "hosts2032": "https://www.uefa.com/news-media/news/0286-1923eef9a9a6-68c007509a1b-1000--uefa-euro-2028-and-2032-hosts-confirmed/",
+          "futureConcept": "https://www.uefa.com/news-media/news/02a5-20aba2a6e7e9-38897428c81f-1000/",
+          "history": "https://www.uefa.com/european-qualifiers/news/0286-192135575c23-5c7a2f520a87-1000--play-offs-history-records/",
+          "formatHistory": "https://www.uefa.com/news-media/news/025b-0f8e75e2dd6b-0bf215e68366-1000--uefa-euros-timeline-pushing-the-boundaries-of-european-football/"
+        },
+        "calendar": {
+          "status": "PROVISIONAL_GAME_TEMPLATE_APPROVED",
+          "rule": "reuse existing universal generator, Week of Football, 4-team groups MD5-10, 5-team groups MD1-10, one bye per cycle; if UNL March tie participant reserve both March byes (cycles may be interleaved, do not require mirrored first and second halves); same group same day, two free days, fair H/A and weekday balance; future dates from v354 windows",
+          "test": {
+            "anonymousFiveTeamRounds": [
+              [
+                [
+                  "A",
+                  "D"
+                ],
+                [
+                  "B",
+                  "C"
+                ]
+              ],
+              [
+                [
+                  "D",
+                  "A"
+                ],
+                [
+                  "C",
+                  "B"
+                ]
+              ],
+              [
+                [
+                  "X",
+                  "D"
+                ],
+                [
+                  "A",
+                  "B"
+                ]
+              ],
+              [
+                [
+                  "X",
+                  "C"
+                ],
+                [
+                  "D",
+                  "B"
+                ]
+              ],
+              [
+                [
+                  "X",
+                  "B"
+                ],
+                [
+                  "C",
+                  "A"
+                ]
+              ],
+              [
+                [
+                  "X",
+                  "A"
+                ],
+                [
+                  "C",
+                  "D"
+                ]
+              ],
+              [
+                [
+                  "D",
+                  "X"
+                ],
+                [
+                  "A",
+                  "C"
+                ]
+              ],
+              [
+                [
+                  "B",
+                  "X"
+                ],
+                [
+                  "D",
+                  "C"
+                ]
+              ],
+              [
+                [
+                  "C",
+                  "X"
+                ],
+                [
+                  "B",
+                  "A"
+                ]
+              ],
+              [
+                [
+                  "A",
+                  "X"
+                ],
+                [
+                  "B",
+                  "D"
+                ]
+              ]
+            ],
+            "referenceDays": [
+              "2027-03-26",
+              "2027-03-29",
+              "2027-06-11",
+              "2027-06-14",
+              "2027-09-23",
+              "2027-09-26",
+              "2027-09-30",
+              "2027-10-03",
+              "2027-11-11",
+              "2027-11-14"
+            ],
+            "allOrderedPairs": true,
+            "marchByes": "X",
+            "minRest2": true,
+            "notProductionSolver": true
+          },
+          "limit": "official individual fixture list not published until draw; date example research only; no fixed future dates"
+        },
+        "hostPathLimit": {
+          "paths": 2,
+          "example": "path1 may produce NIR or host H1; path2 may produce host H2; all three distinct reserved groups cannot be covered by two fixed group slots over all outcomes",
+          "status": "UNRESOLVED_REQUIRES_POLICY_IF_REALIZED",
+          "noFallback": true
+        },
+        "finalPolicyRef": "row529.block11ApprovedPrecedents"
+      },
+      "block11HistoryMilestones": {
+        "status": "MILESTONES_VERIFIED_NOT_FULL_EDITION_ARCHIVE",
+        "sources": [
+          "https://www.uefa.com/european-qualifiers/news/0286-192135575c23-5c7a2f520a87-1000--play-offs-history-records/",
+          "https://www.uefa.com/news-media/news/025b-0f8e75e2dd6b-0bf215e68366-1000--uefa-euros-timeline-pushing-the-boundaries-of-european-football/",
+          "https://www.uefa.com/news-media/news/0286-1923eef9a9a6-68c007509a1b-1000--uefa-euro-2028-and-2032-hosts-confirmed/",
+          "https://www.uefa.com/news-media/news/02a5-20aba2a6e7e9-38897428c81f-1000/"
+        ],
+        "finalsTeams": {
+          "1996": 16,
+          "2000": 16,
+          "2004": 16,
+          "2008": 16,
+          "2012": 16,
+          "2016": 24,
+          "2020": 24,
+          "2024": 24,
+          "2028": 24
+        },
+        "qualifierPlayoffMilestones": {
+          "1996": "one neutral single match",
+          "2000": "four home-away ties",
+          "2004": "five home-away ties",
+          "2008": "none",
+          "2012": "four home-away ties",
+          "2016": "four home-away ties",
+          "2020": "16 teams in four single-leg two-round paths, postponed to 2020",
+          "2024": "12 teams in three single-leg two-round paths",
+          "2028": "2/3 paths or four two-leg ties according to host reserves"
+        },
+        "future": {
+          "edition": 2032,
+          "hosts": [
+            "ITA",
+            "TUR"
+          ],
+          "hostAward": "2023-10-10",
+          "cycleYears": 4,
+          "qualifyingFormat": "UEFA May2026 concept tiered from after EURO2028; detailed 2032 regulations, automatic berths and dates not verified; do not copy 2028 host rules",
+          "noHardcodedDates": true
+        },
+        "limits": "history still partial: complete per-edition entrants, rules, dates and historical start-state not collected; no 9697 modification"
+      },
+      "block12SupplementaryDraw": {
+        "status": "USER_APPROVED_PROVISIONAL_SUPPLEMENTARY_DRAW",
+        "reference": "row529.roundTemplateAudit.block12SupplementaryDraw",
+        "supersedes": "block11ApprovedPrecedents.hostPathLimit.noFallback only as regards approved supplementary draw; earlier evidence retained"
       }
     }
   }

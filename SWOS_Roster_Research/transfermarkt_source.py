@@ -206,6 +206,11 @@ def edition_page(tm,path,kind,identity,code,year,expected=None):
         print(f"DIAG TM alternate accepted | id={code} observed={actual} route={alternate}",flush=True)
         return other,actual,alternate
 
+def table_header_summary(page):
+    """Read-only bounded diagnostic; Node.all() returns an iterator."""
+    tables=list(page.all("table"))
+    return len(tables),[sorted({norm(n.text())[:80] for n in t.all("th")})[:16] for t in tables[:8]]
+
 def table_links(page,pattern,with_positions=False):
     # Use primary schema, not the count of tables with class items.
     # Header columns from nested tables are excluded.
@@ -258,8 +263,8 @@ def table_links(page,pattern,with_positions=False):
     for candidate in candidates:
         if candidate not in unique:unique.append(candidate)
     if len(unique)!=1:
-        shapes=[sorted({norm(n.text())[:80] for n in t.all("th")})[:16] for t in page.all("table")[:8]]
-        print(f"DIAG TM schema | tables={len(page.all('table'))} candidates={len(unique)} headers={shapes}",flush=True)
+        count,shapes=table_header_summary(page)
+        print(f"DIAG TM schema | tables={count} candidates={len(unique)} headers={shapes}",flush=True)
         raise ValueError("Primary data table missing or ambiguous: "+str(len(unique)))
     return unique[0]
 
@@ -451,6 +456,11 @@ class Transfermarkt:
         else:raise ValueError("Unknown research phase")
 
 def selftest():
+    assert table_header_summary(Page("").root)==(0,[])
+    assert table_header_summary(Page("<table><tr><th>Points</th></tr></table>").root)==(1,[["points"]])
+    many=Page("<table><tr><th>Points</th></tr></table>"*12).root
+    assert table_header_summary(many)==(12,[["points"]]*8)
+    assert table_header_summary(many)==(12,[["points"]]*8)
     a={"country":"SEN","competition":"SEN1","season":"2026/27","level":1,"transfermarktClubId":"1"}
     b=dict(a,transfermarktClubId="2")
     assert prioritize_squads({"transfermarkt_clubs":[a,b],"transfermarkt_players":[dict(a,transfermarktPlayerId=str(i)) for i in range(1,17)]})==[b,a]
@@ -471,7 +481,7 @@ def selftest():
     class FakeEdition:
         def page(self,path):
             y="2027" if path.endswith("/2026") else "2026"
-            return parse(f'<link rel="canonical" href="/x/startseite/wettbewerb/BH1L"><h2>Clubs - Bhutan Premier League {y}</h2>')
+            return parse(f'<link rel="canonical" href="/x/startseite/wettbewerb/BH1L"><h2>Clubs - Bhutan Premier League {y}</h2><table></table>')
     assert edition_page(FakeEdition(),"/-/startseite/wettbewerb/BH1L/saison_id/2026","clubs","Bhutan Premier League","BH1L",2026)[1:]==("2026","/-/startseite/wettbewerb/BH1L/saison_id/2025")
     assert table_links(club,r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Paro FC"}
     copy='<table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/paro/startseite/verein/123">Paro FC</a></td></tr></table>'

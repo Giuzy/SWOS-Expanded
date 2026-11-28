@@ -259,6 +259,7 @@ def selftest():
             if path==COUNTRY+"12/saison_id/2026":return country_html("12",[("BB1","Premier League")])
             for code,name,year in (("BZ1A","Apertura","2026/27"),("BZ1C","Clausura","2025/26"),("BB1","Premier League","2026")):
                 if path=="/-/startseite/wettbewerb/"+code+"/saison_id/2026":return comp_html(code,name,year)
+                if code=="BZ1C" and path=="/-/startseite/wettbewerb/"+code+"/saison_id/2025":return comp_html(code,name,year)
             raise AssertionError("Unexpected test URL "+path)
     with TemporaryDirectory() as tmp:
         root=Path(tmp);docs=root/"docs";docs.mkdir()
@@ -269,6 +270,7 @@ def selftest():
         assert [x["sourceId"] for x in bz["observations"]]==["BZ1A"]
         assert bz["observations"][0]["participants"]==[{"sourceId":"1","name":"Club One"}]
         assert bz["lastSearch"]["errors"][0][0]=="BZ1C"
+        assert "Requested season not evidenced" in bz["lastSearch"]["errors"][0][1]
         assert bz["lastSearch"]["complete"]
         assert [x["sourceId"] for x in bb["observations"]]==["BB1"]
         assert run(root,tm_factory=FakeTM)==2

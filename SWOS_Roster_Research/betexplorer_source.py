@@ -2,7 +2,7 @@
 import re
 from urllib.parse import urlsplit
 from alternative_sources import BAD,norm
-from transfermarkt_source import Page
+from transfermarkt_source import Page,table_header_summary
 from season_config import edition_label
 
 BASE="https://www.betexplorer.com"
@@ -90,8 +90,8 @@ def packet(raw,country,year):
                 found[norm(team)]={"name":team,**({"sourceId":next(iter(ids))} if ids else {})}
             if not bad and len(found)>=2:matches.append(found)
     if not matches:
-        shapes=[sorted({norm(n.text())[:80] for n in t.all("th")})[:16] for t in page.all("table")[:8]]
-        print(f"DIAG BE schema | country={country} season={season} bytes={len(raw)} tables={len(page.all('table'))} headers={shapes}",flush=True)
+        count,shapes=table_header_summary(page)
+        print(f"DIAG BE schema | country={country} season={season} bytes={len(raw)} tables={count} headers={shapes}",flush=True)
         raise ValueError("BetExplorer verified edition; standings absent from delivered HTML or unsupported schema (not NO DATA)")
     # Home/away/overall copies may have the same entrants; never union distinct groups.
     if any(set(v)!=set(matches[0]) for v in matches):raise ValueError("BetExplorer conflicting standing groups")
@@ -108,6 +108,10 @@ def selftest():
     table='<table><tr><th>#</th><th>Team</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>Pts</th></tr><tr><td>1.</td><td><a href="/football/team/one/abcd1234/">Club One</a></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td></tr><tr><td>2.</td><td>Club Two</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr></table>'
     assert packet((h+table+table).encode(),"CAM",2026)["participants"]==[{"name":"Club One","sourceId":"abcd1234"},{"name":"Club Two"}]
     assert packet((h+table.replace(">MP<",">Played<").replace(">Pts<",">Points<")).encode(),"CAM",2026)["participants"]==packet((h+table).encode(),"CAM",2026)["participants"]
+    for missing in (h,h+"<table><tr><th>Unknown</th></tr></table>"):
+        try:packet(missing.encode(),"CAM",2026)
+        except ValueError as exc:assert "unsupported schema" in str(exc)
+        else:raise AssertionError("Missing BetExplorer standings accepted")
     for bad in (h.replace("Cambodia","Thailand")+table,h.replace("2026/2027","2025/2026")+table,h+table+table.replace("Club Two","Other"),h+table.replace("Club Two","Women Club")):
         try:packet(bad.encode(),"CAM",2026)
         except ValueError:pass

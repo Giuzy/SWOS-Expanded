@@ -59,7 +59,7 @@ def catalogue_jobs(targets,catalogue,output,year,refresh):
             job=pool.submit(acquire,targets[i+1]) if i+1<len(targets) else None
             yield r,current
 
-def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source_catalog=False,refresh=False):
+def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source_catalog=False,refresh=False,fm_sources=None):
     national=json.loads((root/"docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json").read_text(encoding="utf-8-sig"))["records"]
     targets=[r for r in national if (year!=2026 or r["source"]["team_file"]==255) and (not only or r["fifa"]==only)]
     targets.sort(key=lambda r:(r["expanded"]["globalNumber"]<2560,r["fifa"]))
@@ -93,6 +93,19 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
             existing_leads=old.setdefault("externalSportsSourceLeads",[])
             for lead in source_leads(country,year):
                 if lead not in existing_leads:existing_leads.append(lead)
+            if fm_sources is not None and year==2026:
+                for lead in fm_sources.country(country,year)+([fm_sources.global_lead] if fm_sources.global_lead else []):
+                    if lead not in existing_leads:existing_leads.append(lead)
+                official=getattr(fm_sources,"official",None)
+                if official is not None:
+                    # Country catalogue is not a canonical matrix; only unresolved
+                    # applicable fields across expected first-tier/cup candidates.
+                    unresolved={f for f in FIELDS if f!="july1" and any(
+                        not any(p.get("kind")==kind and p.get("fields",{}).get(f) in ("V","NA") for p in obs)
+                        for kind in ("LEAGUE_DIVISION","NATIONAL_CUP"))}
+                    for lead in official.country(country,unresolved,year):
+                        if lead not in existing_leads:existing_leads.append(lead)
+                atomic(path,old)
             if archive is not None:
                 try:
                     with time_budget(10):

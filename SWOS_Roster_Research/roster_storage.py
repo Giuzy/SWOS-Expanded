@@ -62,8 +62,31 @@ class ReconciliationConflict(ValueError):
     def __init__(self,path):
         super().__init__("Incompatible roster values at " + "/".join(map(str,path)))
 
+def query_status_record(current,previous=None):
+    """Same query hash: execution metadata, not a sporting observation.
+    Preserve distinct attempts; current is the caller's current status, never
+    inferred from a historical success. No time ordering is assumed on recovery.
+    """
+    def entries(record):
+        if not isinstance(record,dict):raise ValueError("Invalid query status metadata")
+        if record.get("status") not in ("COMPLETED","NO DATA","DEFERRED","ERROR") or not isinstance(record.get("phase"),str):
+            raise ValueError("Invalid query status metadata")
+        history=record.get("attempts",[])
+        if not isinstance(history,list) or any(not isinstance(a,dict) or "attempts" in a or a.get("status") not in ("COMPLETED","NO DATA","DEFERRED","ERROR") or not isinstance(a.get("phase"),str) for a in history):
+            raise ValueError("Invalid query attempt history")
+        return history+[{k:v for k,v in record.items() if k!="attempts"}]
+    now=entries(current)
+    earlier=entries(previous) if previous is not None else []
+    unique={encode(a):a for a in earlier+now}
+    result={k:v for k,v in current.items() if k!="attempts"}
+    if len(unique)>1:result["attempts"]=[unique[k] for k in sorted(unique)]
+    return result
+
 def merge_compatible(work,published,path=()):
-    """Merge independent additions; never choose between differing scalar values."""
+    """Merge independent additions; never choose between differing sporting scalar values."""
+    if len(path)==2 and path[0]=="wikidataQueryStatus" and re.fullmatch(r"[0-9a-f]{64}",str(path[1])):
+        try:return query_status_record(work,published)
+        except ValueError:raise ReconciliationConflict(path)
     if type(work) is not type(published):
         raise ReconciliationConflict(path)
     if work==published and encode(work)==encode(published):
@@ -76,7 +99,7 @@ def merge_compatible(work,published,path=()):
     if isinstance(work,list):
         field=path[-1] if path else None
         if field in ("errors","positionObservations","name_matches","wiki_squad_players",
-                     "wiki_club_leads","wikidata_undated_players","domestic_source_observations","identity_candidates"):
+                     "wiki_club_leads","wikidata_undated_players","domestic_source_observations","identity_candidates","externalSportsSourceLeads") or (len(path)==2 and path[0]=="officialCountrySourceLeads" and re.fullmatch(r"[A-Z]{3}",str(path[1]))):
             # Append-only observations, not authoritative player records.
             merged=list(work);seen={encode(row) for row in work}
             for row in published:
@@ -345,6 +368,16 @@ def selftest():
         assert load_snapshot(recovered/"candidates.json")==expected==load_snapshot(p)
         assert reconcile_additive({"x":[1,2]},{"x":[1]})=={"x":[1,2]}
         assert reconcile_additive({"x":[1]},{"x":[2]}) is None
+        key="a"*64
+        done={"phase":"Club identities","status":"COMPLETED","rows":2}
+        deferred={"phase":"Roles","status":"DEFERRED","reason":"cooldown"}
+        merged_status=merge_compatible({"wikidataQueryStatus":{key:deferred}},
+                                       {"wikidataQueryStatus":{key:done}})["wikidataQueryStatus"][key]
+        assert merged_status["status"]=="DEFERRED" and len(merged_status["attempts"])==2
+        assert query_status_record(done,merged_status)["status"]=="COMPLETED"
+        assert len(query_status_record(done,merged_status)["attempts"])==2
+        assert reconcile_additive({"wikidataQueryStatus":{key:done}},{"wikidataQueryStatus":{key:{"phase":"bad"}}}) is None
+        assert reconcile_additive({"other":{key:done}},{"other":{key:deferred}}) is None
         # Independent country and source-ID additions, not name matching.
         row={"country":"SEN","competition":"SEN1","season":"2026/27","level":1,
              "transfermarktClubId":"123","transfermarktPlayerId":"456","playerLabel":"A"}
@@ -373,11 +406,14 @@ def selftest():
         assert len(merge_compatible(a_wd,b_wd)["leagues"][0]["seasons"][0]["clubs"][0]["players"])==2
         with tempfile.TemporaryDirectory() as sub:
             q=Path(sub)/"candidates.json";db=Path(sub)/"resume.sqlite3"
-            base={"targets":[{"fifa":"SEN"},{"fifa":"CAM"}],"existing_club_gaps":{},"errors":[]}
+            base={"targets":[{"fifa":"SEN"},{"fifa":"CAM"}],"existing_club_gaps":{},"errors":[],
+                  "wikidataQueryStatus":{key:done}}
             atomic(q,base)
             w=Store(q,db);work=w.load();work["targets"][0]["transfermarkt_players"]=[row]
+            work["wikidataQueryStatus"][key]=deferred
             w.save(work)
             external=load_snapshot(q);external["targets"][1]["wiki_squad_players"]=[{"playerLabel":"C"}]
+            external["wikidataQueryStatus"][key]=dict(done,phase="Another phase")
             for dest,value in w._publication(external).items():atomic(dest,value)
             try:w.publish()
             except PublicationConflict as exc:assert exc.retryable
@@ -387,6 +423,8 @@ def selftest():
             assert load_snapshot(q)["targets"]==w.load()["targets"]==[
                 {"fifa":"SEN","transfermarkt_players":[row]},
                 {"fifa":"CAM","wiki_squad_players":[{"playerLabel":"C"}]}]
+            assert w.load()["wikidataQueryStatus"][key]["status"]=="DEFERRED"
+            assert len(w.load()["wikidataQueryStatus"][key]["attempts"])==2
             w.close()
         s=Store(p,Path(d)/"test.sqlite3")
         published=load_snapshot(p)

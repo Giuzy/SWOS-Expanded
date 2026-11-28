@@ -58,15 +58,15 @@ def validate(raw,route):
     if any(len(g)!=n//2 or len({t for _,a,b in g for t in (a,b)})!=n for g in rounds.values()):raise ValueError("Incomplete round membership")
     return {"participants":sorted(clubs),"format":{"teams":n,"cycles":2,"rounds":len(rounds)},
        "roundDates":[{"round":r,"first":min(x[0] for x in g).isoformat(),"last":max(x[0] for x in g).isoformat()} for r,g in sorted(rounds.items())],"july1":sorted(pre)}
-def apply(root,download=fetch,refresh=False,only_country=None,only_world=None):
+def apply(root,download=fetch,refresh=False,only_country=None,only_world=None,fm_sources=None):
     cache=root/"tools/competition_research/cache/strict_online"
     journal=cache/"publication_pending.json"
     with writer_lock(cache/"publication.lock"):
         recovered=recover_checkpoint(root,journal)
         if recovered:report("Competition matrix","SAVED",f"recovered {recovered} files")
-        return apply_locked(root,journal,download,refresh,only_country,only_world)
+        return apply_locked(root,journal,download,refresh,only_country,only_world,fm_sources)
 
-def apply_locked(root,journal,download,refresh,only_country,only_world):
+def apply_locked(root,journal,download,refresh,only_country,only_world,fm_sources=None):
     docs=root/"docs/competition_research";index=read(docs/"INDEX.json")
     mp=docs/index["canonicalFieldMatrix"];cp=docs/"COVERAGE.json";matrix=read_matrix(mp);coverage=read(cp)
     rows={r["row"]:r for r in matrix["rows"]}
@@ -111,6 +111,10 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
         if matrix_digest(read_matrix(mp))!=baseline or cp.read_bytes()!=coverage_baseline:
             raise RuntimeError("Concurrent matrix change; preserve current files and restart")
         matrix["strictAcquisitionSummary"]={"routes":len(ROUTES),"footballDataRoutes":fd_routes,"rowsScanned":scanned,"inventorySelected":len(selected),"gapCounts":gaps,"newObservations":inserted,"newSourceLeads":lead_count,"rowsWithoutRouteOrLead":no_source,"july1ApplicabilityUnknown":sum(states(r).get("july1","?")=="?" for r in selected),"errors":errors,"archiveIndexErrors":discovery.errors,"runComplete":complete,"rowsProcessed":len(processed),"scope":"OpenFootball exact routes, Football-Data observed league CSV, RSSSF two scoped 2026 participant routes plus archive leads, BetExplorer inspected 2026 first-tier routes; NO DATA is not absence; UNKNOWN is unreviewed; SOURCE_ERROR and NOT_SEARCHED distinguish missing adapter from a successful search. RSSSF links are not field evidence. No automatic status promotion."}
+        if fm_sources is not None:
+            matrix["strictAcquisitionSummary"]["fmDocumentation"]={"globalReference":fm_sources.global_lead,"sourceErrors":fm_sources.errors,"scope":"PUBLIC_FM_DOCUMENTATION_ONLY_NOT_FIELD_EVIDENCE"}
+            official=getattr(fm_sources,"official",None)
+            if official is not None:matrix["strictAcquisitionSummary"]["officialDiscovery"]={"sourceErrors":official.errors,"scope":"FEDERATION_DOCUMENT_LEADS_ONLY_NOT_FIELD_EVIDENCE"}
         coverage["strictAcquisitionSummary"]=matrix["strictAcquisitionSummary"]
         stage(cp,coverage)
         pending={p:(old,encode(obj)) for p,(old,obj) in changes.items() if json.loads(old)!=obj}
@@ -180,6 +184,10 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
         old_lead_count=lead_count
         # Store source leads only in the canonical row, never promote V/P/I.
         leads=discovery.leads(row)
+        if fm_sources is not None:
+            leads+=fm_sources.row(row)
+            official=getattr(fm_sources,"official",None)
+            if official is not None:leads+=official.row(row,fields)
         if leads:
             old=row.get("strictSourceLeads",[])
             merged={x["url"]:x for x in old}
@@ -187,7 +195,7 @@ def apply_locked(root,journal,download,refresh,only_country,only_world):
                 if lead["url"] not in merged:
                     merged[lead["url"]]=lead;lead_count+=1
             row["strictSourceLeads"]=list(merged.values())
-        if lead_count>old_lead_count:report(label,"LEAD",f"+{lead_count-old_lead_count} archive references; not field evidence")
+        if lead_count>old_lead_count:report(label,"LEAD",f"+{lead_count-old_lead_count} source references; not field evidence")
         rr=rsssf_route(row)
         if rr and "participants" in fields:
             rid=row["row"];url=RSSSF+rr[0];source_label="RSSSF "+label
@@ -321,10 +329,24 @@ def main():
     http_selftest()
     from domestic_catalog import selftest as catalogue_selftest
     catalogue_selftest()
+    from fm_rule_sources import selftest as fm_selftest
+    from official_rule_sources import selftest as official_selftest
+    with contextlib.redirect_stdout(io.StringIO()):
+        fm_selftest()
+        official_selftest()
     print("Self-test PASS",flush=True)
     if x.self_test:return
     root=x.repo_root.resolve()
     if x.year!=2026 and x.world!="2627":a.error("--year cannot be combined with historical world")
+    fm_sources=None
+    if x.world=="2627" and x.year==2026:
+        from fm_rule_sources import Sources
+        from domestic_catalog import ALIASES
+        national=read(root/"docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json")["records"]
+        fm_sources=Sources(Cached(root/"tools/competition_research/cache/fm_documentation",x.refresh),national,ALIASES)
+        fm_sources.load()
+        from official_rule_sources import Sources as OfficialSources, Cache as OfficialCache
+        fm_sources.official=OfficialSources(OfficialCache(root/"tools/competition_research/cache/official_discovery",x.refresh),national,ALIASES)
     phase_total=2 if x.world=="2627" else 1
     show_progress("Competition research phases",0,phase_total)
     if x.world=="2627":
@@ -333,14 +355,14 @@ def main():
         roster_wiki.CACHE=output_dir(root,x.year)/"sources"/"competition_wiki"
         roster_wiki.CACHE.mkdir(parents=True,exist_ok=True)
         roster_wiki.REFRESH_WIKI=x.refresh
-        domestic_run(root,x.country,wiki_query=roster_wiki.query,year=x.year,source_catalog=True,refresh=x.refresh)
+        domestic_run(root,x.country,wiki_query=roster_wiki.query,year=x.year,source_catalog=True,refresh=x.refresh,fm_sources=fm_sources)
         show_progress("Competition research phases",1,phase_total)
     if x.year!=2026:
         from annual_delta import write_delta
         write_delta(root,x.year,scope='competitions')
         show_progress("Competition research phases",phase_total,phase_total)
         return
-    apply(root,refresh=x.refresh,only_country=x.country,only_world=x.world)
+    apply(root,refresh=x.refresh,only_country=x.country,only_world=x.world,fm_sources=fm_sources)
     if x.world=="2627":
         from import_candidates import prepare
         snapshot=root/"SWOS_Roster_Research/results_2627/candidates.json"

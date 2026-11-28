@@ -2,7 +2,7 @@
 """Read-only Expanded catalogue survey; Wikidata candidates, not runtime data."""
 import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
-from roster_storage import Store, StorageFailure, PublicationConflict, recover_snapshot, selftest as storage_selftest
+from roster_storage import Store, StorageFailure, PublicationConflict, recover_snapshot, query_status_record, selftest as storage_selftest
 from http_retry import fetch, HostCooldown, DeadlineExceeded, BLOCKED, INFLIGHT, NEXT
 from research_status import report, outcome, progress, show_progress, WorkTotal
 from player_roles import position_evidence, merge_positions
@@ -401,6 +401,8 @@ def main(baseline=None):
         backfill_selftest()
         from domestic_catalog import selftest as catalogue_selftest
         catalogue_selftest()
+        from official_rule_sources import selftest as official_selftest
+        official_selftest()
         from wiki_sources import selftest as wiki_selftest
         wiki_selftest()
         from season_config import selftest as season_selftest
@@ -476,12 +478,12 @@ def main(baseline=None):
         key=hashlib.sha256((PREFIX+q).encode()).hexdigest()
         try:rows=query(q)
         except Exception as e:
-            query_status[key]={"phase":phase,"status":"DEFERRED" if deferred_error(e) else "ERROR","reason":str(e)}
+            query_status[key]=query_status_record({"phase":phase,"status":"DEFERRED" if deferred_error(e) else "ERROR","reason":str(e)},query_status.get(key))
             if not isinstance(e,HostCooldown):
                 error={"phase":phase,"error":str(e)}
                 if error not in query_errors:query_errors.append(error)
             raise
-        query_status[key]={"phase":phase,"status":"COMPLETED" if rows else "NO DATA","rows":len(rows)}
+        query_status[key]=query_status_record({"phase":phase,"status":"COMPLETED" if rows else "NO DATA","rows":len(rows)},query_status.get(key))
         return rows
     def run(q,phase):
         nonlocal query_failed
@@ -600,6 +602,20 @@ def main(baseline=None):
         from sports_sources import routes as sports_routes, source_leads
         from season_config import season_map
         from alternative_sources import add_unique
+        # Read FM club metadata references from the competition BAT, never
+        # turn a global mod description into club or player observations.
+        if YEAR==2026:
+            for t in targets:
+                code=t["fifa"];p=OUT/"competition_candidates"/(code+".json")
+                if not p.exists():continue
+                try:
+                    packet=json.loads(p.read_text(encoding="utf-8-sig"))
+                    if packet.get("country")!=code or packet.get("schema")!="SWOS_DOMESTIC_COMPETITION_CANDIDATES_1":continue
+                    for lead in packet.get("externalSportsSourceLeads",[]):
+                        if lead.get("source")=="Daveincid" and lead.get("sourceScope")=="GLOBAL_MOD_DESCRIPTION_NOT_COUNTRY_OR_CLUB_EVIDENCE":
+                            leads=cp.ensure(bycode[code],"externalSportsSourceLeads",[])
+                            if lead not in leads:cp.append(leads,lead)
+                except (OSError,ValueError):continue
         # The competition BAT is an independent writer. Its atomic per-country
         # files can be read, never modified here; import only scoped observations.
         for t in targets:
@@ -651,6 +667,26 @@ def main(baseline=None):
                         cp.append(owner["leagues"],dict(seed,seasons=[]))
             save()
         alternative("clubs")
+        if YEAR==2026 and not args.skip_alternative:
+            from official_rule_sources import Sources as OfficialSources, Cache as OfficialCache
+            from domestic_catalog import ALIASES
+            official=OfficialSources(OfficialCache(CACHE/"official_discovery",args.refresh_wiki),national,ALIASES)
+            # Countries with unresolved club/roster names, including existing
+            # active-country EXTRA/TEST gaps. Never bind names from link text.
+            pending_codes={t["fifa"] for t in targets if needs_club_sources(bycode[t["fifa"]],YEAR)
+                or not bycode[t["fifa"]].get("transfermarkt_clubs")}
+            active_codes={e.get("association") for e in gaps.values()
+                if e.get("association") and (e.get("test_slots",0) or e.get("capacity_gap",0))}
+            # Existing storage preserves arbitrary root metadata; one entry per
+            # country, not one copy per club. The canonical roster is untouched.
+            country_leads=cp.ensure(results,"officialCountrySourceLeads",{})
+            for code in sorted(pending_codes|active_codes):
+                leads=official.country(code,{"participants","players"},YEAR)
+                if leads:
+                    dest=cp.ensure(country_leads,code,[])
+                    for lead in leads:
+                        if lead not in dest:cp.append(dest,lead)
+                save()
         if not args.alternative_only:
             # All already collected archive names remain usable on retry, not
             # only freshly downloaded packets. Name/country bridge stays review.

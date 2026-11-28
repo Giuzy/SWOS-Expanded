@@ -1,3 +1,18 @@
+## 28/11/2026 — Estensione catalogo nazionali 2026/27 (APPROVAZIONE UTENTE, SOLO DESIGN)
+L'utente approva espressamente le dieci competizioni senior maschili selezionate, per il mondo moderno 2627:
+- Finalissima (UEFA–CONMEBOL)
+- CONCACAF Nations League
+- Arab Cup
+- Gulf Cup
+- ASEAN Championship
+- SAFF Championship
+- CAFA Nations Cup
+- WAFF Championship
+- COSAFA Cup
+- CECAFA Cup
+
+Non aggiungere al 2627 tornei storici cessati (es. Confederations Cup, Caribbean Cup); non alterare il 9697 né introdurre altre competizioni non selezionate (in particolare FIFA ASEAN Cup distinta dall'ASEAN Championship non inclusa nella scelta). Approvazione dell'ambito di ricerca/inserimento, non certificazione di edizioni, periodicità, partecipanti o stato attivo. Verificare eventuale sospensione/cessazione e cambi di denominazione/formato da fonti ufficiali prima dell'attivazione; non inventare edizioni per tornei non disputati. Per ogni voce applicare matrice 12 campi, identità, fonti, regole, finestre, qualificazioni e stato al cutoff; rispettare eligibilità FIFA per singola fase/gara, incluse eventuali rappresentative non senior A o non affiliate. Non forzare partite non eleggibili nel ranking FIFA. CE universale unico, OG CT/QUICK/50Hz, un solo calendario e CAR; Finalissima dipende dai veri campioni EURO/Copa América, altri accessi secondo regole certificate. Nessun nuovo runtime, schema, UI o modifica di catalogo canonico in questo preparato. Priorità Europa già concordata, poi altre regioni man mano. Riferimento RG-CE-NATIONAL-CATALOG-2627-EXTENSION. Base d09b9abf886e2870e7bfd4a1aa5b3880bcb1068e v00.13.354.
+
 ## 28/11/2026 — HOST SELECTION (decisione utente, solo design)
 Specifica canonica approvata: [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md), sezione «HOST SELECTION: assegnazione universale degli ospitanti». Estrazione futura basata soltanto su storico delle nazionali (intera storia) e tempo dall'ultima organizzazione, target statistico circa 33/67 senza sequenza/quota obbligatoria, vincoli geografici/regolamentari, co-host vicini, assegnazione prima delle qualificazioni e persistita. RG-CE-HOST-SELECTION; calibrazione non definita, nessun runtime o test gameplay.
 
@@ -1426,3 +1441,13 @@ Utente: stessa pagina RULES per campionati/coppe/tornei CE, NO DATA per campi ma
 
 ### 27/11/2026 — National-only countries (2026/27)
 User approved insertion before confederation regrouping: 69 national placeholders share the TEST_ZERO player template. CT START and CT WORLD expose the national registry; club WORLD retains existing countries and shows 63 additional country buttons without club content. No fabricated domestic competitions, national fixtures or automatic real-player call-ups. Regional placement remains provisional until separately approved.
+
+
+## 28/11/2026 — Manager and market OG-first (user direction, audit only)
+Reuse and extend original SWOS manager/club and transfer flow (including chairman warnings, sacking, contract review, reputation, job offers, negotiations, domestic/foreign market, swaps, trialists/reserves). Do not build a parallel dismissal or market engine. Preserve CE as sole competition/date/result authority; manager job change only binds manager; existing approved no-debt/economy and UI remain unchanged until explicitly approved changes. Do not infer real club-to-club loan contracts from PF_LOAN (also used for trialists); duration, return, ownership, wages, CPU market and real windows to verify/design separately. Detailed source evidence and dependencies: ENGINE_CODE_DISCOVERIES.md 28/11 OG-first and RG-027/031 OG-MANAGEMENT-AUTHORITY. No runtime change or tests in this decision.
+
+### 28/11/2026 — OG-first audit follow-up
+Youth/academy/B/U23: user requests less complex design, discuss separately; no separate youth league/system or exact implementation approved. Keep existing OG trialist/scouting and current roster extensions while deciding. For manager/market, unify state and flow first; keep existing OG UI, warnings, offer/negotiation and valuation rules where applicable, feed CE ranks/clock and one persistent club/roster authority. New global CPU club transactions, dated loans, contracts, and finance rules remain design topics, not automatic approval. Source audit in ENGINE_CODE_DISCOVERIES and RG-027/031. No runtime/build/commit.
+
+### 28/11/2026 — Decision: no duplicate OG management/economy mechanics
+Explicit user instruction: before implementing a management, club, market, or economy feature, identify the existing original mechanism (including hidden calculations and OG menu paths) and extend it instead of creating a parallel system. See ENGINE_CODE_DISCOVERIES «OG-first finance» and RG-027/031. One club balance, one posting per event, one persistent ownership/roster authority, one CE clock in migrated worlds. Reconcile native aggregate accounting and existing Expanded extensions before adding new categories; preserve original rules/flow wherever compatible with approved design, including no debt/bankruptcy. Youth complexity, true dated loans, player contracts and changes to sponsorship/receipt formulas remain discussion topics. No new design values or UI approved in this entry.

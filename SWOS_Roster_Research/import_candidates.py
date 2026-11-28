@@ -212,6 +212,24 @@ def native_index(root):
             out[uid]={"name":c["name"],"file":"bottom_pools.json","players":set(),"test_slots":c["roster"].get("base_slots",16),"associations":rawmap.get(c.get("country"),set())}
     return out
 
+def retained_extra_summary(output,only=None):
+    """Read existing EXTRA previews, not the current source snapshot.
+    Partial club exports may not erase the index of intact EXTRA files.
+    """
+    rows=[]
+    for path in sorted((output/"extras").glob("*.json")):
+        code=path.stem
+        if only and code!=only:continue
+        if code!="UNMAPPED" and not re.fullmatch(r"[A-Z]{3}",code):continue
+        packet=json.loads(path.read_text(encoding="utf-8-sig"))
+        if packet.get("schema")!="SWOS_NOMINAL_EXTRA_CANDIDATES_1" or packet.get("country")!=code or not isinstance(packet.get("clubs"),list):
+            raise ValueError("Invalid existing EXTRA preview: "+str(path))
+        clubs=packet["clubs"]
+        if any(not isinstance(c,dict) or not isinstance(c.get("groups"),list) for c in clubs):
+            raise ValueError("Invalid EXTRA groups: "+str(path))
+        rows.append({"country":code,"clubs":len(clubs),"nameGroups":sum(len(c["groups"]) for c in clubs)})
+    return rows
+
 def prepare(snapshot,output,only=None,include_extras=True,data=None,year=2026):
     if only and not re.fullmatch(r"[A-Z]{3}",only):raise ValueError("Invalid FIFA country code")
     if data is None:data=load_snapshot(snapshot)
@@ -243,9 +261,23 @@ def prepare(snapshot,output,only=None,include_extras=True,data=None,year=2026):
             atomic(output/"extras"/(country+".json"),{"schema":"SWOS_NOMINAL_EXTRA_CANDIDATES_1","country":country,"clubs":clubs})
             extra_summary.append({"country":country,"clubs":len(clubs),"nameGroups":n})
             report("Import EXTRA "+country,"FOUND" if n else "NO DATA",f"{n} distinct club/name groups; not native player slots")
-    atomic(output/("INDEX_"+only+".json" if only else "INDEX.json"),{"schema":"SWOS_NOMINAL_IMPORT_INDEX_1","researchYear":year,"countries":summary,"extras":extra_summary,"extrasIncluded":include_extras})
+    else:
+        extra_summary=retained_extra_summary(output,only)
+    atomic(output/("INDEX_"+only+".json" if only else "INDEX.json"),{"schema":"SWOS_NOMINAL_IMPORT_INDEX_1","researchYear":year,"countries":summary,"extras":extra_summary,"extrasIncluded":include_extras or bool(extra_summary),"extrasRefreshed":include_extras})
     return summary
 def selftest():
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        out=Path(d)
+        packet={"schema":"SWOS_NOMINAL_EXTRA_CANDIDATES_1","country":"ITA","clubs":[{"groups":[{"name":"A"}]}]}
+        path=out/"extras"/"ITA.json"
+        atomic(path,packet);before=path.read_bytes()
+        prepare(out/"candidates.json",out,include_extras=False,data={"targets":[]})
+        index=json.loads((out/"INDEX.json").read_text(encoding="utf-8"))
+        assert index["extrasIncluded"] and not index["extrasRefreshed"] and index["extras"]==[{"country":"ITA","clubs":1,"nameGroups":1}]
+        assert path.read_bytes()==before and not retained_extra_summary(out,"ENG")
+        prepare(out/"candidates.json",out/"empty",include_extras=False,data={"targets":[]})
+        assert not json.loads((out/"empty"/"INDEX.json").read_text(encoding="utf-8"))["extrasIncluded"]
     lead={"source":"BetExplorer","country":"CAM","kind":"LEAGUE_DIVISION","identityEvidence":True,"scope":"SEASON_PARTICIPANT_LABELS_NOT_JULY1","season":"2026/27","participants":[{"name":"Club One"},{"name":"Club One"},{"name":"Women Club"}]}
     owner={"fifa":"CAM","domestic_source_observations":[lead,dict(lead,season="2025/26"),dict(lead,kind="NATIONAL_CUP")]}
     assert len(archive_club_candidates(owner))==1 and not build(owner)["clubs"] and needs_club_sources(owner)

@@ -6,6 +6,7 @@ from http_retry import fetch,time_budget
 from research_status import report
 from transfermarkt_source import Page
 from betexplorer_source import route as bet_route,packet as bet_packet,selftest as bet_selftest
+from sports_sources import routes as sports_routes, packet as sports_packet, selftest as sports_selftest
 
 WP="https://en.wikipedia.org/w/api.php"
 WD="https://www.wikidata.org/w/api.php"
@@ -257,7 +258,11 @@ class Catalogue:
             try:return validate(p.read_bytes())
             except (ValueError,KeyError,TypeError,RuntimeError):pass
         raw=fetch(urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"application/json,text/html"}),timeout=15,attempts=2,total=35,limit=16*1024*1024)
-        value=validate(raw)
+        try:value=validate(raw)
+        except Exception as exc:
+            route=urllib.parse.urlsplit(url)
+            print(f"DIAG source rejected | host={route.netloc} path={route.path} bytes={len(raw)} reason={exc}",flush=True)
+            raise
         tmp=p.with_suffix(".part");tmp.write_bytes(raw);tmp.replace(p);return value
     def _api(self,url,params):
         route=url+"?"+urllib.parse.urlencode(dict(params,format="json",formatversion=2,maxlag=5))
@@ -328,6 +333,15 @@ class Catalogue:
                 packets.extend(pp);errors.extend(failures)
                 report("RSSSF domestic "+country,"FOUND",f"{len(pp)} competition observations; {sum(len(p['participants']) for p in pp)} entrant labels")
             except Exception as e:errors.append(["RSSSF",str(e)]);report("RSSSF domestic "+country,"ERROR",str(e))
+        if self.rsssf:
+            for route in sports_routes(country,year):
+                try:
+                    with time_budget(12):
+                        item=self._download(route[0],lambda raw:sports_packet(raw,country,year,route),ttl=86400)
+                    packets.append(item)
+                    report("GlobalSportsArchive "+country,"FOUND",f"{item['name']}; {len(item.get('participants',[]))} scoped names")
+                except Exception as e:
+                    errors.append(["GlobalSportsArchive",str(e)]);report("GlobalSportsArchive "+country,"ERROR",str(e))
         if self.wikipedia:
             try:
                 rows=self._directory().get(country,[])
@@ -364,6 +378,7 @@ class Catalogue:
 
 def selftest():
     bet_selftest()
+    sports_selftest()
     facts=section_leads("==Format==\nThe league consists of 12 teams. Each team plays every other team twice.\n==Regulations==\nThree points for a win and one point for a draw.\n==Women==\n===Format===\nThe league consists of 8 teams.",{"format","regulation"})
     assert len(facts)==2 and any(x["parameter"]=="teams" and x["value"]==12 for x in facts[0]["facts"])
     assert any(x["parameter"]=="pointsWin" and x["value"]==3 for x in facts[1]["facts"])

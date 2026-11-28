@@ -62,7 +62,8 @@ def packet(raw,country,year):
     for table in page.all("table"):
         rows=[r for r in table.all("tr") if own(r,table)]
         for idx,row in enumerate(rows):
-            cols=[norm(c.text()) for c in cells(row)]
+            aliases={"played":"mp","matchesplayed":"mp","p":"mp","won":"w","drawn":"d","lost":"l","points":"pts"}
+            cols=[aliases.get(norm(c.text()),norm(c.text())) for c in cells(row)]
             required={"team","mp","w","d","l","pts"}
             if not required<=set(cols) or any(cols.count(k)!=1 for k in required):continue
             ci={k:cols.index(k) for k in required}
@@ -88,7 +89,10 @@ def packet(raw,country,year):
                 if len(ids)>1:bad=True;break
                 found[norm(team)]={"name":team,**({"sourceId":next(iter(ids))} if ids else {})}
             if not bad and len(found)>=2:matches.append(found)
-    if not matches:raise ValueError("BetExplorer standing table missing/unsupported")
+    if not matches:
+        shapes=[sorted({norm(n.text())[:80] for n in t.all("th")})[:16] for t in page.all("table")[:8]]
+        print(f"DIAG BE schema | country={country} season={season} bytes={len(raw)} tables={len(page.all('table'))} headers={shapes}",flush=True)
+        raise ValueError("BetExplorer verified edition; standings absent from delivered HTML or unsupported schema (not NO DATA)")
     # Home/away/overall copies may have the same entrants; never union distinct groups.
     if any(set(v)!=set(matches[0]) for v in matches):raise ValueError("BetExplorer conflicting standing groups")
     participants=[]
@@ -103,6 +107,7 @@ def selftest():
     h='<title>CPL table, stats &amp; results, Football Cambodia | BetExplorer</title><h1>CPL 2026/2027 Table &amp; Stats</h1>'
     table='<table><tr><th>#</th><th>Team</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>Pts</th></tr><tr><td>1.</td><td><a href="/football/team/one/abcd1234/">Club One</a></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td></tr><tr><td>2.</td><td>Club Two</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr></table>'
     assert packet((h+table+table).encode(),"CAM",2026)["participants"]==[{"name":"Club One","sourceId":"abcd1234"},{"name":"Club Two"}]
+    assert packet((h+table.replace(">MP<",">Played<").replace(">Pts<",">Points<")).encode(),"CAM",2026)["participants"]==packet((h+table).encode(),"CAM",2026)["participants"]
     for bad in (h.replace("Cambodia","Thailand")+table,h.replace("2026/2027","2025/2026")+table,h+table+table.replace("Club Two","Other"),h+table.replace("Club Two","Women Club")):
         try:packet(bad.encode(),"CAM",2026)
         except ValueError:pass

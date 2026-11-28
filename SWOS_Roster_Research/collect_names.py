@@ -3,7 +3,7 @@
 import argparse, csv, hashlib, json, re, sys, time, unicodedata, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
 from roster_storage import Store, StorageFailure, PublicationConflict, recover_snapshot, selftest as storage_selftest
-from http_retry import fetch, HostCooldown, DeadlineExceeded, BLOCKED, INFLIGHT
+from http_retry import fetch, HostCooldown, DeadlineExceeded, BLOCKED, INFLIGHT, NEXT
 from research_status import report, outcome, progress, show_progress, WorkTotal
 from player_roles import position_evidence, merge_positions
 from season_config import output_dir, cutoff, year_value
@@ -130,6 +130,8 @@ def query(sparql):
         atomic(dest, data)
         dest.with_suffix('.rq').write_text(q, encoding='utf-8')
     QUERY_MEMO[str(dest)]=data
+    if not data["results"]["bindings"]:
+        print(f"DIAG WD zero rows | query={key[:12]} cache={dest.name}",flush=True)
     return [{k:v['value'] for k,v in row.items()} for row in data['results']['bindings']]
 
 def league_query(codes):
@@ -496,12 +498,24 @@ def main(baseline=None):
         pending=[]
         for payload,q,label in progress("Wikidata query batches",jobs,overall=True):
             rows=run(q,label)
-            if query_failed:pending.append((payload,q,label))
+            if query_failed:
+                key=hashlib.sha256((PREFIX+q).encode()).hexdigest()
+                if query_status.get(key,{}).get("status")=="DEFERRED":pending.append((payload,q,label))
             else:yield payload,rows
+        if pending:
+            host=urllib.parse.urlsplit(ENDPOINT).netloc
+            wait=max(0,BLOCKED.get(host,0)-time.monotonic(),NEXT.get(host,0)-time.monotonic())
+            if 0<wait<=60:
+                report("Wikidata retry queue","DEFERRED",f"{len(pending)} jobs; waiting {wait:.0f}s after other batch work")
+                time.sleep(wait+.05)
+        retried=0
         for payload,q,label in progress("Wikidata deferred retry batches",pending,overall=True):
-            if not wiki_ready():break
-            rows=run(q,label)
+            host=urllib.parse.urlsplit(ENDPOINT).netloc
+            worker=INFLIGHT.get(host)
+            if BLOCKED.get(host,0)>time.monotonic() or (worker and worker.is_alive()):break
+            rows=run(q,label);retried+=1
             if not query_failed:yield payload,rows
+        if pending:report("Wikidata retry queue","COMPLETED",f"{retried}/{len(pending)} retry attempts; unresolved status retained")
         flush_query_status()
     rawmap={}
     for r in national:
@@ -583,6 +597,7 @@ def main(baseline=None):
         print("\nPHASE 1/3: clubs in new countries, then other inactive countries",flush=True)
         from import_candidates import build,needs_club_sources,archive_club_candidates
         from betexplorer_source import route as bet_route
+        from sports_sources import routes as sports_routes, source_leads
         from season_config import season_map
         from alternative_sources import add_unique
         # The competition BAT is an independent writer. Its atomic per-country
@@ -598,12 +613,12 @@ def main(baseline=None):
             dest=cp.ensure(owner,"domestic_source_observations",[]);keys={domestic_key(v) for v in dest};added=0
             for packet in other.get("observations",[]):
                 if packet.get("country")!=code or packet.get("kind")!="LEAGUE_DIVISION" or not season_map(YEAR).get(packet.get("season")) or not packet.get("participants"):continue
-                if packet.get("source") in ("RSSSF","BetExplorer") and packet.get("identityEvidence") is True and packet.get("scope")=="SEASON_PARTICIPANT_LABELS_NOT_JULY1":
+                if packet.get("source") in ("RSSSF","BetExplorer","GlobalSportsArchive") and packet.get("identityEvidence") is True and packet.get("scope")=="SEASON_PARTICIPANT_LABELS_NOT_JULY1":
                     key=domestic_key(packet)
                     if key not in keys:cp.append(dest,packet);keys.add(key);added+=1
                 elif packet.get("source")=="Transfermarkt" and packet.get("scope")=="SEASON_CANDIDATE_NOT_JULY1" and packet.get("fields",{}).get("participants") in ("P","V"):
                     cid=packet.get("sourceId","");url=packet.get("sourceUrl","");country_url=packet.get("countryEvidence","")
-                    if not re.fullmatch(r"[A-Z0-9]+",cid) or url!=f"https://www.transfermarkt.com/-/startseite/wettbewerb/{cid}/saison_id/{YEAR}" or not re.fullmatch(r"https://www\.transfermarkt\.com/wettbewerbe/national/wettbewerbe/[1-9][0-9]*/saison_id/"+str(YEAR),country_url):continue
+                    if not re.fullmatch(r"[A-Z0-9]+",cid) or url not in ({f"https://www.transfermarkt.com/-/startseite/wettbewerb/{cid}/saison_id/{YEAR}",f"https://www.transfermarkt.com/-/startseite/wettbewerb/{cid}/saison_id/{YEAR-1}"} if packet.get("season")==str(YEAR) else {f"https://www.transfermarkt.com/-/startseite/wettbewerb/{cid}/saison_id/{YEAR}"}) or not re.fullmatch(r"https://www\.transfermarkt\.com/wettbewerbe/national/wettbewerbe/[1-9][0-9]*/saison_id/"+str(YEAR),country_url):continue
                     from transfermarkt_source import NON_LEAGUE
                     if NON_LEAGUE.search(packet.get("name","")):continue
                     for v in packet["participants"]:
@@ -614,10 +629,14 @@ def main(baseline=None):
             if added:report("Competition candidates "+code,"ACQUIRED",f"{added} reused scoped source observations")
         # Independent archives first, even when one previous source has clubs.
         missing={t["fifa"] for t in targets if needs_club_sources(bycode[t["fifa"]],YEAR) or (bet_route(t["fifa"],YEAR) and not any(p.get("source")=="BetExplorer" for p in bycode[t["fifa"]].get("domestic_source_observations",[])))}
-        total=WorkTotal("Domestic roster countries",len(targets),"missing club coverage or BetExplorer source",len(missing))
+        missing.update(t["fifa"] for t in targets if sports_routes(t["fifa"],YEAR) and not any(p.get("source")=="GlobalSportsArchive" and p.get("participants") for p in bycode[t["fifa"]].get("domestic_source_observations",[])))
+        total=WorkTotal("Domestic roster countries",len(targets),"missing club coverage or scoped sports source",len(missing))
         for t in total.walk(targets,lambda t:t["fifa"] in missing):
             code=t["fifa"];owner=bycode[code]
             packets,seeds,errors=catalogue.country(code,YEAR)
+            leads=cp.ensure(owner,"externalSportsSourceLeads",[])
+            for lead in source_leads(code,YEAR):
+                if lead not in leads:cp.append(leads,lead)
             observations=cp.ensure(owner,"domestic_source_observations",[])
             keys={domestic_key(p) for p in observations}
             for p in packets:

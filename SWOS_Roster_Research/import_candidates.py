@@ -18,7 +18,7 @@ def tm_id(v):
 def archive_club_candidates(target,year=2026):
     country=target["fifa"];found={}
     for p in target.get("domestic_source_observations",[]):
-        if p.get("country")!=country or p.get("kind")!="LEAGUE_DIVISION" or p.get("source") not in ("RSSSF","BetExplorer") or p.get("scope")!="SEASON_PARTICIPANT_LABELS_NOT_JULY1" or p.get("identityEvidence") is not True or not season_map(year).get(p.get("season")):continue
+        if p.get("country")!=country or p.get("kind")!="LEAGUE_DIVISION" or p.get("source") not in ("RSSSF","BetExplorer","GlobalSportsArchive") or p.get("scope")!="SEASON_PARTICIPANT_LABELS_NOT_JULY1" or p.get("identityEvidence") is not True or not season_map(year).get(p.get("season")):continue
         for x in p.get("participants",[]):
             name=x.get("name")
             if not valid_name(name) and not (country=="BHU" and name=="BFF Academy FC"):continue

@@ -2,11 +2,12 @@
 Derived research only; no native IDs, no CE writes, no future results.
 """
 import json,re,urllib.error
+from concurrent.futures import ThreadPoolExecutor
 from roster_storage import atomic,read
 from research_status import report, progress
 from http_retry import time_budget, check_budget, DeadlineExceeded, HostCooldown
 from transfermarkt_source import (Transfermarkt,BASE,COUNTRY,TIER,NON_LEAGUE,BAD,
-    country_page_matches,links,season_label,table_links,parse)
+    country_page_matches,links,season_label,table_links,parse,edition_page)
 FIELDS=("name","identity","participants","format","regulation","movement","qualification",
         "july1","roundDates","competitionDays","evolution","seasonChange")
 def routes(page,country_id):
@@ -37,6 +38,27 @@ def result_status(candidates,seen,errors,added):
     if errors or len(seen)<2:return "PARTIAL"
     return "ACQUIRED" if added else "NO NEW DATA"
 
+def catalogue_rule_fields(obs,packet,refresh):
+    related=[p for p in obs if p.get("kind")==packet["kind"] and (p.get("wikidataId")==packet.get("wikidataId") or (p.get("source")=="Wikidata" and p.get("sourceId")==packet.get("wikidataId")))]
+    return {f for f in ("format","regulation","movement","qualification","roundDates","evolution") if not any(p.get("fields",{}).get(f) in ("V","NA") for p in related) and (refresh or not any(x.get("field")==f and x.get("facts") for p in related for x in p.get("researchSectionLeads",[])))}
+
+def catalogue_jobs(targets,catalogue,output,year,refresh):
+    """One country ahead, one catalogue worker, main thread owns all candidate writes."""
+    if catalogue is None:
+        for r in progress("Domestic competition countries",targets,overall=True):yield r,None
+        return
+    def acquire(r):
+        country=r["fifa"];path=output/(country+".json")
+        old=read(path) if path.exists() else {"observations":[]}
+        with time_budget(40):
+            return catalogue.country(country,year,rule_fields=lambda packet:catalogue_rule_fields(old["observations"],packet,refresh))
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        job=pool.submit(acquire,targets[0]) if targets else None
+        for i,r in enumerate(progress("Domestic competition countries",targets,overall=True)):
+            current=job
+            job=pool.submit(acquire,targets[i+1]) if i+1<len(targets) else None
+            yield r,current
+
 def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source_catalog=False,refresh=False):
     national=json.loads((root/"docs/NATIONAL_ROSTER_SOURCE_MAP_2627.json").read_text(encoding="utf-8-sig"))["records"]
     targets=[r for r in national if (year!=2026 or r["source"]["team_file"]==255) and (not only or r["fifa"]==only)]
@@ -54,10 +76,12 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
     def observation_count():
         return sum(len(read(p).get("observations",[])) for p in (output/(r["fifa"]+".json") for r in targets) if p.exists())
     initial_count=observation_count()
-    for r in progress("Domestic competition countries",targets,overall=True):
+    counts={"handled":0,"successful":0,"failed":0,"deferred":0,"with_errors":0}
+    for r,catalogue_job in catalogue_jobs(targets,catalogue,output,year,refresh):
         with time_budget(160):
             country=r["fifa"];label="Domestic competitions "+country
             if tm.blocked and wiki_query is None and catalogue is None:
+                counts["handled"]+=1;counts["deferred"]+=1
                 report(label,"NOT SEARCHED","source access blocked");continue
             path=output/(country+".json")
             old=read(path) if path.exists() else {"schema":"SWOS_DOMESTIC_COMPETITION_CANDIDATES_1","country":country,"observations":[]}
@@ -65,9 +89,10 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
             obs=old["observations"];before=len(obs);errors=[];seen=set();incomplete=False
             report(label,"SEARCHING","first tier and domestic cup")
             seeds=[];covered={p["kind"] for p in obs if p.get("kind") in ("LEAGUE_DIVISION","NATIONAL_CUP") and p.get("participants") and p.get("fields",{}).get("participants")=="V"};seen.update(p["kind"] for p in obs if p.get("kind") in ("LEAGUE_DIVISION","NATIONAL_CUP") and p.get("fields",{}).get("identity") in ("P","V"));review=False
-            def rule_fields(packet):
-                related=[p for p in obs if p.get("kind")==packet["kind"] and (p.get("wikidataId")==packet.get("wikidataId") or (p.get("source")=="Wikidata" and p.get("sourceId")==packet.get("wikidataId")))]
-                return {f for f in ("format","regulation","movement","qualification","roundDates","evolution") if not any(p.get("fields",{}).get(f) in ("V","NA") for p in related) and (refresh or not any(x.get("field")==f and x.get("facts") for p in related for x in p.get("researchSectionLeads",[])))}
+            from sports_sources import source_leads
+            existing_leads=old.setdefault("externalSportsSourceLeads",[])
+            for lead in source_leads(country,year):
+                if lead not in existing_leads:existing_leads.append(lead)
             if archive is not None:
                 try:
                     with time_budget(10):
@@ -78,10 +103,9 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                 except Exception as e:errors.append(["RSSSF archive discovery",str(e)]);incomplete=True
             if catalogue is not None:
                 try:
-                    with time_budget(40):
-                        packets,seeds,source_errors=catalogue.country(country,year,rule_fields=rule_fields)
+                    packets,seeds,source_errors=catalogue_job.result()
                     if source_errors:errors.extend(source_errors);incomplete=True
-                    keys={observation_key(p) for p in obs if p.get("source") in ("WikipediaDirectory","RSSSF","BetExplorer")}
+                    keys={observation_key(p) for p in obs if p.get("source") in ("WikipediaDirectory","RSSSF","BetExplorer","GlobalSportsArchive")}
                     for p in packets:
                         packet=dict(p,fields={f:"I" for f in FIELDS})
                         packet["fields"]["name"]="P"
@@ -146,6 +170,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
             if tm.blocked:
                 old["lastSearch"]={"status":{k:"FOUND" if k in seen else "UNKNOWN" for k in ("LEAGUE_DIVISION","NATIONAL_CUP")},"errors":errors+[["Transfermarkt","blocked"]],"complete":False}
                 atomic(path,old)
+                counts["handled"]+=1;counts["deferred"]+=1;counts["with_errors"]+=1
                 report(label,"PARTIAL" if seen else "NOT SEARCHED","Transfermarkt blocked; retry later")
                 continue
             try:
@@ -163,8 +188,7 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                     report(item,"SEARCHING",name)
                     try:
                         route="/-/startseite/wettbewerb/"+code+"/saison_id/"+str(year)
-                        page=tm.page(route)
-                        season=season_label(page,"clubs",name,code,year)
+                        page,season,route=edition_page(tm,route,"clubs",name,code,year)
                         seen.add(kind)
                         packet={"source":"Transfermarkt","country":country,"kind":kind,"sourceId":code,"name":name,
                                 "season":season,"sourceUrl":BASE+route,"countryEvidence":BASE+country_path,
@@ -188,13 +212,20 @@ def run(root,only=None,tm_factory=Transfermarkt,wiki_query=None,year=2026,source
                 status={k:"FOUND" if k in seen else "UNKNOWN" for k in ("LEAGUE_DIVISION","NATIONAL_CUP")}
                 old["lastSearch"]={"status":status,"errors":errors,"complete":not tm.blocked and not incomplete}
                 atomic(path,old)
+                print(f"DIAG domestic | country={country} previous={before} current={len(obs)} new={len(obs)-before} errors={len(errors)} incomplete={incomplete}",flush=True)
+                counts["handled"]+=1
+                counts["with_errors"]+=int(bool(errors))
+                counts["deferred" if incomplete or tm.blocked else "failed" if errors else "successful"]+=1
                 report(label,("PARTIAL" if seen else "ERROR") if incomplete else ("REVIEW" if review and not seen and not candidates else result_status(candidates,seen,errors,len(obs)-before)),f"{len(obs)-before} new observations; {len(candidates)} source routes; league {status['LEAGUE_DIVISION']}; cup {status['NATIONAL_CUP']}")
             except Exception as e:
                 if blocks_source(e):tm.blocked=True
                 errors.append(["country",str(e)])
                 old["lastSearch"]={"status":{k:"FOUND" if k in seen else "UNKNOWN" for k in ("LEAGUE_DIVISION","NATIONAL_CUP")},"errors":errors,"complete":False}
                 atomic(path,old)
+                counts["handled"]+=1;counts["with_errors"]+=1
+                counts["deferred" if isinstance(e,(DeadlineExceeded,HostCooldown,TimeoutError)) or tm.blocked else "failed"]+=1
                 report(label,"ERROR",str(e))
+    print("RESULT domestic source work | "+" | ".join(f"{k}={v}" for k,v in counts.items()),flush=True)
     print(f"RESULT domestic competitions | new candidate observations={observation_count()-initial_count} | countries handled={len(targets)} | not certified competitions",flush=True)
     return len(targets)
 def selftest():

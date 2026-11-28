@@ -185,6 +185,27 @@ def require_squad_season(page,club,club_id,expected,year):
         raise ValueError(f"Squad season mismatch: competition={expected}; squad={actual}; clubId={club_id}; requestedYear={year}")
     return actual
 
+def edition_page(tm,path,kind,identity,code,year,expected=None):
+    """URL year is only a request hint; independently verify the edition."""
+    page=tm.page(path)
+    try:
+        actual=season_label(page,kind,identity,code,year)
+        print(f"DIAG TM edition | kind={kind} id={code} requested={year} observed={actual}",flush=True)
+        if expected is not None and actual!=expected:
+            raise ValueError("Requested season differs from competition: "+actual)
+        return page,actual,path
+    except ValueError as exc:
+        if "season" not in str(exc).lower() or expected not in (None,str(year)):
+            raise
+        print(f"DIAG TM rejected | kind={kind} id={code} requested={year} reason={exc}",flush=True)
+        alternate=path.removesuffix("/saison_id/"+str(year))+"/saison_id/"+str(year-1)
+        other=tm.page(alternate)
+        actual=season_label(other,kind,identity,code,year)
+        if actual!=str(year) or page_route_ids(other,kind)!={code}:
+            raise ValueError("Alternative season index not independently verified") from exc
+        print(f"DIAG TM alternate accepted | id={code} observed={actual} route={alternate}",flush=True)
+        return other,actual,alternate
+
 def table_links(page,pattern,with_positions=False):
     # Use primary schema, not the count of tables with class items.
     # Header columns from nested tables are excluded.
@@ -236,7 +257,10 @@ def table_links(page,pattern,with_positions=False):
     unique=[]
     for candidate in candidates:
         if candidate not in unique:unique.append(candidate)
-    if len(unique)!=1:raise ValueError("Primary data table missing or ambiguous: "+str(len(unique)))
+    if len(unique)!=1:
+        shapes=[sorted({norm(n.text())[:80] for n in t.all("th")})[:16] for t in page.all("table")[:8]]
+        print(f"DIAG TM schema | tables={len(page.all('table'))} candidates={len(unique)} headers={shapes}",flush=True)
+        raise ValueError("Primary data table missing or ambiguous: "+str(len(unique)))
     return unique[0]
 
 def squad_counts(owner):
@@ -281,6 +305,7 @@ class Transfermarkt:
             except ValueError:pass # stale/incomplete HTML: one ordinary refresh, never bypass a challenge
         req=urllib.request.Request(BASE+path,headers={"User-Agent":"SWOS-Expanded-Roster-Research/1.0 (https://github.com/Giuzy/SWOS-Expanded/issues/2)","Accept":"text/html","Accept-Language":"en"})
         html=fetch(req,timeout=20,attempts=2,interval=5,total=45,limit=8*1024*1024).decode("utf-8",errors="replace")
+        print(f"DIAG TM response | route={path} chars={len(html)}",flush=True)
         page=parse(html)
         tmp=p.with_suffix(".part");tmp.write_text(html,encoding="utf-8");tmp.replace(p)
         return page
@@ -324,7 +349,7 @@ class Transfermarkt:
             try:
                 report("Transfermarkt "+c+"/"+code,"SEARCHING",name)
                 before=len(out)
-                page=self.page(path);season=season_label(page,"clubs",name,code,self.year)
+                page,season,path=edition_page(self,path,"clubs",name,code,self.year)
                 # Positive domestic tier inherited from exact country selector.
                 for cid,club in table_links(page,r"/startseite/verein/([1-9][0-9]*)(?:/|$)").items():
                     out.append({"club":club,"transfermarktClubId":cid,"country":c,"competition":code,"competitionName":name,"level":level,"season":season,"source":BASE+path,"scope":SCOPE})
@@ -340,8 +365,7 @@ class Transfermarkt:
         label="Transfermarkt players "+entry["country"]+"/"+entry["club"]
         report(label,"SEARCHING")
         before=len(owner.get("transfermarkt_players",[]));reviews=len(owner.get("name_matches",[]));found=0
-        page=self.page(path)
-        require_squad_season(page,entry["club"],entry["transfermarktClubId"],entry["season"],self.year)
+        page,_,path=edition_page(self,path,"players",entry["club"],entry["transfermarktClubId"],self.year,entry["season"])
         for pid,(name,positions) in table_links(page,r"/profil/spieler/([1-9][0-9]*)(?:/|$)",with_positions=True).items():
             if norm(name) in known:continue
             found+=1
@@ -444,6 +468,11 @@ def selftest():
     else:raise AssertionError("Wrong country accepted")
     club=parse('<h2>Clubs - Bhutan Premier League 2026</h2><table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/paro/startseite/verein/123">Paro FC</a></td></tr></table>')
     assert season_label(club,"clubs","Bhutan Premier League")=="2026"
+    class FakeEdition:
+        def page(self,path):
+            y="2027" if path.endswith("/2026") else "2026"
+            return parse(f'<link rel="canonical" href="/x/startseite/wettbewerb/BH1L"><h2>Clubs - Bhutan Premier League {y}</h2>')
+    assert edition_page(FakeEdition(),"/-/startseite/wettbewerb/BH1L/saison_id/2026","clubs","Bhutan Premier League","BH1L",2026)[1:]==("2026","/-/startseite/wettbewerb/BH1L/saison_id/2025")
     assert table_links(club,r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Paro FC"}
     copy='<table class="items"><tr><th>Club</th><th>Squad</th></tr><tr><td><a href="/paro/startseite/verein/123">Paro FC</a></td></tr></table>'
     assert table_links(parse(copy+copy),r"/startseite/verein/([1-9][0-9]*)(?:/|$)")=={"123":"Paro FC"}

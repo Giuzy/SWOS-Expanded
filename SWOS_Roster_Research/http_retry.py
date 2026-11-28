@@ -12,22 +12,26 @@ NEXT={}
 BLOCKED={}
 INFLIGHT={}
 RETRYABLE={408,429,500,502,503,504}
-_DEADLINE=None
+_LOCAL=threading.local()
+_HOST_LOCKS={}
+_HOST_LOCKS_GUARD=threading.Lock()
+
+def deadline_value():return getattr(_LOCAL,'deadline',None)
 
 class DeadlineExceeded(TimeoutError):pass
 class HostCooldown(RuntimeError):pass
 
 @contextmanager
 def time_budget(seconds):
-    global _DEADLINE
-    previous=_DEADLINE
+    previous=deadline_value()
     now=time.monotonic()+seconds
-    _DEADLINE=now if previous is None else min(previous,now)
+    _LOCAL.deadline=now if previous is None else min(previous,now)
     try:yield
-    finally:_DEADLINE=previous
+    finally:_LOCAL.deadline=previous
 
 def check_budget():
-    if _DEADLINE is not None and time.monotonic()>=_DEADLINE:
+    deadline=deadline_value()
+    if deadline is not None and time.monotonic()>=deadline:
         raise DeadlineExceeded("Research time budget exhausted")
 
 def wait_after(header, now=None):
@@ -39,11 +43,20 @@ def wait_after(header, now=None):
         except (ValueError,TypeError,OverflowError):return 0
 
 def fetch(req,timeout=60,attempts=4,interval=2,limit=64*1024*1024,opener=None,sleep=None,clock=None,total=180):
+    host=urllib.parse.urlsplit(req.full_url).netloc
+    with _HOST_LOCKS_GUARD:lock=_HOST_LOCKS.setdefault(host,threading.Lock())
+    if not lock.acquire(blocking=False):
+        raise HostCooldown("HTTP host busy: "+host)
+    try:return _fetch(req,timeout,attempts,interval,limit,opener,sleep,clock,total)
+    finally:lock.release()
+
+def _fetch(req,timeout=60,attempts=4,interval=2,limit=64*1024*1024,opener=None,sleep=None,clock=None,total=180):
     opener=opener or urllib.request.urlopen;sleep=sleep or time.sleep;clock=clock or time.monotonic
     url=urllib.parse.urlsplit(req.full_url);host=url.netloc;label=host+url.path
     print("",flush=True)
     start=clock();deadline=start+total
-    if _DEADLINE is not None:deadline=min(deadline,_DEADLINE)
+    caller_deadline=deadline_value()
+    if caller_deadline is not None:deadline=min(deadline,caller_deadline)
     def log(message):print(f"HTTP {label} — {message} ({clock()-start:.0f}s elapsed)",flush=True)
     def remaining():
         left=deadline-clock()
@@ -146,6 +159,10 @@ def selftest():
             except DeadlineExceeded:pass
             else:raise AssertionError("country budget ignored")
             check_budget()
+            with time_budget(0):
+                from concurrent.futures import ThreadPoolExecutor
+                with ThreadPoolExecutor(max_workers=1) as pool:
+                    assert pool.submit(check_budget).result() is None
             try:fetch(req("size.invalid"),opener=lambda *a,**k:io.BytesIO(b"abc"),limit=2,total=1)
             except ValueError:pass
             else:raise AssertionError("oversize accepted")

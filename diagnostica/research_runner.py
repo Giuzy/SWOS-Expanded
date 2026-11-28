@@ -116,8 +116,19 @@ class Run:
                               env=self.env, stdout=subprocess.PIPE,
                               stderr=subprocess.STDOUT, text=True,
                               encoding="utf-8", errors="replace") as child:
+            # Suppress only routine repeated progress/HTTP success chatter;
+            # all failures, results, waits and meaningful evidence remain.
+            omitted=0
             for line in child.stdout:
+                clean=line.rstrip()
+                routine=(not clean or clean.startswith("HTTP ") and (" — ATTEMPT " in clean or " — DONE:" in clean or " — PACING:" in clean))
+                progress_line=clean.startswith(("PROGRESS ","TOTAL ")) or bool(re.match(r"^.+ — ACTION \d+/\d+ ",clean))
+                if self.mode in ("COMPETIZIONI","GIOCATORI") and "--self-test" not in args and (routine or progress_line):
+                    omitted+=1
+                    complete=bool(re.search(r"\b(\d+)/\1 (?:done|handled)\b",clean))
+                    if not progress_line or (omitted%20 and not complete):continue
                 self.write(self.display_line(line))
+            if omitted:self.write(f"[LOG] {omitted} routine lines sampled/suppressed; errors and RESULT retained.\n")
             rc = child.wait()
         return 130 if self.cancelled else rc
 

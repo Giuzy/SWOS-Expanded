@@ -30,7 +30,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define EXP_CE_MAX_TIEBREAK 10u
+#define EXP_CE_MAX_TIEBREAK 16u /* v00.13.355: 16 (hash keeps the first 10 slots as before) */
 /* OG roster: 16 players, 11 starters -> at most 5 on the bench. */
 #define EXP_CE_OG_MAX_BENCH 15u   /* v322: 11+15 match squad (extended bench, RG-MATCH-BENCH-EXT) */
 
@@ -54,6 +54,14 @@ typedef enum ExpCeTieBreak {
     EXP_CE_TB_H2H_AWAY_GOALS,
     EXP_CE_TB_NAME,            /* OG: alphabetical club name (native sort) */
     EXP_CE_TB_LOT,             /* deterministic game draw (CE, documented) */
+    /* v00.13.355 (UEFA Nations League art. 15/19, generic): */
+    EXP_CE_TB_H2H_REAPPLY,     /* re-apply the preceding H2H criteria to the
+                                  clubs STILL level only (subset) */
+    EXP_CE_TB_AWAY_WINS,
+    EXP_CE_TB_DISCIPLINE,      /* lower disciplinary points first; only when
+                                  the data of every compared club is known */
+    EXP_CE_TB_ACCESS_LIST,     /* better (lower) access-list rank of the edition:
+                                  a total order, no random component */
     EXP_CE_TB_COUNT
 } ExpCeTieBreak;
 

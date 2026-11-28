@@ -54,6 +54,10 @@ typedef struct ExpandedUniversalMatchWitness {
     int32_t day_index;
     ExpandedFixtureScore score;
     uint8_t valid; /* set by OG adapter only after original result confirmed */
+    /* v00.13.355 team disciplinary points of a real 50 Hz match (OG team
+     * statistics), disc_known 0 for OG QUICK results (no cards) */
+    uint16_t disc_home, disc_away;
+    uint8_t disc_known;
 } ExpandedUniversalMatchWitness;
 
 typedef struct ExpandedUniversalCompletion {

@@ -1,3 +1,6 @@
+## 28/11/2026 — HOST SELECTION (decisione utente, solo design)
+Specifica canonica approvata: [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md), sezione «HOST SELECTION: assegnazione universale degli ospitanti». Estrazione futura basata soltanto su storico delle nazionali (intera storia) e tempo dall'ultima organizzazione, target statistico circa 33/67 senza sequenza/quota obbligatoria, vincoli geografici/regolamentari, co-host vicini, assegnazione prima delle qualificazioni e persistita. RG-CE-HOST-SELECTION; calibrazione non definita, nessun runtime o test gameplay.
+
 ## 28/11/2026 — Rinnovo edizioni: decisione utente
 Applicare la gerarchia canonica e i limiti in [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md), sezione «Decisione utente: rinnovo universale delle edizioni e profili regolamentari». Vedi RG-CE-EDITION-PROFILE-POLICY. Approvazione progettuale, non nuovo runtime; mantenere precheck e guardie RULES_CHANGED.
 
@@ -1572,3 +1575,12 @@ Ranking FIFA/UEFA moderno soltanto 2627: usare il kernel puro expanded_ce_rankin
 
 ### 28/11/2026 — finestre internazionali: default FIFA per tutte le competizioni di club
 `international_breaks` assente = FIFA (leghe e fasi CE di club), `""` = nessuna; edizioni nazionali giocano nelle finestre; pause con `"season"` valgono per una sola edizione; finestra estesa dopo la sosta quando necessario (log WINDOW_EXTENDED_AFTER_INTERNATIONAL_BREAK). Coppa d'Asia 2027 al 23/12/2027–21/01/2028. Scheda RG-CE-INTL-WINDOWS-354.
+
+## 28/11/2026 — v00.13.355 UEFA Nations League (passo 1)
+Nuovi campi generali CE: entrant `nation`, fase `first_edition_group_days`, `qualify_groups`, pairing `WINNERS_RUNNERS_DRAW`, competizione `cycle_years`; nazionali nel catalogo universale (chiave NATIONAL). Definizione NL 13176834 generata da tools/fifa_ranking/build_nations_league.py. Scheda RG-CE-NATIONS-LEAGUE-2627 (fatto / deviazioni / mancante).
+
+### v00.13.355 — Nations League: classifica intermedia, spareggi, classifica finale, access list
+Campi generali CE: `interim` (tiers, cross, exclude_last_unequal; `ExpCe_InterimRanking`), pairing `POT_PAIRS` con `interim_pots`, fasi `parallel`, `final_ranking` a bucket, `next_missing` (successore con partecipanti risolti, fase 0 bloccata con motivo dichiarato). `participant_kind` impostato alla conferma partecipanti. NL: access list 2028 = classifica finale 2026/27; formato 2028/29 non definito → edizione 2028 bloccata. Scheda RG-CE-NATIONS-LEAGUE-2627.
+
+### v00.13.355 — Nations League 2028/29+ (formato da dati)
+Nuovi campi CE: pairing gironi `BANDED_POTS` + `bands`, `round_template` (calendario fisso per slot), definizione `last_year`, sorgente `alt_competition`. NL 2028+ = definizione 13177090 (3×3 gironi da 6, modello 6 turni, QF interim 1-8, spareggi A/B 10-15 v 22-27 e B/C 28-33 v 40-45, 198 gare); regole OFFICIAL vs SWOS_PROVISIONAL marcate nel JSON. Scheda RG-CE-NATIONS-LEAGUE-2829.

@@ -2018,6 +2018,20 @@ void MenuProc(void)
             return;
         }
     }
+    /* v00.13.355 region screen without EXIT (EUROPE + NATIONS LEAGUE):
+     * B / ESC / BACKSPACE = the removed EXIT (ExitSelectTeams, one level). */
+    {
+        extern int Expanded_RegionNoExitActive(void);
+        extern int InputSDL_ConsumeRegionBack(void);
+        const int back=InputSDL_ConsumeRegionBack();
+        if(Expanded_RegionNoExitActive() &&
+           (back || _currentKey==27 || _currentKey==127 || _currentKey==8)) {
+            extern void ExitSelectTeams(void);
+            ExitSelectTeams();
+            _fire=_shortFire=_pl1Fire=0;
+            return;
+        }
+    }
     /* Expanded modal dialogs: ESC or Backspace must ALWAYS return to the
      * caller, regardless of the selected row or joystick state.  The stock
      * menu engine does not assign a global ESC action to custom menus. */

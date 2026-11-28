@@ -7416,6 +7416,23 @@ static void Expanded_NationRankingSelect(MenuEntry *e)
     (void)e;
     Expanded_NationRankingOpen();
 }
+/* v00.13.355 (user 28/11/2026, authorized): region screen with a CE
+ * competition button (EUROPE: NATIONS LEAGUE) in the bottom-right slot;
+ * its EXIT button is removed and BACK is B / ESC. Read-only viewer. */
+static uint32_t s_expRegionDef;
+static uint8_t s_expRegionNoExit;
+static char s_expRegionLabel[40];
+int Expanded_RegionNoExitActive(void)
+{
+    extern uint8_t _selectTeamsMenu[];
+    return s_expRegionNoExit && _currentMenuPtr==(uintptr_t)_selectTeamsMenu;
+}
+static void Expanded_RegionCompetitionSelect(MenuEntry *e)
+{
+    extern int ExpCeViewer_OpenDefinition(uint32_t);
+    (void)e;
+    if(s_expRegionDef)(void)ExpCeViewer_OpenDefinition(s_expRegionDef);
+}
 #endif
 __attribute__((used, externally_visible))
 void CheckNumberOfTeams(void)
@@ -7425,11 +7442,33 @@ void CheckNumberOfTeams(void)
      * 89 = "play" button (offset 0x1378)
      * 90 = "select N more/less" text (offset 0x13B0)
      */
+#ifdef SWOS_SDL_BUILD
+    s_expRegionNoExit=0u;
+#endif
     if (_selectTeamsNoLimit) {
         _menuEntries[89].isInvisible = 1;
         _menuEntries[90].isInvisible = 1;
         _menuEntries[87].isInvisible = 1;
 #ifdef SWOS_SDL_BUILD
+        {   /* v00.13.355 region competition button (data: viewer_region) */
+            extern uint32_t ExpCeViewer_RegionButton(uint8_t,char *,size_t);
+            const uint32_t def=g_expSelectTeamsCountry>=80u && g_expSelectTeamsCountry<=85u ?
+                ExpCeViewer_RegionButton((uint8_t)g_expSelectTeamsCountry,
+                                         s_expRegionLabel,sizeof s_expRegionLabel):0u;
+            if(def) {
+                MenuEntry *e=&_menuEntries[89];
+                s_expRegionDef=def;
+                s_expRegionNoExit=1u;
+                _menuEntries[88].isInvisible=1;    /* EXIT removed: B / ESC go back */
+                e->isInvisible=0;
+                e->isDisabled=0;
+                e->content=ENTRY_STRING;
+                e->fg=(uintptr_t)s_expRegionLabel;
+                e->bgColor=(uint16_t)((e->bgColor&0xFFF0u)+YELLOW_GREEN_BLACK_14);
+                e->onSelect=Expanded_RegionCompetitionSelect;
+                e->controlMask=0x21u; /* FIRE only */
+            } else _menuEntries[88].isInvisible=0;
+        }
         /* WORLD 2026/27 career, WORLD -> regions screen: the approved green
          * NATION RANKING button in the free bottom-right slot (entry 89,
          * original green colour 14, original nav 88<->89). Only this screen;

@@ -390,7 +390,7 @@ static int live_packed_compare(const void *aa,const void *bb) {
     const LivePackedFixture *b=(const LivePackedFixture *)bb;
     return fixture_compare(&a->fixture,&b->fixture);
 }
-static int live_roll_window(void) {
+__attribute__((unused)) static int live_roll_window(void) {
     if (!s_live || !s_fixtures ||
         (unsigned)s_window_first_year+2u>2199u) return 0;
     const uint16_t retiring=s_window_first_year;
@@ -823,7 +823,7 @@ rollback:
             (unsigned)country);
     return 0;
 }
-static int live_advance_with_mobility(int32_t target) {
+__attribute__((unused)) static int live_advance_with_mobility(int32_t target) { /* no caller (dead legacy path): kept, not compiled out */
     while (1) {
         int found=0;
         int32_t earliest=INT32_MAX;

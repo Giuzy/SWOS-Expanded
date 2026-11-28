@@ -66,6 +66,10 @@ char *ExpandedUniversal_CarTakeLifecycle(void);
 /* FIFA ranking (2627): "FR01;" text read from the CAR (NULL = absent),
  * and the one recorder called by the CE completion writers. */
 char *ExpandedUniversal_CarTakeFifa(void);
+/* v00.13.355 discipline section ("DS01;") and its recorder */
+char *ExpandedUniversal_CarTakeDiscipline(void);
+int ExpandedUniversal_DisciplineRecord(const ExpandedUniversalFixture *f,
+                                       const ExpandedUniversalMatchWitness *w);
 struct ExpFifaUndo;
 int ExpandedUniversal_FifaRecord(const ExpandedUniversalFixture *f,
                                  const ExpandedFixtureScore *sc,struct ExpFifaUndo *undo);

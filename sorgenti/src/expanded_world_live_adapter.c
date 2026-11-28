@@ -337,6 +337,26 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
         }
     }
     _skipLeagueNumbers=old_skip;
+    if(World_Current()==WORLD_2627) {
+        /* v00.13.355: national teams (OG region files 80..85, world 2627
+         * data) enter the catalog with their NATIONAL key so the CE can
+         * schedule and OG can play national competitions (Nations League).
+         * They are never part of the club world (LWE). */
+        unsigned nat=0,natfail=0;
+        for(uint8_t file=80u;file<=85u;++file) {
+            unsigned count,i;
+            _teamsLoaded=0;
+            if(LoadTeamFile(file)!=0){++natfail;continue;}
+            count=*(const uint16_t*)_teamFileBuffer;
+            if(count>TEAM_FILE_MAX_TEAMS){++natfail;continue;}
+            for(i=0;i<count;++i) {
+                const TeamFileEx *t=&((const TeamFileEx*)(_teamFileBuffer+2))[i];
+                if(t->team.countryNumber!=file)continue;
+                if(ExpandedUniversalCatalog_AddClub(t))++nat;else ++natfail;
+            }
+        }
+        fprintf(stderr,"[universal-catalog] NATIONAL_TEAMS added=%u failed=%u\n",nat,natfail);
+    }
     _teamsLoaded=0;
     s_import_runtime.rows=s_import_rows_seen;
     s_import_runtime.accepted=s_import_audit.imported_clubs;

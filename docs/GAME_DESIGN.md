@@ -1,3 +1,6 @@
+## 28/11/2026 — HOST SELECTION (decisione utente, solo design)
+Specifica canonica approvata: [CE_CALENDAR_GENERATOR.md](CE_CALENDAR_GENERATOR.md), sezione «HOST SELECTION: assegnazione universale degli ospitanti». Estrazione futura basata soltanto su storico delle nazionali (intera storia) e tempo dall'ultima organizzazione, target statistico circa 33/67 senza sequenza/quota obbligatoria, vincoli geografici/regolamentari, co-host vicini, assegnazione prima delle qualificazioni e persistita. RG-CE-HOST-SELECTION; calibrazione non definita, nessun runtime o test gameplay.
+
 ## 27/11/2026 — Decisione utente: 23 paesi nominali e limite 32
 Per i paesi privi di competizioni sportive complete, START CAREER/WORLD mostra tasto non scuro, lista club, START conferma ACCEPT CONTRACT e apre calendario limitato a SQUAD/VIEW WORLD e uscita; WORLD apre la rosa readonly. Max 32 giocatori mostrati per club; tutti i dati eccedenti restano ricerca. Finché non esistono identità native, ruoli/skill e competizioni certificate, questa è prova UI, non assunzione persistente. Nessuna simulazione, statistica o contratto economico inventato. RG-NOMINAL-23-COUNTRIES-2627.
 

@@ -437,17 +437,42 @@ static void AssignSimulatedGoalsToScorers(TeamFileEx *team, uint8_t *remapTable,
     }
 }
 
+/* v00.13.355 read-only witness of the cards the ORIGINAL QUICK routine below
+ * assigns (no change to the OG behaviour): per team, new yellow bookings
+ * (accumulation bits 2-4 raised) count 1, a new suspension (bits 0-1 set to 2)
+ * counts 3. s_quickDiscSeen marks a team whose status pass really ran, so a
+ * skipped team (training, user-controlled, testers' rule) stays UNKNOWN and
+ * never gets an artificial clean record. */
+static uint16_t s_quickDisc[2];
+/* v00.13.355 (user 28/11/2026): set ONLY by the universal 2627 QUICK path.
+ * The OG status passes (injuries / cards / their decay, injured-player
+ * price) skip TEAM_COMPUTER sides; with this flag the CPU club gets the
+ * SAME original routines as the manager's club, so VIEW RESULT is no
+ * advantage for the CPU. 0 everywhere else: OG behaviour unchanged. */
+uint8_t g_expQuickStatusComputer;
+#define EXP_SKIP_STATUS(t) ((t)->team.teamControls == 1 && !g_expQuickStatusComputer)
+static uint8_t s_quickDiscSeen[2];
+int MatchSim_QuickDiscipline(uint16_t *home, uint16_t *away)
+{
+    if (!s_quickDiscSeen[0] || !s_quickDiscSeen[1]) return 0;
+    if (home) *home = s_quickDisc[0];
+    if (away) *away = s_quickDisc[1];
+    return 1;
+}
+
 /* ================================================================
  * ApplyRandomPlayerStatusAfterSim
  * Applies random injury/card/status changes to players after simulation.
  * ================================================================ */
 static void ApplyRandomPlayerStatusAfterSim(TeamFileEx *team, uint8_t *remapTable) {
+    const int discSide = team == viewResultTeam1Ptr ? 0 : 1;
     if (_trainingGame) return;
-    if (team->team.teamControls == 1) return;
+    if (EXP_SKIP_STATUS(team)) return;
     /* The testers' rule (test_rules.h): never assign post-match injuries / cards, so
      * the tester can VIEW RESULT through a season without substitution prompts. */
     if (TestRules_NoInjuriesCards())
         return;
+    s_quickDiscSeen[discSide] = 1;
 
     /* Get number of available players */
     uint32_t result = GetNumberOfAvailablePlayers((uint8_t *)team, -1, 0);
@@ -585,6 +610,12 @@ static void ApplyRandomPlayerStatusAfterSim(TeamFileEx *team, uint8_t *remapTabl
         /* Apply new injury bits (loc_122396) */
         {
             uint8_t val = playerRec->cardsInjuries;
+            {   /* v00.13.355 discipline witness (read-only) */
+                const unsigned oldY = (unsigned)(val & 0x1C) >> 2, newY = (unsigned)(d1 & 0x1C) >> 2;
+                if (newY > oldY) s_quickDisc[discSide] = (uint16_t)(s_quickDisc[discSide] + (newY - oldY));
+                if ((val & 0x03) != 2 && (cardBits & 0x03) == 2)
+                    s_quickDisc[discSide] = (uint16_t)(s_quickDisc[discSide] + 3u);
+            }
             val = (val & ~0x1C) | (uint8_t)(d1 & 0x1C);
             playerRec->cardsInjuries = val;
 
@@ -613,7 +644,7 @@ static void ApplyRandomPlayerStatusAfterSim(TeamFileEx *team, uint8_t *remapTabl
  * ================================================================ */
 __attribute__((used, externally_visible))
 void InitPlayerRemapTableForTeam(TeamFileEx *team, uint8_t *remapTable) {
-    if (team->team.teamControls == 1) return;
+    if (EXP_SKIP_STATUS(team)) return;
     /* The testers' rule (test_rules.h): never assign post-match status buckets, so
      * the tester can VIEW RESULT through a season without IsPlayerInjured flagging
      * anyone unavailable. */
@@ -952,6 +983,8 @@ void CalculateViewResult(DIYCompetition *ctx, uint16_t modeFlag,
     viewResultStatColumnIndex = statColumnIndex;
     viewResultTeam1Ptr = team1;
     viewResultTeam2Ptr = team2;
+    s_quickDisc[0] = s_quickDisc[1] = 0;
+    s_quickDiscSeen[0] = s_quickDiscSeen[1] = 0;
 
     /* Clear goal counters (32 bytes each) — longword stores to avoid
      * GCC generating memset calls (no libc). */
@@ -2267,7 +2300,7 @@ uint32_t UpdatePlayerPositionAndReturnRole(TeamFileEx *team, uint16_t playerIdx)
         d7val = 1;
 
     /* Computer-controlled teams skip injury/sold checks */
-    if (team->team.teamControls != TEAM_COMPUTER) {
+    if (team->team.teamControls != TEAM_COMPUTER || g_expQuickStatusComputer) {
         /* Check if player is "sold" (bit 1 of positionAndFace) */
         if (pf->positionAndFace & PF_LOAN) {
             d7val = 1;  /* sold player = minimum price */

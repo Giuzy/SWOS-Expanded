@@ -317,10 +317,21 @@ static int exp_universal_native_quick_result(
      * for 6..15 seats (ascending/descending/rotated orders of lineup slots 11..), seats >= 16 are the
      * club's extra players (match_sim.c quickSlotFile/quickRec). The pick-count table is indexed by
      * the ALLOWED substitutions (rows 0..5 only), so that one is capped at 5. */
+    {   /* v00.13.355 (user 28/11/2026): the OG DIY QUICK path decays injuries
+         * and suspensions (InitInGameTeams_WithMatchParam) BEFORE scoring;
+         * the universal path skipped it, so the manager's injuries never
+         * healed in VIEW RESULT. Same original decay, and both sides (CPU
+         * included) go through the same status routines. */
+        extern uint8_t g_expQuickStatusComputer;
+        extern void InitInGameTeams_PlayerControlled(TeamFileEx *,TeamFileEx *,uint16_t);
+        g_expQuickStatusComputer=1u;
+        InitInGameTeams_PlayerControlled(c->home,c->away,(uint16_t)c->match_parameters);
+    }
     CalculateViewResult(&scoring.base,(uint16_t)c->og_mode_flag,
         (uint16_t)(c->minimum_substitutes>5?5:c->minimum_substitutes),
         (uint16_t)c->maximum_substitutes,0u,
         c->home,c->away,&home,&away);
+    {   extern uint8_t g_expQuickStatusComputer; g_expQuickStatusComputer=0u; }
     {
         /* Fase 2: deciding match of a knockout tie, OG quick resolvers in
          * the ORIGINAL order of ProcessDIYKnockoutMatchResultAndCareerUpdates:
@@ -372,6 +383,14 @@ static int exp_universal_native_quick_result(
     witness->day_index=fixture->day_index;
     witness->score=(ExpandedFixtureScore){home,away,s_quick_pen_home,
                                           s_quick_pen_away,s_quick_flags};
+    {   /* v00.13.355 cards of the ORIGINAL QUICK status pass, same routine for
+         * both sides (no CPU advantage); unknown when a side was skipped */
+        uint16_t dh=0u,da=0u;
+        witness->disc_known=0u;
+        if(MatchSim_QuickDiscipline(&dh,&da)) {
+            witness->disc_home=dh;witness->disc_away=da;witness->disc_known=1u;
+        }
+    }
     exp_native_debug_result(c,&witness->score);
     witness->valid=1u;
     fprintf(stderr,"[universal-native] OG_QUICK_RESULT "
@@ -540,6 +559,13 @@ int ExpandedUniversal_NativeRunOriginal(
         _penaltiesState<0?_team1PenaltyGoals:0u,
         _penaltiesState<0?_team2PenaltyGoals:0u,
         (uint8_t)((_extraTimeState<0?0x01u:0u)|(_penaltiesState<0?0x02u:0u))};
+    {   /* v00.13.355 discipline of a real match: bookings + 3 x sendings-off
+         * (OG removes the first yellow of a second-yellow dismissal) */
+        extern TeamStatisticsData _team1StatsData,_team2StatsData;
+        const int h=_team1StatsData.bookings+3*_team1StatsData.sendingsOff;
+        const int a=_team2StatsData.bookings+3*_team2StatsData.sendingsOff;
+        if(h>=0 && a>=0){witness->disc_home=(uint16_t)h;witness->disc_away=(uint16_t)a;witness->disc_known=1u;}
+    }
     exp_native_debug_result(c,&witness->score);
     witness->valid=1u;
     return 1;

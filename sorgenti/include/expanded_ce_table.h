@@ -32,6 +32,7 @@ int ExpCeTable_HistoryAdd(ExpandedEditionKey edition,uint32_t played,
 typedef struct ExpCeTableRow {
     ExpandedClubKey club;
     uint32_t played,wins,draws,losses,goals_for,goals_against,away_goals_for;
+    uint32_t away_wins;            /* v00.13.355 */
     uint32_t points;
     uint32_t rank; /* 1-based after sorting */
 } ExpCeTableRow;
@@ -46,6 +47,13 @@ int ExpCeTable_Compute(const ExpandedUniversalRegistry *r,
                        const ExpCeTableRules *rules,
                        ExpCeNameCompare name_cmp,void *user,
                        ExpCeTableRow *rows,uint32_t capacity,uint32_t *used);
+/* v00.13.355 data hooks of the generic criteria (set by the engine):
+ *  access(user, edition, club) -> access-list rank (1 best), 0 unknown;
+ *  discipline(user, event_id, &home, &away) -> 1 known points of a played
+ *  fixture, 0 unknown (QUICK results carry no cards). */
+typedef uint32_t (*ExpCeAccessRank)(void *user,ExpandedEditionKey edition,ExpandedClubKey club);
+typedef int (*ExpCeDisciplineOf)(void *user,uint64_t event_id,uint32_t *home,uint32_t *away);
+void ExpCeTable_SetHooks(ExpCeAccessRank access,ExpCeDisciplineOf discipline,void *user);
 /* 1 = every fixture of (edition, stage) is PLAYED (no SCHEDULED/CLAIMED). */
 int ExpCeTable_StageComplete(const ExpandedUniversalRegistry *r,
                              ExpandedEditionKey edition,uint32_t stage,

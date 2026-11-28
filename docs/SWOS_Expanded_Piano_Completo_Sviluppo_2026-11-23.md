@@ -294,3 +294,37 @@ Le scoperte si documentano appena emergono; prima di ogni modifica rileggere `do
 - Issue #1: https://github.com/Giuzy/SWOS-Expanded/issues/1
 
 **Questa guida è una proposta consolidata; non sostituisce le guide autoritative finché l'utente non approva la sua integrazione nel repository.**
+
+
+2. La vera opportunità: i database di Football Manager
+
+
+Ho trovato qualcosa di molto più promettente.
+Daveincid – Increase Realism Megapack
+218 nazioni · 356 campionati
+Aggiornamento 2026/27, formati delle competizioni, promozioni, retrocessioni, premi e regole delle rose. 
+Football Manager Mod+1
+
+
+
+
+MasterIgor – Football Manager Rule Files
+
+Pacchetti già separati per tutte e sei le confederazioni, con regolamenti nazionali e continentali. Particolarmente interessante perché l'autore si concentra proprio sulle strutture delle competizioni. 
+master1gor.github.io
+
+
+
+Falsobohemio – Megapack 2026
+
+236 strutture calcistiche maschili dichiarate. Copertura molto ampia, anche se alcuni formati sono soltanto approssimazioni della realtà. 
+FM Scout+1
+
+
+
+Il punto fondamentale è che il Pre-Game Editor di Football Manager consente di esportare le definizioni in XML. Esistono anche esempi recenti di esportazioni XML delle Advanced Rules di FM26. 
+FMRTE+1
+
+
+Se riusciamo a estrarre le regole effettive da questi pacchetti, possiamo evitare di trascrivere manualmente centinaia di competizioni.
+

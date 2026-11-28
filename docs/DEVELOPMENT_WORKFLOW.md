@@ -1815,3 +1815,6 @@ Misura sullo screenshot Windows (7,2 px schermo per px di gioco in verticale): f
 
 ## 28/11/2026 — Finestre internazionali e regole calendario condivise
 Gli script che linkano expanded_ce_engine.c / json_leagues / catalogo linkano anche src/expanded_international_windows.c (i test senza swos_data_path usano -DEXP_INTL_NO_IO). Le regole calendario stanno solo in include/expanded_calendar_rules.h: non duplicarle nei due percorsi.
+
+### v00.13.355 — Nations League: classifica intermedia, spareggi, classifica finale, access list
+Campi generali CE: `interim` (tiers, cross, exclude_last_unequal; `ExpCe_InterimRanking`), pairing `POT_PAIRS` con `interim_pots`, fasi `parallel`, `final_ranking` a bucket, `next_missing` (successore con partecipanti risolti, fase 0 bloccata con motivo dichiarato). `participant_kind` impostato alla conferma partecipanti. NL: access list 2028 = classifica finale 2026/27; formato 2028/29 non definito → edizione 2028 bloccata. Scheda RG-CE-NATIONS-LEAGUE-2627.

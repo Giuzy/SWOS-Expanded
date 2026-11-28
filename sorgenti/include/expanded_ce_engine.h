@@ -72,8 +72,19 @@ typedef enum ExpCePairing {
     EXP_CE_PAIR_POTS = 6,         /* groups: one club per pot, game draw */
     EXP_CE_PAIR_RESEED_TABLE = 7, /* KO: original single-table rank, best v worst */
     EXP_CE_PAIR_GROUP_TABLE = 8,  /* v311: explicit pairs (group,rank) v (group,rank) from a group phase */
-    EXP_CE_PAIR_SOURCES = 9       /* v311: each tie names its two sides by SOURCE (table rank,
+    EXP_CE_PAIR_SOURCES = 9,      /* v311: each tie names its two sides by SOURCE (table rank,
                                      winner/loser of an earlier tie): any bracket graph */
+    EXP_CE_PAIR_POT_PAIRS = 11,   /* v00.13.355: entrants = pot HI then pot LO (equal size);
+                                     LO drawn first into slots 1..n, HI drawn second;
+                                     hi = HI pot (e.g. Nations League play-offs) */
+    EXP_CE_PAIR_BANDED_POTS = 12, /* v00.13.355 groups: entrants by seed in bands
+                                     (leagues), each band split into pots of
+                                     band_groups x per_group, drawn per_group
+                                     to each group of the band; slot order =
+                                     pot order */
+    EXP_CE_PAIR_WINNERS_RUNNERS_DRAW = 10 /* v00.13.355: group winners v runners-up of a
+                                     DIFFERENT group, drawn (runners first, first
+                                     feasible winner slot, lookahead); hi = winner */
 } ExpCePairing;
 
 typedef enum ExpCeSource {
@@ -122,6 +133,8 @@ typedef struct ExpCePhaseDef {
     uint8_t meetings;             /* TABLE: round robin meetings 1..4 */
     ExpPairExtras extras;
     uint8_t qualify;              /* TABLE: qualifiers per group to next */
+    uint8_t qualify_groups;       /* v00.13.355: only the first N groups qualify (0 = all),
+                                     e.g. Nations League League A = groups 1..4 */
     uint8_t qualify_from;         /* v309: first qualifying rank (0/1 = from the top);
                                      Serie B play-off: ranks 3..8 */
     uint8_t pairing;              /* ExpCePairing (KO or group formation) */
@@ -158,8 +171,31 @@ typedef struct ExpCePhaseDef {
      * the window for that edition only; later editions use the window) */
     uint8_t ndays;
     int32_t days[16];
+    /* v00.13.355 verified day of each GROUP in each round of the first
+     * edition, as an offset (-7..7) from days[round] (JSON
+     * "first_edition_group_days"); has_gdays 0 = every group on days[] */
+    uint8_t has_gdays;
+    int8_t gday_off[EXP_CE_MAX_GROUPS][16];
     ExpCeTableRules table;        /* TABLE phases */
     ExpCeMatchRules match;
+    /* v00.13.355 generic multi-path phases (UEFA Nations League):
+     *  parallel: generated together with the previous phase (same trigger),
+     *  and the edition only goes on when the whole parallel block is done;
+     *  source_phase_p1: KO entrants = qualifiers of phase (value-1), 0 = the
+     *  previous phase; nhi/nlo: entrants from the edition INTERIM ranking
+     *  (ExpCeDef.interim), ranks hi[] (pot HI) then lo[] (pot LO). */
+    uint8_t parallel, source_phase_p1, nhi, nlo;
+    uint8_t hi[8], lo[8];
+    /* v00.13.355 display only (viewer), not part of the rules hash:
+     * JSON "name" of the phase and "group_labels" (e.g. "A1") */
+    char name[24];
+    char group_label[EXP_CE_MAX_GROUPS][6];
+    /* v00.13.355 BANDED_POTS ("bands":{"size","groups","per_group"}) and a
+     * fixed schedule of group slots ("round_template": rounds of [home,away],
+     * 0-based slots), e.g. 6 games / 5 opponents in groups of 6 */
+    uint8_t band_size, band_groups, band_per_group;
+    uint8_t ntpl_rounds, ntpl_matches;
+    uint8_t tpl[16][8][2];
     char missing[80];             /* non-empty: data missing for this phase */
 } ExpCePhaseDef;
 
@@ -180,6 +216,8 @@ typedef struct ExpCeSourceSpec {  /* participants of the NEXT editions */
     uint8_t nexclude;
     uint32_t clubs[EXP_CE_MAX_POOL];
     uint32_t exclude[EXP_CE_MAX_EXCLUDE];
+    uint32_t alt_competition;     /* v00.13.355: used while `competition` has
+                                     no edition yet (format successor) */
 } ExpCeSourceSpec;
 
 typedef enum ExpCeOrigin {
@@ -234,6 +272,8 @@ typedef struct ExpCeDef {
     uint8_t first_from_sources;   /* v311: the FIRST edition resolves its entrants from
                                      next_entrants sources (waits for them), not a list */
     uint8_t viewer_button;        /* CE button in WORLD/VIEW COMPETITIONS */
+    uint8_t viewer_region;        /* v00.13.355 80..85: button in that region
+                                     screen of the OG selector, 0 = none */
     uint16_t viewer_native_id_plus_one; /* optional original menu alias, not a sporting ID */
     char name[40];
     /* league family link (origin LEAGUE) */
@@ -244,8 +284,26 @@ typedef struct ExpCeDef {
     uint8_t nsources;
     ExpCeSourceSpec sources[EXP_CE_MAX_SOURCES];
     uint8_t has_expiry, expiry_m, expiry_d, expiry_year_offset;
+    /* v00.13.355 interim ranking across the groups of a TABLE phase (UEFA
+     * Nations League art. 19): tiers = consecutive groups per league, within
+     * a tier compared by the cross criteria (EXP_CE_XC_*); unequal group
+     * sizes inside a tier: results against the last-placed team are left out
+     * for the other positions. ninterim_tiers 0 = none. */
+    uint8_t interim_phase, ninterim_tiers, ninterim_cross, interim_exclude_last;
+    uint8_t interim_tiers[8], interim_cross[12];
+    /* v00.13.355 final ranking by buckets (in order); each bucket = up to 4
+     * selectors, ordered FIXED (selector order) or by interim rank. */
+    uint8_t nbuckets;
+    struct { uint8_t nsel, by_interim; struct { uint8_t kind, a, b; } sel[4]; } buckets[16];
+    char next_missing[96];        /* v00.13.355 non-empty: editions after the first
+                                     need data not defined yet (e.g. new format);
+                                     their entrants are resolved, phase 0 blocks */
+    uint8_t cycle_years;          /* v00.13.355 years between editions (0/1 annual,
+                                     2 biennial e.g. UEFA Nations League) */
     /* first edition (JSON) */
     uint16_t first_year;
+    uint16_t last_year;           /* v00.13.355 no edition after this year (0 = none):
+                                     the competition continues as another definition */
     uint32_t nfirst;
     ExpCeEntrant first[EXP_CE_MAX_ENTRANTS];
     uint8_t first_pairs_listed;   /* first[] order = pairs/groups as listed */
@@ -383,6 +441,11 @@ int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,
  * filled), 0 not eligible. Reader only. */
 int ExpCe_FixtureFifa(const ExpandedUniversalFixture *f,int *importance,
                       int *protect);
+/* v00.13.355 interim ranking across the groups of an edition (art. 19),
+ * readers (viewer) and tests. 1 ok. */
+int ExpCe_InterimRanking(const ExpandedUniversalRegistry *r,const ExpCeHost *host,
+                         ExpandedEditionKey edition,
+                         ExpandedClubKey *out,uint32_t cap,uint32_t *n);
 /* Competition name (from the CE definition) of a fixture, for readers. */
 int ExpCe_FixtureCompetitionName(const ExpandedUniversalFixture *f,
                                  char *out,size_t n);

@@ -16,6 +16,7 @@
 #include "expanded_universal_live.h"
 /* v305 viewer model: roster names are mocked, everything else is the real CE */
 uint32_t ExpCeViewer_TestBuild(uint32_t def_id,char *title,size_t n);
+uint32_t ExpCeViewer_TestBuildYear(uint32_t def_id,uint16_t year,char *title,size_t n);
 uint32_t ExpCeViewer_TestWorldButtons(uint8_t country,uint32_t *ids,char (*names)[40],uint32_t cap);
 const char *ExpCeViewer_TestLine(uint32_t i,char *b,size_t n);
 TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey k)
@@ -436,6 +437,199 @@ int main(void)
     }
     puts("AUSTRALIA_CUP_REAL_JSON_32_ENTRANTS_31_GAMES_TEST_ADMIN_RESULTS=PASS");
     puts("SUPERCOPPA_ITALIANA_REAL_JSON_FIRST_EDITION_ARCHIVE_NO_INVENTED_RENEWAL=PASS");
+    {   /* v00.13.355 UEFA Nations League 2026/27 (real JSON): 54 nations in 14
+         * groups, 156 league-phase games on the verified group days, QF drawn
+         * winner v runner-up of another group (runner-up hosts leg 1), SF,
+         * third place, final; biennial successor; FIFA I=15/25. */
+        const uint32_t NL=13176834u;
+        const ExpCeDef *nd=ExpCe_Definition(NL);
+        const ExpandedUniversalRegistry *rr=R();
+        uint32_t k,n0=0u,nqf=0u,npo=0u,nsf=0u,n3=0u,nf=0u,nations[64],nn=0u;
+        assert(nd && !nd->missing[0] && nd->nphases==7u && nd->cycle_years==2u && nd->nbuckets==11u &&
+               nd->ninterim_tiers==4u && nd->phases[2].parallel && nd->phases[3].parallel &&
+               nd->phases[2].nhi==4u && nd->phases[4].source_phase_p1==2u &&
+               nd->phases[0].groups==14u && nd->phases[0].has_gdays && nd->phases[0].qualify_groups==4u &&
+               nd->phases[0].fifa_importance==15u && nd->phases[1].fifa_importance==25u &&
+               nd->phases[1].pairing==EXP_CE_PAIR_WINNERS_RUNNERS_DRAW && nd->nfirst==54u);
+        for(k=0;k<rr->fixture_count;++k) {
+            const ExpandedUniversalFixture *f=&rr->fixtures[k];
+            uint32_t ph,q,hn,an;
+            if(f->key.edition.competition.stable_competition!=NL)continue;
+            assert(f->home.kind==EXP_PARTICIPANT_NATIONAL && f->away.kind==EXP_PARTICIPANT_NATIONAL);
+            ph=EXP_CE_STAGE_PHASE(f->key.stage);
+            if(ph==0u) {
+                const uint32_t g=f->key.stage-EXP_CE_STAGE(0u,0u);
+                ++n0;
+                /* every group game on its verified group day of some round */
+                {   uint32_t rd;int ok=0;
+                    for(rd=0;rd<nd->phases[0].ndays;++rd)
+                        if(f->day_index==nd->phases[0].days[rd]+nd->phases[0].gday_off[g-1u][rd])ok=1;
+                    assert(ok);
+                }
+                for(hn=0,an=0,q=0;q<nn;++q){if(nations[q]==f->home.stable_club)hn=1;if(nations[q]==f->away.stable_club)an=1;}
+                if(!hn)nations[nn++]=f->home.stable_club;
+                if(!an)nations[nn++]=f->away.stable_club;
+            }
+            else if(ph==1u)++nqf;else if(ph==2u||ph==3u)++npo;else if(ph==4u)++nsf;else if(ph==5u)++n3;else if(ph==6u)++nf;
+        }
+        assert(n0==156u && nn==54u && nqf==8u && npo==16u && nsf==2u && n3==1u && nf==1u);
+        assert(n0+nqf+npo+nsf+n3+nf==184u);   /* revised 2026/27 format, no C/D play-off */
+        {   /* QF: each tie = winner and runner-up of different groups, runner-up hosts leg 1 */
+            uint32_t t;
+            for(t=1;t<=4u;++t) {
+                const ExpandedUniversalFixture *l0=NULL,*l1=NULL;
+                for(k=0;k<rr->fixture_count;++k) {
+                    const ExpandedUniversalFixture *f=&rr->fixtures[k];
+                    if(f->key.edition.competition.stable_competition!=NL || EXP_CE_STAGE_PHASE(f->key.stage)!=1u ||
+                       f->key.tie!=t)continue;
+                    if(f->key.leg==0u)l0=f;else l1=f;
+                }
+                assert(l0 && l1 && ExpandedClubKey_Equal(l0->home,l1->away) && l1->day_index>l0->day_index);
+            }
+        }
+        {   const ExpCeEdition *ne=NULL;
+            uint32_t q;
+            for(q=0;q<ExpCe_EditionCount();++q)
+                if(ExpCe_EditionAt(q)->def_id==NL && ExpCe_EditionAt(q)->year==2026u)ne=ExpCe_EditionAt(q);
+            assert(ne && ne->state==EXP_CE_ED_ARCHIVED && ne->participant_kind==EXP_PARTICIPANT_NATIONAL &&
+                   ne->nfinal==54u);
+            {   /* final ranking: 54 distinct nations; play-off pairs = interim 11-14 v 21-24 and
+                 * 29-32 v 37-40, lower league hosts leg 1; interim ranking deterministic */
+                ExpandedClubKey ir[64];uint32_t ni=0u,a2,b2;
+                for(a2=0;a2<54u;++a2)for(b2=a2+1u;b2<54u;++b2)assert(ne->final_order[a2]!=ne->final_order[b2]);
+                assert(ExpCe_InterimRanking(rr,&H,ne->key,ir,64u,&ni) && ni==54u);
+                for(k=0;k<rr->fixture_count;++k) {
+                    const ExpandedUniversalFixture *f=&rr->fixtures[k];
+                    uint32_t ph2=EXP_CE_STAGE_PHASE(f->key.stage),rh=0,ra=0,q2;
+                    if(f->key.edition.competition.stable_competition!=NL || (ph2!=2u && ph2!=3u) || f->key.leg!=0u)continue;
+                    for(q2=0;q2<ni;++q2){if(ExpandedClubKey_Equal(ir[q2],f->home))rh=q2+1u;if(ExpandedClubKey_Equal(ir[q2],f->away))ra=q2+1u;}
+                    if(ph2==2u)assert(rh>=21u && rh<=24u && ra>=11u && ra<=14u);
+                    else assert(rh>=37u && rh<=40u && ra>=29u && ra<=32u);
+                }
+                {   ExpandedClubKey ir2[64];uint32_t n2=0u;
+                    assert(ExpCe_InterimRanking(rr,&H,ne->key,ir2,64u,&n2) && n2==ni && !memcmp(ir,ir2,sizeof(ExpandedClubKey)*ni));
+                }
+            }
+            for(q=0;q<ExpCe_EditionCount();++q)
+                assert(!(ExpCe_EditionAt(q)->def_id==NL && ExpCe_EditionAt(q)->year==2027u)); /* biennial */
+            for(q=0;q<ExpCe_EditionCount();++q)    /* the 2026/27 definition ends with 2026 */
+                assert(!(ExpCe_EditionAt(q)->def_id==NL && ExpCe_EditionAt(q)->year>2026u));
+        }
+        {   /* viewer (same CE reader as every button): leagues/groups by label, every KO
+             * phase by name, final ranking 1..54; the 2028 edition blocked with its entrants */
+            char title[64],line[256];
+            uint32_t vn=ExpCeViewer_TestBuildYear(NL,2026u,title,sizeof title),vi;
+            unsigned g=0,qf=0,ab=0,bc=0,sf=0,tp=0,fi=0,fr=0,r54=0;
+            assert(vn>150u && strstr(title,"NATIONS LEAGUE"));
+            for(vi=0;vi<vn;++vi) {
+                if(!ExpCeViewer_TestLine(vi,line,sizeof line))continue;
+                if(!strncmp(line,"GROUP ",6) && line[6]>='A' && line[6]<='D')++g;
+                if(!strncmp(line,"QUARTER-FINALS|",15))++qf;
+                if(!strncmp(line,"PLAY-OFF A/B|",13))++ab;
+                if(!strncmp(line,"PLAY-OFF B/C|",13))++bc;
+                if(!strncmp(line,"SEMI-FINALS|",12))++sf;
+                if(!strncmp(line,"THIRD PLACE|",12))++tp;
+                if(!strncmp(line,"FINAL|",6))++fi;
+                if(!strncmp(line,"FINAL RANKING|",14))++fr;
+                if(!strncmp(line,"54 ",3))++r54;
+            }
+            assert(g==14u && qf==1u && ab==1u && bc==1u && sf==1u && tp==1u && fi==1u && fr==1u && r54==1u);
+        }
+        puts("UEFA_NATIONS_LEAGUE_2627_REAL_JSON_184_GAMES_PLAYOFFS_INTERIM_FINAL_RANKING_BIENNIAL=PASS");
+        {   /* 2028/29 format (user decision 28/11/2026, definition NL28): access list = 2026/27
+             * final ranking; 3 leagues x 3 groups of 6 by bands of 18 and pots of 2; each team
+             * 6 games, 5 opponents, 3 home / 3 away, same-pot pair twice; QF = League A
+             * interim 1-4 v 5-8 (winners, runners-up, 2 best thirds); A/B and B/C 6 ties;
+             * 162 + 8 + 12 + 12 + 2 + 1 + 1 = 198 games; 2030 access list = 2028 final ranking */
+            const uint32_t NL28=13177090u;
+            uint32_t fo26[54],fo28[54],q,z,cnt[7]={0};
+            const ExpCeEdition *x=NULL;
+            const ExpandedUniversalRegistry *r8;
+            for(q=0;q<ExpCe_EditionCount();++q)
+                if(ExpCe_EditionAt(q)->def_id==NL && ExpCe_EditionAt(q)->year==2026u)x=ExpCe_EditionAt(q);
+            assert(x && x->nfinal==54u);
+            memcpy(fo26,x->final_order,sizeof fo26);
+            run_until(D(2029,6,20));        /* finals played, before the archive (fixtures pruned) */
+            r8=R();x=NULL;
+            for(q=0;q<ExpCe_EditionCount();++q)
+                if(ExpCe_EditionAt(q)->def_id==NL28 && ExpCe_EditionAt(q)->year==2028u)x=ExpCe_EditionAt(q);
+            assert(x && x->participant_kind==EXP_PARTICIPANT_NATIONAL && x->nentrants==54u);
+            printf("NL_2028 state=%s block=%s why=%s\n",ExpCe_StateName(x->state),ExpCe_BlockName(x->block),x->why);
+            assert(x->state==EXP_CE_ED_COMPLETED && x->nfinal==54u);
+            for(z=0;z<54u;++z) {        /* seed = 2026/27 final rank */
+                uint32_t w;int hit=0;
+                for(w=0;w<54u;++w)if(x->entrants[w].club.stable_club==fo26[z]){assert(x->entrants[w].seed==z+1u);hit=1;}
+                assert(hit);
+            }
+            for(q=0;q<r8->fixture_count;++q) {
+                const ExpandedUniversalFixture *f=&r8->fixtures[q];
+                if(f->key.edition.competition.stable_competition!=NL28 || !ExpandedEditionKey_Equal(f->key.edition,x->key))continue;
+                ++cnt[EXP_CE_STAGE_PHASE(f->key.stage)];
+            }
+            printf("NL_2028 games %u %u %u %u %u %u %u\n",cnt[0],cnt[1],cnt[2],cnt[3],cnt[4],cnt[5],cnt[6]);
+            assert(cnt[0]==162u && cnt[1]==8u && cnt[2]==12u && cnt[3]==12u && cnt[4]==2u && cnt[5]==1u && cnt[6]==1u);
+            {   /* first legs: QF interim 5-8 host 1-4; A/B 22-27 host 10-15; B/C 40-45 host 28-33 */
+                ExpandedClubKey ir[64];uint32_t ni=0u;
+                assert(ExpCe_InterimRanking(r8,&H,x->key,ir,64u,&ni) && ni==54u);
+                for(q=0;q<r8->fixture_count;++q) {
+                    const ExpandedUniversalFixture *f=&r8->fixtures[q];
+                    const uint32_t ph=EXP_CE_STAGE_PHASE(f->key.stage);
+                    uint32_t rh=0,ra=0,k3;
+                    if(!ExpandedEditionKey_Equal(f->key.edition,x->key) || ph<1u || ph>3u || f->key.leg!=0u)continue;
+                    for(k3=0;k3<ni;++k3){if(ExpandedClubKey_Equal(ir[k3],f->home))rh=k3+1u;if(ExpandedClubKey_Equal(ir[k3],f->away))ra=k3+1u;}
+                    if(ph==1u)assert(rh>=5u && rh<=8u && ra>=1u && ra<=4u);
+                    else if(ph==2u)assert(rh>=22u && rh<=27u && ra>=10u && ra<=15u);
+                    else assert(rh>=40u && rh<=45u && ra>=28u && ra<=33u);
+                }
+            }
+            {   /* per team: 6 games, 5 opponents, 3 home; groups inside the league band */
+                uint32_t t;
+                for(t=0;t<54u;++t) {
+                    const uint32_t club=x->entrants[t].club.stable_club,seed=x->entrants[t].seed;
+                    uint32_t games=0,home=0,opp[8],no=0,grp=0,k2;
+                    for(q=0;q<r8->fixture_count;++q) {
+                        const ExpandedUniversalFixture *f=&r8->fixtures[q];
+                        uint32_t o;
+                        if(!ExpandedEditionKey_Equal(f->key.edition,x->key) || EXP_CE_STAGE_PHASE(f->key.stage)!=0u)continue;
+                        if(f->home.stable_club==club){++home;o=f->away.stable_club;}
+                        else if(f->away.stable_club==club)o=f->home.stable_club;
+                        else continue;
+                        ++games;grp=f->key.stage-EXP_CE_STAGE(0u,0u);
+                        for(k2=0;k2<no && opp[k2]!=o;++k2){}
+                        if(k2==no && no<8u)opp[no++]=o;
+                    }
+                    assert(games==6u && home==3u && no==5u);
+                    assert(grp>=1u && grp<=9u && (grp-1u)/3u==(seed-1u)/18u);   /* League A/B/C by access rank */
+                }
+            }
+            {   char title[64],line[256];
+                uint32_t vn=ExpCeViewer_TestBuildYear(NL28,2028u,title,sizeof title),vi,g=0;
+                for(vi=0;vi<vn;++vi)
+                    if(ExpCeViewer_TestLine(vi,line,sizeof line) && !strncmp(line,"GROUP ",6) &&
+                       line[6]>='A' && line[6]<='C')++g;
+                assert(g==9u);
+            }
+            {   /* 2030 access list = 2028/29 final ranking */
+                const ExpCeEdition *n30=NULL;
+                memcpy(fo28,x->final_order,sizeof fo28);
+                run_until(D(2029,7,15));
+                for(q=0;q<ExpCe_EditionCount();++q)
+                    if(ExpCe_EditionAt(q)->def_id==NL28 && ExpCe_EditionAt(q)->year==2030u)n30=ExpCe_EditionAt(q);
+                assert(n30 && n30->nentrants==54u);
+                for(z=0;z<54u;++z) {
+                    uint32_t w;int hit=0;
+                    for(w=0;w<54u;++w)if(n30->entrants[w].club.stable_club==fo28[z]){assert(n30->entrants[w].seed==z+1u);hit=1;}
+                    assert(hit);
+                }
+            }
+            {   /* UL01 round trip with both definitions */
+                size_t hl=0u;char *hx=ExpCe_EncodeHex(1u,&hl);
+                assert(hx && ExpCe_DecodeHex(hx,hl,1u));
+                free(hx);
+            }
+            puts("UEFA_NATIONS_LEAGUE_2829_FORMAT_198_GAMES_BANDS_TEMPLATE_BEST_THIRDS_ACCESS_LIST=PASS");
+        }
+    }
     {   /* v311: the REAL Australian Championship definition. As written (approved bench 7) it is
          * BLOCKED by the OG bench cap; with the bench set to the OG maximum in a COPY of the text,
          * everything else is valid, so only the bench limit stands in the way. */

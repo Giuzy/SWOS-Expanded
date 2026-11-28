@@ -164,7 +164,7 @@ int main(void)
         assert(ch && ch->type==2u && !ch->missing[0]);   /* v322: bench 7 is within the 15-seat bench */
         puts("AUSTRALIAN_CHAMPIONSHIP_DEFINED_UNBLOCKED_BENCH_UPTO_15=PASS");
     }
-    assert(json==5u);           /* Copa Bolivia, Libertadores, Supercoppa, Australia Cup, Australian Championship */
+    assert(json==7u);           /* Copa Bolivia, Libertadores, Supercoppa, Australia Cup, Australian Championship, UEFA Nations League 2026/27 and 2028/29+ (v00.13.355) */
     assert(chain_ok==90u && chain_bad==1u); /* Italy: parallel groups */
     puts("CE_REAL_DATA_VALIDATOR_AND_MATRIX=PASS_STATIC_DATA_ONLY");
     return 0;

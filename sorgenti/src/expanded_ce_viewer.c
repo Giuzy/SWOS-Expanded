@@ -282,7 +282,9 @@ static void cv_knockout(const ExpCeDef *d,const ExpCeEdition *ed,
     }
     if(!cnt){free(idx);return;}
     qsort(idx,cnt,sizeof *idx,cv_fixture_cmp);
-    cv_add(cv_round_name(ties,hb,sizeof hb),"",CV_COLOR_HEAD);
+    if(d->phases[phase].name[0])snprintf(hb,sizeof hb,"%s",d->phases[phase].name);
+    else (void)cv_round_name(ties,hb,sizeof hb);
+    cv_add(hb,"",CV_COLOR_HEAD);
     for(i=0u;i<cnt;++i) {
         const ExpandedUniversalFixture *f=&s_reg->fixtures[idx[i]];
         const ExpandedFixtureLedgerEntry *e=&s_reg->ledger.entries[idx[i]];
@@ -423,7 +425,9 @@ static void cv_build_view(const ExpCeDef *d,const ExpCeEdition *ed)
             if(!started)continue;
             for(g=1u;g<=ph->groups;++g) {
                 char head[40];
-                if(ph->groups>1u)snprintf(head,sizeof head,"GROUP %u",(unsigned)g);
+                if(ph->groups>1u && ph->group_label[g-1u][0])
+                    snprintf(head,sizeof head,"GROUP %s",ph->group_label[g-1u]);
+                else if(ph->groups>1u)snprintf(head,sizeof head,"GROUP %u",(unsigned)g);
                 else snprintf(head,sizeof head,"%s",d->nphases>1u?"TABLE":"STANDINGS");
                 cv_table(ed,EXP_CE_STAGE(p,g),head);
             }
@@ -431,6 +435,37 @@ static void cv_build_view(const ExpCeDef *d,const ExpCeEdition *ed)
             if(started)cv_knockout(d,ed,p);
             else if(p==0u || ed->phase>=p)
                 {} /* a later phase is drawn by the engine when ready */
+        }
+    }
+    /* v00.13.355 overall ranking across the groups (art. 19 type) and the
+     * final ranking of the whole edition, both read from the CE */
+    if(d->ninterim_tiers && ed->state<EXP_CE_ED_COMPLETED && ed->nfinal==0u) {
+        ExpandedClubKey *ir=(ExpandedClubKey *)calloc(EXP_CE_MAX_ENTRANTS,sizeof *ir);
+        uint32_t ni=0u;
+#ifdef EXP_CE_VIEWER_PURE
+        const ExpCeHost *host=NULL;
+#else
+        extern const ExpCeHost *ExpandedUniversalLive_EngineHost(void);
+        const ExpCeHost *host=ExpandedUniversalLive_EngineHost();
+#endif
+        if(ir && ExpCe_InterimRanking(s_reg,host,ed->key,ir,EXP_CE_MAX_ENTRANTS,&ni) && ni) {
+            cv_add("OVERALL RANKING","",CV_COLOR_HEAD);
+            for(i=0u;i<ni;++i) {
+                char left[60];
+                snprintf(left,sizeof left,"%u %s",(unsigned)(i+1u),cv_club(ir[i],nb,sizeof nb));
+                cv_add(left,"",CV_COLOR_NORMAL);
+            }
+        }
+        free(ir);
+    }
+    if(d->nbuckets && ed->nfinal>2u) {
+        cv_add("FINAL RANKING","",CV_COLOR_HEAD);
+        for(i=0u;i<ed->nfinal;++i) {
+            char left[60];
+            ExpandedClubKey k=ed->entrants[0].club;
+            k.stable_club=ed->final_order[i];
+            snprintf(left,sizeof left,"%u %s",(unsigned)(i+1u),cv_club(k,nb,sizeof nb));
+            cv_add(left,"",CV_COLOR_NORMAL);
         }
     }
     if(!fixtures && ed->nentrants) {
@@ -1005,6 +1040,32 @@ uint32_t ExpCeViewer_WorldButtons(uint8_t country,uint32_t *ids,
     }
     return n;
 }
+/* v00.13.355 the CE competition with a button in a region screen (80..85)
+ * of the OG selector (EUROPE: UEFA Nations League); 0 = none. */
+uint32_t ExpCeViewer_RegionButton(uint8_t region,char *name,size_t n)
+{
+    uint32_t i,best=0u,best_score=0u;
+    const ExpCeDef *bd=NULL;
+    if(!ExpCeViewer_Active() || region<80u || region>85u)return 0u;
+    /* several definitions of one competition (format change, e.g. NL 2026/27
+     * and 2028/29+): the one with a live edition, else the latest edition */
+    for(i=0u;i<ExpCe_DefinitionCount();++i) {
+        const ExpCeDef *d=ExpCe_DefinitionAt(i);
+        uint32_t k,score=1u;
+        if(!d || d->viewer_region!=region || d->world!=(uint16_t)World_Current())continue;
+        for(k=0u;k<ExpCe_EditionCount();++k) {
+            const ExpCeEdition *e=ExpCe_EditionAt(k);
+            uint32_t s2;
+            if(!e || e->def_id!=d->id)continue;
+            s2=(uint32_t)e->year*2u+(e->state<EXP_CE_ED_ARCHIVED?100000u:0u);
+            if(s2>score)score=s2;
+        }
+        if(score>best_score){best_score=score;best=d->id;bd=d;}
+    }
+    if(bd && name && n){snprintf(name,n,"%s",bd->name);cv_upper(name);
+        if(!strncmp(name,"UEFA ",5))memmove(name,name+5,strlen(name+5)+1u);}
+    return best;
+}
 /* Same, only for competitions the manager's club takes part in. */
 uint32_t ExpCeViewer_ClubButtons(uint32_t *ids,char (*names)[40],uint32_t cap)
 {
@@ -1067,6 +1128,22 @@ uint32_t ExpCeViewer_TestBuild(uint32_t def_id,char *title,size_t n)
     cv_build_view(d,cv_pick_edition(def_id));
     snprintf(title,n,"%s",s_title);
     return s_n;
+}
+uint32_t ExpCeViewer_TestBuildYear(uint32_t def_id,uint16_t year,char *title,size_t n)
+{
+    const ExpCeDef *d=ExpCe_Definition(def_id);
+    uint32_t i;
+    s_reg=ExpandedUniversal_CarRegistry();
+    if(!d || !s_reg)return 0u;
+    for(i=0u;i<ExpCe_EditionCount();++i) {
+        const ExpCeEdition *e=ExpCe_EditionAt(i);
+        if(e && e->def_id==def_id && e->year==year) {
+            cv_build_view(d,e);
+            snprintf(title,n,"%s",s_title);
+            return s_n;
+        }
+    }
+    return 0u;
 }
 const char *ExpCeViewer_TestLine(uint32_t i,char *b,size_t n)
 {

@@ -371,9 +371,10 @@ static void maybeDecayPlayerStatusBucket(uint16_t bucketBits, PlayerFile *player
  * Iterates all players in a team and calls MaybeDecayPlayerStatusBucket
  * for those with nonzero status bucket bits.
  * ================================================================ */
+extern uint8_t g_expQuickStatusComputer; /* v00.13.355 universal 2627 QUICK only */
 static void maybeDecayPlayerStatusBucketForTeam(TeamFileEx *team) {
     /* Skip computer-controlled teams */
-    if (team->team.teamControls == 1)
+    if (team->team.teamControls == 1 && !g_expQuickStatusComputer)
         return;
 
     if (team == &_careerTeam) {
@@ -409,7 +410,7 @@ static void cyclePlayerStatusFlagsForTeam(TeamFileEx *team, uint16_t mode) {
     /* Skip if training game or computer-controlled team */
     if (_trainingGame != 0)
         return;
-    if (team->team.teamControls == 1)
+    if (team->team.teamControls == 1 && !g_expQuickStatusComputer)
         return;
 
     uint8_t *playerList;

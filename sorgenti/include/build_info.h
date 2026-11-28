@@ -290,7 +290,13 @@
  * (criteria 01-07,15,21,27,28) checked before publication; TABLE calendar
  * rules (ASYMMETRIC return + min gap, edition calendar draw, per-day match
  * profile), Serie A 2026/27 data. Isolated/headless + build; gameplay NP. */
-#define SWOS_EXPANDED_VERSION "00.13.354"
+/* v00.13.355: UEFA Nations League 2026/27 step 1: national teams in the
+ * universal catalog (NATIONAL keys, files 80..85), CE JSON "nation" entrants,
+ * per-group verified first-edition days, qualify_groups, WINNERS_RUNNERS_DRAW,
+ * biennial cycle_years; league phase 156 + QF/SF/third/final, FIFA I 15/25.
+ * Play-offs A/B-B/C, overall ranking, promotions, UI, CT flow, shared player
+ * identity NOT yet. Isolated/headless + build; gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.355"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

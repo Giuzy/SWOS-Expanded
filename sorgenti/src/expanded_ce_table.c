@@ -40,6 +40,11 @@ int ExpCeTable_HistoryAdd(ExpandedEditionKey edition,uint32_t played,
     s_history[s_history_n++]=(HistoryRule){edition,played,count,copy};
     return 1;
 }
+static ExpCeAccessRank s_access;
+static ExpCeDisciplineOf s_disc;
+static void *s_hook_user;
+void ExpCeTable_SetHooks(ExpCeAccessRank access,ExpCeDisciplineOf discipline,void *user)
+{s_access=access;s_disc=discipline;s_hook_user=user;}
 typedef struct TbCtx {
     const ExpandedUniversalRegistry *r;
     ExpandedEditionKey edition;
@@ -70,7 +75,7 @@ static void row_apply(ExpCeTableRow *h,ExpCeTableRow *a,
     a->goals_for+=s->away;a->goals_against+=s->home;
     a->away_goals_for+=s->away;
     if(s->home>s->away){++h->wins;++a->losses;h->points+=t->win;a->points+=t->loss;}
-    else if(s->home<s->away){++a->wins;++h->losses;a->points+=t->win;h->points+=t->loss;}
+    else if(s->home<s->away){++a->wins;++a->away_wins;++h->losses;a->points+=t->win;h->points+=t->loss;}
     else if(t->draw_penalties && s->pen && s->pen_home!=s->pen_away) {
         /* v309: a drawn match decided on penalties (e.g. Australian Championship
          * groups): the regulation result stays a DRAW (goals, draws), only the
@@ -125,9 +130,42 @@ static uint64_t lot_key(const TbCtx *c,ExpandedClubKey k)
     for(i=0;i<16u;++i){h^=((const uint8_t *)v)[i];h*=UINT64_C(1099511628211);}
     return h;
 }
-/* Sort rows[from..to) by criterion index ci, then recurse on equal runs. */
+/* discipline points of the segment's clubs in this stage; 0 = some played
+ * fixture of them has no card data (criterion not decisive, never guessed) */
+static int discipline_values(const TbCtx *c,const ExpCeTableRow *rows,uint32_t from,
+                             uint32_t to,int64_t *values)
+{
+    const ExpandedUniversalRegistry *r=c->r;
+    uint32_t i,k;
+    if(!s_disc)return 0;
+    for(k=0;k<to-from;++k)values[k]=0;
+    for(i=0;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&r->fixtures[i];
+        uint32_t ph=0,pa=0;
+        int hi=-1,ai=-1;
+        if(!fixture_in(c,f) || r->ledger.entries[i].state!=EXP_FIXTURE_PLAYED)continue;
+        for(k=0;k<to-from;++k){
+            if(ExpandedClubKey_Equal(rows[from+k].club,f->home))hi=(int)k;
+            if(ExpandedClubKey_Equal(rows[from+k].club,f->away))ai=(int)k;
+        }
+        if(hi<0 && ai<0)continue;
+        if(!s_disc(s_hook_user,f->event_id,&ph,&pa))return 0;
+        if(hi>=0)values[hi]-=(int64_t)ph;  /* fewer points ranks higher */
+        if(ai>=0)values[ai]-=(int64_t)pa;
+    }
+    return 1;
+}
+/* Sort rows[from..to) by criterion index ci, then recurse on equal runs.
+ * h2h_n: size of the segment on which the current H2H block started. */
+static int rank_segment_h(const TbCtx *c,ExpCeTableRow *rows,uint32_t from,
+                          uint32_t to,uint32_t ci,uint32_t h2h_n);
 static int rank_segment(const TbCtx *c,ExpCeTableRow *rows,uint32_t from,
                         uint32_t to,uint32_t ci)
+{
+    return rank_segment_h(c,rows,from,to,ci,0u);
+}
+static int rank_segment_h(const TbCtx *c,ExpCeTableRow *rows,uint32_t from,
+                          uint32_t to,uint32_t ci,uint32_t h2h_n)
 {
     const ExpCeTableRules *t=c->rules;
     uint32_t n=to-from,i,j,run;
@@ -135,10 +173,33 @@ static int rank_segment(const TbCtx *c,ExpCeTableRow *rows,uint32_t from,
     uint8_t tb;
     if(n<2u || ci>=t->ntb)return 1;
     tb=t->tiebreak[ci];
+    if(tb==EXP_CE_TB_H2H_REAPPLY) {
+        /* a smaller subset still level: the H2H block again, among it only */
+        uint32_t s=ci;
+        while(s>0u && t->tiebreak[s-1u]>=EXP_CE_TB_H2H_POINTS &&
+              t->tiebreak[s-1u]<=EXP_CE_TB_H2H_AWAY_GOALS)--s;
+        if(h2h_n && n<h2h_n)return rank_segment_h(c,rows,from,to,s,n);
+        return rank_segment_h(c,rows,from,to,ci+1u,0u);
+    }
+    if(tb>=EXP_CE_TB_H2H_POINTS && tb<=EXP_CE_TB_H2H_AWAY_GOALS &&
+       (ci==0u || t->tiebreak[ci-1u]<EXP_CE_TB_H2H_POINTS || t->tiebreak[ci-1u]>EXP_CE_TB_H2H_AWAY_GOALS))
+        h2h_n=n;                       /* a new H2H block starts on these clubs */
     values=(int64_t *)malloc((size_t)n*sizeof *values);
     if(!values)return 0;
     if(tb>=EXP_CE_TB_H2H_POINTS && tb<=EXP_CE_TB_H2H_AWAY_GOALS) {
         if(!mini_values(c,rows,from,to,tb,values)){free(values);return 0;}
+    } else if(tb==EXP_CE_TB_DISCIPLINE) {
+        if(!discipline_values(c,rows,from,to,values)) {
+            /* unknown card data: not decisive (next criterion), logged */
+            uint32_t k;
+            for(k=0;k<n;++k)values[k]=0;
+        }
+    } else if(tb==EXP_CE_TB_ACCESS_LIST) {
+        uint32_t k;
+        for(k=0;k<n;++k) {
+            const uint32_t a=s_access?s_access(s_hook_user,c->edition,rows[from+k].club):0u;
+            values[k]=a?-(int64_t)a:INT64_MIN/2;   /* rank 1 first; unknown last */
+        }
     } else if(tb==EXP_CE_TB_NAME || tb==EXP_CE_TB_LOT) {
         /* total orders: insertion sort with the comparator directly */
         for(i=from+1u;i<to;++i) {
@@ -165,6 +226,7 @@ static int rank_segment(const TbCtx *c,ExpCeTableRow *rows,uint32_t from,
                       tb==EXP_CE_TB_GOAL_DIFF?(int64_t)w->goals_for-(int64_t)w->goals_against:
                       tb==EXP_CE_TB_GOALS_FOR?(int64_t)w->goals_for:
                       tb==EXP_CE_TB_WINS?(int64_t)w->wins:
+                      tb==EXP_CE_TB_AWAY_WINS?(int64_t)w->away_wins:
                       (int64_t)w->away_goals_for;
         }
     }
@@ -180,7 +242,7 @@ static int rank_segment(const TbCtx *c,ExpCeTableRow *rows,uint32_t from,
     }
     for(i=0;i<n;i=run) {
         for(run=i+1u;run<n && values[run]==values[i];++run){}
-        if(run-i>1u && !rank_segment(c,rows,from+i,from+run,ci+1u)) {
+        if(run-i>1u && !rank_segment_h(c,rows,from+i,from+run,ci+1u,h2h_n)) {
             free(values);return 0;
         }
     }

@@ -12,6 +12,7 @@
 #include "expanded_universal_json_leagues.h"
 #include "expanded_ce_engine.h" /* Fase 2: rules, lifecycle, editions */
 #include "expanded_fifa_ranking.h"
+#include "expanded_ce_discipline.h"
 #include "swos_io.h"
 #include "car_writer.h"
 #include "expanded_world_live.h"
@@ -291,6 +292,12 @@ int ExpandedUniversalLive_EngineRestore(void)
         ExpCe_ValidateAfterRestore(r,&s_ce_host));
     {
         char *fifa=ExpandedUniversal_CarTakeFifa();
+        {   /* v00.13.355 discipline of real matches (validated in the preflight) */
+            char *dt=ExpandedUniversal_CarTakeDiscipline();
+            ExpCeDisc_Reset();
+            if(dt && !ExpCeDisc_Decode(dt))fprintf(stderr,"[ce-discipline] RESTORE refused\n");
+            free(dt);
+        }
         if(!exp_live_fifa_seed(r->scheduler.clock.day_index)) {
             fprintf(stderr,"[fifa-ranking] RESTORE seed missing: ranking unavailable\n");
         } else if(fifa) {

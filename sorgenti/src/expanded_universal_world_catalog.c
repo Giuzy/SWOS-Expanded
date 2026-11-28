@@ -94,6 +94,12 @@ static int cat_key(const TeamFileEx *team,ExpandedClubKey *out)
     uint16_t slot,packed;
     if(!team || !out || World_Current()!=WORLD_2627)return 0;
     file=team->team.countryNumber;ordinal=team->team.teamOrdinal;
+    /* v00.13.355: OG national teams (region files 80..85) are NATIONAL
+     * participants of their real OG team number (expanded_competition_identity) */
+    if(file>=80u && file<=85u) {
+        *out=ExpandedNationalKey((uint16_t)WORLD_2627,(uint16_t)(((uint16_t)file<<8)|ordinal));
+        return ExpandedClubKey_Valid(*out);
+    }
     country=World_FileCountry(file);
     slot=World_Slot(file,ordinal);
     packed=(uint16_t)(((uint16_t)file<<8)|ordinal);
@@ -131,6 +137,7 @@ int ExpandedUniversalCatalog_AddClub(const TeamFileEx *team)
     dst->roster=copy;dst->key=key;
     dst->country=World_FileCountry(team->team.countryNumber);
     dst->division=team->team.league;
+    if(ExpandedClubKey_IsNational(key)){dst->country=0xffu;dst->division=0xffu;} /* never a league member */
     s_catalog.audit.clubs=s_catalog.nclubs;
     return 1;
 reject:

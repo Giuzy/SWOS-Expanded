@@ -205,6 +205,13 @@ int InputSDL_ConsumeWorldViewBack(void)
     s_worldViewBackPending=0;
     return v;
 }
+static int s_regionBackPending;
+int InputSDL_ConsumeRegionBack(void)
+{
+    const int v=s_regionBackPending;
+    s_regionBackPending=0;
+    return v;
+}
 int InputSDL_ConsumeDebugWorldPickerBack(void)
 {
     const int v=s_debugWorldPickerBackPending;
@@ -1238,6 +1245,15 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             fprintf(stderr,"[og-world-back] PAD B queued for picker; "
                            "parent FIRE held until release\n");
             break;
+        }
+        /* v00.13.355 region screen without EXIT: B is BACK, never FIRE */
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B && !_playGame) {
+            extern int Expanded_RegionNoExitActive(void);
+            if(Expanded_RegionNoExitActive()) {
+                s_regionBackPending=1;
+                s_modalBackUntilRelease=1;
+                break;
+            }
         }
         /* A fire button of player 1's pad went down (the latch and the recording's
          * evidence, above). A plain joystick has no such event and is read as before. */

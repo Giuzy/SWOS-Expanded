@@ -11,6 +11,7 @@
 #include "expanded_fifa_ranking.h"
 #include "expanded_ce_calendar_validator.h"
 #include "expanded_international_windows.h"
+#include "expanded_ce_discipline.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,8 +39,23 @@ static int ce_grow(void **arr,uint32_t *cap,uint32_t need,size_t size)
     *arr=p;*cap=next;
     return 1;
 }
+static ExpCeEdition *ed_find(ExpandedEditionKey k);
+/* v00.13.355 data of the generic table criteria ACCESS_LIST / DISCIPLINE */
+static uint32_t ce_access_rank(void *u,ExpandedEditionKey k,ExpandedClubKey c)
+{
+    const ExpCeEdition *e=ed_find(k);
+    uint32_t i;
+    (void)u;
+    if(!e)return 0u;
+    for(i=0;i<e->nentrants;++i)
+        if(ExpandedClubKey_Equal(e->entrants[i].club,c))return e->entrants[i].seed;
+    return 0u;
+}
+static int ce_discipline_of(void *u,uint64_t id,uint32_t *h,uint32_t *a)
+{(void)u;return ExpCeDisc_Get(id,h,a);}
 void ExpCe_Reset(void)
 {
+    ExpCeTable_SetHooks(ce_access_rank,ce_discipline_of,NULL);
     ExpCeTable_HistoryReset();
     free(s_ce.defs);free(s_ce.eds);free(s_ce.posts);
     memset(&s_ce,0,sizeof s_ce);
@@ -98,6 +114,7 @@ static uint64_t def_hash(const ExpCeDef *d)
 {
     uint64_t h=UINT64_C(14695981039346656037);
     uint32_t p;
+    if(d->cycle_years>1u){h^=0xCCu;h*=UINT64_C(1099511628211);h^=d->cycle_years;h*=UINT64_C(1099511628211);}
     for(p=0;p<d->nphases;++p) {
         const ExpCePhaseDef *ph=&d->phases[p];
         const uint64_t r=ExpCeRules_Hash(ph->kind==EXP_CE_PHASE_TABLE?
@@ -115,11 +132,28 @@ static uint64_t def_hash(const ExpCeDef *d)
         if(ph->ngp){unsigned z;h^=0xE1u;h*=UINT64_C(1099511628211);
             for(z=0u;z<ph->ngp*4u;++z){h^=ph->gp[z/4u][z%4u];h*=UINT64_C(1099511628211);}}
         h=ExpCal_Hash(h,&ph->cal);
+        if(ph->parallel || ph->source_phase_p1 || ph->nhi || ph->qualify_groups) {
+            unsigned z;
+            h^=0x5Au;h*=UINT64_C(1099511628211);
+            h^=ph->parallel;h*=UINT64_C(1099511628211);
+            h^=ph->source_phase_p1;h*=UINT64_C(1099511628211);
+            h^=ph->qualify_groups;h*=UINT64_C(1099511628211);
+            for(z=0;z<ph->nhi;++z){h^=ph->hi[z];h*=UINT64_C(1099511628211);h^=ph->lo[z];h*=UINT64_C(1099511628211);}
+        }
         if(ph->fifa_importance || ph->fifa_protect || ph->fifa_seeding) {
             h^=0xF1u;h*=UINT64_C(1099511628211);
             h^=ph->fifa_importance;h*=UINT64_C(1099511628211);
             h^=ph->fifa_protect;h*=UINT64_C(1099511628211);
             h^=ph->fifa_seeding;h*=UINT64_C(1099511628211);
+        }
+        if(ph->band_size || ph->ntpl_rounds) {   /* v00.13.355, only when used */
+            unsigned z;
+            h^=0xB7u;h*=UINT64_C(1099511628211);
+            h^=ph->band_size;h*=UINT64_C(1099511628211);h^=ph->band_groups;h*=UINT64_C(1099511628211);
+            h^=ph->band_per_group;h*=UINT64_C(1099511628211);
+            h^=ph->ntpl_rounds;h*=UINT64_C(1099511628211);h^=ph->ntpl_matches;h*=UINT64_C(1099511628211);
+            for(z=0;z<(unsigned)ph->ntpl_rounds*ph->ntpl_matches*2u;++z)
+                {h^=ph->tpl[z/(ph->ntpl_matches*2u)][(z/2u)%ph->ntpl_matches][z%2u];h*=UINT64_C(1099511628211);}
         }
         if(ph->nrel) { /* only when used: existing definitions keep their hash */
             h^=0xA5u;h*=UINT64_C(1099511628211);
@@ -579,6 +613,7 @@ typedef struct RrCtx {
     const int32_t *days;
     uint32_t serial_base;
     const uint8_t *return_map;   /* ASYMMETRIC: odd cycle round -> position */
+    const int8_t *group_off;     /* first edition verified day offsets of this group */
     uint32_t cycles;
 } RrCtx;
 static int rr_emit(void *user,uint32_t cycle,uint32_t round,uint32_t serial,
@@ -593,6 +628,8 @@ static int rr_emit(void *user,uint32_t cycle,uint32_t round,uint32_t serial,
         const uint32_t pos=(c->return_map && (cycle&1u) && cycle<c->cycles &&
                             round<c->rounds_per_cycle)?c->return_map[round]:round;
         f.day_index=c->days[cycle*c->rounds_per_cycle+pos];
+        if(c->group_off && cycle*c->rounds_per_cycle+pos<16u)
+            f.day_index+=c->group_off[cycle*c->rounds_per_cycle+pos];
     }
     f.key.stage=EXP_CE_STAGE(c->phase,c->group);
     f.key.tie=c->serial_base+serial+1u;
@@ -658,6 +695,14 @@ static uint32_t validate_table_phase(const GenBuf *g,const ExpCeDef *d,const Exp
         ExpCevRoundRobin x;
         for(j=0u;j<size[gi];++j)clubs[j]=groups[gi][j].stable_club;
         memset(&x,0,sizeof x);
+        if(ph->ntpl_rounds) {   /* fixed template: slots checked at load, global checks only */
+            ExpCev_Init(&rep);
+            ExpCev_Global(g->f,g->n,0u,&rep);
+            snprintf(tag,sizeof tag,"competition=%lu edition=%ld phase=%u group=%u template=1",
+                     (unsigned long)d->id,(long)e->key.start_day,(unsigned)phase,(unsigned)gi+1u);
+            hard+=ExpCev_Log(&rep,tag);
+            continue;
+        }
         x.clubs=clubs;x.nclubs=size[gi];x.cycles=ph->meetings;
         x.extra_rounds=ph->extras.rounds;x.min_return_gap=ph->cal.min_return_gap;
         x.max_run=ph->cal.max_run;
@@ -751,7 +796,7 @@ static int phase_qualifiers(const ExpandedUniversalRegistry *r,
         uint32_t used=0u,rank;
         /* rank-major order: all group winners first, then runners-up */
         for(rank=ph->qualify_from?ph->qualify_from:1u;rank<=ph->qualify;++rank)
-            for(g=1u;g<=ph->groups;++g) {
+            for(g=1u;g<=(ph->qualify_groups?ph->qualify_groups:ph->groups);++g) {
                 if(!ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(phase,g),&ph->table,
                        host?host->name_cmp:NULL,host?host->user:NULL,
                        rows,EXP_CE_MAX_ENTRANTS,&used) || used<rank ||
@@ -821,6 +866,126 @@ static int reseed_table(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
     }
     return 1;
 }
+/* ---- v00.13.355 interim ranking across groups (art. 19, generic) ---- */
+enum { EXP_CE_XC_GROUP_POSITION=1, EXP_CE_XC_POINTS, EXP_CE_XC_GOAL_DIFF, EXP_CE_XC_GOALS_FOR,
+       EXP_CE_XC_AWAY_GOALS_FOR, EXP_CE_XC_WINS, EXP_CE_XC_AWAY_WINS, EXP_CE_XC_DISCIPLINE,
+       EXP_CE_XC_ACCESS_LIST };
+typedef struct XRow { ExpandedClubKey club; uint32_t pos, gsize, group;
+    int64_t pts,gd,gf,agf,w,aw,disc; int disc_known; uint32_t access; } XRow;
+static uint32_t ce_access_rank(void *u,ExpandedEditionKey k,ExpandedClubKey c);
+/* stats of club over the group stage, optionally without games v `skip` */
+static void xrow_stats(const ExpandedUniversalRegistry *r,const ExpCeTableRules *t,
+                       ExpandedEditionKey ed,uint32_t stage,XRow *x,const ExpandedClubKey *skip)
+{
+    uint32_t i;
+    x->pts=x->gd=x->gf=x->agf=x->w=x->aw=x->disc=0;x->disc_known=1;
+    for(i=0;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&r->fixtures[i];
+        const ExpandedFixtureLedgerEntry *l=&r->ledger.entries[i];
+        int home;
+        uint32_t gs,gc,dh=0,da=0;
+        if(!ExpandedEditionKey_Equal(f->key.edition,ed) || f->key.stage!=stage ||
+           l->state!=EXP_FIXTURE_PLAYED)continue;
+        if(ExpandedClubKey_Equal(f->home,x->club))home=1;
+        else if(ExpandedClubKey_Equal(f->away,x->club))home=0;
+        else continue;
+        if(skip && (ExpandedClubKey_Equal(home?f->away:f->home,*skip)))continue;
+        gs=home?l->score.home:l->score.away;gc=home?l->score.away:l->score.home;
+        x->gf+=gs;x->gd+=(int64_t)gs-(int64_t)gc;
+        if(!home)x->agf+=gs;
+        if(gs>gc){x->pts+=t->win;++x->w;if(!home)++x->aw;}
+        else if(gs==gc)x->pts+=t->draw;else x->pts+=t->loss;
+        if(ExpCeDisc_Get(f->event_id,&dh,&da))x->disc+=home?dh:da;else x->disc_known=0;
+    }
+}
+static const uint8_t *s_xc;static uint8_t s_nxc;
+static int xrow_cmp(const void *pa,const void *pb)
+{
+    const XRow *a=(const XRow *)pa,*b=(const XRow *)pb;
+    uint8_t i;
+    for(i=0;i<s_nxc;++i) {
+        int64_t x=0,y=0;
+        switch(s_xc[i]) {
+        case EXP_CE_XC_GROUP_POSITION:x=-(int64_t)a->pos;y=-(int64_t)b->pos;break;
+        case EXP_CE_XC_POINTS:x=a->pts;y=b->pts;break;
+        case EXP_CE_XC_GOAL_DIFF:x=a->gd;y=b->gd;break;
+        case EXP_CE_XC_GOALS_FOR:x=a->gf;y=b->gf;break;
+        case EXP_CE_XC_AWAY_GOALS_FOR:x=a->agf;y=b->agf;break;
+        case EXP_CE_XC_WINS:x=a->w;y=b->w;break;
+        case EXP_CE_XC_AWAY_WINS:x=a->aw;y=b->aw;break;
+        case EXP_CE_XC_DISCIPLINE:   /* only when both are known: never guessed */
+            if(a->disc_known && b->disc_known){x=-a->disc;y=-b->disc;}
+            break;
+        case EXP_CE_XC_ACCESS_LIST:
+            x=a->access?-(int64_t)a->access:INT64_MIN/2;y=b->access?-(int64_t)b->access:INT64_MIN/2;break;
+        default:break;
+        }
+        if(x!=y)return x>y?-1:1;
+    }
+    return 0;
+}
+/* Interim ranking of edition e (all tiers, in order). 1 ok (out[0..*n)). */
+static int interim_ranking(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
+                           const ExpCeEdition *e,const ExpCeHost *host,
+                           ExpandedClubKey *out,uint32_t *n)
+{
+    const uint32_t p=d->interim_phase;
+    const ExpCePhaseDef *ph;
+    uint32_t tier,g0=1u,k=0u;
+    *n=0u;
+    if(!d->ninterim_tiers || p>=d->nphases)return 0;
+    ph=&d->phases[p];
+    if(ph->kind!=EXP_CE_PHASE_TABLE || phase_complete(r,d,e,p)!=1)return 0;
+    for(tier=0;tier<d->ninterim_tiers;++tier) {
+        XRow rows[EXP_CE_MAX_ENTRANTS];
+        uint32_t nr=0u,g,maxsize=0u,minsize=255u,i;
+        for(g=g0;g<g0+d->interim_tiers[tier];++g) {
+            ExpCeTableRow tr[EXP_CE_MAX_ENTRANTS];
+            uint32_t used=0u;
+            if(g>ph->groups || !ExpCeTable_Compute(r,e->key,EXP_CE_STAGE(p,g),&ph->table,
+                   host?host->name_cmp:NULL,host?host->user:NULL,tr,EXP_CE_MAX_ENTRANTS,&used))return 0;
+            if(used>maxsize)maxsize=used;
+            if(used<minsize)minsize=used;
+            for(i=0;i<used && nr<EXP_CE_MAX_ENTRANTS;++i) {
+                memset(&rows[nr],0,sizeof rows[nr]);
+                rows[nr].club=tr[i].club;rows[nr].pos=i+1u;rows[nr].gsize=used;rows[nr].group=g;
+                rows[nr].access=ce_access_rank(NULL,e->key,tr[i].club);
+                ++nr;
+            }
+        }
+        for(i=0;i<nr;++i) {
+            /* unequal sizes: positions above the last of a larger group compare
+             * without the games against that group's last-placed team */
+            const ExpandedClubKey *skip=NULL;
+            ExpandedClubKey last;
+            if(d->interim_exclude_last && maxsize!=minsize && rows[i].gsize==maxsize && rows[i].pos<maxsize) {
+                uint32_t j;
+                for(j=0;j<nr;++j)
+                    if(rows[j].group==rows[i].group && rows[j].pos==maxsize){last=rows[j].club;skip=&last;}
+            }
+            xrow_stats(r,&ph->table,e->key,EXP_CE_STAGE(p,rows[i].group),&rows[i],skip);
+        }
+        s_xc=d->interim_cross;s_nxc=d->ninterim_cross;
+        qsort(rows,nr,sizeof rows[0],xrow_cmp);
+        for(i=0;i<nr;++i){if(k>=EXP_CE_MAX_ENTRANTS)return 0;out[k++]=rows[i].club;}
+        g0+=d->interim_tiers[tier];
+    }
+    *n=k;
+    return 1;
+}
+int ExpCe_InterimRanking(const ExpandedUniversalRegistry *r,const ExpCeHost *host,
+                         ExpandedEditionKey edition,
+                         ExpandedClubKey *out,uint32_t cap,uint32_t *n)
+{
+    const ExpCeEdition *e=ed_find(edition);
+    const ExpCeDef *d=e?def_find(e->def_id):NULL;
+    ExpandedClubKey tmp[EXP_CE_MAX_ENTRANTS];
+    uint32_t m=0u;
+    if(n)*n=0u;
+    if(!r || !d || !out || !n || !interim_ranking(r,d,e,host,tmp,&m) || m>cap)return 0;
+    memcpy(out,tmp,(size_t)m*sizeof *tmp);*n=m;
+    return 1;
+}
 static int phase_entrants(const ExpandedUniversalRegistry *r,
                           const ExpCeDef *d,const ExpCeEdition *e,
                           const ExpCeHost *host,uint32_t phase,
@@ -828,7 +993,25 @@ static int phase_entrants(const ExpandedUniversalRegistry *r,
 {
     uint32_t i,k=0u;
     *n=0u;
-    if(phase>0u && !phase_qualifiers(r,d,e,host,phase-1u,out,&k))return 0;
+    if(d->phases[phase].nhi) {
+        /* v00.13.355: two pots from the interim ranking (hi[] then lo[]) */
+        ExpandedClubKey ir[EXP_CE_MAX_ENTRANTS];
+        uint32_t ni=0u,j;
+        const ExpCePhaseDef *pp=&d->phases[phase];
+        if(!interim_ranking(r,d,e,host,ir,&ni))return 0;
+        for(j=0;j<(uint32_t)pp->nhi+pp->nlo;++j) {
+            const uint32_t rk=j<pp->nhi?pp->hi[j]:pp->lo[j-pp->nhi];
+            if(!rk || rk>ni || k>=EXP_CE_MAX_ENTRANTS)return 0;
+            out[k]=(ExpCeEntrant){ir[rk-1u],EXP_CE_SRC_PHASE_RANK,(uint8_t)rk,0u,(uint8_t)(k+1u),0u,
+                e->key.competition.stable_competition,e->key.start_day};
+            ++k;
+        }
+        *n=k;
+        return 1;
+    }
+    if(phase>0u && !phase_qualifiers(r,d,e,host,
+          d->phases[phase].source_phase_p1?(uint32_t)d->phases[phase].source_phase_p1-1u:phase-1u,
+          out,&k))return 0;
     for(i=0;i<e->nentrants;++i)
         if(e->entrants[i].join_phase==phase) {
             if(k>=EXP_CE_MAX_ENTRANTS ||
@@ -948,6 +1131,72 @@ static int ko_pairs_raw(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
         }
         return 1;
     }
+    case EXP_CE_PAIR_POT_PAIRS: {
+        /* v00.13.355 (UEFA play-off draw): LO pot drawn first into slots
+         * 1..np, HI pot drawn second; hi = HI pot. Deterministic CE draw. */
+        uint32_t lo_ord[64],hi_ord[64];
+        uint64_t seed=draw_seed(e,phase);
+        if(m>128u || (m&1u)){snprintf(why,whylen,"POT_PAIRS: odd pots");return 0;}
+        for(i=0;i<*np;++i){lo_ord[i]=*np+i;hi_ord[i]=i;}
+        for(i=*np;i>1u;--i){const uint32_t j=(uint32_t)(draw_next(&seed)%i);const uint32_t t=lo_ord[i-1u];lo_ord[i-1u]=lo_ord[j];lo_ord[j]=t;}
+        for(i=*np;i>1u;--i){const uint32_t j=(uint32_t)(draw_next(&seed)%i);const uint32_t t=hi_ord[i-1u];hi_ord[i-1u]=hi_ord[j];hi_ord[j]=t;}
+        for(i=0;i<*np;++i){pairs[i].lo=pool[lo_ord[i]];pairs[i].hi=pool[hi_ord[i]];}
+        return 1;
+    }
+    case EXP_CE_PAIR_WINNERS_RUNNERS_DRAW: {
+        /* v00.13.355 (UEFA Nations League QF draw, block7KnockoutDraw):
+         * runners-up drawn first, each placed against the first winner (in
+         * numeric slot order) of a different group that keeps the rest of
+         * the draw feasible. Deterministic CE draw per edition/phase. */
+        const uint32_t groups=m/2u;
+        uint32_t order[8],used=0u,k;
+        uint64_t seed=draw_seed(e,phase);
+        if(groups<2u || groups>8u || m!=2u*groups) {
+            snprintf(why,whylen,"WINNERS_RUNNERS_DRAW needs 2..8 groups x 2 qualifiers");
+            return 0;
+        }
+        for(i=0;i<groups;++i)
+            if(pool[i].rank!=1u || pool[groups+i].rank!=2u) {
+                snprintf(why,whylen,"WINNERS_RUNNERS_DRAW: qualifiers not 1st/2nd");
+                return 0;
+            }
+        for(i=0;i<groups;++i)order[i]=i;
+        for(i=groups;i>1u;--i){const uint32_t j=(uint32_t)(draw_next(&seed)%i);const uint32_t t=order[i-1u];order[i-1u]=order[j];order[j]=t;}
+        for(k=0;k<groups;++k) {
+            const ExpCeEntrant *ru=&pool[groups+order[k]];
+            uint32_t w;
+            int placed=0;
+            for(w=0;w<groups && !placed;++w) {
+                uint32_t rest_ok=1u,a,b2;
+                if((used>>w)&1u || pool[w].group==ru->group)continue;
+                /* lookahead: the remaining runners must still be placeable
+                 * (Hall: here simply every remaining runner keeps a free
+                 * winner of another group; groups <= 8) */
+                for(a=k+1u;a<groups && rest_ok;++a) {
+                    const ExpCeEntrant *r2=&pool[groups+order[a]];
+                    uint32_t found=0u;
+                    for(b2=0;b2<groups;++b2)
+                        if(b2!=w && !((used>>b2)&1u) && pool[b2].group!=r2->group)found=1u;
+                    rest_ok=found;
+                }
+                if(k+2u==groups) {   /* last two: exact check */
+                    const ExpCeEntrant *r2=&pool[groups+order[k+1u]];
+                    uint32_t b3;
+                    for(b3=0;b3<groups;++b3)
+                        if(b3!=w && !((used>>b3)&1u))rest_ok=pool[b3].group!=r2->group;
+                }
+                if(!rest_ok)continue;
+                used|=1u<<w;
+                pairs[w].hi=pool[w];pairs[w].lo=*ru;placed=1;
+            }
+            if(!placed) {
+                snprintf(why,whylen,"WINNERS_RUNNERS_DRAW: no feasible draw");
+                return 0;
+            }
+        }
+        *np=groups;
+        return 1;
+    }
     case EXP_CE_PAIR_CROSS_GROUPS: {
         /* pool is rank-major: winners W[0..G), runners-up R[0..G) */
         const uint32_t groups=m/2u;
@@ -1001,6 +1250,30 @@ static int form_groups(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
             }
             groups[g-1u][size[g-1u]++]=ent[i].club;
         }
+    } else if(ph->pairing==EXP_CE_PAIR_BANDED_POTS) {
+        /* v00.13.355: bands of band_size entrants by seed (access list), band b
+         * -> groups b*band_groups.. ; pots of band_groups*per_group, each drawn
+         * per_group to every group of the band (CE deterministic draw) */
+        const uint32_t bs=ph->band_size,bg=ph->band_groups,pg=ph->band_per_group?ph->band_per_group:1u;
+        uint64_t seed=draw_seed(e,phase);
+        uint32_t b,pot;
+        if(!bs || !bg || bs!=bg*pg*(bs/(bg*pg)) || n%bs || (n/bs)*bg!=ph->groups) {
+            snprintf(why,whylen,"phase %u: %lu entrants do not fit bands %u/%u/%u",
+                     (unsigned)phase,(unsigned long)n,(unsigned)bs,(unsigned)bg,(unsigned)pg);
+            return 0;
+        }
+        for(i=1u;i<n;++i) {      /* by seed (access-list rank) */
+            const ExpCeEntrant x=ent[i];
+            uint32_t j=i;
+            while(j && ent[j-1u].seed>x.seed){ent[j]=ent[j-1u];--j;}
+            ent[j]=x;
+        }
+        for(b=0;b<n/bs;++b)
+            for(pot=0;pot<bs/(bg*pg);++pot) {
+                ExpCeEntrant *pe=ent+b*bs+pot*bg*pg;
+                draw_shuffle(pe,bg*pg,&seed);
+                for(i=0;i<bg*pg;++i)groups[b*bg+i/pg][size[b*bg+i/pg]++]=pe[i].club;
+            }
     } else if(ph->pairing==EXP_CE_PAIR_POTS) {
         uint64_t seed=draw_seed(e,phase);
         if(n%ph->groups) {
@@ -1023,7 +1296,17 @@ static int form_groups(const ExpCeDef *d,const ExpCeEdition *e,uint32_t phase,
                      (unsigned)g+1u);
             return 0;
         }
-        qsort(groups[g],size[g],sizeof groups[g][0],key_cmp);
+        if(ph->pairing!=EXP_CE_PAIR_BANDED_POTS)   /* BANDED_POTS: slot order = pot order */
+            qsort(groups[g],size[g],sizeof groups[g][0],key_cmp);
+        if(ph->ntpl_rounds) {
+            uint32_t r2,m2;
+            for(r2=0;r2<ph->ntpl_rounds;++r2)for(m2=0;m2<ph->ntpl_matches;++m2)
+                if(ph->tpl[r2][m2][0]>=size[g] || ph->tpl[r2][m2][1]>=size[g]) {
+                    snprintf(why,whylen,"phase %u group %u: round template needs more clubs",
+                             (unsigned)phase,(unsigned)g+1u);
+                    return 0;
+                }
+        }
     }
     return 1;
 }
@@ -1083,8 +1366,15 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
     int32_t earliest=today+1;
     int ok=0;
     *block=EXP_CE_BLOCK_DATA_MISSING;
+    if(phase==0u && d->next_missing[0] && e->year!=d->first_year) {
+        snprintf(why,whylen,"%.95s",d->next_missing);
+        return 0;
+    }
     if(phase>0u) {
-        const int32_t prev=stage_last_day(r,e->key,phase-1u);
+        /* v00.13.355: a parallel phase starts after the phase BEFORE its block */
+        uint32_t pp=phase-1u;
+        if(ph->parallel){while(pp>0u && d->phases[pp].parallel)--pp; if(pp>0u)--pp;}
+        const int32_t prev=stage_last_day(r,e->key,pp);
         if(prev!=INT32_MIN && prev+1+(int32_t)ph->window.rest>earliest)
             earliest=prev+1+(int32_t)ph->window.rest;
     }
@@ -1123,7 +1413,8 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             for(gi=0;gi<ph->groups;++gi)
                 ExpCal_DrawOrder(groups[gi],size[gi],draw_seed(e,phase)^UINT64_C(0xC0FFEE)^gi);
         for(gi=0;gi<ph->groups;++gi) {
-            const uint32_t rr=((size[gi]&1u)?size[gi]:size[gi]-1u)*ph->meetings+ph->extras.rounds;
+            const uint32_t rr=ph->ntpl_rounds?ph->ntpl_rounds:
+                ((size[gi]&1u)?size[gi]:size[gi]-1u)*ph->meetings+ph->extras.rounds;
             if(rr>rounds)rounds=rr;
         }
         if(!rounds || rounds>2048u ||
@@ -1140,6 +1431,18 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
             c.rounds_per_cycle=(size[gi]&1u)?size[gi]:size[gi]-1u;
             c.group=gi+1u;c.phase=phase;c.days=days;
             c.cycles=ph->meetings;
+            if(ph->has_gdays && ph->ndays && e->year==d->first_year && gi<EXP_CE_MAX_GROUPS)
+                c.group_off=ph->gday_off[gi];
+            if(ph->ntpl_rounds) {   /* v00.13.355 fixed schedule of group slots */
+                uint32_t r2,m2;
+                c.rounds_per_cycle=ph->ntpl_rounds;c.cycles=1u;
+                for(r2=0;r2<ph->ntpl_rounds;++r2)for(m2=0;m2<ph->ntpl_matches;++m2)
+                    if(!rr_emit(&c,0u,r2,r2*ph->ntpl_matches+m2,ph->tpl[r2][m2][0],ph->tpl[r2][m2][1])) {
+                        snprintf(why,whylen,"phase %u: round template failed",(unsigned)phase);
+                        *block=EXP_CE_BLOCK_CAPACITY;goto done;
+                    }
+                continue;
+            }
             uint32_t keys[EXP_PAIR_MAX_CLUBS],j;
             uint8_t rmap[EXP_CAL_RR_MAX];
             if(ph->cal.return_order==1u && ph->meetings>=2u) {
@@ -1650,12 +1953,73 @@ static void fo_push(ExpCeEdition *e,uint32_t *k,uint32_t club)
     for(i=0u;i<*k;++i)if(e->final_order[i]==club)return; /* already placed (bracket graphs) */
     e->final_order[(*k)++]=club;
 }
+/* v00.13.355 final ranking by data buckets. Selector kinds: 1 winner of
+ * (phase a, tie b), 2 loser of (a,b), 3 winners of phase a, 4 losers of
+ * phase a, 5 interim ranks a..b. Phases are 0-based here. */
+static int ko_side(const ExpandedUniversalRegistry *r,const ExpCeDef *d,const ExpCeEdition *e,
+                   uint32_t phase,uint32_t tie,int winner,ExpandedClubKey *out)
+{
+    ExpandedClubKey w,l;
+    if(phase>=d->nphases || ExpCeTie_Resolve(r,e->key,EXP_CE_STAGE(phase,EXP_CE_KO_GROUP),tie,
+           &d->phases[phase].match,&w,&l)!=EXP_CE_TIE_DECIDED)return 0;
+    *out=winner?w:l;
+    return 1;
+}
+static int bucket_order(const ExpandedUniversalRegistry *r,const ExpCeDef *d,ExpCeEdition *e,
+                        const ExpCeHost *host)
+{
+    ExpandedClubKey ir[EXP_CE_MAX_ENTRANTS];
+    uint32_t ni=0u,b,k=0u;
+    if(!interim_ranking(r,d,e,host,ir,&ni))return 0;
+    for(b=0;b<d->nbuckets;++b) {
+        ExpandedClubKey set[EXP_CE_MAX_ENTRANTS];
+        uint32_t ns=0u,s2,i,j;
+        for(s2=0;s2<d->buckets[b].nsel;++s2) {
+            const uint8_t kind=d->buckets[b].sel[s2].kind,a=d->buckets[b].sel[s2].a,bb=d->buckets[b].sel[s2].b;
+            if(kind==1u||kind==2u) {
+                if(ns>=EXP_CE_MAX_ENTRANTS || !ko_side(r,d,e,a,bb,kind==1u,&set[ns]))return 0;
+                ++ns;
+            } else if(kind==3u||kind==4u) {
+                const uint32_t ties=ko_ties(r,e->key,a);
+                uint32_t t;
+                if(!ties)return 0;
+                for(t=1;t<=ties;++t){if(ns>=EXP_CE_MAX_ENTRANTS || !ko_side(r,d,e,a,t,kind==3u,&set[ns]))return 0;++ns;}
+            } else if(kind==5u) {
+                uint32_t q;
+                if(!a || bb<a || bb>ni)return 0;
+                for(q=a;q<=bb;++q){if(ns>=EXP_CE_MAX_ENTRANTS)return 0;set[ns++]=ir[q-1u];}
+            } else return 0;
+        }
+        if(d->buckets[b].by_interim) {   /* stable order by interim rank */
+            for(i=1;i<ns;++i){
+                ExpandedClubKey x=set[i];uint32_t rx=0,ry;
+                for(rx=0;rx<ni && !ExpandedClubKey_Equal(ir[rx],x);++rx){}
+                j=i;
+                while(j>0){
+                    for(ry=0;ry<ni && !ExpandedClubKey_Equal(ir[ry],set[j-1u]);++ry){}
+                    if(ry<=rx)break;
+                    set[j]=set[j-1u];--j;
+                }
+                set[j]=x;
+            }
+        }
+        for(i=0;i<ns;++i) {
+            for(j=0;j<k;++j)if(e->final_order[j]==set[i].stable_club)return 0;   /* placed twice */
+            if(k>=EXP_CE_MAX_ENTRANTS)return 0;
+            e->final_order[k++]=set[i].stable_club;
+        }
+    }
+    if(k!=e->nentrants)return 0;   /* every entrant exactly once */
+    e->nfinal=k;
+    return 1;
+}
 static int final_order(const ExpandedUniversalRegistry *r,const ExpCeDef *d,
                        ExpCeEdition *e,const ExpCeHost *host)
 {
     int32_t p;
     uint32_t k=0u;
     e->nfinal=0u;
+    if(d->nbuckets)return bucket_order(r,d,e,host);
     const int skipped=d->origin==EXP_CE_ORIGIN_LEAGUE && ExpCe_FinalsSkipped(r,d,e);
     for(p=skipped?0:(int32_t)d->nphases-1;p>=0;--p) {
         const ExpCePhaseDef *ph=&d->phases[p];
@@ -1823,6 +2187,12 @@ static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl
             src=source_for(sp->competition,e->key.start_day,&blocked,&pend);
             if(!src && pend)return 0;           /* the season this edition needs is still being played */
             if(!src && !blocked)src=latest_closed(sp->competition,&blocked);
+            if(!src && !blocked && sp->alt_competition) {   /* v00.13.355 predecessor definition */
+                pend=0;
+                src=source_for(sp->alt_competition,e->key.start_day,&blocked,&pend);
+                if(!src && pend)return 0;
+                if(!src && !blocked)src=latest_closed(sp->alt_competition,&blocked);
+            }
         }
         if(!src) {
             if(blocked) {
@@ -2418,7 +2788,15 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                 else res=resolve_sources(d,e,why,sizeof why);
                 if(res<0){ed_block(r,host,e,res==-2?EXP_CE_BLOCK_DEPENDENCY:
                                    EXP_CE_BLOCK_ENTRANTS,why);++moved;}
-                else if(res>0){e->state=EXP_CE_ED_PARTICIPANTS;
+                else if(res>0){
+                    /* v00.13.355: the edition kind follows its entrants as soon as
+                     * they are confirmed (a successor blocked before phase 0 must
+                     * persist in UL01 with entrants of the same kind) */
+                    uint32_t q;int same=e->nentrants>0u;
+                    for(q=1u;q<e->nentrants;++q)
+                        if(e->entrants[q].club.kind!=e->entrants[0].club.kind)same=0;
+                    if(same)e->participant_kind=e->entrants[0].club.kind;
+                    e->state=EXP_CE_ED_PARTICIPANTS;
                     ed_log("EDITION_PARTICIPANTS",e,NULL);++moved;}
                 break;
             }
@@ -2446,7 +2824,11 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                 break;
             case EXP_CE_ED_SCHEDULED:
             case EXP_CE_ED_ACTIVE: {
-                const int pc=phase_complete(r,d,e,e->phase);
+                int pc=phase_complete(r,d,e,e->phase);
+                {   /* v00.13.355: a parallel block is complete when all its phases are */
+                    uint32_t q=e->phase;
+                    while(pc==1 && q>0u && d->phases[q].parallel){--q;pc=phase_complete(r,d,e,q);}
+                }
                 if(e->state==EXP_CE_ED_SCHEDULED) {
                     /* any played fixture -> ACTIVE */
                     uint32_t k;
@@ -2488,6 +2870,14 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                     } else {
                         e=&s_ce.eds[idx];++e->phase;
                         ed_log("PHASE_ADVANCED",e,NULL);
+                        /* v00.13.355: phases flagged parallel start together */
+                        while((uint32_t)e->phase+1u<d->nphases && d->phases[e->phase+1u].parallel) {
+                            if(!generate_phase(r,host,d,e,(uint32_t)e->phase+1u,today,&block,why,sizeof why)) {
+                                e=&s_ce.eds[idx];ed_block(r,host,e,block,why);break;
+                            }
+                            e=&s_ce.eds[idx];++e->phase;
+                            ed_log("PHASE_ADVANCED",e,"parallel");
+                        }
                     }
                     ++moved;break;
                 }
@@ -2521,8 +2911,12 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                     } else {
                         int32_t start=0;
                         ExpCeEdition *n;
-                        if(edition_start_day(d,(uint16_t)(e->year+1u),&start) &&
-                           (n=ed_new(d,(uint16_t)(e->year+1u),start))!=NULL) {
+                        const uint16_t ny=(uint16_t)(e->year+(d->cycle_years>1u?d->cycle_years:1u));
+                        if(d->last_year && ny>d->last_year) {   /* v00.13.355 continues as another definition */
+                            s_ce.eds[idx].successor=1u;
+                            ed_log("LAST_EDITION",e,"no successor of this definition");
+                        } else if(edition_start_day(d,ny,&start) &&
+                           (n=ed_new(d,ny,start))!=NULL) {
                             s_ce.eds[idx].successor=1u;
                             ed_log("EDITION_CREATED",n,"successor");
                             ++moved;
@@ -2561,7 +2955,7 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
                 continue;
             for(j=0;j<s_ce.neds;++j) {
                 const ExpCeEdition *n=&s_ce.eds[j];
-                if(n->def_id==e->def_id && n->year==e->year+1u &&
+                if(n->def_id==e->def_id && n->year>e->year &&
                    n->state>=EXP_CE_ED_SCHEDULED && host && host->prune &&
                    host->prune(host->user,e->key)) {
                     e->phase_ready=2u; /* fixtures pruned */
@@ -2876,7 +3270,9 @@ static const struct {const char *n;uint8_t v;} k_pairings[]={
     {"LISTED",EXP_CE_PAIR_LISTED},{"SEEDED",EXP_CE_PAIR_SEEDED},
     {"CROSS_GROUPS",EXP_CE_PAIR_CROSS_GROUPS},{"BRACKET",EXP_CE_PAIR_BRACKET},
     {"DRAW",EXP_CE_PAIR_DRAW},{"POTS",EXP_CE_PAIR_POTS},
-    {"RESEED_TABLE",EXP_CE_PAIR_RESEED_TABLE},{"GROUP_TABLE",EXP_CE_PAIR_GROUP_TABLE},{"SOURCES",EXP_CE_PAIR_SOURCES}};
+    {"RESEED_TABLE",EXP_CE_PAIR_RESEED_TABLE},{"GROUP_TABLE",EXP_CE_PAIR_GROUP_TABLE},{"SOURCES",EXP_CE_PAIR_SOURCES},
+    {"WINNERS_RUNNERS_DRAW",EXP_CE_PAIR_WINNERS_RUNNERS_DRAW},{"POT_PAIRS",EXP_CE_PAIR_POT_PAIRS},
+    {"BANDED_POTS",EXP_CE_PAIR_BANDED_POTS}};
 static int parse_calendar_rules(const char *o,int ol,ExpCePhaseDef *ph,char *why,size_t wl)
 {
     if(ph->kind!=EXP_CE_PHASE_TABLE){snprintf(why,wl,"calendar: TABLE phase only");return 0;}
@@ -2904,6 +3300,74 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
     NUM("$.groups",groups,1,EXP_CE_MAX_GROUPS);
     NUM("$.meetings",meetings,1,4);
     NUM("$.qualify",qualify,0,64);
+    NUM("$.qualify_groups",qualify_groups,0,EXP_CE_MAX_GROUPS);
+    NUM("$.source_phase",source_phase_p1,0,EXP_CE_MAX_PHASES);   /* 1-based phase */
+    {   int pb=0;
+        if(mjson_get_bool(j,l,"$.parallel",&pb)>0)ph->parallel=(uint8_t)(pb!=0);
+    }
+    {   /* v00.13.355 bands and round template */
+        const char *bo=NULL,*ta=NULL;int bl=0,tl=0;
+        if(mjson_find(j,l,"$.bands",&bo,&bl)==MJSON_TOK_OBJECT) {
+            double x=0;
+            if(mjson_get_number(bo,bl,"$.size",&x)>0 && x>=2 && x<=64)ph->band_size=(uint8_t)x;
+            if(mjson_get_number(bo,bl,"$.groups",&x)>0 && x>=1 && x<=EXP_CE_MAX_GROUPS)ph->band_groups=(uint8_t)x;
+            if(mjson_get_number(bo,bl,"$.per_group",&x)>0 && x>=1 && x<=8)ph->band_per_group=(uint8_t)x;
+            if(!ph->band_size || !ph->band_groups) {
+                snprintf(ph->missing,sizeof ph->missing,"bands size/groups");return 0;
+            }
+        }
+        if(mjson_find(j,l,"$.round_template",&ta,&tl)==MJSON_TOK_ARRAY) {
+            int ro=0,rk,rkl,rv,rvl,rt;
+            while((ro=mjson_next(ta,tl,ro,&rk,&rkl,&rv,&rvl,&rt))>0) {
+                int mo=0,mk,mkl,mv,mvl,mt;uint8_t nm=0,used[64]={0};
+                if(rt!=MJSON_TOK_ARRAY || ph->ntpl_rounds>=16u){snprintf(ph->missing,sizeof ph->missing,"round_template rounds");return 0;}
+                while((mo=mjson_next(ta+rv,rvl,mo,&mk,&mkl,&mv,&mvl,&mt))>0) {
+                    double h=0,a=0;
+                    if(mt!=MJSON_TOK_ARRAY || nm>=8u ||
+                       mjson_get_number(ta+rv+mv,mvl,"$[0]",&h)<=0 || mjson_get_number(ta+rv+mv,mvl,"$[1]",&a)<=0 ||
+                       h<0 || a<0 || h>63 || a>63 || h==a || used[(int)h] || used[(int)a]) {
+                        snprintf(ph->missing,sizeof ph->missing,"round_template match");return 0;
+                    }
+                    used[(int)h]=used[(int)a]=1u;
+                    ph->tpl[ph->ntpl_rounds][nm][0]=(uint8_t)h;ph->tpl[ph->ntpl_rounds][nm][1]=(uint8_t)a;++nm;
+                }
+                if(!nm || (ph->ntpl_rounds && nm!=ph->ntpl_matches)){snprintf(ph->missing,sizeof ph->missing,"round_template size");return 0;}
+                ph->ntpl_matches=nm;++ph->ntpl_rounds;
+            }
+        }
+    }
+    {   /* v00.13.355 display names (viewer only) */
+        const char *ga=NULL;int gl=0;
+        (void)json_str(j,l,"$.name",ph->name,sizeof ph->name);
+        if(mjson_find(j,l,"$.group_labels",&ga,&gl)==MJSON_TOK_ARRAY) {
+            int go=0,gk,gkl,gv,gvl,gt;unsigned gi=0u;
+            while((go=mjson_next(ga,gl,go,&gk,&gkl,&gv,&gvl,&gt))>0 && gi<EXP_CE_MAX_GROUPS) {
+                if(gt==MJSON_TOK_STRING && gvl>=3 && gvl-2<(int)sizeof ph->group_label[0]) {
+                    memcpy(ph->group_label[gi],ga+gv+1,(size_t)gvl-2u);
+                    ph->group_label[gi][gvl-2]=0;
+                }
+                ++gi;
+            }
+        }
+    }
+    {   /* "interim_pots":{"hi":[11,12,13,14],"lo":[21,22,23,24]} */
+        const char *ip=NULL;int il=0;
+        if(mjson_find(j,l,"$.interim_pots",&ip,&il)==MJSON_TOK_OBJECT) {
+            uint32_t side;
+            for(side=0;side<2u;++side) {
+                const char *a=NULL;int al=0,off=0,ko,kl,vo,vl,vt;
+                if(mjson_find(ip,il,side?"$.lo":"$.hi",&a,&al)!=MJSON_TOK_ARRAY){snprintf(ph->missing,sizeof ph->missing,"interim_pots");return 0;}
+                while((off=mjson_next(a,al,off,&ko,&kl,&vo,&vl,&vt))>0) {
+                    char nb[8];double dv;
+                    if(vt!=MJSON_TOK_NUMBER || vl>=(int)sizeof nb || (side?ph->nlo:ph->nhi)>=8u){snprintf(ph->missing,sizeof ph->missing,"interim_pots rank");return 0;}
+                    memcpy(nb,a+vo,(size_t)vl);nb[vl]=0;dv=atof(nb);
+                    if(dv<1||dv>128){snprintf(ph->missing,sizeof ph->missing,"interim_pots rank");return 0;}
+                    if(side)ph->lo[ph->nlo++]=(uint8_t)dv;else ph->hi[ph->nhi++]=(uint8_t)dv;
+                }
+            }
+            if(ph->nhi!=ph->nlo || !ph->nhi){snprintf(ph->missing,sizeof ph->missing,"interim_pots sizes");return 0;}
+        }
+    }
     NUM("$.byes",byes,0,64);
     NUM("$.higher_home",higher_home,0,2);
 #undef NUM
@@ -3049,6 +3513,37 @@ static int parse_phase(const char *j,int l,const ExpCeTableRules *tbase,
             }
             ph->days[ph->ndays++]=idx;
         }
+    }
+    if(mjson_find(j,l,"$.first_edition_group_days",&o,&ol)==MJSON_TOK_ARRAY) {
+        /* one array of round dates per group (group order 1..groups) */
+        int goff=0,gk,gkl,gvo,gvl,gvt;
+        uint32_t g=0u;
+        if(ph->kind!=EXP_CE_PHASE_TABLE || !ph->ndays) {
+            snprintf(ph->missing,sizeof ph->missing,"first_edition_group_days needs first_edition_days");return 0;
+        }
+        while((goff=mjson_next(o,ol,goff,&gk,&gkl,&gvo,&gvl,&gvt))>0) {
+            int roff=0,rk,rkl,rvo,rvl,rvt;
+            uint32_t rr=0u;
+            if(gvt!=MJSON_TOK_ARRAY || g>=EXP_CE_MAX_GROUPS){snprintf(ph->missing,sizeof ph->missing,"first_edition_group_days");return 0;}
+            while((roff=mjson_next(o+gvo,gvl,roff,&rk,&rkl,&rvo,&rvl,&rvt))>0) {
+                unsigned y,m,dd;
+                char t2[16];
+                int32_t idx=0,delta;
+                if(rvt!=MJSON_TOK_STRING || rvl!=12 || rr>=ph->ndays){snprintf(ph->missing,sizeof ph->missing,"first_edition_group_days round");return 0;}
+                memcpy(t2,o+gvo+rvo+1,10u);t2[10]=0;
+                if(sscanf(t2,"%4u-%2u-%2u",&y,&m,&dd)!=3 ||
+                   !ExpandedWorld_DateToIndex((ExpandedWorldDate){(uint16_t)y,(uint8_t)m,(uint8_t)dd},&idx)){
+                    snprintf(ph->missing,sizeof ph->missing,"first_edition_group_days date");return 0;}
+                delta=idx-ph->days[rr];
+                if(delta<-7 || delta>7){snprintf(ph->missing,sizeof ph->missing,"first_edition_group_days offset");return 0;}
+                ph->gday_off[g][rr]=(int8_t)delta;
+                ++rr;
+            }
+            if(rr!=ph->ndays){snprintf(ph->missing,sizeof ph->missing,"first_edition_group_days rounds");return 0;}
+            ++g;
+        }
+        if(g!=ph->groups){snprintf(ph->missing,sizeof ph->missing,"first_edition_group_days groups");return 0;}
+        ph->has_gdays=1u;
     }
     return 1;
 }
@@ -3460,6 +3955,10 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
              * of its participants (competitions with no OG slot) */
             int vb=0;
             if(mjson_get_bool(c,vl,"$.viewer_button",&vb)>0)d->viewer_button=(uint8_t)(vb!=0);
+            {   double vr=0;
+                if(mjson_get_number(c,vl,"$.viewer_region",&vr)>0 && vr>=80 && vr<=85)
+                    d->viewer_region=(uint8_t)vr;
+            }
             if(mjson_find(c,vl,"$.viewer_native_comp_id",&o,&ol)!=MJSON_TOK_INVALID) {
                 double native_id=0;
                 if(mjson_get_number(c,vl,"$.viewer_native_comp_id",&native_id)>0 &&
@@ -3505,6 +4004,66 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
             }
         if(!d->nphases && !d->missing[0])
             snprintf(d->missing,sizeof d->missing,"phases");
+        {   /* v00.13.355 "interim":{"phase":0,"tiers":[4,4,4,2],"cross":[...],"exclude_last_unequal":true} */
+            const char *io=NULL;int iol=0;
+            if(mjson_find(c,vl,"$.interim",&io,&iol)==MJSON_TOK_OBJECT) {
+                static const char *xc[]={"","GROUP_POSITION","POINTS","GOAL_DIFF","GOALS_FOR","AWAY_GOALS_FOR",
+                                         "WINS","AWAY_WINS","DISCIPLINE","ACCESS_LIST"};
+                const char *a=NULL;int al=0,off=0,ko,kl,vo,vl2,vt;
+                double pv=0;int eb=0;
+                if(mjson_get_number(io,iol,"$.phase",&pv)>0)d->interim_phase=(uint8_t)pv;
+                if(mjson_get_bool(io,iol,"$.exclude_last_unequal",&eb)>0)d->interim_exclude_last=(uint8_t)(eb!=0);
+                if(mjson_find(io,iol,"$.tiers",&a,&al)==MJSON_TOK_ARRAY)
+                    while((off=mjson_next(a,al,off,&ko,&kl,&vo,&vl2,&vt))>0 && d->ninterim_tiers<8u) {
+                        char nb[8];if(vl2>=(int)sizeof nb)break;memcpy(nb,a+vo,(size_t)vl2);nb[vl2]=0;
+                        d->interim_tiers[d->ninterim_tiers++]=(uint8_t)atoi(nb);
+                    }
+                off=0;
+                if(mjson_find(io,iol,"$.cross",&a,&al)==MJSON_TOK_ARRAY)
+                    while((off=mjson_next(a,al,off,&ko,&kl,&vo,&vl2,&vt))>0 && d->ninterim_cross<12u) {
+                        char nb[24];unsigned q;int f=0;
+                        if(vt!=MJSON_TOK_STRING || vl2-2>=(int)sizeof nb)break;
+                        memcpy(nb,a+vo+1,(size_t)(vl2-2));nb[vl2-2]=0;
+                        for(q=1;q<sizeof xc/sizeof xc[0];++q)if(!strcmp(nb,xc[q])){d->interim_cross[d->ninterim_cross++]=(uint8_t)q;f=1;}
+                        if(!f && !d->missing[0])snprintf(d->missing,sizeof d->missing,"interim.cross %.40s",nb);
+                    }
+                if(!d->ninterim_tiers || !d->ninterim_cross)snprintf(d->missing,sizeof d->missing,"interim");
+            }
+        }
+        {   /* v00.13.355 "final_ranking":[{"order":"FIXED"|"INTERIM","select":[{"winner":[p,t]}|
+             * {"loser":[p,t]}|{"winners":p}|{"losers":p}|{"interim":[a,b]}]}] (phases 1-based) */
+            const char *fa=NULL;int fl=0,off=0,ko,kl,vo,vl2,vt;
+            if(mjson_find(c,vl,"$.final_ranking",&fa,&fl)==MJSON_TOK_ARRAY)
+                while((off=mjson_next(fa,fl,off,&ko,&kl,&vo,&vl2,&vt))>0) {
+                    const char *sa=NULL;int sl=0,so=0,sk,skl,sv,svl,st;
+                    char ord[16];
+                    if(vt!=MJSON_TOK_OBJECT || d->nbuckets>=16u){snprintf(d->missing,sizeof d->missing,"final_ranking");break;}
+                    d->buckets[d->nbuckets].by_interim=(uint8_t)(json_str(fa+vo,vl2,"$.order",ord,sizeof ord) && !strcmp(ord,"INTERIM"));
+                    if(mjson_find(fa+vo,vl2,"$.select",&sa,&sl)!=MJSON_TOK_ARRAY){snprintf(d->missing,sizeof d->missing,"final_ranking.select");break;}
+                    while((so=mjson_next(sa,sl,so,&sk,&skl,&sv,&svl,&st))>0) {
+                        double x=0,y=0;
+                        uint8_t kind=0;
+                        const char *o2=sa+sv;
+                        if(d->buckets[d->nbuckets].nsel>=4u)break;
+                        if(mjson_get_number(o2,svl,"$.winner[0]",&x)>0 && mjson_get_number(o2,svl,"$.winner[1]",&y)>0)kind=1;
+                        else if(mjson_get_number(o2,svl,"$.loser[0]",&x)>0 && mjson_get_number(o2,svl,"$.loser[1]",&y)>0)kind=2;
+                        else if(mjson_get_number(o2,svl,"$.winners",&x)>0)kind=3;
+                        else if(mjson_get_number(o2,svl,"$.losers",&x)>0)kind=4;
+                        else if(mjson_get_number(o2,svl,"$.interim[0]",&x)>0 && mjson_get_number(o2,svl,"$.interim[1]",&y)>0)kind=5;
+                        if(!kind){snprintf(d->missing,sizeof d->missing,"final_ranking selector");break;}
+                        if(kind!=5 && x>=1)x-=1;   /* phases are 1-based in JSON */
+                        d->buckets[d->nbuckets].sel[d->buckets[d->nbuckets].nsel].kind=kind;
+                        d->buckets[d->nbuckets].sel[d->buckets[d->nbuckets].nsel].a=(uint8_t)x;
+                        d->buckets[d->nbuckets].sel[d->buckets[d->nbuckets].nsel].b=(uint8_t)y;
+                        ++d->buckets[d->nbuckets].nsel;
+                    }
+                    ++d->nbuckets;
+                }
+        }
+        (void)json_str(c,vl,"$.next_missing",d->next_missing,sizeof d->next_missing);
+        {   double cyv=0;   /* v00.13.355 biennial competitions */
+            if(mjson_get_number(c,vl,"$.cycle_years",&cyv)>0 && cyv>=1 && cyv<=8)d->cycle_years=(uint8_t)cyv;
+        }
         if(mjson_find(c,vl,"$.expiry",&o,&ol)==MJSON_TOK_OBJECT) {
             if(json_str(o,ol,"$.date",t,sizeof t) &&
                parse_md(t,&d->expiry_m,&d->expiry_d)) {
@@ -3532,7 +4091,18 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                     if(d->nfirst>=EXP_CE_MAX_ENTRANTS)break;
                     x=&d->first[d->nfirst];
                     memset(x,0,sizeof *x);
-                    if(et!=MJSON_TOK_OBJECT ||
+                    if(et==MJSON_TOK_OBJECT &&
+                       json_str(ea+ev,evl,"$.nation",ck,sizeof ck)) {
+                        /* v00.13.355 national team: "file:ordinal" of the OG
+                         * region files 80..85 (NATIONAL key, never a club) */
+                        unsigned nf=0,no=0;
+                        if(sscanf(ck,"%u:%u",&nf,&no)!=2 || nf<80u || nf>85u || no>255u) {
+                            if(!d->missing[0])snprintf(d->missing,sizeof d->missing,
+                                "first_edition.entrants[%lu].nation",(unsigned long)d->nfirst);
+                            continue;
+                        }
+                        x->club=ExpandedNationalKey(world,(uint16_t)((nf<<8)|no));
+                    } else if(et!=MJSON_TOK_OBJECT ||
                        !json_str(ea+ev,evl,"$.club",ck,sizeof ck) ||
                        !parse_club(ck,world,&x->club)) {
                         if(!d->missing[0])snprintf(d->missing,sizeof d->missing,
@@ -3615,10 +4185,12 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
                     int b=0;
                     if(mjson_get_bool(sj,svl,"$.reallocate",&b)>0)sp->reallocate=(uint8_t)(b!=0);
                 }
+                if(mjson_get_number(sj,svl,"$.alt_competition",&v)>0)sp->alt_competition=(uint32_t)v;
                 if(sp->source==EXP_CE_SRC_LISTED ? (!sp->count || !sp->nclubs) : !sp->competition)continue;
                 ++d->nsources;
             }
         }
+        if(mjson_get_number(c,vl,"$.last_year",&v)>0 && v>=1990 && v<=2199)d->last_year=(uint16_t)v;
         if(ExpCe_AddDefinition(d))++added;
         free(d);
     }

@@ -16,6 +16,9 @@
 
 /* Main entry point — called from asm bridge with register params.
  * Returns team1Goals in *outTeam1Goals, team2Goals in *outTeam2Goals. */
+/* v00.13.355 cards assigned by the last CalculateViewResult (yellow 1,
+ * suspension 3); 0 when a team's status pass did not run (unknown). */
+int MatchSim_QuickDiscipline(uint16_t *home, uint16_t *away);
 void CalculateViewResult(DIYCompetition *ctx, uint16_t modeFlag,
                           uint16_t team1GoalsIn, uint16_t team2GoalsIn,
                           uint16_t statColumnIndex,

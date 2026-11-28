@@ -38,6 +38,7 @@ static int exp_batch_completion(void *user,const ExpandedUniversalRegistry *r,
     /* CPU QUICK batch: the FIFA ranking changes in RAM with the result and
      * reaches disk in the same atomic batch CAR (or rolls back with it). */
     if(ok)(void)ExpandedUniversal_FifaRecord(f,&proposal->played.score,NULL);
+    if(ok)(void)ExpandedUniversal_DisciplineRecord(f,&proposal->witness);
     return ok;
 }
 

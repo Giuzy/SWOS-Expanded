@@ -49,6 +49,20 @@ int main(void) {
         assert(ExpandedWorldLive_ClubFiles(NULL,256)==0u);
         assert(ExpandedWorldLive_ClubFiles(files,0)==0u);
     }
+#if EXPANDED_WORLD_OG_ONLY
+    {   /* v00.13.355: the living-world generator is disabled by design (the CE is
+         * the only fixture/result authority). Contract of this mode: no LWE
+         * order, schedule or result; the import/seal path above still works.
+         * The legacy LWE assertions below apply only with OG_ONLY 0. */
+        uint16_t ids[20];
+        uint8_t order[20];
+        for(unsigned i=0;i<20;i++) ids[i]=(uint16_t)(0x0800u+20u-i);
+        assert(!ExpandedWorldLive_NativeOrder(ids,20,order));
+        assert(ExpandedWorldLive_NativeOrderApplied()==0);
+        puts("WORLD_LIVE_OG_ONLY_CONTRACT=PASS (legacy LWE generator disabled, its assertions not applicable)");
+        return 0;
+    }
+#endif
     {
         uint16_t ids[20];
         uint8_t order[20];

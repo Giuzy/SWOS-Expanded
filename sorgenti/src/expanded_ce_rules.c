@@ -16,7 +16,8 @@ static int rule_fail(ExpCeRuleError *err,const char *field,const char *reason)
 static const char *const k_tb_names[EXP_CE_TB_COUNT]={
     "END","POINTS","GOAL_DIFF","GOALS_FOR","WINS","AWAY_GOALS_FOR",
     "H2H_POINTS","H2H_GOAL_DIFF","H2H_GOALS_FOR","H2H_AWAY_GOALS",
-    "NAME","LOT"
+    "NAME","LOT",
+    "H2H_REAPPLY","AWAY_WINS","DISCIPLINE","ACCESS_LIST"
 };
 const char *ExpCeRules_TieBreakName(uint8_t tb)
 {
@@ -96,7 +97,7 @@ int ExpCeRules_ValidateTable(const ExpCeTableRules *t,ExpCeRuleError *err)
     if(!t->draw_penalties && (t->draw_pen_win || t->draw_pen_loss))
         return rule_fail(err,"table.draw_penalties","points set without the flag");
     if(!t->ntb || t->ntb>EXP_CE_MAX_TIEBREAK)
-        return rule_fail(err,"table.tiebreak","1..10 criteria required");
+        return rule_fail(err,"table.tiebreak","1..16 criteria required");
     memset(seen,0,sizeof seen);
     for(i=0;i<t->ntb;++i) {
         const uint8_t tb=t->tiebreak[i];
@@ -104,15 +105,19 @@ int ExpCeRules_ValidateTable(const ExpCeTableRules *t,ExpCeRuleError *err)
             return rule_fail(err,"table.tiebreak","unknown criterion");
         if(seen[tb])return rule_fail(err,"table.tiebreak","duplicate criterion");
         seen[tb]=1u;
-        if((tb==EXP_CE_TB_NAME || tb==EXP_CE_TB_LOT) && i+1u!=t->ntb)
-            return rule_fail(err,"table.tiebreak","NAME/LOT must be last");
+        if((tb==EXP_CE_TB_NAME || tb==EXP_CE_TB_LOT || tb==EXP_CE_TB_ACCESS_LIST) && i+1u!=t->ntb)
+            return rule_fail(err,"table.tiebreak","NAME/LOT/ACCESS_LIST must be last");
+        if(tb==EXP_CE_TB_H2H_REAPPLY &&
+           (!i || t->tiebreak[i-1u]<EXP_CE_TB_H2H_POINTS || t->tiebreak[i-1u]>EXP_CE_TB_H2H_AWAY_GOALS))
+            return rule_fail(err,"table.tiebreak","H2H_REAPPLY must follow H2H criteria");
     }
     /* The last criterion must always separate two clubs, otherwise a final
      * table position (title, relegation, qualification) is undefined. */
     if(t->tiebreak[t->ntb-1u]!=EXP_CE_TB_NAME &&
-       t->tiebreak[t->ntb-1u]!=EXP_CE_TB_LOT)
+       t->tiebreak[t->ntb-1u]!=EXP_CE_TB_LOT &&
+       t->tiebreak[t->ntb-1u]!=EXP_CE_TB_ACCESS_LIST)
         return rule_fail(err,"table.tiebreak",
-                         "last criterion must be NAME or LOT (total order)");
+                         "last criterion must be NAME, LOT or ACCESS_LIST (total order)");
     return 1;
 }
 int ExpCeRules_ValidateMatch(const ExpCeMatchRules *m,ExpCeRuleError *err)
@@ -266,7 +271,8 @@ uint64_t ExpCeRules_Hash(const ExpCeTableRules *t,const ExpCeMatchRules *m)
         buf[n++]=t->win;buf[n++]=t->draw;buf[n++]=t->loss;buf[n++]=t->ntb;
         /* only when used: existing rule sets keep their historical hash */
         if(t->draw_penalties){buf[n++]=0xD7u;buf[n++]=t->draw_pen_win;buf[n++]=t->draw_pen_loss;}
-        for(i=0;i<EXP_CE_MAX_TIEBREAK;++i)buf[n++]=i<t->ntb?t->tiebreak[i]:0u;
+        for(i=0;i<10u;++i)buf[n++]=i<t->ntb?t->tiebreak[i]:0u;   /* historical hash */
+        if(t->ntb>10u){buf[n++]=0xEBu;for(i=10u;i<t->ntb;++i)buf[n++]=t->tiebreak[i];}
     }
     if(m) {
         buf[n++]=m->legs;buf[n++]=m->needs_winner;buf[n++]=m->extra_time;

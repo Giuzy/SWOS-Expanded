@@ -2438,3 +2438,15 @@ Scheda completa: REGRESSION_HISTORY_AND_DEPENDENCIES.md «RG-FIFA-NATION-RANKING
 
 ### 28/11/2026 — soste internazionali generate dal calendario (ciclo Mondiale/Europeo)
 Date ufficiali solo 2026/27; dal 01/07/2027 generate ogni anno con alternanza Mondiale (2030, 2034…) / Europeo+Copa+OFC+AFCON (2028, 2032…), Gold Cup anni dispari, Asian Cup 2031, 2035…. Leghe UEFA "FIFA,UEFA". `ExpIntl_PlanWithWindows` unica. Scheda RG-CE-INTL-WINDOWS-354.
+
+## 28/11/2026 — v00.13.355 UEFA Nations League (passo 1)
+Nuovi campi generali CE: entrant `nation`, fase `first_edition_group_days`, `qualify_groups`, pairing `WINNERS_RUNNERS_DRAW`, competizione `cycle_years`; nazionali nel catalogo universale (chiave NATIONAL). Definizione NL 13176834 generata da tools/fifa_ranking/build_nations_league.py. Scheda RG-CE-NATIONS-LEAGUE-2627 (fatto / deviazioni / mancante).
+
+### v00.13.355 — Nations League: classifica intermedia, spareggi, classifica finale, access list
+Campi generali CE: `interim` (tiers, cross, exclude_last_unequal; `ExpCe_InterimRanking`), pairing `POT_PAIRS` con `interim_pots`, fasi `parallel`, `final_ranking` a bucket, `next_missing` (successore con partecipanti risolti, fase 0 bloccata con motivo dichiarato). `participant_kind` impostato alla conferma partecipanti. NL: access list 2028 = classifica finale 2026/27; formato 2028/29 non definito → edizione 2028 bloccata. Scheda RG-CE-NATIONS-LEAGUE-2627.
+
+### v00.13.355 — cartellini OG QUICK
+`ApplyRandomPlayerStatusAfterSim` (match_sim.c): cardsInjuries bit 0-1 = squalifica (modalità torneo, valore 2), bit 2-4 = accumulo ammonizioni (lettura in game_init.c, numYellowCards), bit 5-7 = fascia infortunio (InitPlayerRemapTableForTeam). Salta squadre `teamControls==1` e il training. Testimone disciplina in sola lettura `MatchSim_QuickDiscipline` (RG-CE-NATIONS-LEAGUE-2627).
+
+### v00.13.355 — Nations League 2028/29+ (formato da dati)
+Nuovi campi CE: pairing gironi `BANDED_POTS` + `bands`, `round_template` (calendario fisso per slot), definizione `last_year`, sorgente `alt_competition`. NL 2028+ = definizione 13177090 (3×3 gironi da 6, modello 6 turni, QF interim 1-8, spareggi A/B 10-15 v 22-27 e B/C 28-33 v 40-45, 198 gare); regole OFFICIAL vs SWOS_PROVISIONAL marcate nel JSON. Scheda RG-CE-NATIONS-LEAGUE-2829.

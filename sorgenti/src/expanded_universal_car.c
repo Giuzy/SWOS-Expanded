@@ -15,6 +15,7 @@
 #include "expanded_edition_archive.h"
 #include "expanded_ce_engine.h"
 #include "expanded_fifa_ranking.h"
+#include "expanded_ce_discipline.h"
 #include <limits.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -35,6 +36,7 @@ typedef struct ExpandedCarWorld {
     /* FIFA ranking "FR01;" text (2627), consumed by the engine restore.
      * NULL = absent (pre-ranking CAR: rebuilt from persisted results). */
     char *fifa;
+    char *disc;   /* v00.13.355 "DS01;" discipline text, NULL = absent */
     uint8_t active;
 } ExpandedCarWorld;
 static ExpandedCarWorld s_worlds[WORLD_COUNT];
@@ -44,7 +46,7 @@ static void exp_car_clear(ExpandedCarWorld *w)
     if(!w)return;
     free(w->fixtures);free(w->ledger);free(w->events);
     ExpArchive_Free(&w->archive);
-    free(w->lifecycle);free(w->fifa);
+    free(w->lifecycle);free(w->fifa);free(w->disc);
     memset(w,0,sizeof *w);
 }
 static int exp_car_alloc(ExpandedCarWorld *w,uint16_t world,
@@ -81,6 +83,7 @@ void ExpandedUniversal_CarResetCurrent(void)
 {
     if(World_Current()<WORLD_COUNT)exp_car_clear(&s_worlds[World_Current()]);
     ExpFifa_Reset(); /* ranking state belongs to the career of this world */
+    ExpCeDisc_Reset();
     if(World_Current()==WORLD_2627)ExpandedUniversalLive_ResetCpuBatch();
 }
 int ExpandedUniversal_CarBegin(ExpandedWorldDate date,uint32_t capacity)
@@ -184,6 +187,7 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
                                  const ExpandedEditionArchive *archive,
                                  const char *lifecycle_hex,
                                  const char *fifa_text,
+                                 const char *disc_text,
                                  mjson_print_fn_t output,void *user)
 {
     ExpandedCarEventIndex *events=NULL;
@@ -258,6 +262,8 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
     }
     if(result>0 && fifa_text) /* FIFA ranking: same atomic CAR, absent = none */
         result=mjson_printf(output,user,",\n  %Q:%Q","fifa_ranking",fifa_text);
+    if(result>0 && disc_text)
+        result=mjson_printf(output,user,",\n  %Q:%Q","ce_discipline",disc_text);
     fprintf(stderr,"[universal-perf] CAR_EMIT_TIMING format=UE02 "
         "fixtures=%lu binary_bytes=%lu json_bytes=%lu validate_ms=%llu "
         "encode_ms=%llu status=%s\n",
@@ -280,11 +286,13 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
         char *hex=ExpCe_EditionCount()?ExpCe_EncodeHex((uint16_t)World_Current(),&ll):NULL;
         int ok;
         char *fifa=ExpFifa_Active()?ExpFifa_Encode():NULL;
-        if(ExpCe_EditionCount() && !hex){free(fifa);return 0;} /* never drop the lifecycle */
-        if(ExpFifa_Active() && !fifa){free(hex);return 0;} /* never drop the ranking */
+        char *disc=ExpCeDisc_Encode();
+        if(ExpCe_EditionCount() && !hex){free(fifa);free(disc);return 0;} /* never drop the lifecycle */
+        if(ExpFifa_Active() && !fifa){free(hex);free(disc);return 0;} /* never drop the ranking */
+        if(ExpCeDisc_Count() && !disc){free(hex);free(fifa);return 0;}
         ok=exp_car_emit_registry(r,(uint16_t)World_Current(),
-            &s_worlds[World_Current()].archive,hex,fifa,output,user);
-        free(hex);free(fifa);
+            &s_worlds[World_Current()].archive,hex,fifa,disc,output,user);
+        free(hex);free(fifa);free(disc);
         return ok;
     }
 }
@@ -301,6 +309,7 @@ struct ExpandedUniversalCarSnapshot {
     ExpandedEditionArchive archive;   /* owned copy */
     ExpCeSnapshot *lifecycle;         /* Fase 2: owned copy, NULL = none */
     char *fifa;                       /* FIFA ranking text, NULL = none */
+    char *disc;                       /* discipline text, NULL = none */
 };
 int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
 {
@@ -330,7 +339,13 @@ int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
         ExpArchive_Free(&s->archive);free(s);
         return 0;
     }
+    if(ExpCeDisc_Count() && !(s->disc=ExpCeDisc_Encode())) {
+        free(s->fixtures);free(s->ledger);free(s->events);
+        ExpArchive_Free(&s->archive);ExpCe_SnapshotRelease(s->lifecycle);free(s);
+        return 0;
+    }
     if(ExpFifa_Active() && !(s->fifa=ExpFifa_Encode())) {
+        free(s->disc);
         free(s->fixtures);free(s->ledger);free(s->events);
         ExpArchive_Free(&s->archive);ExpCe_SnapshotRelease(s->lifecycle);free(s);
         return 0;
@@ -361,7 +376,7 @@ int ExpandedUniversal_CarEmitSnapshot(ExpandedUniversalCarSnapshot *s,
         char *hex=s->lifecycle?ExpCe_SnapshotEncodeHex(s->lifecycle,s->world,&ll):NULL;
         int ok;
         if(s->lifecycle && !hex)return 0;
-        ok=exp_car_emit_registry(&s->reg,s->world,&s->archive,hex,s->fifa,output,user);
+        ok=exp_car_emit_registry(&s->reg,s->world,&s->archive,hex,s->fifa,s->disc,output,user);
         free(hex);
         return ok;
     }
@@ -375,7 +390,7 @@ void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
     if(!s)return;
     free(s->fixtures);free(s->ledger);free(s->events);
     ExpArchive_Free(&s->archive);ExpCe_SnapshotRelease(s->lifecycle);
-    free(s->fifa);free(s);
+    free(s->fifa);free(s->disc);free(s);
 }
 /* Parse a complete candidate in TEMPORARY heap memory. No current world
  * state changes on failed CRC, world, civil clock, event or ledger proof.
@@ -620,6 +635,23 @@ static int exp_car_parse_fifa(const char *json,int size,
     candidate->fifa=text;
     return 1;
 }
+/* v00.13.355 "DS01;" discipline section (validated in scratch) */
+static int exp_car_parse_disc(const char *json,int size,ExpandedCarWorld *candidate,int present)
+{
+    const char *tok=NULL;
+    int tlen=0;
+    const int kind=mjson_find(json,size,"$.ce_discipline",&tok,&tlen);
+    char *text;
+    if(kind==MJSON_TOK_INVALID || kind==MJSON_TOK_NULL)return 1;
+    if(!present || kind!=MJSON_TOK_STRING || tlen<6 || tlen>INT_MAX-1)return 0;
+    text=(char *)malloc((size_t)tlen+1u);
+    if(!text)return 0;
+    if(mjson_get_string(json,size,"$.ce_discipline",text,tlen+1)<=0 || !ExpCeDisc_Validate(text)) {
+        free(text);return 0;
+    }
+    candidate->disc=text;
+    return 1;
+}
 static int exp_car_parse(const char *json,int size,
                          ExpandedCarWorld *candidate,int *present,
                          uint16_t expected_world)
@@ -629,7 +661,8 @@ static int exp_car_parse(const char *json,int size,
     if(!exp_car_parse_registry(json,size,candidate,present,expected_world))
         return 0;
     if(!exp_car_parse_lifecycle(json,size,candidate,*present,expected_world) ||
-       !exp_car_parse_fifa(json,size,candidate,*present,expected_world))
+       !exp_car_parse_fifa(json,size,candidate,*present,expected_world) ||
+       !exp_car_parse_disc(json,size,candidate,*present))
         goto fail;
     kind=mjson_find(json,size,"$.universal_archive",&tok,&tlen);
     if(kind==MJSON_TOK_INVALID || kind==MJSON_TOK_NULL) {
@@ -971,8 +1004,10 @@ int ExpandedUniversal_CarSaveCompletion(void *user,
          * if the save is rejected (no point without its persisted result). */
         static ExpFifaUndo fifa_undo;
         const int fifa=ok?ExpandedUniversal_FifaRecord(f,&proposal->played.score,&fifa_undo):0;
+        const int disc=ok?ExpandedUniversal_DisciplineRecord(f,&proposal->witness):0;
         if(ok)ok=Expanded_AutoCareer_SaveChecked("universal-fixture-complete");
         if(!ok && fifa==1)ExpFifa_Undo(&fifa_undo);
+        if(!ok && disc==1)ExpCeDisc_Undo(f->event_id);
     }
     saved_ms=Platform_NowMs();
     *entry=saved;*event=old_event;
@@ -1028,6 +1063,21 @@ char *ExpandedUniversal_CarTakeLifecycle(void)
     t=s_worlds[World_Current()].lifecycle;
     s_worlds[World_Current()].lifecycle=NULL;
     return t;
+}
+char *ExpandedUniversal_CarTakeDiscipline(void)
+{
+    char *t;
+    if(World_Current()>=WORLD_COUNT)return NULL;
+    t=s_worlds[World_Current()].disc;
+    s_worlds[World_Current()].disc=NULL;
+    return t;
+}
+/* v00.13.355: discipline of a completed fixture (real 50 Hz match only) */
+int ExpandedUniversal_DisciplineRecord(const ExpandedUniversalFixture *f,
+                                       const ExpandedUniversalMatchWitness *w)
+{
+    if(!f || !w || !w->disc_known)return 0;
+    return ExpCeDisc_Record(f->event_id,w->disc_home,w->disc_away);
 }
 char *ExpandedUniversal_CarTakeFifa(void)
 {
